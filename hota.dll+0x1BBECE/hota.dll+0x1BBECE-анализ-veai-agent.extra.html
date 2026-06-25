@@ -1,0 +1,84 @@
+<section id="viz-konechnaya-tochka" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span><a class="anchor" href="#viz-konechnaya-tochka">¶</a></h2>
+  <p>Красный путь показывает, где HotA передаёт точку до проверки в <code>AtCoords</code>; зелёный блок ниже показывает недостающий слой проверки перед расчётом адреса клетки.</p>
+
+  <svg viewBox="0 0 1180 560" role="img" aria-label="Путь сбоя и недостающий слой проверки" style="width:100%;height:auto;border:1px solid var(--line);border-radius:22px;background:var(--panel2)">
+    <defs>
+      <marker id="v-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--bad)" /></marker>
+      <marker id="v-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--ok)" /></marker>
+      <style>
+        .vt{fill:var(--ink);font:700 23px system-ui,sans-serif}
+        .vl{fill:var(--muted);font:17px system-ui,sans-serif}
+        .vc{fill:var(--ink);font:15px ui-monospace,SFMono-Regular,Menlo,monospace}
+        .vnote{fill:var(--muted);font:16px system-ui,sans-serif}
+        .vnode{fill:var(--bg);stroke:var(--line);stroke-width:1.8}
+        .vnode-bad{fill:var(--bg);stroke:var(--bad);stroke-width:2.6}
+        .vnode-ok{fill:var(--bg);stroke:var(--ok);stroke-width:2.6;stroke-dasharray:10 7}
+        .vpill{fill:var(--panel2);stroke:var(--line);stroke-width:1.1}
+        .vmark{fill:var(--bg);stroke-width:2.2}
+        .vmark-t{fill:var(--ink);font:800 15px system-ui,sans-serif}
+      </style>
+    </defs>
+
+    <rect x="34" y="58" width="1112" height="236" rx="26" fill="var(--bad)" opacity="0.035" stroke="var(--bad)" stroke-width="1" />
+    <rect x="270" y="354" width="640" height="144" rx="24" fill="var(--ok)" opacity="0.045" stroke="var(--ok)" stroke-width="1" />
+
+    <!-- Основной путь сбоя -->
+    <g id="main-crash-path">
+      <rect class="vnode" x="70" y="116" width="210" height="128" rx="20" />
+      <circle class="vmark" cx="96" cy="142" r="15" stroke="var(--accent2)" />
+      <text class="vmark-t" x="96" y="147" text-anchor="middle">A</text>
+      <text class="vt" x="175" y="157" text-anchor="middle">SoD</text>
+      <text class="vl" x="175" y="190" text-anchor="middle">точка линии</text>
+      <rect class="vpill" x="92" y="211" width="166" height="28" rx="9" />
+      <text class="vc" x="175" y="230" text-anchor="middle">end_x / end_y</text>
+
+      <rect class="vnode-bad" x="355" y="116" width="210" height="128" rx="20" />
+      <circle class="vmark" cx="381" cy="142" r="15" stroke="var(--bad)" />
+      <text class="vmark-t" x="381" y="147" text-anchor="middle">B</text>
+      <text class="vt" x="460" y="157" text-anchor="middle">HotA</text>
+      <text class="vl" x="460" y="190" text-anchor="middle">читает кадр</text>
+      <rect class="vpill" x="377" y="211" width="166" height="28" rx="9" />
+      <text class="vc" x="460" y="230" text-anchor="middle">[frame+10/+14]</text>
+
+      <rect class="vnode" x="640" y="116" width="210" height="128" rx="20" />
+      <circle class="vmark" cx="666" cy="142" r="15" stroke="var(--muted)" />
+      <text class="vmark-t" x="666" y="147" text-anchor="middle">C</text>
+      <text class="vt" x="745" y="157" text-anchor="middle">AtCoords</text>
+      <text class="vl" x="745" y="190" text-anchor="middle">адрес клетки</text>
+      <rect class="vpill" x="662" y="211" width="166" height="28" rx="9" />
+      <text class="vc" x="745" y="230" text-anchor="middle">RMGCell*</text>
+
+      <rect class="vnode-bad" x="925" y="116" width="190" height="128" rx="20" />
+      <circle class="vmark" cx="951" cy="142" r="15" stroke="var(--bad)" />
+      <text class="vmark-t" x="951" y="147" text-anchor="middle">D</text>
+      <text class="vt" x="1020" y="157" text-anchor="middle">сбой</text>
+      <text class="vl" x="1020" y="190" text-anchor="middle">AV / запись</text>
+      <rect class="vpill" x="947" y="211" width="146" height="28" rx="9" />
+      <text class="vc" x="1020" y="230" text-anchor="middle">+0x22 / +0x28</text>
+
+      <path d="M286 180 H349" fill="none" stroke="var(--bad)" stroke-width="3.6" marker-end="url(#v-bad)" />
+      <path d="M571 180 H634" fill="none" stroke="var(--bad)" stroke-width="3.6" marker-end="url(#v-bad)" />
+      <path d="M856 180 H919" fill="none" stroke="var(--bad)" stroke-width="3.6" marker-end="url(#v-bad)" />
+      <circle cx="602" cy="152" r="16" fill="var(--bg)" stroke="var(--bad)" stroke-width="2" />
+      <text class="vmark-t" x="602" y="158" text-anchor="middle" fill="var(--bad)">!</text>
+    </g>
+
+    <!-- Недостающий слой проверки -->
+    <g id="missing-check-layer">
+      <rect class="vnode-ok" x="360" y="392" width="460" height="82" rx="20" />
+      <circle class="vmark" cx="392" cy="420" r="15" stroke="var(--ok)" />
+      <text class="vmark-t" x="392" y="425" text-anchor="middle">✓</text>
+      <text class="vt" x="590" y="425" text-anchor="middle" fill="var(--ok)">слой проверки перед AtCoords</text>
+      <text class="vnote" x="590" y="455" text-anchor="middle">контекст, cells, z, zone_id и принадлежность точки карте</text>
+
+      <path d="M460 250 C460 316, 490 360, 536 390" fill="none" stroke="var(--ok)" stroke-width="3.3" marker-end="url(#v-ok)" />
+      <path d="M644 390 C690 360, 725 316, 745 250" fill="none" stroke="var(--ok)" stroke-width="3.3" marker-end="url(#v-ok)" />
+    </g>
+  </svg>
+
+  <div class="grid2" style="margin-top:14px">
+    <div class="note warn"><b>Красный путь.</b> HotA берёт <code>[frame+10/+14/+1C]</code> и вызывает <code>AtCoords</code> на точке до проверки. Если адрес уходит за <code>cells[]</code>, чтение <code>cell+0x22</code> даёт AV или открывает путь к записи за пределами массива.</div>
+    <div class="note ok"><b>Зелёный блок.</b> Нужный слой проверки должен сработать между чтением кадра и вызовом <code>AtCoords</code>: невалидный вход не доходит до расчёта адреса клетки; обработчик нормализует координаты или возвращает <code>1</code>.</div>
+  </div>
+</section>

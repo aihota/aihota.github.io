@@ -1,0 +1,77 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">#</a></h2>
+
+  <p>Связь зоны хранит указатель на настройки зоны-соседа. Два пути
+     заполняют этот указатель по-разному, а один и тот же потребитель
+     ему доверяет.</p>
+
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box ok">
+        <span class="viz-badge ok">A</span>
+        <b>Текстовый разборщик шаблона</b>
+        <span class="lbl">sub_5384E0 · 0x538751..0x53875B</span>
+        <span>проверяет резолвер на NULL и <u>отбрасывает</u> связь —
+              NULL в массив не кладёт</span>
+      </div>
+      <div class="viz-box bad dashed">
+        <span class="viz-badge bad">B</span>
+        <b>Загрузчик связей зон HotA</b>
+        <span class="lbl">hota.dll · sub_101C6300 · 0x101C644F</span>
+        <span>для токена <code>Zone2=-1</code> <u>НЕ отбрасывает</u> связь,
+              а сохраняет её с <u>NULL</u>-указателем партнёра</span>
+      </div>
+    </div>
+
+    <div class="viz-strip" style="margin-top:10px">
+      <div class="viz-box accent">
+        <span class="viz-badge accent">1</span>
+        <b>Запись связи (28 байт)</b>
+        <span class="lbl">connections.data + off · поле 0</span>
+        <span>another_zone_settings = <code>edx</code></span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">2</span>
+        <b>Потребитель доверяет входу</b>
+        <span class="lbl">sub_53BE60 · 0x53BF92</span>
+        <span><code>mov ecx, [edx]</code> — читает id соседа
+              <u>без проверки</u> на NULL</span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">3</span>
+        <b>Сбой</b>
+        <span class="lbl">EXCEPTION_ACCESS_VIOLATION</span>
+        <span><code>edx = 0</code> → чтение по адресу <code>0x0</code></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge ok">A</span>
+      <span class="txt">Штатный путь загрузки: контракт «у связи всегда
+      валидный партнёр» соблюдён — NULL-связи отброшены, поэтому через
+      загрузку шаблона сбой недостижим.</span></div>
+    <div class="item"><span class="viz-badge bad">B</span>
+      <span class="txt">Найденный поставщик: загрузчик связей HotA
+      (<code>sub_101C6300</code>) для токена <code>Zone2=-1</code> строит
+      связь с NULL-партнёром (<code>0x101C644F</code>), тогда как
+      текстовый разборщик SoD её отбрасывает. Это ОБЩИЙ парсер;
+      зеркало включает флаг <code>Mirror==2</code> (<code>0x101C684B</code>
+      в загрузчике sub_101C6800): число зон делится пополам и
+      достраивается отражением, поэтому NULL-партнёр доходит до
+      потребителя у зеркальных mt_*/h3dm*. По комментариям в дампах
+      падают именно <u>самодельные</u> зеркальные шаблоны
+      (стоковый mt_Jebus не падает). Источник первопричины.</span></div>
+    <div class="item"><span class="viz-badge accent">1</span>
+      <span class="txt">Потребитель корректно отсчитывает число связей
+      <code>(end−base)/28</code> и берёт указатель партнёра из записи —
+      за границу массива не выходит.</span></div>
+    <div class="item"><span class="viz-badge bad">2&nbsp;3</span>
+      <span class="txt">По 57 дампам: <code>EDX=0</code>, чтение
+      <code>0x0</code>, <code>EAX</code> = число зон (1..0x11).
+      Второй симптом той же зоны — деление на ноль на
+      <code>0x53C059</code> (<code>ESI=0</code>, пустой список
+      координат).</span></div>
+  </div>
+</section>

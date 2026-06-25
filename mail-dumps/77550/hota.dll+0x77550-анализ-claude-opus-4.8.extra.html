@@ -1,0 +1,40 @@
+<section id="crash-visualization" data-toc="Визуализация вылета">
+  <h2>Визуализация вылета</h2>
+  <p>Схема показывает уже доказанную цепочку: при 16-битной внутренней отрисовке HotA-перехват получает источник <code>P32F</code>, ограничивает прямоугольник, а низкоуровневый цикл получает недоступный указатель исходного пикселя.</p>
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box ok">
+        <span class="viz-badge ok">0</span>
+        <strong>16-бит. отрисовка</strong>
+        <span><code>Graphics.Mode</code> = 0/2/3/6</span>
+      </div>
+      <div class="viz-box ok">
+        <span class="viz-badge ok">1</span>
+        <strong>Источник P32F</strong>
+        <span>тег объекта проходит проверку</span>
+      </div>
+      <div class="viz-box ok">
+        <span class="viz-badge ok">2</span>
+        <strong>Ограничение области</strong>
+        <span>ширина и высота проходят проверки</span>
+      </div>
+      <div class="viz-box accent">
+        <span class="viz-badge accent">3</span>
+        <strong>Копирование пикселей</strong>
+        <span><code>sub_10077480</code></span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">4</span>
+        <strong>Недоступный источник</strong>
+        <span><code>EBP</code> указывает на страницу сбоя</span>
+      </div>
+    </div>
+    <div class="viz-legend">
+      <div class="item"><span class="viz-badge ok">0</span><span class="txt">Условие активации: 16-битная внутренняя отрисовка (`Graphics.Mode` = 0, 2, 3 или 6; режимы 2/3/6 выводят на экран в 32 бита, но рисуют внутри в 16). Блиттер упаковывает пиксели в RGB565; у 32-битной внутренней отрисовки путь другой.</span></div>
+      <div class="item"><span class="viz-badge ok">1</span><span class="txt">Путь активируется, потому что HotA-обёртка видит тег <code>0x46323350</code> (<code>P32F</code>).</span></div>
+      <div class="item"><span class="viz-badge ok">2</span><span class="txt">Поставщик ограничивает прямоугольник, поэтому простой постоянный выход за границы по ширине или высоте не доказан.</span></div>
+      <div class="item"><span class="viz-badge accent">3</span><span class="txt">Копирование идёт через HotA-путь преобразования пикселей, а не через доказанный Bink-копировщик.</span></div>
+      <div class="item"><span class="viz-badge bad">4</span><span class="txt">На инструкции <code>mov eax, [ebp+0]</code> адрес <code>EBP</code> совпадает с адресом нарушения доступа во всех семи логах.</span></div>
+    </div>
+  </div>
+</section>

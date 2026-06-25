@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анализ вылета 532D1F</title>
+<style>
+
+:root{
+  --bg:#0f1117;--panel:#171a23;--panel2:#1d212c;--ink:#e6e9ef;--muted:#a6afbd;
+  --line:#2a2f3b;--accent:#94a3b8;--accent2:#7dd3fc;--hi:#fbbf24;--ok:#46d39a;--warn:#ffcc66;
+  --bad:#ff5c7a;--code:#11141b;--kw:#ff7b72;--reg:#7ee787;--num:#79c0ff;--cmt:#8b949e;
+  --pretext:#cdd6e4;--badText:#ff8da3;--verdictGrad:linear-gradient(180deg,#1c1418,#171a23);
+  --br:rgba(255,255,255,.04);
+  --redBg:rgba(255,92,122,.14);--redInk:#ff8da3;--redLn:rgba(255,92,122,.35);
+  --blBg:rgba(74,163,255,.14);--blInk:#8ec5ff;--blLn:rgba(74,163,255,.35);
+  --gyBg:rgba(154,163,178,.12);--gyInk:#c4ccd8;--gyLn:rgba(154,163,178,.3);
+  --okBg:rgba(70,211,154,.10);--okLn:rgba(70,211,154,.32);
+  --wnBg:rgba(255,204,102,.09);--wnLn:rgba(255,204,102,.32);
+  --orange:#fb923c;--orangeBg:rgba(251,146,60,.14);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  /* шрифты: встроенные (если есть) -> системные с широким кросс-платформенным фолбэком */
+  --font-sans:"ReportSans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","DejaVu Sans","Liberation Sans",Helvetica,Arial,sans-serif;
+  --font-mono:"ReportMono","SF Mono",ui-monospace,"JetBrains Mono","Cascadia Code",Menlo,Consolas,"DejaVu Sans Mono","Liberation Mono","Noto Sans Mono",monospace;
+  /* стек типографских знаков/символов — текстовая (не эмодзи) презентация на всех ОС */
+  --font-sym:"Segoe UI Symbol","Apple Symbols","Noto Sans Symbols 2","DejaVu Sans",sans-serif;
+  /* типографическая шкала в rem (уважает системный размер шрифта); единый ритм */
+  --fs-3xs:.65625rem;--fs-2xs:.6875rem;--fs-xs:.78125rem;--fs-sm:.8125rem;
+  --fs-md:.875rem;--fs-base:.9375rem;--fs-lg:1rem;--fs-xl:1.125rem;--fs-2xl:1.375rem;
+  --fs-hero:clamp(1.5rem,2vw + 1.125rem,2.125rem);
+  /* font-size-adjust: одинаковая видимая высота строчных при ЛЮБОМ фолбэке (ключ к «одинаково везде») */
+  --fsa-sans:.52;--fsa-mono:.5;
+  /* единый вертикальный ритм и трекинг капс-меток (вместо разнобоя) */
+  --lh-tight:1.12;--lh-code:1.5;--lh-base:1.62;
+  --ls-caps:.13em;--ls-caps-wide:.16em;
+  /* выделение текста — заметная заливка (а не 14% var(--blBg), который почти не виден) */
+  --sel:rgba(74,163,255,.32);
+  color-scheme:dark;
+}
+html.theme-light{
+  --bg:#f4f6fb;--panel:#ffffff;--panel2:#eef1f6;--ink:#1c2230;--muted:#5a6473;
+  --line:#d7dce5;--accent:#475569;--accent2:#0369a1;--hi:#b45309;--ok:#1a7f5a;--warn:#c2900a;
+  --bad:#cf2e4a;--code:#f6f8fa;--kw:#cf222e;--reg:#116329;--num:#0550ae;--cmt:#6e7781;
+  --pretext:#24292f;--badText:#cf2e4a;--verdictGrad:linear-gradient(180deg,#fff5f6,#fff);
+  --br:rgba(0,0,0,.03);
+  --redBg:rgba(207,46,74,.10);--redInk:#b21f3b;--redLn:rgba(207,46,74,.3);
+  --blBg:rgba(31,111,235,.1);--blInk:#1551b5;--blLn:rgba(31,111,235,.3);
+  --gyBg:rgba(90,100,115,.1);--gyInk:#3d4756;--gyLn:rgba(90,100,115,.28);
+  --okBg:rgba(26,127,90,.09);--okLn:rgba(26,127,90,.3);
+  --wnBg:rgba(154,107,0,.09);--wnLn:rgba(154,107,0,.3);
+  --orange:#ea580c;--orangeBg:rgba(234,88,12,.12);
+  --shadow:0 8px 30px rgba(40,60,100,.12);
+  --sel:rgba(31,111,235,.28);
+  color-scheme:light;
+}
+/* Светлая палитра живёт ТОЛЬКО в html.theme-light; авто-режим проставляет
+   явный класс через JS (ранний скрипт в <head>), поэтому @media-дубль палитры
+   больше не нужен. */
+*{box-sizing:border-box}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* text-size-adjust: запрещаем браузерам самовольно раздувать шрифт (iOS/Android, поворот) */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:var(--fs-base)/var(--lh-base) var(--font-sans);
+  font-size-adjust:var(--fsa-sans);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;font-optical-sizing:auto;
+  font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1;
+  /* нуль со слешем и в прозе (единообразие с кодом) */
+  font-variant-numeric:slashed-zero;
+  /* синтез НЕ отключаем: нужен для псевдо-жира (<b>) и капители (b.hi)
+     на фолбэк-шрифтах без нативных начертаний (DejaVu/Liberation) */
+  transition:background .25s,color .25s}
+/* единый цвет выделения на всех ОС/браузерах */
+::selection{background:var(--sel);color:var(--ink)}
+/* моно-стек: slashed-zero + табличные цифры для hex; ВСЕ лигатуры off (asm: ->, !=, >=).
+   font-feature-settings:normal сбрасывает наследуемые от body kern/liga (иначе liga
+   остаётся включён) и убирает конфликт с font-variant-ligatures;
+   font-size-adjust держит высоту строчных при подмене моно-шрифта на др. ОС */
+code,pre,.mono,.stat .big,td.mono,th.mono{font-family:var(--font-mono);
+  font-size-adjust:var(--fsa-mono);
+  font-feature-settings:normal;
+  font-variant-ligatures:none;
+  font-variant-numeric:slashed-zero tabular-nums}
+a{color:var(--accent2);text-decoration:none}
+/* инлайн-иконки вместо emoji-глифов (★✓☀☾) — идентичны на всех ОС */
+.tic{width:1em;height:1em;vertical-align:-.14em;fill:none;stroke:currentColor;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tic.fill{fill:currentColor;stroke:none}
+/* символьные знаки, оставленные текстом (¶) — текстовая презентация, не emoji */
+h2 .anchor{font-family:var(--font-sym);font-variant-emoji:text}
+.theme-fab{position:absolute;top:18px;right:22px;z-index:5}
+.btn{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:9px;
+  padding:7px 12px;font-size:var(--fs-xs);font-weight:600;cursor:pointer;display:inline-flex;
+  align-items:center;gap:7px;transition:border-color .2s,transform .08s,background .2s}
+.btn:hover{border-color:var(--accent2)}
+.btn:active{transform:scale(.96)}
+.btn:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+.btn:focus:not(:focus-visible){outline:none}
+.shell{max-width:1180px;margin:0 auto;padding:0 22px;display:grid;
+  grid-template-columns:230px minmax(0,1fr);gap:38px;position:relative}
+nav.toc{position:sticky;top:24px;align-self:start;height:calc(100vh - 48px);
+  overflow-y:auto;padding:22px 0 40px;font-size:var(--fs-sm)}
+nav.toc .lbl{text-transform:uppercase;letter-spacing:var(--ls-caps-wide);font-size:var(--fs-3xs);
+  color:var(--muted);font-weight:700;margin:0 0 10px 12px}
+nav.toc a{display:flex;gap:9px;align-items:baseline;color:var(--muted);padding:6px 12px;
+  border-left:2px solid transparent;border-radius:0 7px 7px 0;transition:.15s}
+nav.toc a .n{font-family:var(--font-mono);font-size:var(--fs-2xs);opacity:.7;min-width:15px}
+nav.toc a:hover{color:var(--ink);background:var(--br)}
+nav.toc a.active{color:var(--ink);border-left-color:var(--accent2);
+  background:linear-gradient(90deg,var(--blBg),transparent);font-weight:600}
+main{padding-bottom:90px;min-width:0}
+@media(max-width:900px){.shell{grid-template-columns:1fr}nav.toc{display:none}}
+.hero{padding:40px 0 14px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-2xs);letter-spacing:var(--ls-caps-wide);
+  text-transform:uppercase;color:var(--accent);font-weight:700}
+/* «пуля» eyebrow — нарисованная точка, а не глиф ● (нет расхождений по ОС) */
+.eyebrow::before{content:"";display:inline-block;width:.5em;height:.5em;
+  border-radius:50%;background:var(--accent2)}
+h1.addr{margin:13px 0 8px;font-size:var(--fs-hero);line-height:var(--lh-tight);letter-spacing:-.01em;
+  font-family:var(--font-mono);font-weight:700;overflow-wrap:anywhere}
+h1.addr .mod{color:var(--hi)}
+.subtitle{color:var(--muted);font-size:var(--fs-lg);margin:0 0 20px;max-width:60ch}
+.byline{color:var(--muted);font-size:var(--fs-sm);margin:6px 0 4px}
+.byline b{color:var(--ink);font-weight:600}
+
+/* вердикт-callout: цветная метка «ВЕРДИКТ» (цвет = уровень полезности),
+   без дублирующей галочки (она уже на карточке «Полезность») */
+.ribbon{position:relative;margin:18px 0 8px;padding:15px 20px 16px;border-radius:16px;
+  background:var(--redBg);border:1px solid var(--redLn);box-shadow:var(--shadow)}
+.ribbon.lvl-mid{background:var(--wnBg);border-color:var(--wnLn)}
+.ribbon.lvl-low{background:var(--orangeBg);border-color:var(--orange)}
+.ribbon.lvl-high{background:var(--okBg);border-color:var(--okLn)}
+.ribbon .vlabel{display:flex;align-items:center;gap:9px;font-size:var(--fs-2xs);font-weight:700;
+  letter-spacing:var(--ls-caps-wide);text-transform:uppercase;color:var(--orange);margin-bottom:7px}
+.ribbon.lvl-mid .vlabel{color:var(--warn)}
+.ribbon.lvl-high .vlabel{color:var(--ok)}
+.ribbon .vlabel::before{content:"";width:22px;height:2px;border-radius:2px;background:currentColor}
+.ribbon .vtxt{font-size:var(--fs-md);line-height:var(--lh-base)}
+.ribbon .vtxt b{color:var(--orange)}
+.ribbon.lvl-mid .vtxt b{color:var(--warn)}
+.ribbon.lvl-high .vtxt b{color:var(--ok)}
+.statstrip{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:12px;margin:18px 0 6px}
+/* карточки шапки: иконка в тонированном квадрате + цвет по смыслу
+   (c-ver синий, c-cls красный, c-cnt нейтр., c-use зелёный/жёлтый/красный) */
+.stat{display:flex;gap:12px;align-items:center;background:var(--panel);
+  border:1px solid var(--line);border-radius:13px;padding:13px 15px}
+.stat .ic-badge{flex:0 0 auto;width:40px;height:40px;border-radius:11px;display:grid;
+  place-items:center}
+.stat .ic{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
+.stat .st-body{min-width:0}
+.stat .big{font-size:var(--fs-2xl);font-weight:800;line-height:var(--lh-tight);
+  overflow-wrap:anywhere}
+.stat .cap{color:var(--muted);font-size:var(--fs-2xs);margin-top:2px}
+.stat.c-ver .ic-badge{background:var(--blBg);color:var(--blInk)}
+.stat.c-ver .big{color:var(--blInk);font-size:var(--fs-lg);letter-spacing:-.2px}
+.stat.c-cls .ic-badge{background:var(--redBg);color:var(--redInk)}
+.stat.c-cls .big{color:var(--redInk);font-size:var(--fs-base)}
+.stat.c-cnt .ic-badge{background:var(--gyBg);color:var(--gyInk)}
+.stat.c-use .ic-badge{background:var(--okBg);color:var(--ok)}
+.stat.c-use .big{color:var(--ok)}
+.stat.c-use.use-mid .ic-badge{background:var(--wnBg);color:var(--warn)}
+.stat.c-use.use-mid .big{color:var(--warn)}
+/* НИЗКАЯ — оранжевый (а не красный), чтобы не сливаться с «Классом сбоя» */
+.stat.c-use.use-bad .ic-badge{background:var(--orangeBg);color:var(--orange)}
+.stat.c-use.use-bad .big{color:var(--orange)}
+
+/* ----- СЕКЦИЯ-ПАНЕЛЬ: аналитические секции 1–11 — панели с шапкой-заголовком;
+   резюме/вывод остаются акцентными карточками-«закладками». */
+section{scroll-margin-top:24px;margin:30px 0}
+h2{margin:0 0 14px;display:flex;align-items:center;gap:11px;font-weight:700;
+  font-size:var(--fs-sm);letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--accent2);
+  border-bottom:1px solid var(--line);padding-bottom:10px}
+h2 .htext{flex:1}
+h2 .anchor{opacity:0;color:var(--muted);font-weight:400;font-size:var(--fs-md);transition:.15s}
+h2:hover .anchor{opacity:.7}
+/* вывод — «закладка» с чистым заголовком (не панель) */
+section#verdict h2{border-bottom:0}
+/* панели-секции: все секции, кроме вывода (резюме и визуализация — тоже панели) */
+#doc>section:not(#verdict){background:var(--panel);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;margin:18px 0;padding:0 20px 16px}
+#doc>section:not(#verdict)>h2{background:var(--panel2);margin:0 -20px 16px;
+  padding:12px 20px;border-bottom:1px solid var(--line)}
+/* внутренние карточки внутри панели — плоские (без двойной рамки) */
+#doc>section:not(#verdict) .card{background:transparent;border:0;border-radius:0;
+  padding:0;margin:10px 0}
+h3{font-size:var(--fs-base);margin:20px 0 8px}
+p{margin:10px 0}.lead{color:var(--muted)}
+/* БЕЗ переносов слов: justify растягивает строку пробелами, слова целые.
+   max-width ЗДЕСЬ НЕ ставим: он сужал абзацы уже секции, и justify
+   выравнивал по узкой мере строки, а не по ширине секции. */
+#doc>section p{hyphens:none;-webkit-hyphens:none}
+p{text-wrap:pretty}
+/* выравнивание по ширине для всего текста в секциях.
+   text-wrap:pretty/balance отключают justify-алгоритм (Gecko/WebKit),
+   поэтому для выравниваемых абзацев возвращаем обычный перенос.
+   Центр-подписи под svg заданы inline и перекрывают это правило. */
+#doc>section p,#doc>section li{text-align:justify;text-wrap:wrap}
+h1.addr,h2,h3{text-wrap:balance}
+ul{margin:10px 0;padding-left:20px}li{margin:6px 0}
+/* акцент капителью вместо «орущего» КАПСА (текст-контент не меняется) */
+b.hi{color:var(--hi);font-variant:small-caps;text-transform:lowercase;
+  letter-spacing:.02em;font-weight:600}
+
+p code,li code,.kv .v code,.chain .ttl code,.chain .desc code,.note code{
+  font-family:var(--font-mono);background:var(--code);
+  border:1px solid var(--line);border-radius:5px;padding:0 5px;font-size:.9em;
+  color:var(--ink);white-space:nowrap}
+.chain .ttl code{white-space:normal;word-break:break-all}
+.note code{background:color-mix(in srgb,var(--ink) 8%,transparent);
+  border-color:color-mix(in srgb,var(--ink) 14%,transparent)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.card.summary{border-left:4px solid var(--accent)}
+.card.verdict{border-left:4px solid var(--orange);background:var(--verdictGrad)}
+/* «Вывод» — фон ПО УРОВНЮ полезности, как лента «Заключение» вверху
+   (раньше был фиксированный розовый verdictGrad — конфликтовал с зелёной лентой) */
+.card.verdict.lvl-low{border-left-color:var(--orange);
+  background:linear-gradient(180deg,var(--orangeBg),var(--panel))}
+.card.verdict.lvl-mid{border-left-color:var(--warn);
+  background:linear-gradient(180deg,var(--wnBg),var(--panel))}
+.card.verdict.lvl-high{border-left-color:var(--ok);
+  background:linear-gradient(180deg,var(--okBg),var(--panel))}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}}
+/* раздел «Достоверность»: блоки «Подтверждено» и «Ограничения»
+   сильно разной длины — ставим их ОДИН ПОД ДРУГИМ (одна колонка),
+   чтобы не было пустоты рядом с коротким блоком.
+   margin у .note гасим: иначе он складывается с gap грида (14+15+14)
+   и даёт слишком большой отступ между блоками */
+#s9 .grid2{grid-template-columns:1fr}
+#s9 .grid2 .note{margin:0}
+.kv{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:var(--fs-sm)}
+.kv:last-child{border-bottom:0}
+.kv .k{color:var(--muted);min-width:118px}.kv .v{font-family:var(--font-mono)}
+.codewrap{position:relative;margin:14px 0}
+.codewrap .copy{position:absolute;top:8px;right:8px;opacity:0;transition:.15s;
+  background:var(--panel2);border:1px solid var(--line);border-radius:7px;color:var(--muted);
+  font-size:var(--fs-2xs);padding:4px 9px;cursor:pointer}
+.codewrap:hover .copy{opacity:1}
+.codewrap .copy:hover{color:var(--ink);border-color:var(--accent2)}
+pre{background:var(--code);border:1px solid var(--line);border-radius:12px;padding:15px 17px;
+  overflow-x:auto;font-size:var(--fs-xs);line-height:var(--lh-code);tab-size:4;margin:0;color:var(--pretext)}
+pre .a{color:var(--cmt)}pre .k{color:var(--kw)}pre .r{color:var(--reg)}
+pre .n{color:var(--num)}pre .c{color:var(--cmt);font-style:italic}
+pre .fault{background:var(--redBg);display:block;border-left:3px solid var(--bad);
+  padding-left:8px;margin-left:-10px}
+.formula{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:center;
+  background:var(--code);border:1px solid var(--line);border-radius:14px;padding:18px;
+  font-family:var(--font-mono);margin:14px 0}
+.formula .tok{font-size:var(--fs-lg)}
+.formula .op{color:var(--muted)}
+.formula .res{color:var(--bad);font-weight:700}
+.formula .eq{color:var(--ok);font-weight:700;font-size:var(--fs-xl)}
+/* сворачиваемый форензик-аппендикс: большие доказательные таблицы по клику */
+.appendix{margin:14px 0;border:1px solid var(--line);border-radius:12px;
+  background:var(--panel2);overflow:hidden}
+.appendix>summary{cursor:pointer;padding:10px 14px;font-size:var(--fs-sm);
+  font-weight:600;color:var(--muted);list-style:none;user-select:none;
+  display:flex;align-items:center;gap:8px;transition:color .15s}
+.appendix>summary::-webkit-details-marker{display:none}
+.appendix>summary::before{content:"";width:0;height:0;
+  border-left:5px solid currentColor;border-top:4px solid transparent;
+  border-bottom:4px solid transparent;transition:transform .15s}
+.appendix[open]>summary::before{transform:rotate(90deg)}
+.appendix>summary:hover{color:var(--accent2)}
+.appendix .tablewrap{border:0;border-top:1px solid var(--line);border-radius:0}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:var(--fs-xs);min-width:780px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+thead th{background:var(--panel2);color:var(--muted);font-weight:700;letter-spacing:.03em;
+  position:sticky;top:0;font-size:var(--fs-2xs);text-transform:uppercase}
+tbody tr:hover{background:var(--blBg)}
+td.mono,th.mono{font-family:var(--font-mono)}
+td .ok{color:var(--ok)}
+td.flag{color:var(--bad);font-weight:700;
+  background:linear-gradient(90deg,var(--redBg),transparent)}
+
+.note{border-radius:12px;padding:13px 17px;margin:14px 0;font-size:var(--fs-md)}
+.note.ok{background:var(--okBg);border:1px solid var(--okLn)}
+/* «Важно» — тёплый янтарный акцент (смещён от чистого жёлтого warn
+   к оранжевому: читается как «обрати внимание», а не как тревога) */
+.note.warn{background:color-mix(in srgb,var(--orange) 10%,transparent);
+  border:1px solid color-mix(in srgb,var(--orange) 36%,transparent)}
+.note.info{background:var(--blBg);border:1px solid var(--blLn)}
+.note .t{font-weight:700;margin-bottom:4px;display:block}
+.chain{margin:16px 0}
+.chain .step{display:flex;align-items:flex-start;gap:14px;padding:9px 0;position:relative}
+.chain .dot{flex:0 0 auto;width:13px;height:13px;border-radius:50%;margin-top:5px;
+  background:var(--panel);border:2px solid var(--accent2);z-index:1}
+.chain .step.fault .dot{border-color:var(--bad);background:var(--redBg)}
+.chain .step:not(:last-child)::before{content:"";position:absolute;left:6px;top:20px;
+  bottom:-9px;width:2px;background:var(--line)}
+.chain .ttl{font-family:var(--font-mono);font-size:var(--fs-sm)}
+.chain .step.fault .ttl{color:var(--badText);font-weight:700}
+.chain .desc{color:var(--muted);font-size:var(--fs-xs)}
+.chain .modtag{font-size:var(--fs-3xs);font-weight:700;padding:1px 7px;border-radius:5px;margin-right:7px;
+  vertical-align:1px}
+.m-exe{background:var(--gyBg);color:var(--gyInk)}
+.m-tc{background:var(--redBg);color:var(--redInk)}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:10px;font-size:var(--fs-sm);
+  font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:80}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ============================================================
+   VISUALIZATION TOOLKIT (.viz-*) для sidecar-врезок (правило о
+   визуализации вылета). ЦЕЛЬ: схемы строятся РАСКЛАДКОЙ CSS
+   (flex/grid), а НЕ ручными SVG-координатами — браузер сам
+   считает позиции, поэтому подписи НИКОГДА не налезают.
+   Все цвета — только из токенов темы (корректно dark/light/print).
+   SVG применять ТОЛЬКО для линий/стрелок (.viz-svg); подписи
+   к ним выносить в .viz-legend под схемой, в графике — короткие
+   .viz-badge. Подробности и шаблоны — в навыке html-report. */
+.viz{margin:16px 0}
+.viz-cap{font-size:var(--fs-xs);color:var(--muted);text-align:center;margin:8px 0 0}
+/* горизонтальная лента блоков (память/массив/диапазон) */
+.viz-strip{display:flex;align-items:stretch;gap:6px;flex-wrap:nowrap;
+  overflow-x:auto;padding:6px 0}
+/* блок-ячейка ленты: подпись внутри, центрируется, перенос строк сам */
+.viz-box{flex:1 1 0;min-width:96px;border:2px solid var(--line);border-radius:10px;
+  background:var(--panel2);padding:12px 10px;text-align:center;
+  font-size:var(--fs-xs);line-height:var(--lh-tight);color:var(--ink);
+  display:flex;flex-direction:column;justify-content:center;gap:4px}
+.viz-box .lbl{font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--muted)}
+.viz-box.ok{border-color:var(--okLn);background:var(--okBg)}
+.viz-box.bad{border-color:var(--redLn);background:var(--redBg)}
+.viz-box.accent{border-color:var(--blLn);background:var(--blBg)}
+.viz-box.dashed{border-style:dashed}
+.viz-box.dim{opacity:.55}
+/* круглый бейдж-маркер (A/B/F/S/0/1) — короткий, не текст */
+.viz-badge{display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:50%;font-weight:700;font-size:var(--fs-sm);
+  font-family:var(--font-mono);border:2px solid var(--accent2);color:var(--ink);
+  background:var(--panel);flex:0 0 auto;vertical-align:middle}
+.viz-badge.ok{border-color:var(--ok);color:var(--ok)}
+.viz-badge.bad{border-color:var(--bad);color:var(--badText)}
+.viz-badge.accent{border-color:var(--accent2);color:var(--accent2)}
+/* координатный холст: ТОЛЬКО для геометрии, рисуем линии/стрелки */
+.viz-svg{display:block;max-width:100%;height:auto;margin:6px auto;
+  font-family:inherit;font-size:var(--fs-xs)}
+.viz-svg .edge{stroke:var(--line);stroke-width:1}
+.viz-svg .flow{stroke:var(--bad);stroke-width:2;fill:none}
+.viz-svg .flow.ok{stroke:var(--ok)}
+.viz-svg .area{fill:var(--panel2);stroke:var(--line);stroke-width:1.5}
+/* легенда под схемой: бейдж + пояснение, в одну/две колонки, без наложений */
+.viz-legend{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin:12px 0 0}
+@media(max-width:680px){.viz-legend{grid-template-columns:1fr}}
+.viz-legend .item{display:flex;align-items:flex-start;gap:9px;
+  font-size:var(--fs-sm);color:var(--ink)}
+.viz-legend .item .txt{color:var(--muted)}
+@media print{.viz-strip{overflow-x:visible;flex-wrap:wrap}
+  .viz-box,.viz-badge,.viz-svg .area{break-inside:avoid}}
+
+@media print{
+  .theme-fab,nav.toc,.btn,.copy,.toast,h2 .anchor{display:none!important}
+  .shell{grid-template-columns:1fr;max-width:none}
+  /* screen-сглаживание на бумаге делает текст слишком тонким; сбрасываем */
+  body{background:#fff;color:#000;
+    -webkit-font-smoothing:auto;-moz-osx-font-smoothing:auto;font-size-adjust:none}
+  pre,.card,.note,table{break-inside:avoid}
+  section{break-inside:avoid-page}
+  /* на печати раскрываем все аппендиксы: details без [open] иначе скроет содержимое */
+  .appendix>summary{display:none}
+  details.appendix>*{display:revert!important}
+  .appendix .tablewrap{border-top:0}
+}
+</style>
+<script>
+(function(){try{var t=localStorage.getItem("hota-theme-v6");
+var m=(t==="light"||t==="dark")?t
+  :((window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches)?"light":"dark");
+document.documentElement.classList.add("theme-"+m);}catch(e){}})();
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="ic-package" viewBox="0 0 24 24"><path d="M16.5 9.4 7.5 4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+  <symbol id="ic-triangle" viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></symbol>
+  <symbol id="ic-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+  <symbol id="ic-sig3" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="currentColor" stroke="none"/><rect x="17" y="5" width="4" height="15" rx="1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="ic-sig2" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="currentColor" stroke="none"/><rect x="17" y="5" width="4" height="15" rx="1" fill="none" stroke="currentColor" opacity=".35"/></symbol>
+  <symbol id="ic-sig1" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="none" stroke="currentColor" opacity=".35"/><rect x="17" y="5" width="4" height="15" rx="1" fill="none" stroke="currentColor" opacity=".35"/></symbol>
+  <symbol id="ic-star" viewBox="0 0 24 24"><path d="M12 2.5l2.95 5.98 6.6.96-4.77 4.65 1.13 6.57L12 17.56l-5.9 3.1 1.12-6.57L2.45 9.44l6.6-.96z"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="ic-diamond" viewBox="0 0 24 24"><path d="M12 2 22 12 12 22 2 12Z"/></symbol>
+  <symbol id="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="ic-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+</defs></svg>
+<div class="shell">
+<button class="btn theme-fab" id="themeToggle" type="button" aria-label="Переключить тему оформления"><svg class="tic" aria-hidden="true"><use id="themeUse" href="#ic-sun"/></svg><span id="themeLabel">Светлая</span></button>
+  <nav class="toc" id="toc">
+    <p class="lbl">Содержание</p>
+    <a href="#viz-mechanism"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-diamond"/></svg></span>Визуализация вылета</a>
+    <a href="#summary"><span class="n"><svg class="tic fill" aria-hidden="true"><use href="#ic-star"/></svg></span>Резюме</a>
+    <a href="#s1"><span class="n">1</span>Исходные данные</a>
+    <a href="#s2"><span class="n">2</span>Корреляция дампов</a>
+    <a href="#s3"><span class="n">3</span>Сопоставление адресов</a>
+    <a href="#s4"><span class="n">4</span>Точка сбоя</a>
+    <a href="#s5"><span class="n">5</span>Регистровые инварианты</a>
+    <a href="#s6"><span class="n">6</span>Цепочка вызовов</a>
+    <a href="#s7"><span class="n">7</span>Первопричина</a>
+    <a href="#s8"><span class="n">8</span>Условия сбоя</a>
+    <a href="#s9"><span class="n">9</span>Достоверность</a>
+    <a href="#s10"><span class="n">10</span>Поиск в др. версиях</a>
+    <a href="#s11"><span class="n">11</span>Воспроизведение</a>
+    <a href="#verdict"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-check"/></svg></span>Вывод</a>
+  </nav>
+  <main id="doc">
+
+  <div class="hero">
+    <span class="eyebrow">Анализ вылета</span>
+    <h1 class="addr"><span class="mod">532D1F</span></h1>
+    <p class="subtitle">генератор карт, доступ к клетке реки</p>
+    <p class="byline">Claude Opus 4.8 · 08.06.2026</p>
+    <div class="ribbon lvl-high">
+      <div class="vlabel">Заключение</div>
+      <div class="vtxt">Виновник — код генератора карт движка SoD (<code>h3hota.exe</code>). Путь рисовки рек сам уводит координату за карту (исток x-2, шаг --y без ограничения координат), а функция доступа к клетке читает по отрицательному индексу width*y+x ниже массива клеток. Ограничение координат, которое есть у соседнего пути пометки истоков (<code>sub_549C90</code>), на пути рисовки пропущено.</div>
+    </div>
+    <div class="statstrip"><div class="stat c-ver"><div class="ic-badge"><svg class="ic"><use href="#ic-package"/></svg></div><div class="st-body"><div class="big">1.8.0</div><div class="cap">Версия HotA</div></div></div><div class="stat c-cls"><div class="ic-badge"><svg class="ic"><use href="#ic-triangle"/></svg></div><div class="st-body"><div class="big">выход за границы</div><div class="cap">Класс сбоя</div></div></div><div class="stat c-cnt"><div class="ic-badge"><svg class="ic"><use href="#ic-database"/></svg></div><div class="st-body"><div class="big">298</div><div class="cap">Количество логов</div></div></div><div class="stat c-use"><div class="ic-badge"><svg class="ic"><use href="#ic-sig3"/></svg></div><div class="st-body"><div class="big">ВЫСОКАЯ</div><div class="cap">Полезность лога</div></div></div></div>
+  </div>
+
+  <section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">#</a></h2>
+
+  <p>Два аспекта одного дефекта: <b>куда</b> указывает плохой индекс
+  клетки (он уходит НИЖЕ массива) и <b>откуда</b> он берётся (кисть реки
+  шагает по диагонали за левый верхний угол карты, в координату
+  <code>(-1, -1)</code>).</p>
+
+  <h3>1. Индекс клетки уходит ниже массива</h3>
+  <p>Функция доступа считает линейный номер клетки как
+  <code>index = width*y + x</code> и читает элемент по адресу
+  <code>base + index*48 + 0x24</code>. Координату <code>(x, y)</code>
+  никто не ограничивает диапазоном карты, поэтому <code>index</code>
+  становится ОТРИЦАТЕЛЬНЫМ и чтение попадает левее начала массива.</p>
+
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box bad dashed">F — адрес сбоя
+        <span class="lbl">индекс &lt; 0</span></div>
+      <div class="viz-box ok">B — база
+        <span class="lbl">индекс 0</span></div>
+      <div class="viz-box ok dim">массив клеток
+        <span class="lbl">0 .. W*H-1</span></div>
+    </div>
+    <p class="viz-cap">смещение индекс*48 отрицательное -> адрес ЛЕВЕЕ
+    базы, в чужой памяти</p>
+  </div>
+
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge ok">B</span>
+      <span class="txt"><code>base</code> (регистр <code>ECX</code>,
+      оканчивается на <code>...024</code>) — начало массива клеток,
+      клетка с индексом 0.</span></div>
+    <div class="item"><span class="viz-badge bad">F</span>
+      <span class="txt"><code>faulting = B + index*48 + 0x24</code> при
+      <code>index &lt; 0</code> (наблюдались -109, -145, -181, -217,
+      -253). Пример: <code>0x06AA5024 - 0x1B30 + 0x24 = 0x06AA3518</code>
+      (index = -145).</span></div>
+  </div>
+
+  <h3>2. Откуда отрицательный индекс: шаг за левый верхний угол</h3>
+  <p>В 211 из 298 вылетов (71%) индекс равен ровно
+  <code>-(width+1)</code>. При <code>index = x + width*y</code> это
+  значит <code>(x, y) = (-1, -1)</code>: кисть реки шагнула ПО ДИАГОНАЛИ
+  за угол карты. Это прямо следует из кода рисовки — старт реки
+  <code>source_x - 2</code> (в <code>CreateRivers</code>) и шаг
+  <code>--y</code> (в <code>CreateRiverWithDelta</code>), оба без
+  ограничения к 0.</p>
+
+  <div class="viz">
+    <svg class="viz-svg" style="max-width:420px" viewBox="0 0 224 132" role="img"
+         aria-label="Шаг по диагонали из истока S за угол карты в точку F">
+      
+      <rect class="area" x="88" y="40" width="84" height="84" rx="3"/>
+      
+      <line class="edge" x1="116" y1="40" x2="116" y2="124"/>
+      <line class="edge" x1="144" y1="40" x2="144" y2="124"/>
+      <line class="edge" x1="88"  y1="68" x2="172" y2="68"/>
+      <line class="edge" x1="88"  y1="96" x2="172" y2="96"/>
+      
+      <line class="flow" x1="96" y1="48" x2="74" y2="26"/>
+      
+      <polygon points="68,20 77,23 71,29" fill="var(--bad)"/>
+      
+      <circle cx="88" cy="40" r="4" fill="var(--accent2)"/>
+      
+      <circle cx="102" cy="54" r="8" fill="var(--ok)"/>
+      <text x="102" y="58" text-anchor="middle" font-weight="bold"
+            font-size="11" fill="var(--bg)">S</text>
+      
+      <circle cx="60" cy="12" r="8" fill="var(--bad)"/>
+      <text x="60" y="16" text-anchor="middle" font-weight="bold"
+            font-size="11" fill="var(--bg)">F</text>
+    </svg>
+    <p class="viz-cap">прямоугольник — карта; диагональная стрелка —
+    шаг кисти из истока за угол</p>
+  </div>
+
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge accent">0</span>
+      <span class="txt">угол карты <code>(0,0)</code> — верхняя левая
+      клетка.</span></div>
+    <div class="item"><span class="viz-badge ok">S</span>
+      <span class="txt">исток реки у края. Соседний путь (пометка
+      истоков <code>sub_549C90</code>) здесь ограничивает координату
+      и пропускает клетку.</span></div>
+    <div class="item"><span class="viz-badge bad">F</span>
+      <span class="txt">координата <code>(-1, -1)</code> за углом: путь
+      рисовки ограничения НЕ делает, индекс становится
+      <code>-(width+1)</code>.</span></div>
+  </div>
+
+  <h3>Ширина карты читается прямо из EAX</h3>
+  <p>Поскольку при шаге за угол <code>|index| = width+1</code>, размер
+  карты декодируется из регистра: <code>width = |EAX/48| - 1</code>.
+  Все вылеты — на крупных картах (L и выше), на малых их нет.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>индекс</th><th>ширина</th><th>размер карты</th><th>вылетов</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>109</td><td>108</td><td>L</td><td>15</td></tr>
+        <tr><td>145</td><td>144</td><td>XL</td><td>62</td></tr>
+        <tr><td>181</td><td>180</td><td>H</td><td>32</td></tr>
+        <tr><td>217</td><td>216</td><td>XH</td><td>26</td></tr>
+        <tr><td>253</td><td>252</td><td>G</td><td>76</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+  <section id="summary">
+    <h2><span class="htext">Краткое резюме</span><a class="anchor" href="#summary">¶</a></h2>
+    <div class="card summary"><p>Игра падает во время работы генератора карт, на этапе прокладки рек. Алгоритм трассировки идёт по цепочке "откуда пришли" и просит у карты клетку по координате (x, y). Функция доступа считает смещение клетки как (width*y + x)*48 и читает по нему поле. В вылете эта координата оказывается ЗА пределами карты, причём с отрицательным номером клетки, и обращение уходит на память ниже массива клеток.</p><p>Тип: <code>EXCEPTION_ACCESS_VIOLATION</code>, чтение по адресу. Где: <code>h3hota.exe</code>, <code>A0_RmgRoadMapParam_Cell_Get_River_sub_532D00</code>, <code>mov eax,[eax+ecx+24h]</code> по адресу <code>0x00532D1F</code>. Что: чтение клетки массива по вычисленному индексу width*y+x без ограничения координат (нет нижней и верхней границы). Корень: индекс отрицательный (<code>EAX</code> = index*48 &lt; 0); координату выше по стеку сам формирует путь рисовки реки (исток x-2, шаг --y без ограничения к [0..<code>size-1</code>]).</p><p>В точку сбоя ведут <b class="hi">ДВА</b> вызывающих пути, оба из одной подсистемы рек и оба от одной и той же координаты за картой (см. раздел 6): A) основная кисть рисовки <code>sub_4FA940</code> (94% вылетов) — прямой шаг по диагонали за угол; B) соседний размещатель <code>sub_4FA590</code> (5% вылетов) — шаг к соседней клетке для проверки местности; именно он даёт самые далёкие "дикие" индексы.</p><p>Почему это дефект кода, а не просто "нет проверки": рядом, в той же подсистеме рек, функция пометки истоков <code>sub_549C90</code> явно ограничивает координату (x&lt;0 / x&gt;=width / y&lt;0 / y&gt;=height -&gt; пропустить) <b class="hi">ПЕРЕД</b> доступом к клетке, а путь рисовки этой проверки не делает.</p></div>
+  </section>
+
+  <section id="s1">
+    <h2><span class="htext">Исходные данные</span><a class="anchor" href="#s1">¶</a></h2>
+    <p>Набор: 532D1F (адрес <code>0x00532D1F</code>), папка mail-dumps/532D1F, получено с почты.</p><p>Уникальных вылетов: 298 Класс сбоя: выход за границы (вычисленный индекс клетки &lt; 0) Версия HotA: 1.8.0 Версии HD-мода: смешанные (40 сборок, 5.6 R9 ... 5.7 RC12)</p><p>Code        : <code>EXCEPTION_ACCESS_VIOLATION</code> (297 вылетов) <code>EXCEPTION_GUARD_PAGE</code> (1 вылет, см. ниже) Information : чтение по адресу (разные адреса в каждом вылете) Модуль      : <code>h3hota HD.exe</code> / <code>h3hota.exe</code>, базовый адрес образа <code>0x400000</code> (адрес загрузки == базовому, адрес лога == адресу в листинге IDA)</p><p>Пример (вылет с адресом сбоя <code>0x06AA3518</code>): Context : <code>EAX=0xFFFFE4D0</code>, <code>ECX=0x06AA5024</code>, <code>EDX=0x001981CC</code>, <code>EBX=0x0019820C</code>, <code>ESI=0x0019822C</code>, <code>EDI=0x00198270</code>, <code>EBP=0x00198194</code>, <code>ESP=0x00198194</code> Map file: <code>[HotA]</code> Air Supremacy.h3m; Day 1; Me=AP=0</p><p>Версия HotA одинакова во всех 298 вылетах (1.8.0). Версия HD-мода <b class="hi">РАЗНАЯ</b> (40 сборок, 5.6 R9 ... 5.7 RC12, ни одна не доминирует) — это периферийный модуль, на сам сбой не влияет (см. раздел 9). Поле "Map file" НЕ <b class="hi">АНАЛИЗИРУЕТСЯ</b>. Это файл <b class="hi">КАРТЫ</b> (.h3m, готовый сценарий), А НЕ файл <b class="hi">ШАБЛОНА</b> (.h3t). Вылет происходит на генерации <b class="hi">СЛУЧАЙНОЙ</b> карты, которой управляют <b class="hi">ШАБЛОН</b> (.h3t) и зерно <b class="hi">ГСЧ</b>; а в поле "Map file" записан лишь файл карты, выбранный в списке по умолчанию, к генерации отношения не имеющий. Значимы только размер карты (читается из <code>EAX</code>, см. раздел 5) и зерно <b class="hi">ГСЧ</b> (Last RMG Seed).</p><p>Код исключения варьируется: в большинстве вылетов это <code>EXCEPTION_ACCESS_VIOLATION</code> (чтение по невыделенной памяти), но в одном вылете (лог 5.7 R10, адрес сбоя <code>0x18FCD6D8</code>) — <code>EXCEPTION_GUARD_PAGE</code>: отрицательный индекс попал на страницу-сторож, а не на полностью невыделенный регион. Механизм идентичен; класс сбоя один (см. раздел 4).</p>
+  </section>
+
+  <section id="s2">
+    <h2><span class="htext">Корреляция дампов (сравнительная таблица)</span><a class="anchor" href="#s2">¶</a></h2>
+    <p>298 уникальных вылетов одного адреса <code>0x00532D1F</code>, операция чтения.</p><p>Сводная картина (числовые поля по нескольким вылетам):</p><div class="tablewrap"><table><thead><tr><th class="mono">№</th><th class="mono">Адрес сбоя</th><th class="mono">EAX(=индекс*48)</th><th class="mono">индекс</th><th class="mono">ECX (база)</th><th class="mono">EBP-EDI</th></tr></thead><tbody><tr><td class="mono">1</td><td class="mono">0x1D07B0D8</td><td class="mono">0xFFFFD090</td><td class="mono">-253</td><td class="mono">0x1D07E024</td><td class="mono">-?</td></tr><tr><td class="mono">2</td><td class="mono">0x15EA1E58</td><td class="mono">0xFFFFDE10</td><td class="mono">-181</td><td class="mono">0x15EA4024</td><td class="mono">-?</td></tr><tr><td class="mono">64</td><td class="mono">0x06AA3518</td><td class="mono">0xFFFFE4D0</td><td class="mono">-145</td><td class="mono">0x06AA5024</td><td class="mono">-88</td></tr><tr><td class="mono">-</td><td class="mono">0x18FCD6D8</td><td class="mono">0xFFFFD690</td><td class="mono">-221</td><td class="mono">0x18FD0024</td><td class="mono">-88 (*)</td></tr><tr><td class="mono">-</td><td class="mono">0x........</td><td class="mono">0xFFFFD750</td><td class="mono">-217</td><td class="mono">0x.....024</td><td class="mono">-?</td></tr><tr><td class="mono">-</td><td class="mono">0x........</td><td class="mono">0xFFFFEB90</td><td class="mono">-109</td><td class="mono">0x.....024</td><td class="mono">-?</td></tr></tbody></table></div><p>(*) вылет 5.7 R10, код <code>EXCEPTION_GUARD_PAGE</code> (см. раздел 4).</p><p>Инварианты по всем вылетам:</p><ul><li>faulting = <code>ECX + EAX + 0x24</code> (адресная проверка сходится всегда);</li><li><code>EAX</code> отрицателен и <b class="hi">НАЦЕЛО</b> делится на 48 (<code>0x30</code>) -&gt; это index*шаг, index &lt; 0 (наблюдались -109, -145, -181, -217, -253 и др.);</li><li>база <code>ECX</code> валидна и <b class="hi">РАЗНАЯ</b> в каждом вылете (своя область памяти под массив клеток на каждой сессии), оканчивается на ...024;</li><li>различаются: размер генерируемой карты (по <code>EAX</code>: width 108/144/180/216/252, см. раздел 5), версия HD-мода, машина игрока.</li></ul><p>Группировка по непосредственному вызывающему коду (точка над функцией доступа) даёт <b class="hi">ДВЕ</b> точки в одной подсистеме рек: <code>0x4FAA7A</code> (кисть <code>sub_4FA940</code>)        280 вылетов (94%) <code>0x4FA626</code> (размещатель <code>sub_4FA590</code>)   16 вылетов (5%) <code>0x4FA7DC / 0x4FA88D</code> (<code>sub_4FA590</code>)     по 1 Оба пути ведут в одну функцию доступа <code>sub_532D00</code> и оба идут от одной координаты за картой (см. раздел 6).</p><p>Различие баз при одинаковой регулярной арифметике индекса -&gt; индекс вычисляется кодом (не зависит от машины), база — своя область памяти. Это вычисленный выход за границы, не случайный мусор и не порча кучи.</p>
+  </section>
+
+  <section id="s3">
+    <h2><span class="htext">Сопоставление адресов</span><a class="anchor" href="#s3">¶</a></h2>
+    <p>Листинг <code>h3hota.exe</code>: базовый адрес образа <code>0x400000</code>, адрес загрузки == базовому, значит адрес из лога равен адресу в листинге IDA. адрес лога <code>0x00532D1F</code> -&gt; IDA <code>0x00532D1F</code> Совпадает с заголовком лога (Module <code>h3hota HD.exe</code>). Подтверждено.</p><p>Шапка листинга (<code>h3hota.exe.txt</code>): Input SHA256 1766ADBF6ED99B58A923338E42A78C0C517934A3550BA499D55DC86036696657, Imagebase 400000, Section size 00239000 — <code>h3hota.exe</code> (движок SoD).</p>
+  </section>
+
+  <section id="s4">
+    <h2><span class="htext">Точка сбоя — разбор инструкций</span><a class="anchor" href="#s4">¶</a></h2>
+    <p>Функция <code>A0_RmgRoadMapParam_Cell_Get_River_sub_532D00</code> (доступ к клетке по координате (x,y), thiscall):</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:00532D03  </span><span class="k">mov</span>   <span class="r">ecx</span>, [<span class="r">ecx</span>+<span class="n">4</span>]        <span class="c">; подобъект карты</span>
+<span class="a">.text:00532D06  </span><span class="k">mov</span>   <span class="r">edx</span>, [<span class="r">ebp</span>+arg_0]    <span class="c">; -&gt; XY (x,y)</span>
+<span class="a">.text:00532D0A  </span><span class="k">mov</span>   <span class="r">eax</span>, [<span class="r">ecx</span>+<span class="n">0Ch</span>]      <span class="c">; width (x_size)</span>
+<span class="a">.text:00532D0D  </span><span class="k">mov</span>   <span class="r">esi</span>, [<span class="r">edx</span>]          <span class="c">; x</span>
+<span class="a">.text:00532D0F  </span><span class="k">imul</span>  <span class="r">eax</span>, [<span class="r">edx</span>+<span class="n">4</span>]        <span class="c">; width * y</span>
+<span class="a">.text:00532D13  </span><span class="k">mov</span>   <span class="r">ecx</span>, [<span class="r">ecx</span>+<span class="n">8</span>]        <span class="c">; база массива клеток</span>
+<span class="a">.text:00532D16  </span><span class="k">add</span>   <span class="r">eax</span>, <span class="r">esi</span>            <span class="c">; index = width*y + x</span>
+<span class="a">.text:00532D19  </span><span class="k">lea</span>   <span class="r">eax</span>, [<span class="r">eax</span>+<span class="r">eax</span>*<span class="n">2</span>]    <span class="c">; index*3</span>
+<span class="a">.text:00532D1C  </span><span class="k">shl</span>   <span class="r">eax</span>, <span class="n">4</span>              <span class="c">; index*48 (клетка 0x30)</span>
+<span class="fault"><span class="a">.text:00532D1F  </span><span class="k">mov</span>   <span class="r">eax</span>, [<span class="r">eax</span>+<span class="r">ecx</span>+<span class="n">24h</span>]  <span class="c">; читать клетку.поле+0x24  &lt;- СБОЙ</span></span>
+<span class="a">.text:00532D23  </span><span class="k">shl</span>   <span class="r">eax</span>, <span class="n">0Eh</span>
+<span class="a">.text:00532D26  </span><span class="k">sar</span>   <span class="r">eax</span>, <span class="n">1Ch</span>            <span class="c">; вырезать битовое поле (тип реки)</span></pre></div><p>Размер клетки — 48 байт (lea*3 + shl 4). Поле <code>+0x24</code> — упакованный dword с битами реки. Никакой проверки index на нижнюю (&gt;=0) или верхнюю (&lt; width*height) границу нет: координате доверяют.</p><p>Адресная проверка (вылет <code>0x06AA3518</code>): <code>EAX = 0xFFFFE4D0</code> = -6960 = -<code>145 * 48</code>   -&gt; index = -145 <code>ECX = 0x06AA5024</code> (база) base + index*<code>48 + 0x24 = 0x06AA5024 - 0x1B30 + 0x24 = 0x06AA3518</code> = faulting  <code>[OK]</code></p><p>Ещё два вылета: <code>0x1D07E024 - 0x2F70 + 0x24 = 0x1D07B0D8</code> (index = -253)  <code>[OK]</code> <code>0x15EA4024 - 0x21F0 + 0x24 = 0x15EA1E58</code> (index = -181)  <code>[OK]</code></p><p>Вылет на HD-моде 5.7 R10 (код <code>EXCEPTION_GUARD_PAGE</code>, адрес сбоя в поле "Information" = <code>0x18FCD6D8</code>): <code>EAX = 0xFFFFD690</code> = -10608 = -<code>221 * 48</code>   -&gt; index = -221 <code>ECX = 0x18FD0024</code> (база) <code>0x18FD0024 - 0x2970 + 0x24 = 0x18FCD6D8</code> = faulting  <code>[OK]</code> Тот же механизм и та же формула; различие лишь в коде исключения (отрицательный индекс попал на страницу-сторож, а не на полностью невыделенную память).</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre>Индекс ОТРИЦАТЕЛЬНЫЙ во всех проверенных вылетах -&gt; чтение уходит</pre></div><p><b class="hi">НИЖЕ</b> начала массива клеток.</p>
+  </section>
+
+  <section id="s5">
+    <h2><span class="htext">Регистровые инварианты</span><a class="anchor" href="#s5">¶</a></h2>
+    <p><code>EAX</code>   = index * 48, index &lt; 0 (нет нижнего ограничения координаты) <code>ECX</code>   = база массива клеток (валидна, своя в каждой сессии) faulting = <code>ECX + EAX + 0x24</code> (стабильно) <code>EAX</code> делится на 48 без остатка -&gt; это именно индекс клетки, а не мусор.</p><p>Расшифровка геометрии (ключевой инвариант). Индекс = x + width*y. В 211 из 298 вылетов (71%) index <b class="hi">РАВЕН</b> точно -(width+1), где width — размер карты (кратный 36). А -(width+1) при index=x+width*y означает ровно (x,y) = (-1,-1): кисть шагнула по диагонали за <b class="hi">ЛЕВЫЙ</b> <b class="hi">ВЕРХНИЙ</b> <b class="hi">УГОЛ</b> карты (согласуется с <code>source_x-2</code> и --y). Распределение |index| по размерам карты (угловые вылеты): |index|=109 -&gt; width 108 (L)    15 вылетов |index|=145 -&gt; width 144 (XL)   62 |index|=181 -&gt; width 180 (H)    32 |index|=217 -&gt; width 216 (XH)   26 |index|=253 -&gt; width 252 (G)    76 Следствие: ширина карты <b class="hi">ПРЯМО</b> читается из <code>EAX</code>: width = |<code>EAX/48</code>| - 1. Дефект бьёт только по крупным картам (L и выше), чаще всего G (252) и XL (144). На малых картах (S/M) в этом наборе вылетов нет.</p><p>Два диапазона |index| (по всем 298, не только угловым):</p><ul><li>"у края" (|index| &lt;= 514): 287 из 298 (96%) — координата чуть за границей карты; сюда входят и угловые (-1,-1), и соседние точки края (x=-2,y=0 левый край; x=-3,y=-1 и т. п.);</li><li>"аномально далеко" (|index| &gt; 514): 11 из 298 (4%) — индексы от -3456 до -241777. <b class="hi">ВСЕ</b> они приходят через путь B (вызывающий код <code>0x4FA626</code>, функция <code>sub_4FA590</code>), а не через основную кисть. Это согласуется с механизмом пути B (раздел 6): когда входная координата уже за картой, проверка краёв в <code>sub_5BCD10</code> её не ловит, и шаг к соседу уводит индекс ещё дальше.</li></ul><p><code>EDX/EBX/ESI/EDI/EBP/ESP</code> лежат в стеке (<code>0x0019xxxx</code>) и относятся к кадру трассировщика, не к адресуемым данным.</p>
+  </section>
+
+  <section id="s6">
+    <h2><span class="htext">Восстановленная цепочка вызовов</span><a class="anchor" href="#s6">¶</a></h2>
+    <p>Все кадры дефектного пути — в <code>h3hota.exe</code> (SoD). В точку сбоя ведут <b class="hi">ДВА</b> вызывающих пути из одной подсистемы рек, оба от координаты, которую путь рисовки уже увёл за карту.</p><div class="chain"><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>Путь A — основная кисть рисовки (280 вылетов, 94%): A0_ARandMapGen_CreateRivers_sub_549D60</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_ARandMapGen_CreateRiverFromSource_ToXYZ_sub_5489F0</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_ARandMapGen_CreateRiverWithDeltaFromSource_ToXYZ_sub_5492E0 (идёт по цепочке prev_xyz клеток: читает prev_xyz из cell+0x10, формирует end_xy и зовёт кисть)</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_RoadRiverBrush_CreateHorizontal_RoadRiver_sub_4FA940 (горизонтальный проход кисти между точками)</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_RoadRiverBrush_Set_RoadRiver_At_Coords_sub_4FAA50 (0x4FAA7A)</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl">косвенный вызов через таблицу методов</div></div></div><div class="step fault"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_RmgRoadMapParam_Cell_Get_River_sub_532D00   &lt;- СБОЙ (чтение)</div></div></div></div><div class="chain"><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>Путь B — соседний размещатель (16 вылетов, 5%; даёт дикие индексы): ... -&gt; A0_RoadRiverPlacer_SetRoadRiverAtXY_sub_4FA590 (0x4FA626)</div></div></div><div class="step fault"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_RmgRoadMapParam_Cell_Get_River_sub_532D00   &lt;- СБОЙ (чтение)</div></div></div></div><p>Функция <code>sub_4FA590</code> для каждого из 8 направлений шагает к соседней клетке (<code>A0_XY4_Step_To_Direction_sub_4FABD0</code>) и читает её, чтобы проверить тип местности. Перед этим она зовёт <code>A0_Setup_StepDirections_FromXY_Availability_sub_5BCD10</code> — настройку доступности направлений, которая <b class="hi">ОТКЛЮЧАЕТ</b> шаг только если клетка стоит <b class="hi">РОВНО</b> на границе (y==0, y==<code>map_y-1</code>, x==0, x==<code>map_x-1</code>). Если же входная клетка <b class="hi">УЖЕ</b> за картой (x=-1 и дальше, что приходит от реки без ограничения координат), ни одно из этих равенств не выполняется, все 8 направлений считаются доступными, и шаг к соседу уводит координату ещё дальше за карту. Поэтому через путь B приходят самые далёкие индексы (раздел 5). То есть проверка краёв здесь есть, но она предполагает, что вход <b class="hi">УЖЕ</b> на карте, и не спасает от координаты за картой.</p><p>Выше по стеку (V2) идут кадры <code>HW_HOTA.dll</code> / <code>HD_HOTA.dll</code> и переходники <code>patcher_x86</code> (<code>0x010Dxxxx</code> / <code>0x025Bxxxx</code>) — это инфраструктура запуска и диспетчеризации генератора из HD-мода; к виновному коду они отношения не имеют (переходников в листинге нет). Сам дефектный путь целиком в <code>h3hota.exe</code>.</p><p>По логу 5.7 R10 (есть листинг <code>HD_HOTA.dll</code>-5.7 R10) полный путь запуска генератора раскрыт и подтверждает подсистему:</p><div class="chain"><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-tc">HOTA</span>HD_HOTA.dll!sub_115B0D0 / sub_113D5D0 / sub_10794F0 / sub_107B890 HW_HOTA.dll!sub_1001A050 / sub_10013A50 / sub_10017F10 / sub_10016440 (диспетчеры запуска генерации из HD-мода)</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>h3hota.exe!A0_ARandMapGen_PrepareSettings_AndGenerateMap_sub_5863B0</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_ARandMapGen_RmgSettings_CreateRandomMap_ByFilename_sub_54C580</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_ARandMapGen_RmgSettings_CreateRandomMap_sub_54C450</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_ARandMapGen_Main_sub_549E20</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_ARandMapGen_CreateRivers_sub_549D60</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_ARandMapGen_CreateRiverWithDeltaFromSource_ToXYZ_sub_5492E0</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_RiverPlacer_CreateAndStartRiver_sub_55F080</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_RmgRoadRiverBrush_Create_AndStart_RoadRiver_sub_4FA910</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_RoadRiverBrush_Set_RoadRiver_At_Coords_sub_4FAA50</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_BaseRiverPlacer_GetRiver_sub_55F060 (таблица методов +0x14)</div></div></div><div class="step fault"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_RmgRoadMapParam_Cell_Get_River_sub_532D00   &lt;- СБОЙ</div></div></div></div><p>Кадры <code>HW_HOTA/HD_HOTA</code> здесь — именно диспетчеры запуска генерации (не виновники): они зовут штатный конвейер генератора SoD, и дефект возникает уже внутри него.</p>
+  </section>
+
+  <section id="s7">
+    <h2><span class="htext">Первопричина</span><a class="anchor" href="#s7">¶</a></h2>
+    <p>Функция доступа <code>sub_532D00</code> — простая вычислительная функция доступа к клетке: index = width*y + x, элемент = base + index*48, читает поле. Она НЕ проверяет границы и по контракту доверяет поданной координате — как и соседние функции доступа того же подобъекта карты (рядом в листинге <code>sub_532C90</code> <code>Get_RiverRiverTailRiverMirror</code>, <code>sub_532D30</code> <code>Get_TerrainType</code> — та же арифметика без проверки границ). Значит точка сбоя <b class="hi">ИСПРАВНА</b>, это симптом, а не виновник.</p><p>Первопричина — в коде <b class="hi">ПУТИ</b> <b class="hi">РИСОВКИ</b> реки, который <b class="hi">САМ</b> формирует координату вне карты и не ограничивает её к [0..<code>size-1</code>]. Конкретно: 1) в <code>sub_549D60</code> (<code>CreateRivers</code>) старт дельта-реки вычисляется как разность координат истока (v9 = <code>source_x - trigger_x</code>), и затем ещё явно уменьшается:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">       .text:00549DDB  </span><span class="k">sub</span>  <span class="r">esi</span>, <span class="n">2</span>     <span class="c">; x_start = source_x - 2</span>
+   без проверки x_start &gt;= 0;
+2) в sub_5492E0 (CreateRiverWithDelta) река шагает вверх:
+<span class="a">       .text:0054942D  </span><span class="k">dec</span>  <span class="r">edx</span>        <span class="c">; --y</span>
+   тоже без проверки y &gt;= 0, после чего координата идёт в
+   кисть sub_4FA940 -&gt; функция доступа sub_532D00.</pre></div><p>Координата истока — это <b class="hi">РАЗНОСТЬ</b> <code>source_x - trigger_x</code> (а не абсолютный X), она и так может быть мала, а -2 для дельта-реки добивает её за 0. Ни <code>CreateRivers</code>, ни <code>CreateRiverWithDelta</code>, ни кисть, ни функция доступа не ограничивают полученную координату к диапазону карты.</p><p>Доказательство от соседней функции (ограничение <b class="hi">ЕСТЬ</b> рядом, но на другом пути): в той же подсистеме, в функции пометки истоков <code>A0_ARandMapGen_MarkRiverSources_sub_549C90</code> (вызывается из того же <code>CreateRivers</code>, строкой выше пометки рек) <b class="hi">ПЕРЕД</b> доступом к клетке стоит полная проверка границ:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:00549D05  </span><span class="k">sub</span>  <span class="r">edx</span>, <span class="r">edi</span>      <span class="c">; x = obj_x - half_w</span>
+<span class="a">.text:00549D09  </span><span class="k">test</span> <span class="r">edx</span>, <span class="r">edx</span>
+<span class="a">.text:00549D0B  </span><span class="k">jl</span>   loc_549D3A    <span class="c">; x &lt; 0       -&gt; пропустить</span>
+<span class="a">.text:00549D0D  </span><span class="k">cmp</span>  <span class="r">edx</span>, [<span class="r">ecx</span>+<span class="n">18h</span>]
+<span class="a">.text:00549D10  </span><span class="k">jge</span>  loc_549D3A    <span class="c">; x &gt;= width  -&gt; пропустить</span>
+<span class="a">.text:00549D12  </span><span class="k">test</span> <span class="r">esi</span>, <span class="r">esi</span>
+<span class="a">.text:00549D14  </span><span class="k">jl</span>   loc_549D3A    <span class="c">; y &lt; 0       -&gt; пропустить</span>
+<span class="a">.text:00549D19  </span><span class="k">cmp</span>  <span class="r">esi</span>, <span class="r">eax</span>
+<span class="a">.text:00549D1B  </span><span class="k">jge</span>  loc_549D3A    <span class="c">; y &gt;= height -&gt; пропустить</span></pre></div><p>Тот же разработчик, та же подсистема, тот же способ индексации клетки (base + (x + w*(y + h*z))*48) — но на пути рисовки эта проверка пропущена. Это и есть первопричина: несимметрия "пометка истока ограничивает координату / рисовка реки не ограничивает".</p><p>Замечание про путь B (<code>sub_4FA590</code>). У него проверка краёв формально есть (<code>sub_5BCD10</code>), но она отключает шаги только для клетки <b class="hi">РОВНО</b> на границе и не рассчитана на координату, которая <b class="hi">УЖЕ</b> за картой. Это не самостоятельный дефект, а то же следствие неограниченной координаты из <code>CreateRivers</code>/<code>CreateRiverWithDelta</code>: на исправную карту путь B такой координаты бы не получил.</p><p>Почему вылет непостоянный (тест детерминированность vs частота): дефект детерминирован, но срабатывает только когда исток реки лёг близко к краю карты (тогда <code>source_x-2</code> или шаг --y выходят за 0). Это зависит от зерна <b class="hi">ГСЧ</b> и размера карты, поэтому редок в среднем, но чаще на крупных картах (см. раздел 5: все вылеты — L и выше). Противоречия между "детерминированный дефект" и "редкий вылет" нет: условие активации (исток у края) само по себе редкое. кратны 48 и в основном лежат в узком диапазоне (-109..-253), база валидна — это регулярная арифметика координат у верхнего края, а не случайный мусор.</p>
+  </section>
+
+  <section id="s8">
+    <h2><span class="htext">Условия, спровоцировавшие сбой</span><a class="anchor" href="#s8">¶</a></h2>
+    <p>HotA 1.8.0; модуль <code>h3hota.exe</code> (SoD); подсистема — генератор карт, фаза прокладки рек. Day = 1 11 ВО <b class="hi">ВСЕХ</b> 298 вылетах -&gt; сбой всегда на этапе генерации карты, никогда в ходе партии. Версии HD-мода разные (40 сборок) -&gt; от HD-мода не зависит. Лог 5.7 R10 дополнительно даёт Last RMG Seed = 1780845074 — прямое подтверждение, что это генерация карты. Код исключения: 297 <code>EXCEPTION_ACCESS_VIOLATION + 1</code> <code>GUARD_PAGE</code>.</p><p>Размер карты — определяющее условие. По расшифровке индекса (раздел 5) все вылеты — на картах размера L и выше (width 108/144/180/216/252), чаще всего G (252, 76 вылетов) и XL (144, 62). На малых картах вылетов нет. Это согласуется с механизмом: чем крупнее карта, тем больше рек и истоков, и тем выше шанс, что хотя бы один исток ляжет вплотную к углу.</p>
+  </section>
+
+  <section id="s9">
+    <h2><span class="htext">Достоверность и ограничения</span><a class="anchor" href="#s9">¶</a></h2>
+    <div class="grid2"><div class="note ok"><span class="t">Подтверждено / высокая достоверность</span><ul><li><b class="hi">ПОЧЕМУ</b> при данных размерах карты исток реки иногда ложится вплотную к краю (частота активации) — это зависит от размещения зон/истоков конкретного шаблона случайной карты и зерна <b class="hi">ГСЧ</b> и требует повтора с минидампом (шаблон и зерно берутся из RMG-настроек/Last RMG Seed, НЕ из поля Map file);</li></ul></div><div class="note info"><span class="t">Ограничения и неизвестное</span><ul><li>природа 11 "диких" индексов через путь B (раздел 5): далеко ли уехал шаг к соседу от координаты, уже бывшей за картой, или есть дополнительная порча входной XY-пары — различимо только по минидампу (проверка входной пары в момент вызова <code>sub_4FA590</code>). Переходники <code>patcher_x86</code> (<code>0x010Dxxxx</code> / <code>0x025Bxxxx</code>) между кадрами HD-мода — это заглушки-переходы хуков, в листинге по определению отсутствуют и в виновный путь не входят. Остальные кадры <code>HD_HOTA/HW_HOTA</code> для лога 5.7 R10 сопоставлены (раздел 6).</li></ul></div></div>
+  </section>
+
+  <section id="s10">
+    <h2><span class="htext">Признаки поиска в старых версиях HotA / в SoD</span><a class="anchor" href="#s10">¶</a></h2>
+    <p>Код виновного пути — в <code>h3hota.exe</code> (неизменный EXE движка SoD), поэтому адреса <b class="hi">СТАБИЛЬНЫ</b> между версиями HotA и присутствуют в SoD.</p><p>Context-инварианты: чтение по адресу; <code>EAX</code> отрицателен и кратен 48; база-регистр (<code>ECX</code>) валидна; faulting = <code>ECX + EAX + 0x24</code>. Текстовая сигнатура (любой версии листинга <code>h3hota.exe</code>): imul <code>eax</code>,<code>[edx+4]</code>; add <code>eax</code>,<code>esi</code>; <code>lea eax,[eax+eax*2]</code>; shl <code>eax</code>,4; <code>mov eax,[eax+ecx+24h]</code>  в функции доступа к клетке. Стабильные адреса <code>h3hota.exe</code> (искать как фикс. адреса/вызовы): <code>0x532D00</code> (доступ <code>Get_River</code>), <code>0x4FA940</code> (кисть дорог/рек), <code>0x4FAA50</code> (<code>Set_RoadRiver_At_Coords</code>), <code>0x4FA590</code> (соседний размещатель SetRoadRiverAtXY), <code>0x5492E0</code> (трассировка реки с дельтой), <code>0x5489F0/0x549D60</code> (<code>CreateRiver</code>*). Две вызывающие точки над функцией доступа: <code>0x4FAA7A</code> (через кисть <code>sub_4FA940</code>) — основной путь, 94%; <code>0x4FA626</code> (через размещатель <code>sub_4FA590</code>) — даёт дикие индексы, 5%. Соседние функции доступа без ограничения координат: <code>0x532C90</code>, <code>0x532D30</code> — та же арифметика width*y+x без проверки границ. Соседняя функция С проверкой (эталон правильного поведения): <code>0x549C90</code> (<code>MarkRiverSources</code>) — та же подсистема, перед доступом к клетке делает test/jl и <code>cmp [</code>..<code>18h</code>]/jge по x и y. Наличие проверки здесь и её отсутствие на пути рисовки <code>(0x549D60/ 0x5492E0)</code> — ключевая несимметрия дефекта. Генераторы отрицательной координаты (стабильные адреса): <code>0x549DDB</code> (sub <code>esi</code>,2 в <code>CreateRivers</code>), <code>0x54942D</code> (dec <code>edx</code>/--y в <code>CreateRiverWithDelta</code>) — оба без ограничения к 0.</p><p>Семейство дефекта (тот же корень, другой адрес сбоя): Кисть <code>sub_4FA940</code> <b class="hi">ОБЩАЯ</b> для рек И дорог (её перекрёстные ссылки — и <code>CreateRiverFromSource_sub_5489F0</code>, и <code>CreateRoadToCell_sub_548530</code>). Функция доступа к дороге <code>A0_RmgRoadMapParam_Cell_Get_Road_sub_532950</code> имеет <b class="hi">БАЙТ</b>-В-<b class="hi">БАЙТ</b> ту же арифметику без ограничения координат:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">    .text:0053296F  </span><span class="k">mov</span> <span class="r">eax</span>, [<span class="r">eax</span>+<span class="r">ecx</span>+<span class="n">24h</span>]
+(различие лишь в последующей распаковке битового поля:
+<span class="k">shl</span> <span class="r">eax</span>,<span class="n">2</span> вместо <span class="k">shl</span> <span class="r">eax</span>,<span class="n">0Eh</span>). Поэтому то же пропущенное</pre></div><p>ограничение может дать вылет и по адресу <code>h3hota.exe+0x53296F</code> (трассировка дорог), а не только <code>0x532D1F</code> (реки). Поиск по диким логам стоит вести по <b class="hi">ОБОИМ</b> адресам. В текущем наборе дампов адрес <code>0x53296F</code> не встречается — это пока предсказание по коду, не подтверждённое дампом.</p>
+  </section>
+
+  <section id="s11">
+    <h2><span class="htext">Воспроизведение вылета</span><a class="anchor" href="#s11">¶</a></h2>
+    <p>Вылет непостоянный (298 наблюдений у разных игроков и сборок HD-мода, но не у всех и не каждый раунд) -&gt; гарантированной пошаговой последовательности нет; зависит от конкретного запуска генерации. <b class="hi">КРИТИЧНО</b>: вылет бьёт только по <b class="hi">КРУПНЫМ</b> картам (L и выше; чаще всего G и XL) — на малых картах в наборе вылетов нет (см. раздел 5).</p><p>Условие активации пути: запущена генерация карты, фаза прокладки рек; исток реки лёг близко к краю карты, и код рисовки реки (<code>source_x-2</code> в <code>CreateRivers</code> либо шаг --y в <code>CreateRiverWithDelta</code>) выводит координату за 0 без ограничения; линейный индекс клетки становится отрицательным.</p><p>Вероятностный путь повтора: массовый прогон генерации <b class="hi">СЛУЧАЙНЫХ</b> карт крупных размеров (L и выше) по разным шаблонам (.h3t) с перебором зёрен <b class="hi">ГСЧ</b>; цель — поймать минидамп на этапе <code>CreateRivers</code>. Поле "Map file" (файл карты .h3m из списка) для воспроизведения НЕ используется — решают шаблон и размер карты.</p><p>Что ловить: чтение-AV на <code>0x00532D1F</code> с <code>EAX</code>, кратным 48 и отрицательным, при валидной базе в <code>ECX</code> (faulting = <code>ECX + EAX + 0x24</code>). Вызывающий код над функцией доступа — <code>0x4FAA7A</code> (основной путь) либо <code>0x4FA626</code> (соседний размещатель, дикие индексы).</p><p>Дифференциальный тест: точка останова на <code>0x549DDB</code> (sub <code>esi</code>,2) и <code>0x54942D</code> (dec <code>edx</code>) — если после этих инструкций x или y становятся &lt; 0, а затем координата без ограничения идёт в кисть -&gt; функцию доступа — это подтверждает пропущенную проверку как причину. Прямое подтверждение починкой: добавить на пути рисовки такое же ограничение координаты к [0..<code>size-1</code>], как в <code>sub_549C90</code> — вылеты исчезают. Связь с размером карты: прогнать генерацию случайных карт крупных размеров (L/XL/H/XH/G) на множестве зёрен <b class="hi">ГСЧ</b> — доля вылетов растёт с размером карты; на малых картах вылетов нет (см. раздел 5: размер читается из <code>EAX</code>).</p>
+  </section>
+
+  <section id="verdict">
+    <h2><span class="htext">Вывод</span><a class="anchor" href="#verdict">¶</a></h2>
+    <div class="card verdict lvl-high"><p>532D1F — чтение клетки карты в генераторе карт SoD (<code>h3hota.exe</code>, <code>A0_RmgRoadMapParam_Cell_Get_River_sub_532D00</code>) по вычисленному индексу width*y+x, который оказывается отрицательным (обращение ниже массива клеток). Первопричина — пропущенное ограничение координаты на пути рисовки рек: <code>CreateRivers</code> (<code>sub_549D60</code>) берёт исток и делает <code>source_x-2</code>, <code>CreateRiverWithDelta</code> (<code>sub_5492E0</code>) шагает --y — оба без ограничения к [0..<code>size-1</code>]. Тот же движок в соседней функции пометки истоков (<code>sub_549C90</code>) такое ограничение делает — именно эта несимметрия и есть дефект. В точку сбоя ведут два пути из той же подсистемы: основная кисть <code>sub_4FA940</code> (94%, шаг за угол) и соседний размещатель <code>sub_4FA590</code> (5%, шаг к соседу; его проверка краёв не рассчитана на координату, уже бывшую за картой, — отсюда самые далёкие индексы). Функция доступа <code>sub_532D00</code> исправна и лишь читает по плохому индексу. Виновник — код генератора движка SoD (путь рисовки рек), не HD-мод.</p></div>
+  </section>
+
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Скопировано</div>
+
+<script>
+(function(){
+  var KEY="hota-theme-v6",root=document.documentElement;
+  var ic=document.getElementById("themeUse"),lb=document.getElementById("themeLabel");
+  var mq=window.matchMedia?matchMedia("(prefers-color-scheme: light)"):null;
+  // по умолчанию следуем за системной темой; ручной клик фиксирует light/dark и перекрывает её
+  function manual(){try{var s=localStorage.getItem(KEY);return(s==="light"||s==="dark")?s:null;}catch(e){return null;}}
+  function effective(){return manual()||(mq&&mq.matches?"light":"dark");}
+  // иконка — SVG (солнце/луна), переключаем href у <use>, а не emoji-глиф
+  function paintBtn(){var l=effective()==="light";
+    ic.setAttribute("href",l?"#ic-sun":"#ic-moon");
+    lb.textContent=l?"\u0421\u0432\u0435\u0442\u043B\u0430\u044F":"\u0422\u0451\u043C\u043D\u0430\u044F";}
+  // ВСЕГДА ставим явный класс (theme-light либо theme-dark) — без @media-CSS
+  function apply(){root.classList.remove("theme-light","theme-dark");
+    root.classList.add("theme-"+effective());paintBtn();}
+  apply();
+  // смена системной темы -> сбросить ручной выбор и снова следовать за системой
+  if(mq){var hh=function(){try{localStorage.removeItem(KEY);}catch(e){}apply();};
+    mq.addEventListener?mq.addEventListener("change",hh):mq.addListener(hh);}
+  document.getElementById("themeToggle").onclick=function(){
+    var n=effective()==="light"?"dark":"light";
+    try{localStorage.setItem(KEY,n);}catch(e){}apply();};
+  var links={},secs=[].slice.call(document.querySelectorAll("main section[id]"));
+  document.querySelectorAll("nav.toc a").forEach(function(a){links[a.getAttribute("href").slice(1)]=a;});
+  var lock=0,lockT,ticking=0;
+  // подсветка только в оглавлении
+  function setActive(id){
+    Object.keys(links).forEach(function(k){links[k].classList.remove("active");});
+    if(links[id])links[id].classList.add("active");}
+  function unlockSoon(){clearTimeout(lockT);lockT=setTimeout(function(){lock=0;},120);}
+  // активна — ПОСЛЕДНЯЯ секция, чьё начало выше порога чтения.
+  // Пороговая логика детерминирована и НЕ пропускает короткие секции
+  // (IntersectionObserver мог «перепрыгивать» через них при быстром скролле).
+  function pickActive(){
+    ticking=0;
+    if(lock)return;
+    var thr=innerHeight*0.2,cur=secs.length?secs[0].id:null;
+    for(var i=0;i<secs.length;i++){
+      if(secs[i].getBoundingClientRect().top<=thr)cur=secs[i].id;}
+    if(innerHeight+scrollY>=document.body.scrollHeight-2)cur=secs[secs.length-1].id;
+    if(cur)setActive(cur);}
+  // клик по оглавлению: сразу подсветить цель и заглушить scroll-spy до конца плавной прокрутки
+  document.querySelectorAll("nav.toc a").forEach(function(a){
+    a.addEventListener("click",function(){
+      setActive(a.getAttribute("href").slice(1));lock=1;unlockSoon();});
+  });
+  addEventListener("scroll",function(){
+    if(lock){unlockSoon();return;}
+    if(!ticking){ticking=1;requestAnimationFrame(pickActive);}
+  },{passive:true});
+  pickActive();
+  var toast=document.getElementById("toast"),tt;
+  function showToast(m){toast.textContent=m||"\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e";toast.classList.add("show");
+    clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove("show");},1300);}
+  document.querySelectorAll("[data-copy]").forEach(function(b){
+    b.onclick=function(){var sel=b.getAttribute("data-copy");
+      var el=sel==="prev"?b.parentElement.querySelector("pre"):document.querySelector(sel);
+      var txt=el?el.innerText:"";
+      navigator.clipboard&&navigator.clipboard.writeText(txt).then(function(){showToast("\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e");},
+        function(){showToast("\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c");});};
+  });
+})();
+</script>
+</body>
+</html>

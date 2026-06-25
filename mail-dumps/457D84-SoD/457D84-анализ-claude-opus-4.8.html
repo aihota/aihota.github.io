@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анализ вылета 457D84</title>
+<style>
+
+:root{
+  --bg:#0f1117;--panel:#171a23;--panel2:#1d212c;--ink:#e6e9ef;--muted:#a6afbd;
+  --line:#2a2f3b;--accent:#94a3b8;--accent2:#7dd3fc;--hi:#fbbf24;--ok:#46d39a;--warn:#ffd633;
+  --bad:#ff5c7a;--code:#11141b;--kw:#ff7b72;--reg:#7ee787;--num:#79c0ff;--cmt:#8b949e;
+  --pretext:#cdd6e4;--badText:#ff8da3;--verdictGrad:linear-gradient(180deg,#1c1418,#171a23);
+  --br:rgba(255,255,255,.04);
+  --redBg:rgba(255,92,122,.14);--redInk:#ff8da3;--redLn:rgba(255,92,122,.35);
+  --blBg:rgba(74,163,255,.14);--blInk:#8ec5ff;--blLn:rgba(74,163,255,.35);
+  --gyBg:rgba(154,163,178,.12);--gyInk:#c4ccd8;--gyLn:rgba(154,163,178,.3);
+  --okBg:rgba(70,211,154,.10);--okLn:rgba(70,211,154,.32);
+  --wnBg:rgba(255,214,51,.12);--wnLn:rgba(255,214,51,.36);
+  --orange:#fb923c;--orangeBg:rgba(251,146,60,.14);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  /* шрифты: встроенные (если есть) -> системные с широким кросс-платформенным фолбэком */
+  --font-sans:"ReportSans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","DejaVu Sans","Liberation Sans",Helvetica,Arial,sans-serif;
+  --font-mono:"ReportMono","SF Mono",ui-monospace,"JetBrains Mono","Cascadia Code",Menlo,Consolas,"DejaVu Sans Mono","Liberation Mono","Noto Sans Mono",monospace;
+  /* стек типографских знаков/символов — текстовая (не эмодзи) презентация на всех ОС */
+  --font-sym:"Segoe UI Symbol","Apple Symbols","Noto Sans Symbols 2","DejaVu Sans",sans-serif;
+  /* типографическая шкала в rem (уважает системный размер шрифта); единый ритм */
+  --fs-3xs:.65625rem;--fs-2xs:.6875rem;--fs-xs:.78125rem;--fs-sm:.8125rem;
+  --fs-md:.875rem;--fs-base:.9375rem;--fs-lg:1rem;--fs-xl:1.125rem;--fs-2xl:1.375rem;
+  --fs-hero:clamp(1.5rem,2vw + 1.125rem,2.125rem);
+  /* font-size-adjust: одинаковая видимая высота строчных при ЛЮБОМ фолбэке (ключ к «одинаково везде») */
+  --fsa-sans:.52;--fsa-mono:.5;
+  /* единый вертикальный ритм и трекинг капс-меток (вместо разнобоя) */
+  --lh-tight:1.12;--lh-code:1.5;--lh-base:1.62;
+  --ls-caps:.13em;--ls-caps-wide:.16em;
+  /* выделение текста — заметная заливка (а не 14% var(--blBg), который почти не виден) */
+  --sel:rgba(74,163,255,.32);
+  color-scheme:dark;
+}
+html.theme-light{
+  --bg:#f4f6fb;--panel:#ffffff;--panel2:#eef1f6;--ink:#1c2230;--muted:#5a6473;
+  --line:#d7dce5;--accent:#475569;--accent2:#0369a1;--hi:#b45309;--ok:#1a7f5a;--warn:#b08c00;
+  --bad:#cf2e4a;--code:#f6f8fa;--kw:#cf222e;--reg:#116329;--num:#0550ae;--cmt:#6e7781;
+  --pretext:#24292f;--badText:#cf2e4a;--verdictGrad:linear-gradient(180deg,#fff5f6,#fff);
+  --br:rgba(0,0,0,.03);
+  --redBg:rgba(207,46,74,.10);--redInk:#b21f3b;--redLn:rgba(207,46,74,.3);
+  --blBg:rgba(31,111,235,.1);--blInk:#1551b5;--blLn:rgba(31,111,235,.3);
+  --gyBg:rgba(90,100,115,.1);--gyInk:#3d4756;--gyLn:rgba(90,100,115,.28);
+  --okBg:rgba(26,127,90,.09);--okLn:rgba(26,127,90,.3);
+  --wnBg:rgba(176,140,0,.12);--wnLn:rgba(176,140,0,.34);
+  --orange:#ea580c;--orangeBg:rgba(234,88,12,.12);
+  --shadow:0 8px 30px rgba(40,60,100,.12);
+  --sel:rgba(31,111,235,.28);
+  color-scheme:light;
+}
+/* Светлая палитра живёт ТОЛЬКО в html.theme-light; авто-режим проставляет
+   явный класс через JS (ранний скрипт в <head>), поэтому @media-дубль палитры
+   больше не нужен. */
+*{box-sizing:border-box}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* text-size-adjust: запрещаем браузерам самовольно раздувать шрифт (iOS/Android, поворот) */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:var(--fs-base)/var(--lh-base) var(--font-sans);
+  font-size-adjust:var(--fsa-sans);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;font-optical-sizing:auto;
+  font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1;
+  /* нуль со слешем и в прозе (единообразие с кодом) */
+  font-variant-numeric:slashed-zero;
+  /* синтез НЕ отключаем: нужен для псевдо-жира (<b>) и капители (b.hi)
+     на фолбэк-шрифтах без нативных начертаний (DejaVu/Liberation) */
+  transition:background .25s,color .25s}
+/* единый цвет выделения на всех ОС/браузерах */
+::selection{background:var(--sel);color:var(--ink)}
+/* моно-стек: slashed-zero + табличные цифры для hex; ВСЕ лигатуры off (asm: ->, !=, >=).
+   font-feature-settings:normal сбрасывает наследуемые от body kern/liga (иначе liga
+   остаётся включён) и убирает конфликт с font-variant-ligatures;
+   font-size-adjust держит высоту строчных при подмене моно-шрифта на др. ОС */
+code,pre,.mono,.stat .big,td.mono,th.mono{font-family:var(--font-mono);
+  font-size-adjust:var(--fsa-mono);
+  font-feature-settings:normal;
+  font-variant-ligatures:none;
+  font-variant-numeric:slashed-zero tabular-nums}
+a{color:var(--accent2);text-decoration:none}
+/* инлайн-иконки вместо emoji-глифов (★✓☀☾) — идентичны на всех ОС */
+.tic{width:1em;height:1em;vertical-align:-.14em;fill:none;stroke:currentColor;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tic.fill{fill:currentColor;stroke:none}
+/* символьные знаки, оставленные текстом (¶) — текстовая презентация, не emoji */
+h2 .anchor{font-family:var(--font-sym);font-variant-emoji:text}
+.theme-fab{position:absolute;top:18px;right:22px;z-index:5}
+.btn{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:9px;
+  padding:7px 12px;font-size:var(--fs-xs);font-weight:600;cursor:pointer;display:inline-flex;
+  align-items:center;gap:7px;transition:border-color .2s,transform .08s,background .2s}
+.btn:hover{border-color:var(--accent2)}
+.btn:active{transform:scale(.96)}
+.btn:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+.btn:focus:not(:focus-visible){outline:none}
+.shell{max-width:1180px;margin:0 auto;padding:0 22px;display:grid;
+  grid-template-columns:230px minmax(0,1fr);gap:38px;position:relative}
+nav.toc{position:sticky;top:24px;align-self:start;height:calc(100vh - 48px);
+  overflow-y:auto;padding:22px 0 40px;font-size:var(--fs-sm)}
+nav.toc .lbl{text-transform:uppercase;letter-spacing:var(--ls-caps-wide);font-size:var(--fs-3xs);
+  color:var(--muted);font-weight:700;margin:0 0 10px 12px}
+nav.toc a{display:flex;gap:9px;align-items:baseline;color:var(--muted);padding:6px 12px;
+  border-left:2px solid transparent;border-radius:0 7px 7px 0;transition:.15s}
+nav.toc a .n{font-family:var(--font-mono);font-size:var(--fs-2xs);opacity:.7;min-width:15px}
+nav.toc a:hover{color:var(--ink);background:var(--br)}
+nav.toc a.active{color:var(--ink);border-left-color:var(--accent2);
+  background:linear-gradient(90deg,var(--blBg),transparent);font-weight:600}
+main{padding-bottom:90px;min-width:0}
+@media(max-width:900px){.shell{grid-template-columns:1fr}nav.toc{display:none}}
+.hero{padding:40px 0 14px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-2xs);letter-spacing:var(--ls-caps-wide);
+  text-transform:uppercase;color:var(--accent);font-weight:700}
+/* «пуля» eyebrow — нарисованная точка, а не глиф ● (нет расхождений по ОС) */
+.eyebrow::before{content:"";display:inline-block;width:.5em;height:.5em;
+  border-radius:50%;background:var(--accent2)}
+h1.addr{margin:13px 0 8px;font-size:var(--fs-hero);line-height:var(--lh-tight);letter-spacing:-.01em;
+  font-family:var(--font-mono);font-weight:700;overflow-wrap:anywhere}
+h1.addr .mod{color:var(--hi)}
+.subtitle{color:var(--muted);font-size:var(--fs-lg);margin:0 0 20px;max-width:60ch}
+.byline{color:var(--muted);font-size:var(--fs-sm);margin:6px 0 4px}
+.byline b{color:var(--ink);font-weight:600}
+
+/* вердикт-callout: цветная метка «ВЕРДИКТ» (цвет = уровень полезности),
+   без дублирующей галочки (она уже на карточке «Полезность») */
+.ribbon{position:relative;margin:18px 0 8px;padding:15px 20px 16px;border-radius:16px;
+  background:var(--redBg);border:1px solid var(--redLn);box-shadow:var(--shadow)}
+.ribbon.lvl-mid{background:var(--wnBg);border-color:var(--wnLn)}
+.ribbon.lvl-low{background:var(--orangeBg);border-color:var(--orange)}
+.ribbon.lvl-high{background:var(--okBg);border-color:var(--okLn)}
+.ribbon .vlabel{display:flex;align-items:center;gap:9px;font-size:var(--fs-2xs);font-weight:700;
+  letter-spacing:var(--ls-caps-wide);text-transform:uppercase;color:var(--orange);margin-bottom:7px}
+.ribbon.lvl-mid .vlabel{color:var(--warn)}
+.ribbon.lvl-high .vlabel{color:var(--ok)}
+.ribbon .vlabel::before{content:"";width:22px;height:2px;border-radius:2px;background:currentColor}
+.ribbon .vtxt{font-size:var(--fs-md);line-height:var(--lh-base)}
+.ribbon .vtxt b{color:var(--orange)}
+.ribbon.lvl-mid .vtxt b{color:var(--warn)}
+.ribbon.lvl-high .vtxt b{color:var(--ok)}
+.statstrip{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:12px;margin:18px 0 6px}
+/* карточки шапки: иконка в тонированном квадрате + цвет по смыслу
+   (c-ver синий, c-cls красный, c-cnt нейтр., c-use зелёный/жёлтый/красный) */
+.stat{display:flex;gap:12px;align-items:center;background:var(--panel);
+  border:1px solid var(--line);border-radius:13px;padding:13px 15px}
+.stat .ic-badge{flex:0 0 auto;width:40px;height:40px;border-radius:11px;display:grid;
+  place-items:center}
+.stat .ic{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
+.stat .st-body{min-width:0}
+.stat .big{font-size:var(--fs-2xl);font-weight:800;line-height:var(--lh-tight);
+  overflow-wrap:anywhere}
+.stat .cap{color:var(--muted);font-size:var(--fs-2xs);margin-top:2px}
+.stat.c-ver .ic-badge{background:var(--blBg);color:var(--blInk)}
+.stat.c-ver .big{color:var(--blInk);font-size:var(--fs-lg);letter-spacing:-.2px}
+.stat.c-cls .ic-badge{background:var(--redBg);color:var(--redInk)}
+.stat.c-cls .big{color:var(--redInk);font-size:var(--fs-base)}
+.stat.c-cnt .ic-badge{background:var(--gyBg);color:var(--gyInk)}
+.stat.c-use .ic-badge{background:var(--okBg);color:var(--ok)}
+.stat.c-use .big{color:var(--ok)}
+.stat.c-use.use-mid .ic-badge{background:var(--wnBg);color:var(--warn)}
+.stat.c-use.use-mid .big{color:var(--warn)}
+/* НИЗКАЯ — оранжевый (а не красный), чтобы не сливаться с «Классом сбоя» */
+.stat.c-use.use-bad .ic-badge{background:var(--orangeBg);color:var(--orange)}
+.stat.c-use.use-bad .big{color:var(--orange)}
+
+/* ----- СЕКЦИЯ-ПАНЕЛЬ: аналитические секции 1–11 — панели с шапкой-заголовком;
+   резюме/вывод остаются акцентными карточками-«закладками». */
+section{scroll-margin-top:24px;margin:30px 0}
+h2{margin:0 0 14px;display:flex;align-items:center;gap:11px;font-weight:700;
+  font-size:var(--fs-sm);letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--accent2);
+  border-bottom:1px solid var(--line);padding-bottom:10px}
+h2 .htext{flex:1}
+h2 .anchor{opacity:0;color:var(--muted);font-weight:400;font-size:var(--fs-md);transition:.15s}
+h2:hover .anchor{opacity:.7}
+/* вывод — «закладка» с чистым заголовком (не панель) */
+section#verdict h2{border-bottom:0}
+/* панели-секции: все секции, кроме вывода (резюме и визуализация — тоже панели) */
+#doc>section:not(#verdict){background:var(--panel);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;margin:18px 0;padding:0 20px 16px}
+#doc>section:not(#verdict)>h2{background:var(--panel2);margin:0 -20px 16px;
+  padding:12px 20px;border-bottom:1px solid var(--line)}
+/* внутренние карточки внутри панели — плоские (без двойной рамки) */
+#doc>section:not(#verdict) .card{background:transparent;border:0;border-radius:0;
+  padding:0;margin:10px 0}
+/* разделитель между смежными плоскими карточками в секции (напр. раздел 1:
+   блок мета-полей | блок Модуль/адрес) — пунктир, чтобы не слипались */
+#doc>section:not(#verdict) .card+.card{border-top:1px dashed var(--line);
+  margin-top:14px;padding-top:14px}
+h3{font-size:var(--fs-base);margin:20px 0 8px}
+p{margin:10px 0}.lead{color:var(--muted)}
+/* БЕЗ переносов слов: justify растягивает строку пробелами, слова целые.
+   max-width ЗДЕСЬ НЕ ставим: он сужал абзацы уже секции, и justify
+   выравнивал по узкой мере строки, а не по ширине секции. */
+#doc>section p{hyphens:none;-webkit-hyphens:none}
+p{text-wrap:pretty}
+/* выравнивание по ширине для всего текста в секциях.
+   text-wrap:pretty/balance отключают justify-алгоритм (Gecko/WebKit),
+   поэтому для выравниваемых абзацев возвращаем обычный перенос.
+   Центр-подписи под svg заданы inline и перекрывают это правило. */
+#doc>section p,#doc>section li{text-align:justify;text-wrap:wrap}
+h1.addr,h2,h3{text-wrap:balance}
+ul{margin:10px 0;padding-left:20px}li{margin:6px 0}
+/* акцент капителью вместо «орущего» КАПСА (текст-контент не меняется) */
+b.hi{color:var(--hi);font-variant:small-caps;text-transform:lowercase;
+  letter-spacing:.02em;font-weight:600}
+
+p code,li code,.kv .v code,.chain .ttl code,.chain .desc code,.note code{
+  font-family:var(--font-mono);background:var(--code);
+  border:1px solid var(--line);border-radius:5px;padding:0 5px;font-size:.9em;
+  color:var(--ink);white-space:nowrap}
+.chain .ttl code{white-space:normal;word-break:break-all}
+.note code{background:color-mix(in srgb,var(--ink) 8%,transparent);
+  border-color:color-mix(in srgb,var(--ink) 14%,transparent)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.card.summary{border-left:4px solid var(--accent)}
+.card.verdict{border-left:4px solid var(--orange);background:var(--verdictGrad)}
+/* «Вывод» — фон ПО УРОВНЮ полезности, как лента «Заключение» вверху
+   (раньше был фиксированный розовый verdictGrad — конфликтовал с зелёной лентой) */
+.card.verdict.lvl-low{border-left-color:var(--orange);
+  background:linear-gradient(180deg,var(--orangeBg),var(--panel))}
+.card.verdict.lvl-mid{border-left-color:var(--warn);
+  background:linear-gradient(180deg,var(--wnBg),var(--panel))}
+.card.verdict.lvl-high{border-left-color:var(--ok);
+  background:linear-gradient(180deg,var(--okBg),var(--panel))}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}}
+/* раздел «Достоверность»: блоки «Подтверждено» и «Ограничения»
+   сильно разной длины — ставим их ОДИН ПОД ДРУГИМ (одна колонка),
+   чтобы не было пустоты рядом с коротким блоком.
+   margin у .note гасим: иначе он складывается с gap грида (14+15+14)
+   и даёт слишком большой отступ между блоками */
+#s9 .grid2{grid-template-columns:1fr}
+#s9 .grid2 .note{margin:0}
+.kv{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:var(--fs-sm)}
+.kv:last-child{border-bottom:0}
+.kv .k{color:var(--muted);min-width:118px}.kv .v{font-family:var(--font-mono)}
+.codewrap{position:relative;margin:14px 0}
+.codewrap .copy{position:absolute;top:8px;right:8px;opacity:0;transition:.15s;
+  background:var(--panel2);border:1px solid var(--line);border-radius:7px;color:var(--muted);
+  font-size:var(--fs-2xs);padding:4px 9px;cursor:pointer}
+.codewrap:hover .copy{opacity:1}
+.codewrap .copy:hover{color:var(--ink);border-color:var(--accent2)}
+pre{background:var(--code);border:1px solid var(--line);border-radius:12px;padding:15px 17px;
+  overflow-x:auto;font-size:var(--fs-xs);line-height:var(--lh-code);tab-size:4;margin:0;color:var(--pretext)}
+pre .a{color:var(--cmt)}pre .k{color:var(--kw)}pre .r{color:var(--reg)}
+pre .n{color:var(--num)}pre .c{color:var(--cmt);font-style:italic}
+pre .fault{background:var(--redBg);display:block;border-left:3px solid var(--bad);
+  padding-left:8px;margin-left:-10px}
+.formula{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:center;
+  background:var(--code);border:1px solid var(--line);border-radius:14px;padding:18px;
+  font-family:var(--font-mono);margin:14px 0}
+.formula .tok{font-size:var(--fs-lg)}
+.formula .op{color:var(--muted)}
+.formula .res{color:var(--bad);font-weight:700}
+.formula .eq{color:var(--ok);font-weight:700;font-size:var(--fs-xl)}
+/* сворачиваемый форензик-аппендикс: большие доказательные таблицы по клику */
+.appendix{margin:14px 0;border:1px solid var(--line);border-radius:12px;
+  background:var(--panel2);overflow:hidden}
+.appendix>summary{cursor:pointer;padding:10px 14px;font-size:var(--fs-sm);
+  font-weight:600;color:var(--muted);list-style:none;user-select:none;
+  display:flex;align-items:center;gap:8px;transition:color .15s}
+.appendix>summary::-webkit-details-marker{display:none}
+.appendix>summary::before{content:"";width:0;height:0;
+  border-left:5px solid currentColor;border-top:4px solid transparent;
+  border-bottom:4px solid transparent;transition:transform .15s}
+.appendix[open]>summary::before{transform:rotate(90deg)}
+.appendix>summary:hover{color:var(--accent2)}
+.appendix .tablewrap{border:0;border-top:1px solid var(--line);border-radius:0}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:var(--fs-xs);min-width:780px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+thead th{background:var(--panel2);color:var(--muted);font-weight:700;letter-spacing:.03em;
+  position:sticky;top:0;font-size:var(--fs-2xs);text-transform:uppercase}
+tbody tr:hover{background:var(--blBg)}
+td.mono,th.mono{font-family:var(--font-mono)}
+td .ok{color:var(--ok)}
+td.flag{color:var(--bad);font-weight:700;
+  background:linear-gradient(90deg,var(--redBg),transparent)}
+
+.note{border-radius:12px;padding:13px 17px;margin:14px 0;font-size:var(--fs-md)}
+.note.ok{background:var(--okBg);border:1px solid var(--okLn)}
+/* «Важно» — тёплый янтарный акцент (смещён от чистого жёлтого warn
+   к оранжевому: читается как «обрати внимание», а не как тревога) */
+.note.warn{background:color-mix(in srgb,var(--orange) 10%,transparent);
+  border:1px solid color-mix(in srgb,var(--orange) 36%,transparent)}
+.note.info{background:var(--blBg);border:1px solid var(--blLn)}
+.note .t{font-weight:700;margin-bottom:4px;display:block}
+.chain{margin:16px 0}
+.chain .step{display:flex;align-items:flex-start;gap:14px;padding:9px 0;position:relative}
+.chain .dot{flex:0 0 auto;width:13px;height:13px;border-radius:50%;margin-top:5px;
+  background:var(--panel);border:2px solid var(--accent2);z-index:1}
+.chain .step.fault .dot{border-color:var(--bad);background:var(--redBg)}
+.chain .step:not(:last-child)::before{content:"";position:absolute;left:6px;top:20px;
+  bottom:-9px;width:2px;background:var(--line)}
+.chain .ttl{font-family:var(--font-mono);font-size:var(--fs-sm)}
+.chain .step.fault .ttl{color:var(--badText);font-weight:700}
+.chain .desc{color:var(--muted);font-size:var(--fs-xs)}
+.chain .modtag{font-size:var(--fs-3xs);font-weight:700;padding:1px 7px;border-radius:5px;margin-right:7px;
+  vertical-align:1px}
+.m-exe{background:var(--gyBg);color:var(--gyInk)}
+.m-tc{background:var(--redBg);color:var(--redInk)}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:10px;font-size:var(--fs-sm);
+  font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:80}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ============================================================
+   VISUALIZATION TOOLKIT (.viz-*) для sidecar-врезок (правило о
+   визуализации вылета). ЦЕЛЬ: схемы строятся РАСКЛАДКОЙ CSS
+   (flex/grid), а НЕ ручными SVG-координатами — браузер сам
+   считает позиции, поэтому подписи НИКОГДА не налезают.
+   Все цвета — только из токенов темы (корректно dark/light/print).
+   SVG применять ТОЛЬКО для линий/стрелок (.viz-svg); подписи
+   к ним выносить в .viz-legend под схемой, в графике — короткие
+   .viz-badge. Подробности и шаблоны — в навыке html-report. */
+.viz{margin:16px 0}
+.viz-cap{font-size:var(--fs-xs);color:var(--muted);text-align:center;margin:8px 0 0}
+/* горизонтальная лента блоков (память/массив/диапазон) */
+.viz-strip{display:flex;align-items:stretch;gap:6px;flex-wrap:nowrap;
+  overflow-x:auto;padding:6px 0}
+/* блок-ячейка ленты: подпись внутри, центрируется, перенос строк сам */
+.viz-box{flex:1 1 0;min-width:96px;border:2px solid var(--line);border-radius:10px;
+  background:var(--panel2);padding:12px 10px;text-align:center;
+  font-size:var(--fs-xs);line-height:var(--lh-tight);color:var(--ink);
+  display:flex;flex-direction:column;justify-content:center;gap:4px}
+.viz-box .lbl{font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--muted)}
+.viz-box.ok{border-color:var(--okLn);background:var(--okBg)}
+.viz-box.bad{border-color:var(--redLn);background:var(--redBg)}
+.viz-box.accent{border-color:var(--blLn);background:var(--blBg)}
+.viz-box.dashed{border-style:dashed}
+.viz-box.dim{opacity:.55}
+/* круглый бейдж-маркер (A/B/F/S/0/1) — короткий, не текст */
+.viz-badge{display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:50%;font-weight:700;font-size:var(--fs-sm);
+  font-family:var(--font-mono);border:2px solid var(--accent2);color:var(--ink);
+  background:var(--panel);flex:0 0 auto;vertical-align:middle}
+.viz-badge.ok{border-color:var(--ok);color:var(--ok)}
+.viz-badge.bad{border-color:var(--bad);color:var(--badText)}
+.viz-badge.accent{border-color:var(--accent2);color:var(--accent2)}
+/* координатный холст: ТОЛЬКО для геометрии, рисуем линии/стрелки */
+.viz-svg{display:block;max-width:100%;height:auto;margin:6px auto;
+  font-family:inherit;font-size:var(--fs-xs)}
+.viz-svg .edge{stroke:var(--line);stroke-width:1}
+.viz-svg .flow{stroke:var(--bad);stroke-width:2;fill:none}
+.viz-svg .flow.ok{stroke:var(--ok)}
+.viz-svg .area{fill:var(--panel2);stroke:var(--line);stroke-width:1.5}
+/* легенда под схемой: бейдж + пояснение, в одну/две колонки, без наложений */
+.viz-legend{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin:12px 0 0}
+@media(max-width:680px){.viz-legend{grid-template-columns:1fr}}
+.viz-legend .item{display:flex;align-items:flex-start;gap:9px;
+  font-size:var(--fs-sm);color:var(--ink)}
+.viz-legend .item .txt{color:var(--muted)}
+@media print{.viz-strip{overflow-x:visible;flex-wrap:wrap}
+  .viz-box,.viz-badge,.viz-svg .area{break-inside:avoid}}
+
+@media print{
+  .theme-fab,nav.toc,.btn,.copy,.toast,h2 .anchor{display:none!important}
+  .shell{grid-template-columns:1fr;max-width:none}
+  /* screen-сглаживание на бумаге делает текст слишком тонким; сбрасываем */
+  body{background:#fff;color:#000;
+    -webkit-font-smoothing:auto;-moz-osx-font-smoothing:auto;font-size-adjust:none}
+  pre,.card,.note,table{break-inside:avoid}
+  section{break-inside:avoid-page}
+  /* на печати раскрываем все аппендиксы: details без [open] иначе скроет содержимое */
+  .appendix>summary{display:none}
+  details.appendix>*{display:revert!important}
+  .appendix .tablewrap{border-top:0}
+}
+</style>
+<script>
+(function(){try{var t=localStorage.getItem("hota-theme-v6");
+var m=(t==="light"||t==="dark")?t
+  :((window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches)?"light":"dark");
+document.documentElement.classList.add("theme-"+m);}catch(e){}})();
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="ic-package" viewBox="0 0 24 24"><path d="M16.5 9.4 7.5 4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+  <symbol id="ic-triangle" viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></symbol>
+  <symbol id="ic-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+  <symbol id="ic-sig3" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="currentColor" stroke="none"/><rect x="17" y="5" width="4" height="15" rx="1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="ic-sig2" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="currentColor" stroke="none"/><rect x="17" y="5" width="4" height="15" rx="1" fill="none" stroke="currentColor" opacity=".35"/></symbol>
+  <symbol id="ic-sig1" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="none" stroke="currentColor" opacity=".35"/><rect x="17" y="5" width="4" height="15" rx="1" fill="none" stroke="currentColor" opacity=".35"/></symbol>
+  <symbol id="ic-star" viewBox="0 0 24 24"><path d="M12 2.5l2.95 5.98 6.6.96-4.77 4.65 1.13 6.57L12 17.56l-5.9 3.1 1.12-6.57L2.45 9.44l6.6-.96z"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="ic-diamond" viewBox="0 0 24 24"><path d="M12 2 22 12 12 22 2 12Z"/></symbol>
+  <symbol id="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="ic-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+</defs></svg>
+<div class="shell">
+<button class="btn theme-fab" id="themeToggle" type="button" aria-label="Переключить тему оформления"><svg class="tic" aria-hidden="true"><use id="themeUse" href="#ic-sun"/></svg><span id="themeLabel">Светлая</span></button>
+  <nav class="toc" id="toc">
+    <p class="lbl">Содержание</p>
+    <a href="#viz-mechanism"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-diamond"/></svg></span>Визуализация вылета</a>
+    <a href="#summary"><span class="n"><svg class="tic fill" aria-hidden="true"><use href="#ic-star"/></svg></span>Резюме</a>
+    <a href="#s1"><span class="n">1</span>Исходные данные</a>
+    <a href="#s2"><span class="n">2</span>Корреляция дампов</a>
+    <a href="#s3"><span class="n">3</span>Сопоставление адресов</a>
+    <a href="#s4"><span class="n">4</span>Точка сбоя</a>
+    <a href="#s5"><span class="n">5</span>Регистровые инварианты</a>
+    <a href="#s6"><span class="n">6</span>Цепочка вызовов</a>
+    <a href="#s7"><span class="n">7</span>Первопричина</a>
+    <a href="#s8"><span class="n">8</span>Условия сбоя</a>
+    <a href="#s9"><span class="n">9</span>Достоверность</a>
+    <a href="#s10"><span class="n">10</span>Поиск в др. версиях</a>
+    <a href="#s11"><span class="n">11</span>Воспроизведение</a>
+    <a href="#verdict"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-check"/></svg></span>Вывод</a>
+  </nav>
+  <main id="doc">
+
+  <div class="hero">
+    <span class="eyebrow">Анализ вылета</span>
+    <h1 class="addr"><span class="mod">457D84</span></h1>
+    <p class="subtitle"></p>
+    <p class="byline">Claude Opus 4.8 · 18.06.2026</p>
+    <div class="ribbon lvl-mid">
+      <div class="vlabel">Заключение</div>
+      <div class="vtxt">Тот же дефект, что и в HotA-серии 457D84, воспроизводится в чистом движке Shadow of Death (модуль <code>Heroes3.exe</code> / <code>Heroes3 HD.exe</code>, базовый адрес <code>0x400000</code>). Номер игрока возвращает виртуальный метод <code>Get_PlayerID</code> объекта сценария и используется как индекс в массив команд игроков без проверки верхней границы, что даёт чтение за границами. Унаследованный от SoD баг, не специфичный для HotA.</div>
+    </div>
+    <div class="statstrip"><div class="stat c-ver"><div class="ic-badge"><svg class="ic"><use href="#ic-package"/></svg></div><div class="st-body"><div class="big">N/A</div><div class="cap">Версия HotA</div></div></div><div class="stat c-cls"><div class="ic-badge"><svg class="ic"><use href="#ic-triangle"/></svg></div><div class="st-body"><div class="big">выход за границы</div><div class="cap">Класс сбоя</div></div></div><div class="stat c-cnt"><div class="ic-badge"><svg class="ic"><use href="#ic-database"/></svg></div><div class="st-body"><div class="big">41</div><div class="cap">Количество логов</div></div></div><div class="stat c-use use-mid"><div class="ic-badge"><svg class="ic"><use href="#ic-sig2"/></svg></div><div class="st-body"><div class="big">СРЕДНЯЯ</div><div class="cap">Полезность лога</div></div></div></div>
+  </div>
+
+  <section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Тот же дефект, что в HotA-серии, но в чистом движке SoD
+  (<code>Heroes3.exe</code>, базовый адрес <code>0x400000</code>). Внутри
+  менеджера игры по смещению <code>+0x1F879</code> лежит массив команд
+  игроков -- 8 байт (валидный индекс 0..7). Код читает его по номеру слота
+  (<code>EDI</code>, в пределах) и по "выбранному игроку" (<code>ECX</code>).
+  Перед вторым чтением проверяется только знак (<code>id &gt;= 0</code>),
+  верхняя граница -- нет. "Выбранный игрок" содержит мусор, поэтому адрес
+  <code>base + ECX + 0x1F879</code> уходит далеко за пределы массива.</p>
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box ok">B<span class="lbl">EAX = база</span></div>
+      <div class="viz-box ok dim">team[0..7]<span class="lbl">+0x1F879, 8 байт</span></div>
+      <div class="viz-box accent">T<span class="lbl">team[EDI] -- норма</span></div>
+      <div class="viz-box dim">...<span class="lbl">за массивом</span></div>
+      <div class="viz-box bad dashed">F<span class="lbl">team[ECX] -- СБОЙ</span></div>
+    </div>
+    <p class="viz-cap">чтение по "выбранному игроку" уходит далеко правее массива из 8 элементов</p>
+  </div>
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge ok">B</span>
+      <span class="txt">база менеджера игры (<code>EAX</code>), выровнена по 64K -- валидна.</span></div>
+    <div class="item"><span class="viz-badge accent">T</span>
+      <span class="txt">штатное чтение <code>team[EDI]</code> по номеру слота (0..7) на
+      <code>0x00457D7D</code> -- проходит во всех вылетах.</span></div>
+    <div class="item"><span class="viz-badge bad">F</span>
+      <span class="txt">адрес сбоя <code>base + ECX + 0x1F879</code>, где <code>ECX</code>
+      ("выбранный игрок") вне диапазона 0..7 -- проверена только нижняя граница.</span></div>
+  </div>
+</section>
+
+  <section id="summary">
+    <h2><span class="htext">Краткое резюме</span><a class="anchor" href="#summary">¶</a></h2>
+    <div class="card summary"><p>В режиме кампании при клике на сценарий (по показаниям игроков -- "Spoils of War", при загрузке сохранённой кампании) игра падает в диалоге выбора сценария, пытаясь прочитать байт команды (альянса) "выбранного игрока" из таблицы заголовка карты. Номер выбранного игрока возвращает виртуальный метод объекта сценария кампании и используется как индекс в массив из 8 элементов; перед использованием проверяется только знак (не отрицательный), но НЕ верхняя граница. В логах номер выходит за пределы 0..7, поэтому адрес чтения уходит за пределы структуры менеджера игры.</p><p>Это та же точка сбоя и та же механика, что в серии вылетов HotA 1.8.0 по адресу 457D84, но здесь -- чистый движок SoD (поле HotA version отсутствует, модуль <code>Heroes3.exe</code>). Совпадение адреса, смещения поля и цепочки вызовов доказывает, что дефект унаследован от SoD.</p><p>Тип исключения: <code>EXCEPTION_ACCESS_VIOLATION</code>, чтение (read). Где: <code>Heroes3.exe</code> / <code>Heroes3 HD.exe</code>, адрес <code>0x00457D84</code>, инструкция <code>mov bl,[eax+ecx+1F879h]</code>. Корневой регистр: <code>ECX</code> = "выбранный игрок" (вне диапазона) при валидной базе <code>EAX</code>.</p></div>
+  </section>
+
+  <section id="s1">
+    <h2><span class="htext">Исходные данные</span><a class="anchor" href="#s1">¶</a></h2>
+    <p>Уникальных вылетов: 41 Версия HotA: N/A (чистый SoD-режим, поле HotA version отсутствует во всех 41 вылетах; <code>EXE_VERSION</code> &amp; SOD) Версии HD-мода: 5.7 R12 (29), 5.7 R8 (7), 5.7 R13 (2), 5.7 R7 (2), 5.7 R9 (1)  -- серия смешана по версии HD-мода; код места сбоя при этом во всех вылетах один и тот же (главный EXE, базовый адрес <code>0x400000</code>). Класс сбоя: выход за границы (вычисленный индекс/сентинел)</p><p>Модуль сбоя: главный EXE с базовым адресом образа <code>0x00400000</code>. По именам в логах: <code>Heroes3.exe</code> (25 вылетов, чистый SoD), <code>Heroes3 HD.exe</code> (8), <code>Heroes3_HD.exe</code> (8). Все три -- один и тот же движок SoD по адресу <code>0x400000</code>. Адрес сбоя: <code>0x00457D84</code> (во всех 41 вылете). Операция: read (чтение). Код исключения: <code>EXCEPTION_ACCESS_VIOLATION</code>.</p><p>Регистры (типовой вылет): <code>EAX=0x09000000</code>  <code>ECX=0x1BDD86D2</code>  <code>EDX=0xFFFFFF00</code>  <code>EBX=0x00000071</code> <code>ESI=0x00199CB4</code>  <code>EDI=0x00000000</code>  <code>EBP=0x00199008</code>  <code>ESP=0x00198FF4</code> Information: read of address: <code>0x24DF7F4B</code></p><p>Состояние игры: Game Type = 0, Network Game = 0 (одиночная игра / экран кампании) Me и Active Player совпадают (0, 1, 2, 5 в разных вылетах) Day = 1 11 (во всех вылетах -- меню/экран кампании, до начала партии) Map file -- разный (test.h3m, Arrogance.h3m, Xathras Prize.h3m, Myth and Legend.h3m, War of the Mighty, AUTOSAVE.GM1/.CGM, AUTOZAPIS.CGM) -- остаточное поле последней карты, к месту сбоя отношения не имеет (сбой на экране выбора сценария кампании). Last RMG Seed = 0</p><p>Комментарии игроков: блок Comment проверен по всей серии. Реальные показания есть у 3 из 41 вылетов (остальные -- без комментария либо только автотекст репортёра). Дословно:</p><ul><li>"End of the Inferno senario. used unlimited movment cheat and just conquered steadwick"</li><li>"saved game; campaign mode, when i click on Spoils of War; happend 3 times and keeps happening"</li><li>"Crashes when click on Spoils of War when loading saved campaign" Это <b class="hi">ПОКАЗАНИЯ</b> игроков (не подтверждённый кодом факт): они указывают направление воспроизведения -- режим кампании, клик на сценарий, загрузка сохранённой кампании. Это согласуется с механизмом из раздела 7 (рассинхрон индексов сохранённой кампании с заново загружаемым файлом .h3c).</li></ul>
+  </section>
+
+  <section id="s2">
+    <h2><span class="htext">Корреляция дампов (сравнительная таблица)</span><a class="anchor" href="#s2">¶</a></h2>
+    <p>Все 41 вылет имеют один адрес сбоя (<code>0x00457D84</code>), одну операцию (read), один путь вызова (<code>0x004578E4</code> → <code>0x00457D84</code>) и общий набор инвариантных регистров. Различается лишь "выбранный игрок" (<code>ECX</code>) и производный от него адрес чтения.</p><p>Профиль "большой индекс" (36 из 41 вылетов): <code>ECX</code> -- большое произвольное значение, меняется от вылета к вылету. Примеры:</p><div class="tablewrap"><table><thead><tr><th class="mono">№</th><th class="mono">Адрес чтения</th><th class="mono">EAX(база)</th><th class="mono">ECX(индекс)</th><th class="mono">Карта</th><th class="mono">HD-мод</th></tr></thead><tbody><tr><td class="mono">1</td><td class="mono">0x24DF7F4B</td><td class="mono">0x09000000</td><td class="mono">0x1BDD86D2</td><td class="mono">AUTOSAVE.GM1</td><td class="mono">5.7 R8</td></tr><tr><td class="mono">2</td><td class="mono">0x7671562D</td><td class="mono">0x0A980000</td><td class="mono">0x6BD75DB4</td><td class="mono">test.h3m</td><td class="mono">5.7 R12</td></tr><tr><td class="mono">7</td><td class="mono">0x48A5867C</td><td class="mono">0x09B90000</td><td class="mono">0x3EEA8E03</td><td class="mono">test.h3m</td><td class="mono">5.7 R12</td></tr><tr><td class="mono">11</td><td class="mono">0x70087C31</td><td class="mono">0x0DDB0000</td><td class="mono">0x622B83B8</td><td class="mono">(campaign)</td><td class="mono">5.7 R12</td></tr><tr><td class="mono">41</td><td class="mono">0x3DC0AFEE</td><td class="mono">0x0A6B0000</td><td class="mono">0x3353B775</td><td class="mono">AUTOZAPIS.CGM</td><td class="mono">5.7 R12</td></tr></tbody></table></div><p>Профиль "структурный индекс" (5 из 41 вылетов): <code>ECX = 0x00080006</code> (= 524294), тоже далеко за пределами массива из 8 элементов. Примеры:</p><div class="tablewrap"><table><thead><tr><th class="mono">№</th><th class="mono">Адрес чтения</th><th class="mono">EAX(база)</th><th class="mono">ECX(индекс)</th><th class="mono">Карта</th><th class="mono">HD-мод</th></tr></thead><tbody><tr><td class="mono">16</td><td class="mono">0x0AC0F87F</td><td class="mono">0x0AB70000</td><td class="mono">0x00080006</td><td class="mono">test.h3m</td><td class="mono">5.7 R7</td></tr><tr><td class="mono">31</td><td class="mono">0x0B86F87F</td><td class="mono">0x0B7D0000</td><td class="mono">0x00080006</td><td class="mono">test.h3m</td><td class="mono">5.7 R12</td></tr><tr><td class="mono">35</td><td class="mono">0x0D4CF87F</td><td class="mono">0x0D430000</td><td class="mono">0x00080006</td><td class="mono">Xathras Prize.h3m</td><td class="mono">5.7 R12</td></tr><tr><td class="mono">39</td><td class="mono">0x0B3DF87F</td><td class="mono">0x0B340000</td><td class="mono">0x00080006</td><td class="mono">test.h3m</td><td class="mono">5.7 R9</td></tr></tbody></table></div><p>Группировка: один путь вызова, одна падающая функция, один шаблон отказа. Это системный путь, а не локальный баг конкретной карты (карты и сборки HD-мода разные при одном адресе сбоя).</p><p>Сопоставление с HotA-серией (папка 457D84): профиль "структурный индекс" в SoD -- <code>ECX=0x00080006</code>, в HotA -- <code>ECX=0x00080004</code> (оба = значение вида 0x0008000X, старшее слово <code>0x0008</code>). Это один и тот же шаблон отказа в обеих сборках; структурный вид согласуется с возвратом целого dword из виртуального метода (см. раздел 7), а не зажатого байта игрока.</p>
+  </section>
+
+  <section id="s3">
+    <h2><span class="htext">Сопоставление адресов</span><a class="anchor" href="#s3">¶</a></h2>
+    <p>Главный EXE (<code>Heroes3.exe</code> / <code>Heroes3 HD.exe</code>): базовый адрес образа = адрес загрузки = <code>0x00400000</code>, поэтому адрес из лога совпадает с адресом листинга напрямую (<code>runtime_addr</code> — <code>load_base</code> + imagebase = <code>runtime_addr</code>).</p><p>Адрес сбоя <code>0x00457D84</code> → листинг .text:00457D84 (точное совпадение).</p><p>Адресная проверка инструкции сбоя (<code>mov bl,[eax+ecx+1F879h]</code>): faulting = <code>EAX + ECX + 0x1F879</code></p><div class="card"><div class="kv"><span class="k">Вылет 1</span><span class="v"><code>0x09000000 + 0x1BDD86D2 + 0x1F879 = 0x24DF7F4B</code>  (совпало) Вылет 16: <code>0x0AB70000 + 0x00080006 + 0x1F879 = 0x0AC0F87F</code>  (совпало) Вылет 41: <code>0x0A6B0000 + 0x3353B775 + 0x1F879 = 0x3DC0AFEE</code>  (совпало)</span></div></div><p>Совпадение во всех вылетах подтверждает: база <code>EAX</code> валидна, смещение поля <code>+0x1F879</code> фиксировано, за границы выводит именно <code>ECX</code>.</p><p>Идентичность смещения <code>+0x1F879</code> с HotA-серией доказывает, что layout структуры менеджера игры (поле команды игрока) и сама инструкция по <code>0x00457D84</code> в SoD и в HotA одинаковы -- код унаследован без изменений.</p>
+  </section>
+
+  <section id="s4">
+    <h2><span class="htext">Точка сбоя — разбор инструкций</span><a class="anchor" href="#s4">¶</a></h2>
+    <p>Точка сбоя по адресу <code>0x00457D84</code> совпадает с разобранной в HotA-серии (папка 457D84). Функция -- расстановка союзников и врагов в диалоге выбора сценария кампании (по адресам HotA-листинга: <code>sub_457CF0</code>, начало <code>0x00457CF0</code>). В SoD-режиме отдельный листинг чистого <code>Heroes3.exe</code> не требуется: совпадают адрес, смещение поля и цепочка вызовов, поэтому маппинг ведётся по тем же адресам главного EXE (базовый адрес <code>0x400000</code> общий для <code>Heroes3.exe</code> и <code>h3hota.exe</code>).</p><p>Восстановленная по HotA-листингу схема (адреса главного EXE стабильны):</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:00457D06  </span><span class="k">mov</span>  <span class="r">eax</span>, [<span class="r">eax</span>+<span class="n">1F468h</span>]      <span class="c">; arg = camp_info.selected_bonus_ix</span>
+<span class="a">.text:00457D10  </span><span class="k">mov</span>  <span class="r">ecx</span>, [<span class="r">ecx</span>+<span class="r">edx</span>*<span class="n">4</span>]       <span class="c">; scenarios_list[scenario_ix]</span>
+<span class="a">.text:00457D13  </span><span class="k">mov</span>  <span class="r">ecx</span>, [<span class="r">ecx</span>+<span class="n">0A4h</span>]        <span class="c">; scenario-&gt;start_options</span>
+<span class="a">.text:00457D19  </span><span class="k">mov</span>  <span class="r">edx</span>, [<span class="r">ecx</span>]             <span class="c">; vtable</span>
+<span class="a">.text:00457D1B  </span><span class="k">call</span> <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">edx</span>+<span class="n">20h</span>]    <span class="c">; Get_PlayerID(arg) -&gt; id игрока</span>
+<span class="a">.text:00457D1E  </span><span class="k">mov</span>  &lt;SelectedPlayerID&gt;, <span class="r">eax</span> <span class="c">; сохранение БЕЗ проверки</span>
+                                             ; верхней границы
+...
+<span class="a">.text:00457D5F  </span><span class="k">mov</span>  <span class="r">eax</span>, &lt;GameMgr&gt;          <span class="c">; база менеджера игры</span>
+<span class="a">.text:00457D64  </span><span class="k">mov</span>  <span class="r">cl</span>, [<span class="r">eax</span>+<span class="r">edi</span>+<span class="n">1F6D0h</span>]    <span class="c">; флаг наличия игрока (слот EDI)</span>
+<span class="a">.text:00457D6D  </span><span class="k">jl</span>   <span class="r">short</span> &lt;skip&gt;            <span class="c">; флаг&lt;0 -&gt; слот пропущен</span>
+<span class="a">.text:00457D71  </span><span class="k">jl</span>   <span class="r">short</span> &lt;skip&gt;            <span class="c">; v1&lt;0 -&gt; пропуск</span>
+<span class="a">.text:00457D79  </span><span class="k">test</span> <span class="r">ecx</span>, <span class="r">ecx</span>
+<span class="a">.text:00457D7B  </span><span class="k">jl</span>   <span class="r">short</span> &lt;skip&gt;            <span class="c">; id&lt;0 -&gt; пропуск (только знак!)</span>
+<span class="a">.text:00457D7D  </span><span class="k">mov</span>  <span class="r">dl</span>, [<span class="r">eax</span>+<span class="r">edi</span>+<span class="n">1F879h</span>]    <span class="c">; team[слот]   (норма)</span>
+<span class="fault"><span class="a">.text:00457D84  </span><span class="k">mov</span>  <span class="r">bl</span>, [<span class="r">eax</span>+<span class="r">ecx</span>+<span class="n">1F879h</span>]    <span class="c">; team[id] &lt;- СБОЙ</span></span>
+<span class="a">.text:00457D8B  </span><span class="k">cmp</span>  <span class="r">dl</span>, <span class="r">bl</span>                  <span class="c">; сравнение команд</span></pre></div><p>Механика отказа: единственная проверка "выбранного игрока" перед использованием как индекса -- проверка знака (test <code>ecx</code>,<code>ecx</code>; jl). Верхней границы (id &lt; 8) нет. <code>EAX</code> -- валидная база менеджера игры; <code>+0x1F879</code> -- фиксированное смещение поля команды игрока в заголовке карты. При значении вне диапазона 0..7 адрес <code>EAX + ECX + 0x1F879</code> уходит за пределы выделенной памяти, и чтение байта падает.</p><p>Поставщик значения (виртуальный вызов <code>0x00457D1B</code>) разрешён по HotA-листингу: объект scenario→<code>start_options</code> (поле <code>+0xA4</code>) -- полиморфный <code>_CampScenarioStartOptions_</code>, слот его таблицы виртуальных функций <code>+0x20</code> во всех конкретных типах указывает на метод <code>Get_PlayerID</code>. Подробный разбор типов и аргумента -- в разделе 7.</p>
+  </section>
+
+  <section id="s5">
+    <h2><span class="htext">Регистровые инварианты</span><a class="anchor" href="#s5">¶</a></h2>
+    <p>Постоянные во всех 41 вылете: <code>EDI = 0x00000000</code> -- цикл падает на слоте игрока №0. (В HotA-серии было <code>EDI=1</code>: там слот №0 пропускался по флагу наличия, падало на слоте №1. Это лишь разные итерации одного и того же цикла -- механика идентична.) <code>EDX = 0xFFFFFF00</code> -- младший байт DL = 0: team[слот №0], успешно прочитанный на <code>0x00457D7D</code> перед сбоем (соседнее чтение по валидному индексу проходит). <code>EBX = 0x00000071</code> -- рабочий байт = <code>0x71</code> + слот (<code>lea ebx,[edi+71h]</code> при <code>EDI=0</code>). В HotA было <code>0x72</code> при <code>EDI=1</code> -- та же формула.</p><p>Переменные: <code>EAX</code> -- база менеджера игры, выровнена по 64K (0x..0000); своя аллокация на каждой машине -- штатно. <code>ECX</code> -- "выбранный игрок": в 36 вылетах большое произвольное значение (<code>0x0A540847</code> ... <code>0x7CB8FCF8</code>), в 5 вылетах структурное <code>0x00080006</code>. Оба профиля -- значения, далеко выходящие за диапазон 0..7. Адрес чтения = <code>EAX + ECX + 0x1F879</code> -- следствие выхода <code>ECX</code> за границу.</p><p>Контракт нарушен на величину, невозможную для исправного объекта: метод <code>Get_PlayerID</code> по контракту возвращает игрока в диапазоне байта (0..255, см. раздел 7), а в логах <code>ECX</code> -- сотни мегабайт либо структурный dword <code>0x00080006</code>. Значит вернулось не валидное поле игрока, а целый dword из чужого/неверно интерпретированного объекта. Произвольность <code>ECX</code> между вылетами (в т.ч. на одной карте test.h3m) подтверждает, что значение не является стабильной величиной из файла сценария.</p>
+  </section>
+
+  <section id="s6">
+    <h2><span class="htext">Восстановленная цепочка вызовов</span><a class="anchor" href="#s6">¶</a></h2>
+    <p>Восстановлено по Call stack / Call stack V2 (адреса главного EXE маппятся напрямую, базовый адрес <code>0x400000</code>):</p><div class="chain"><div class="step"><span class="dot"></span><div><div class="ttl">_hd3_.dll / HD_SOD.dll (цикл событий интерфейса / диспетчер диалога)</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl">0x0045A089  обработка диалога выбора сценария</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl">0x00457670  обработчик выбора сценария кампании</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>0x004578E4  call sub_457CF0 (расстановка союзников/врагов)</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl">0x00457D84  место сбоя</div></div></div></div><p>Кадры <code>HD_SOD.dll</code> / <code>_hd3_.dll</code> и трамплины <code>patcher_x86</code> (<code>0x020Axxxx</code>) -- это драйвер интерфейса HD-мода, прокачивающий событие диалога. Виновный код лежит в главном EXE (движок SoD); HD-мод лишь доставляет событие открытия/обновления экрана выбора сценария кампании. Путь вызова идентичен HotA-серии. Кадр <code>0x004EF37C</code> в стеке -- это путь главного меню <code>A0_MainMenu</code>, через который кампания продолжается из сохранения (см. раздел 7).</p>
+  </section>
+
+  <section id="s7">
+    <h2><span class="htext">Первопричина</span><a class="anchor" href="#s7">¶</a></h2>
+    <p>Непосредственный дефект (точка сбоя): функция расстановки союзников и врагов берёт "выбранного игрока" виртуальным методом объекта сценария кампании и использует его как индекс в массив команд игроков (8 элементов) без проверки верхней границы. Из проверок перед чтением (флаг наличия слота, знак номера слота, знак "выбранного игрока") ни одна не ограничивает "выбранного игрока" сверху значением 8.</p><p>Поставщик значения разрешён по листингу. Объект scenario→<code>start_options</code> (поле <code>+0xA4</code>) -- полиморфный <code>_CampScenarioStartOptions_</code>, создаётся при чтении файла кампании (<code>A0_CampScenario_Read_sub_487980</code>) одним из трёх типов по тег-байту из файла: 1 → Bonus, 2 → Player, 3 → Hero, иначе <code>start_options</code> остаётся <code>NULL</code>. Слот таблицы виртуальных функций <code>+0x20</code> во всех трёх типах -- это метод <code>Get_PlayerID</code>. Его реализации НЕ эквивалентны по диапазону результата:</p><div class="card"><div class="kv"><span class="k">Player (sub_4852C0)</span><span class="v"><code>movsx eax, byte ptr [list+arg*2]   --</code> знаковый байт, диапазон -128..127;</span></div><div class="kv"><span class="k">Bonus  (sub_484CB0)</span><span class="v"><code>mov eax, [ecx+4]                   -- dword,</code> записанный как (x &amp; <code>0xFF</code>), диапазон 0..255;</span></div><div class="kv"><span class="k">Hero   (sub_485680)</span><span class="v"><code>mov eax, [[ecx+8] + arg*8]         --</code> <b class="hi">ЦЕЛЫЙ</b> dword по индексу arg, <b class="hi">БЕЗ</b> клампа.</span></div></div><p>Аргумент метода (arg) -- это <code>camp_info</code>.<code>selected_bonus_ix</code> (поле менеджера игры <code>+0x1F468</code>), считываемое на <code>0x00457D06</code> и тоже не проверяемое сверху.</p><p>Отсюда два уровня отсутствующих проверок верхней границы, оба на индексах, восстановленных из сохранённого состояния кампании: 1) <code>scenario_ix</code> (<code>this+0x6C</code>) -- выбор объекта <code>scenarios_list</code><code>[scenario_ix]</code>; 2) <code>selected_bonus_ix</code> <code>(camp_info +0x1F468)</code> -- аргумент <code>Get_PlayerID</code>, используемый Hero-вариантом как <code>[base + arg*8]</code> и Player-вариантом как <code>[list + arg*2]</code>. Структурное значение <code>ECX=0x00080006</code> (старшее слово <code>0x0008</code>) согласуется именно с Hero-вариантом: возвращён целый dword, а не зажатый байт игрока. Этот dword функция <code>sub_457CF0</code> принимает за номер игрока 0..7 и без верхней проверки кладёт в индекс таблицы команд.</p><p>Почему объект-поставщик оказывается негодным. Список сценариев и их объекты <code>start_options</code> НЕ сериализуются в сейв: при продолжении кампании из сохранения путь главного меню <code>A0_MainMenu_sub_4EEA70</code> (кадр <code>0x004EF37C</code> в стеке этой серии) заново строит <code>scenarios_list</code> из файла .h3c вызовом <code>A0_CampInfo_Load_sub_4883C0</code> (число сценариев = таблица <code>A0_CampMapInfos</code><code>[campaing_id]</code>.<code>region_count</code>). Из сейва восстанавливаются только индексы (<code>scenario_ix</code>, <code>selected_bonus_ix</code>). Если сохранённые индексы не соответствуют заново загруженному списку (другая версия или мод кампании, иной <code>campaing_id</code>, иное число сценариев), scenario<code>[scenario_ix]</code> и/или <code>Get_PlayerID</code>(<code>selected_bonus_ix</code>) читают за границей → возвращается мусор → чтение team<code>[id]</code> падает. Тот же паттерн "индекс из сейва → <code>Get_PlayerID</code> → индекс игрока без проверки" повторно встречается в <code>A0_MainMenu_sub_4EEA70</code> (<code>0x4EFB81</code>, <code>0x4EFFCD</code>), что доказывает системность контракта, а не единичную опечатку. Это согласуется с показаниями игроков ("loading saved campaign", "Spoils of War").</p><p>Сравнение с соседними путями (доказательство пропущенной проверки): в главном EXE около 120 чтений того же поля команды team[<code>+0x1F879</code>], и почти все парные сравнения берут оба индекса из циклов 0..7. Путь <code>0x00457D7D/0x00457D84</code> -- единственный, где один индекс приходит из виртуального метода, а не из ограниченного цикла; именно у него нет проверки верхней границы.</p><p>Наследование от SoD: дефект присутствует в чистом движке SoD (модуль <code>Heroes3.exe</code>, 25 из 41 вылета, без HotA). Совпадение адреса, смещения поля <code>+0x1F879</code>, цепочки вызовов и регистровых инвариантов с HotA-серией доказывает, что HotA унаследовала эту функцию от SoD без правки границы.</p><p>Вывод по первопричине: место сбоя -- симптом отсутствующей проверки верхней границы индекса. Поставщик значения разрешён (<code>Get_PlayerID</code> полиморфного объекта <code>start_options</code>), и механизм понятен: два индекса из сохранённого состояния кампании используются без верхней границы поверх списка сценариев, заново загружаемого из .h3c. <b class="hi">КОНКРЕТНЫЙ</b> корраптор (какой именно фактор разводит сохранённые индексы с перезагруженным файлом -- версия/мод кампании, повреждение сейва) по статике не фиксируется: для него нужен сейв игрока или минидамп.</p>
+  </section>
+
+  <section id="s8">
+    <h2><span class="htext">Условия, спровоцировавшие сбой</span><a class="anchor" href="#s8">¶</a></h2>
+    <ul><li>Режим кампании (одиночная игра): Game Type = 0, Network Game = 0, Day = 1, до начала партии.</li><li>Показания игроков (3 независимых лога) прямо указывают сценарий: клик на сценарий кампании "Spoils of War" при загрузке сохранённой кампании; один лог -- "End of the Inferno senario". Повторяемость по словам игрока высокая ("happend 3 times and keeps happening").</li><li>Путь сбоя исполняется при выборе сценария в диалоге кампании, в т.ч. при продолжении сохранённой кампании через главное меню (кадр <code>0x004EF37C</code>).</li><li>Настройки графики/боя/памяти на путь сбоя не влияют -- они различаются между вылетами при одном адресе.</li><li>Карты и сборки HD-мода разные; общий знаменатель -- сам экран выбора сценария кампании, а не конкретная карта или сборка.</li></ul>
+  </section>
+
+  <section id="s9">
+    <h2><span class="htext">Достоверность и ограничения</span><a class="anchor" href="#s9">¶</a></h2>
+    <p>Верификация листинга: модуль сбоя -- главный EXE движка SoD (<code>Heroes3.exe</code> / <code>Heroes3 HD.exe</code>), базовый адрес образа <code>0x00400000</code>. Отдельный листинг чистого <code>Heroes3.exe</code> не привлекался: адрес <code>0x00457D84</code>, смещение поля <code>+0x1F879</code>, цепочка вызовов и регистровые инварианты совпадают с разобранной HotA-серией, где инструкция по <code>0x00457D84</code> (<code>mov bl,[eax+ecx+1F879h]</code>) сверена с листингом Модули/<code>h3hota.exe.txt</code> байт-в-байт. <code>Heroes3.exe</code> и <code>h3hota.exe</code> имеют общий базовый адрес <code>0x400000</code>, поэтому унаследованный код лежит по тем же адресам. Маппинг прямой.</p><p>Достоверность сигнатуры -- очень высокая: 41 вылет, один адрес, один путь вызова, устойчивые инварианты (<code>EDI=0</code>, <code>EDX=0xFFFFFF00</code>, <code>EBX=0x71</code>). Достоверность <b class="hi">МЕХАНИЗМА</b> -- высокая: поставщик значения разрешён по листингу (виртуальный <code>Get_PlayerID</code> полиморфного объекта <code>start_options</code>), доказаны два непроверенных индекса (<code>scenario_ix</code>, <code>selected_bonus_ix</code>) из сохранённого состояния кампании поверх списка, заново загружаемого из .h3c; механизм подтверждён показаниями игроков о загрузке сохранённой кампании. Достоверность <b class="hi">КОНКРЕТНОГО</b> <b class="hi">КОРРАПТОРА</b> -- низкая: какой фактор разводит сохранённые индексы с перезагруженным файлом (версия/мод кампании, повреждение сейва), по статике не определить -- нужен сейв игрока или минидамп.</p><p>Полезность лога -- <b class="hi">СРЕДНЯЯ</b>: место сбоя и контракт поставщика локализованы точно, но первопричина (рассинхрон индексов сейва с перезагруженным списком сценариев) находится выше по стеку и по статике не сводится к одному фиксу в точке сбоя. Проверка верхней границы индекса в точке сбоя (и/или в <code>Get_PlayerID</code>) убрала бы падение, но это защита от симптома; полноценный фикс -- согласование сохранённых индексов с заново загружаемой кампанией.</p><p>Ограничение по чистому листингу SoD: листинг отдельного <code>Heroes3.exe</code> в проекте отсутствует. Разбор поставщика (<code>Get_PlayerID</code>, типы <code>start_options</code>, путь <code>A0_MainMenu</code>/<code>A0_CampInfo_Load</code>) выполнен по листингу <code>h3hota.exe</code>; перенос на чистый SoD обоснован общим базовым адресом <code>0x400000</code> и совпадением всех сигнатур. Для трассировки в точности по чистому SoD понадобился бы листинг <code>Heroes3.exe</code> нужной сборки.</p><p>Кадры <code>HD_SOD.dll</code> / <code>_hd3_.dll</code> и трамплины <code>patcher_x86</code> в стеке не маппятся в листинг (драйвер интерфейса HD-мода и runtime-стабы хуков); на диагноз виновного модуля это не влияет. Рассинхрон версий HD-мода (5.7 R7/R8/R9/R12/R13) -- только в периферийном модуле; падающий главный EXE постоянен по базовому адресу, поэтому рассинхрон диагноз не блокирует.</p>
+  </section>
+
+  <section id="s10">
+    <h2><span class="htext">Признаки поиска в старых версиях HotA / в SoD</span><a class="anchor" href="#s10">¶</a></h2>
+    <p>Код места сбоя находится в главном EXE движка Shadow of Death. Эта серия сама по себе доказывает присутствие дефекта в чистом SoD (модуль <code>Heroes3.exe</code> без HotA), поэтому баг не специфичен для HotA и существовал до версии 1.8.0.</p><p>Стабильные сигнатуры для опознания вылета независимо от версии:</p><ul><li>Context-инварианты: <code>EDX=0xFFFFFF00</code> (DL=0), <code>EBX=0x71</code> (при <code>EDI=0</code>) или <code>0x72</code> (при <code>EDI=1</code>); адрес сбоя -- чтение по <code>EAX + ECX + 0x1F879</code> при валидном <code>EAX</code> и выходящем за диапазон <code>ECX</code>.</li><li>Текстовая сигнатура по дизассемблеру (поиск в листинге любой версии): <code>mov  ecx,</code> &lt;SelectedPlayerID-глобал&gt; test <code>ecx</code>, <code>ecx</code> <code>jl   short</code> &lt;skip&gt; <code>mov  dl, [eax+edi+1F879h] mov  bl, [eax+ecx+1F879h]</code>   &lt;- инструкция сбоя <code>cmp  dl, bl</code> Характерно отсутствие сравнения индекса с верхней границей (нет cmp с 8) между проверкой знака и чтением.</li><li>Стабильные адреса главного EXE: функция расстановки союзников/врагов <code>0x00457CF0</code>, вызов из обработчика выбора сценария <code>0x004578E4</code>, поставщик значения -- виртуальный метод <code>Get_PlayerID</code> объекта <code>start_options</code> (слот таблицы виртуальных функций <code>+0x20</code>). Эти адреса общие для <code>Heroes3.exe</code> (SoD) и <code>h3hota.exe</code> (HotA), так как оба имеют базовый адрес <code>0x400000</code>.</li><li>Сиблинг: соседнее чтение <code>0x00457D7D</code> (того же поля команды по индексу слота с проверкой знака слота) -- проверки верхней границы там также нет, потому что слот ограничен циклом 0..7; для "выбранного игрока" такого ограничения нет.</li></ul>
+  </section>
+
+  <section id="s11">
+    <h2><span class="htext">Воспроизведение вылета</span><a class="anchor" href="#s11">¶</a></h2>
+    <p>Уровень воспроизводимости: по показаниям игроков -- высокий ("happend 3 times and keeps happening"), хотя само значение "выбранного игрока" в логах выходит за диапазон. Путь сбоя детерминирован (открытие/выбор сценария в диалоге кампании всегда доходит до чтения по индексу "выбранного игрока"), а попадание за границу определяется рассинхроном сохранённого состояния кампании с заново загружаемым файлом .h3c.</p><p>Условие активации пути (из кода): функция расстановки союзников/врагов вызывается при выборе сценария в диалоге кампании; до чтения по индексу "выбранного игрока" перебирается слот игрока (в логах SoD падает на слоте №0).</p><p>Роль 1 -- тестер за игрой (без отладчика):</p><ul><li>Запустить SoD-режим под HD-модом (по логам -- HD-мод 5.7 R7...R13; встречается и чистый <code>Heroes3.exe</code>, и <code>Heroes3 HD.exe</code>).</li><li>Войти в режим кампании и <b class="hi">ЗАГРУЗИТЬ</b> сохранённую кампанию, затем кликнуть на сценарий. По показаниям игроков воспроизводится на сценарии "Spoils of War" (упоминается также "End of the Inferno"); стоит проверить и другие сценарии.</li><li>Повышает шанс: сейв кампании, сделанный в другой версии или сборке кампании, чем установленная сейчас (рассинхрон индексов сохранённой кампании с перезагружаемым файлом .h3c).</li><li>Что ловить: сам факт вылета с адресом <code>0x00457D84</code>. По словам игрока происходит повторяемо при клике на сценарий загруженной кампании.</li><li>Варьировать: разные кампании и сценарии внутри них, повторные загрузки сохранённой кампании, открытие диалога выбора сценария.</li></ul><p>Роль 2 -- подтверждение причины (с отладчиком / минидампом):</p><ul><li>Точка останова на <code>0x00457D84</code>. Подтвердить, что <code>ECX</code> ("выбранный игрок") вне диапазона 0..7 и что faulting = <code>EAX + ECX + 0x1F879</code>.</li><li>Подняться к виртуальному вызову <code>0x00457D1B</code>: снять тип объекта <code>start_options</code> (<code>[ecx]</code> -- какая из таблиц Player/Bonus/Hero), значение аргумента <code>selected_bonus_ix</code> <code>(camp_info +0x1F468)</code> и возврат метода.</li><li>Сверить <code>scenario_ix</code> (<code>this+0x6C</code>) и реальный размер <code>scenarios_list</code> с тем, что даёт перезагрузка .h3c (число = <code>A0_CampMapInfos</code><code>[campaing_id]</code>. <code>region_count</code>): расхождение подтверждает рассинхрон индексов сейва.</li><li>Дифференциальный тест: условный останов/патч, пропускающий путь при "выбранном игроке" &gt;= 8, должен убрать именно этот вылет -- это подтверждает, что за границы выводит индекс, а не база.</li><li>Минимальные данные для репорта разработчикам: краш-лог + минидамп, тип объекта <code>start_options</code>, значения <code>scenario_ix</code> и <code>selected_bonus_ix</code>, имя кампании/сценария ("Spoils of War") и сейв кампании.</li></ul>
+  </section>
+
+  <section id="verdict">
+    <h2><span class="htext">Вывод</span><a class="anchor" href="#verdict">¶</a></h2>
+    <div class="card verdict lvl-mid"><p>Виновник -- код главного EXE движка Shadow of Death (диалог выбора сценария кампании, функция расстановки союзников и врагов). "Выбранный игрок" возвращает виртуальный метод <code>Get_PlayerID</code> объекта сценария кампании и используется как индекс в массив команд игроков из 8 элементов с проверкой только знака и без проверки верхней границы. Механизм разрешён по статике: два индекса из сохранённого состояния кампании (выбор сценария и аргумент <code>Get_PlayerID</code>) применяются без верхней границы поверх списка сценариев, заново загружаемого из файла .h3c; при их рассинхроне метод возвращает значение вне диапазона 0..7, и чтение байта команды уходит за пределы памяти. Дефект присутствует в чистом SoD (<code>Heroes3.exe</code>) и унаследован HotA без изменений -- это та же точка сбоя, что в серии вылетов HotA 1.8.0 по адресу 457D84. Точка сбоя и контракт поставщика подтверждены арифметикой и листингом во всех 41 вылете; конкретный фактор рассинхрона (версия/мод кампании, повреждение сейва) по статике не локализуется -- для него нужен сейв игрока или минидамп.</p></div>
+  </section>
+
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Скопировано</div>
+
+<script>
+(function(){
+  var KEY="hota-theme-v6",root=document.documentElement;
+  var ic=document.getElementById("themeUse"),lb=document.getElementById("themeLabel");
+  var mq=window.matchMedia?matchMedia("(prefers-color-scheme: light)"):null;
+  // по умолчанию следуем за системной темой; ручной клик фиксирует light/dark и перекрывает её
+  function manual(){try{var s=localStorage.getItem(KEY);return(s==="light"||s==="dark")?s:null;}catch(e){return null;}}
+  function effective(){return manual()||(mq&&mq.matches?"light":"dark");}
+  // иконка — SVG (солнце/луна), переключаем href у <use>, а не emoji-глиф
+  function paintBtn(){var l=effective()==="light";
+    ic.setAttribute("href",l?"#ic-sun":"#ic-moon");
+    lb.textContent=l?"\u0421\u0432\u0435\u0442\u043B\u0430\u044F":"\u0422\u0451\u043C\u043D\u0430\u044F";}
+  // ВСЕГДА ставим явный класс (theme-light либо theme-dark) — без @media-CSS
+  function apply(){root.classList.remove("theme-light","theme-dark");
+    root.classList.add("theme-"+effective());paintBtn();}
+  apply();
+  // смена системной темы -> сбросить ручной выбор и снова следовать за системой
+  if(mq){var hh=function(){try{localStorage.removeItem(KEY);}catch(e){}apply();};
+    mq.addEventListener?mq.addEventListener("change",hh):mq.addListener(hh);}
+  document.getElementById("themeToggle").onclick=function(){
+    var n=effective()==="light"?"dark":"light";
+    try{localStorage.setItem(KEY,n);}catch(e){}apply();};
+  var links={},secs=[].slice.call(document.querySelectorAll("main section[id]"));
+  document.querySelectorAll("nav.toc a").forEach(function(a){links[a.getAttribute("href").slice(1)]=a;});
+  var lock=0,lockT,ticking=0;
+  // подсветка только в оглавлении
+  function setActive(id){
+    Object.keys(links).forEach(function(k){links[k].classList.remove("active");});
+    if(links[id])links[id].classList.add("active");}
+  function unlockSoon(){clearTimeout(lockT);lockT=setTimeout(function(){lock=0;},120);}
+  // активна — ПОСЛЕДНЯЯ секция, чьё начало выше порога чтения.
+  // Пороговая логика детерминирована и НЕ пропускает короткие секции
+  // (IntersectionObserver мог «перепрыгивать» через них при быстром скролле).
+  function pickActive(){
+    ticking=0;
+    if(lock)return;
+    var thr=innerHeight*0.2,cur=secs.length?secs[0].id:null;
+    for(var i=0;i<secs.length;i++){
+      if(secs[i].getBoundingClientRect().top<=thr)cur=secs[i].id;}
+    if(innerHeight+scrollY>=document.body.scrollHeight-2)cur=secs[secs.length-1].id;
+    if(cur)setActive(cur);}
+  // клик по оглавлению: сразу подсветить цель и заглушить scroll-spy до конца плавной прокрутки
+  document.querySelectorAll("nav.toc a").forEach(function(a){
+    a.addEventListener("click",function(){
+      setActive(a.getAttribute("href").slice(1));lock=1;unlockSoon();});
+  });
+  addEventListener("scroll",function(){
+    if(lock){unlockSoon();return;}
+    if(!ticking){ticking=1;requestAnimationFrame(pickActive);}
+  },{passive:true});
+  pickActive();
+  var toast=document.getElementById("toast"),tt;
+  function showToast(m){toast.textContent=m||"\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e";toast.classList.add("show");
+    clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove("show");},1300);}
+  document.querySelectorAll("[data-copy]").forEach(function(b){
+    b.onclick=function(){var sel=b.getAttribute("data-copy");
+      var el=sel==="prev"?b.parentElement.querySelector("pre"):document.querySelector(sel);
+      var txt=el?el.innerText:"";
+      navigator.clipboard&&navigator.clipboard.writeText(txt).then(function(){showToast("\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e");},
+        function(){showToast("\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c");});};
+  });
+})();
+</script>
+</body>
+</html>

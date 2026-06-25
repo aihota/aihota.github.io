@@ -1,0 +1,88 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">#</a></h2>
+  <p>Два независимых пути HotA/SoD приходят к одному дефекту: результат
+     выделения памяти (форма без исключения) не проверяется на NULL и
+     сразу используется как приёмник <code>_memset</code>. Под давлением
+     32-битной кучи выделение возвращает 0 — запись уходит по адресу 0.</p>
+
+  <svg viewBox="0 0 760 360" width="100%" role="img"
+       aria-label="Схема: два пути сходятся в operator new, NULL, memset по нулю"
+       font-family="ui-sans-serif,system-ui,sans-serif" font-size="13">
+    <defs>
+      <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5"
+              markerWidth="7" markerHeight="7"
+              orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L10,5 L0,10 Z" fill="var(--ink)"/>
+      </marker>
+      <marker id="arBad" viewBox="0 0 10 10" refX="8" refY="5"
+              markerWidth="7" markerHeight="7"
+              orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L10,5 L0,10 Z" fill="var(--bad)"/>
+      </marker>
+    </defs>
+
+    <!-- Группа A -->
+    <rect x="14" y="24" width="250" height="64" rx="8"
+          fill="var(--panel2)" stroke="var(--line)"/>
+    <text x="26" y="46" fill="var(--ink)" font-weight="700">A — Ресурсы / DEF</text>
+    <text x="26" y="66" fill="var(--ink)">sub_101615B0 (hota.dll)</text>
+    <text x="26" y="82" fill="var(--ink)" opacity="0.8">ESI != 0, размер ресурса</text>
+
+    <!-- Группа B -->
+    <rect x="14" y="120" width="250" height="64" rx="8"
+          fill="var(--panel2)" stroke="var(--line)"/>
+    <text x="26" y="142" fill="var(--ink)" font-weight="700">B — Расчёт ИИ</text>
+    <text x="26" y="162" fill="var(--ink)">sub_42F570 (путь HotA)</text>
+    <text x="26" y="178" fill="var(--ink)" opacity="0.8">ESI = 0, 30 * сторона карты</text>
+
+    <!-- operator new -->
+    <rect x="320" y="72" width="180" height="64" rx="8"
+          fill="var(--panel2)" stroke="var(--accent2)"/>
+    <text x="410" y="96" fill="var(--ink)" font-weight="700"
+          text-anchor="middle">operator new</text>
+    <text x="410" y="114" fill="var(--ink)" text-anchor="middle">0x617492 (nothrow)</text>
+    <text x="410" y="130" fill="var(--ink)" text-anchor="middle"
+          opacity="0.8">нехватка памяти -> 0</text>
+
+    <!-- NULL slot -->
+    <rect x="556" y="72" width="190" height="64" rx="8"
+          fill="var(--panel2)" stroke="var(--bad)"/>
+    <text x="651" y="96" fill="var(--bad)" font-weight="700"
+          text-anchor="middle">EAX = 0 -> [obj+108h]</text>
+    <text x="651" y="115" fill="var(--ink)" text-anchor="middle"
+          opacity="0.85">нет test eax,eax</text>
+    <text x="651" y="131" fill="var(--ink)" text-anchor="middle"
+          opacity="0.85">NULL не пойман</text>
+
+    <!-- memset fault -->
+    <rect x="430" y="250" width="300" height="80" rx="8"
+          fill="var(--panel2)" stroke="var(--bad)" stroke-width="2"/>
+    <text x="580" y="278" fill="var(--bad)" font-weight="700"
+          text-anchor="middle">_memset  (hota.dll+0x205E34)</text>
+    <text x="580" y="299" fill="var(--ink)" text-anchor="middle">EDI = 0, rep stosb</text>
+    <text x="580" y="317" fill="var(--bad)" text-anchor="middle"
+          font-weight="700">write of address 0x00000000</text>
+
+    <!-- arrows A,B -> new (горизонтальный заход в левую грань) -->
+    <path d="M264,56 C298,56 290,96 314,96" fill="none"
+          stroke="var(--ink)" stroke-width="1.6" marker-end="url(#ar)"/>
+    <path d="M264,152 C298,152 290,112 314,112" fill="none"
+          stroke="var(--ink)" stroke-width="1.6" marker-end="url(#ar)"/>
+    <!-- new -> NULL slot (прямая по центру) -->
+    <path d="M500,104 L550,104" fill="none"
+          stroke="var(--bad)" stroke-width="1.8" marker-end="url(#arBad)"/>
+    <!-- NULL slot -> memset (вертикальный заход в центр верхней грани) -->
+    <path d="M651,136 C651,200 580,196 580,244" fill="none"
+          stroke="var(--bad)" stroke-width="1.8" marker-end="url(#arBad)"/>
+  </svg>
+
+  <div class="grid2">
+    <div class="note info"><b>A — Ресурсы / DEF</b> (~78): загрузка спрайтов
+      и DEF; нижний кадр A0_Load_Def. Размер — размер ресурса, ESI хранит
+      реальный указатель.</div>
+    <div class="note info"><b>B — Расчёт ИИ</b> (~31): буфер
+      _AIMapMoveInfo_ (30 байт на клетку); размер = 30 * сторона карты
+      (M/L/XL/H/XH/G), ESI = 0, ход ИИ.</div>
+  </div>
+</section>

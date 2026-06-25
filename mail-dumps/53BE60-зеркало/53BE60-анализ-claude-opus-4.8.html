@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анализ вылета 53BE60</title>
+<style>
+
+:root{
+  --bg:#0f1117;--panel:#171a23;--panel2:#1d212c;--ink:#e6e9ef;--muted:#a6afbd;
+  --line:#2a2f3b;--accent:#94a3b8;--accent2:#7dd3fc;--hi:#fbbf24;--ok:#46d39a;--warn:#ffd633;
+  --bad:#ff5c7a;--code:#11141b;--kw:#ff7b72;--reg:#7ee787;--num:#79c0ff;--cmt:#8b949e;
+  --pretext:#cdd6e4;--badText:#ff8da3;--verdictGrad:linear-gradient(180deg,#1c1418,#171a23);
+  --br:rgba(255,255,255,.04);
+  --redBg:rgba(255,92,122,.14);--redInk:#ff8da3;--redLn:rgba(255,92,122,.35);
+  --blBg:rgba(74,163,255,.14);--blInk:#8ec5ff;--blLn:rgba(74,163,255,.35);
+  --gyBg:rgba(154,163,178,.12);--gyInk:#c4ccd8;--gyLn:rgba(154,163,178,.3);
+  --okBg:rgba(70,211,154,.10);--okLn:rgba(70,211,154,.32);
+  --wnBg:rgba(255,214,51,.12);--wnLn:rgba(255,214,51,.36);
+  --orange:#fb923c;--orangeBg:rgba(251,146,60,.14);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  /* шрифты: встроенные (если есть) -> системные с широким кросс-платформенным фолбэком */
+  --font-sans:"ReportSans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","DejaVu Sans","Liberation Sans",Helvetica,Arial,sans-serif;
+  --font-mono:"ReportMono","SF Mono",ui-monospace,"JetBrains Mono","Cascadia Code",Menlo,Consolas,"DejaVu Sans Mono","Liberation Mono","Noto Sans Mono",monospace;
+  /* стек типографских знаков/символов — текстовая (не эмодзи) презентация на всех ОС */
+  --font-sym:"Segoe UI Symbol","Apple Symbols","Noto Sans Symbols 2","DejaVu Sans",sans-serif;
+  /* типографическая шкала в rem (уважает системный размер шрифта); единый ритм */
+  --fs-3xs:.65625rem;--fs-2xs:.6875rem;--fs-xs:.78125rem;--fs-sm:.8125rem;
+  --fs-md:.875rem;--fs-base:.9375rem;--fs-lg:1rem;--fs-xl:1.125rem;--fs-2xl:1.375rem;
+  --fs-hero:clamp(1.5rem,2vw + 1.125rem,2.125rem);
+  /* font-size-adjust: одинаковая видимая высота строчных при ЛЮБОМ фолбэке (ключ к «одинаково везде») */
+  --fsa-sans:.52;--fsa-mono:.5;
+  /* единый вертикальный ритм и трекинг капс-меток (вместо разнобоя) */
+  --lh-tight:1.12;--lh-code:1.5;--lh-base:1.62;
+  --ls-caps:.13em;--ls-caps-wide:.16em;
+  /* выделение текста — заметная заливка (а не 14% var(--blBg), который почти не виден) */
+  --sel:rgba(74,163,255,.32);
+  color-scheme:dark;
+}
+html.theme-light{
+  --bg:#f4f6fb;--panel:#ffffff;--panel2:#eef1f6;--ink:#1c2230;--muted:#5a6473;
+  --line:#d7dce5;--accent:#475569;--accent2:#0369a1;--hi:#b45309;--ok:#1a7f5a;--warn:#b08c00;
+  --bad:#cf2e4a;--code:#f6f8fa;--kw:#cf222e;--reg:#116329;--num:#0550ae;--cmt:#6e7781;
+  --pretext:#24292f;--badText:#cf2e4a;--verdictGrad:linear-gradient(180deg,#fff5f6,#fff);
+  --br:rgba(0,0,0,.03);
+  --redBg:rgba(207,46,74,.10);--redInk:#b21f3b;--redLn:rgba(207,46,74,.3);
+  --blBg:rgba(31,111,235,.1);--blInk:#1551b5;--blLn:rgba(31,111,235,.3);
+  --gyBg:rgba(90,100,115,.1);--gyInk:#3d4756;--gyLn:rgba(90,100,115,.28);
+  --okBg:rgba(26,127,90,.09);--okLn:rgba(26,127,90,.3);
+  --wnBg:rgba(176,140,0,.12);--wnLn:rgba(176,140,0,.34);
+  --orange:#ea580c;--orangeBg:rgba(234,88,12,.12);
+  --shadow:0 8px 30px rgba(40,60,100,.12);
+  --sel:rgba(31,111,235,.28);
+  color-scheme:light;
+}
+/* Светлая палитра живёт ТОЛЬКО в html.theme-light; авто-режим проставляет
+   явный класс через JS (ранний скрипт в <head>), поэтому @media-дубль палитры
+   больше не нужен. */
+*{box-sizing:border-box}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* text-size-adjust: запрещаем браузерам самовольно раздувать шрифт (iOS/Android, поворот) */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:var(--fs-base)/var(--lh-base) var(--font-sans);
+  font-size-adjust:var(--fsa-sans);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;font-optical-sizing:auto;
+  font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1;
+  /* нуль со слешем и в прозе (единообразие с кодом) */
+  font-variant-numeric:slashed-zero;
+  /* синтез НЕ отключаем: нужен для псевдо-жира (<b>) и капители (b.hi)
+     на фолбэк-шрифтах без нативных начертаний (DejaVu/Liberation) */
+  transition:background .25s,color .25s}
+/* единый цвет выделения на всех ОС/браузерах */
+::selection{background:var(--sel);color:var(--ink)}
+/* моно-стек: slashed-zero + табличные цифры для hex; ВСЕ лигатуры off (asm: ->, !=, >=).
+   font-feature-settings:normal сбрасывает наследуемые от body kern/liga (иначе liga
+   остаётся включён) и убирает конфликт с font-variant-ligatures;
+   font-size-adjust держит высоту строчных при подмене моно-шрифта на др. ОС */
+code,pre,.mono,.stat .big,td.mono,th.mono{font-family:var(--font-mono);
+  font-size-adjust:var(--fsa-mono);
+  font-feature-settings:normal;
+  font-variant-ligatures:none;
+  font-variant-numeric:slashed-zero tabular-nums}
+a{color:var(--accent2);text-decoration:none}
+/* инлайн-иконки вместо emoji-глифов (★✓☀☾) — идентичны на всех ОС */
+.tic{width:1em;height:1em;vertical-align:-.14em;fill:none;stroke:currentColor;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tic.fill{fill:currentColor;stroke:none}
+/* символьные знаки, оставленные текстом (¶) — текстовая презентация, не emoji */
+h2 .anchor{font-family:var(--font-sym);font-variant-emoji:text}
+.theme-fab{position:absolute;top:18px;right:22px;z-index:5}
+.btn{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:9px;
+  padding:7px 12px;font-size:var(--fs-xs);font-weight:600;cursor:pointer;display:inline-flex;
+  align-items:center;gap:7px;transition:border-color .2s,transform .08s,background .2s}
+.btn:hover{border-color:var(--accent2)}
+.btn:active{transform:scale(.96)}
+.btn:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+.btn:focus:not(:focus-visible){outline:none}
+.shell{max-width:1180px;margin:0 auto;padding:0 22px;display:grid;
+  grid-template-columns:230px minmax(0,1fr);gap:38px;position:relative}
+nav.toc{position:sticky;top:24px;align-self:start;height:calc(100vh - 48px);
+  overflow-y:auto;padding:22px 0 40px;font-size:var(--fs-sm)}
+nav.toc .lbl{text-transform:uppercase;letter-spacing:var(--ls-caps-wide);font-size:var(--fs-3xs);
+  color:var(--muted);font-weight:700;margin:0 0 10px 12px}
+nav.toc a{display:flex;gap:9px;align-items:baseline;color:var(--muted);padding:6px 12px;
+  border-left:2px solid transparent;border-radius:0 7px 7px 0;transition:.15s}
+nav.toc a .n{font-family:var(--font-mono);font-size:var(--fs-2xs);opacity:.7;min-width:15px}
+nav.toc a:hover{color:var(--ink);background:var(--br)}
+nav.toc a.active{color:var(--ink);border-left-color:var(--accent2);
+  background:linear-gradient(90deg,var(--blBg),transparent);font-weight:600}
+main{padding-bottom:90px;min-width:0}
+@media(max-width:900px){.shell{grid-template-columns:1fr}nav.toc{display:none}}
+.hero{padding:40px 0 14px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-2xs);letter-spacing:var(--ls-caps-wide);
+  text-transform:uppercase;color:var(--accent);font-weight:700}
+/* «пуля» eyebrow — нарисованная точка, а не глиф ● (нет расхождений по ОС) */
+.eyebrow::before{content:"";display:inline-block;width:.5em;height:.5em;
+  border-radius:50%;background:var(--accent2)}
+h1.addr{margin:13px 0 8px;font-size:var(--fs-hero);line-height:var(--lh-tight);letter-spacing:-.01em;
+  font-family:var(--font-mono);font-weight:700;overflow-wrap:anywhere}
+h1.addr .mod{color:var(--hi)}
+.subtitle{color:var(--muted);font-size:var(--fs-lg);margin:0 0 20px;max-width:60ch}
+.byline{color:var(--muted);font-size:var(--fs-sm);margin:6px 0 4px}
+.byline b{color:var(--ink);font-weight:600}
+
+/* вердикт-callout: цветная метка «ВЕРДИКТ» (цвет = уровень полезности),
+   без дублирующей галочки (она уже на карточке «Полезность») */
+.ribbon{position:relative;margin:18px 0 8px;padding:15px 20px 16px;border-radius:16px;
+  background:var(--redBg);border:1px solid var(--redLn);box-shadow:var(--shadow)}
+.ribbon.lvl-mid{background:var(--wnBg);border-color:var(--wnLn)}
+.ribbon.lvl-low{background:var(--orangeBg);border-color:var(--orange)}
+.ribbon.lvl-high{background:var(--okBg);border-color:var(--okLn)}
+.ribbon .vlabel{display:flex;align-items:center;gap:9px;font-size:var(--fs-2xs);font-weight:700;
+  letter-spacing:var(--ls-caps-wide);text-transform:uppercase;color:var(--orange);margin-bottom:7px}
+.ribbon.lvl-mid .vlabel{color:var(--warn)}
+.ribbon.lvl-high .vlabel{color:var(--ok)}
+.ribbon .vlabel::before{content:"";width:22px;height:2px;border-radius:2px;background:currentColor}
+.ribbon .vtxt{font-size:var(--fs-md);line-height:var(--lh-base)}
+.ribbon .vtxt b{color:var(--orange)}
+.ribbon.lvl-mid .vtxt b{color:var(--warn)}
+.ribbon.lvl-high .vtxt b{color:var(--ok)}
+.statstrip{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:12px;margin:18px 0 6px}
+/* карточки шапки: иконка в тонированном квадрате + цвет по смыслу
+   (c-ver синий, c-cls красный, c-cnt нейтр., c-use зелёный/жёлтый/красный) */
+.stat{display:flex;gap:12px;align-items:center;background:var(--panel);
+  border:1px solid var(--line);border-radius:13px;padding:13px 15px}
+.stat .ic-badge{flex:0 0 auto;width:40px;height:40px;border-radius:11px;display:grid;
+  place-items:center}
+.stat .ic{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
+.stat .st-body{min-width:0}
+.stat .big{font-size:var(--fs-2xl);font-weight:800;line-height:var(--lh-tight);
+  overflow-wrap:anywhere}
+.stat .cap{color:var(--muted);font-size:var(--fs-2xs);margin-top:2px}
+.stat.c-ver .ic-badge{background:var(--blBg);color:var(--blInk)}
+.stat.c-ver .big{color:var(--blInk);font-size:var(--fs-lg);letter-spacing:-.2px}
+.stat.c-cls .ic-badge{background:var(--redBg);color:var(--redInk)}
+.stat.c-cls .big{color:var(--redInk);font-size:var(--fs-base)}
+.stat.c-cnt .ic-badge{background:var(--gyBg);color:var(--gyInk)}
+.stat.c-use .ic-badge{background:var(--okBg);color:var(--ok)}
+.stat.c-use .big{color:var(--ok)}
+.stat.c-use.use-mid .ic-badge{background:var(--wnBg);color:var(--warn)}
+.stat.c-use.use-mid .big{color:var(--warn)}
+/* НИЗКАЯ — оранжевый (а не красный), чтобы не сливаться с «Классом сбоя» */
+.stat.c-use.use-bad .ic-badge{background:var(--orangeBg);color:var(--orange)}
+.stat.c-use.use-bad .big{color:var(--orange)}
+
+/* ----- СЕКЦИЯ-ПАНЕЛЬ: аналитические секции 1–11 — панели с шапкой-заголовком;
+   резюме/вывод остаются акцентными карточками-«закладками». */
+section{scroll-margin-top:24px;margin:30px 0}
+h2{margin:0 0 14px;display:flex;align-items:center;gap:11px;font-weight:700;
+  font-size:var(--fs-sm);letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--accent2);
+  border-bottom:1px solid var(--line);padding-bottom:10px}
+h2 .htext{flex:1}
+h2 .anchor{opacity:0;color:var(--muted);font-weight:400;font-size:var(--fs-md);transition:.15s}
+h2:hover .anchor{opacity:.7}
+/* вывод — «закладка» с чистым заголовком (не панель) */
+section#verdict h2{border-bottom:0}
+/* панели-секции: все секции, кроме вывода (резюме и визуализация — тоже панели) */
+#doc>section:not(#verdict){background:var(--panel);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;margin:18px 0;padding:0 20px 16px}
+#doc>section:not(#verdict)>h2{background:var(--panel2);margin:0 -20px 16px;
+  padding:12px 20px;border-bottom:1px solid var(--line)}
+/* внутренние карточки внутри панели — плоские (без двойной рамки) */
+#doc>section:not(#verdict) .card{background:transparent;border:0;border-radius:0;
+  padding:0;margin:10px 0}
+/* разделитель между смежными плоскими карточками в секции (напр. раздел 1:
+   блок мета-полей | блок Модуль/адрес) — пунктир, чтобы не слипались */
+#doc>section:not(#verdict) .card+.card{border-top:1px dashed var(--line);
+  margin-top:14px;padding-top:14px}
+h3{font-size:var(--fs-base);margin:20px 0 8px}
+p{margin:10px 0}.lead{color:var(--muted)}
+/* БЕЗ переносов слов: justify растягивает строку пробелами, слова целые.
+   max-width ЗДЕСЬ НЕ ставим: он сужал абзацы уже секции, и justify
+   выравнивал по узкой мере строки, а не по ширине секции. */
+#doc>section p{hyphens:none;-webkit-hyphens:none}
+p{text-wrap:pretty}
+/* выравнивание по ширине для всего текста в секциях.
+   text-wrap:pretty/balance отключают justify-алгоритм (Gecko/WebKit),
+   поэтому для выравниваемых абзацев возвращаем обычный перенос.
+   Центр-подписи под svg заданы inline и перекрывают это правило. */
+#doc>section p,#doc>section li{text-align:justify;text-wrap:wrap}
+h1.addr,h2,h3{text-wrap:balance}
+ul{margin:10px 0;padding-left:20px}li{margin:6px 0}
+/* акцент капителью вместо «орущего» КАПСА (текст-контент не меняется) */
+b.hi{color:var(--hi);font-variant:small-caps;text-transform:lowercase;
+  letter-spacing:.02em;font-weight:600}
+
+p code,li code,.kv .v code,.chain .ttl code,.chain .desc code,.note code{
+  font-family:var(--font-mono);background:var(--code);
+  border:1px solid var(--line);border-radius:5px;padding:0 5px;font-size:.9em;
+  color:var(--ink);white-space:nowrap}
+.chain .ttl code{white-space:normal;word-break:break-all}
+.note code{background:color-mix(in srgb,var(--ink) 8%,transparent);
+  border-color:color-mix(in srgb,var(--ink) 14%,transparent)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.card.summary{border-left:4px solid var(--accent)}
+.card.verdict{border-left:4px solid var(--orange);background:var(--verdictGrad)}
+/* «Вывод» — фон ПО УРОВНЮ полезности, как лента «Заключение» вверху
+   (раньше был фиксированный розовый verdictGrad — конфликтовал с зелёной лентой) */
+.card.verdict.lvl-low{border-left-color:var(--orange);
+  background:linear-gradient(180deg,var(--orangeBg),var(--panel))}
+.card.verdict.lvl-mid{border-left-color:var(--warn);
+  background:linear-gradient(180deg,var(--wnBg),var(--panel))}
+.card.verdict.lvl-high{border-left-color:var(--ok);
+  background:linear-gradient(180deg,var(--okBg),var(--panel))}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}}
+/* раздел «Достоверность»: блоки «Подтверждено» и «Ограничения»
+   сильно разной длины — ставим их ОДИН ПОД ДРУГИМ (одна колонка),
+   чтобы не было пустоты рядом с коротким блоком.
+   margin у .note гасим: иначе он складывается с gap грида (14+15+14)
+   и даёт слишком большой отступ между блоками */
+#s9 .grid2{grid-template-columns:1fr}
+#s9 .grid2 .note{margin:0}
+.kv{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:var(--fs-sm)}
+.kv:last-child{border-bottom:0}
+.kv .k{color:var(--muted);min-width:118px}.kv .v{font-family:var(--font-mono)}
+.codewrap{position:relative;margin:14px 0}
+.codewrap .copy{position:absolute;top:8px;right:8px;opacity:0;transition:.15s;
+  background:var(--panel2);border:1px solid var(--line);border-radius:7px;color:var(--muted);
+  font-size:var(--fs-2xs);padding:4px 9px;cursor:pointer}
+.codewrap:hover .copy{opacity:1}
+.codewrap .copy:hover{color:var(--ink);border-color:var(--accent2)}
+pre{background:var(--code);border:1px solid var(--line);border-radius:12px;padding:15px 17px;
+  overflow-x:auto;font-size:var(--fs-xs);line-height:var(--lh-code);tab-size:4;margin:0;color:var(--pretext)}
+pre .a{color:var(--cmt)}pre .k{color:var(--kw)}pre .r{color:var(--reg)}
+pre .n{color:var(--num)}pre .c{color:var(--cmt);font-style:italic}
+pre .fault{background:var(--redBg);display:block;border-left:3px solid var(--bad);
+  padding-left:8px;margin-left:-10px}
+.formula{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:center;
+  background:var(--code);border:1px solid var(--line);border-radius:14px;padding:18px;
+  font-family:var(--font-mono);margin:14px 0}
+.formula .tok{font-size:var(--fs-lg)}
+.formula .op{color:var(--muted)}
+.formula .res{color:var(--bad);font-weight:700}
+.formula .eq{color:var(--ok);font-weight:700;font-size:var(--fs-xl)}
+/* сворачиваемый форензик-аппендикс: большие доказательные таблицы по клику */
+.appendix{margin:14px 0;border:1px solid var(--line);border-radius:12px;
+  background:var(--panel2);overflow:hidden}
+.appendix>summary{cursor:pointer;padding:10px 14px;font-size:var(--fs-sm);
+  font-weight:600;color:var(--muted);list-style:none;user-select:none;
+  display:flex;align-items:center;gap:8px;transition:color .15s}
+.appendix>summary::-webkit-details-marker{display:none}
+.appendix>summary::before{content:"";width:0;height:0;
+  border-left:5px solid currentColor;border-top:4px solid transparent;
+  border-bottom:4px solid transparent;transition:transform .15s}
+.appendix[open]>summary::before{transform:rotate(90deg)}
+.appendix>summary:hover{color:var(--accent2)}
+.appendix .tablewrap{border:0;border-top:1px solid var(--line);border-radius:0}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:var(--fs-xs);min-width:780px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+thead th{background:var(--panel2);color:var(--muted);font-weight:700;letter-spacing:.03em;
+  position:sticky;top:0;font-size:var(--fs-2xs);text-transform:uppercase}
+tbody tr:hover{background:var(--blBg)}
+td.mono,th.mono{font-family:var(--font-mono)}
+td .ok{color:var(--ok)}
+td.flag{color:var(--bad);font-weight:700;
+  background:linear-gradient(90deg,var(--redBg),transparent)}
+
+.note{border-radius:12px;padding:13px 17px;margin:14px 0;font-size:var(--fs-md)}
+.note.ok{background:var(--okBg);border:1px solid var(--okLn)}
+/* «Важно» — тёплый янтарный акцент (смещён от чистого жёлтого warn
+   к оранжевому: читается как «обрати внимание», а не как тревога) */
+.note.warn{background:color-mix(in srgb,var(--orange) 10%,transparent);
+  border:1px solid color-mix(in srgb,var(--orange) 36%,transparent)}
+.note.info{background:var(--blBg);border:1px solid var(--blLn)}
+.note .t{font-weight:700;margin-bottom:4px;display:block}
+.chain{margin:16px 0}
+.chain .step{display:flex;align-items:flex-start;gap:14px;padding:9px 0;position:relative}
+.chain .dot{flex:0 0 auto;width:13px;height:13px;border-radius:50%;margin-top:5px;
+  background:var(--panel);border:2px solid var(--accent2);z-index:1}
+.chain .step.fault .dot{border-color:var(--bad);background:var(--redBg)}
+.chain .step:not(:last-child)::before{content:"";position:absolute;left:6px;top:20px;
+  bottom:-9px;width:2px;background:var(--line)}
+.chain .ttl{font-family:var(--font-mono);font-size:var(--fs-sm)}
+.chain .step.fault .ttl{color:var(--badText);font-weight:700}
+.chain .desc{color:var(--muted);font-size:var(--fs-xs)}
+.chain .modtag{font-size:var(--fs-3xs);font-weight:700;padding:1px 7px;border-radius:5px;margin-right:7px;
+  vertical-align:1px}
+.m-exe{background:var(--gyBg);color:var(--gyInk)}
+.m-tc{background:var(--redBg);color:var(--redInk)}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:10px;font-size:var(--fs-sm);
+  font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:80}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ============================================================
+   VISUALIZATION TOOLKIT (.viz-*) для sidecar-врезок (правило о
+   визуализации вылета). ЦЕЛЬ: схемы строятся РАСКЛАДКОЙ CSS
+   (flex/grid), а НЕ ручными SVG-координатами — браузер сам
+   считает позиции, поэтому подписи НИКОГДА не налезают.
+   Все цвета — только из токенов темы (корректно dark/light/print).
+   SVG применять ТОЛЬКО для линий/стрелок (.viz-svg); подписи
+   к ним выносить в .viz-legend под схемой, в графике — короткие
+   .viz-badge. Подробности и шаблоны — в навыке html-report. */
+.viz{margin:16px 0}
+.viz-cap{font-size:var(--fs-xs);color:var(--muted);text-align:center;margin:8px 0 0}
+/* горизонтальная лента блоков (память/массив/диапазон) */
+.viz-strip{display:flex;align-items:stretch;gap:6px;flex-wrap:nowrap;
+  overflow-x:auto;padding:6px 0}
+/* блок-ячейка ленты: подпись внутри, центрируется, перенос строк сам */
+.viz-box{flex:1 1 0;min-width:96px;border:2px solid var(--line);border-radius:10px;
+  background:var(--panel2);padding:12px 10px;text-align:center;
+  font-size:var(--fs-xs);line-height:var(--lh-tight);color:var(--ink);
+  display:flex;flex-direction:column;justify-content:center;gap:4px}
+.viz-box .lbl{font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--muted)}
+.viz-box.ok{border-color:var(--okLn);background:var(--okBg)}
+.viz-box.bad{border-color:var(--redLn);background:var(--redBg)}
+.viz-box.accent{border-color:var(--blLn);background:var(--blBg)}
+.viz-box.dashed{border-style:dashed}
+.viz-box.dim{opacity:.55}
+/* круглый бейдж-маркер (A/B/F/S/0/1) — короткий, не текст */
+.viz-badge{display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:50%;font-weight:700;font-size:var(--fs-sm);
+  font-family:var(--font-mono);border:2px solid var(--accent2);color:var(--ink);
+  background:var(--panel);flex:0 0 auto;vertical-align:middle}
+.viz-badge.ok{border-color:var(--ok);color:var(--ok)}
+.viz-badge.bad{border-color:var(--bad);color:var(--badText)}
+.viz-badge.accent{border-color:var(--accent2);color:var(--accent2)}
+/* координатный холст: ТОЛЬКО для геометрии, рисуем линии/стрелки */
+.viz-svg{display:block;max-width:100%;height:auto;margin:6px auto;
+  font-family:inherit;font-size:var(--fs-xs)}
+.viz-svg .edge{stroke:var(--line);stroke-width:1}
+.viz-svg .flow{stroke:var(--bad);stroke-width:2;fill:none}
+.viz-svg .flow.ok{stroke:var(--ok)}
+.viz-svg .area{fill:var(--panel2);stroke:var(--line);stroke-width:1.5}
+/* легенда под схемой: бейдж + пояснение, в одну/две колонки, без наложений */
+.viz-legend{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin:12px 0 0}
+@media(max-width:680px){.viz-legend{grid-template-columns:1fr}}
+.viz-legend .item{display:flex;align-items:flex-start;gap:9px;
+  font-size:var(--fs-sm);color:var(--ink)}
+.viz-legend .item .txt{color:var(--muted)}
+@media print{.viz-strip{overflow-x:visible;flex-wrap:wrap}
+  .viz-box,.viz-badge,.viz-svg .area{break-inside:avoid}}
+
+@media print{
+  .theme-fab,nav.toc,.btn,.copy,.toast,h2 .anchor{display:none!important}
+  .shell{grid-template-columns:1fr;max-width:none}
+  /* screen-сглаживание на бумаге делает текст слишком тонким; сбрасываем */
+  body{background:#fff;color:#000;
+    -webkit-font-smoothing:auto;-moz-osx-font-smoothing:auto;font-size-adjust:none}
+  pre,.card,.note,table{break-inside:avoid}
+  section{break-inside:avoid-page}
+  /* на печати раскрываем все аппендиксы: details без [open] иначе скроет содержимое */
+  .appendix>summary{display:none}
+  details.appendix>*{display:revert!important}
+  .appendix .tablewrap{border-top:0}
+}
+</style>
+<script>
+(function(){try{var t=localStorage.getItem("hota-theme-v6");
+var m=(t==="light"||t==="dark")?t
+  :((window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches)?"light":"dark");
+document.documentElement.classList.add("theme-"+m);}catch(e){}})();
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="ic-package" viewBox="0 0 24 24"><path d="M16.5 9.4 7.5 4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+  <symbol id="ic-triangle" viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></symbol>
+  <symbol id="ic-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+  <symbol id="ic-sig3" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="currentColor" stroke="none"/><rect x="17" y="5" width="4" height="15" rx="1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="ic-sig2" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="currentColor" stroke="none"/><rect x="17" y="5" width="4" height="15" rx="1" fill="none" stroke="currentColor" opacity=".35"/></symbol>
+  <symbol id="ic-sig1" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="none" stroke="currentColor" opacity=".35"/><rect x="17" y="5" width="4" height="15" rx="1" fill="none" stroke="currentColor" opacity=".35"/></symbol>
+  <symbol id="ic-star" viewBox="0 0 24 24"><path d="M12 2.5l2.95 5.98 6.6.96-4.77 4.65 1.13 6.57L12 17.56l-5.9 3.1 1.12-6.57L2.45 9.44l6.6-.96z"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="ic-diamond" viewBox="0 0 24 24"><path d="M12 2 22 12 12 22 2 12Z"/></symbol>
+  <symbol id="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="ic-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+</defs></svg>
+<div class="shell">
+<button class="btn theme-fab" id="themeToggle" type="button" aria-label="Переключить тему оформления"><svg class="tic" aria-hidden="true"><use id="themeUse" href="#ic-sun"/></svg><span id="themeLabel">Светлая</span></button>
+  <nav class="toc" id="toc">
+    <p class="lbl">Содержание</p>
+    <a href="#viz-mechanism"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-diamond"/></svg></span>Визуализация вылета</a>
+    <a href="#summary"><span class="n"><svg class="tic fill" aria-hidden="true"><use href="#ic-star"/></svg></span>Резюме</a>
+    <a href="#s1"><span class="n">1</span>Исходные данные</a>
+    <a href="#s2"><span class="n">2</span>Корреляция дампов</a>
+    <a href="#s3"><span class="n">3</span>Сопоставление адресов</a>
+    <a href="#s4"><span class="n">4</span>Точка сбоя</a>
+    <a href="#s5"><span class="n">5</span>Регистровые инварианты</a>
+    <a href="#s6"><span class="n">6</span>Цепочка вызовов</a>
+    <a href="#s7"><span class="n">7</span>Первопричина</a>
+    <a href="#s8"><span class="n">8</span>Условия сбоя</a>
+    <a href="#s9"><span class="n">9</span>Достоверность</a>
+    <a href="#s10"><span class="n">10</span>Поиск в др. версиях</a>
+    <a href="#s11"><span class="n">11</span>Воспроизведение</a>
+    <a href="#verdict"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-check"/></svg></span>Вывод</a>
+  </nav>
+  <main id="doc">
+
+  <div class="hero">
+    <span class="eyebrow">Анализ вылета</span>
+    <h1 class="addr"><span class="mod">53BE60</span></h1>
+    <p class="subtitle">генератор случайных карт, расстановка центров зон</p>
+    <p class="byline">Claude Opus 4.8 · 10.06.2026</p>
+    <div class="ribbon lvl-mid">
+      <div class="vlabel">Заключение</div>
+      <div class="vtxt">Виновник — <code>hota.dll</code> (загрузчик связей зон <code>sub_101C6300</code>): для специальной связи Zone2=-1 он, в отличие от текстового разборщика SoD, не отбрасывает её, а сохраняет с <b class="hi">НУЛЕВЫМ</b> указателем зоны-соседа; унаследованная от SoD функция расстановки центра зоны доверяет входу и разыменовывает этот <code>NULL</code> без проверки.</div>
+    </div>
+    <div class="statstrip"><div class="stat c-ver"><div class="ic-badge"><svg class="ic"><use href="#ic-package"/></svg></div><div class="st-body"><div class="big">1.6.1 — 1.8.0</div><div class="cap">Версия HotA</div></div></div><div class="stat c-cls"><div class="ic-badge"><svg class="ic"><use href="#ic-triangle"/></svg></div><div class="st-body"><div class="big">разыменование нулевого указателя</div><div class="cap">Класс сбоя</div></div></div><div class="stat c-cnt"><div class="ic-badge"><svg class="ic"><use href="#ic-database"/></svg></div><div class="st-body"><div class="big">59</div><div class="cap">Количество логов</div></div></div><div class="stat c-use use-mid"><div class="ic-badge"><svg class="ic"><use href="#ic-sig2"/></svg></div><div class="st-body"><div class="big">СРЕДНЯЯ</div><div class="cap">Полезность лога</div></div></div></div>
+  </div>
+
+  <section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">#</a></h2>
+
+  <p>Связь зоны хранит указатель на настройки зоны-соседа. Два пути
+     заполняют этот указатель по-разному, а один и тот же потребитель
+     ему доверяет.</p>
+
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box ok">
+        <span class="viz-badge ok">A</span>
+        <b>Текстовый разборщик шаблона</b>
+        <span class="lbl">sub_5384E0 · 0x538751..0x53875B</span>
+        <span>проверяет резолвер на NULL и <u>отбрасывает</u> связь —
+              NULL в массив не кладёт</span>
+      </div>
+      <div class="viz-box bad dashed">
+        <span class="viz-badge bad">B</span>
+        <b>Загрузчик связей зон HotA</b>
+        <span class="lbl">hota.dll · sub_101C6300 · 0x101C644F</span>
+        <span>для токена <code>Zone2=-1</code> <u>НЕ отбрасывает</u> связь,
+              а сохраняет её с <u>NULL</u>-указателем партнёра</span>
+      </div>
+    </div>
+
+    <div class="viz-strip" style="margin-top:10px">
+      <div class="viz-box accent">
+        <span class="viz-badge accent">1</span>
+        <b>Запись связи (28 байт)</b>
+        <span class="lbl">connections.data + off · поле 0</span>
+        <span>another_zone_settings = <code>edx</code></span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">2</span>
+        <b>Потребитель доверяет входу</b>
+        <span class="lbl">sub_53BE60 · 0x53BF92</span>
+        <span><code>mov ecx, [edx]</code> — читает id соседа
+              <u>без проверки</u> на NULL</span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">3</span>
+        <b>Сбой</b>
+        <span class="lbl">EXCEPTION_ACCESS_VIOLATION</span>
+        <span><code>edx = 0</code> → чтение по адресу <code>0x0</code></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge ok">A</span>
+      <span class="txt">Штатный путь загрузки: контракт «у связи всегда
+      валидный партнёр» соблюдён — NULL-связи отброшены, поэтому через
+      загрузку шаблона сбой недостижим.</span></div>
+    <div class="item"><span class="viz-badge bad">B</span>
+      <span class="txt">Найденный поставщик: загрузчик связей HotA
+      (<code>sub_101C6300</code>) для токена <code>Zone2=-1</code> строит
+      связь с NULL-партнёром (<code>0x101C644F</code>), тогда как
+      текстовый разборщик SoD её отбрасывает. Это ОБЩИЙ парсер;
+      зеркало включает флаг <code>Mirror==2</code> (<code>0x101C684B</code>
+      в загрузчике sub_101C6800): число зон делится пополам и
+      достраивается отражением, поэтому NULL-партнёр доходит до
+      потребителя у зеркальных mt_*/h3dm*. По комментариям в дампах
+      падают именно <u>самодельные</u> зеркальные шаблоны
+      (стоковый mt_Jebus не падает). Источник первопричины.</span></div>
+    <div class="item"><span class="viz-badge accent">1</span>
+      <span class="txt">Потребитель корректно отсчитывает число связей
+      <code>(end−base)/28</code> и берёт указатель партнёра из записи —
+      за границу массива не выходит.</span></div>
+    <div class="item"><span class="viz-badge bad">2&nbsp;3</span>
+      <span class="txt">По 57 дампам: <code>EDX=0</code>, чтение
+      <code>0x0</code>, <code>EAX</code> = число зон (1..0x11).
+      Второй симптом той же зоны — деление на ноль на
+      <code>0x53C059</code> (<code>ESI=0</code>, пустой список
+      координат).</span></div>
+  </div>
+</section>
+
+  <section id="summary">
+    <h2><span class="htext">Краткое резюме</span><a class="anchor" href="#summary">¶</a></h2>
+    <div class="card summary"><p>Генератор случайных карт перед тем, как поставить центр зоны, перебирает её связи с другими зонами: для каждой связи он берёт указатель на настройки зоны-соседа и читает у неё номер (id), чтобы притянуть центр поближе к уже размещённым соседям. Здесь и падает: у одной из связей указатель на зону-соседа равен <code>NULL</code>, и чтение её первого поля происходит по нулевому адресу.</p><p>Связи между зонами заполняются при загрузке шаблона. Текстовый разборщик SoD делает это аккуратно: если зона-сосед по номеру не найдена (функция поиска вернула <code>NULL</code>), связь целиком пропускается — <code>NULL</code> в массив связей он не кладёт. А собственный загрузчик связей HotA (<code>sub_101C6300</code>) для специального токена Zone2 = -1, наоборот, <b class="hi">СОХРАНЯЕТ</b> связь с <code>NULL</code>-партнёром. Именно этот <code>NULL</code> позже и разыменовывается.</p><p><b class="hi">ВАЖНОЕ</b> <b class="hi">УТОЧНЕНИЕ</b> по комментариям самих отправителей в дампах: падают НЕ стоковые зеркальные шаблоны, а <b class="hi">САМОДЕЛЬНЫЕ</b>, сделанные на их основе. Дамп <code>0x02746163</code> (1.7.1): «При запуске своего шаблона, сделаного на подобии <code>mt_Jebus</code>, выдаёт ошибку. При запуске просто <code>mt_Jebus</code> никакой ошибки нет». Дамп <code>0x00D78F74</code> (1.6.1): «попытка сделать зеркальный шаблон, так как по старинке в редакторе через 1 и 101 зоны и т.п. почему-то не работает». То есть первопричина — <b class="hi">НЕСБАЛАНСИРОВАННЫЙ</b> зеркальный шаблон: связь ссылается на зону-двойник (по словам пользователя — «1 и 101», т.е. id и id+100), который в отражённом наборе отсутствует; резолвер возвращает <code>NULL</code>, и загрузчик HotA сохраняет битую связь. Стоковый <code>mt_Jebus</code> сбалансирован — потому не падает. Поле Map file в дампах (сценарии .h3m) и Last RMG Seed — шум (§14); зеркальная атрибуция доказана комментариями + цепочкой, а один дамп даже явно содержит строку <code>mt_Jebus</code>.</p><p>Исключение <code>EXCEPTION_ACCESS_VIOLATION</code> (чтение по адресу <code>0x00000000</code>) происходит на инструкции</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="fault"><span class="a">.text:0053BF92  </span><span class="k">mov</span>  <span class="r">ecx</span>, [<span class="r">edx</span>]    <span class="c">; &lt;-- СБОЙ (чтение), edx = NULL</span></span></pre></div><p>Здесь <code>EDX</code> — указатель <code>another_zone_set_v14</code> на настройки зоны-соседа, взятый из записи связи; <code>EAX</code> — число зон в шаблоне (<code>zones_count_v13</code>). По всем 57 дампам с этим исключением <code>EDX = 0</code> и адрес чтения = 0, а <code>EAX</code> принимает малые значения 1..<code>0x11</code> (счётчик зон) — арифметика совпадает точно.</p><p>Внутри той же функции есть и второй, более редкий выход (2 дампа): деление на ноль на инструкции <code>0x53C059</code> div <code>esi</code>, где <code>ESI</code> = число кандидатных координат центра; когда список кандидатов пуст, <code>ESI = 0</code>. Это иной непосредственный симптом, но та же подсистема и тот же зеркальный сценарий (см. раздел 7).</p><p>Виновный модуль — <code>hota.dll</code> (загрузчик связей зон <code>sub_101C6300</code>): при ненайденном двойнике (токен Zone2=-1) он сохраняет связь с <code>NULL</code>-партнёром, нарушая контракт «у связи всегда валидный указатель», на который опирается унаследованная от SoD функция расстановки центра зоны (<code>sub_53BE60</code> в <code>h3hota.exe</code>). Сама SoD-функция исправна — она лишь доверяет входу, как и в оригинале. Непосредственный триггер — невалидный (самодельный) зеркальный шаблон с несбалансированной связью (недоверенный вход). Исправление — на стороне <code>hota.dll</code>: отбрасывать связь с <code>NULL</code>-партнёром (как это делает текстовый разборщик SoD) либо валиди-ровать зеркальный шаблон при загрузке (предупреждать о битой связи вместо падения генератора).</p></div>
+  </section>
+
+  <section id="s1">
+    <h2><span class="htext">Исходные данные</span><a class="anchor" href="#s1">¶</a></h2>
+    <div class="card"><div class="kv"><span class="k">Уникальных вылетов</span><span class="v">59  (папка mail-dumps/53BE60-зеркало) По коду исключения: <code>EXCEPTION_ACCESS_VIOLATION</code>   — 57 <code>EXCEPTION_INT_DIVIDE_BY_ZERO</code> — 2 По версиям HotA: 1.8.0 — 30,  1.7.1 — 9,  1.7.2 — 7, 1.7.0 — 5,   1.7.3 — 3,  1.6.1 — 3 (1 файл — без поля версии в ожидаемом виде, это дамп 1.8.0 R36, разобран как основной)</span></div><div class="kv"><span class="k">Модуль вылета</span><span class="v"><code>h3hota.exe</code>  (Imagebase <code>0x400000</code>, <code>load_base</code> <code>0x400000</code>), функция <code>sub_53BE60</code>. Для части дампов 1.8.0 faulting EIP попадает в codecave-трамплин <code>patcher_x86</code> (регион <code>0x00F00000 / 0x02B00000</code> и т. п.) — это сопрограммный возврат HotA-хука; логический адрес кадра — <code>0x53BE60</code> (см. раздел 3).</span></div><div class="kv"><span class="k">Код</span><span class="v"><code>EXCEPTION_ACCESS_VIOLATION</code>, чтение <code>0x0</code> (+ редко <code>EXCEPTION_INT_DIVIDE_BY_ZERO</code>)</span></div><div class="kv"><span class="k">Класс сбоя</span><span class="v">разыменование нулевого указателя (<code>NULL</code>-связь зоны при зеркальном размножении)</span></div><div class="kv"><span class="k">Версия HotA</span><span class="v">1.6.1 — 1.8.0  (дампы: 1.8.0, 1.7.3, 1.7.2, 1.7.1, 1.7.0, 1.6.1). Виновный код — закрытая подсистема зеркал HotA (<code>hota.dll</code>); листинг <code>h3hota.exe</code> (1.8.0) совпадает по верификационным полям с дампами 1.8.0.</span></div><div class="kv"><span class="k">Версии HD-мода</span><span class="v">5.6 (напр. 5.6 R19, 5.6 R36); по части дампов поле присутствует не везде.</span></div></div><p>Дословная инструкция сбоя (<code>h3hota.exe</code>, <code>sub_53BE60</code> — общий для всех версий, унаследован от SoD):</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0053BF6D  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">edi</span>+<span class="n">0C8h</span>]          <span class="c">; база массива связей</span>
+<span class="a">.text:0053BF73  </span><span class="k">mov</span>     <span class="r">edx</span>, [<span class="r">ebp</span>+connect_off_v32]
+<span class="a">.text:0053BF76  </span><span class="k">mov</span>     <span class="r">edx</span>, [<span class="r">ecx</span>+<span class="r">edx</span>]           <span class="c">; edx = указатель на</span>
+                                                 ;       зону-соседа (NULL!)
+<span class="a">.text:0053BF79  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">esi</span>+<span class="n">10E4h</span>]         <span class="c">; data зон</span>
+<span class="a">.text:0053BF7F  </span><span class="k">test</span>    <span class="r">ecx</span>, <span class="r">ecx</span>
+<span class="a">.text:0053BF81  </span><span class="k">jnz</span>     <span class="r">short</span> loc_53BF87
+<span class="a">.text:0053BF83  </span><span class="k">xor</span>     <span class="r">eax</span>, <span class="r">eax</span>                 <span class="c">; zones_count = 0</span>
+<span class="a">.text:0053BF85  </span><span class="k">jmp</span>     <span class="r">short</span> loc_53BF92
+<span class="a">.text:0053BF87  </span><span class="k">mov</span>     <span class="r">eax</span>, [<span class="r">esi</span>+<span class="n">10E8h</span>]
+<span class="a">.text:0053BF8D  </span><span class="k">sub</span>     <span class="r">eax</span>, <span class="r">ecx</span>
+<span class="a">.text:0053BF8F  </span><span class="k">sar</span>     <span class="r">eax</span>, <span class="n">2</span>                   <span class="c">; eax = число зон</span>
+<span class="fault"><span class="a">.text:0053BF92  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">edx</span>]               <span class="c">; &lt;-- СБОЙ: edx=NULL,</span></span>
+                                                 ;     читаем id зоны-соседа
+<span class="a">.text:0053BF94  </span><span class="k">cmp</span>     <span class="r">ecx</span>, <span class="r">eax</span>
+<span class="a">.text:0053BF96  </span>jnb     <span class="r">short</span> loc_53BFAE</pre></div><p>Декомпилятор IDA (комментарии листинга): ; 60: <code>another_zone_set_v14</code> = *(<code>_RmgZoneSettings_</code> **)</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre>;          &amp;zone_settings_v10-&gt;connections_4dwordC4.data_dword4[connect_off_v32];
+; 61: if ( another_zone_set_v14-&gt;id_dword0 &lt; (unsigned int)zones_count_v13 )</pre></div>
+  </section>
+
+  <section id="s2">
+    <h2><span class="htext">Корреляция дампов (сравнительная таблица)</span><a class="anchor" href="#s2">¶</a></h2>
+    <p>Группировка по §11: общая падающая функция <code>sub_53BE60</code>, общий вызывающий <code>Create_Zones</code> (<code>sub_53C1A0</code>) → <code>0x53C2D2</code>, общий регистровый инвариант. Внутри — два непосредственных симптома одной подсистемы.</p><pre>№  Симптом / адрес            Код               Инвариант           Кол-во
+-- -------------------------- ----------------- ------------------- ------
+1  0x53BF92 mov ecx,[edx]      ACCESS_VIOLATION  EDX=0, чтение 0x0,   57
+   (нативно или через            (чтение)        EAX=кол-во зон
+   трамплин patcher)                             (1..0x11)
+2  0x53C059 div esi            INT_DIVIDE_       ESI=0 (пустой           2
+   (нативно, h3hota)           BY_ZERO          список кандидатов)</pre><p>Две точки вызова <code>PlaceZoneCenter</code> внутри <code>Create_Zones</code> (сумма 59): <code>0x53C329</code> — цикл по <b class="hi">ВСЕМ</b> зонам по индексу i (38 дампов) <code>0x53C2D2</code> — фаза зон с владельцами/городами (21 дамп) Обе разыменовывают ту же <code>NULL</code>-связь — это один дефект, разные фазы расстановки.</p><p>Общая цепочка (одинакова во всех дампах): <code>0x53BE60</code>  (<code>PlaceZoneCenter</code>) ← <code>0x53C2D2 / 0x53C329</code>  (<code>Create_Zones</code>, <code>sub_53C1A0</code>) ← <code>0x549FCE / 0x549FD3</code>  (<code>ARandMapGen_Main</code>, <code>sub_549E20</code>) ← <code>HW_HOTA.dll</code> (<code>+0x1A050</code> / <code>+0x13A50</code> / …) — хуки RMG ← <code>HD_HOTA.dll</code> (UI/диспетчер генерации)</p><p>Поля Map file / Last RMG Seed по §14 НЕ используются для группировки (остаточный шум INI). Факт «крашится генератор» доказан цепочкой <code>ARandMapGen_Main</code> → <code>Create_Zones</code> → <code>PlaceZoneCenter</code>, а не строковыми полями. Разные <code>seed</code>/карты при одном адресе и одной цепочке — норма (причина в коде, а не в конкретной карте).</p>
+  </section>
+
+  <section id="s3">
+    <h2><span class="htext">Сопоставление адресов</span><a class="anchor" href="#s3">¶</a></h2>
+    <div class="formula"><span class="tok">IDA_addr</span><span class="eq">=</span><span class="tok">runtime_addr</span><span class="op">−</span><span class="tok">load_base</span><span class="op">+</span><span class="tok">imagebase.</span></div><p>Нативные кадры (h3hota HD, <code>load_base</code> = imagebase = <code>0x400000</code>): runtime <code>0x0053C059</code> → IDA <code>0x0053C059</code> (div <code>esi</code>)            — совпадает runtime <code>0x0053BE60</code> → IDA <code>0x0053BE60</code> (<code>PlaceZoneCenter</code>)    — V1-anchor runtime <code>0x0053C2D2</code> → IDA <code>0x0053C2D2</code> (возврат в <code>Create_Zones</code>) runtime <code>0x00549FCE</code> → IDA <code>0x00549FCE</code> (возврат в <code>ARandMapGen_Main</code>)</p><p>Кадр faulting EIP (часть дампов 1.8.0): runtime <code>0x00F208AB / 0x02B308AB</code> и т. п. — это НЕ адрес внутри <code>h3hota.exe</code> и не внутри листинга какого-либо модуля. Регион (≈<code>0x00F00000 / 0x02B00000</code>) выделяется <code>patcher_x86</code> под codecave; <code>HW_HOTA</code> хукает RMG-функции (в <code>HW_HOTA.dll</code> видно <code>push 549E20h</code> — хук <code>ARandMapGen_Main</code>, и <code>push 538000h</code> и др.). Сопрограммная схема HotA: исполнение SoD-функции идёт через перенесённые в codecave инструкции, поэтому стек-уокер привязывает кадр к логическому SoD-адресу <code>0x53BE60</code> (строка «[ <code>0x0053BE60</code> ] called from [ <code>0x0053C2D2</code> ]»), а EIP указывает в трамплин. Логика инструкции сбоя при этом — ровно <code>0x53BF92</code> (<code>mov ecx,[edx]</code>); это подтверждают регистры (<code>EDX=0</code>, <code>EAX</code>=кол-во зон).</p><p>Листинга для трамплина не существует по определению (§17, §12) — запрос не требуется.</p>
+  </section>
+
+  <section id="s4">
+    <h2><span class="htext">Точка сбоя — разбор инструкций</span><a class="anchor" href="#s4">¶</a></h2>
+    <p>Симптом 1 (57 дампов), <code>0x53BF92</code>  <code>mov ecx, [edx]</code>: <code>edx = another_zone_set_v14</code> — указатель на <code>_RmgZoneSettings_</code> зоны-соседа, прочитанный из записи связи: <code>edx</code> = *(void**)(<code>zone_settings</code>→connections.data + <code>connect_off</code>). Запись связи имеет шаг 28 байт (<code>0x1C</code>); первое поле (off 0) — указатель на настройки зоны-партнёра. Падение: <code>edx = 0</code> → чтение [0] (поле <code>id_dword0</code>) → AV read <code>0x0</code>. Адресная проверка (§4): <code>faulting_addr = EDX = 0</code>. op = чтение. ✓ <code>EAX</code> (<code>zones_count_v13</code>) = 1..<code>0x11</code> — целиком согласуется с числом зон в шаблоне (sar <code>eax</code>,2 от размера вектора зон). ✓</p><p>Симптом 2 (2 дампа), <code>0x53C059</code>  div <code>esi</code>: Перед делением: <code>esi</code> = v18 = (end − data)/12 — число элементов списка кандидатных координат центра (<code>aval_center_xyz_list_v25</code>). v21 = data[ 12 * (<code>rand</code>() % v18) ]. Если список пуст, v18 = 0 → div <code>esi</code> <code>(esi=0)</code> → <code>INT_DIVIDE_BY_ZERO</code>. Адресная проверка (§4, для div): делитель <code>ESI = 0</code>. ✓ Контекст (дамп <code>0x53C059</code>): <code>ESI=0</code>, <code>EDX=0</code> (обнулён перед div), <code>EAX=0x4915</code> (делимое = 12*<code>rand</code>()). ✓ Поставщик списка (уточнёно чтением <code>sub_53BE60</code> и <code>sub_53B7E0</code>): список <code>aval_center_xyz_list</code> наполняет <code>GetCoordsToPlaceZoneNearIt</code> (<code>sub_53B370</code>) В <b class="hi">ДВА</b> <b class="hi">ПРОХОДА</b> внутри <code>sub_53BE60</code>: сначала по зонам СО <b class="hi">СВЯЗЯМИ</b> (<code>0x53BF98</code>), и <b class="hi">ЕСЛИ</b> пусто — fallback-цикл по <b class="hi">ВСЕМ</b> зонам (<code>0x53BFE7</code>..<code>0x53C01B</code>). Затем <code>SelectBestPlaces</code> (<code>sub_53B7E0</code>, вызов <code>0x53C028</code>) НЕ отбирает по связям, а <b class="hi">СУЖАЕТ</b> список по Z-уровню («на каждом уровне — хотя бы 1 зона», <code>0x53B848</code>). div ловит пустоту <b class="hi">ИТОГОВОГО</b> списка. Связь с первопричиной <b class="hi">НЕПРЯМАЯ</b>: из-за fallback по всем зонам пустота НЕ сводится просто к «нет связей» — это вырожденная зона без допустимых координат вообще (геометрия/переполнение карты при зеркале). Поэтому симптом 2 — <b class="hi">ТОГО</b> ЖЕ зеркального сценария, но его связь с <code>NULL</code>-связью НЕ <b class="hi">ДОКАЗАНА</b> статикой (вероятна, но нестрогая гипотеза; может быть независимым путём).</p>
+  </section>
+
+  <section id="s5">
+    <h2><span class="htext">Регистровые инварианты</span><a class="anchor" href="#s5">¶</a></h2>
+    <p>По всем 57 AV-дампам: <code>EDX = 0x00000000</code>           — <code>NULL</code>-указатель зоны-соседа (= faulting) read of address: <code>0x0</code>       — 57/57 <code>EAX</code> ∈ {1,3,4,5,6,7,8,9,<code>0xB</code>,<code>0x11</code>}  — <code>zones_count_v13</code> (число зон шаблона); распределение: 5→20, 9→8, 3→7, 6→5, 1→5, <code>0xB</code>→4, 7→3, <code>0x11</code>→2, 8→1, 4→1. Малые значения, как и должно быть для числа зон RMG. <code>ESP=0x00196348</code>, <code>EBP=0x00196380</code> — устойчивы (один и тот же кадр). По 2 div-дампам: <code>ESI = 0x00000000</code>           — пустой список кандидатов (= делитель)</p><p>Вывод: регистровые инварианты однозначно фиксируют один дефект (<code>NULL</code>-связь) с двумя непосредственными проявлениями в одной функции.</p>
+  </section>
+
+  <section id="s6">
+    <h2><span class="htext">Восстановленная цепочка вызовов</span><a class="anchor" href="#s6">¶</a></h2>
+    <p><code>ARandMapGen_Main</code> (<code>sub_549E20</code>)           — главный цикл генерации карты → <code>Create_Zones</code> (<code>sub_53C1A0</code>)           — создание/расстановка зон → <code>PlaceZoneCenter</code> (<code>sub_53BE60</code>)      — расстановка центра зоны  [<b class="hi">СБОЙ</b>] читает связи зоны (connections, шаг 28б) для каждой связи: <code>edx</code> = connection.<code>another_zone_settings</code> <code>0x53BF92</code> <code>mov ecx,[edx]</code>          — id зоны-соседа  ← <code>edx</code>=<code>NULL</code></p><p>Хуки внешних модулей в цепочке (по §12 — ответственность раздельная): <code>HW_HOTA.dll</code>  — хукает <code>ARandMapGen_Main</code> и сопутствующие RMG-функции (<code>push 549E20h</code> в <code>sub_1001B695</code> и др.); трамплины в codecave <code>patcher_x86</code>. <code>HD_HOTA.dll</code>  — UI/диспетчер запуска генерации (верх стека). Эти модули — лишь мост к SoD-функции; виновного кода в них нет.</p>
+  </section>
+
+  <section id="s7">
+    <h2><span class="htext">Первопричина</span><a class="anchor" href="#s7">¶</a></h2>
+    <p>7.1. Потребитель (где падает) доверяет входу. <code>sub_53BE60</code> (<code>h3hota.exe</code>, унаследован от SoD) в цикле связей читает указатель на зону-соседа и сразу разыменовывает его (<code>0x53BF92</code>), не проверяя на <code>NULL</code>. Граница цикла связей берётся из размера вектора connections: count = (end − base)/28 (<code>0x53BF4B</code>..<code>0x53BF6B</code>). То есть потребитель проходит ровно по числу реально лежащих в массиве записей — за границу он НЕ выходит. Значит, <code>NULL</code> приходит из содержимого корректно отсчитанной записи, а не из перебора мусора.</p><p>7.2. Поставщик №1 — текстовый разборщик шаблона — <code>NULL</code> НЕ кладёт. <code>sub_5384E0</code> (<code>Load_rmg_txt</code>), создание связи, <code>0x53873A</code>..<code>0x538761</code>:</p><p><code>0x53873C</code>  <code>call GetZoneSettings_By_Id</code>   ; <code>rz_1</code> (зона A) → <code>eax</code> <code>0x538744</code>  <code>mov  [ebp+rz_1_v61], eax 0x538747  call GetZoneSettings_By_Id</code>   ; <code>rz_2</code> (зона B) → <code>eax</code> <code>0x538751</code>  test <code>edi</code>, <code>edi</code>                ; <code>rz_1 == NULL</code>? <code>0x538753</code>  jz   <code>loc_538849</code>              ;   да → связь пропустить <code>0x538759</code>  test <code>ebx</code>, <code>ebx</code>                ; <code>rz_2 == NULL</code>? <code>0x53875B</code>  jz   <code>loc_538849</code>              ;   да → связь пропустить <code>0x538761</code>  <code>mov  [ebp+connection_v50], ebx</code> ; только теперь сохранить</p><p>Резолвер <code>GetZoneSettings_By_Id</code> (<code>sub_533570</code>) при ненайденном id возвращает <code>NULL</code> (<code>loc_5335A6</code>: xor <code>eax</code>,<code>eax</code>). Текстовый путь это проверяет и НЕ создаёт связь с <code>NULL</code>-партнёром. Следовательно, через обычную загрузку шаблона <code>NULL</code>-связь структурно недостижима, и граница потребителя согласована с поставщиком (§19, развилка 1: «упавший элемент недостижим корректной логикой данного пути»).</p><p>7.3. Поставщик №2 — <b class="hi">НАЙДЕН</b>: загрузчик связей зон HotA (<code>sub_101C6300</code> в <code>hota.dll</code>). HotA своим хуком ставит собственную процедуру разбора связей зон; она, как и текстовый разборщик SoD, вызывает <b class="hi">ТОТ</b> ЖЕ резолвер зоны по номеру (<code>call 533570h</code> — <code>GetZoneSettings_By_Id</code>), но обрабатывает «не найдено» <b class="hi">ИНАЧЕ</b>:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:101C640D  </span><span class="k">mov</span>  <span class="r">eax</span>, <span class="n">533570h</span>
+<span class="a">.text:101C6413  </span><span class="k">call</span> <span class="r">eax</span>                 <span class="c">; зона A → edi</span>
+<span class="a">.text:101C641C  </span><span class="k">mov</span>  <span class="r">eax</span>, <span class="n">533570h</span>
+<span class="a">.text:101C6425  </span><span class="k">call</span> <span class="r">eax</span>                 <span class="c">; зона B (партнёр) → ebp</span>
+<span class="a">.text:101C642D  </span><span class="k">test</span> <span class="r">edi</span>, <span class="r">edi</span>
+<span class="a">.text:101C642F  </span><span class="k">jz</span>   loc_101C6729        <span class="c">; A=NULL → связь пропустить</span>
+<span class="a">.text:101C6435  </span><span class="k">test</span> <span class="r">ebp</span>, <span class="r">ebp</span>
+<span class="a">.text:101C6437  </span><span class="k">jnz</span>  <span class="r">short</span> loc_101C6442   <span class="c">; B≠NULL → строить</span>
+<span class="a">.text:101C6439  </span><span class="k">cmp</span>  <span class="r">ebx</span>, <span class="n">0FFFFFFFFh</span>      <span class="c">; токен зоны B == -1 ?</span>
+<span class="a">.text:101C643C  </span><span class="k">jnz</span>  loc_101C6729        <span class="c">; B=NULL и токен≠-1 → пропустить</span>
+<span class="a">.text:101C6442  </span>...                      <span class="c">; B=NULL и токен==-1 → СТРОИТЬ</span>
+<span class="a">.text:101C644F  </span><span class="k">mov</span>  [<span class="r">esp</span>+<span class="n">78h</span>+var_2C], <span class="r">ebp</span> <span class="c">; СОХРАНИТЬ партнёра = NULL</span></pre></div><p>То есть для специального токена -1 (Zone2 = -1) загрузчик HotA НЕ отбрасывает связь, как это делает текстовый разборщик SoD (<code>0x538751</code>..<code>0x53875B</code>), а строит запись связи с <b class="hi">НУЛЕВЫМ</b> указателем партнёра (<code>ebp</code>=<code>NULL</code> сохраняется в запись). Именно этот <code>NULL</code> позже разыменовывает <code>sub_53BE60</code> на <code>0x53BF92</code>. Резолвер <code>0x533570</code> на ненайденном id штатно возвращает <code>NULL</code> (<code>0x5335A6</code> xor <code>eax</code>,<code>eax</code>). Ветка присутствует <b class="hi">ИДЕНТИЧНО</b> в <code>hota.dll</code> 1.6.1, 1.7.3 и 1.8.0 (две <code>call 533570h + cmp ebx,0FFFFFFFFh</code>), что согласуется с дампами всех этих версий. Зон-мирроринга в <code>h3hota.exe</code> нет (там только <code>MagicMirror</code> боя и terr/road/river-зеркало клеток — не зоны), поэтому поставщик — именно <code>hota.dll</code>.</p><p>Где именно включается зеркало (разрешено). <code>sub_101C6300</code> — <b class="hi">ЭТО</b> <b class="hi">ОБЩИЙ</b> парсер связей: у него единственный вызывающий — загрузчик шаблона <code>sub_101C6800</code> (читает "rmg.txt", <code>0x101C6883</code>). Зеркальный режим включается <b class="hi">ИМЕННО</b> в <code>sub_101C6800</code> по полю Mirror шаблона:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:101C684B  </span><span class="k">cmp</span>  <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">ebx</span>+<span class="n">10B8h</span>], <span class="n">2</span>   <span class="c">; Mirror == 2 ?</span>
+<span class="a">.text:101C6856  </span><span class="k">jnz</span>  <span class="r">short</span> loc_101C687E
+<span class="a">.text:101C6858  </span><span class="k">mov</span>  <span class="r">eax</span>, <span class="r">edi</span>                   <span class="c">; да: число зон</span>
+<span class="a">.text:101C6865  </span><span class="k">sar</span>  <span class="r">eax</span>, <span class="n">1</span>                      <span class="c">;      делится пополам</span></pre></div><p>То же поле [..+<code>10B8h</code>]==2 проверяется в mirror-коде <code>0x101AE20D</code> (внутри хук-сопрограммы <code>sub_101AE0A0</code>, callback из <code>sub_101B1200</code>): она подменяет расчёт размера карты/зоны в <code>Create_Zones</code> (пишет адрес возобновления <code>0x53C257</code> — регион <code>min_map_size/min_zone_size</code>), через __aulldiv/fsqrt получает измерение и при Mirror==2 <b class="hi">УДВАИВАЕТ</b> результат (<code>0x101AE221</code> add <code>eax</code>,<code>eax</code>). То есть отражается <b class="hi">ГЕОМЕТРИЯ</b> карты (удвоение измерения), парно к делению числа зон пополам (sar <code>eax</code>,1) в загрузчике; это НЕ переиндексатор связей -1→двойник. Кроме того, в <code>hota.dll</code> есть строка (<code>0x101A5840</code>): "Mirror templates currently can be generated only with <code>HW_Rulez</code> pl..." — зеркальные шаблоны требуют плагин <code>HW_Rulez</code>, и именно <code>HW_HOTA.dll</code> виден в стеке этого вылета. Это связывает «Mirror==2» с наблюдаемыми логами.</p><p>Итог: ветка «Zone2=-1 → <code>NULL</code>-партнёр» (<code>0x101C644F</code>) общая, но безвредна без зеркала: без Mirror==2 отражённых зон нет и «фиктивный» партнёр не встречается при расстановке центра. При Mirror==2 число зон делится пополам и достраивается отражением — и <code>NULL</code>-партнёр доходит до <code>sub_53BE60</code>. Что остаётся не символизированным — точный код достройки отражённой половины (как -1-связь переиндексируется в несуществующую зону); его подтверждение — точкой останова (раздел 11).</p><p>7.3.1. Детектор зеркальности в <code>HW_HOTA.dll</code> (по <b class="hi">ИМЕНИ</b> шаблона). Флаг Mirror в <code>hota.dll</code> выставляется не произвольно: <code>HW_HOTA.dll</code> имеет функцию fTNameIsMirror (<code>sub_10019250</code>), явно экспонированную через patcher как "HW.fTNameIsMirror" (<code>0x1001B432</code>). Она сравнивает префикс имени шаблона с несколькими вариантами "mt" (aMt = "mt", и байтовые шаблоны рядом) и возвращает 1 при совпадении; вызывающие — <code>sub_100184B0</code> и <code>sub_100190C0</code> (регистрируются в <code>sub_1001B420</code>). Это согласуется с правилом именования <code>mt_</code>* — но это именно код игры, ветвящийся по префиксу (явное подтверждение, исключение §14), а не догадка по имени папки. Сам флаг <code>[zone+10B8h]</code> пишется косвенно (при копировании структуры шаблона), прямого mov-setter’а по статике нет; читателей флага два: <code>0x101C684B</code> (загрузчик) и <code>0x101AE20D</code> (mirror).</p><p>7.3.2. У потребителя <b class="hi">НЕТ</b> проверки типа/фиктивности связи. Цикл связей в <code>sub_53BE60</code> — это while(1) с <code>0x53BF41</code>: берёт каждую запись по счётчику count=(end−base)/28 и сразу разыменовывает партнёра (<code>0x53BF92</code>), НЕ смотря на поле <code>is_created_byteA</code> (off <code>0xA</code>) или фиктивность. Понятие "fictive" в <code>h3hota.exe</code> вообще отсутствует (греп пуст) — вся обработка -1/фиктивных связей живёт только в <code>hota.dll</code>. Поэтому band-aid-фикс (пропускать связь с партнёром==<code>NULL</code>) лёг бы ровно между <code>0x53BF76</code> и <code>0x53BF92</code>; правильный же фикс — у поставщика (<code>hota.dll</code>).</p><p>7.4. Тест «детерминированность vs частота» (§19). Вылет интермиттентный (часть розыгрышей RMG), а не «у всех и сразу». Это согласуется: <code>NULL</code>-связь появляется лишь при определённой раскладке зон/тегов отражения и при конкретном зерне <b class="hi">ГСЧ</b>, когда путь расстановки центра доходит до дефектной связи. Механизм — не порча памяти (адрес строго <code>0x0</code>, регистры чистые), а детерминированный по входным данным <code>NULL</code>, маскируемый случайностью конфигурации. Симптом 2 (div <code>esi=0</code>) — другое проявление вырожденной зоны (пустой список координат <b class="hi">ПОСЛЕ</b> fallback-прохода по всем зонам, не только со связями); связь с <code>NULL</code>-связью вероятна, но статикой не доказана (см. раздел 4).</p><p>7.5. Почему именно зеркальные шаблоны. Текстовый разборщик фильтрует <code>NULL</code>-связи; единственный путь, где связь с <code>NULL</code>-партнёром реально попадает в массив — размножение зеркала. Поэтому пользовательское наблюдение «вылет на зеркальном шаблоне» прямо указывает на код-поставщик в <code>hota.dll</code>.</p>
+  </section>
+
+  <section id="s8">
+    <h2><span class="htext">Условия, спровоцировавшие сбой</span><a class="anchor" href="#s8">¶</a></h2>
+    <ul><li>Запущена <b class="hi">ГЕНЕРАЦИЯ</b> случайной карты по <b class="hi">САМОДЕЛЬНОМУ</b> <b class="hi">ЗЕРКАЛЬНОМУ</b> шаблону (Mirror; обычно на основе <code>mt_</code>*/h3dm*). По комментариям отправителей: стоковый <code>mt_Jebus</code> НЕ падает, падает именно самодельный шаблон на его основе.</li><li>В шаблоне есть связь с Zone2 = -1 (зеркальный/односторонний двойник), а зоны-двойника в наборе <b class="hi">НЕТ</b> (несбалансированная конфигурация) → резолвер возвращает <code>NULL</code>, и загрузчик HotA сохраняет связь с <code>NULL</code>-партнёром (<code>0x101C644F</code>).</li><li>Расстановка центра зоны (<code>PlaceZoneCenter</code>) доходит до этой связи и разыменовывает <code>NULL</code> (<code>0x53BF92</code>) — либо у зоны не остаётся валидных кандидатных координат → деление на ноль (<code>0x53C059</code>).</li><li>Зависит от зерна <b class="hi">ГСЧ</b> и геометрии — отсюда непостоянство.</li><li>НО: сама ветка Zone2=-1→<code>NULL</code> НЕ гейтится флагом Mirror (в теле <code>sub_101C6300</code> проверок [+<code>10B8h</code>] нет). Зеркало — это контекст, в котором такая связь штатна и достижима при расстановке.</li></ul>
+  </section>
+
+  <section id="s9">
+    <h2><span class="htext">Достоверность и ограничения</span><a class="anchor" href="#s9">¶</a></h2>
+    <p>Подтверждено: • Точка сбоя <code>0x53BF92</code> (<code>mov ecx,[edx]</code>) — арифметика по всем 57 AV дампам: <code>EDX=0</code>, чтение <code>0x0</code>, <code>EAX</code>=число зон. ✓ • Второй симптом <code>0x53C059</code> (div <code>esi=0</code>) — по 2 дампам: <code>ESI=0</code>. ✓ • Цепочка <code>ARandMapGen_Main</code> → <code>Create_Zones</code> → <code>PlaceZoneCenter</code> — по XREF листинга <code>h3hota.exe</code> и совпадению адресов возвратов. ✓ • <b class="hi">ЗЕРКАЛЬНАЯ</b> <b class="hi">АТРИБУЦИЯ</b> и «самодельный шаблон» — по комментариям в самих дампах (не только из внешнего репорта): <code>0x02746163</code> — «<code>mt_Jebus</code> не падает, падает свой шаблон на его основе»; <code>0x00D78F74</code> — «попытка сделать зеркальный шаблон... через 1 и 101 зоны». Один дамп явно содержит строку <code>mt_Jebus</code>. ✓ • Текстовый разборщик шаблона null-guard'ит связи (<code>0x538751</code>.. <code>0x53875B</code>) — поставщик №1 исключён. ✓ • Зон-мирроринг в <code>h3hota.exe</code> отсутствует → поставщик в <code>hota.dll</code>. ✓ • Поставщик <b class="hi">НАЙДЕН</b> в <code>hota.dll</code>: <code>sub_101C6300</code> (<b class="hi">ОБЩИЙ</b> загрузчик связей зон, единственный вызывающий — <code>sub_101C6800</code>) для токена Zone2=-1 строит связь с <code>NULL</code>-партнёром (<code>0x101C6435</code>..<code>0x101C644F</code>), тогда как текстовый разборщик SoD её отбрасывает. Ветка идентична в 1.6.1/1.7.3/1.8.0. ✓ • Зеркальный режим включается флагом Mirror==2 в загрузчике <code>sub_101C6800</code> (<code>0x101C684B</code>), а зеркальность шаблона определяет <code>HW_HOTA.dll</code> по имени (fTNameIsMirror, <code>sub_10019250</code>, префикс "mt"). ✓ • Потребитель <code>sub_53BE60</code> не проверяет фиктивность/<code>is_created</code> связи (while(1) с <code>0x53BF41</code>) — разыменовывает безусловно. ✓</p><p>Ограничения: • Инструкция, где <code>NULL</code> сохраняется в запись связи, <b class="hi">ЛОКАЛИЗОВАНА</b>: <code>hota.dll</code> <code>sub_101C6300</code>, <code>0x101C644F</code> (<code>mov [</code>..],<code>ebp</code> при <code>ebp</code>=<code>NULL</code>), ветка токена Zone2=-1 (<code>0x101C6435</code>..<code>0x101C643C</code>). Вопрос «общий загрузчик или зеркало» <b class="hi">РАЗРЕШЁН</b>: это общий парсер, а зеркало включается флагом Mirror==2 (см. 7.3, 7.3.1). Зеркало <b class="hi">ГЕОМЕТРИИ</b> тоже локализовано: хук-сопрограмма <code>sub_101AE0A0</code> при Mirror==2 удваивает измерение карты (<code>0x101AE20D</code> <code>cmp [esi+10B8h],2</code> → <code>0x101AE221</code> add <code>eax</code>,<code>eax</code>) и возобновляет <code>Create_Zones</code> на <code>0x53C257</code>. Что ПО <b class="hi">СТАТИКЕ</b> НЕ <b class="hi">ЗАКРЫТО</b>: точный код переиндексации <b class="hi">СВЯЗЕЙ</b> отражённой половины (как -1-связь сопоставляется с зоной-двойником) и прямой mov-setter флага <code>[zone+10B8h]</code>=2 (пишется косвенно при копировании структуры). Схема «id+100» — формулировка отправителя, кодом не подтверждена (константы <code>100/64</code>h в mirror-коде нет; см. раздел 11, negative result). <b class="hi">СУЖЕНИЕ</b> <b class="hi">ПОИСКА</b> (раскрутка <code>sub_101AE0A0</code>): этот колбэк — один из шагов сопрограммной таблицы RMG, регистрируемой в <code>sub_101B1200</code> (+<code>236 = 0x101B1436</code>; мастер-регистратор из <code>sub_100E49D0+163</code>B). Проверка <b class="hi">ВСЕХ</b> resume-адресов этой таблицы (<code>mov [</code>..+<code>20h</code>],5xxxxxh): ни один шаг НЕ возобновляет регион парсера связей <code>0x538xxx</code> — т.е. переиндексатор связей В <b class="hi">ЭТОЙ</b> <b class="hi">СОПРОГРАММНОЙ</b> <b class="hi">ТАБЛИЦЕ</b> <b class="hi">ОТСУТСТВУЕТ</b> (negative result); сопрограммы касаются геометрии/ расстановки (<code>0x53Cxxx</code>), а связи строятся отдельным путём <code>sub_101C6800</code> → <code>sub_101C6300</code>. Искать переиндексацию среди co-routine шагов бесполезно. Для развязки нужен дамп с точкой останова (раздел 11). • По §17: листинг <code>h3hota.exe</code> (1.8.0) совпадает с дампами 1.8.0; для дампов 1.6.1 — 1.7.3 функция <code>sub_53BE60</code> унаследована от SoD и стабильна по адресу <code>0x53BE60</code> (тот же Imagebase <code>0x400000</code>), что подтверждается одинаковой цепочкой во всех версиях. Рассинхрон версии — в <b class="hi">ПЕРИФЕРИЙНЫХ</b> модулях <code>(HW_HOTA/HD_HOTA)</code>, он не блокирует диагноз падающего модуля.</p><p>Почему полезность <b class="hi">СРЕДНЯЯ</b> (§20): падающая функция (<code>sub_53BE60</code>) <b class="hi">ИСПРАВНА</b> — она доверяет входу так же, как оригинал SoD. Точечный фикс в точке сбоя (добавить <code>NULL</code>-проверку перед <code>0x53BF92</code>) — это band-aid; первопричина у поставщика выше по стеку (код зеркал <code>hota.dll</code> создаёт связь с несуществующей зоной). Лог полезен и указывает на подсистему, но фикс не в точке сбоя. Место поставщика теперь локализовано (<code>hota.dll</code> <code>sub_101C6300</code>, ветка Zone2=-1, <code>0x101C644F</code>); до <b class="hi">ВЫСОКОЙ</b> полезность не поднята, т. к. по статике не доказано, является ли -1 штатным «фиктивным» признаком (тогда фикс — отброс <code>NULL</code>-связи у потребителя/загрузчика) или ошибкой драйвера зеркал.</p>
+  </section>
+
+  <section id="s10">
+    <h2><span class="htext">Признаки поиска в старых версиях HotA / в SoD</span><a class="anchor" href="#s10">¶</a></h2>
+    <div class="card"><div class="kv"><span class="k">Были до 1.8.0</span><span class="v">✅  — есть дампы 1.6.1, 1.7.0, 1.7.1, 1.7.2, 1.7.3 с той же функцией, цепочкой и инвариантом <code>(EDX=0)</code>. Дефект не нов для 1.8.0.</span></div><div class="kv"><span class="k">Были в SoD</span><span class="v">❌  — НЕ подтверждено. Сама функция <code>sub_53BE60</code> унаследована от SoD и доверяет входу, НО источник <code>NULL</code>-связи — зеркальное размножение зон, которого в SoD нет (это возможность HotA). В чистом SoD без HotA-зеркал этот <code>NULL</code> не производится. (❌ = «не подтверждено по имеющимся данным», а не «точно отсутствует».)</span></div></div>
+  </section>
+
+  <section id="s11">
+    <h2><span class="htext">Воспроизведение вылета</span><a class="anchor" href="#s11">¶</a></h2>
+    <p>Условие активации: <b class="hi">ГЕНЕРАЦИЯ</b> случайной карты по зеркальному шаблону. Обычная игра на готовой карте путь не задействует.</p><p>Базовый сценарий:</p><ul><li>Взять зеркальный шаблон (<code>mt_Jebus</code>, <code>mt_TeamJebus</code>, <code>mt_Diamond</code>, <code>mt_Andromeda</code>, <code>mt_Antares</code>, <code>mt_Firewalk</code>, h3dm1 и т. п.).</li><li>Массово генерировать карты, перебирая зёрна <b class="hi">ГСЧ</b>; приоритет — конфигурации с числом игроков/позиций на границах диапазонов связей (поля min/max human/total positions у связей), при которых часть связей отбраковывается асимметрично между оригиналом и зеркалом.</li><li>Ожидаемый вылет: AV чтения <code>0x0</code> на <code>0x53BF92</code> (<code>EDX=0</code>, <code>EAX</code>=число зон) либо <code>INT_DIVIDE_BY_ZERO</code> на <code>0x53C059</code> <code>(ESI=0)</code>.</li></ul><p>Создание шаблона, провоцирующего вылет (НА <b class="hi">ОСНОВЕ</b> <b class="hi">СТРУКТУРЫ</b> <b class="hi">РЕАЛЬНЫХ</b> <b class="hi">ШАБЛОНОВ</b> из <code>HotA_RMGTemplates</code>):</p><ul><li>База — <b class="hi">РАБОЧИЙ</b> зеркальный <code>mt_Jebus</code>.h3t: у него в зоне Id=1 флаг Mirror=<code>[x]</code> (колонка 12), а связи (колонки 128/129 Zone1/Zone2): 1→2, затем 2→-1, 2→-1, 2→-1, 2→-1. Токен Zone2=-1 здесь <b class="hi">ШТАТНЫЙ</b> и <b class="hi">САМ</b> ПО <b class="hi">СЕБЕ</b> НЕ <b class="hi">РОНЯЕТ</b> (стоковый <code>mt_Jebus</code> работает) — HotA корректно резолвит двойника при сбалансированной раскладке.</li><li>Чтобы уронить: взять такой шаблон и <b class="hi">РАЗБАЛАНСИРОВАТЬ</b> зеркало (как у отправителей: «свой шаблон на основе <code>mt_Jebus</code>», «через 1 и 101 зоны»): сделать так, чтобы -1-связь указывала на двойника, который в отражённом наборе не материализуется (лишняя/непарная зеркальная связь, рассинхрон номеров зон). Тогда резолвер вернёт <code>NULL</code>, и загрузчик сохранит битую связь. <b class="hi">ПРИМЕЧАНИЕ</b> про «1 и 101»: схема «двойник = id+100» — это формулировка <b class="hi">ОТПРАВИТЕЛЯ</b> из комментария к дампу, А НЕ подтверждённая кодом арифметика: константы 100 (<code>64h</code>) в mirror-функциях <code>hota.dll</code> (<code>sub_101AE0A0</code>, mirror-ветка <code>sub_101C6800</code>) ПО <b class="hi">СТАТИКЕ</b> <b class="hi">НЕТ</b> (negative result). Точный шаг нумерации двойника остаётся неподтверждённым (см. раздел 9, ограничения).</li><li>Проверять на крупных картах с максимумом зон — выше шанс дойти до дефектной связи при расстановке центров.</li></ul><p><b class="hi">АНТИ</b>-<b class="hi">РЕПРО</b> (важно, чтобы не повторять ошибку): файлы <code>CrashEdgeStress</code>*.h3t в <code>HotA_RMGTemplates</code> — НЕ зеркальные (во всех зонах Mirror пуст, связи ссылаются на конкретные id 2..48, без Zone2=-1). Они НЕ воспроизводят этот механизм (тестируют другое — edge/stress по числу зон). Обязательный признак корректного репро — Mirror=<code>[x]</code> И связь Zone2=-1. (Файл 532D1F.h3t — другой адрес краша, к этому вылету не относится.)</p><p>Дифференциальный тест (подтверждение причины):</p><ul><li>Точка останова на <code>0x53BF76</code> (<code>mov edx,[ecx+edx]</code>) — снять <code>edx</code>. Причина подтверждена, если <code>edx = 0</code> (запись связи содержит <code>NULL</code>-указатель партнёра), при этом счётчик связей count=(end−base)/28 &gt; 0 и индекс в пределах массива (т.е. перебор корректен, <code>NULL</code> — в содержимом записи).</li><li>Контроль: если у всех связей партнёр != <code>NULL</code> — вылета нет.</li></ul><p>Подтверждение поставщика (закрывает открытый вопрос 7.3):</p><ul><li>Точка останова в <code>hota.dll</code> на рантайм-адресе <code>0x101C644F</code> (<code>mov [esp+</code>..],<code>ebp</code>) — попадание сюда с <code>ebp=0</code> доказывает, что связь с <code>NULL</code>-партнёром сохраняет именно загрузчик HotA. (Рантайм-адрес = <code>load_base</code> <code>hota.dll</code> + <code>(0x101C644F − 0x10000000)</code>.)</li><li>Проверка «общий загрузчик или зеркало»: сравнить, бьёт ли эта точка на НЕзеркальном шаблоне с Zone2=-1 (напр. 1deaL, где есть фиктивные связи): если <code>ebp</code>≠0 всегда — -1 корректно резолвится вне зеркала, и <code>NULL</code> рождает именно зеркальное отражение.</li></ul>
+  </section>
+
+  <section id="verdict">
+    <h2><span class="htext">Вывод</span><a class="anchor" href="#verdict">¶</a></h2>
+    <div class="card verdict lvl-mid"><p>Виновник — <code>hota.dll</code> (подсистема зеркальных шаблонов генератора случайных карт): при размножении отражённой половины карты создаётся связь зоны, целевой указатель которой = <code>NULL</code> (зона по своему номеру не нашлась в отражённом наборе). Унаследованная от SoD функция расстановки центра зоны (<code>sub_53BE60</code> в <code>h3hota.exe</code>) штатно перебирает связи и разыменовывает указатель партнёра без проверки — на <code>0x53BF92</code> (<code>mov ecx,[edx]</code>) происходит чтение по нулевому адресу. По всем 57 дампам этого исключения <code>EDX=0</code> и адрес чтения <code>0x0</code>, <code>EAX</code> = число зон шаблона — арифметика совпадает. Ещё 2 дампа дают деление на ноль на <code>0x53C059</code> (пустой список кандидатных координат вырожденной зоны) — иной симптом того же зеркального сценария (связь с <code>NULL</code>-связью вероятна, но статикой не доказана — см. раздел 4).</p><p>Сама SoD-функция исправна: она доверяет входу так же, как в оригинале, а контракт «у связи всегда валидный партнёр» соблюдает текстовый разборщик шаблона (<code>sub_5384E0</code>), который <code>NULL</code>-связи отбрасывает (<code>0x538751</code>..<code>0x53875B</code>). Нарушает контракт именно загрузчик связей HotA (найден: <code>hota.dll</code> <code>sub_101C6300</code>, ветка токена Zone2=-1, <code>0x101C644F</code> — сохраняет <code>NULL</code>-партнёра) — в <code>h3hota.exe</code> зон-мирроринга нет. Поэтому вылет воспроизводится <b class="hi">ТОЛЬКО</b> на зеркальных шаблонах, а исправление должно быть на стороне поставщика (<code>hota.dll</code>): не создавать связь с несуществующей зоной либо отбрасывать связь с <code>NULL</code>-партнёром, как это делает текстовый разборщик.</p><p>Дефект не нов для 1.8.0 — подтверждён дампами 1.6.1 — 1.8.0. Непостоянство вылета объясняется не порчей памяти, а зависимостью от зерна <b class="hi">ГСЧ</b> и геометрии зеркальной раскладки.</p></div>
+  </section>
+
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Скопировано</div>
+
+<script>
+(function(){
+  var KEY="hota-theme-v6",root=document.documentElement;
+  var ic=document.getElementById("themeUse"),lb=document.getElementById("themeLabel");
+  var mq=window.matchMedia?matchMedia("(prefers-color-scheme: light)"):null;
+  // по умолчанию следуем за системной темой; ручной клик фиксирует light/dark и перекрывает её
+  function manual(){try{var s=localStorage.getItem(KEY);return(s==="light"||s==="dark")?s:null;}catch(e){return null;}}
+  function effective(){return manual()||(mq&&mq.matches?"light":"dark");}
+  // иконка — SVG (солнце/луна), переключаем href у <use>, а не emoji-глиф
+  function paintBtn(){var l=effective()==="light";
+    ic.setAttribute("href",l?"#ic-sun":"#ic-moon");
+    lb.textContent=l?"\u0421\u0432\u0435\u0442\u043B\u0430\u044F":"\u0422\u0451\u043C\u043D\u0430\u044F";}
+  // ВСЕГДА ставим явный класс (theme-light либо theme-dark) — без @media-CSS
+  function apply(){root.classList.remove("theme-light","theme-dark");
+    root.classList.add("theme-"+effective());paintBtn();}
+  apply();
+  // смена системной темы -> сбросить ручной выбор и снова следовать за системой
+  if(mq){var hh=function(){try{localStorage.removeItem(KEY);}catch(e){}apply();};
+    mq.addEventListener?mq.addEventListener("change",hh):mq.addListener(hh);}
+  document.getElementById("themeToggle").onclick=function(){
+    var n=effective()==="light"?"dark":"light";
+    try{localStorage.setItem(KEY,n);}catch(e){}apply();};
+  var links={},secs=[].slice.call(document.querySelectorAll("main section[id]"));
+  document.querySelectorAll("nav.toc a").forEach(function(a){links[a.getAttribute("href").slice(1)]=a;});
+  var lock=0,lockT,ticking=0;
+  // подсветка только в оглавлении
+  function setActive(id){
+    Object.keys(links).forEach(function(k){links[k].classList.remove("active");});
+    if(links[id])links[id].classList.add("active");}
+  function unlockSoon(){clearTimeout(lockT);lockT=setTimeout(function(){lock=0;},120);}
+  // активна — ПОСЛЕДНЯЯ секция, чьё начало выше порога чтения.
+  // Пороговая логика детерминирована и НЕ пропускает короткие секции
+  // (IntersectionObserver мог «перепрыгивать» через них при быстром скролле).
+  function pickActive(){
+    ticking=0;
+    if(lock)return;
+    var thr=innerHeight*0.2,cur=secs.length?secs[0].id:null;
+    for(var i=0;i<secs.length;i++){
+      if(secs[i].getBoundingClientRect().top<=thr)cur=secs[i].id;}
+    if(innerHeight+scrollY>=document.body.scrollHeight-2)cur=secs[secs.length-1].id;
+    if(cur)setActive(cur);}
+  // клик по оглавлению: сразу подсветить цель и заглушить scroll-spy до конца плавной прокрутки
+  document.querySelectorAll("nav.toc a").forEach(function(a){
+    a.addEventListener("click",function(){
+      setActive(a.getAttribute("href").slice(1));lock=1;unlockSoon();});
+  });
+  addEventListener("scroll",function(){
+    if(lock){unlockSoon();return;}
+    if(!ticking){ticking=1;requestAnimationFrame(pickActive);}
+  },{passive:true});
+  pickActive();
+  var toast=document.getElementById("toast"),tt;
+  function showToast(m){toast.textContent=m||"\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e";toast.classList.add("show");
+    clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove("show");},1300);}
+  document.querySelectorAll("[data-copy]").forEach(function(b){
+    b.onclick=function(){var sel=b.getAttribute("data-copy");
+      var el=sel==="prev"?b.parentElement.querySelector("pre"):document.querySelector(sel);
+      var txt=el?el.innerText:"";
+      navigator.clipboard&&navigator.clipboard.writeText(txt).then(function(){showToast("\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e");},
+        function(){showToast("\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c");});};
+  });
+})();
+</script>
+</body>
+</html>

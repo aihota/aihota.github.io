@@ -1,0 +1,32 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Внутри менеджера игры по смещению <code>+0x1F879</code> лежит массив
+  команд игроков -- 8 байт, по одному на слот (валидный индекс 0..7).
+  Код читает этот массив дважды: по номеру слота (<code>EDI</code>, всегда
+  в пределах) и по "выбранному игроку" (<code>ECX</code>). Перед вторым
+  чтением проверяется только знак (<code>id &gt;= 0</code>), но НЕ верхняя
+  граница. "Выбранный игрок" содержит мусор, поэтому адрес
+  <code>base + ECX + 0x1F879</code> уходит далеко вправо за пределы
+  массива и памяти.</p>
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box ok">B<span class="lbl">EAX = база</span></div>
+      <div class="viz-box ok dim">team[0..7]<span class="lbl">+0x1F879, 8 байт</span></div>
+      <div class="viz-box accent">T<span class="lbl">team[EDI] -- норма</span></div>
+      <div class="viz-box dim">...<span class="lbl">за массивом</span></div>
+      <div class="viz-box bad dashed">F<span class="lbl">team[ECX] -- СБОЙ</span></div>
+    </div>
+    <p class="viz-cap">чтение по "выбранному игроку" уходит далеко правее массива из 8 элементов</p>
+  </div>
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge ok">B</span>
+      <span class="txt">база менеджера игры (<code>EAX</code>), выровнена по 64K -- валидна.</span></div>
+    <div class="item"><span class="viz-badge accent">T</span>
+      <span class="txt">штатное чтение <code>team[EDI]</code> по номеру слота (0..7) на
+      <code>0x00457D7D</code> -- проходит во всех вылетах.</span></div>
+    <div class="item"><span class="viz-badge bad">F</span>
+      <span class="txt">адрес сбоя <code>base + ECX + 0x1F879</code>, где <code>ECX</code>
+      ("выбранный игрок") вне диапазона 0..7 -- проверена только нижняя граница.</span></div>
+  </div>
+</section>

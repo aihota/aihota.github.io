@@ -1,0 +1,41 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">#</a></h2>
+
+  <p>Обработчик "HotA.CanHaveBattles" берёт id объекта (0..4), умножает на
+     размер записи 19 байт и прибавляет начало вектора из поля
+     <code>подсистема+0x10</code>. Объект подсистемы цел, id корректен, но
+     вектор записей пуст - его начало (<code>begin</code>) равно нулю,
+     поэтому чтение поля записи <code>[NULL + id*19 + 0x0D]</code> падает
+     по нулевому указателю. Пустой вектор - штатное состояние, не порча.</p>
+
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box ok">A: объект подсистемы<span class="lbl">EAX, валиден</span></div>
+      <div class="viz-box ok">поле +0x10<span class="lbl">begin вектора</span></div>
+      <div class="viz-box bad dashed">B: begin = NULL<span class="lbl">вектор пуст</span></div>
+    </div>
+    <p class="viz-cap">начало вектора (подсистема+0x10) прочитано успешно и равно 0 (вектор пуст)</p>
+  </div>
+
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box bad">B = 0<span class="lbl">база NULL</span></div>
+      <div class="viz-box dim">id*19<span class="lbl">id из {0..4}</span></div>
+      <div class="viz-box bad">F: чтение [+0x0D]<span class="lbl">адрес = id*19+0x0D</span></div>
+    </div>
+    <p class="viz-cap">адрес сбоя = 0 + id*19 + 0x0D (0x0D, 0x20, 0x33, 0x46, 0x59 по логам)</p>
+  </div>
+
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge ok">A</span>
+      <span class="txt">Объект подсистемы выделен (EAX - правдоподобный адрес кучи);
+      его поле +0x10 должно хранить базовый адрес таблицы записей.</span></div>
+    <div class="item"><span class="viz-badge bad">B</span>
+      <span class="txt">Начало вектора (begin) равно NULL - вектор записей пуст
+      (штатное состояние, не порча); загрузчик ещё не добавил записи.</span></div>
+    <div class="item"><span class="viz-badge bad">F</span>
+      <span class="txt">Адрес сбоя = база + id*19 + 0x0D. Так как база = 0,
+      адрес чтения совпадает ровно с id*19 + 0x0D - чистое разыменование нуля.</span></div>
+  </div>
+</section>

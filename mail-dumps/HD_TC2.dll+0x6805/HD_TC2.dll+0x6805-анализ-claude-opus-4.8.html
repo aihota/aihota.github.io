@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анализ вылета HD_TC2.dll+0x6805</title>
+<style>
+
+:root{
+  --bg:#0f1117;--panel:#171a23;--panel2:#1d212c;--ink:#e6e9ef;--muted:#a6afbd;
+  --line:#2a2f3b;--accent:#94a3b8;--accent2:#7dd3fc;--hi:#fbbf24;--ok:#46d39a;--warn:#ffd633;
+  --bad:#ff5c7a;--code:#11141b;--kw:#ff7b72;--reg:#7ee787;--num:#79c0ff;--cmt:#8b949e;
+  --pretext:#cdd6e4;--badText:#ff8da3;--verdictGrad:linear-gradient(180deg,#1c1418,#171a23);
+  --br:rgba(255,255,255,.04);
+  --redBg:rgba(255,92,122,.14);--redInk:#ff8da3;--redLn:rgba(255,92,122,.35);
+  --blBg:rgba(74,163,255,.14);--blInk:#8ec5ff;--blLn:rgba(74,163,255,.35);
+  --gyBg:rgba(154,163,178,.12);--gyInk:#c4ccd8;--gyLn:rgba(154,163,178,.3);
+  --okBg:rgba(70,211,154,.10);--okLn:rgba(70,211,154,.32);
+  --wnBg:rgba(255,214,51,.12);--wnLn:rgba(255,214,51,.36);
+  --orange:#fb923c;--orangeBg:rgba(251,146,60,.14);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  /* шрифты: встроенные (если есть) -> системные с широким кросс-платформенным фолбэком */
+  --font-sans:"ReportSans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","DejaVu Sans","Liberation Sans",Helvetica,Arial,sans-serif;
+  --font-mono:"ReportMono","SF Mono",ui-monospace,"JetBrains Mono","Cascadia Code",Menlo,Consolas,"DejaVu Sans Mono","Liberation Mono","Noto Sans Mono",monospace;
+  /* стек типографских знаков/символов — текстовая (не эмодзи) презентация на всех ОС */
+  --font-sym:"Segoe UI Symbol","Apple Symbols","Noto Sans Symbols 2","DejaVu Sans",sans-serif;
+  /* типографическая шкала в rem (уважает системный размер шрифта); единый ритм */
+  --fs-3xs:.65625rem;--fs-2xs:.6875rem;--fs-xs:.78125rem;--fs-sm:.8125rem;
+  --fs-md:.875rem;--fs-base:.9375rem;--fs-lg:1rem;--fs-xl:1.125rem;--fs-2xl:1.375rem;
+  --fs-hero:clamp(1.5rem,2vw + 1.125rem,2.125rem);
+  /* font-size-adjust: одинаковая видимая высота строчных при ЛЮБОМ фолбэке (ключ к «одинаково везде») */
+  --fsa-sans:.52;--fsa-mono:.5;
+  /* единый вертикальный ритм и трекинг капс-меток (вместо разнобоя) */
+  --lh-tight:1.12;--lh-code:1.5;--lh-base:1.62;
+  --ls-caps:.13em;--ls-caps-wide:.16em;
+  /* выделение текста — заметная заливка (а не 14% var(--blBg), который почти не виден) */
+  --sel:rgba(74,163,255,.32);
+  color-scheme:dark;
+}
+html.theme-light{
+  --bg:#f4f6fb;--panel:#ffffff;--panel2:#eef1f6;--ink:#1c2230;--muted:#5a6473;
+  --line:#d7dce5;--accent:#475569;--accent2:#0369a1;--hi:#b45309;--ok:#1a7f5a;--warn:#b08c00;
+  --bad:#cf2e4a;--code:#f6f8fa;--kw:#cf222e;--reg:#116329;--num:#0550ae;--cmt:#6e7781;
+  --pretext:#24292f;--badText:#cf2e4a;--verdictGrad:linear-gradient(180deg,#fff5f6,#fff);
+  --br:rgba(0,0,0,.03);
+  --redBg:rgba(207,46,74,.10);--redInk:#b21f3b;--redLn:rgba(207,46,74,.3);
+  --blBg:rgba(31,111,235,.1);--blInk:#1551b5;--blLn:rgba(31,111,235,.3);
+  --gyBg:rgba(90,100,115,.1);--gyInk:#3d4756;--gyLn:rgba(90,100,115,.28);
+  --okBg:rgba(26,127,90,.09);--okLn:rgba(26,127,90,.3);
+  --wnBg:rgba(176,140,0,.12);--wnLn:rgba(176,140,0,.34);
+  --orange:#ea580c;--orangeBg:rgba(234,88,12,.12);
+  --shadow:0 8px 30px rgba(40,60,100,.12);
+  --sel:rgba(31,111,235,.28);
+  color-scheme:light;
+}
+/* Светлая палитра живёт ТОЛЬКО в html.theme-light; авто-режим проставляет
+   явный класс через JS (ранний скрипт в <head>), поэтому @media-дубль палитры
+   больше не нужен. */
+*{box-sizing:border-box}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* text-size-adjust: запрещаем браузерам самовольно раздувать шрифт (iOS/Android, поворот) */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:var(--fs-base)/var(--lh-base) var(--font-sans);
+  font-size-adjust:var(--fsa-sans);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;font-optical-sizing:auto;
+  font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1;
+  /* нуль со слешем и в прозе (единообразие с кодом) */
+  font-variant-numeric:slashed-zero;
+  /* синтез НЕ отключаем: нужен для псевдо-жира (<b>) и капители (b.hi)
+     на фолбэк-шрифтах без нативных начертаний (DejaVu/Liberation) */
+  transition:background .25s,color .25s}
+/* единый цвет выделения на всех ОС/браузерах */
+::selection{background:var(--sel);color:var(--ink)}
+/* моно-стек: slashed-zero + табличные цифры для hex; ВСЕ лигатуры off (asm: ->, !=, >=).
+   font-feature-settings:normal сбрасывает наследуемые от body kern/liga (иначе liga
+   остаётся включён) и убирает конфликт с font-variant-ligatures;
+   font-size-adjust держит высоту строчных при подмене моно-шрифта на др. ОС */
+code,pre,.mono,.stat .big,td.mono,th.mono{font-family:var(--font-mono);
+  font-size-adjust:var(--fsa-mono);
+  font-feature-settings:normal;
+  font-variant-ligatures:none;
+  font-variant-numeric:slashed-zero tabular-nums}
+a{color:var(--accent2);text-decoration:none}
+/* инлайн-иконки вместо emoji-глифов (★✓☀☾) — идентичны на всех ОС */
+.tic{width:1em;height:1em;vertical-align:-.14em;fill:none;stroke:currentColor;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tic.fill{fill:currentColor;stroke:none}
+/* символьные знаки, оставленные текстом (¶) — текстовая презентация, не emoji */
+h2 .anchor{font-family:var(--font-sym);font-variant-emoji:text}
+.theme-fab{position:absolute;top:18px;right:22px;z-index:5}
+.btn{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:9px;
+  padding:7px 12px;font-size:var(--fs-xs);font-weight:600;cursor:pointer;display:inline-flex;
+  align-items:center;gap:7px;transition:border-color .2s,transform .08s,background .2s}
+.btn:hover{border-color:var(--accent2)}
+.btn:active{transform:scale(.96)}
+.btn:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+.btn:focus:not(:focus-visible){outline:none}
+.shell{max-width:1180px;margin:0 auto;padding:0 22px;display:grid;
+  grid-template-columns:230px minmax(0,1fr);gap:38px;position:relative}
+nav.toc{position:sticky;top:24px;align-self:start;height:calc(100vh - 48px);
+  overflow-y:auto;padding:22px 0 40px;font-size:var(--fs-sm)}
+nav.toc .lbl{text-transform:uppercase;letter-spacing:var(--ls-caps-wide);font-size:var(--fs-3xs);
+  color:var(--muted);font-weight:700;margin:0 0 10px 12px}
+nav.toc a{display:flex;gap:9px;align-items:baseline;color:var(--muted);padding:6px 12px;
+  border-left:2px solid transparent;border-radius:0 7px 7px 0;transition:.15s}
+nav.toc a .n{font-family:var(--font-mono);font-size:var(--fs-2xs);opacity:.7;min-width:15px}
+nav.toc a:hover{color:var(--ink);background:var(--br)}
+nav.toc a.active{color:var(--ink);border-left-color:var(--accent2);
+  background:linear-gradient(90deg,var(--blBg),transparent);font-weight:600}
+main{padding-bottom:90px;min-width:0}
+@media(max-width:900px){.shell{grid-template-columns:1fr}nav.toc{display:none}}
+.hero{padding:40px 0 14px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-2xs);letter-spacing:var(--ls-caps-wide);
+  text-transform:uppercase;color:var(--accent);font-weight:700}
+/* «пуля» eyebrow — нарисованная точка, а не глиф ● (нет расхождений по ОС) */
+.eyebrow::before{content:"";display:inline-block;width:.5em;height:.5em;
+  border-radius:50%;background:var(--accent2)}
+h1.addr{margin:13px 0 8px;font-size:var(--fs-hero);line-height:var(--lh-tight);letter-spacing:-.01em;
+  font-family:var(--font-mono);font-weight:700;overflow-wrap:anywhere}
+h1.addr .mod{color:var(--hi)}
+.subtitle{color:var(--muted);font-size:var(--fs-lg);margin:0 0 20px;max-width:60ch}
+.byline{color:var(--muted);font-size:var(--fs-sm);margin:6px 0 4px}
+.byline b{color:var(--ink);font-weight:600}
+
+/* вердикт-callout: цветная метка «ВЕРДИКТ» (цвет = уровень полезности),
+   без дублирующей галочки (она уже на карточке «Полезность») */
+.ribbon{position:relative;margin:18px 0 8px;padding:15px 20px 16px;border-radius:16px;
+  background:var(--redBg);border:1px solid var(--redLn);box-shadow:var(--shadow)}
+.ribbon.lvl-mid{background:var(--wnBg);border-color:var(--wnLn)}
+.ribbon.lvl-low{background:var(--orangeBg);border-color:var(--orange)}
+.ribbon.lvl-high{background:var(--okBg);border-color:var(--okLn)}
+.ribbon .vlabel{display:flex;align-items:center;gap:9px;font-size:var(--fs-2xs);font-weight:700;
+  letter-spacing:var(--ls-caps-wide);text-transform:uppercase;color:var(--orange);margin-bottom:7px}
+.ribbon.lvl-mid .vlabel{color:var(--warn)}
+.ribbon.lvl-high .vlabel{color:var(--ok)}
+.ribbon .vlabel::before{content:"";width:22px;height:2px;border-radius:2px;background:currentColor}
+.ribbon .vtxt{font-size:var(--fs-md);line-height:var(--lh-base)}
+.ribbon .vtxt b{color:var(--orange)}
+.ribbon.lvl-mid .vtxt b{color:var(--warn)}
+.ribbon.lvl-high .vtxt b{color:var(--ok)}
+.statstrip{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:12px;margin:18px 0 6px}
+/* карточки шапки: иконка в тонированном квадрате + цвет по смыслу
+   (c-ver синий, c-cls красный, c-cnt нейтр., c-use зелёный/жёлтый/красный) */
+.stat{display:flex;gap:12px;align-items:center;background:var(--panel);
+  border:1px solid var(--line);border-radius:13px;padding:13px 15px}
+.stat .ic-badge{flex:0 0 auto;width:40px;height:40px;border-radius:11px;display:grid;
+  place-items:center}
+.stat .ic{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
+.stat .st-body{min-width:0}
+.stat .big{font-size:var(--fs-2xl);font-weight:800;line-height:var(--lh-tight);
+  overflow-wrap:anywhere}
+.stat .cap{color:var(--muted);font-size:var(--fs-2xs);margin-top:2px}
+.stat.c-ver .ic-badge{background:var(--blBg);color:var(--blInk)}
+.stat.c-ver .big{color:var(--blInk);font-size:var(--fs-lg);letter-spacing:-.2px}
+.stat.c-cls .ic-badge{background:var(--redBg);color:var(--redInk)}
+.stat.c-cls .big{color:var(--redInk);font-size:var(--fs-base)}
+.stat.c-cnt .ic-badge{background:var(--gyBg);color:var(--gyInk)}
+.stat.c-use .ic-badge{background:var(--okBg);color:var(--ok)}
+.stat.c-use .big{color:var(--ok)}
+.stat.c-use.use-mid .ic-badge{background:var(--wnBg);color:var(--warn)}
+.stat.c-use.use-mid .big{color:var(--warn)}
+/* НИЗКАЯ — оранжевый (а не красный), чтобы не сливаться с «Классом сбоя» */
+.stat.c-use.use-bad .ic-badge{background:var(--orangeBg);color:var(--orange)}
+.stat.c-use.use-bad .big{color:var(--orange)}
+
+/* ----- СЕКЦИЯ-ПАНЕЛЬ: аналитические секции 1–11 — панели с шапкой-заголовком;
+   резюме/вывод остаются акцентными карточками-«закладками». */
+section{scroll-margin-top:24px;margin:30px 0}
+h2{margin:0 0 14px;display:flex;align-items:center;gap:11px;font-weight:700;
+  font-size:var(--fs-sm);letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--accent2);
+  border-bottom:1px solid var(--line);padding-bottom:10px}
+h2 .htext{flex:1}
+h2 .anchor{opacity:0;color:var(--muted);font-weight:400;font-size:var(--fs-md);transition:.15s}
+h2:hover .anchor{opacity:.7}
+/* вывод — «закладка» с чистым заголовком (не панель) */
+section#verdict h2{border-bottom:0}
+/* панели-секции: все секции, кроме вывода (резюме и визуализация — тоже панели) */
+#doc>section:not(#verdict){background:var(--panel);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;margin:18px 0;padding:0 20px 16px}
+#doc>section:not(#verdict)>h2{background:var(--panel2);margin:0 -20px 16px;
+  padding:12px 20px;border-bottom:1px solid var(--line)}
+/* внутренние карточки внутри панели — плоские (без двойной рамки) */
+#doc>section:not(#verdict) .card{background:transparent;border:0;border-radius:0;
+  padding:0;margin:10px 0}
+/* разделитель между смежными плоскими карточками в секции (напр. раздел 1:
+   блок мета-полей | блок Модуль/адрес) — пунктир, чтобы не слипались */
+#doc>section:not(#verdict) .card+.card{border-top:1px dashed var(--line);
+  margin-top:14px;padding-top:14px}
+h3{font-size:var(--fs-base);margin:20px 0 8px}
+p{margin:10px 0}.lead{color:var(--muted)}
+/* БЕЗ переносов слов: justify растягивает строку пробелами, слова целые.
+   max-width ЗДЕСЬ НЕ ставим: он сужал абзацы уже секции, и justify
+   выравнивал по узкой мере строки, а не по ширине секции. */
+#doc>section p{hyphens:none;-webkit-hyphens:none}
+p{text-wrap:pretty}
+/* выравнивание по ширине для всего текста в секциях.
+   text-wrap:pretty/balance отключают justify-алгоритм (Gecko/WebKit),
+   поэтому для выравниваемых абзацев возвращаем обычный перенос.
+   Центр-подписи под svg заданы inline и перекрывают это правило. */
+#doc>section p,#doc>section li{text-align:justify;text-wrap:wrap}
+h1.addr,h2,h3{text-wrap:balance}
+ul{margin:10px 0;padding-left:20px}li{margin:6px 0}
+/* акцент капителью вместо «орущего» КАПСА (текст-контент не меняется) */
+b.hi{color:var(--hi);font-variant:small-caps;text-transform:lowercase;
+  letter-spacing:.02em;font-weight:600}
+
+p code,li code,.kv .v code,.chain .ttl code,.chain .desc code,.note code{
+  font-family:var(--font-mono);background:var(--code);
+  border:1px solid var(--line);border-radius:5px;padding:0 5px;font-size:.9em;
+  color:var(--ink);white-space:nowrap}
+.chain .ttl code{white-space:normal;word-break:break-all}
+.note code{background:color-mix(in srgb,var(--ink) 8%,transparent);
+  border-color:color-mix(in srgb,var(--ink) 14%,transparent)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.card.summary{border-left:4px solid var(--accent)}
+.card.verdict{border-left:4px solid var(--orange);background:var(--verdictGrad)}
+/* «Вывод» — фон ПО УРОВНЮ полезности, как лента «Заключение» вверху
+   (раньше был фиксированный розовый verdictGrad — конфликтовал с зелёной лентой) */
+.card.verdict.lvl-low{border-left-color:var(--orange);
+  background:linear-gradient(180deg,var(--orangeBg),var(--panel))}
+.card.verdict.lvl-mid{border-left-color:var(--warn);
+  background:linear-gradient(180deg,var(--wnBg),var(--panel))}
+.card.verdict.lvl-high{border-left-color:var(--ok);
+  background:linear-gradient(180deg,var(--okBg),var(--panel))}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}}
+/* раздел «Достоверность»: блоки «Подтверждено» и «Ограничения»
+   сильно разной длины — ставим их ОДИН ПОД ДРУГИМ (одна колонка),
+   чтобы не было пустоты рядом с коротким блоком.
+   margin у .note гасим: иначе он складывается с gap грида (14+15+14)
+   и даёт слишком большой отступ между блоками */
+#s9 .grid2{grid-template-columns:1fr}
+#s9 .grid2 .note{margin:0}
+.kv{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:var(--fs-sm)}
+.kv:last-child{border-bottom:0}
+.kv .k{color:var(--muted);min-width:118px}.kv .v{font-family:var(--font-mono)}
+.codewrap{position:relative;margin:14px 0}
+.codewrap .copy{position:absolute;top:8px;right:8px;opacity:0;transition:.15s;
+  background:var(--panel2);border:1px solid var(--line);border-radius:7px;color:var(--muted);
+  font-size:var(--fs-2xs);padding:4px 9px;cursor:pointer}
+.codewrap:hover .copy{opacity:1}
+.codewrap .copy:hover{color:var(--ink);border-color:var(--accent2)}
+pre{background:var(--code);border:1px solid var(--line);border-radius:12px;padding:15px 17px;
+  overflow-x:auto;font-size:var(--fs-xs);line-height:var(--lh-code);tab-size:4;margin:0;color:var(--pretext)}
+pre .a{color:var(--cmt)}pre .k{color:var(--kw)}pre .r{color:var(--reg)}
+pre .n{color:var(--num)}pre .c{color:var(--cmt);font-style:italic}
+pre .fault{background:var(--redBg);display:block;border-left:3px solid var(--bad);
+  padding-left:8px;margin-left:-10px}
+.formula{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:center;
+  background:var(--code);border:1px solid var(--line);border-radius:14px;padding:18px;
+  font-family:var(--font-mono);margin:14px 0}
+.formula .tok{font-size:var(--fs-lg)}
+.formula .op{color:var(--muted)}
+.formula .res{color:var(--bad);font-weight:700}
+.formula .eq{color:var(--ok);font-weight:700;font-size:var(--fs-xl)}
+/* сворачиваемый форензик-аппендикс: большие доказательные таблицы по клику */
+.appendix{margin:14px 0;border:1px solid var(--line);border-radius:12px;
+  background:var(--panel2);overflow:hidden}
+.appendix>summary{cursor:pointer;padding:10px 14px;font-size:var(--fs-sm);
+  font-weight:600;color:var(--muted);list-style:none;user-select:none;
+  display:flex;align-items:center;gap:8px;transition:color .15s}
+.appendix>summary::-webkit-details-marker{display:none}
+.appendix>summary::before{content:"";width:0;height:0;
+  border-left:5px solid currentColor;border-top:4px solid transparent;
+  border-bottom:4px solid transparent;transition:transform .15s}
+.appendix[open]>summary::before{transform:rotate(90deg)}
+.appendix>summary:hover{color:var(--accent2)}
+.appendix .tablewrap{border:0;border-top:1px solid var(--line);border-radius:0}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:var(--fs-xs);min-width:780px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+thead th{background:var(--panel2);color:var(--muted);font-weight:700;letter-spacing:.03em;
+  position:sticky;top:0;font-size:var(--fs-2xs);text-transform:uppercase}
+tbody tr:hover{background:var(--blBg)}
+td.mono,th.mono{font-family:var(--font-mono)}
+td .ok{color:var(--ok)}
+td.flag{color:var(--bad);font-weight:700;
+  background:linear-gradient(90deg,var(--redBg),transparent)}
+
+.note{border-radius:12px;padding:13px 17px;margin:14px 0;font-size:var(--fs-md)}
+.note.ok{background:var(--okBg);border:1px solid var(--okLn)}
+/* «Важно» — тёплый янтарный акцент (смещён от чистого жёлтого warn
+   к оранжевому: читается как «обрати внимание», а не как тревога) */
+.note.warn{background:color-mix(in srgb,var(--orange) 10%,transparent);
+  border:1px solid color-mix(in srgb,var(--orange) 36%,transparent)}
+.note.info{background:var(--blBg);border:1px solid var(--blLn)}
+.note .t{font-weight:700;margin-bottom:4px;display:block}
+.chain{margin:16px 0}
+.chain .step{display:flex;align-items:flex-start;gap:14px;padding:9px 0;position:relative}
+.chain .dot{flex:0 0 auto;width:13px;height:13px;border-radius:50%;margin-top:5px;
+  background:var(--panel);border:2px solid var(--accent2);z-index:1}
+.chain .step.fault .dot{border-color:var(--bad);background:var(--redBg)}
+.chain .step:not(:last-child)::before{content:"";position:absolute;left:6px;top:20px;
+  bottom:-9px;width:2px;background:var(--line)}
+.chain .ttl{font-family:var(--font-mono);font-size:var(--fs-sm)}
+.chain .step.fault .ttl{color:var(--badText);font-weight:700}
+.chain .desc{color:var(--muted);font-size:var(--fs-xs)}
+.chain .modtag{font-size:var(--fs-3xs);font-weight:700;padding:1px 7px;border-radius:5px;margin-right:7px;
+  vertical-align:1px}
+.m-exe{background:var(--gyBg);color:var(--gyInk)}
+.m-tc{background:var(--redBg);color:var(--redInk)}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:10px;font-size:var(--fs-sm);
+  font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:80}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ============================================================
+   VISUALIZATION TOOLKIT (.viz-*) для sidecar-врезок (правило о
+   визуализации вылета). ЦЕЛЬ: схемы строятся РАСКЛАДКОЙ CSS
+   (flex/grid), а НЕ ручными SVG-координатами — браузер сам
+   считает позиции, поэтому подписи НИКОГДА не налезают.
+   Все цвета — только из токенов темы (корректно dark/light/print).
+   SVG применять ТОЛЬКО для линий/стрелок (.viz-svg); подписи
+   к ним выносить в .viz-legend под схемой, в графике — короткие
+   .viz-badge. Подробности и шаблоны — в навыке html-report. */
+.viz{margin:16px 0}
+.viz-cap{font-size:var(--fs-xs);color:var(--muted);text-align:center;margin:8px 0 0}
+/* горизонтальная лента блоков (память/массив/диапазон) */
+.viz-strip{display:flex;align-items:stretch;gap:6px;flex-wrap:nowrap;
+  overflow-x:auto;padding:6px 0}
+/* блок-ячейка ленты: бейдж прижат к верху (flex-start) — так все
+   бейджи на ОДНОМ уровне при разной длине текста; перенос строк сам */
+.viz-box{flex:1 1 0;min-width:96px;border:2px solid var(--line);border-radius:10px;
+  background:var(--panel2);padding:12px 10px;text-align:center;
+  font-size:var(--fs-xs);line-height:var(--lh-tight);color:var(--ink);
+  display:flex;flex-direction:column;justify-content:flex-start;align-items:center;gap:6px}
+.viz-box .lbl{font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--muted)}
+.viz-box.ok{border-color:var(--okLn);background:var(--okBg)}
+.viz-box.bad{border-color:var(--redLn);background:var(--redBg)}
+.viz-box.accent{border-color:var(--blLn);background:var(--blBg)}
+.viz-box.dashed{border-style:dashed}
+.viz-box.dim{opacity:.55}
+/* модификатор: номерок-бейдж в ЛЕВОМ ВЕРХНЕМ углу блока (текст остаётся
+   центрирован). Позиция — раскладкой (absolute в relative-боксе), без ручных
+   координат; padding-top уводит контент из-под бейджа => без наложения. */
+.viz-strip.badge-tl .viz-box{position:relative;padding-top:34px;justify-content:center}
+.viz-strip.badge-tl .viz-box .viz-badge{position:absolute;top:6px;left:6px}
+/* круглый бейдж-маркер (A/B/F/S/0/1) — короткий, не текст */
+.viz-badge{display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:50%;font-weight:700;font-size:var(--fs-sm);
+  font-family:var(--font-mono);border:2px solid var(--accent2);color:var(--ink);
+  background:var(--panel);flex:0 0 auto;vertical-align:middle;
+  line-height:1;text-align:center;padding:0}
+.viz-badge.ok{border-color:var(--ok);color:var(--ok)}
+.viz-badge.bad{border-color:var(--bad);color:var(--badText)}
+.viz-badge.accent{border-color:var(--accent2);color:var(--accent2)}
+/* координатный холст: ТОЛЬКО для геометрии, рисуем линии/стрелки */
+.viz-svg{display:block;max-width:100%;height:auto;margin:6px auto;
+  font-family:inherit;font-size:var(--fs-xs)}
+.viz-svg .edge{stroke:var(--line);stroke-width:1}
+.viz-svg .flow{stroke:var(--bad);stroke-width:2;fill:none}
+.viz-svg .flow.ok{stroke:var(--ok)}
+.viz-svg .area{fill:var(--panel2);stroke:var(--line);stroke-width:1.5}
+/* узлы-кружки графа (обводка по смыслу) и цифра/буква внутри (короткий
+   бейдж, не текст): имена функций живут только в .viz-legend (§22) */
+.viz-svg .area.accent{stroke:var(--accent2)}
+.viz-svg .area.bad{stroke:var(--bad)}
+.viz-svg .flow.data{stroke:var(--accent2);stroke-dasharray:5 4}
+.viz-svg text{fill:var(--ink);font-family:var(--font-mono);font-weight:700;
+  text-anchor:middle;dominant-baseline:central}
+.viz-svg .ahead{fill:var(--bad)}
+.viz-svg .ahead.accent{fill:var(--accent2)}
+/* легенда под схемой: бейдж + пояснение, в одну/две колонки, без наложений */
+.viz-legend{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin:12px 0 0}
+@media(max-width:680px){.viz-legend{grid-template-columns:1fr}}
+.viz-legend .item{display:flex;align-items:flex-start;gap:9px;
+  font-size:var(--fs-sm);color:var(--ink)}
+.viz-legend .item .txt{color:var(--muted)}
+@media print{.viz-strip{overflow-x:visible;flex-wrap:wrap}
+  .viz-box,.viz-badge,.viz-svg .area{break-inside:avoid}}
+
+@media print{
+  .theme-fab,nav.toc,.btn,.copy,.toast,h2 .anchor{display:none!important}
+  .shell{grid-template-columns:1fr;max-width:none}
+  /* screen-сглаживание на бумаге делает текст слишком тонким; сбрасываем */
+  body{background:#fff;color:#000;
+    -webkit-font-smoothing:auto;-moz-osx-font-smoothing:auto;font-size-adjust:none}
+  pre,.card,.note,table{break-inside:avoid}
+  section{break-inside:avoid-page}
+  /* на печати раскрываем все аппендиксы: details без [open] иначе скроет содержимое */
+  .appendix>summary{display:none}
+  details.appendix>*{display:revert!important}
+  .appendix .tablewrap{border-top:0}
+}
+</style>
+<script>
+(function(){try{var t=localStorage.getItem("hota-theme-v6");
+var m=(t==="light"||t==="dark")?t
+  :((window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches)?"light":"dark");
+document.documentElement.classList.add("theme-"+m);}catch(e){}})();
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="ic-package" viewBox="0 0 24 24"><path d="M16.5 9.4 7.5 4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+  <symbol id="ic-triangle" viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></symbol>
+  <symbol id="ic-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+  <symbol id="ic-sig3" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="currentColor" stroke="none"/><rect x="17" y="5" width="4" height="15" rx="1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="ic-sig2" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="currentColor" stroke="none"/><rect x="17" y="5" width="4" height="15" rx="1" fill="none" stroke="currentColor" opacity=".35"/></symbol>
+  <symbol id="ic-sig1" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="none" stroke="currentColor" opacity=".35"/><rect x="17" y="5" width="4" height="15" rx="1" fill="none" stroke="currentColor" opacity=".35"/></symbol>
+  <symbol id="ic-star" viewBox="0 0 24 24"><path d="M12 2.5l2.95 5.98 6.6.96-4.77 4.65 1.13 6.57L12 17.56l-5.9 3.1 1.12-6.57L2.45 9.44l6.6-.96z"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="ic-diamond" viewBox="0 0 24 24"><path d="M12 2 22 12 12 22 2 12Z"/></symbol>
+  <symbol id="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="ic-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+</defs></svg>
+<div class="shell">
+<button class="btn theme-fab" id="themeToggle" type="button" aria-label="Переключить тему оформления"><svg class="tic" aria-hidden="true"><use id="themeUse" href="#ic-sun"/></svg><span id="themeLabel">Светлая</span></button>
+  <nav class="toc" id="toc">
+    <p class="lbl">Содержание</p>
+    <a href="#viz-crash"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-diamond"/></svg></span>Визуализация вылета</a>
+    <a href="#summary"><span class="n"><svg class="tic fill" aria-hidden="true"><use href="#ic-star"/></svg></span>Резюме</a>
+    <a href="#s1"><span class="n">1</span>Исходные данные</a>
+    <a href="#s2"><span class="n">2</span>Корреляция дампов</a>
+    <a href="#s3"><span class="n">3</span>Сопоставление адресов</a>
+    <a href="#s4"><span class="n">4</span>Точка сбоя</a>
+    <a href="#s5"><span class="n">5</span>Регистровые инварианты</a>
+    <a href="#s6"><span class="n">6</span>Цепочка вызовов</a>
+    <a href="#s7"><span class="n">7</span>Первопричина</a>
+    <a href="#s8"><span class="n">8</span>Условия сбоя</a>
+    <a href="#s9"><span class="n">9</span>Достоверность</a>
+    <a href="#s10"><span class="n">10</span>Поиск в др. версиях</a>
+    <a href="#s11"><span class="n">11</span>Воспроизведение</a>
+    <a href="#verdict"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-check"/></svg></span>Вывод</a>
+  </nav>
+  <main id="doc">
+
+  <div class="hero">
+    <span class="eyebrow">Анализ вылета</span>
+    <h1 class="addr"><span class="mod">HD_TC2.dll</span>+0x6805</h1>
+    <p class="subtitle">отрисовка Pcx8</p>
+    <p class="byline">Claude Opus 4.8 · 22.06.2026</p>
+    <div class="ribbon lvl-mid">
+      <div class="vlabel">Заключение</div>
+      <div class="vtxt">Вылет происходит в 32-битном порте функции <code>Pcx8_Draw</code>: в источник изображения приходит нулевой указатель. Сам цикл <code>HD_TC2</code> повторяет контракт исходной функции SoD и показывает симптом; дальнейшая проверка сужает поставщика до массива <code>small_portraits_dwordC8</code> диалога выбора карты и загрузчика <code>A0_Load_Pcx8_sub_55AA10</code>.</div>
+    </div>
+    <div class="statstrip"><div class="stat c-ver"><div class="ic-badge"><svg class="ic"><use href="#ic-package"/></svg></div><div class="st-body"><div class="big">1.8.0</div><div class="cap">Версия HotA</div></div></div><div class="stat c-cls"><div class="ic-badge"><svg class="ic"><use href="#ic-triangle"/></svg></div><div class="st-body"><div class="big">разыменование нулевого указателя</div><div class="cap">Класс сбоя</div></div></div><div class="stat c-cnt"><div class="ic-badge"><svg class="ic"><use href="#ic-database"/></svg></div><div class="st-body"><div class="big">7</div><div class="cap">Количество логов</div></div></div><div class="stat c-use use-mid"><div class="ic-badge"><svg class="ic"><use href="#ic-sig2"/></svg></div><div class="st-body"><div class="big">СРЕДНЯЯ</div><div class="cap">Полезность лога</div></div></div></div>
+  </div>
+
+  <section id="viz-crash" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span><a class="anchor" href="#viz-crash">¶</a></h2>
+  <p>Граф двух дорожек: слева — поток вызовов до адреса сбоя, справа — откуда
+    пришёл испорченный Pcx8. Пунктирная стрелка данных показывает, как источник
+    с нулевым буфером попадает в функцию отрисовки и встречается с чтением
+    <code>[EDX]</code> в точке сбоя.</p>
+  <div class="viz">
+    <svg class="viz-svg" viewBox="0 0 320 244" role="img"
+         aria-label="Граф цепочки вызовов и потока данных">
+      <defs>
+        <marker id="ah-call" viewBox="0 0 10 10" refX="8" refY="5"
+                markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path class="ahead" d="M0 0 L10 5 L0 10 z"/>
+        </marker>
+        <marker id="ah-data" viewBox="0 0 10 10" refX="8" refY="5"
+                markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path class="ahead accent" d="M0 0 L10 5 L0 10 z"/>
+        </marker>
+      </defs>
+
+      
+      <line class="flow data" x1="240" y1="60"  x2="240" y2="98"  marker-end="url(#ah-data)"/>
+      <line class="flow data" x1="223" y1="135" x2="100" y2="189" marker-end="url(#ah-data)"/>
+
+      
+      <line class="flow" x1="80" y1="60"  x2="80" y2="98"  marker-end="url(#ah-call)"/>
+      <line class="flow" x1="80" y1="142" x2="80" y2="180" marker-end="url(#ah-call)"/>
+
+      
+      <circle class="area accent" cx="80" cy="38"  r="20"/><text x="80" y="38">1</text>
+      <circle class="area accent" cx="80" cy="120" r="20"/><text x="80" y="120">2</text>
+      <circle class="area bad"    cx="80" cy="202" r="20"/><text x="80" y="202">3</text>
+
+      
+      <circle class="area accent" cx="240" cy="38"  r="20"/><text x="240" y="38">L</text>
+      <circle class="area bad"    cx="240" cy="120" r="20"/><text x="240" y="120">P</text>
+    </svg>
+
+    <div class="viz-legend">
+      <div class="item"><span class="viz-badge accent">1</span><span class="txt">Вызывающий код: перерисовка интерфейса вызывает функцию отрисовки <code>Pcx8</code>.</span></div>
+      <div class="item"><span class="viz-badge accent">2</span><span class="txt">Порт <code>HD_TC2 sub_20066E0</code> — замена исходной функции <code>h3hota.exe:0044F940</code>; доверяет источнику.</span></div>
+      <div class="item"><span class="viz-badge bad">3</span><span class="txt">Чтение <code>movzx eax, byte ptr [edx]</code> по адресу <code>0x00000000</code> — точка сбоя.</span></div>
+      <div class="item"><span class="viz-badge accent">L</span><span class="txt">Загрузчик <code>A0_Load_Pcx8_sub_55AA10</code> отдаёт объект картинки <code>Pcx8</code>.</span></div>
+      <div class="item"><span class="viz-badge bad">P</span><span class="txt">Источник <code>Pcx8</code> с нулевым буфером <code>[+30h] = 0</code> приходит в рисовалку (<code>EDX = EDI = 0</code>).</span></div>
+    </div>
+  </div>
+</section>
+
+  <section id="summary">
+    <h2><span class="htext">Краткое резюме</span><a class="anchor" href="#summary">¶</a></h2>
+    <div class="card summary"><p>Порт рисовалки Pcx8 в <code>HD_TC2</code> читает первый байт исходного изображения через <code>EDX</code>, но во всех семи уникальных логах <code>EDX</code> равен 0. Поэтому инструкция чтения падает на адресе <code>0x00000000</code>.</p><p>Функция <code>HD_TC2</code> зарегистрирована как замена исходной функции <code>SoD h3hota.exe</code>:0044F940. Сравнение показывает, что исходная функция SoD тоже не проверяет источник перед чтением: это контракт рисовалки "вызывающий код передает готовую поверхность". Значит, место сбоя не является доказанным корнем. Более вероятный корень расположен выше: вызвавший код передал Pcx8-источник с нулевой базой или рассогласованной структурой.</p><p>Дополнительная проверка поставщика сужает механизм: в подтверждённом пути отрисовки параметров игрока индекс портрета берётся из данных выбранного героя/заголовка карты, затем без проверки границ используется как индекс массива <code>small_portraits_dwordC8</code>. Сам массив заполняется загрузчиком <code>A0_Load_Pcx8_sub_55AA10</code> из HPS-портретов; этот загрузчик может вернуть созданный Pcx8-объект с нулевым буфером после ошибки чтения PCX.</p><p>Стек указывает на перерисовку диалога выбора карты и параметров игрока. Поля Map file и Day приведены в логах дословно, но не доказывают, что именно эти карты или день игры являются причиной.</p></div>
+  </section>
+
+  <section id="s1">
+    <h2><span class="htext">Исходные данные</span><a class="anchor" href="#s1">¶</a></h2>
+    <p>Уникальных вылетов: 7 Класс сбоя: разыменование нулевого указателя Версия HotA: 1.8.0 Версии HD-мода: 5.7 RC6 (2), 5.7 RC10, 5.7 RC11, 5.7 R10, 5.7 RC12, 5.7 R17</p><div class="note info"><span class="t">Наблюдение</span><p>Ключевые строки первого лога:</p></div><p>HOMM3 HD version: 5.7 RC6 HotA version: 1.8.0 Time {   25.04.2026	21:55:16 }</p><div class="card"><div class="kv"><span class="k">Module</span><span class="v"><code>HD_TC2.dll</code></span></div><div class="kv"><span class="k">Address</span><span class="v">[ <code>HD_TC2.dll+0x6805</code> ]</span></div><div class="kv"><span class="k">Code</span><span class="v"><code>EXCEPTION_ACCESS_VIOLATION</code></span></div></div><p>Information: read of address: <code>0x00000000</code> Context { <code>EAX</code>: <code>0x00000030</code>, <code>ECX</code>: <code>0x1DDA00D0</code>, <code>EDX</code>: <code>0x00000000</code>, <code>EBX</code>: <code>0x1AC7C2E8</code>, <code>ESP</code>: <code>0x00197904</code>, <code>EBP</code>: <code>0x00197918</code>, <code>ESI</code>: <code>0x00000030</code>, <code>EDI</code>: <code>0x00000000</code> }</p><p>Настройки и состояние по серии:</p><p>Graphics.Mode: 4 или 5 Graphics.Threads: 2, 6, 8, 12, 16 Graphics.<code>AdvMap</code>.Threads: -1 OpenGL.Upscaling: 2 Memory.Mod: 0 Network Game: 0 в пяти логах, 1 в двух логах Day: 1 11 во всех логах</p><p>Блок Comment во всех семи дампах не содержит показаний игрока: после удаления служебного текста AUTOMATIC CRASH REPORT FROM остается пусто. Темы части писем содержали WITH COMMENT, но сами блоки Comment содержали только служебный автотекст.</p>
+  </section>
+
+  <section id="s2">
+    <h2><span class="htext">Корреляция дампов (сравнительная таблица)</span><a class="anchor" href="#s2">¶</a></h2>
+    <p>Точных дублей нет: семь файлов дают семь уникальных вылетов.</p><div class="tablewrap"><table><thead><tr><th class="mono">N</th><th class="mono">HD-мод</th><th class="mono">Fault</th><th class="mono">EDX</th><th class="mono">EDI</th><th class="mono">EAX/ESI</th><th class="mono">GThr</th><th class="mono">Net</th><th class="mono">Карта</th></tr></thead><tbody><tr><td class="mono">1</td><td class="mono">5.7 RC6</td><td class="mono">read 0</td><td class="mono">00000000</td><td class="mono">00000000</td><td class="mono">00000030</td><td class="mono">12</td><td class="mono">1</td><td class="mono">[HotA] Unholy Alliance</td></tr><tr><td class="mono">2</td><td class="mono">5.7 RC6</td><td class="mono">read 0</td><td class="mono">00000000</td><td class="mono">00000000</td><td class="mono">00000030</td><td class="mono">12</td><td class="mono">1</td><td class="mono">[HotA] Unholy Alliance</td></tr><tr><td class="mono">3</td><td class="mono">5.7 RC10</td><td class="mono">read 0</td><td class="mono">00000000</td><td class="mono">00000000</td><td class="mono">00000030</td><td class="mono">12</td><td class="mono">0</td><td class="mono">Noahs Ark.h3m</td></tr><tr><td class="mono">4</td><td class="mono">5.7 RC11</td><td class="mono">read 0</td><td class="mono">00000000</td><td class="mono">00000000</td><td class="mono">00000252</td><td class="mono">2</td><td class="mono">0</td><td class="mono">[HotA] Air Supremacy</td></tr><tr><td class="mono">5</td><td class="mono">5.7 R10</td><td class="mono">read 0</td><td class="mono">00000000</td><td class="mono">00000000</td><td class="mono">00000030</td><td class="mono">6</td><td class="mono">0</td><td class="mono">The Lands Between.h3m</td></tr><tr><td class="mono">6</td><td class="mono">5.7 RC12</td><td class="mono">read 0</td><td class="mono">00000000</td><td class="mono">00000000</td><td class="mono">00000030</td><td class="mono">8</td><td class="mono">0</td><td class="mono">Meeting in Muzgob.h3m</td></tr><tr><td class="mono">7</td><td class="mono">5.7 R17</td><td class="mono">read 0</td><td class="mono">00000000</td><td class="mono">00000000</td><td class="mono">00000030</td><td class="mono">16</td><td class="mono">0</td><td class="mono">[HotA] Strait of Storms</td></tr></tbody></table></div><p>Инварианты по всем уникальным вылетам:</p><p><code>EDX = 0x00000000</code> <code>EDI = 0x00000000</code> Information: read of address <code>0x00000000</code> Адрес сбоя: <code>HD_TC2.dll+0x6805</code> День в поле Some ingame values: 1 11</p><p>Изменяются версии HD-мода, режим сети, карты и число графических потоков. Это исключает привязку к одной карте, к сетевой игре или к одному значению Graphics.Threads. Совпадение Day = 1 11 зафиксировано как наблюдение, но стек указывает на диалог выбора карты, поэтому поле Day не трактуется как доказанное условие активной партии.</p><p>Сырые непосредственные вызывающие адреса по серии:</p><p><code>0x0058DF3C</code>, <code>0x00744AE4</code>, <code>0x018A4BC8</code>, <code>0x018F4BC8</code>, <code>0x02AF4BC8</code>, <code>0x02C04B7C</code>, <code>0x02C04C38</code></p><p>Часть этих адресов находится вне диапазонов модулей и соответствует трамплинам <code>patcher_x86</code>. Надежная нижняя часть цепочки в разобранном дампе проходит через диалог выбора карты.</p>
+  </section>
+
+  <section id="s3">
+    <h2><span class="htext">Сопоставление адресов</span><a class="anchor" href="#s3">¶</a></h2>
+    <p>Для первого лога:</p><p>Адрес загрузки <code>HD_TC2.dll</code>: <code>0x07CB0000</code> Базовый адрес образа листинга: <code>0x02000000</code> Адрес во время работы: <code>0x07CB6805</code></p><p>Расчет:</p><div class="formula"><span class="tok">0x07CB6805</span><span class="op">-</span><span class="tok">0x07CB0000</span><span class="op">+</span><span class="tok">0x02000000</span><span class="eq">=</span><span class="tok">0x02006805</span></div><p>Смещение модуля:</p><div class="formula"><span class="tok">0x07CB6805</span><span class="op">-</span><span class="tok">0x07CB0000</span><span class="eq">=</span><span class="tok">0x6805</span></div><p>Смещение совпадает с записью лога <code>HD_TC2.dll+0x6805</code>. Листинг содержит падающую инструкцию по адресу <code>0x02006805</code>.</p><p>Шапка листинга <code>HD_TC2.dll</code>:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:02001000 </span><span class="c">; File Name   : HD_TC2.dll</span>
+<span class="a">.text:02001000 </span><span class="c">; Imagebase   : 2000000</span>
+<span class="a">.text:02001000 </span><span class="c">; Timestamp   : 69F84603 (Mon May 04 07:08:51 2026 UTC)</span>
+<span class="a">.text:02001000 </span><span class="c">; PDB File Name : HD_True32.pdb</span></pre></div><p>Во всех семи логах размер загруженного <code>HD_TC2.dll</code> одинаков: <code>0x003CF000</code>. В текстовом логе нет timestamp или хэша модуля, поэтому совпадение версии листинга подтверждается по единственному доступному листингу, базовому адресу образа, постоянному размеру модуля и совпавшему смещению функции. Это достаточно для разбора точки сбоя, но не закрывает вопрос точного хэша сборки.</p>
+  </section>
+
+  <section id="s4">
+    <h2><span class="htext">Точка сбоя — разбор инструкций</span><a class="anchor" href="#s4">¶</a></h2>
+    <p>Падающая функция: <code>HD_TC2.dll</code>, <code>sub_20066E0</code>, смещение <code>+0x125</code>.</p><p>Подготовка указателя источника:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:02006770                 </span><span class="k">mov</span>     <span class="r">eax</span>, [<span class="r">ebp</span>+var_4]
+<span class="a">.text:02006773                 </span><span class="k">imul</span>    <span class="r">ebx</span>, [<span class="r">ebp</span>+arg_24]
+<span class="a">.text:02006777                 </span><span class="k">mov</span>     <span class="r">edi</span>, [<span class="r">eax</span>+<span class="n">2Ch</span>]
+<span class="a">.text:0200677A                 </span><span class="k">imul</span>    <span class="r">edi</span>, [<span class="r">ebp</span>+arg_0]
+<span class="a">.text:0200677E                 </span><span class="k">add</span>     <span class="r">ebx</span>, [<span class="r">ebp</span>+arg_10]
+<span class="a">.text:02006781                 </span><span class="k">add</span>     <span class="r">edi</span>, [<span class="r">eax</span>+<span class="n">30h</span>]
+<span class="a">.text:02006784                 </span><span class="k">lea</span>     <span class="r">ebx</span>, [<span class="r">ebx</span>+<span class="r">edx</span>*<span class="n">4</span>]
+<span class="a">.text:02006787                 </span><span class="k">add</span>     <span class="r">edi</span>, [<span class="r">ebp</span>+var_8]
+<span class="a">.text:0200678E                 </span><span class="k">mov</span>     <span class="r">eax</span>, [<span class="r">eax</span>+<span class="n">24Ch</span>]
+<span class="a">.text:02006794                 </span><span class="k">mov</span>     [<span class="r">ebp</span>+arg_C], <span class="r">edi</span></pre></div><p>Падающая ветка без специальной прозрачности:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:020067F8                 </span><span class="k">mov</span>     <span class="r">ecx</span>, <span class="r">ebx</span>
+<span class="a">.text:020067FA                 </span><span class="k">mov</span>     <span class="r">edx</span>, <span class="r">edi</span>
+<span class="a">.text:020067FC                 </span><span class="k">test</span>    <span class="r">eax</span>, <span class="r">eax</span>
+<span class="a">.text:020067FE                 </span><span class="k">jle</span>     <span class="r">short</span> loc_2006825
+<span class="a">.text:02006800                 </span><span class="k">mov</span>     <span class="r">ebx</span>, [<span class="r">ebp</span>+arg_4]
+<span class="a">.text:02006803                 </span><span class="k">mov</span>     <span class="r">esi</span>, <span class="r">eax</span>
+<span class="a">.text:02006805                 </span><span class="k">movzx</span>   <span class="r">eax</span>, <span class="r">byte</span> <span class="r">ptr</span> [<span class="r">edx</span>]
+<span class="a">.text:02006808                 </span><span class="k">lea</span>     <span class="r">ecx</span>, [<span class="r">ecx</span>+<span class="n">4</span>]
+<span class="a">.text:0200680B                 </span><span class="k">lea</span>     <span class="r">edx</span>, [<span class="r">edx</span>+<span class="n">1</span>]
+<span class="a">.text:0200680E                 </span><span class="k">mov</span>     <span class="r">eax</span>, [<span class="r">ebx</span>+<span class="r">eax</span>*<span class="n">4</span>]
+<span class="a">.text:02006811                 </span><span class="k">mov</span>     [<span class="r">ecx</span>-<span class="n">4</span>], <span class="r">eax</span></pre></div><p>Адресная проверка:</p><p>Инструкция читает byte ptr <code>[EDX]</code>. В контексте всех семи вылетов <code>EDX = 0x00000000</code>. В логе Information = read of address <code>0x00000000</code>. Следовательно, <code>EDX</code> == faulting address == <code>0x00000000</code>.</p><p>Это прямое чтение по нулевому указателю источника. Смещение поля здесь не применяется: адрес сбоя равен самому регистру-источнику.</p>
+  </section>
+
+  <section id="s5">
+    <h2><span class="htext">Регистровые инварианты</span><a class="anchor" href="#s5">¶</a></h2>
+    <p>Главный инвариант — нулевая база источника:</p><p><code>EDX = 0</code> во всех семи вылетах. <code>EDI = 0</code> во всех семи вылетах.</p><p>По коду <code>EDI</code> является рассчитанным началом текущей строки источника:</p><p><code>source_row</code> = <code>[Pcx8+0x30]</code> + <code>[Pcx8+0x2C]</code> * y + x <code>EDX = source_row</code></p><p>Раз <code>EDI</code> и <code>EDX</code> равны 0 в момент чтения, вызывающий путь передал функцию с источником, у которого рассчитанная строка начинается с нулевого адреса. Наиболее простой вариант — поле базы изображения <code>[Pcx8+0x30]</code> равно 0 при нулевых x/y-смещениях. Другие варианты, например рассогласованные аргументы, тоже находятся выше по цепочке вызовов; сама инструкция только фиксирует нулевой источник.</p><p><code>EAX</code> и <code>ESI</code> в момент сбоя содержат ширину текущей строки:</p><p><code>0x30</code> в шести вылетах <code>0x252</code> в одном вылете</p><p>Это не адрес и не размер выделения. Значение показывает, что цикл успел подготовить количество пикселей для копирования и упал на первом чтении строки источника.</p>
+  </section>
+
+  <section id="s6">
+    <h2><span class="htext">Восстановленная цепочка вызовов</span><a class="anchor" href="#s6">¶</a></h2>
+    <p>По первому логу надежная цепочка выглядит так:</p><p><code>HD_TC2.dll</code> <code>sub_20066E0+0x125</code> <code>hota.dll</code> <code>sub_10076DF0+0xF1</code> <code>HD_HOTA.dll+0x51DE</code> / <code>HD_HOTA.dll+0x51B0</code> трамплин вне модулей <code>0x018A4BC8</code> <code>h3hota.exe</code> <code>A0_MapAddOptions_Player_Draw_sub_58D7E0</code> <code>h3hota.exe</code> <code>A0_MapSelectDlg_MapList_Redraw_sub_584820+0x5C3</code> <code>h3hota.exe</code> <code>A0_DialogFunction_sub_5FFAC0+0xB</code> <code>h3hota.exe</code> <code>A0_WndMgr_Run_MapSelectDlg_sub_602D60</code> <code>h3hota.exe</code> <code>A0_MapSelectDlg_Run_sub_584EC0+0x47</code> <code>h3hota.exe</code> <code>A0_Video_0_API_RestartAndDrawFirstFrame_sub_597C00</code></p><div class="note info"><span class="t">Наблюдение</span><p>Ключевые строки стека первого лога:</p></div><p><code>HD_TC2</code>: 07CB0000): Start 03486EE1 (hota: 03410000): (?) 084051DE (<code>HD_HOTA</code>: 08400000): (?) 018A4BCD (?): (?): (?) 00584DE8 (h3hota: 00400000): (?)</p><p>Кадр <code>hota.dll+0x76EE1</code> является адресом возврата после вызова функции отрисовки через таблицу:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:10076EDA                 </span><span class="k">call</span>    <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">edx</span>+<span class="n">2Ch</span>]
+<span class="a">.text:10076EDD                 </span><span class="k">mov</span>     <span class="r">ecx</span>, <span class="r">esi</span>
+<span class="a">.text:10076EDF                 </span><span class="k">call</span>    <span class="r">eax</span>
+<span class="a">.text:10076EE1                 </span><span class="k">pop</span>     <span class="r">esi</span></pre></div><p>Точные функции внутри <code>HD_HOTA.dll</code> для всех версий серии не восстановлены: в проекте нет листингов <code>HD_HOTA.dll</code> для 5.7 RC6, 5.7 RC10 и 5.7 RC12. Это не мешает разобрать место сбоя в <code>HD_TC2</code>, но ограничивает трассировку того, где именно был создан нулевой Pcx-источник.</p><p>Уточнение поставщика данных.</p><p>Дальнейшая проверка показала, что для пути с шириной <code>0x30</code> источник приходит из массива маленьких портретов диалога выбора карты.</p><p>В отрисовке параметров игрока код получает индекс портрета и передаёт соответствующий Pcx8-объект в рисовалку:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0058DD3E </span><span class="c">; 367:   port_id_v68 =</span>
+<span class="a">.text:0058DD3E </span><span class="c">;        A0_MapSelectDlg_Player_Get_SelectedHero_Portrait_sub_58D3B0(this_v6, player_ix);</span>
+<span class="a">.text:0058DD41                 </span><span class="k">call</span>    A0_MapSelectDlg_Player_Get_SelectedHero_Portrait_sub_58D3B0
+<span class="a">.text:0058DDE6                 </span><span class="k">cmp</span>     <span class="r">eax</span>, <span class="n">0FFFFFFFFh</span>
+<span class="a">.text:0058DDE9                 </span><span class="k">jnz</span>     loc_58DEFA
+<span class="a">.text:0058DF02 </span><span class="c">; 452:       this_v6-&gt;small_portraits_dwordC8[port_id_v68],</span>
+<span class="a">.text:0058DF02 </span><span class="c">; 455:       this_v6-&gt;small_portraits_dwordC8[0]-&gt;width,</span>
+<span class="a">.text:0058DF02 </span><span class="c">; 456:       this_v6-&gt;small_portraits_dwordC8[0]-&gt;height,</span>
+<span class="a">.text:0058DF33                 </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">esi</span>+<span class="r">eax</span>*<span class="n">4</span>+<span class="n">0C8h</span>] <span class="c">; this</span>
+<span class="a">.text:0058DF3C                 </span><span class="k">call</span>    A0_Pcx8_Draw_To_Pcx16_sub_44FA80</pre></div><p>Это объясняет важную деталь: ширина <code>0x30</code> в шести логах может быть взята из эталонного слота <code>small_portraits_dwordC8</code>[0], а не из повреждённого портрета. Поэтому повреждённый Pcx8-объект может иметь нулевой буфер [<code>+0x30</code>], но цикл всё равно получает ненулевую ширину <code>0x30</code> от слота 0.</p><p>Функция выбора портрета проверяет только sentinel -1, но не проверяет верхнюю границу индекса и не проверяет валидность загруженного Pcx8:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0058D40F                 </span><span class="k">mov</span>     <span class="r">eax</span>, [<span class="r">eax</span>+<span class="n">20h</span>]
+<span class="a">.text:0058D412                 </span><span class="k">cmp</span>     <span class="r">eax</span>, <span class="n">0FFFFFFFFh</span>
+<span class="a">.text:0058D415                 </span><span class="k">jnz</span>     loc_58D4B2
+<span class="a">.text:0058D442                 </span><span class="k">mov</span>     <span class="r">eax</span>, [<span class="r">edx</span>+<span class="n">20h</span>]
+<span class="a">.text:0058D445                 </span><span class="k">cmp</span>     <span class="r">eax</span>, <span class="n">0FFFFFFFFh</span>
+<span class="a">.text:0058D448                 </span><span class="k">jnz</span>     <span class="r">short</span> loc_58D454
+<span class="a">.text:0058D454                 </span><span class="k">mov</span>     <span class="r">edx</span>, [<span class="r">edx</span>+<span class="r">eax</span>*<span class="n">4</span>+<span class="n">2Ch</span>]
+<span class="a">.text:0058D4A9                 </span><span class="k">cmp</span>     <span class="r">ecx</span>, <span class="n">0FFFFFFFFh</span>
+<span class="a">.text:0058D4AE                 </span><span class="k">mov</span>     <span class="r">edx</span>, <span class="r">ecx</span>
+<span class="a">.text:0058D4B0                 </span><span class="k">mov</span>     <span class="r">eax</span>, <span class="r">edx</span></pre></div><p>Массив <code>small_portraits_dwordC8</code> заполняется в конструкторе диалога выбора карты. Слоты 0..162 загружаются из таблицы HPS-портретов героев, а слот 163 — из hpsrand.pcx:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0057C7B1                 </span><span class="k">xor</span>     <span class="r">edi</span>, <span class="r">edi</span>
+<span class="a">.text:0057C7B3                 </span><span class="k">mov</span>     <span class="r">esi</span>, <span class="n">0C8h</span>
+<span class="a">.text:0057C7B8                 </span><span class="k">mov</span>     <span class="r">edx</span>, A0_HeroInfo_off_67DCE8
+<span class="a">.text:0057C7BE                 </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">edx</span>+<span class="r">edi</span>+<span class="n">30h</span>] <span class="c">; this</span>
+<span class="a">.text:0057C7C2                 </span><span class="k">call</span>    A0_Load_Pcx8_sub_55AA10
+<span class="a">.text:0057C7C7                 </span><span class="k">mov</span>     [<span class="r">esi</span>+<span class="r">ebx</span>], <span class="r">eax</span>
+<span class="a">.text:0057C7CA                 </span><span class="k">add</span>     <span class="r">esi</span>, <span class="n">4</span>
+<span class="a">.text:0057C7CD                 </span><span class="k">add</span>     <span class="r">edi</span>, <span class="n">5Ch</span> <span class="c">; '\\'</span>
+<span class="a">.text:0057C7D0                 </span><span class="k">cmp</span>     <span class="r">esi</span>, <span class="n">354h</span>
+<span class="a">.text:0057C7D6                 </span><span class="k">jl</span>      <span class="r">short</span> loc_57C7B8
+<span class="a">.text:0057C7D8                 </span><span class="k">mov</span>     <span class="r">ecx</span>, <span class="r">offset</span> aHpsrand_pcx <span class="c">; "hpsrand.pcx"</span>
+<span class="a">.text:0057C7DD                 </span><span class="k">call</span>    A0_Load_Pcx8_sub_55AA10
+<span class="a">.text:0057C7E7                 </span><span class="k">mov</span>     [<span class="r">ebx</span>+<span class="n">354h</span>], <span class="r">eax</span></pre></div><p>Загрузчик <code>A0_Load_Pcx8_sub_55AA10</code> возвращает либо ресурс из дерева, либо новый Pcx8, загруженный из файла/LOD. Если ресурс не найден в исходном имени, код пытается пройти через запасной ресурс; при полном провале может вернуть 0:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0055ABFA                 </span><span class="k">push</span>    <span class="r">ebx</span>             <span class="c">; _GameResource_ *</span>
+<span class="a">.text:0055AC05                 </span><span class="k">call</span>    A0_ResourceError_NotDef_sub_559750
+<span class="a">.text:0055AC7F                 </span><span class="k">push</span>    <span class="r">offset</span> stru_64109C <span class="c">; _GameResource_ *</span>
+<span class="a">.text:0055AC8E                 </span><span class="k">call</span>    A0_ResourceError_NotDef_sub_559750
+<span class="a">.text:0055AC93                 </span><span class="k">xor</span>     <span class="r">eax</span>, <span class="r">eax</span>
+<span class="a">.text:0055ACA5                 </span><span class="k">retn</span></pre></div><p>Есть и более точное совпадение с текущим вылетом: конструктор Pcx8 из файла сначала зануляет поля, включая буфер [<code>+0x30</code>], затем вызывает чтение файла. Если ранний разбор PCX возвращает ошибку, функция выходит с кодом 1, но объект остаётся созданным с нулевым буфером:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0044F5D9                 </span><span class="k">mov</span>     [<span class="r">ebx</span>+<span class="n">1Ch</span>], <span class="r">eax</span>
+<span class="a">.text:0044F5DC                 </span><span class="k">mov</span>     [<span class="r">ebx</span>+<span class="n">20h</span>], <span class="r">eax</span>
+<span class="a">.text:0044F5DF                 </span><span class="k">mov</span>     [<span class="r">ebx</span>+<span class="n">24h</span>], <span class="r">eax</span>
+<span class="a">.text:0044F5E2                 </span><span class="k">mov</span>     [<span class="r">ebx</span>+<span class="n">28h</span>], <span class="r">eax</span>
+<span class="a">.text:0044F5E5                 </span><span class="k">mov</span>     [<span class="r">ebx</span>+<span class="n">2Ch</span>], <span class="r">eax</span>
+<span class="a">.text:0044F5E8                 </span><span class="k">mov</span>     [<span class="r">ebx</span>+<span class="n">30h</span>], <span class="r">eax</span>
+<span class="a">.text:0044F67E                 </span><span class="k">call</span>    A0_Pcx8_ReadFromFile_sub_44F710
+<span class="a">.text:0044F684                 </span><span class="k">mov</span>     <span class="r">eax</span>, <span class="r">ebx</span></pre></div><p>Внутри чтения PCX ранний путь ошибки действительно не выделяет буфер:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0044F721                 </span><span class="k">push</span>    <span class="r">esi</span>             <span class="c">; a2</span>
+<span class="a">.text:0044F722                 </span><span class="k">call</span>    sub_604860
+<span class="a">.text:0044F727                 </span><span class="k">test</span>    <span class="r">eax</span>, <span class="r">eax</span>
+<span class="a">.text:0044F729                 </span><span class="k">jz</span>      <span class="r">short</span> loc_44F738
+<span class="a">.text:0044F72B                 </span><span class="k">pop</span>     <span class="r">esi</span>
+<span class="a">.text:0044F72C                 </span><span class="k">mov</span>     <span class="r">eax</span>, <span class="n">1</span>
+<span class="a">.text:0044F735                 </span><span class="k">retn</span>    <span class="n">1Ch</span></pre></div><p>А нормальный путь выделяет буфер и записывает его в [<code>+0x30</code>]:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0044F738                 </span><span class="k">mov</span>     <span class="r">eax</span>, [<span class="r">ebp</span>+var_18]
+<span class="a">.text:0044F73B                 </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">ebp</span>+var_1C]
+<span class="a">.text:0044F73E                 </span><span class="k">mov</span>     [<span class="r">ebx</span>+<span class="n">28h</span>], <span class="r">eax</span>
+<span class="a">.text:0044F745                 </span><span class="k">mov</span>     [<span class="r">ebx</span>+<span class="n">24h</span>], <span class="r">ecx</span>
+<span class="a">.text:0044F748                 </span><span class="k">mov</span>     [<span class="r">ebx</span>+<span class="n">2Ch</span>], <span class="r">ecx</span>
+<span class="a">.text:0044F74B                 </span><span class="k">mov</span>     [<span class="r">ebx</span>+<span class="n">20h</span>], <span class="r">eax</span>
+<span class="a">.text:0044F74E                 </span><span class="k">mov</span>     [<span class="r">ebx</span>+<span class="n">1Ch</span>], <span class="r">eax</span>
+<span class="a">.text:0044F751                 </span><span class="k">call</span>    ??<span class="n">2</span>@YAPAXI@Z    <span class="c">; operator new(uint)</span>
+<span class="a">.text:0044F759                 </span><span class="k">mov</span>     [<span class="r">ebx</span>+<span class="n">30h</span>], <span class="r">eax</span></pre></div><p>Итого поставщик данных теперь сужен до двух проверяемых веток:</p><p>1) индекс портрета из заголовка карты/выбранного героя выходит за допустимый диапазон 0..163, потому что проверяется только -1; 2) индекс допустим, но соответствующий HPS*.PCX или hpsrand.pcx загружен как Pcx8-объект с нулевым буфером после ошибки чтения/ресурса.</p><p>Текстовый лог не содержит значение <code>port_id_v68</code> и содержимое Pcx8-объекта, поэтому разделить эти две ветки без минидампа нельзя. Но в обоих случаях первичный дефект находится не в <code>HD_TC2</code>, а в поставщике Pcx8 для диалога выбора карты: перед вызовом рисовалки отсутствует проверка диапазона портрета и валидности буфера изображения.</p>
+  </section>
+
+  <section id="s7">
+    <h2><span class="htext">Первопричина</span><a class="anchor" href="#s7">¶</a></h2>
+    <p>Функция <code>HD_TC2</code> <code>sub_20066E0</code> зарегистрирована как замена исходной функции <code>SoD h3hota.exe</code>:0044F940:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:02009C2E                 </span><span class="k">push</span>    <span class="r">offset</span> sub_20066E0
+<span class="a">.text:02009C33                 </span><span class="k">push</span>    <span class="n">1</span>
+<span class="a">.text:02009C35                 </span><span class="k">push</span>    <span class="n">0</span>
+<span class="a">.text:02009C37                 </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">eax</span>]
+<span class="a">.text:02009C39                 </span><span class="k">push</span>    <span class="n">1</span>
+<span class="a">.text:02009C3B                 </span><span class="k">push</span>    <span class="n">44F940h</span>
+<span class="a">.text:02009C40                 </span><span class="k">push</span>    <span class="r">eax</span>
+<span class="a">.text:02009C41                 </span><span class="k">call</span>    <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">ecx</span>+<span class="n">3Ch</span>]</pre></div><p>Оригинальная функция SoD <code>A0_Pcx8_Draw_sub_44F940</code> также читает источник без проверки нулевой базы. В ветке со специальными цветами:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0044F9B8                 </span><span class="k">mov</span>     <span class="r">esi</span>, [<span class="r">edi</span>+<span class="n">30h</span>]
+<span class="a">.text:0044F9BB                 </span><span class="k">add</span>     <span class="r">edx</span>, <span class="r">esi</span>
+<span class="a">.text:0044F9C0                 </span><span class="k">add</span>     <span class="r">edx</span>, <span class="r">esi</span>
+<span class="a">.text:0044F9C2                 </span><span class="k">mov</span>     <span class="r">esi</span>, <span class="r">edx</span>
+<span class="a">.text:0044F9EF                 </span><span class="k">mov</span>     <span class="r">dl</span>, [<span class="r">ecx</span>]
+<span class="a">.text:0044F9F1                 </span><span class="k">inc</span>     <span class="r">ecx</span>
+<span class="a">.text:0044F9F7                 </span><span class="k">jz</span>      <span class="r">short</span> loc_44FA0A</pre></div><p>В ветке без специальной прозрачности:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0044FA3C                 </span><span class="k">test</span>    <span class="r">ecx</span>, <span class="r">ecx</span>
+<span class="a">.text:0044FA3E                 </span><span class="k">mov</span>     <span class="r">edx</span>, <span class="r">esi</span>
+<span class="a">.text:0044FA47                 </span><span class="k">mov</span>     <span class="r">bl</span>, [<span class="r">edx</span>]
+<span class="a">.text:0044FA49                 </span><span class="k">inc</span>     <span class="r">edx</span>
+<span class="a">.text:0044FA4B                 </span><span class="k">mov</span>     <span class="r">bx</span>, [<span class="r">edi</span>+<span class="r">ebx</span>*<span class="n">2</span>+<span class="n">50h</span>]
+<span class="a">.text:0044FA50                 </span><span class="k">mov</span>     [<span class="r">eax</span>-<span class="n">2</span>], <span class="r">bx</span></pre></div><p>У оригинала нет проверки, что <code>[Pcx8+0x30]</code> не равен 0. Порт <code>HD_TC2</code> делает то же самое, только пишет 32-битный цвет вместо 16-битного. Это означает, что отсутствие проверки источника в самой рисовалке — не самостоятельный дефект <code>HD_TC2</code>, а унаследованный контракт функции.</p><p>Сравнение с соседней функцией <code>HD_TC2</code> <code>sub_20065F0</code> дает тот же результат: она тоже читает источник по рассчитанному указателю без проверки базы:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:02006690                 </span><span class="k">movzx</span>   <span class="r">ecx</span>, <span class="r">byte</span> <span class="r">ptr</span> [<span class="r">eax</span>+<span class="n">1</span>]
+<span class="a">.text:0200669D                 </span><span class="k">movzx</span>   <span class="r">ecx</span>, <span class="r">byte</span> <span class="r">ptr</span> [<span class="r">eax</span>-<span class="n">3</span>]
+<span class="a">.text:020066A4                 </span><span class="k">movzx</span>   <span class="r">ecx</span>, <span class="r">byte</span> <span class="r">ptr</span> [<span class="r">eax</span>-<span class="n">4</span>]</pre></div><p>Итоговый механизм:</p><p>1) Вызывающий код передает Pcx8-структуру в порт рисовалки. 2) В этой структуре или в аргументах рассчитанный источник строки становится равен 0. 3) <code>sub_20066E0</code> доверяет источнику, как и исходная функция SoD. 4) Первое чтение byte ptr <code>[EDX]</code> падает, потому что <code>EDX = 0</code>.</p><p>По статическому логу не видно, кто именно занулил или недонаполнил Pcx8. Для этого нужен точный листинг вызывающей версии <code>HD_HOTA.dll</code> и, лучше, полный дамп памяти с полями Pcx8 в момент вызова.</p>
+  </section>
+
+  <section id="s8">
+    <h2><span class="htext">Условия, спровоцировавшие сбой</span><a class="anchor" href="#s8">¶</a></h2>
+    <p>Доказанные условия по логам и стеку:</p><p>HotA version = 1.8.0 во всех семи вылетах. Место сбоя = <code>HD_TC2.dll+0x6805</code> во всех семи вылетах. Активен 32-битный подмодуль отрисовки <code>HD_TC2.dll</code>. OpenGL.Upscaling = 2 во всех семи вылетах. Стек проходит через перерисовку диалога выбора карты.</p><p>Состояние, которое меняется и не выглядит обязательным:</p><p>Network Game = 1 только в двух из семи вылетов. Graphics.Threads принимает 2, 6, 8, 12 и 16. Graphics.Mode принимает 4 и 5. Map file различается между логами.</p><p>Показаний игрока нет. Поэтому сценарий из логов восстанавливается по цепочке вызовов, а не по пользовательским комментариям.</p><p>Поля Some ingame values цитируются как состояние лога. Их нельзя использовать как доказательство, что вылет связан с конкретной картой или активным днем партии: стек указывает на интерфейс выбора карты.</p>
+  </section>
+
+  <section id="s9">
+    <h2><span class="htext">Достоверность и ограничения</span><a class="anchor" href="#s9">¶</a></h2>
+    <p>Достоверность сигнатуры высокая: семь уникальных логов разных версий HD-мода имеют один адрес сбоя, одну операцию чтения и одинаковые ключевые регистры <code>EDX = 0</code> и <code>EDI = 0</code>.</p><p>Достоверность разбора инструкции высокая: адресная проверка сходится не через поле структуры, а напрямую через регистр источника:</p><p><code>EDX</code> == <code>0x00000000</code> == адрес чтения из лога.</p><p>Достоверность утверждения о контракте рисовалки высокая: функция <code>HD_TC2</code> зарегистрирована как замена <code>h3hota.exe</code>:0044F940, а исходная функция SoD и соседний порт также читают источник без проверки базы.</p><p>Полезность лога для исправления средняя. Лог хорошо показывает симптом: нулевой Pcx8-источник пришел в рисовалку. Но точечный корень выше по цепочке вызовов не локализован: отсутствуют точные листинги <code>HD_HOTA.dll</code> для части версий серии, а текстовый лог не содержит памяти объекта Pcx8. Поэтому исправление в самой инструкции <code>HD_TC2</code> было бы только скрытием симптома; настоящий поставщик нулевой поверхности остается выше по стеку.</p><p>Ограничения по листингам:</p><p><code>HD_TC2.dll.txt</code> есть и используется для точки сбоя. <code>HotA.dll-180.txt</code> соответствует HotA 1.8.0. <code>h3hota.exe.txt</code> используется как исходная функция SoD. <code>HD_HOTA.dll</code> точной версии нужен для трассировки поставщика.</p><p>Для полной трассировки нужны листинги:</p><p>Модули/<code>HD_HOTA.dll</code>-5.7 RC6.txt, size <code>0x0119B000</code> Модули/<code>HD_HOTA.dll</code>-5.7 RC10.txt, size <code>0x0119B000</code> Модули/<code>HD_HOTA.dll</code>-5.7 RC12.txt, size <code>0x0119B000</code></p><p>Для версий 5.7 RC11, 5.7 R10 и 5.7 R17 в проекте есть близкие или точные листинги <code>HD_HOTA.dll</code>, но отчет не переносит по ним вывод на отсутствующие RC6, RC10 и RC12.</p>
+  </section>
+
+  <section id="s10">
+    <h2><span class="htext">Признаки поиска в старых версиях HotA / в SoD</span><a class="anchor" href="#s10">¶</a></h2>
+    <p>Стабильные признаки по контексту:</p><p>Module: <code>HD_TC2.dll</code> Address: <code>HD_TC2.dll+0x6805</code> или соседнее смещение той же функции Information: read of address <code>0x00000000</code> <code>EDX = 0x00000000</code> <code>EDI = 0x00000000</code> <code>EAX</code> и <code>ESI</code> содержат ширину строки, часто <code>0x30</code></p><p>Стабильная сигнатура регистрации в подмодуле <code>HD_TC2</code>:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="k">push</span> <span class="r">offset</span> sub_20066E0
+<span class="k">push</span> <span class="n">44F940h</span>
+<span class="k">call</span> <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">ecx</span>+<span class="n">3Ch</span>]</pre></div><p>Стабильная сигнатура падающего кода:</p><p>расчет <code>source_row</code> из <code>[this+2Ch]</code>, <code>[this+30h]</code> и аргументов;</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="k">mov</span> <span class="r">edx</span>, <span class="r">edi</span><span class="c">;</span>
+<span class="k">movzx</span> <span class="r">eax</span>, <span class="r">byte</span> <span class="r">ptr</span> [<span class="r">edx</span>]<span class="c">;</span>
+<span class="k">mov</span> <span class="r">eax</span>, [palette+<span class="r">eax</span>*<span class="n">4</span>]<span class="c">;</span></pre></div><p>запись 32-битного цвета в приемник.</p><p>Сигнатура исходной функции SoD:</p><p><code>h3hota.exe</code> <code>A0_Pcx8_Draw_sub_44F940</code>; чтение <code>[edx]</code> или <code>[ecx]</code> из исходной Pcx8-поверхности; отсутствие проверки <code>[Pcx8+0x30]</code> перед чтением.</p><p>Для поиска родственных отчетов полезны также нижние кадры стека:</p><p><code>A0_MapAddOptions_Player_Draw_sub_58D7E0</code> <code>A0_MapSelectDlg_MapList_Redraw_sub_584820</code> <code>A0_MapSelectDlg_Run_sub_584EC0</code></p>
+  </section>
+
+  <section id="s11">
+    <h2><span class="htext">Воспроизведение вылета</span><a class="anchor" href="#s11">¶</a></h2>
+    <p>Гарантированных шагов вида "нажать кнопку X — получить вылет" по этим логам нет. Комментариев игроков нет, а источник нулевой Pcx8-поверхности находится выше точки сбоя. Поэтому сценарий воспроизведения вероятностный и нацелен на повтор перерисовки того же интерфейсного пути.</p><p>Роль 1 — тестер за игрой:</p><p>1) Запустить HotA 1.8.0 с HD-модом 5.7 из диапазона логов. 2) Использовать режим отрисовки, при котором загружен <code>HD_TC2.dll</code>. 3) Оставить OpenGL.Upscaling = 2. 4) Открывать диалог выбора карты и список сценариев. 5) Переключать карты, параметры игроков и элементы списка, вызывая частую перерисовку блока параметров игрока. 6) Повторять прогон на разных картах из логов и на пустом новом профиле, фиксируя только сам факт нового вылета и его адрес.</p><p>Роль 2 — подтверждение причины с отладчиком или полным дампом:</p><p>1) Поставить остановку на runtime-адрес <code>HD_TC2.dll</code> base + <code>0x6805</code>. 2) На остановке проверить регистры <code>EDX</code>, <code>EDI</code>, <code>EAX</code>, <code>ESI</code>. 3) Для той же сигнатуры ожидается <code>EDX = 0</code> и чтение адреса 0. 4) Найти объект Pcx8, который был this для <code>sub_20066E0</code>, и проверить поля <code>[this+0x30]</code> и <code>[this+0x2C]</code>. 5) Подняться на один-два уровня выше и определить, какой код создал или передал Pcx8 с нулевой базой изображения.</p><p>Диагностический дифференциальный прогон:</p><p>A) Повторить тот же интерфейсный путь в режиме, где не используется <code>HD_TC2.dll</code>. Если входные данные те же, адрес сбоя должен либо исчезнуть, либо сместиться в исходную функцию <code>h3hota.exe</code>:0044F940. B) Повторить путь с полным дампом памяти и сверить, что новый лог сохраняет инварианты <code>EDX = 0</code>, Information = read <code>0x00000000</code>, стек через <code>MapSelectDlg</code>.</p><p>Цель этих прогонов — не обход вылета, а подтверждение, что один и тот же нулевой Pcx8-источник доходит до контрактной рисовалки в разных режимах отрисовки.</p>
+  </section>
+
+  <section id="verdict">
+    <h2><span class="htext">Вывод</span><a class="anchor" href="#verdict">¶</a></h2>
+    <div class="card verdict lvl-mid"><p><code>HD_TC2.dll+0x6805</code> падает не из-за самостоятельной ошибки попиксельного цикла, а потому что в порт <code>Pcx8_Draw</code> приходит нулевой источник. <code>HD_TC2</code> повторяет контракт исходной функции <code>SoD h3hota.exe</code>:0044F940: источник должен быть уже валиден на входе. Корень нужно искать выше по цепочке перерисовки диалога выбора карты, в коде, который создает или передает Pcx8-поверхность с нулевой базой изображения.</p></div>
+  </section>
+
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Скопировано</div>
+
+<script>
+(function(){
+  var KEY="hota-theme-v6",root=document.documentElement;
+  var ic=document.getElementById("themeUse"),lb=document.getElementById("themeLabel");
+  var mq=window.matchMedia?matchMedia("(prefers-color-scheme: light)"):null;
+  // по умолчанию следуем за системной темой; ручной клик фиксирует light/dark и перекрывает её
+  function manual(){try{var s=localStorage.getItem(KEY);return(s==="light"||s==="dark")?s:null;}catch(e){return null;}}
+  function effective(){return manual()||(mq&&mq.matches?"light":"dark");}
+  // иконка — SVG (солнце/луна), переключаем href у <use>, а не emoji-глиф
+  function paintBtn(){var l=effective()==="light";
+    ic.setAttribute("href",l?"#ic-sun":"#ic-moon");
+    lb.textContent=l?"\u0421\u0432\u0435\u0442\u043B\u0430\u044F":"\u0422\u0451\u043C\u043D\u0430\u044F";}
+  // ВСЕГДА ставим явный класс (theme-light либо theme-dark) — без @media-CSS
+  function apply(){root.classList.remove("theme-light","theme-dark");
+    root.classList.add("theme-"+effective());paintBtn();}
+  apply();
+  // смена системной темы -> сбросить ручной выбор и снова следовать за системой
+  if(mq){var hh=function(){try{localStorage.removeItem(KEY);}catch(e){}apply();};
+    mq.addEventListener?mq.addEventListener("change",hh):mq.addListener(hh);}
+  document.getElementById("themeToggle").onclick=function(){
+    var n=effective()==="light"?"dark":"light";
+    try{localStorage.setItem(KEY,n);}catch(e){}apply();};
+  var links={},secs=[].slice.call(document.querySelectorAll("main section[id]"));
+  document.querySelectorAll("nav.toc a").forEach(function(a){links[a.getAttribute("href").slice(1)]=a;});
+  var lock=0,lockT,ticking=0;
+  // подсветка только в оглавлении
+  function setActive(id){
+    Object.keys(links).forEach(function(k){links[k].classList.remove("active");});
+    if(links[id])links[id].classList.add("active");}
+  function unlockSoon(){clearTimeout(lockT);lockT=setTimeout(function(){lock=0;},120);}
+  // активна — ПОСЛЕДНЯЯ секция, чьё начало выше порога чтения.
+  // Пороговая логика детерминирована и НЕ пропускает короткие секции
+  // (IntersectionObserver мог «перепрыгивать» через них при быстром скролле).
+  function pickActive(){
+    ticking=0;
+    if(lock)return;
+    var thr=innerHeight*0.2,cur=secs.length?secs[0].id:null;
+    for(var i=0;i<secs.length;i++){
+      if(secs[i].getBoundingClientRect().top<=thr)cur=secs[i].id;}
+    if(innerHeight+scrollY>=document.body.scrollHeight-2)cur=secs[secs.length-1].id;
+    if(cur)setActive(cur);}
+  // клик по оглавлению: сразу подсветить цель и заглушить scroll-spy до конца плавной прокрутки
+  document.querySelectorAll("nav.toc a").forEach(function(a){
+    a.addEventListener("click",function(){
+      setActive(a.getAttribute("href").slice(1));lock=1;unlockSoon();});
+  });
+  addEventListener("scroll",function(){
+    if(lock){unlockSoon();return;}
+    if(!ticking){ticking=1;requestAnimationFrame(pickActive);}
+  },{passive:true});
+  pickActive();
+  var toast=document.getElementById("toast"),tt;
+  function showToast(m){toast.textContent=m||"\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e";toast.classList.add("show");
+    clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove("show");},1300);}
+  document.querySelectorAll("[data-copy]").forEach(function(b){
+    b.onclick=function(){var sel=b.getAttribute("data-copy");
+      var el=sel==="prev"?b.parentElement.querySelector("pre"):document.querySelector(sel);
+      var txt=el?el.innerText:"";
+      navigator.clipboard&&navigator.clipboard.writeText(txt).then(function(){showToast("\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e");},
+        function(){showToast("\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c");});};
+  });
+})();
+</script>
+</body>
+</html>

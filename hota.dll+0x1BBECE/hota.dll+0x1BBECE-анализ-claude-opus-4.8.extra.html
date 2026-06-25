@@ -1,0 +1,137 @@
+<!-- РУЧНЫЕ ВИЗУАЛИЗАЦИИ к отчёту. Этот файл НЕ перезаписывается генератором —
+     правьте свободно и заново запускайте render_report.py. Каждая
+     <section id="..."> попадает и в оглавление (по data-toc или тексту h2). -->
+
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span><a class="anchor" href="#viz-mechanism">¶</a></h2>
+
+  <p>Ребро границы зоны идёт вдоль края карты (<code>x=0</code>). Алгоритм берёт
+  середину отрезка и сдвигает её перпендикулярно на случайную величину в
+  диапазоне <code>[-r/2, +r/2]</code>. Если сдвиг направлен наружу карты — середина
+  получает координату <code>x &lt; 0</code>. В оригинале SoD её зажимал <b class="hi">лист</b>
+  (<code>max(0,x)</code>); HotA-обработчик зажим обходит, и <code>AtCoords</code> вычисляет
+  адрес клетки за пределами массива &#8212; и следующая инструкция,
+  читающая байт <code>cell+0x22</code>, валит процесс.</p>
+
+  <!-- ОСНОВНАЯ СХЕМА: только геометрия + крошечные бейджи. Все подписи — в легенде ниже.
+       Стиль: штриховка запретной зоны, halo точки сбоя (двойной круг, печатается),
+       «призрак» исходной середины, скруглённые торцы линий, единые размеры узлов. -->
+  <div class="codewrap" style="background:var(--code);border:1px solid var(--line);border-radius:12px;padding:16px">
+    <svg viewBox="0 0 620 250" width="100%" style="max-width:620px;display:block;margin:0 auto"
+         stroke-linecap="round" stroke-linejoin="round"
+         aria-label="Середина ребра сдвинута перпендикулярно за край карты">
+      <defs>
+        <!-- диагональная штриховка для запретной зоны «вне карты» -->
+        <pattern id="vizHatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <rect width="8" height="8" fill="var(--redBg)"/>
+          <line x1="0" y1="0" x2="0" y2="8" stroke="var(--bad)" stroke-width="1" opacity=".35"/>
+        </pattern>
+        <marker id="vizArrow" viewBox="0 0 10 10" refX="8" refY="5"
+                markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0 0 L10 5 L0 10 z" fill="var(--bad)"/>
+        </marker>
+      </defs>
+
+      <!-- зона вне карты (x<0): штриховка = «сюда нельзя» -->
+      <rect x="40" y="40" width="200" height="160" rx="6"
+            fill="url(#vizHatch)" stroke="var(--redLn)" stroke-width="1" stroke-dasharray="5 4"/>
+      <!-- поле карты (x>=0) -->
+      <rect x="240" y="40" width="340" height="160" rx="6"
+            fill="var(--panel2)" stroke="var(--line)" stroke-width="1.5"/>
+      <!-- граница карты x=0 -->
+      <line x1="240" y1="30" x2="240" y2="210" stroke="var(--hi)" stroke-width="2.5"/>
+      <text x="240" y="228" text-anchor="middle" fill="var(--hi)" font-size="13" font-weight="700">x = 0</text>
+
+      <!-- исходное ребро границы -->
+      <line x1="360" y1="78" x2="360" y2="172" stroke="var(--accent2)" stroke-width="2.5"/>
+      <!-- «призрак» исходной середины + линия 1->3 (было/стало) -->
+      <line x1="360" y1="125" x2="160" y2="125" stroke="var(--muted)" stroke-width="1" stroke-dasharray="2 4" opacity=".55"/>
+      <circle cx="360" cy="125" r="5" fill="none" stroke="var(--accent2)" stroke-width="1.5" stroke-dasharray="2 2" opacity=".7"/>
+      <!-- концы ребра (единый радиус узлов r=6) -->
+      <circle cx="360" cy="78"  r="6" fill="var(--ok)"/>
+      <circle cx="360" cy="172" r="6" fill="var(--ok)"/>
+      <circle cx="360" cy="125" r="6" fill="var(--accent2)"/>
+
+      <!-- перпендикулярный сдвиг наружу карты -->
+      <line x1="360" y1="125" x2="170" y2="125" stroke="var(--bad)" stroke-width="2.5"
+            stroke-dasharray="6 4" marker-end="url(#vizArrow)"/>
+      <!-- смещённая середина за границей: halo (двойной круг, печатается) -->
+      <circle cx="160" cy="125" r="13" fill="var(--bad)" opacity=".18"/>
+      <circle cx="160" cy="125" r="7"  fill="var(--bad)"/>
+
+      <!-- бейджи-метки (единый r=11, мелкие кружки в свободных зонах) -->
+      <g font-size="11" font-weight="700" text-anchor="middle">
+        <circle cx="392" cy="78"  r="11" fill="var(--ok)"/>      <text x="392" y="78"  dy=".34em" fill="var(--bg)">A</text>
+        <circle cx="392" cy="172" r="11" fill="var(--ok)"/>      <text x="392" y="172" dy=".34em" fill="var(--bg)">B</text>
+        <circle cx="392" cy="125" r="11" fill="var(--accent2)"/> <text x="392" y="125" dy=".34em" fill="var(--bg)">1</text>
+        <circle cx="265" cy="103" r="11" fill="var(--bad)"/>     <text x="265" y="103" dy=".34em" fill="var(--bg)">2</text>
+        <circle cx="160" cy="160" r="11" fill="var(--bad)"/>     <text x="160" y="160" dy=".34em" fill="var(--bg)">3</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ЛЕГЕНДА (HTML, текст переносится сам) + мини-фигура «итог рекурсии» -->
+  <div class="grid2" style="margin-top:14px;align-items:center">
+    <ul style="list-style:none;padding:0;margin:0;font-size:var(--fs-sm);line-height:1.7">
+      <li><b style="color:var(--ok)">A, B</b> &#8212; концы ребра: валидны, зажаты вызывающим</li>
+      <li><b style="color:var(--accent2)">1</b> &#8212; середина M исходного отрезка</li>
+      <li><b style="color:var(--bad)">2</b> &#8212; сдвиг <code>-r/2</code> перпендикулярно, пересекает <code>x=0</code></li>
+      <li><b style="color:var(--bad)">3</b> &#8212; <code>M&#8242;</code> с координатой <code>x &lt; 0</code>: выход за границы массива клеток</li>
+      <li style="margin-top:6px;padding-top:6px;border-top:1px dashed var(--line)"><code>AtCoords</code> по <code>M&#8242;</code> &#8594; адрес вне массива; инструкция <code>cmp byte ptr [eax+22h]</code> читает по нему &#8594; <b style="color:var(--bad)">EXCEPTION_ACCESS_VIOLATION</b></li>
+    </ul>
+
+    <div class="codewrap" style="background:var(--code);border:1px solid var(--line);border-radius:12px;padding:12px;margin:0">
+      <svg viewBox="0 0 240 170" width="100%" style="display:block" stroke-linecap="round" stroke-linejoin="round"
+           aria-label="Итог рекурсии: дрожащая граница с выбросами за край">
+        <rect x="70" y="16" width="150" height="138" rx="6"
+              fill="var(--panel2)" stroke="var(--line)" stroke-width="1.5"/>
+        <line x1="70" y1="10" x2="70" y2="160" stroke="var(--hi)" stroke-width="2"/>
+        <text x="70" y="168" text-anchor="middle" fill="var(--hi)" font-size="11" font-weight="700">x=0</text>
+        <polyline points="76,26 52,58 92,86 50,116 96,140 78,152"
+                  fill="none" stroke="var(--bad)" stroke-width="1.5"/>
+        <circle cx="52" cy="58"  r="3.5" fill="var(--bad)"/>
+        <circle cx="50" cy="116" r="3.5" fill="var(--bad)"/>
+      </svg>
+      <p style="margin:8px 2px 0;font-size:var(--fs-2xs);color:var(--muted);text-align:center">
+        Итог рекурсии: «дрожащая» граница; отдельные изломы выходят за границу карты</p>
+    </div>
+  </div>
+
+  <!-- КОНТРАСТ: SoD (защита) vs HotA (обход) -->
+  <h3 style="margin:20px 0 8px">Контраст: защита SoD против обхода в HotA</h3>
+  <div class="grid2" style="align-items:stretch">
+
+    <div class="codewrap" style="background:var(--code);border:1px solid var(--okLn);border-radius:12px;padding:12px;margin:0;display:flex;flex-direction:column">
+      <svg viewBox="0 0 220 124" width="100%" style="display:block" stroke-linecap="round" stroke-linejoin="round"
+           aria-label="SoD: зажим возвращает середину на край карты">
+        <rect x="10" y="16" width="70" height="88" rx="5" fill="url(#vizHatch)" stroke="var(--redLn)" stroke-width="1" stroke-dasharray="5 4"/>
+        <rect x="80" y="16" width="130" height="88" rx="5" fill="var(--panel2)" stroke="var(--line)" stroke-width="1.4"/>
+        <line x1="80" y1="8" x2="80" y2="112" stroke="var(--hi)" stroke-width="2.2"/>
+        <text x="80" y="121" text-anchor="middle" fill="var(--hi)" font-size="10" font-weight="700">x=0</text>
+        <circle cx="140" cy="60" r="4" fill="var(--accent2)"/>
+        <line x1="140" y1="60" x2="86" y2="60" stroke="var(--bad)" stroke-width="2" stroke-dasharray="5 3"/>
+        <circle cx="80" cy="60" r="6" fill="var(--ok)"/>
+        <polyline points="188,30 196,38 208,22" fill="none" stroke="var(--ok)" stroke-width="3"/>
+      </svg>
+      <p style="margin:auto 2px 0;padding-top:8px;font-size:var(--fs-2xs);line-height:1.5;color:var(--muted);text-align:center"><b style="color:var(--ok)">SoD</b>: зажим <code>max(0,x)</code> возвращает середину на край <code>x=0</code> &#8594; доступ внутри массива &#8594; <b style="color:var(--ok)">норма</b></p>
+    </div>
+
+    <div class="codewrap" style="background:var(--code);border:1px solid var(--redLn);border-radius:12px;padding:12px;margin:0;display:flex;flex-direction:column">
+      <svg viewBox="0 0 220 124" width="100%" style="display:block" stroke-linecap="round" stroke-linejoin="round"
+           aria-label="HotA: зажим обойдён, середина уходит за край карты">
+        <rect x="10" y="16" width="70" height="88" rx="5" fill="url(#vizHatch)" stroke="var(--redLn)" stroke-width="1" stroke-dasharray="5 4"/>
+        <rect x="80" y="16" width="130" height="88" rx="5" fill="var(--panel2)" stroke="var(--line)" stroke-width="1.4"/>
+        <line x1="80" y1="8" x2="80" y2="112" stroke="var(--hi)" stroke-width="2.2"/>
+        <text x="80" y="121" text-anchor="middle" fill="var(--hi)" font-size="10" font-weight="700">x=0</text>
+        <circle cx="140" cy="60" r="4" fill="var(--accent2)"/>
+        <line x1="140" y1="60" x2="44" y2="60" stroke="var(--bad)" stroke-width="2" stroke-dasharray="5 3"/>
+        <circle cx="40" cy="60" r="11" fill="var(--bad)" opacity=".18"/>
+        <circle cx="40" cy="60" r="6" fill="var(--bad)"/>
+        <line x1="190" y1="24" x2="206" y2="40" stroke="var(--bad)" stroke-width="3"/>
+        <line x1="206" y1="24" x2="190" y2="40" stroke="var(--bad)" stroke-width="3"/>
+      </svg>
+      <p style="margin:auto 2px 0;padding-top:8px;font-size:var(--fs-2xs);line-height:1.5;color:var(--muted);text-align:center"><b style="color:var(--bad)">HotA</b>: зажим обойдён, середина остаётся <code>x&lt;0</code> &#8594; доступ вне массива &#8594; <b style="color:var(--bad)">сбой</b></p>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,33 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">#</a></h2>
+
+  <p>Объект на клетке карты хранит номер героя. Вызывающий код превращает
+  номер в указатель на запись героя по формуле
+  <code>this = GameMgr + номер*1170 + 0x21620</code>, проверяя номер
+  только на значение <code>-1</code>. Метод снятия объекта сразу читает
+  поле <code>this+6</code>. Если номер вне диапазона массива героев или
+  равен <code>-1</code> — указатель указывает мимо массива либо равен
+  нулю, и чтение роняет игру.</p>
+
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box bad dashed">F<span class="lbl">номер = -1 -&gt; this = 0</span></div>
+      <div class="viz-box ok">B = база<span class="lbl">массив героев</span></div>
+      <div class="viz-box ok dim">записи 0..N-1<span class="lbl">шаг 1170 байт</span></div>
+      <div class="viz-box bad">F<span class="lbl">номер &gt;= N -&gt; за границей</span></div>
+    </div>
+    <p class="viz-cap">проверка только на -1; нет нижней и верхней границы номера</p>
+  </div>
+
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge ok">B</span>
+      <span class="txt">База массива записей героев:
+        <code>GameMgr + 0x21620</code>, шаг записи 1170 байт.</span></div>
+    <div class="item"><span class="viz-badge bad">F</span>
+      <span class="txt">Адрес сбоя <code>this+6</code>: при номере <code>-1</code>
+        указатель нулевой (<code>this = 0</code>, адрес сбоя
+        <code>0x6</code>); при номере вне диапазона указатель уходит за
+        массив. Во всех вылетах <code>адрес сбоя = ECX + 6</code>.</span></div>
+  </div>
+</section>

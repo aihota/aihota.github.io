@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анализ вылета hota.dll+0x1BBECE</title>
+<style>
+
+:root{
+  --bg:#0f1117;--panel:#171a23;--panel2:#1d212c;--ink:#e6e9ef;--muted:#a6afbd;
+  --line:#2a2f3b;--accent:#94a3b8;--accent2:#7dd3fc;--hi:#fbbf24;--ok:#46d39a;--warn:#ffcc66;
+  --bad:#ff5c7a;--code:#11141b;--kw:#ff7b72;--reg:#7ee787;--num:#79c0ff;--cmt:#8b949e;
+  --pretext:#cdd6e4;--badText:#ff8da3;--verdictGrad:linear-gradient(180deg,#1c1418,#171a23);
+  --br:rgba(255,255,255,.04);
+  --redBg:rgba(255,92,122,.14);--redInk:#ff8da3;--redLn:rgba(255,92,122,.35);
+  --blBg:rgba(74,163,255,.14);--blInk:#8ec5ff;--blLn:rgba(74,163,255,.35);
+  --gyBg:rgba(154,163,178,.12);--gyInk:#c4ccd8;--gyLn:rgba(154,163,178,.3);
+  --okBg:rgba(70,211,154,.10);--okLn:rgba(70,211,154,.32);
+  --wnBg:rgba(255,204,102,.09);--wnLn:rgba(255,204,102,.32);
+  --orange:#fb923c;--orangeBg:rgba(251,146,60,.14);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  /* шрифты: встроенные (если есть) -> системные с широким кросс-платформенным фолбэком */
+  --font-sans:"ReportSans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","DejaVu Sans","Liberation Sans",Helvetica,Arial,sans-serif;
+  --font-mono:"ReportMono","SF Mono",ui-monospace,"JetBrains Mono","Cascadia Code",Menlo,Consolas,"DejaVu Sans Mono","Liberation Mono","Noto Sans Mono",monospace;
+  /* стек типографских знаков/символов — текстовая (не эмодзи) презентация на всех ОС */
+  --font-sym:"Segoe UI Symbol","Apple Symbols","Noto Sans Symbols 2","DejaVu Sans",sans-serif;
+  /* типографическая шкала в rem (уважает системный размер шрифта); единый ритм */
+  --fs-3xs:.65625rem;--fs-2xs:.6875rem;--fs-xs:.78125rem;--fs-sm:.8125rem;
+  --fs-md:.875rem;--fs-base:.9375rem;--fs-lg:1rem;--fs-xl:1.125rem;--fs-2xl:1.375rem;
+  --fs-hero:clamp(1.5rem,2vw + 1.125rem,2.125rem);
+  /* font-size-adjust: одинаковая видимая высота строчных при ЛЮБОМ фолбэке (ключ к «одинаково везде») */
+  --fsa-sans:.52;--fsa-mono:.5;
+  /* единый вертикальный ритм и трекинг капс-меток (вместо разнобоя) */
+  --lh-tight:1.12;--lh-code:1.5;--lh-base:1.62;
+  --ls-caps:.13em;--ls-caps-wide:.16em;
+  /* выделение текста — заметная заливка (а не 14% var(--blBg), который почти не виден) */
+  --sel:rgba(74,163,255,.32);
+  color-scheme:dark;
+}
+html.theme-light{
+  --bg:#f4f6fb;--panel:#ffffff;--panel2:#eef1f6;--ink:#1c2230;--muted:#5a6473;
+  --line:#d7dce5;--accent:#475569;--accent2:#0369a1;--hi:#b45309;--ok:#1a7f5a;--warn:#c2900a;
+  --bad:#cf2e4a;--code:#f6f8fa;--kw:#cf222e;--reg:#116329;--num:#0550ae;--cmt:#6e7781;
+  --pretext:#24292f;--badText:#cf2e4a;--verdictGrad:linear-gradient(180deg,#fff5f6,#fff);
+  --br:rgba(0,0,0,.03);
+  --redBg:rgba(207,46,74,.10);--redInk:#b21f3b;--redLn:rgba(207,46,74,.3);
+  --blBg:rgba(31,111,235,.1);--blInk:#1551b5;--blLn:rgba(31,111,235,.3);
+  --gyBg:rgba(90,100,115,.1);--gyInk:#3d4756;--gyLn:rgba(90,100,115,.28);
+  --okBg:rgba(26,127,90,.09);--okLn:rgba(26,127,90,.3);
+  --wnBg:rgba(154,107,0,.09);--wnLn:rgba(154,107,0,.3);
+  --orange:#ea580c;--orangeBg:rgba(234,88,12,.12);
+  --shadow:0 8px 30px rgba(40,60,100,.12);
+  --sel:rgba(31,111,235,.28);
+  color-scheme:light;
+}
+/* Светлая палитра живёт ТОЛЬКО в html.theme-light; авто-режим проставляет
+   явный класс через JS (ранний скрипт в <head>), поэтому @media-дубль палитры
+   больше не нужен. */
+*{box-sizing:border-box}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* text-size-adjust: запрещаем браузерам самовольно раздувать шрифт (iOS/Android, поворот) */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:var(--fs-base)/var(--lh-base) var(--font-sans);
+  font-size-adjust:var(--fsa-sans);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;font-optical-sizing:auto;
+  font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1;
+  /* нуль со слешем и в прозе (единообразие с кодом) */
+  font-variant-numeric:slashed-zero;
+  /* синтез НЕ отключаем: нужен для псевдо-жира (<b>) и капители (b.hi)
+     на фолбэк-шрифтах без нативных начертаний (DejaVu/Liberation) */
+  transition:background .25s,color .25s}
+/* единый цвет выделения на всех ОС/браузерах */
+::selection{background:var(--sel);color:var(--ink)}
+/* моно-стек: slashed-zero + табличные цифры для hex; ВСЕ лигатуры off (asm: ->, !=, >=).
+   font-feature-settings:normal сбрасывает наследуемые от body kern/liga (иначе liga
+   остаётся включён) и убирает конфликт с font-variant-ligatures;
+   font-size-adjust держит высоту строчных при подмене моно-шрифта на др. ОС */
+code,pre,.mono,.stat .big,td.mono,th.mono{font-family:var(--font-mono);
+  font-size-adjust:var(--fsa-mono);
+  font-feature-settings:normal;
+  font-variant-ligatures:none;
+  font-variant-numeric:slashed-zero tabular-nums}
+a{color:var(--accent2);text-decoration:none}
+/* инлайн-иконки вместо emoji-глифов (★✓☀☾) — идентичны на всех ОС */
+.tic{width:1em;height:1em;vertical-align:-.14em;fill:none;stroke:currentColor;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tic.fill{fill:currentColor;stroke:none}
+/* символьные знаки, оставленные текстом (¶) — текстовая презентация, не emoji */
+h2 .anchor{font-family:var(--font-sym);font-variant-emoji:text}
+.theme-fab{position:absolute;top:18px;right:22px;z-index:5}
+.btn{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:9px;
+  padding:7px 12px;font-size:var(--fs-xs);font-weight:600;cursor:pointer;display:inline-flex;
+  align-items:center;gap:7px;transition:border-color .2s,transform .08s,background .2s}
+.btn:hover{border-color:var(--accent2)}
+.btn:active{transform:scale(.96)}
+.btn:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+.btn:focus:not(:focus-visible){outline:none}
+.shell{max-width:1180px;margin:0 auto;padding:0 22px;display:grid;
+  grid-template-columns:230px minmax(0,1fr);gap:38px;position:relative}
+nav.toc{position:sticky;top:24px;align-self:start;height:calc(100vh - 48px);
+  overflow-y:auto;padding:22px 0 40px;font-size:var(--fs-sm)}
+nav.toc .lbl{text-transform:uppercase;letter-spacing:var(--ls-caps-wide);font-size:var(--fs-3xs);
+  color:var(--muted);font-weight:700;margin:0 0 10px 12px}
+nav.toc a{display:flex;gap:9px;align-items:baseline;color:var(--muted);padding:6px 12px;
+  border-left:2px solid transparent;border-radius:0 7px 7px 0;transition:.15s}
+nav.toc a .n{font-family:var(--font-mono);font-size:var(--fs-2xs);opacity:.7;min-width:15px}
+nav.toc a:hover{color:var(--ink);background:var(--br)}
+nav.toc a.active{color:var(--ink);border-left-color:var(--accent2);
+  background:linear-gradient(90deg,var(--blBg),transparent);font-weight:600}
+main{padding-bottom:90px;min-width:0}
+@media(max-width:900px){.shell{grid-template-columns:1fr}nav.toc{display:none}}
+.hero{padding:40px 0 14px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-2xs);letter-spacing:var(--ls-caps-wide);
+  text-transform:uppercase;color:var(--accent);font-weight:700}
+/* «пуля» eyebrow — нарисованная точка, а не глиф ● (нет расхождений по ОС) */
+.eyebrow::before{content:"";display:inline-block;width:.5em;height:.5em;
+  border-radius:50%;background:var(--accent2)}
+h1.addr{margin:13px 0 8px;font-size:var(--fs-hero);line-height:var(--lh-tight);letter-spacing:-.01em;
+  font-family:var(--font-mono);font-weight:700;overflow-wrap:anywhere}
+h1.addr .mod{color:var(--hi)}
+.subtitle{color:var(--muted);font-size:var(--fs-lg);margin:0 0 20px;max-width:60ch}
+.byline{color:var(--muted);font-size:var(--fs-sm);margin:6px 0 4px}
+.byline b{color:var(--ink);font-weight:600}
+
+/* вердикт-callout: цветная метка «ВЕРДИКТ» (цвет = уровень полезности),
+   без дублирующей галочки (она уже на карточке «Полезность») */
+.ribbon{position:relative;margin:18px 0 8px;padding:15px 20px 16px;border-radius:16px;
+  background:var(--redBg);border:1px solid var(--redLn);box-shadow:var(--shadow)}
+.ribbon.lvl-mid{background:var(--wnBg);border-color:var(--wnLn)}
+.ribbon.lvl-low{background:var(--orangeBg);border-color:var(--orange)}
+.ribbon.lvl-high{background:var(--okBg);border-color:var(--okLn)}
+.ribbon .vlabel{display:flex;align-items:center;gap:9px;font-size:var(--fs-2xs);font-weight:700;
+  letter-spacing:var(--ls-caps-wide);text-transform:uppercase;color:var(--orange);margin-bottom:7px}
+.ribbon.lvl-mid .vlabel{color:var(--warn)}
+.ribbon.lvl-high .vlabel{color:var(--ok)}
+.ribbon .vlabel::before{content:"";width:22px;height:2px;border-radius:2px;background:currentColor}
+.ribbon .vtxt{font-size:var(--fs-md);line-height:var(--lh-base)}
+.ribbon .vtxt b{color:var(--orange)}
+.ribbon.lvl-mid .vtxt b{color:var(--warn)}
+.ribbon.lvl-high .vtxt b{color:var(--ok)}
+.statstrip{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:12px;margin:18px 0 6px}
+/* карточки шапки: иконка в тонированном квадрате + цвет по смыслу
+   (c-ver синий, c-cls красный, c-cnt нейтр., c-use зелёный/жёлтый/красный) */
+.stat{display:flex;gap:12px;align-items:center;background:var(--panel);
+  border:1px solid var(--line);border-radius:13px;padding:13px 15px}
+.stat .ic-badge{flex:0 0 auto;width:40px;height:40px;border-radius:11px;display:grid;
+  place-items:center}
+.stat .ic{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
+.stat .st-body{min-width:0}
+.stat .big{font-size:var(--fs-2xl);font-weight:800;line-height:var(--lh-tight);
+  overflow-wrap:anywhere}
+.stat .cap{color:var(--muted);font-size:var(--fs-2xs);margin-top:2px}
+.stat.c-ver .ic-badge{background:var(--blBg);color:var(--blInk)}
+.stat.c-ver .big{color:var(--blInk);font-size:var(--fs-lg);letter-spacing:-.2px}
+.stat.c-cls .ic-badge{background:var(--redBg);color:var(--redInk)}
+.stat.c-cls .big{color:var(--redInk);font-size:var(--fs-base)}
+.stat.c-cnt .ic-badge{background:var(--gyBg);color:var(--gyInk)}
+.stat.c-use .ic-badge{background:var(--okBg);color:var(--ok)}
+.stat.c-use .big{color:var(--ok)}
+.stat.c-use.use-mid .ic-badge{background:var(--wnBg);color:var(--warn)}
+.stat.c-use.use-mid .big{color:var(--warn)}
+/* НИЗКАЯ — оранжевый (а не красный), чтобы не сливаться с «Классом сбоя» */
+.stat.c-use.use-bad .ic-badge{background:var(--orangeBg);color:var(--orange)}
+.stat.c-use.use-bad .big{color:var(--orange)}
+
+/* ----- СЕКЦИЯ-ПАНЕЛЬ: аналитические секции 1–11 — панели с шапкой-заголовком;
+   резюме/вывод остаются акцентными карточками-«закладками». */
+section{scroll-margin-top:24px;margin:30px 0}
+h2{margin:0 0 14px;display:flex;align-items:center;gap:11px;font-weight:700;
+  font-size:var(--fs-sm);letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--accent2);
+  border-bottom:1px solid var(--line);padding-bottom:10px}
+h2 .htext{flex:1}
+h2 .anchor{opacity:0;color:var(--muted);font-weight:400;font-size:var(--fs-md);transition:.15s}
+h2:hover .anchor{opacity:.7}
+/* вывод — «закладка» с чистым заголовком (не панель) */
+section#verdict h2{border-bottom:0}
+/* панели-секции: все секции, кроме вывода (резюме и визуализация — тоже панели) */
+#doc>section:not(#verdict){background:var(--panel);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;margin:18px 0;padding:0 20px 16px}
+#doc>section:not(#verdict)>h2{background:var(--panel2);margin:0 -20px 16px;
+  padding:12px 20px;border-bottom:1px solid var(--line)}
+/* внутренние карточки внутри панели — плоские (без двойной рамки) */
+#doc>section:not(#verdict) .card{background:transparent;border:0;border-radius:0;
+  padding:0;margin:10px 0}
+h3{font-size:var(--fs-base);margin:20px 0 8px}
+p{margin:10px 0}.lead{color:var(--muted)}
+/* БЕЗ переносов слов: justify растягивает строку пробелами, слова целые.
+   max-width ЗДЕСЬ НЕ ставим: он сужал абзацы уже секции, и justify
+   выравнивал по узкой мере строки, а не по ширине секции. */
+#doc>section p{hyphens:none;-webkit-hyphens:none}
+p{text-wrap:pretty}
+/* выравнивание по ширине для всего текста в секциях.
+   text-wrap:pretty/balance отключают justify-алгоритм (Gecko/WebKit),
+   поэтому для выравниваемых абзацев возвращаем обычный перенос.
+   Центр-подписи под svg заданы inline и перекрывают это правило. */
+#doc>section p,#doc>section li{text-align:justify;text-wrap:wrap}
+h1.addr,h2,h3{text-wrap:balance}
+ul{margin:10px 0;padding-left:20px}li{margin:6px 0}
+/* акцент капителью вместо «орущего» КАПСА (текст-контент не меняется) */
+b.hi{color:var(--hi);font-variant:small-caps;text-transform:lowercase;
+  letter-spacing:.02em;font-weight:600}
+
+p code,li code,.kv .v code,.chain .ttl code,.chain .desc code,.note code{
+  font-family:var(--font-mono);background:var(--code);
+  border:1px solid var(--line);border-radius:5px;padding:0 5px;font-size:.9em;
+  color:var(--ink);white-space:nowrap}
+.chain .ttl code{white-space:normal;word-break:break-all}
+.note code{background:color-mix(in srgb,var(--ink) 8%,transparent);
+  border-color:color-mix(in srgb,var(--ink) 14%,transparent)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.card.summary{border-left:4px solid var(--accent)}
+.card.verdict{border-left:4px solid var(--orange);background:var(--verdictGrad)}
+/* «Вывод» — фон ПО УРОВНЮ полезности, как лента «Заключение» вверху
+   (раньше был фиксированный розовый verdictGrad — конфликтовал с зелёной лентой) */
+.card.verdict.lvl-low{border-left-color:var(--orange);
+  background:linear-gradient(180deg,var(--orangeBg),var(--panel))}
+.card.verdict.lvl-mid{border-left-color:var(--warn);
+  background:linear-gradient(180deg,var(--wnBg),var(--panel))}
+.card.verdict.lvl-high{border-left-color:var(--ok);
+  background:linear-gradient(180deg,var(--okBg),var(--panel))}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}}
+/* раздел «Достоверность»: блоки «Подтверждено» и «Ограничения»
+   сильно разной длины — ставим их ОДИН ПОД ДРУГИМ (одна колонка),
+   чтобы не было пустоты рядом с коротким блоком.
+   margin у .note гасим: иначе он складывается с gap грида (14+15+14)
+   и даёт слишком большой отступ между блоками */
+#s9 .grid2{grid-template-columns:1fr}
+#s9 .grid2 .note{margin:0}
+.kv{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:var(--fs-sm)}
+.kv:last-child{border-bottom:0}
+.kv .k{color:var(--muted);min-width:118px}.kv .v{font-family:var(--font-mono)}
+.codewrap{position:relative;margin:14px 0}
+.codewrap .copy{position:absolute;top:8px;right:8px;opacity:0;transition:.15s;
+  background:var(--panel2);border:1px solid var(--line);border-radius:7px;color:var(--muted);
+  font-size:var(--fs-2xs);padding:4px 9px;cursor:pointer}
+.codewrap:hover .copy{opacity:1}
+.codewrap .copy:hover{color:var(--ink);border-color:var(--accent2)}
+pre{background:var(--code);border:1px solid var(--line);border-radius:12px;padding:15px 17px;
+  overflow-x:auto;font-size:var(--fs-xs);line-height:var(--lh-code);tab-size:4;margin:0;color:var(--pretext)}
+pre .a{color:var(--cmt)}pre .k{color:var(--kw)}pre .r{color:var(--reg)}
+pre .n{color:var(--num)}pre .c{color:var(--cmt);font-style:italic}
+pre .fault{background:var(--redBg);display:block;border-left:3px solid var(--bad);
+  padding-left:8px;margin-left:-10px}
+.formula{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:center;
+  background:var(--code);border:1px solid var(--line);border-radius:14px;padding:18px;
+  font-family:var(--font-mono);margin:14px 0}
+.formula .tok{font-size:var(--fs-lg)}
+.formula .op{color:var(--muted)}
+.formula .res{color:var(--bad);font-weight:700}
+.formula .eq{color:var(--ok);font-weight:700;font-size:var(--fs-xl)}
+/* сворачиваемый форензик-аппендикс: большие доказательные таблицы по клику */
+.appendix{margin:14px 0;border:1px solid var(--line);border-radius:12px;
+  background:var(--panel2);overflow:hidden}
+.appendix>summary{cursor:pointer;padding:10px 14px;font-size:var(--fs-sm);
+  font-weight:600;color:var(--muted);list-style:none;user-select:none;
+  display:flex;align-items:center;gap:8px;transition:color .15s}
+.appendix>summary::-webkit-details-marker{display:none}
+.appendix>summary::before{content:"";width:0;height:0;
+  border-left:5px solid currentColor;border-top:4px solid transparent;
+  border-bottom:4px solid transparent;transition:transform .15s}
+.appendix[open]>summary::before{transform:rotate(90deg)}
+.appendix>summary:hover{color:var(--accent2)}
+.appendix .tablewrap{border:0;border-top:1px solid var(--line);border-radius:0}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:var(--fs-xs);min-width:780px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+thead th{background:var(--panel2);color:var(--muted);font-weight:700;letter-spacing:.03em;
+  position:sticky;top:0;font-size:var(--fs-2xs);text-transform:uppercase}
+tbody tr:hover{background:var(--blBg)}
+td.mono,th.mono{font-family:var(--font-mono)}
+td .ok{color:var(--ok)}
+td.flag{color:var(--bad);font-weight:700;
+  background:linear-gradient(90deg,var(--redBg),transparent)}
+
+.note{border-radius:12px;padding:13px 17px;margin:14px 0;font-size:var(--fs-md)}
+.note.ok{background:var(--okBg);border:1px solid var(--okLn)}
+/* «Важно» — тёплый янтарный акцент (смещён от чистого жёлтого warn
+   к оранжевому: читается как «обрати внимание», а не как тревога) */
+.note.warn{background:color-mix(in srgb,var(--orange) 10%,transparent);
+  border:1px solid color-mix(in srgb,var(--orange) 36%,transparent)}
+.note.info{background:var(--blBg);border:1px solid var(--blLn)}
+.note .t{font-weight:700;margin-bottom:4px;display:block}
+.chain{margin:16px 0}
+.chain .step{display:flex;align-items:flex-start;gap:14px;padding:9px 0;position:relative}
+.chain .dot{flex:0 0 auto;width:13px;height:13px;border-radius:50%;margin-top:5px;
+  background:var(--panel);border:2px solid var(--accent2);z-index:1}
+.chain .step.fault .dot{border-color:var(--bad);background:var(--redBg)}
+.chain .step:not(:last-child)::before{content:"";position:absolute;left:6px;top:20px;
+  bottom:-9px;width:2px;background:var(--line)}
+.chain .ttl{font-family:var(--font-mono);font-size:var(--fs-sm)}
+.chain .step.fault .ttl{color:var(--badText);font-weight:700}
+.chain .desc{color:var(--muted);font-size:var(--fs-xs)}
+.chain .modtag{font-size:var(--fs-3xs);font-weight:700;padding:1px 7px;border-radius:5px;margin-right:7px;
+  vertical-align:1px}
+.m-exe{background:var(--gyBg);color:var(--gyInk)}
+.m-tc{background:var(--redBg);color:var(--redInk)}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:10px;font-size:var(--fs-sm);
+  font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:80}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  .theme-fab,nav.toc,.btn,.copy,.toast,h2 .anchor{display:none!important}
+  .shell{grid-template-columns:1fr;max-width:none}
+  /* screen-сглаживание на бумаге делает текст слишком тонким; сбрасываем */
+  body{background:#fff;color:#000;
+    -webkit-font-smoothing:auto;-moz-osx-font-smoothing:auto;font-size-adjust:none}
+  pre,.card,.note,table{break-inside:avoid}
+  section{break-inside:avoid-page}
+  /* на печати раскрываем все аппендиксы: details без [open] иначе скроет содержимое */
+  .appendix>summary{display:none}
+  details.appendix>*{display:revert!important}
+  .appendix .tablewrap{border-top:0}
+}
+</style>
+<script>
+(function(){try{var t=localStorage.getItem("hota-theme-v6");
+var m=(t==="light"||t==="dark")?t
+  :((window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches)?"light":"dark");
+document.documentElement.classList.add("theme-"+m);}catch(e){}})();
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="ic-package" viewBox="0 0 24 24"><path d="M16.5 9.4 7.5 4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+  <symbol id="ic-triangle" viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></symbol>
+  <symbol id="ic-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+  <symbol id="ic-sig3" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="currentColor" stroke="none"/><rect x="17" y="5" width="4" height="15" rx="1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="ic-sig2" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="currentColor" stroke="none"/><rect x="17" y="5" width="4" height="15" rx="1" fill="none" stroke="currentColor" opacity=".35"/></symbol>
+  <symbol id="ic-sig1" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="none" stroke="currentColor" opacity=".35"/><rect x="17" y="5" width="4" height="15" rx="1" fill="none" stroke="currentColor" opacity=".35"/></symbol>
+  <symbol id="ic-star" viewBox="0 0 24 24"><path d="M12 2.5l2.95 5.98 6.6.96-4.77 4.65 1.13 6.57L12 17.56l-5.9 3.1 1.12-6.57L2.45 9.44l6.6-.96z"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="ic-diamond" viewBox="0 0 24 24"><path d="M12 2 22 12 12 22 2 12Z"/></symbol>
+  <symbol id="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="ic-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+</defs></svg>
+<div class="shell">
+<button class="btn theme-fab" id="themeToggle" type="button" aria-label="Переключить тему оформления"><svg class="tic" aria-hidden="true"><use id="themeUse" href="#ic-sun"/></svg><span id="themeLabel">Светлая</span></button>
+  <nav class="toc" id="toc">
+    <p class="lbl">Содержание</p>
+    <a href="#viz-konechnaya-tochka"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-diamond"/></svg></span>Визуализация вылета</a>
+    <a href="#summary"><span class="n"><svg class="tic fill" aria-hidden="true"><use href="#ic-star"/></svg></span>Резюме</a>
+    <a href="#s1"><span class="n">1</span>Исходные данные</a>
+    <a href="#s2"><span class="n">2</span>Корреляция дампов</a>
+    <a href="#s3"><span class="n">3</span>Сопоставление адресов</a>
+    <a href="#s4"><span class="n">4</span>Точка сбоя</a>
+    <a href="#s5"><span class="n">5</span>Регистровые инварианты</a>
+    <a href="#s6"><span class="n">6</span>Цепочка вызовов</a>
+    <a href="#s7"><span class="n">7</span>Первопричина</a>
+    <a href="#s8"><span class="n">8</span>Условия сбоя</a>
+    <a href="#s9"><span class="n">9</span>Достоверность</a>
+    <a href="#s10"><span class="n">10</span>Поиск в др. версиях</a>
+    <a href="#s11"><span class="n">11</span>Воспроизведение</a>
+    <a href="#verdict"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-check"/></svg></span>Вывод</a>
+  </nav>
+  <main id="doc">
+
+  <div class="hero">
+    <span class="eyebrow">Анализ вылета</span>
+    <h1 class="addr"><span class="mod">hota.dll</span>+0x1BBECE</h1>
+    <p class="subtitle">генератор случайных карт</p>
+    <p class="byline">Veai Agent · 06.06.2026</p>
+    <div class="ribbon lvl-high">
+      <div class="vlabel">Заключение</div>
+      <div class="vtxt">Виновник — <code>hota.dll</code>: обработчик конечной точки сегмента без проверки превращает внутреннюю SoD-точку границы в указатель RMGCell*.</div>
+    </div>
+    <div class="statstrip"><div class="stat c-ver"><div class="ic-badge"><svg class="ic"><use href="#ic-package"/></svg></div><div class="st-body"><div class="big">1.6.1 — 1.8.0</div><div class="cap">Версия HotA</div></div></div><div class="stat c-cls"><div class="ic-badge"><svg class="ic"><use href="#ic-triangle"/></svg></div><div class="st-body"><div class="big">выход за границы</div><div class="cap">Класс сбоя</div></div></div><div class="stat c-cnt"><div class="ic-badge"><svg class="ic"><use href="#ic-database"/></svg></div><div class="st-body"><div class="big">131</div><div class="cap">Количество логов</div></div></div><div class="stat c-use"><div class="ic-badge"><svg class="ic"><use href="#ic-sig3"/></svg></div><div class="st-body"><div class="big">ВЫСОКАЯ</div><div class="cap">Полезность лога</div></div></div></div>
+  </div>
+
+  <section id="viz-konechnaya-tochka" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span><a class="anchor" href="#viz-konechnaya-tochka">¶</a></h2>
+  <p>Красный путь показывает, где HotA передаёт точку до проверки в <code>AtCoords</code>; зелёный блок ниже показывает недостающий слой проверки перед расчётом адреса клетки.</p>
+
+  <svg viewBox="0 0 1180 560" role="img" aria-label="Путь сбоя и недостающий слой проверки" style="width:100%;height:auto;border:1px solid var(--line);border-radius:22px;background:var(--panel2)">
+    <defs>
+      <marker id="v-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--bad)" /></marker>
+      <marker id="v-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--ok)" /></marker>
+      <style>
+        .vt{fill:var(--ink);font:700 23px system-ui,sans-serif}
+        .vl{fill:var(--muted);font:17px system-ui,sans-serif}
+        .vc{fill:var(--ink);font:15px ui-monospace,SFMono-Regular,Menlo,monospace}
+        .vnote{fill:var(--muted);font:16px system-ui,sans-serif}
+        .vnode{fill:var(--bg);stroke:var(--line);stroke-width:1.8}
+        .vnode-bad{fill:var(--bg);stroke:var(--bad);stroke-width:2.6}
+        .vnode-ok{fill:var(--bg);stroke:var(--ok);stroke-width:2.6;stroke-dasharray:10 7}
+        .vpill{fill:var(--panel2);stroke:var(--line);stroke-width:1.1}
+        .vmark{fill:var(--bg);stroke-width:2.2}
+        .vmark-t{fill:var(--ink);font:800 15px system-ui,sans-serif}
+      </style>
+    </defs>
+
+    <rect x="34" y="58" width="1112" height="236" rx="26" fill="var(--bad)" opacity="0.035" stroke="var(--bad)" stroke-width="1" />
+    <rect x="270" y="354" width="640" height="144" rx="24" fill="var(--ok)" opacity="0.045" stroke="var(--ok)" stroke-width="1" />
+
+    
+    <g id="main-crash-path">
+      <rect class="vnode" x="70" y="116" width="210" height="128" rx="20" />
+      <circle class="vmark" cx="96" cy="142" r="15" stroke="var(--accent2)" />
+      <text class="vmark-t" x="96" y="147" text-anchor="middle">A</text>
+      <text class="vt" x="175" y="157" text-anchor="middle">SoD</text>
+      <text class="vl" x="175" y="190" text-anchor="middle">точка линии</text>
+      <rect class="vpill" x="92" y="211" width="166" height="28" rx="9" />
+      <text class="vc" x="175" y="230" text-anchor="middle">end_x / end_y</text>
+
+      <rect class="vnode-bad" x="355" y="116" width="210" height="128" rx="20" />
+      <circle class="vmark" cx="381" cy="142" r="15" stroke="var(--bad)" />
+      <text class="vmark-t" x="381" y="147" text-anchor="middle">B</text>
+      <text class="vt" x="460" y="157" text-anchor="middle">HotA</text>
+      <text class="vl" x="460" y="190" text-anchor="middle">читает кадр</text>
+      <rect class="vpill" x="377" y="211" width="166" height="28" rx="9" />
+      <text class="vc" x="460" y="230" text-anchor="middle">[frame+10/+14]</text>
+
+      <rect class="vnode" x="640" y="116" width="210" height="128" rx="20" />
+      <circle class="vmark" cx="666" cy="142" r="15" stroke="var(--muted)" />
+      <text class="vmark-t" x="666" y="147" text-anchor="middle">C</text>
+      <text class="vt" x="745" y="157" text-anchor="middle">AtCoords</text>
+      <text class="vl" x="745" y="190" text-anchor="middle">адрес клетки</text>
+      <rect class="vpill" x="662" y="211" width="166" height="28" rx="9" />
+      <text class="vc" x="745" y="230" text-anchor="middle">RMGCell*</text>
+
+      <rect class="vnode-bad" x="925" y="116" width="190" height="128" rx="20" />
+      <circle class="vmark" cx="951" cy="142" r="15" stroke="var(--bad)" />
+      <text class="vmark-t" x="951" y="147" text-anchor="middle">D</text>
+      <text class="vt" x="1020" y="157" text-anchor="middle">сбой</text>
+      <text class="vl" x="1020" y="190" text-anchor="middle">AV / запись</text>
+      <rect class="vpill" x="947" y="211" width="146" height="28" rx="9" />
+      <text class="vc" x="1020" y="230" text-anchor="middle">+0x22 / +0x28</text>
+
+      <path d="M286 180 H349" fill="none" stroke="var(--bad)" stroke-width="3.6" marker-end="url(#v-bad)" />
+      <path d="M571 180 H634" fill="none" stroke="var(--bad)" stroke-width="3.6" marker-end="url(#v-bad)" />
+      <path d="M856 180 H919" fill="none" stroke="var(--bad)" stroke-width="3.6" marker-end="url(#v-bad)" />
+      <circle cx="602" cy="152" r="16" fill="var(--bg)" stroke="var(--bad)" stroke-width="2" />
+      <text class="vmark-t" x="602" y="158" text-anchor="middle" fill="var(--bad)">!</text>
+    </g>
+
+    
+    <g id="missing-check-layer">
+      <rect class="vnode-ok" x="360" y="392" width="460" height="82" rx="20" />
+      <circle class="vmark" cx="392" cy="420" r="15" stroke="var(--ok)" />
+      <text class="vmark-t" x="392" y="425" text-anchor="middle">✓</text>
+      <text class="vt" x="590" y="425" text-anchor="middle" fill="var(--ok)">слой проверки перед AtCoords</text>
+      <text class="vnote" x="590" y="455" text-anchor="middle">контекст, cells, z, zone_id и принадлежность точки карте</text>
+
+      <path d="M460 250 C460 316, 490 360, 536 390" fill="none" stroke="var(--ok)" stroke-width="3.3" marker-end="url(#v-ok)" />
+      <path d="M644 390 C690 360, 725 316, 745 250" fill="none" stroke="var(--ok)" stroke-width="3.3" marker-end="url(#v-ok)" />
+    </g>
+  </svg>
+
+  <div class="grid2" style="margin-top:14px">
+    <div class="note warn"><b>Красный путь.</b> HotA берёт <code>[frame+10/+14/+1C]</code> и вызывает <code>AtCoords</code> на точке до проверки. Если адрес уходит за <code>cells[]</code>, чтение <code>cell+0x22</code> даёт AV или открывает путь к записи за пределами массива.</div>
+    <div class="note ok"><b>Зелёный блок.</b> Нужный слой проверки должен сработать между чтением кадра и вызовом <code>AtCoords</code>: невалидный вход не доходит до расчёта адреса клетки; обработчик нормализует координаты или возвращает <code>1</code>.</div>
+  </div>
+</section>
+
+  <section id="summary">
+    <h2><span class="htext">Краткое резюме</span><a class="anchor" href="#summary">¶</a></h2>
+    <div class="card summary"><p>Вылет происходит в HotA-обработчике генератора случайных карт после вызова <code>AtCoords_sub_537DD0</code>. Эта вспомогательная функция не проверяет границы: она только считает адрес клетки по формуле <code>cells_base</code> + index*48. После неё HotA сразу читает поле клетки по смещению <code>+0x22</code>:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:101BBECC  </span><span class="k">call</span>    <span class="r">eax</span>                      <span class="c">; AtCoords(...)</span>
+<span class="fault"><span class="a">.text:101BBECE  </span><span class="k">cmp</span>     <span class="r">byte</span> <span class="r">ptr</span> [<span class="r">eax</span>+<span class="n">22h</span>], <span class="n">0</span>    <span class="c">; &lt;-- СБОЙ</span></span></pre></div><p>По дампам доказано: faulting address всегда равен <code>EAX+0x22</code>, а при ненулевой базе <code>cells</code> смещение <code>EAX−EDX</code> кратно 48. Значит <code>EAX</code> — не случайный мусорный указатель, а типизированный адрес «как будто RMGCell*», вычисленный <code>AtCoords</code>. Ошибка в том, что этот адрес не принадлежит массиву <code>cells</code>[].</p><p>Первое неверное действие — не инструкция cmp, а предшествующий вызов <code>AtCoords</code> на непроверенном входе. HotA берёт X/Y/Z и идентификатор зоны из сохранённого кадра SoD-функции <code>RandomizeEdge</code>:</p><p>frame = <code>[ctx+14h]</code> X     = <code>[frame+10h]</code> Y     = <code>[frame+14h]</code> zone  = <code>[frame+18h]</code> Z     = <code>[frame+1Ch]</code></p><p>Эти X/Y — рабочая конечная точка сегмента/ломаной границы, а не публичный клеточный API. Для SoD такая точка может быть корректной как геометрия линии, но ещё не обязана быть валидной координатой клетки. Перед штатным доступом к клетке SoD нормализует координаты; HotA-добавка выполняет доступ к конечной точке отдельно и не восстанавливает полный контракт <code>AtCoords</code>.</p><p>Поэтому корректная причинная формула: HotA-обработчик конечной точки выполняет непроверенное преобразование «конечная точка SoD до проверки -&gt; RMGCell*». Это даёт типизированный выход за границы массива клеток: чтение <code>cell+0x22</code> падает, а если адрес читаем, тот же путь может молча записать <code>zone_id</code> в <code>cell+0x22</code> и флаг в <code>cell+0x28</code> уже вне массива.</p><p>Важное отличие от прежней версии диагноза: падающий <code>loc_101BBEB0</code> не надо описывать как прямую замену штатного SoD-доступа к клетке через resume <code>53C6E1h</code>. Связка с <code>53C6E1h</code> относится к соседней логике/фазе и сама по себе не доказывает причину этого вылета. Доказанный дефект находится локально: перед <code>call 537DD0h</code> в <code>loc_101BBEB0</code> нет слоя «конечная точка до проверки -&gt; допустимая клетка или отказ».</p></div>
+  </section>
+
+  <section id="s1">
+    <h2><span class="htext">Исходные данные</span><a class="anchor" href="#s1">¶</a></h2>
+    <div class="card"><div class="kv"><span class="k">Уникальных вылетов</span><span class="v">131  (суммарно по семье HotA 1.6.1 — 1.8.0)</span></div><div class="kv"><span class="k">По версиям</span><span class="v">1.8.0 — 23,  1.7.3 — 20, 1.7.2 — 8,   1.7.1 — 17, 1.7.0 — 9,   1.6.1 — 54</span></div><div class="kv"><span class="k">Модуль вылета</span><span class="v"><code>hota.dll</code></span></div><div class="kv"><span class="k">Код</span><span class="v"><code>EXCEPTION_ACCESS_VIOLATION</code>, чтение</span></div><div class="kv"><span class="k">Класс сбоя</span><span class="v">выход за границы</span></div><div class="kv"><span class="k">Версия HotA</span><span class="v">1.6.1 — 1.8.0 (по фактическим дампам; похожий код виден в 1.5.3 — 1.6.0 по листингам, но без фактических дампов этих версий)</span></div><div class="kv"><span class="k">Версии HD-мода</span><span class="v">варьируются по семье: 5.2 R83 — 5.7 RC11</span></div><div class="kv"><span class="k">Состояние игры</span><span class="v">генерация случайной карты до начала партии; нижние кадры стека идут через <code>RandomizeEdge</code> и <code>Setup_Edge</code> генератора границ зон.</span></div></div><p>Дословная инструкция сбоя (HotA 1.8.0):</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:101BBEB0  </span><span class="k">push</span>    <span class="r">esi</span>
+<span class="a">.text:101BBEB1  </span><span class="k">mov</span>     <span class="r">esi</span>, [<span class="r">esp</span>+<span class="n">0Ch</span>]           <span class="c">; ctx patcher/обработчика</span>
+<span class="a">.text:101BBEB5  </span><span class="k">mov</span>     <span class="r">eax</span>, [<span class="r">esi</span>+<span class="n">14h</span>]           <span class="c">; saved frame SoD</span>
+<span class="a">.text:101BBEB8  </span><span class="k">push</span>    <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">eax</span>+<span class="n">1Ch</span>]      <span class="c">; Z</span>
+<span class="a">.text:101BBEBB  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">eax</span>-<span class="n">1Ch</span>]           <span class="c">; this</span>
+<span class="a">.text:101BBEBE  </span><span class="k">push</span>    <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">eax</span>+<span class="n">14h</span>]      <span class="c">; Y до проверки/end_y</span>
+<span class="a">.text:101BBEC1  </span><span class="k">add</span>     <span class="r">ecx</span>, <span class="n">0Ch</span>                 <span class="c">; контекст map/cells</span>
+<span class="a">.text:101BBEC4  </span><span class="k">push</span>    <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">eax</span>+<span class="n">10h</span>]      <span class="c">; X до проверки/end_x</span>
+<span class="a">.text:101BBEC7  </span><span class="k">mov</span>     <span class="r">eax</span>, <span class="n">537DD0h</span>
+<span class="a">.text:101BBECC  </span><span class="k">call</span>    <span class="r">eax</span>                      <span class="c">; AtCoords(map,X,Y,Z)</span>
+<span class="fault"><span class="a">.text:101BBECE  </span><span class="k">cmp</span>     <span class="r">byte</span> <span class="r">ptr</span> [<span class="r">eax</span>+<span class="n">22h</span>], <span class="n">0</span>    <span class="c">; &lt;-- СБОЙ</span></span>
+<span class="a">.text:101BBED2  </span><span class="k">jge</span>     <span class="r">short</span> loc_101BBEED
+<span class="a">.text:101BBED4  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">esi</span>+<span class="n">14h</span>]
+<span class="a">.text:101BBED7  </span><span class="k">mov</span>     <span class="r">cl</span>, [<span class="r">ecx</span>+<span class="n">18h</span>]            <span class="c">; zone_id</span>
+<span class="a">.text:101BBEDA  </span><span class="k">mov</span>     [<span class="r">eax</span>+<span class="n">22h</span>], <span class="r">cl</span>            <span class="c">; возможная запись</span>
+<span class="a">.text:101BBEDD  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">esi</span>+<span class="n">14h</span>]
+<span class="a">.text:101BBEE0  </span><span class="k">cmp</span>     <span class="r">byte</span> <span class="r">ptr</span> [<span class="r">ecx</span>-<span class="n">0Dh</span>], <span class="n">0</span>
+<span class="a">.text:101BBEE4  </span><span class="k">jz</span>      <span class="r">short</span> loc_101BBEED
+<span class="a">.text:101BBEE6  </span><span class="k">or</span>      <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">eax</span>+<span class="n">28h</span>], <span class="n">10000000h</span>
+<span class="a">.text:101BBEED  </span><span class="k">mov</span>     <span class="r">eax</span>, <span class="n">1</span>
+<span class="a">.text:101BBEF3  </span><span class="k">retn</span>    <span class="n">8</span></pre></div><p>Возврат <code>eax=1</code> означает: обработчик является добавочной работой и позволяет штатному SoD-коду продолжиться. Поэтому при недостоверном входе безопасная реакция обработчика — ничего не писать и вернуть 1.</p>
+  </section>
+
+  <section id="s2">
+    <h2><span class="htext">Корреляция дампов (сравнительная таблица)</span><a class="anchor" href="#s2">¶</a></h2>
+    <p>Во всех 23 уникальных дампах HotA 1.8.0 точка сбоя одна и та же: <code>faulting_addr − EAX = 0x22</code></p><p><code>EDX</code> в момент возврата из <code>AtCoords</code> — база массива клеток <code>cells</code>. При <code>EDX</code> != 0 восстановленный индекс клетки равен <code>(EAX−EDX)/48</code>.</p><details class="appendix"><summary>Таблица данных: 23 строки (развернуть)</summary><div class="tablewrap"><table><thead><tr><th class="mono">№</th><th class="mono">HD-версия</th><th class="mono">EAX</th><th class="mono">база=EDX</th><th class="mono">адрес сбоя</th><th class="mono">EAX−база</th><th class="mono">зерно-ГСЧ</th></tr></thead><tbody><tr><td class="mono">1</td><td class="mono">5.7 RC11</td><td class="mono">1B0A8E14</td><td class="mono">1AD8E024</td><td class="mono">1B0A8E36</td><td class="mono">+0x31ADF0</td><td class="mono">1779695637</td></tr><tr><td class="mono">2</td><td class="mono">5.7 RC11</td><td class="mono">1A121124</td><td class="mono">19FFC024</td><td class="mono">1A121146</td><td class="mono">+0x125100</td><td class="mono">1779568411</td></tr><tr><td class="mono">3</td><td class="mono">5.7 RC10</td><td class="mono">1243ECB4</td><td class="mono">1230C024</td><td class="mono">1243ECD6</td><td class="mono">+0x132C90</td><td class="mono">1779208894</td></tr><tr><td class="mono">4</td><td class="mono">5.7 RC10</td><td class="mono">0FD4C544</td><td class="mono">0FD53024</td><td class="mono">0FD4C566</td><td class="mono flag">-0x6AE0 (!)</td><td class="mono">1779191227</td></tr><tr><td class="mono">5</td><td class="mono">5.7 RC10</td><td class="mono">0FB9C034</td><td class="mono">0FA68024</td><td class="mono">0FB9C056</td><td class="mono">+0x134010</td><td class="mono">1779103542</td></tr><tr><td class="mono">6</td><td class="mono">5.7 RC9</td><td class="mono">2869AAC4</td><td class="mono">28495024</td><td class="mono">2869AAE6</td><td class="mono">+0x205AA0</td><td class="mono">1778434829</td></tr><tr><td class="mono">7</td><td class="mono">5.7 RC9</td><td class="mono">024C3284</td><td class="mono">02393024</td><td class="mono">024C32A6</td><td class="mono">+0x130260</td><td class="mono">1778407059</td></tr><tr><td class="mono">8</td><td class="mono">5.7 RC9</td><td class="mono">2AF09054</td><td class="mono">2ACC6024</td><td class="mono">2AF09076</td><td class="mono">+0x243030</td><td class="mono">1778277783</td></tr><tr><td class="mono">9</td><td class="mono">5.7 RC7</td><td class="mono">0FF4E854</td><td class="mono">0FE27024</td><td class="mono">0FF4E876</td><td class="mono">+0x127830</td><td class="mono">1777548630</td></tr><tr><td class="mono">10</td><td class="mono">5.6 R37</td><td class="mono">1A7D1984</td><td class="mono">1A6A5024</td><td class="mono">1A7D19A6</td><td class="mono">+0x12C960</td><td class="mono">1777326378</td></tr><tr><td class="mono">11</td><td class="mono">5.6 R37</td><td class="mono">19A285C4</td><td class="mono">19830024</td><td class="mono">19A285E6</td><td class="mono">+0x1F85A0</td><td class="mono">1777303083</td></tr><tr><td class="mono">12</td><td class="mono">5.7 RC4</td><td class="mono">086572A4</td><td class="mono">08523024</td><td class="mono">086572C6</td><td class="mono">+0x134280</td><td class="mono">1777050476</td></tr><tr><td class="mono">13</td><td class="mono">5.7 RC4</td><td class="mono">17BC0C84</td><td class="mono">179A7024</td><td class="mono">17BC0CA6</td><td class="mono">+0x219C60</td><td class="mono">1776885487</td></tr><tr><td class="mono">14</td><td class="mono">5.7 RC2</td><td class="mono">148C5074</td><td class="mono">146D5024</td><td class="mono">148C5096</td><td class="mono">+0x1F0050</td><td class="mono">1776567457</td></tr><tr><td class="mono">15</td><td class="mono">5.7 RC2</td><td class="mono">139A9964</td><td class="mono">137B5024</td><td class="mono">139A9986</td><td class="mono">+0x1F4940</td><td class="mono">1776425636</td></tr><tr><td class="mono">16</td><td class="mono">5.7 RC2</td><td class="mono">185AF034</td><td class="mono">183C4024</td><td class="mono">185AF056</td><td class="mono">+0x1EB010</td><td class="mono">1776246615</td></tr><tr><td class="mono">17</td><td class="mono">5.6 R37</td><td class="mono">160F2FE4</td><td class="mono">15F03024</td><td class="mono">160F3006</td><td class="mono">+0x1EFFC0</td><td class="mono">1775159740</td></tr><tr><td class="mono">18</td><td class="mono">5.6 R29</td><td class="mono">0F9EF2A4</td><td class="mono">0F8BB024</td><td class="mono">0F9EF2C6</td><td class="mono">+0x134280</td><td class="mono">1773483131</td></tr><tr><td class="mono">19</td><td class="mono">5.6 R29</td><td class="mono">001575C0</td><td class="mono">00000000</td><td class="mono">001575E2</td><td class="mono flag">база=NULL</td><td class="mono">1773431437</td></tr><tr><td class="mono">20</td><td class="mono">5.6 R21</td><td class="mono">0FBA1884</td><td class="mono">0FA7A024</td><td class="mono">0FBA18A6</td><td class="mono">+0x127860</td><td class="mono">1770383929</td></tr><tr><td class="mono">21</td><td class="mono">5.6 R15</td><td class="mono">17405094</td><td class="mono">1720B024</td><td class="mono">174050B6</td><td class="mono">+0x1FA070</td><td class="mono">1768120597</td></tr><tr><td class="mono">22</td><td class="mono">5.6 R15</td><td class="mono">1D950544</td><td class="mono">1D762024</td><td class="mono">1D950566</td><td class="mono">+0x1EE520</td><td class="mono">1768086197</td></tr><tr><td class="mono">23</td><td class="mono">5.7 RC10</td><td class="mono">0006AA40</td><td class="mono">00000000</td><td class="mono">0006AA62</td><td class="mono flag">база=NULL</td><td class="mono">1779103517</td></tr></tbody></table></div></details><p>В серии по версиям 1.6.1 — 1.8.0 выполняются те же инварианты:</p><ul><li><code>faulting_addr − EAX = 0x22</code>;</li><li>при <code>EDX</code> != 0 смещение <code>EAX−EDX</code> кратно 48;</li><li>стек проходит через генератор границ зон;</li><li>падающий блок семантически один и тот же, меняется только смещение внутри <code>hota.dll</code>.</li></ul><p>Интерпретация: <code>AtCoords</code> не вернул случайный мусор. Он вычислил адрес по штатной формуле RMGCell, но входные x/y/z/<code>cells</code> не удовлетворяли полному клеточному контракту. Основной профиль — ненулевая база <code>cells</code> и индекс вне массива. Редкий профиль — <code>cells_base</code> = <code>NULL</code>; один только зажим x/y такой профиль не закрывает.</p>
+  </section>
+
+  <section id="s3">
+    <h2><span class="htext">Сопоставление адресов</span><a class="anchor" href="#s3">¶</a></h2>
+    <p>адрес в листинге = адрес в памяти − адрес загрузки + базовый адрес образа</p><p>Пример для HotA 1.8.0: адрес загрузки <code>hota.dll</code> <code>0x5FDE0000</code>, базовый адрес образа <code>0x10000000</code>. Проверка:</p><div class="formula"><span class="tok">0x5FF9BECE</span><span class="op">−</span><span class="tok">0x5FDE0000</span><span class="op">+</span><span class="tok">0x10000000</span><span class="eq">=</span><span class="tok">0x101BBECE</span></div><p>Полученный адрес совпадает со строкой листинга <code>HotA.dll-180.txt</code>:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:101BBECE  </span><span class="k">cmp</span>     <span class="r">byte</span> <span class="r">ptr</span> [<span class="r">eax</span>+<span class="n">22h</span>], <span class="n">0</span></pre></div><p>Адрес <code>AtCoords</code> <code>0x537DD0</code> находится в <code>h3hota.exe</code> и вызывается литералом:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:101BBEC7  </span><span class="k">mov</span>     <span class="r">eax</span>, <span class="n">537DD0h</span>
+<span class="a">.text:101BBECC  </span><span class="k">call</span>    <span class="r">eax</span></pre></div><p>Кадры <code>patcher_x86</code> — служебные переходники перехватов. Они объясняют, как HotA-обработчик получает сохранённый машинный контекст, но сами не являются виновным кодом.</p>
+  </section>
+
+  <section id="s4">
+    <h2><span class="htext">Точка сбоя — разбор инструкций</span><a class="anchor" href="#s4">¶</a></h2>
+    <p><code>AtCoords_sub_537DD0</code> — низкоуровневая адресная функция. Она не проверяет вход, а только вычисляет указатель:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:00537DD3  </span><span class="k">mov</span>     <span class="r">eax</span>, [<span class="r">ecx</span>+<span class="n">10h</span>]      <span class="c">; y_size</span>
+<span class="a">.text:00537DD6  </span><span class="k">mov</span>     <span class="r">edx</span>, [<span class="r">ebp</span>+Y]
+<span class="a">.text:00537DD9  </span><span class="k">imul</span>    <span class="r">eax</span>, [<span class="r">ebp</span>+Z]
+<span class="a">.text:00537DDD  </span><span class="k">add</span>     <span class="r">eax</span>, <span class="r">edx</span>
+<span class="a">.text:00537DDF  </span><span class="k">mov</span>     <span class="r">edx</span>, [<span class="r">ebp</span>+X]
+<span class="a">.text:00537DE2  </span><span class="k">imul</span>    <span class="r">eax</span>, [<span class="r">ecx</span>+<span class="n">0Ch</span>]
+<span class="a">.text:00537DE6  </span><span class="k">add</span>     <span class="r">eax</span>, <span class="r">edx</span>
+<span class="a">.text:00537DE8  </span><span class="k">mov</span>     <span class="r">edx</span>, [<span class="r">ecx</span>+<span class="n">8</span>]        <span class="c">; cells_base</span>
+<span class="a">.text:00537DEB  </span><span class="k">lea</span>     <span class="r">eax</span>, [<span class="r">eax</span>+<span class="r">eax</span>*<span class="n">2</span>]
+<span class="a">.text:00537DEE  </span><span class="k">shl</span>     <span class="r">eax</span>, <span class="n">4</span>              <span class="c">; * 48</span>
+<span class="a">.text:00537DF1  </span><span class="k">add</span>     <span class="r">eax</span>, <span class="r">edx</span>
+<span class="a">.text:00537DF4  </span><span class="k">retn</span>    <span class="n">0Ch</span></pre></div><p>Контракт этой функции: map/<code>cells</code> валидны, x/y/z уже описывают клетку карты. HotA нарушает именно этот контракт. После возврата код сразу трактует <code>EAX</code> как RMGCell* и читает поле зоны:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:101BBECE  </span><span class="k">cmp</span>     <span class="r">byte</span> <span class="r">ptr</span> [<span class="r">eax</span>+<span class="n">22h</span>], <span class="n">0</span></pre></div><p>Эта проверка — не проверка безопасности указателя. Это бизнес-проверка: знаковый байт cell+<code>22h</code> &lt; 0 означает «зона ещё не назначена». Если адрес за пределами массива клеток читаем и случайный байт выглядит отрицательным, код пойдёт дальше и запишет:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:101BBEDA  </span><span class="k">mov</span>     [<span class="r">eax</span>+<span class="n">22h</span>], <span class="r">cl</span>
+<span class="a">.text:101BBEE6  </span><span class="k">or</span>      <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">eax</span>+<span class="n">28h</span>], <span class="n">10000000h</span></pre></div><p>Поэтому сбой является не только AV на чтении, а потенциальным типизированным чтением/записью за пределами массива клеток по полям RMGCell.</p>
+  </section>
+
+  <section id="s5">
+    <h2><span class="htext">Регистровые инварианты</span><a class="anchor" href="#s5">¶</a></h2>
+    <p>Главные инварианты:</p><ul><li><code>faulting_addr = EAX + 0x22</code>;</li><li>при <code>EDX</code> != 0: <code>(EAX − EDX)</code> % <code>48 = 0</code>;</li><li><code>EDX</code> — база <code>cells</code>, загруженная <code>AtCoords</code> из <code>[ecx+8]</code>;</li><li><code>EAX</code> — результат <code>AtCoords</code>, то есть <code>cells_base</code> + index*48.</li></ul><p>Примеры:</p><div class="card"><div class="kv"><span class="k">дамп №1</span><span class="v"><code>+0x31ADF0</code> / <code>48 = 67</code> 839 клеток от базы;</span></div><div class="kv"><span class="k">дамп №4</span><span class="v"><code>-0x6AE0</code> / 48 = -570 клеток до базы;</span></div><div class="kv"><span class="k">дамп №23</span><span class="v"><code>EDX = 0</code>, адрес считается от нулевой базы.</span></div></div><p>Кратность 48 показывает, что это не произвольная порча <code>EAX</code> после вызова. Ошибка возникла раньше: HotA передала <code>AtCoords</code> вход, из которого получается индекс за пределами <code>cells</code>[] либо невалидная база <code>cells</code>.</p>
+  </section>
+
+  <section id="s6">
+    <h2><span class="htext">Восстановленная цепочка вызовов</span><a class="anchor" href="#s6">¶</a></h2>
+    <p>Снизу вверх:</p><div class="chain"><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_ARandMapGen_PrepareSettings_AndGenerateMap_sub_5863B0</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_ARandMapGen_RmgSettings_CreateRandomMap_sub_54C450</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_ARandMapGen_Main_sub_549E20</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_ARandMapGen_Level_Create_Extra_WaterAndRock_Zones_SetZonesCells_SetZonesDists_sub_53E540</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_ARandMapGen_RmgGraphEdge_Zone_Setup_Edge_sub_53C880</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_ARandMapGen_CellsLine_RandomizeEdge_And_SetAsBelongToZone_sub_53C4E0</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl">patcher_x86 dispatch</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-tc">HOTA</span>hota.dll loc_101BBEB0</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>h3hota.exe AtCoords_sub_537DD0</div></div></div><div class="step fault"><span class="dot"></span><div><div class="ttl"><span class="modtag m-tc">HOTA</span>hota.dll cmp [eax+22h]  &lt;-- СБОЙ</div></div></div></div><p>Важная поправка к прежней интерпретации. <code>loc_101BBEB0</code> не нужно описывать как прямую замену штатного SoD-доступа к клетке. По коду он возвращает <code>eax=1</code> и даёт штатному выполнению продолжиться. Это добавочный обработчик, который заранее смотрит на конечную точку: берёт значения из сохранённого кадра SoD и пытается дозаполнить клетку зоны.</p><p>Связка с адресом <code>53C6E1h</code> относится к соседней фазе/обработчику и не является достаточным доказательством причины этого вылета. Надёжная причинная цепочка строится не от предполагаемого resume-адреса, а от локального факта: <code>loc_101BBEB0</code> сам вызывает <code>AtCoords</code> и сам использует результат как RMGCell*.</p>
+  </section>
+
+  <section id="s7">
+    <h2><span class="htext">Первопричина</span><a class="anchor" href="#s7">¶</a></h2>
+    <p>SoD-функция <code>RandomizeEdge</code> работает с геометрией границы зоны. Она хранит <code>end_x/end_y</code> как рабочую точку ломаной. Такая точка корректна для алгоритма линии, но не обязана уже быть валидной клеткой карты.</p><p>Поставщик данных — SoD-код. Он извлекает очередную точку из локального списка и пишет её в <code>end_x/end_y</code>:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0053C55A  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">eax</span>-<span class="n">8</span>]
+<span class="a">.text:0053C560  </span><span class="k">mov</span>     [<span class="r">ebp</span>+end_x], <span class="r">ecx</span>
+<span class="a">.text:0053C564  </span><span class="k">mov</span>     <span class="r">edx</span>, [<span class="r">eax</span>+<span class="n">4</span>]
+<span class="a">.text:0053C56A  </span><span class="k">mov</span>     [<span class="r">ebp</span>+end_y], <span class="r">edx</span></pre></div><p>Этот записывающий код корректен для своего слоя: он выдаёт геометрическую точку границы. Ошибка не в нём, а у HotA-потребителя, который требует от этих же значений более сильный контракт — «валидные координаты клетки».</p><p>HotA-обработчик получает сохранённый кадр через контекст patcher:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:101BBEB5  </span><span class="k">mov</span>     <span class="r">eax</span>, [<span class="r">esi</span>+<span class="n">14h</span>]      <span class="c">; frame</span>
+<span class="a">.text:101BBEBE  </span><span class="k">push</span>    <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">eax</span>+<span class="n">14h</span>] <span class="c">; end_y до проверки</span>
+<span class="a">.text:101BBEC4  </span><span class="k">push</span>    <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">eax</span>+<span class="n">10h</span>] <span class="c">; end_x до проверки</span>
+<span class="a">.text:101BBECC  </span><span class="k">call</span>    AtCoords</pre></div><p>Между «точка геометрии до проверки» и «указатель RMGCell*» отсутствует слой проверки. Должен быть слой:</p><p>конечная точка до проверки -&gt; допустимая клетка или отказ от HotA-записи</p><p>Сейчас этот слой отсутствует. Поэтому HotA выполняет непроверенное преобразование типа:</p><p>конечная точка SoD до проверки -&gt; RMGCell*</p><p>Если x/y до проверки находятся вне карты, если z недопустим или если <code>cells_base</code> равен <code>NULL</code>, <code>AtCoords</code> всё равно механически вернёт адрес. Дальше бизнес-проверка cell+<code>22h</code> использует этот адрес как настоящую клетку.</p><p>Почему это не обязано воспроизводиться как AV на каждом зерне. Сид может повторить опасную геометрию, но вылет зависит от памяти: адрес за пределами массива клеток может попасть в нечитабельную страницу, в читаемую чужую структуру или в область, где бизнес-проверка не приведёт к записи. Поэтому правильный критерий воспроизведения — не только «упало», а «до <code>AtCoords</code> нарушен клеточный контракт».</p><p>Выбор между нормализацией и пропуском не доказан одним текстовым логом. Если HotA-добавка должна сопровождать будущую SoD-обработку конечной точки, SoD-подобная нормализация x/y может быть верной. Если конечная точка вне карты не должна порождать дополнительную клетку, безопаснее пропуск. В обоих вариантах доказанное обязательное условие одно: <code>loc_101BBEB0</code> не должен вызывать <code>AtCoords</code>, пока context/<code>cells</code>/z/<code>zone_id</code>/x/y не образуют допустимый вход.</p>
+  </section>
+
+  <section id="s8">
+    <h2><span class="htext">Условия, спровоцировавшие сбой</span><a class="anchor" href="#s8">¶</a></h2>
+    <ul><li>Исполняется генерация случайной карты, стадия расстановки зон и рисования границ.</li><li>Путь проходит через <code>Setup_Edge</code> и <code>RandomizeEdge</code> генератора границ зон.</li><li>HotA-обработчик конечной точки получает сохранённый кадр SoD и пытается выполнить дополнительную работу с конечной клеткой.</li><li>Срабатывание AV зависит от того, куда попал вычисленный адрес за пределами массива клеток: нечитабельная память даёт вылет; читаемая память может дать пропуск действия или скрытую запись за пределами массива.</li><li>Зерно <b class="hi">ГСЧ</b> полезно для повторения геометрии, но не гарантирует AV, потому что AV зависит также от раскладки памяти и предыдущих побочных эффектов.</li></ul>
+  </section>
+
+  <section id="s9">
+    <h2><span class="htext">Достоверность и ограничения</span><a class="anchor" href="#s9">¶</a></h2>
+    <div class="grid2"><div class="note ok"><span class="t">Подтверждено / высокая достоверность</span><ul><li>Версия листинга падающего модуля <code>HotA.dll-180.txt</code> подтверждена точным совпадением адреса <code>0x101BBECE</code> и окружающего кода <code>loc_101BBEB0</code>.</li><li>Локализация точки сбоя — высокая: инструкция одна, <code>faulting_addr = EAX+0x22</code>, вызов <code>AtCoords</code> непосредственно перед падением.</li><li>Локализация нарушенного контракта — высокая: <code>AtCoords</code> не проверяет вход; HotA вызывает его на значениях из сохранённого кадра SoD без полной проверки map/<code>cells</code>/z/<code>zone_id</code>/x/y.</li><li>Наиболее вероятный конкретный источник основного профиля — <code>end_x/end_y</code> до проверки до нормализации SoD. Однако текстовый краш-лог не содержит памяти по frame = <code>[ctx+14h]</code>, поэтому точные x/y/z/<code>cells</code> на момент входа нужно подтвердить минидампом или runtime-логом перед <code>call 537DD0h</code>.</li><li>Подслучай <code>cells_base</code> = <code>NULL</code> показывает, что один только clamp x/y не является полным фиксом. Нужна проверка всего контракта <code>AtCoords</code>.</li><li>Полезность лога для исправления — <b class="hi">ВЫСОКАЯ</b>: место защиты локализовано перед <code>call 537DD0h</code> в <code>loc_101BBEB0</code>. Ограничение касается не fix-site, а политики обработки конечной точки вне карты: нормализация или пропуск.</li><li>Связку с <code>53C6E1h</code> нельзя использовать как центральное доказательство причины этого вылета. Она полезна как контекст соседних фаз, но падающий <code>loc_101BBEB0</code> сам вызывает <code>AtCoords</code> и сам создаёт указатель RMGCell* за пределами массива.</li></ul></div><div class="note info"><span class="t">Ограничения и неизвестное</span><ul><li>В SoD этот конкретный дефект не подтверждён: SoD содержит геометрический поставщик точек до проверки, но не содержит HotA-обработчика конечной точки, который непроверенно превращает такую точку в RMGCell*.</li></ul></div></div>
+  </section>
+
+  <section id="s10">
+    <h2><span class="htext">Признаки поиска в старых версиях HotA / в SoD</span><a class="anchor" href="#s10">¶</a></h2>
+    <p>Адрес <code>hota.dll+0x1BBECE</code> не стабилен между версиями. Устойчивая сигнатура дефекта — не конкретный offset, а поведение:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="k">push</span> <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">eax</span>+<span class="n">1Ch</span>]
+<span class="k">push</span> <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">eax</span>+<span class="n">14h</span>]
+<span class="k">push</span> <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">eax</span>+<span class="n">10h</span>]
+<span class="k">mov</span>  <span class="r">eax</span>, <span class="n">537DD0h</span>
+<span class="k">call</span> <span class="r">eax</span>
+<span class="k">cmp</span>  <span class="r">byte</span> <span class="r">ptr</span> [<span class="r">eax</span>+<span class="n">22h</span>], <span class="n">0</span>
+<span class="k">jge</span>  ...
+<span class="k">mov</span>  [<span class="r">eax</span>+<span class="n">22h</span>], <span class="r">cl</span>
+<span class="k">or</span>   <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">eax</span>+<span class="n">28h</span>], <span class="n">10000000h</span></pre></div><p>Регистровая сигнатура:</p><ul><li><code>faulting_addr − EAX = 0x22</code>;</li><li>при <code>EDX</code> != 0: <code>(EAX − EDX)</code> кратно 48;</li><li><code>EAX</code> выходит за <code>cells</code>[] либо <code>EDX = 0</code>;</li><li>стек идёт через <code>RandomizeEdge</code> / <code>Setup_Edge</code> генератора границ зон.</li></ul><p>Эта сигнатура подтверждает один и тот же HotA-дефект в фактических дампах 1.6.1, 1.7.0, 1.7.1, 1.7.2, 1.7.3 и 1.8.0. Для 1.5.3, 1.5.4 и 1.6.0 похожий блок виден по коду листингов, но без фактических дампов этих версий корректнее отмечать это как кодовое предположение, а не как подтверждённый вылет.</p><p>Для чистого SoD прямой флаг «тот же дефект» не выставляется. Общая функция <code>RandomizeEdge</code> унаследована, но дефектный потребитель — HotA-обработчик конечной точки — находится в <code>hota.dll</code>.</p>
+  </section>
+
+  <section id="s11">
+    <h2><span class="htext">Воспроизведение вылета</span><a class="anchor" href="#s11">¶</a></h2>
+    <p>Условие активации пути: генерация случайной карты проходит через этап построения границ зон, где исполняется <code>RandomizeEdge</code> и HotA-обработчик конечной точки <code>loc_101BBEB0</code>.</p><p>Базовый сценарий:</p><ul><li>Генерировать случайные карты в HotA на крупных размерах и с большим числом зон, чтобы увеличить число граничных сегментов.</li><li>Использовать зерно <b class="hi">ГСЧ</b> из дампа как попытку повторить ту же геометрию.</li><li>Не считать отсутствие AV опровержением: адрес за пределами массива клеток может быть читаемым.</li></ul><p>Дифференциальный тест причины: - Поставить точку останова или логирование непосредственно перед</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:101BBECC </span><span class="k">call</span> AtCoords в loc_101BBEB0.</pre></div><p>- Снять значения:</p><p>ctx   = <code>ESI</code> frame = <code>[ctx+14h]</code> this  = <code>[frame-1Ch]</code> x     = <code>[frame+10h]</code> y     = <code>[frame+14h]</code> zone  = <code>[frame+18h]</code> z     = <code>[frame+1Ch]</code> <code>cells</code> = <code>[this+0Ch+8]</code> width = <code>[this+18h]</code> height= <code>[this+1Ch]</code></p><ul><li>Причина подтверждена, если до <code>AtCoords</code> выполняется хотя бы одно: <code>cells</code> == 0; width/height невалидны; z недопустим; x/y вне карты и не нормализованы; <code>zone_id</code> недопустим.</li><li>Критерий исправления: <code>loc_101BBEB0</code> больше не вызывает <code>AtCoords</code>, пока полный клеточный контракт не выполнен. При любом отказе обработчик должен вернуть 1 без HotA-записи и без изменения SoD-frame.</li></ul>
+  </section>
+
+  <section id="verdict">
+    <h2><span class="htext">Вывод</span><a class="anchor" href="#verdict">¶</a></h2>
+    <div class="card verdict lvl-high"><p>Виновник — <code>hota.dll</code>, конкретно обработчик конечной точки <code>loc_101BBEB0</code> генератора случайных карт. Он берёт <code>end_x/end_y</code>/z до проверки из сохранённого кадра SoD и без проверки полного контракта вызывает <code>AtCoords</code>. Результат <code>AtCoords</code> затем используется как RMGCell*, хотя может не принадлежать массиву <code>cells</code>[].</p><p>Это не ошибка writer-а координат и не прямой перехват штатной SoD-клетки. SoD-код пишет рабочую геометрическую конечную точку, что корректно для алгоритма линии. Ошибка у HotA-потребителя: он требует от этой точки более сильный контракт — валидную клетку карты — и не добавляет адаптер между двумя уровнями.</p><p>Класс дефекта — типизированный выход за границы массива RMG-клеток. Видимый AV на <code>cell+0x22</code> — только одно проявление; если адрес за пределами массива клеток читаем, возможна скрытая запись вне массива через <code>cell+0x22</code> и <code>cell+0x28</code>. Исправление должен стоять перед <code>call 537DD0h</code>: проверить context/<code>cells</code>/z/<code>zone_id</code>, x/y нормализовать или отвергнуть, а при сомнении вернуть 1 без записи.</p></div>
+  </section>
+
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Скопировано</div>
+
+<script>
+(function(){
+  var KEY="hota-theme-v6",root=document.documentElement;
+  var ic=document.getElementById("themeUse"),lb=document.getElementById("themeLabel");
+  var mq=window.matchMedia?matchMedia("(prefers-color-scheme: light)"):null;
+  // по умолчанию следуем за системной темой; ручной клик фиксирует light/dark и перекрывает её
+  function manual(){try{var s=localStorage.getItem(KEY);return(s==="light"||s==="dark")?s:null;}catch(e){return null;}}
+  function effective(){return manual()||(mq&&mq.matches?"light":"dark");}
+  // иконка — SVG (солнце/луна), переключаем href у <use>, а не emoji-глиф
+  function paintBtn(){var l=effective()==="light";
+    ic.setAttribute("href",l?"#ic-sun":"#ic-moon");
+    lb.textContent=l?"\u0421\u0432\u0435\u0442\u043B\u0430\u044F":"\u0422\u0451\u043C\u043D\u0430\u044F";}
+  // ВСЕГДА ставим явный класс (theme-light либо theme-dark) — без @media-CSS
+  function apply(){root.classList.remove("theme-light","theme-dark");
+    root.classList.add("theme-"+effective());paintBtn();}
+  apply();
+  // смена системной темы -> сбросить ручной выбор и снова следовать за системой
+  if(mq){var hh=function(){try{localStorage.removeItem(KEY);}catch(e){}apply();};
+    mq.addEventListener?mq.addEventListener("change",hh):mq.addListener(hh);}
+  document.getElementById("themeToggle").onclick=function(){
+    var n=effective()==="light"?"dark":"light";
+    try{localStorage.setItem(KEY,n);}catch(e){}apply();};
+  var links={},secs=[].slice.call(document.querySelectorAll("main section[id]"));
+  document.querySelectorAll("nav.toc a").forEach(function(a){links[a.getAttribute("href").slice(1)]=a;});
+  var lock=0,lockT,ticking=0;
+  // подсветка только в оглавлении
+  function setActive(id){
+    Object.keys(links).forEach(function(k){links[k].classList.remove("active");});
+    if(links[id])links[id].classList.add("active");}
+  function unlockSoon(){clearTimeout(lockT);lockT=setTimeout(function(){lock=0;},120);}
+  // активна — ПОСЛЕДНЯЯ секция, чьё начало выше порога чтения.
+  // Пороговая логика детерминирована и НЕ пропускает короткие секции
+  // (IntersectionObserver мог «перепрыгивать» через них при быстром скролле).
+  function pickActive(){
+    ticking=0;
+    if(lock)return;
+    var thr=innerHeight*0.2,cur=secs.length?secs[0].id:null;
+    for(var i=0;i<secs.length;i++){
+      if(secs[i].getBoundingClientRect().top<=thr)cur=secs[i].id;}
+    if(innerHeight+scrollY>=document.body.scrollHeight-2)cur=secs[secs.length-1].id;
+    if(cur)setActive(cur);}
+  // клик по оглавлению: сразу подсветить цель и заглушить scroll-spy до конца плавной прокрутки
+  document.querySelectorAll("nav.toc a").forEach(function(a){
+    a.addEventListener("click",function(){
+      setActive(a.getAttribute("href").slice(1));lock=1;unlockSoon();});
+  });
+  addEventListener("scroll",function(){
+    if(lock){unlockSoon();return;}
+    if(!ticking){ticking=1;requestAnimationFrame(pickActive);}
+  },{passive:true});
+  pickActive();
+  var toast=document.getElementById("toast"),tt;
+  function showToast(m){toast.textContent=m||"\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e";toast.classList.add("show");
+    clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove("show");},1300);}
+  document.querySelectorAll("[data-copy]").forEach(function(b){
+    b.onclick=function(){var sel=b.getAttribute("data-copy");
+      var el=sel==="prev"?b.parentElement.querySelector("pre"):document.querySelector(sel);
+      var txt=el?el.innerText:"";
+      navigator.clipboard&&navigator.clipboard.writeText(txt).then(function(){showToast("\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e");},
+        function(){showToast("\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c");});};
+  });
+})();
+</script>
+</body>
+</html>

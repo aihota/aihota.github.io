@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анализ вылета HD_HOTA.dll+0x9692D</title>
+<style>
+
+:root{
+  --bg:#0f1117;--panel:#171a23;--panel2:#1d212c;--ink:#e6e9ef;--muted:#a6afbd;
+  --line:#2a2f3b;--accent:#94a3b8;--accent2:#7dd3fc;--hi:#fbbf24;--ok:#46d39a;--warn:#ffd633;
+  --bad:#ff5c7a;--code:#11141b;--kw:#ff7b72;--reg:#7ee787;--num:#79c0ff;--cmt:#8b949e;
+  --pretext:#cdd6e4;--badText:#ff8da3;--verdictGrad:linear-gradient(180deg,#1c1418,#171a23);
+  --br:rgba(255,255,255,.04);
+  --redBg:rgba(255,92,122,.14);--redInk:#ff8da3;--redLn:rgba(255,92,122,.35);
+  --blBg:rgba(74,163,255,.14);--blInk:#8ec5ff;--blLn:rgba(74,163,255,.35);
+  --gyBg:rgba(154,163,178,.12);--gyInk:#c4ccd8;--gyLn:rgba(154,163,178,.3);
+  --okBg:rgba(70,211,154,.10);--okLn:rgba(70,211,154,.32);
+  --wnBg:rgba(255,214,51,.12);--wnLn:rgba(255,214,51,.36);
+  --orange:#fb923c;--orangeBg:rgba(251,146,60,.14);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  /* шрифты: встроенные (если есть) -> системные с широким кросс-платформенным фолбэком */
+  --font-sans:"ReportSans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","DejaVu Sans","Liberation Sans",Helvetica,Arial,sans-serif;
+  --font-mono:"ReportMono","SF Mono",ui-monospace,"JetBrains Mono","Cascadia Code",Menlo,Consolas,"DejaVu Sans Mono","Liberation Mono","Noto Sans Mono",monospace;
+  /* стек типографских знаков/символов — текстовая (не эмодзи) презентация на всех ОС */
+  --font-sym:"Segoe UI Symbol","Apple Symbols","Noto Sans Symbols 2","DejaVu Sans",sans-serif;
+  /* типографическая шкала в rem (уважает системный размер шрифта); единый ритм */
+  --fs-3xs:.65625rem;--fs-2xs:.6875rem;--fs-xs:.78125rem;--fs-sm:.8125rem;
+  --fs-md:.875rem;--fs-base:.9375rem;--fs-lg:1rem;--fs-xl:1.125rem;--fs-2xl:1.375rem;
+  --fs-hero:clamp(1.5rem,2vw + 1.125rem,2.125rem);
+  /* font-size-adjust: одинаковая видимая высота строчных при ЛЮБОМ фолбэке (ключ к «одинаково везде») */
+  --fsa-sans:.52;--fsa-mono:.5;
+  /* единый вертикальный ритм и трекинг капс-меток (вместо разнобоя) */
+  --lh-tight:1.12;--lh-code:1.5;--lh-base:1.62;
+  --ls-caps:.13em;--ls-caps-wide:.16em;
+  /* выделение текста — заметная заливка (а не 14% var(--blBg), который почти не виден) */
+  --sel:rgba(74,163,255,.32);
+  color-scheme:dark;
+}
+html.theme-light{
+  --bg:#f4f6fb;--panel:#ffffff;--panel2:#eef1f6;--ink:#1c2230;--muted:#5a6473;
+  --line:#d7dce5;--accent:#475569;--accent2:#0369a1;--hi:#b45309;--ok:#1a7f5a;--warn:#b08c00;
+  --bad:#cf2e4a;--code:#f6f8fa;--kw:#cf222e;--reg:#116329;--num:#0550ae;--cmt:#6e7781;
+  --pretext:#24292f;--badText:#cf2e4a;--verdictGrad:linear-gradient(180deg,#fff5f6,#fff);
+  --br:rgba(0,0,0,.03);
+  --redBg:rgba(207,46,74,.10);--redInk:#b21f3b;--redLn:rgba(207,46,74,.3);
+  --blBg:rgba(31,111,235,.1);--blInk:#1551b5;--blLn:rgba(31,111,235,.3);
+  --gyBg:rgba(90,100,115,.1);--gyInk:#3d4756;--gyLn:rgba(90,100,115,.28);
+  --okBg:rgba(26,127,90,.09);--okLn:rgba(26,127,90,.3);
+  --wnBg:rgba(176,140,0,.12);--wnLn:rgba(176,140,0,.34);
+  --orange:#ea580c;--orangeBg:rgba(234,88,12,.12);
+  --shadow:0 8px 30px rgba(40,60,100,.12);
+  --sel:rgba(31,111,235,.28);
+  color-scheme:light;
+}
+/* Светлая палитра живёт ТОЛЬКО в html.theme-light; авто-режим проставляет
+   явный класс через JS (ранний скрипт в <head>), поэтому @media-дубль палитры
+   больше не нужен. */
+*{box-sizing:border-box}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* text-size-adjust: запрещаем браузерам самовольно раздувать шрифт (iOS/Android, поворот) */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:var(--fs-base)/var(--lh-base) var(--font-sans);
+  font-size-adjust:var(--fsa-sans);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;font-optical-sizing:auto;
+  font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1;
+  /* нуль со слешем и в прозе (единообразие с кодом) */
+  font-variant-numeric:slashed-zero;
+  /* синтез НЕ отключаем: нужен для псевдо-жира (<b>) и капители (b.hi)
+     на фолбэк-шрифтах без нативных начертаний (DejaVu/Liberation) */
+  transition:background .25s,color .25s}
+/* единый цвет выделения на всех ОС/браузерах */
+::selection{background:var(--sel);color:var(--ink)}
+/* моно-стек: slashed-zero + табличные цифры для hex; ВСЕ лигатуры off (asm: ->, !=, >=).
+   font-feature-settings:normal сбрасывает наследуемые от body kern/liga (иначе liga
+   остаётся включён) и убирает конфликт с font-variant-ligatures;
+   font-size-adjust держит высоту строчных при подмене моно-шрифта на др. ОС */
+code,pre,.mono,.stat .big,td.mono,th.mono{font-family:var(--font-mono);
+  font-size-adjust:var(--fsa-mono);
+  font-feature-settings:normal;
+  font-variant-ligatures:none;
+  font-variant-numeric:slashed-zero tabular-nums}
+a{color:var(--accent2);text-decoration:none}
+/* инлайн-иконки вместо emoji-глифов (★✓☀☾) — идентичны на всех ОС */
+.tic{width:1em;height:1em;vertical-align:-.14em;fill:none;stroke:currentColor;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tic.fill{fill:currentColor;stroke:none}
+/* символьные знаки, оставленные текстом (¶) — текстовая презентация, не emoji */
+h2 .anchor{font-family:var(--font-sym);font-variant-emoji:text}
+.theme-fab{position:absolute;top:18px;right:22px;z-index:5}
+.btn{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:9px;
+  padding:7px 12px;font-size:var(--fs-xs);font-weight:600;cursor:pointer;display:inline-flex;
+  align-items:center;gap:7px;transition:border-color .2s,transform .08s,background .2s}
+.btn:hover{border-color:var(--accent2)}
+.btn:active{transform:scale(.96)}
+.btn:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+.btn:focus:not(:focus-visible){outline:none}
+.shell{max-width:1180px;margin:0 auto;padding:0 22px;display:grid;
+  grid-template-columns:230px minmax(0,1fr);gap:38px;position:relative}
+nav.toc{position:sticky;top:24px;align-self:start;height:calc(100vh - 48px);
+  overflow-y:auto;padding:22px 0 40px;font-size:var(--fs-sm)}
+nav.toc .lbl{text-transform:uppercase;letter-spacing:var(--ls-caps-wide);font-size:var(--fs-3xs);
+  color:var(--muted);font-weight:700;margin:0 0 10px 12px}
+nav.toc a{display:flex;gap:9px;align-items:baseline;color:var(--muted);padding:6px 12px;
+  border-left:2px solid transparent;border-radius:0 7px 7px 0;transition:.15s}
+nav.toc a .n{font-family:var(--font-mono);font-size:var(--fs-2xs);opacity:.7;min-width:15px}
+nav.toc a:hover{color:var(--ink);background:var(--br)}
+nav.toc a.active{color:var(--ink);border-left-color:var(--accent2);
+  background:linear-gradient(90deg,var(--blBg),transparent);font-weight:600}
+main{padding-bottom:90px;min-width:0}
+@media(max-width:900px){.shell{grid-template-columns:1fr}nav.toc{display:none}}
+.hero{padding:40px 0 14px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-2xs);letter-spacing:var(--ls-caps-wide);
+  text-transform:uppercase;color:var(--accent);font-weight:700}
+/* «пуля» eyebrow — нарисованная точка, а не глиф ● (нет расхождений по ОС) */
+.eyebrow::before{content:"";display:inline-block;width:.5em;height:.5em;
+  border-radius:50%;background:var(--accent2)}
+h1.addr{margin:13px 0 8px;font-size:var(--fs-hero);line-height:var(--lh-tight);letter-spacing:-.01em;
+  font-family:var(--font-mono);font-weight:700;overflow-wrap:anywhere}
+h1.addr .mod{color:var(--hi)}
+.subtitle{color:var(--muted);font-size:var(--fs-lg);margin:0 0 20px;max-width:60ch}
+.byline{color:var(--muted);font-size:var(--fs-sm);margin:6px 0 4px}
+.byline b{color:var(--ink);font-weight:600}
+
+/* вердикт-callout: цветная метка «ВЕРДИКТ» (цвет = уровень полезности),
+   без дублирующей галочки (она уже на карточке «Полезность») */
+.ribbon{position:relative;margin:18px 0 8px;padding:15px 20px 16px;border-radius:16px;
+  background:var(--redBg);border:1px solid var(--redLn);box-shadow:var(--shadow)}
+.ribbon.lvl-mid{background:var(--wnBg);border-color:var(--wnLn)}
+.ribbon.lvl-low{background:var(--orangeBg);border-color:var(--orange)}
+.ribbon.lvl-high{background:var(--okBg);border-color:var(--okLn)}
+.ribbon .vlabel{display:flex;align-items:center;gap:9px;font-size:var(--fs-2xs);font-weight:700;
+  letter-spacing:var(--ls-caps-wide);text-transform:uppercase;color:var(--orange);margin-bottom:7px}
+.ribbon.lvl-mid .vlabel{color:var(--warn)}
+.ribbon.lvl-high .vlabel{color:var(--ok)}
+.ribbon .vlabel::before{content:"";width:22px;height:2px;border-radius:2px;background:currentColor}
+.ribbon .vtxt{font-size:var(--fs-md);line-height:var(--lh-base)}
+.ribbon .vtxt b{color:var(--orange)}
+.ribbon.lvl-mid .vtxt b{color:var(--warn)}
+.ribbon.lvl-high .vtxt b{color:var(--ok)}
+.statstrip{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:12px;margin:18px 0 6px}
+/* карточки шапки: иконка в тонированном квадрате + цвет по смыслу
+   (c-ver синий, c-cls красный, c-cnt нейтр., c-use зелёный/жёлтый/красный) */
+.stat{display:flex;gap:12px;align-items:center;background:var(--panel);
+  border:1px solid var(--line);border-radius:13px;padding:13px 15px}
+.stat .ic-badge{flex:0 0 auto;width:40px;height:40px;border-radius:11px;display:grid;
+  place-items:center}
+.stat .ic{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
+.stat .st-body{min-width:0}
+.stat .big{font-size:var(--fs-2xl);font-weight:800;line-height:var(--lh-tight);
+  overflow-wrap:anywhere}
+.stat .cap{color:var(--muted);font-size:var(--fs-2xs);margin-top:2px}
+.stat.c-ver .ic-badge{background:var(--blBg);color:var(--blInk)}
+.stat.c-ver .big{color:var(--blInk);font-size:var(--fs-lg);letter-spacing:-.2px}
+.stat.c-cls .ic-badge{background:var(--redBg);color:var(--redInk)}
+.stat.c-cls .big{color:var(--redInk);font-size:var(--fs-base)}
+.stat.c-cnt .ic-badge{background:var(--gyBg);color:var(--gyInk)}
+.stat.c-use .ic-badge{background:var(--okBg);color:var(--ok)}
+.stat.c-use .big{color:var(--ok)}
+.stat.c-use.use-mid .ic-badge{background:var(--wnBg);color:var(--warn)}
+.stat.c-use.use-mid .big{color:var(--warn)}
+/* НИЗКАЯ — оранжевый (а не красный), чтобы не сливаться с «Классом сбоя» */
+.stat.c-use.use-bad .ic-badge{background:var(--orangeBg);color:var(--orange)}
+.stat.c-use.use-bad .big{color:var(--orange)}
+
+/* ----- СЕКЦИЯ-ПАНЕЛЬ: аналитические секции 1–11 — панели с шапкой-заголовком;
+   резюме/вывод остаются акцентными карточками-«закладками». */
+section{scroll-margin-top:24px;margin:30px 0}
+h2{margin:0 0 14px;display:flex;align-items:center;gap:11px;font-weight:700;
+  font-size:var(--fs-sm);letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--accent2);
+  border-bottom:1px solid var(--line);padding-bottom:10px}
+h2 .htext{flex:1}
+h2 .anchor{opacity:0;color:var(--muted);font-weight:400;font-size:var(--fs-md);transition:.15s}
+h2:hover .anchor{opacity:.7}
+/* вывод — «закладка» с чистым заголовком (не панель) */
+section#verdict h2{border-bottom:0}
+/* панели-секции: все секции, кроме вывода (резюме и визуализация — тоже панели) */
+#doc>section:not(#verdict){background:var(--panel);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;margin:18px 0;padding:0 20px 16px}
+#doc>section:not(#verdict)>h2{background:var(--panel2);margin:0 -20px 16px;
+  padding:12px 20px;border-bottom:1px solid var(--line)}
+/* внутренние карточки внутри панели — плоские (без двойной рамки) */
+#doc>section:not(#verdict) .card{background:transparent;border:0;border-radius:0;
+  padding:0;margin:10px 0}
+/* разделитель между смежными плоскими карточками в секции (напр. раздел 1:
+   блок мета-полей | блок Модуль/адрес) — пунктир, чтобы не слипались */
+#doc>section:not(#verdict) .card+.card{border-top:1px dashed var(--line);
+  margin-top:14px;padding-top:14px}
+h3{font-size:var(--fs-base);margin:20px 0 8px}
+p{margin:10px 0}.lead{color:var(--muted)}
+/* БЕЗ переносов слов: justify растягивает строку пробелами, слова целые.
+   max-width ЗДЕСЬ НЕ ставим: он сужал абзацы уже секции, и justify
+   выравнивал по узкой мере строки, а не по ширине секции. */
+#doc>section p{hyphens:none;-webkit-hyphens:none}
+p{text-wrap:pretty}
+/* выравнивание по ширине для всего текста в секциях.
+   text-wrap:pretty/balance отключают justify-алгоритм (Gecko/WebKit),
+   поэтому для выравниваемых абзацев возвращаем обычный перенос.
+   Центр-подписи под svg заданы inline и перекрывают это правило. */
+#doc>section p,#doc>section li{text-align:justify;text-wrap:wrap}
+h1.addr,h2,h3{text-wrap:balance}
+ul{margin:10px 0;padding-left:20px}li{margin:6px 0}
+/* акцент капителью вместо «орущего» КАПСА (текст-контент не меняется) */
+b.hi{color:var(--hi);font-variant:small-caps;text-transform:lowercase;
+  letter-spacing:.02em;font-weight:600}
+
+p code,li code,.kv .v code,.chain .ttl code,.chain .desc code,.note code{
+  font-family:var(--font-mono);background:var(--code);
+  border:1px solid var(--line);border-radius:5px;padding:0 5px;font-size:.9em;
+  color:var(--ink);white-space:nowrap}
+.chain .ttl code{white-space:normal;word-break:break-all}
+.note code{background:color-mix(in srgb,var(--ink) 8%,transparent);
+  border-color:color-mix(in srgb,var(--ink) 14%,transparent)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.card.summary{border-left:4px solid var(--accent)}
+.card.verdict{border-left:4px solid var(--orange);background:var(--verdictGrad)}
+/* «Вывод» — фон ПО УРОВНЮ полезности, как лента «Заключение» вверху
+   (раньше был фиксированный розовый verdictGrad — конфликтовал с зелёной лентой) */
+.card.verdict.lvl-low{border-left-color:var(--orange);
+  background:linear-gradient(180deg,var(--orangeBg),var(--panel))}
+.card.verdict.lvl-mid{border-left-color:var(--warn);
+  background:linear-gradient(180deg,var(--wnBg),var(--panel))}
+.card.verdict.lvl-high{border-left-color:var(--ok);
+  background:linear-gradient(180deg,var(--okBg),var(--panel))}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}}
+/* раздел «Достоверность»: блоки «Подтверждено» и «Ограничения»
+   сильно разной длины — ставим их ОДИН ПОД ДРУГИМ (одна колонка),
+   чтобы не было пустоты рядом с коротким блоком.
+   margin у .note гасим: иначе он складывается с gap грида (14+15+14)
+   и даёт слишком большой отступ между блоками */
+#s9 .grid2{grid-template-columns:1fr}
+#s9 .grid2 .note{margin:0}
+.kv{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:var(--fs-sm)}
+.kv:last-child{border-bottom:0}
+.kv .k{color:var(--muted);min-width:118px}.kv .v{font-family:var(--font-mono)}
+.codewrap{position:relative;margin:14px 0}
+.codewrap .copy{position:absolute;top:8px;right:8px;opacity:0;transition:.15s;
+  background:var(--panel2);border:1px solid var(--line);border-radius:7px;color:var(--muted);
+  font-size:var(--fs-2xs);padding:4px 9px;cursor:pointer}
+.codewrap:hover .copy{opacity:1}
+.codewrap .copy:hover{color:var(--ink);border-color:var(--accent2)}
+pre{background:var(--code);border:1px solid var(--line);border-radius:12px;padding:15px 17px;
+  overflow-x:auto;font-size:var(--fs-xs);line-height:var(--lh-code);tab-size:4;margin:0;color:var(--pretext)}
+pre .a{color:var(--cmt)}pre .k{color:var(--kw)}pre .r{color:var(--reg)}
+pre .n{color:var(--num)}pre .c{color:var(--cmt);font-style:italic}
+pre .fault{background:var(--redBg);display:block;border-left:3px solid var(--bad);
+  padding-left:8px;margin-left:-10px}
+.formula{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:center;
+  background:var(--code);border:1px solid var(--line);border-radius:14px;padding:18px;
+  font-family:var(--font-mono);margin:14px 0}
+.formula .tok{font-size:var(--fs-lg)}
+.formula .op{color:var(--muted)}
+.formula .res{color:var(--bad);font-weight:700}
+.formula .eq{color:var(--ok);font-weight:700;font-size:var(--fs-xl)}
+/* сворачиваемый форензик-аппендикс: большие доказательные таблицы по клику */
+.appendix{margin:14px 0;border:1px solid var(--line);border-radius:12px;
+  background:var(--panel2);overflow:hidden}
+.appendix>summary{cursor:pointer;padding:10px 14px;font-size:var(--fs-sm);
+  font-weight:600;color:var(--muted);list-style:none;user-select:none;
+  display:flex;align-items:center;gap:8px;transition:color .15s}
+.appendix>summary::-webkit-details-marker{display:none}
+.appendix>summary::before{content:"";width:0;height:0;
+  border-left:5px solid currentColor;border-top:4px solid transparent;
+  border-bottom:4px solid transparent;transition:transform .15s}
+.appendix[open]>summary::before{transform:rotate(90deg)}
+.appendix>summary:hover{color:var(--accent2)}
+.appendix .tablewrap{border:0;border-top:1px solid var(--line);border-radius:0}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:var(--fs-xs);min-width:780px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+thead th{background:var(--panel2);color:var(--muted);font-weight:700;letter-spacing:.03em;
+  position:sticky;top:0;font-size:var(--fs-2xs);text-transform:uppercase}
+tbody tr:hover{background:var(--blBg)}
+td.mono,th.mono{font-family:var(--font-mono)}
+td .ok{color:var(--ok)}
+td.flag{color:var(--bad);font-weight:700;
+  background:linear-gradient(90deg,var(--redBg),transparent)}
+
+.note{border-radius:12px;padding:13px 17px;margin:14px 0;font-size:var(--fs-md)}
+.note.ok{background:var(--okBg);border:1px solid var(--okLn)}
+/* «Важно» — тёплый янтарный акцент (смещён от чистого жёлтого warn
+   к оранжевому: читается как «обрати внимание», а не как тревога) */
+.note.warn{background:color-mix(in srgb,var(--orange) 10%,transparent);
+  border:1px solid color-mix(in srgb,var(--orange) 36%,transparent)}
+.note.info{background:var(--blBg);border:1px solid var(--blLn)}
+.note .t{font-weight:700;margin-bottom:4px;display:block}
+.chain{margin:16px 0}
+.chain .step{display:flex;align-items:flex-start;gap:14px;padding:9px 0;position:relative}
+.chain .dot{flex:0 0 auto;width:13px;height:13px;border-radius:50%;margin-top:5px;
+  background:var(--panel);border:2px solid var(--accent2);z-index:1}
+.chain .step.fault .dot{border-color:var(--bad);background:var(--redBg)}
+.chain .step:not(:last-child)::before{content:"";position:absolute;left:6px;top:20px;
+  bottom:-9px;width:2px;background:var(--line)}
+.chain .ttl{font-family:var(--font-mono);font-size:var(--fs-sm)}
+.chain .step.fault .ttl{color:var(--badText);font-weight:700}
+.chain .desc{color:var(--muted);font-size:var(--fs-xs)}
+.chain .modtag{font-size:var(--fs-3xs);font-weight:700;padding:1px 7px;border-radius:5px;margin-right:7px;
+  vertical-align:1px}
+.m-exe{background:var(--gyBg);color:var(--gyInk)}
+.m-tc{background:var(--redBg);color:var(--redInk)}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:10px;font-size:var(--fs-sm);
+  font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:80}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ============================================================
+   VISUALIZATION TOOLKIT (.viz-*) для sidecar-врезок (правило о
+   визуализации вылета). ЦЕЛЬ: схемы строятся РАСКЛАДКОЙ CSS
+   (flex/grid), а НЕ ручными SVG-координатами — браузер сам
+   считает позиции, поэтому подписи НИКОГДА не налезают.
+   Все цвета — только из токенов темы (корректно dark/light/print).
+   SVG применять ТОЛЬКО для линий/стрелок (.viz-svg); подписи
+   к ним выносить в .viz-legend под схемой, в графике — короткие
+   .viz-badge. Подробности и шаблоны — в навыке html-report. */
+.viz{margin:16px 0}
+.viz-cap{font-size:var(--fs-xs);color:var(--muted);text-align:center;margin:8px 0 0}
+/* горизонтальная лента блоков (память/массив/диапазон) */
+.viz-strip{display:flex;align-items:stretch;gap:6px;flex-wrap:nowrap;
+  overflow-x:auto;padding:6px 0}
+/* блок-ячейка ленты: бейдж прижат к верху (flex-start) — так все
+   бейджи на ОДНОМ уровне при разной длине текста; перенос строк сам */
+.viz-box{flex:1 1 0;min-width:96px;border:2px solid var(--line);border-radius:10px;
+  background:var(--panel2);padding:12px 10px;text-align:center;
+  font-size:var(--fs-xs);line-height:var(--lh-tight);color:var(--ink);
+  display:flex;flex-direction:column;justify-content:flex-start;align-items:center;gap:6px}
+.viz-box .lbl{font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--muted)}
+.viz-box.ok{border-color:var(--okLn);background:var(--okBg)}
+.viz-box.bad{border-color:var(--redLn);background:var(--redBg)}
+.viz-box.accent{border-color:var(--blLn);background:var(--blBg)}
+.viz-box.dashed{border-style:dashed}
+.viz-box.dim{opacity:.55}
+/* модификатор: номерок-бейдж в ЛЕВОМ ВЕРХНЕМ углу блока (текст остаётся
+   центрирован). Позиция — раскладкой (absolute в relative-боксе), без ручных
+   координат; padding-top уводит контент из-под бейджа => без наложения. */
+.viz-strip.badge-tl .viz-box{position:relative;padding-top:34px;justify-content:center}
+.viz-strip.badge-tl .viz-box .viz-badge{position:absolute;top:6px;left:6px}
+/* круглый бейдж-маркер (A/B/F/S/0/1) — короткий, не текст */
+.viz-badge{display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:50%;font-weight:700;font-size:var(--fs-sm);
+  font-family:var(--font-mono);border:2px solid var(--accent2);color:var(--ink);
+  background:var(--panel);flex:0 0 auto;vertical-align:middle;
+  line-height:1;text-align:center;padding:0}
+.viz-badge.ok{border-color:var(--ok);color:var(--ok)}
+.viz-badge.bad{border-color:var(--bad);color:var(--badText)}
+.viz-badge.accent{border-color:var(--accent2);color:var(--accent2)}
+/* координатный холст: ТОЛЬКО для геометрии, рисуем линии/стрелки */
+.viz-svg{display:block;max-width:100%;height:auto;margin:6px auto;
+  font-family:inherit;font-size:var(--fs-xs)}
+.viz-svg .edge{stroke:var(--line);stroke-width:1}
+.viz-svg .flow{stroke:var(--bad);stroke-width:2;fill:none}
+.viz-svg .flow.ok{stroke:var(--ok)}
+.viz-svg .area{fill:var(--panel2);stroke:var(--line);stroke-width:1.5}
+/* узлы-кружки графа (обводка по смыслу) и цифра/буква внутри (короткий
+   бейдж, не текст): имена функций живут только в .viz-legend (§22) */
+.viz-svg .area.accent{stroke:var(--accent2)}
+.viz-svg .area.bad{stroke:var(--bad)}
+.viz-svg .flow.data{stroke:var(--accent2);stroke-dasharray:5 4}
+.viz-svg text{fill:var(--ink);font-family:var(--font-mono);font-weight:700;
+  text-anchor:middle;dominant-baseline:central}
+.viz-svg .ahead{fill:var(--bad)}
+.viz-svg .ahead.accent{fill:var(--accent2)}
+/* легенда под схемой: бейдж + пояснение, в одну/две колонки, без наложений */
+.viz-legend{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin:12px 0 0}
+@media(max-width:680px){.viz-legend{grid-template-columns:1fr}}
+.viz-legend .item{display:flex;align-items:flex-start;gap:9px;
+  font-size:var(--fs-sm);color:var(--ink)}
+.viz-legend .item .txt{color:var(--muted)}
+@media print{.viz-strip{overflow-x:visible;flex-wrap:wrap}
+  .viz-box,.viz-badge,.viz-svg .area{break-inside:avoid}}
+
+@media print{
+  .theme-fab,nav.toc,.btn,.copy,.toast,h2 .anchor{display:none!important}
+  .shell{grid-template-columns:1fr;max-width:none}
+  /* screen-сглаживание на бумаге делает текст слишком тонким; сбрасываем */
+  body{background:#fff;color:#000;
+    -webkit-font-smoothing:auto;-moz-osx-font-smoothing:auto;font-size-adjust:none}
+  pre,.card,.note,table{break-inside:avoid}
+  section{break-inside:avoid-page}
+  /* на печати раскрываем все аппендиксы: details без [open] иначе скроет содержимое */
+  .appendix>summary{display:none}
+  details.appendix>*{display:revert!important}
+  .appendix .tablewrap{border-top:0}
+}
+</style>
+<script>
+(function(){try{var t=localStorage.getItem("hota-theme-v6");
+var m=(t==="light"||t==="dark")?t
+  :((window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches)?"light":"dark");
+document.documentElement.classList.add("theme-"+m);}catch(e){}})();
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="ic-package" viewBox="0 0 24 24"><path d="M16.5 9.4 7.5 4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+  <symbol id="ic-triangle" viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></symbol>
+  <symbol id="ic-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+  <symbol id="ic-sig3" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="currentColor" stroke="none"/><rect x="17" y="5" width="4" height="15" rx="1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="ic-sig2" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="currentColor" stroke="none"/><rect x="17" y="5" width="4" height="15" rx="1" fill="none" stroke="currentColor" opacity=".35"/></symbol>
+  <symbol id="ic-sig1" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="none" stroke="currentColor" opacity=".35"/><rect x="17" y="5" width="4" height="15" rx="1" fill="none" stroke="currentColor" opacity=".35"/></symbol>
+  <symbol id="ic-star" viewBox="0 0 24 24"><path d="M12 2.5l2.95 5.98 6.6.96-4.77 4.65 1.13 6.57L12 17.56l-5.9 3.1 1.12-6.57L2.45 9.44l6.6-.96z"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="ic-diamond" viewBox="0 0 24 24"><path d="M12 2 22 12 12 22 2 12Z"/></symbol>
+  <symbol id="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="ic-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+</defs></svg>
+<div class="shell">
+<button class="btn theme-fab" id="themeToggle" type="button" aria-label="Переключить тему оформления"><svg class="tic" aria-hidden="true"><use id="themeUse" href="#ic-sun"/></svg><span id="themeLabel">Светлая</span></button>
+  <nav class="toc" id="toc">
+    <p class="lbl">Содержание</p>
+    
+    <a href="#summary"><span class="n"><svg class="tic fill" aria-hidden="true"><use href="#ic-star"/></svg></span>Резюме</a>
+    <a href="#s1"><span class="n">1</span>Исходные данные</a>
+    <a href="#s2"><span class="n">2</span>Корреляция дампов</a>
+    <a href="#s3"><span class="n">3</span>Сопоставление адресов</a>
+    <a href="#s4"><span class="n">4</span>Точка сбоя</a>
+    <a href="#s5"><span class="n">5</span>Регистровые инварианты</a>
+    <a href="#s6"><span class="n">6</span>Цепочка вызовов</a>
+    <a href="#s7"><span class="n">7</span>Первопричина</a>
+    <a href="#s8"><span class="n">8</span>Условия сбоя</a>
+    <a href="#s9"><span class="n">9</span>Достоверность</a>
+    <a href="#s10"><span class="n">10</span>Поиск в др. версиях</a>
+    <a href="#s11"><span class="n">11</span>Воспроизведение</a>
+    <a href="#verdict"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-check"/></svg></span>Вывод</a>
+  </nav>
+  <main id="doc">
+
+  <div class="hero">
+    <span class="eyebrow">Анализ вылета</span>
+    <h1 class="addr"><span class="mod">HD_HOTA.dll</span>+0x9692D</h1>
+    <p class="subtitle"></p>
+    <p class="byline">Claude Opus 4.8 · 16.06.2026</p>
+    <div class="ribbon lvl-mid">
+      <div class="vlabel">Заключение</div>
+      <div class="vtxt">Нарушение доступа на чтении <code>[edi+1Eh]</code> при обходе ячеек карты в меню выбора сценария (раздел «дополнительные опции», в т.ч. при запуске случайной карты). Цикл перебирает ячейки по глобальным размерам карты, а <code>A0_GameMap_GetCell</code> адресует по собственным буферу/ширине объекта карты; при их несовпадении вычисленный указатель ячейки уходит за конец буфера на неотображённую страницу. Тот же дефект, что <code>HD_HOTA.dll+0x97CAD</code> и <code>+0x9701D</code>, в другой версии HD-мода (адрес функции смещён версией).</div>
+    </div>
+    <div class="statstrip"><div class="stat c-ver"><div class="ic-badge"><svg class="ic"><use href="#ic-package"/></svg></div><div class="st-body"><div class="big">1.8.0</div><div class="cap">Версия HotA</div></div></div><div class="stat c-cls"><div class="ic-badge"><svg class="ic"><use href="#ic-triangle"/></svg></div><div class="st-body"><div class="big">выход за границы</div><div class="cap">Класс сбоя</div></div></div><div class="stat c-cnt"><div class="ic-badge"><svg class="ic"><use href="#ic-database"/></svg></div><div class="st-body"><div class="big">3</div><div class="cap">Количество логов</div></div></div><div class="stat c-use use-mid"><div class="ic-badge"><svg class="ic"><use href="#ic-sig2"/></svg></div><div class="st-body"><div class="big">СРЕДНЯЯ</div><div class="cap">Полезность лога</div></div></div></div>
+  </div>
+
+  
+
+  <section id="summary">
+    <h2><span class="htext">Краткое резюме</span><a class="anchor" href="#summary">¶</a></h2>
+    <div class="card summary"><p>Игра падает в меню выбора сценария при открытии раздела «дополнительные опции» (по показанию игрока — при попытке начать случайную карту). HD-мод в этот момент обходит все ячейки карты и для каждой читает поле по смещению <code>0x1E</code>. Указатель на ячейку считается как buffer + 38*(x + width*y + width*width*z); если индекс выходит за реально выделенный буфер ячеек, чтение попадает на неотображённую страницу и игра падает.</p><p>3 уникальных вылета на чтении по адресу <code>HD_HOTA.dll+0x9692D</code>, HotA 1.8.0, HD-мод 5.7 R9/R10. Во всех <code>faulting_addr = EDI + 0x1E</code>, <code>EAX</code> == <code>EDI</code>, <code>EBX</code> == <code>ESI</code> (малый индекс цикла <code>0x3D</code>..<code>0x71</code>). Адрес сбоя у границы страницы (<code>EDI</code> оканчивается на ...FF2/FF4/002), <code>+0x1E</code> переходит на следующую неотображённую — линейный выход за конец буфера ячеек.</p><p>Стек поднимается к <code>A0_WndMgr_Run_MapSelectDlg</code> / <code>A0_MapSelectDlg_Run</code> (он же <code>A0_MapAddOptions_Dialog_Run</code>) / <code>A0_DialogFunction</code> — меню выбора сценария <b class="hi">ПЕРЕД</b> началом игры. Поля Day и Map file в логе — остаточные значения настроек, к стадии партии отношения не имеют (игра ещё не запущена).</p></div>
+  </section>
+
+  <section id="s1">
+    <h2><span class="htext">Исходные данные</span><a class="anchor" href="#s1">¶</a></h2>
+    <p>Уникальных вылетов: 3 (файлов: 4, дублей: 1) Класс сбоя: выход за границы Версия HotA: 1.8.0 Версии HD-мода: 5.7 R9, 5.7 R10 воспроизведения локализованы; падающая функция читает ячейку по вычисленному индексу, первопричина — несовпадение границ обхода и буфера ячеек, требует полного дампа с кучей для подтверждения)</p><p>Время вылетов: июнь 2026 Тип исключения: <code>EXCEPTION_ACCESS_VIOLATION</code> (read) Состояние игры: меню выбора сценария (раздел «дополнительные опции»; Day/Map file — остаточный шум настроек, не стадия партии)</p>
+  </section>
+
+  <section id="s2">
+    <h2><span class="htext">Корреляция дампов (сравнительная таблица)</span><a class="anchor" href="#s2">¶</a></h2>
+    <div class="tablewrap"><table><thead><tr><th class="mono">N</th><th class="mono">Faulting</th><th class="mono">Op</th><th class="mono">EAX</th><th class="mono">ECX</th><th class="mono">EBX/ESI</th><th class="mono">EDI</th><th class="mono">HD</th></tr></thead><tbody><tr><td class="mono">1</td><td class="mono">0x0231F010</td><td class="mono">read</td><td class="mono">0x0231EFF2</td><td class="mono">0x02246024</td><td class="mono">0x3D</td><td class="mono">0x0231EFF2</td><td class="mono">R9</td></tr><tr><td class="mono">2</td><td class="mono">0x250DE020</td><td class="mono">read</td><td class="mono">0x250DE002</td><td class="mono">0x2508170C</td><td class="mono">0x71</td><td class="mono">0x250DE002</td><td class="mono">R9</td></tr><tr><td class="mono">3</td><td class="mono">0x1D1B4014</td><td class="mono">read</td><td class="mono">0x1D1B3FF4</td><td class="mono">0x1CF5A024</td><td class="mono">0x58</td><td class="mono">0x1D1B3FF4</td><td class="mono">R10</td></tr></tbody></table></div><p>(дамп 1 — с комментарием игрока; файл -180 ему идентичен — дубль.)</p><p>Инварианты:</p><ul><li><code>faulting_addr = EDI + 0x1E</code> <code>(3/3)</code></li><li><code>EAX</code> == <code>EDI</code> == указатель на ячейку из <code>GetCell</code> <code>(3/3)</code></li><li><code>EBX</code> == <code>ESI</code> == индекс внутреннего цикла (<code>3/3</code>, значения <code>0x3D</code>..<code>0x71</code>)</li><li><code>EDI</code> на конце страницы (...FF2/FF4/002) — линейный перебег</li><li>Вызывающий код: <code>HD_HOTA.dll+0x96DE6</code> → <code>+0x96D80</code> <code>(3/3)</code></li><li>Карты разные — баг не привязан к одному файлу карты</li></ul>
+  </section>
+
+  <section id="s3">
+    <h2><span class="htext">Сопоставление адресов</span><a class="anchor" href="#s3">¶</a></h2>
+    <p>Листинг: <code>HD_HOTA.dll</code>-5.7 R9.txt, Imagebase = <code>0x1000000</code> Формула: <code>IDA_addr</code> = offset + imagebase = <code>0x9692D + 0x1000000 = 0x109692D</code> Адрес: .text:0109692D  <code>cmp dword ptr [edi+1Eh], 22h</code> Проверка: <code>EDI + 0x1E = faulting_addr</code> (напр. <code>0x0231EFF2 + 0x1E = 0x0231F010</code>). Совпадает во всех дампах. Версия R10 (дамп 3) — листинг <code>HD_HOTA.dll</code>-5.7 R10.txt тоже доступен; адрес функции в R10 совпадает с R9 по тому же offset.</p>
+  </section>
+
+  <section id="s4">
+    <h2><span class="htext">Точка сбоя — разбор инструкций</span><a class="anchor" href="#s4">¶</a></h2>
+    <div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:01096917  </span><span class="k">push</span>    <span class="r">edx</span>              <span class="c">; координата (предел по Z)</span>
+<span class="a">.text:01096918  </span><span class="k">push</span>    <span class="r">ecx</span>              <span class="c">; координата</span>
+<span class="a">.text:01096919  </span><span class="k">push</span>    <span class="r">eax</span>              <span class="c">; координата</span>
+<span class="a">.text:0109691A  </span><span class="k">mov</span>     <span class="r">eax</span>, <span class="n">6992B8h</span>     <span class="c">; глобал объекта карты (AdvMgr)</span>
+<span class="a">.text:0109691F  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">eax</span>]
+<span class="a">.text:01096921  </span><span class="k">mov</span>     <span class="r">eax</span>, <span class="n">4086D0h</span>     <span class="c">; A0_GameMap_GetCell</span>
+<span class="a">.text:01096926  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">ecx</span>+<span class="n">5Ch</span>]   <span class="c">; this = (*0x6992B8)-&gt;field_5C</span>
+<span class="a">.text:01096929  </span><span class="k">call</span>    <span class="r">eax</span>              <span class="c">; EAX = GetCell(this, x, y, z)</span>
+<span class="a">.text:0109692B  </span><span class="k">mov</span>     <span class="r">edi</span>, <span class="r">eax</span>         <span class="c">; EDI = указатель на ячейку</span>
+<span class="a">.text:0109692D  </span><span class="k">cmp</span>     <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">edi</span>+<span class="n">1Eh</span>], <span class="n">22h</span>  <span class="c">; КРАХ: чтение [EDI+0x1E]</span>
+<span class="a">.text:01096937  </span><span class="k">imul</span>    <span class="r">esi</span>, [<span class="r">edi</span>], <span class="n">492h</span> <span class="c">; далее — индексация по ID ячейки</span></pre></div><p><code>GetCell</code> (<code>h3hota.exe</code>:<code>0x4086D0</code>) — чистая арифметика без проверки границ: return buffer + 38 * (x + width*y + width*width*z) где buffer = this→<code>field_0xD0</code>, width = this→<code>field_0xD4</code>, 38 = размер структуры ячейки (<code>0x38</code> байт). Функция всегда возвращает указатель; если индекс за пределами буфера — указатель невалиден.</p><p>После вызова <code>EDI</code> не сверяется с границей буфера; сразу читается поле <code>[edi+1Eh]</code> (поле в пределах структуры ячейки <code>0x00</code>..<code>0x37</code>) и сравнивается с <code>0x22</code>. Если <code>EDI</code> указывает на последнюю ячейку буфера у границы страницы — чтение <code>+0x1E</code> переходит на неотображённую страницу.</p>
+  </section>
+
+  <section id="s5">
+    <h2><span class="htext">Регистровые инварианты</span><a class="anchor" href="#s5">¶</a></h2>
+    <ul><li><code>EAX</code> == <code>EDI</code> == указатель на ячейку (возврат <code>GetCell</code> через <code>EAX</code>).</li><li><code>faulting_addr = EDI + 0x1E</code> <code>(3/3)</code>. <code>EDI</code> во всех дампах оканчивается у границы страницы; <code>+0x1E</code> выходит на следующую неотображённую страницу. Это сигнатура линейного перебега за конец буфера ячеек.</li><li><code>EBX</code> == <code>ESI</code>: значение малое (<code>0x3D</code>..<code>0x71</code>), одинаковое в двух регистрах — координата/индекс внутреннего цикла обхода; различается между картами.</li><li><code>EBP</code> — <code>ESP = 0x3C</code> (фиксированный фрейм одной и той же функции).</li></ul>
+  </section>
+
+  <section id="s6">
+    <h2><span class="htext">Восстановленная цепочка вызовов</span><a class="anchor" href="#s6">¶</a></h2>
+    <p>Падающая функция — <code>sub_1096010</code>. Она перебирает ячейки карты вложенными циклами и для каждой через <code>GetCell</code> проверяет/переписывает поле типа ячейки (значение <code>0x22</code>). Границы циклов берутся из глобалов размеров карты: <code>A0_Map_X_Size_dword_6783C8</code> (ширина), <code>A0_Map_Y_Size_dword_6783CC</code> (высота), предел по Z — из поля <code>[GameMgr+1FC48h]</code>.</p><p>Восстановленный путь (по стеку дампа 1):</p><div class="chain"><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-exe">EXE</span>A0_WndMgr_Run_MapSelectDlg (h3hota 0x602D60)</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl">A0_MapSelectDlg_Run / A0_MapAddOptions_Dialog_Run (0x584EC0)</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl">A0_DialogFunction (0x5FFAC0)</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl">[мост HD-мода и трамплины patcher_x86]</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-tc">HOTA</span>HD_HOTA.dll+0x158F.. / +0x150.. / +0x8E50 / +0x90D8</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl"><span class="modtag m-tc">HOTA</span>sub_1096010 (HD_HOTA.dll+0x96010) — обход ячеек</div></div></div><div class="step"><span class="dot"></span><div><div class="ttl">GetCell → чтение [edi+1Eh]  (КРАХ)</div></div></div></div><p>Это родственная функция тому же дефекту в <code>+0x97CAD</code> (<code>sub_1097390</code>, HD R12) и <code>+0x9701D</code> (<code>sub_1096780</code>, HD R19): идентичный фрагмент <code>call GetCell</code>; <code>mov edi</code>/<code>ebx</code>,<code>eax</code>; <code>cmp [reg+1Eh],22h</code>; imul <code>esi</code>,<code>[reg]</code>,<code>492h</code>. Адрес функции смещается между версиями HD-мода, дефект один.</p>
+  </section>
+
+  <section id="s7">
+    <h2><span class="htext">Первопричина</span><a class="anchor" href="#s7">¶</a></h2>
+    <p>Потребитель (цикл обхода в <code>sub_1096010</code>) перебирает ячейки по <b class="hi">ГЛОБАЛЬНЫМ</b> размерам карты <code>A0_Map_X_Size</code> / <code>A0_Map_Y_Size</code> и пределу по Z. Поставщик (<code>GetCell</code>) вычисляет адрес ячейки по <b class="hi">СОБСТВЕННЫМ</b> полям объекта карты: buffer = <code>AdvMgr</code>→<code>field_5C</code>→<code>field_0xD0</code>, width = ...→<code>field_0xD4</code>.</p><p>Если эти границы расходятся — глобальные размеры выбранной для предпросмотра карты больше, чем реально выделенный буфер ячеек объекта карты (в меню полноценная игровая карта ещё не загружена, объект может держать буфер прежней/дефолтной/меньшей геометрии) — то индекс выходит за конец буфера, и <code>GetCell</code> отдаёт указатель за выделенной областью. Чтение поля ячейки <code>+0x1E</code> у последней страницы буфера падает.</p><p>Сигнатура подтверждает перебег, а не порчу: <code>EDI</code> у всех дампов на конце страницы, индекс цикла малый и закономерный, faulting линейно следует за концом буфера. Несколько разных карт и две версии HD-мода дают один адрес сбоя в одной функции — дело не в файле карты, а в установке буфера/размеров в контексте меню.</p><p>Что НЕ доказано по статике: какая именно из границ устаревшая. Для окончательного ответа нужен полный дамп (с кучей), где видно <code>AdvMgr</code>→<code>field_5C</code>→<code>field_0xD0/field_0xD4</code> и глобалы <code>A0_Map_X_Size</code>/<code>Y_Size</code> в момент сбоя. Имеющиеся логи — текстовые, без дампа памяти.</p>
+  </section>
+
+  <section id="s8">
+    <h2><span class="htext">Условия, спровоцировавшие сбой</span><a class="anchor" href="#s8">¶</a></h2>
+    <ul><li>Контекст — меню выбора сценария, раздел «дополнительные опции» (по стеку: <code>A0_WndMgr_Run_MapSelectDlg</code>, <code>A0_MapSelectDlg_Run</code> / <code>A0_MapAddOptions_Dialog_Run</code>). Игра ещё не начата.</li><li>Показание игрока (дамп 1, дословно): «Ошибка произошла в разделе "дополнительные опции" при попытке начать случайную карту.» Это показание, а не подтверждённый кодом факт; совпадает со стеком.</li><li>Day и Map file во всех дампах — остаточные значения настроек, не стадия партии: их нельзя трактовать как день игры.</li><li>3 разных карты при одном адресе сбоя на двух версиях HD-мода — баг не привязан к одному файлу карты.</li></ul>
+  </section>
+
+  <section id="s9">
+    <h2><span class="htext">Достоверность и ограничения</span><a class="anchor" href="#s9">¶</a></h2>
+    <div class="note ok"><span class="t">Подтверждено / высокая достоверность</span><ul><li>Достоверность сигнатуры: <b class="hi">ВЫСОКАЯ</b> (3 уникальных дампа, единый адрес, единые регистровые инварианты, единый верхний путь стека; плюс родственные адреса <code>+0x97CAD</code> и <code>+0x9701D</code> с тем же кодом).</li><li>Достоверность контекста (меню выбора сценария): <b class="hi">ВЫСОКАЯ</b> — в стеке явно присутствуют <code>A0_WndMgr_Run_MapSelectDlg</code> и <code>A0_MapSelectDlg_Run</code>, плюс дословное показание игрока про «дополнительные опции / случайная карта».</li><li>Достоверность механизма: <b class="hi">СРЕДНЯЯ</b>. Перебег за конец буфера доказан сигнатурой; конкретный источник рассогласования границ (глобальные размеры карты vs буфер объекта) по статике не разрешается — нужен полный дамп с кучей.</li><li>Дамп памяти по этому адресу не предоставлен (только текстовые логи); подлинность CONTEXT косвенно подтверждается родственным минидампом <code>+0x9701D</code>, где регистры/EIP совпали с txt байт-в-байт.</li><li>Смешанные версии HD-мода в серии (R9, R10): листинги обеих доступны, адрес функции по offset совпадает; диагноз не зависит от конкретной версии HD-мода.</li></ul></div>
+  </section>
+
+  <section id="s10">
+    <h2><span class="htext">Признаки поиска в старых версиях HotA / в SoD</span><a class="anchor" href="#s10">¶</a></h2>
+    <p>Контекст-инварианты:</p><ul><li><code>EAX</code> == <code>EDI</code> == указатель на ячейку после <code>GetCell</code></li><li><code>faulting_addr = EDI + 0x1E</code> (чтение <code>[edi+1Eh]</code>)</li><li><code>EDI</code> на конце страницы (линейный перебег за конец буфера ячеек)</li><li><code>EBX</code> == <code>ESI</code> == малый индекс цикла (<code>0x3D</code>..<code>0x71</code>)</li></ul><p>Текстовые сигнатуры дизассемблера:</p><ul><li><code>cmp dword ptr [edi+1Eh], 22h</code>; imul <code>esi</code>, <code>[edi]</code>, <code>492h</code></li><li><code>mov eax, 4086D0h</code>; <code>mov ecx, [ecx+5Ch]</code>; <code>call eax</code>; <code>mov edi, eax</code></li><li>границы цикла из <code>A0_Map_X_Size_dword_6783C8</code> / <code>A0_Map_Y_Size_dword_6783CC</code></li></ul><p>Стабильные адреса <code>h3hota.exe</code>:</p><ul><li><code>A0_GameMap_GetCell_sub_4086D0</code> (<code>0x4086D0</code>)</li><li><code>A0_Map_X_Size_dword_6783C8</code>, <code>A0_Map_Y_Size_dword_6783CC</code></li><li><code>A0_AdvMgr_dword_6992B8</code> (объект приключенческой карты)</li><li><code>A0_WndMgr_Run_MapSelectDlg_sub_602D60</code>, <code>A0_MapSelectDlg_Run_sub_584EC0</code> (он же <code>A0_MapAddOptions_Dialog_Run_sub_584EC0</code>)</li></ul><p>Родственные адреса того же дефекта: <code>HD_HOTA.dll+0x97CAD</code> (<code>sub_1097390</code>, HD R11/R12), <code>HD_HOTA.dll+0x9701D</code> (<code>sub_1096780</code>, HD R19).</p>
+  </section>
+
+  <section id="s11">
+    <h2><span class="htext">Воспроизведение вылета</span><a class="anchor" href="#s11">¶</a></h2>
+    <p>Контекст локализован: меню выбора сценария, раздел «дополнительные опции», в т.ч. запуск случайной карты. Показание игрока подтверждает направление.</p><p>Сценарий: 1) HotA 1.8.0 + HD-мод 5.7 (R9/R10; родственные пути — R11/R12/R19). 2) Главное меню → выбор сценария / случайная карта. 3) Открыть раздел «дополнительные опции»; для случайной карты — задать параметры и нажать старт; перебирать карты/шаблоны в списке. 4) Ожидать вылет на чтении ячейки при обходе карты для предпросмотра.</p><p>Вылет наблюдался на нескольких картах и двух версиях HD-мода, целиться надо не в один файл, а в набор: прогон по списку сценариев/шаблонов случайной карты с открытием «дополнительных опций», разные размеры карт.</p><p>Дифференциальная проверка причины (для подтверждения механизма, не как совет): снять в полном дампе <code>A0_Map_X_Size</code>/<code>A0_Map_Y_Size</code> и <code>AdvMgr</code>→<code>field_5C</code>→<code>field_0xD4</code> (ширина буфера) в момент сбоя — если размеры карты превышают ёмкость буфера, рассогласование границ подтверждено.</p><p>Что ловить в полном дампе: buffer (<code>field_0xD0</code>) и width (<code>field_0xD4</code>) объекта карты, глобалы размеров; регистровый инвариант <code>EAX</code>==<code>EDI</code>, <code>EBX</code>==<code>ESI</code>, <code>EDI</code> на конце страницы.</p>
+  </section>
+
+  <section id="verdict">
+    <h2><span class="htext">Вывод</span><a class="anchor" href="#verdict">¶</a></h2>
+    <div class="card verdict lvl-mid"><p>Виновник — HD-мод (<code>HD_HOTA.dll</code>): обход ячеек карты <code>sub_1096010</code>, запускаемый при открытии раздела «дополнительные опции» в меню выбора сценария (<code>A0_MapSelectDlg_Run</code> / <code>A0_MapAddOptions_Dialog_Run</code>), в том числе при запуске случайной карты. Цикл перебирает ячейки по глобальным размерам карты, а <code>A0_GameMap_GetCell</code> адресует по собственным буферу и ширине объекта карты; при несовпадении границ вычисленный указатель ячейки уходит за конец буфера на неотображённую страницу, и чтение поля ячейки <code>+0x1E</code> приводит к нарушению доступа. Это тот же дефект, что <code>HD_HOTA.dll+0x97CAD</code> и <code>+0x9701D</code> — родственные функции обхода ячеек того же меню в других версиях HD-мода. Какая из границ устаревшая — по статике не разрешается, нужен полный дамп с кучей.</p></div>
+  </section>
+
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Скопировано</div>
+
+<script>
+(function(){
+  var KEY="hota-theme-v6",root=document.documentElement;
+  var ic=document.getElementById("themeUse"),lb=document.getElementById("themeLabel");
+  var mq=window.matchMedia?matchMedia("(prefers-color-scheme: light)"):null;
+  // по умолчанию следуем за системной темой; ручной клик фиксирует light/dark и перекрывает её
+  function manual(){try{var s=localStorage.getItem(KEY);return(s==="light"||s==="dark")?s:null;}catch(e){return null;}}
+  function effective(){return manual()||(mq&&mq.matches?"light":"dark");}
+  // иконка — SVG (солнце/луна), переключаем href у <use>, а не emoji-глиф
+  function paintBtn(){var l=effective()==="light";
+    ic.setAttribute("href",l?"#ic-sun":"#ic-moon");
+    lb.textContent=l?"\u0421\u0432\u0435\u0442\u043B\u0430\u044F":"\u0422\u0451\u043C\u043D\u0430\u044F";}
+  // ВСЕГДА ставим явный класс (theme-light либо theme-dark) — без @media-CSS
+  function apply(){root.classList.remove("theme-light","theme-dark");
+    root.classList.add("theme-"+effective());paintBtn();}
+  apply();
+  // смена системной темы -> сбросить ручной выбор и снова следовать за системой
+  if(mq){var hh=function(){try{localStorage.removeItem(KEY);}catch(e){}apply();};
+    mq.addEventListener?mq.addEventListener("change",hh):mq.addListener(hh);}
+  document.getElementById("themeToggle").onclick=function(){
+    var n=effective()==="light"?"dark":"light";
+    try{localStorage.setItem(KEY,n);}catch(e){}apply();};
+  var links={},secs=[].slice.call(document.querySelectorAll("main section[id]"));
+  document.querySelectorAll("nav.toc a").forEach(function(a){links[a.getAttribute("href").slice(1)]=a;});
+  var lock=0,lockT,ticking=0;
+  // подсветка только в оглавлении
+  function setActive(id){
+    Object.keys(links).forEach(function(k){links[k].classList.remove("active");});
+    if(links[id])links[id].classList.add("active");}
+  function unlockSoon(){clearTimeout(lockT);lockT=setTimeout(function(){lock=0;},120);}
+  // активна — ПОСЛЕДНЯЯ секция, чьё начало выше порога чтения.
+  // Пороговая логика детерминирована и НЕ пропускает короткие секции
+  // (IntersectionObserver мог «перепрыгивать» через них при быстром скролле).
+  function pickActive(){
+    ticking=0;
+    if(lock)return;
+    var thr=innerHeight*0.2,cur=secs.length?secs[0].id:null;
+    for(var i=0;i<secs.length;i++){
+      if(secs[i].getBoundingClientRect().top<=thr)cur=secs[i].id;}
+    if(innerHeight+scrollY>=document.body.scrollHeight-2)cur=secs[secs.length-1].id;
+    if(cur)setActive(cur);}
+  // клик по оглавлению: сразу подсветить цель и заглушить scroll-spy до конца плавной прокрутки
+  document.querySelectorAll("nav.toc a").forEach(function(a){
+    a.addEventListener("click",function(){
+      setActive(a.getAttribute("href").slice(1));lock=1;unlockSoon();});
+  });
+  addEventListener("scroll",function(){
+    if(lock){unlockSoon();return;}
+    if(!ticking){ticking=1;requestAnimationFrame(pickActive);}
+  },{passive:true});
+  pickActive();
+  var toast=document.getElementById("toast"),tt;
+  function showToast(m){toast.textContent=m||"\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e";toast.classList.add("show");
+    clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove("show");},1300);}
+  document.querySelectorAll("[data-copy]").forEach(function(b){
+    b.onclick=function(){var sel=b.getAttribute("data-copy");
+      var el=sel==="prev"?b.parentElement.querySelector("pre"):document.querySelector(sel);
+      var txt=el?el.innerText:"";
+      navigator.clipboard&&navigator.clipboard.writeText(txt).then(function(){showToast("\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e");},
+        function(){showToast("\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c");});};
+  });
+})();
+</script>
+</body>
+</html>

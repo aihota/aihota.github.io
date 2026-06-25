@@ -1,0 +1,47 @@
+<section id="viz-crash" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span><a class="anchor" href="#viz-crash">¶</a></h2>
+  <p>Граф двух дорожек: слева — поток вызовов до адреса сбоя, справа — откуда
+    пришёл испорченный Pcx8. Пунктирная стрелка данных показывает, как источник
+    с нулевым буфером попадает в функцию отрисовки и встречается с чтением
+    <code>[EDX]</code> в точке сбоя.</p>
+  <div class="viz">
+    <svg class="viz-svg" viewBox="0 0 320 244" role="img"
+         aria-label="Граф цепочки вызовов и потока данных">
+      <defs>
+        <marker id="ah-call" viewBox="0 0 10 10" refX="8" refY="5"
+                markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path class="ahead" d="M0 0 L10 5 L0 10 z"/>
+        </marker>
+        <marker id="ah-data" viewBox="0 0 10 10" refX="8" refY="5"
+                markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path class="ahead accent" d="M0 0 L10 5 L0 10 z"/>
+        </marker>
+      </defs>
+
+      <!-- поток данных: L -> P -> (точка чтения 3) -->
+      <line class="flow data" x1="240" y1="60"  x2="240" y2="98"  marker-end="url(#ah-data)"/>
+      <line class="flow data" x1="223" y1="135" x2="100" y2="189" marker-end="url(#ah-data)"/>
+
+      <!-- поток вызовов: 1 -> 2 -> 3 -->
+      <line class="flow" x1="80" y1="60"  x2="80" y2="98"  marker-end="url(#ah-call)"/>
+      <line class="flow" x1="80" y1="142" x2="80" y2="180" marker-end="url(#ah-call)"/>
+
+      <!-- узлы: левая ось (вызовы) -->
+      <circle class="area accent" cx="80" cy="38"  r="20"/><text x="80" y="38">1</text>
+      <circle class="area accent" cx="80" cy="120" r="20"/><text x="80" y="120">2</text>
+      <circle class="area bad"    cx="80" cy="202" r="20"/><text x="80" y="202">3</text>
+
+      <!-- узлы: правая ось (данные) -->
+      <circle class="area accent" cx="240" cy="38"  r="20"/><text x="240" y="38">L</text>
+      <circle class="area bad"    cx="240" cy="120" r="20"/><text x="240" y="120">P</text>
+    </svg>
+
+    <div class="viz-legend">
+      <div class="item"><span class="viz-badge accent">1</span><span class="txt">Вызывающий код: перерисовка интерфейса вызывает функцию отрисовки <code>Pcx8</code>.</span></div>
+      <div class="item"><span class="viz-badge accent">2</span><span class="txt">Порт <code>HD_TC2 sub_20066E0</code> — замена исходной функции <code>h3hota.exe:0044F940</code>; доверяет источнику.</span></div>
+      <div class="item"><span class="viz-badge bad">3</span><span class="txt">Чтение <code>movzx eax, byte ptr [edx]</code> по адресу <code>0x00000000</code> — точка сбоя.</span></div>
+      <div class="item"><span class="viz-badge accent">L</span><span class="txt">Загрузчик <code>A0_Load_Pcx8_sub_55AA10</code> отдаёт объект картинки <code>Pcx8</code>.</span></div>
+      <div class="item"><span class="viz-badge bad">P</span><span class="txt">Источник <code>Pcx8</code> с нулевым буфером <code>[+30h] = 0</code> приходит в рисовалку (<code>EDX = EDI = 0</code>).</span></div>
+    </div>
+  </div>
+</section>

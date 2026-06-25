@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анализ вылета hota.dll+0xAA4D2</title>
+<style>
+
+:root{
+  --bg:#0f1117;--panel:#171a23;--panel2:#1d212c;--ink:#e6e9ef;--muted:#a6afbd;
+  --line:#2a2f3b;--accent:#94a3b8;--accent2:#7dd3fc;--hi:#fbbf24;--ok:#46d39a;--warn:#ffd633;
+  --bad:#ff5c7a;--code:#11141b;--kw:#ff7b72;--reg:#7ee787;--num:#79c0ff;--cmt:#8b949e;
+  --pretext:#cdd6e4;--badText:#ff8da3;--verdictGrad:linear-gradient(180deg,#1c1418,#171a23);
+  --br:rgba(255,255,255,.04);
+  --redBg:rgba(255,92,122,.14);--redInk:#ff8da3;--redLn:rgba(255,92,122,.35);
+  --blBg:rgba(74,163,255,.14);--blInk:#8ec5ff;--blLn:rgba(74,163,255,.35);
+  --gyBg:rgba(154,163,178,.12);--gyInk:#c4ccd8;--gyLn:rgba(154,163,178,.3);
+  --okBg:rgba(70,211,154,.10);--okLn:rgba(70,211,154,.32);
+  --wnBg:rgba(255,214,51,.12);--wnLn:rgba(255,214,51,.36);
+  --orange:#fb923c;--orangeBg:rgba(251,146,60,.14);
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+  /* шрифты: встроенные (если есть) -> системные с широким кросс-платформенным фолбэком */
+  --font-sans:"ReportSans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","DejaVu Sans","Liberation Sans",Helvetica,Arial,sans-serif;
+  --font-mono:"ReportMono","SF Mono",ui-monospace,"JetBrains Mono","Cascadia Code",Menlo,Consolas,"DejaVu Sans Mono","Liberation Mono","Noto Sans Mono",monospace;
+  /* стек типографских знаков/символов — текстовая (не эмодзи) презентация на всех ОС */
+  --font-sym:"Segoe UI Symbol","Apple Symbols","Noto Sans Symbols 2","DejaVu Sans",sans-serif;
+  /* типографическая шкала в rem (уважает системный размер шрифта); единый ритм */
+  --fs-3xs:.65625rem;--fs-2xs:.6875rem;--fs-xs:.78125rem;--fs-sm:.8125rem;
+  --fs-md:.875rem;--fs-base:.9375rem;--fs-lg:1rem;--fs-xl:1.125rem;--fs-2xl:1.375rem;
+  --fs-hero:clamp(1.5rem,2vw + 1.125rem,2.125rem);
+  /* font-size-adjust: одинаковая видимая высота строчных при ЛЮБОМ фолбэке (ключ к «одинаково везде») */
+  --fsa-sans:.52;--fsa-mono:.5;
+  /* единый вертикальный ритм и трекинг капс-меток (вместо разнобоя) */
+  --lh-tight:1.12;--lh-code:1.5;--lh-base:1.62;
+  --ls-caps:.13em;--ls-caps-wide:.16em;
+  /* выделение текста — заметная заливка (а не 14% var(--blBg), который почти не виден) */
+  --sel:rgba(74,163,255,.32);
+  color-scheme:dark;
+}
+html.theme-light{
+  --bg:#f4f6fb;--panel:#ffffff;--panel2:#eef1f6;--ink:#1c2230;--muted:#5a6473;
+  --line:#d7dce5;--accent:#475569;--accent2:#0369a1;--hi:#b45309;--ok:#1a7f5a;--warn:#b08c00;
+  --bad:#cf2e4a;--code:#f6f8fa;--kw:#cf222e;--reg:#116329;--num:#0550ae;--cmt:#6e7781;
+  --pretext:#24292f;--badText:#cf2e4a;--verdictGrad:linear-gradient(180deg,#fff5f6,#fff);
+  --br:rgba(0,0,0,.03);
+  --redBg:rgba(207,46,74,.10);--redInk:#b21f3b;--redLn:rgba(207,46,74,.3);
+  --blBg:rgba(31,111,235,.1);--blInk:#1551b5;--blLn:rgba(31,111,235,.3);
+  --gyBg:rgba(90,100,115,.1);--gyInk:#3d4756;--gyLn:rgba(90,100,115,.28);
+  --okBg:rgba(26,127,90,.09);--okLn:rgba(26,127,90,.3);
+  --wnBg:rgba(176,140,0,.12);--wnLn:rgba(176,140,0,.34);
+  --orange:#ea580c;--orangeBg:rgba(234,88,12,.12);
+  --shadow:0 8px 30px rgba(40,60,100,.12);
+  --sel:rgba(31,111,235,.28);
+  color-scheme:light;
+}
+/* Светлая палитра живёт ТОЛЬКО в html.theme-light; авто-режим проставляет
+   явный класс через JS (ранний скрипт в <head>), поэтому @media-дубль палитры
+   больше не нужен. */
+*{box-sizing:border-box}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* text-size-adjust: запрещаем браузерам самовольно раздувать шрифт (iOS/Android, поворот) */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:var(--fs-base)/var(--lh-base) var(--font-sans);
+  font-size-adjust:var(--fsa-sans);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;font-optical-sizing:auto;
+  font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1;
+  /* нуль со слешем и в прозе (единообразие с кодом) */
+  font-variant-numeric:slashed-zero;
+  /* синтез НЕ отключаем: нужен для псевдо-жира (<b>) и капители (b.hi)
+     на фолбэк-шрифтах без нативных начертаний (DejaVu/Liberation) */
+  transition:background .25s,color .25s}
+/* единый цвет выделения на всех ОС/браузерах */
+::selection{background:var(--sel);color:var(--ink)}
+/* моно-стек: slashed-zero + табличные цифры для hex; ВСЕ лигатуры off (asm: ->, !=, >=).
+   font-feature-settings:normal сбрасывает наследуемые от body kern/liga (иначе liga
+   остаётся включён) и убирает конфликт с font-variant-ligatures;
+   font-size-adjust держит высоту строчных при подмене моно-шрифта на др. ОС */
+code,pre,.mono,.stat .big,td.mono,th.mono{font-family:var(--font-mono);
+  font-size-adjust:var(--fsa-mono);
+  font-feature-settings:normal;
+  font-variant-ligatures:none;
+  font-variant-numeric:slashed-zero tabular-nums}
+a{color:var(--accent2);text-decoration:none}
+/* инлайн-иконки вместо emoji-глифов (★✓☀☾) — идентичны на всех ОС */
+.tic{width:1em;height:1em;vertical-align:-.14em;fill:none;stroke:currentColor;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tic.fill{fill:currentColor;stroke:none}
+/* символьные знаки, оставленные текстом (¶) — текстовая презентация, не emoji */
+h2 .anchor{font-family:var(--font-sym);font-variant-emoji:text}
+.theme-fab{position:absolute;top:18px;right:22px;z-index:5}
+.btn{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:9px;
+  padding:7px 12px;font-size:var(--fs-xs);font-weight:600;cursor:pointer;display:inline-flex;
+  align-items:center;gap:7px;transition:border-color .2s,transform .08s,background .2s}
+.btn:hover{border-color:var(--accent2)}
+.btn:active{transform:scale(.96)}
+.btn:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+.btn:focus:not(:focus-visible){outline:none}
+.shell{max-width:1180px;margin:0 auto;padding:0 22px;display:grid;
+  grid-template-columns:230px minmax(0,1fr);gap:38px;position:relative}
+nav.toc{position:sticky;top:24px;align-self:start;height:calc(100vh - 48px);
+  overflow-y:auto;padding:22px 0 40px;font-size:var(--fs-sm)}
+nav.toc .lbl{text-transform:uppercase;letter-spacing:var(--ls-caps-wide);font-size:var(--fs-3xs);
+  color:var(--muted);font-weight:700;margin:0 0 10px 12px}
+nav.toc a{display:flex;gap:9px;align-items:baseline;color:var(--muted);padding:6px 12px;
+  border-left:2px solid transparent;border-radius:0 7px 7px 0;transition:.15s}
+nav.toc a .n{font-family:var(--font-mono);font-size:var(--fs-2xs);opacity:.7;min-width:15px}
+nav.toc a:hover{color:var(--ink);background:var(--br)}
+nav.toc a.active{color:var(--ink);border-left-color:var(--accent2);
+  background:linear-gradient(90deg,var(--blBg),transparent);font-weight:600}
+main{padding-bottom:90px;min-width:0}
+@media(max-width:900px){.shell{grid-template-columns:1fr}nav.toc{display:none}}
+.hero{padding:40px 0 14px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-2xs);letter-spacing:var(--ls-caps-wide);
+  text-transform:uppercase;color:var(--accent);font-weight:700}
+/* «пуля» eyebrow — нарисованная точка, а не глиф ● (нет расхождений по ОС) */
+.eyebrow::before{content:"";display:inline-block;width:.5em;height:.5em;
+  border-radius:50%;background:var(--accent2)}
+h1.addr{margin:13px 0 8px;font-size:var(--fs-hero);line-height:var(--lh-tight);letter-spacing:-.01em;
+  font-family:var(--font-mono);font-weight:700;overflow-wrap:anywhere}
+h1.addr .mod{color:var(--hi)}
+.subtitle{color:var(--muted);font-size:var(--fs-lg);margin:0 0 20px;max-width:60ch}
+.byline{color:var(--muted);font-size:var(--fs-sm);margin:6px 0 4px}
+.byline b{color:var(--ink);font-weight:600}
+
+/* вердикт-callout: цветная метка «ВЕРДИКТ» (цвет = уровень полезности),
+   без дублирующей галочки (она уже на карточке «Полезность») */
+.ribbon{position:relative;margin:18px 0 8px;padding:15px 20px 16px;border-radius:16px;
+  background:var(--redBg);border:1px solid var(--redLn);box-shadow:var(--shadow)}
+.ribbon.lvl-mid{background:var(--wnBg);border-color:var(--wnLn)}
+.ribbon.lvl-low{background:var(--orangeBg);border-color:var(--orange)}
+.ribbon.lvl-high{background:var(--okBg);border-color:var(--okLn)}
+.ribbon .vlabel{display:flex;align-items:center;gap:9px;font-size:var(--fs-2xs);font-weight:700;
+  letter-spacing:var(--ls-caps-wide);text-transform:uppercase;color:var(--orange);margin-bottom:7px}
+.ribbon.lvl-mid .vlabel{color:var(--warn)}
+.ribbon.lvl-high .vlabel{color:var(--ok)}
+.ribbon .vlabel::before{content:"";width:22px;height:2px;border-radius:2px;background:currentColor}
+.ribbon .vtxt{font-size:var(--fs-md);line-height:var(--lh-base)}
+.ribbon .vtxt b{color:var(--orange)}
+.ribbon.lvl-mid .vtxt b{color:var(--warn)}
+.ribbon.lvl-high .vtxt b{color:var(--ok)}
+.statstrip{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:12px;margin:18px 0 6px}
+/* карточки шапки: иконка в тонированном квадрате + цвет по смыслу
+   (c-ver синий, c-cls красный, c-cnt нейтр., c-use зелёный/жёлтый/красный) */
+.stat{display:flex;gap:12px;align-items:center;background:var(--panel);
+  border:1px solid var(--line);border-radius:13px;padding:13px 15px}
+.stat .ic-badge{flex:0 0 auto;width:40px;height:40px;border-radius:11px;display:grid;
+  place-items:center}
+.stat .ic{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
+.stat .st-body{min-width:0}
+.stat .big{font-size:var(--fs-2xl);font-weight:800;line-height:var(--lh-tight);
+  overflow-wrap:anywhere}
+.stat .cap{color:var(--muted);font-size:var(--fs-2xs);margin-top:2px}
+.stat.c-ver .ic-badge{background:var(--blBg);color:var(--blInk)}
+.stat.c-ver .big{color:var(--blInk);font-size:var(--fs-lg);letter-spacing:-.2px}
+.stat.c-cls .ic-badge{background:var(--redBg);color:var(--redInk)}
+.stat.c-cls .big{color:var(--redInk);font-size:var(--fs-base)}
+.stat.c-cnt .ic-badge{background:var(--gyBg);color:var(--gyInk)}
+.stat.c-use .ic-badge{background:var(--okBg);color:var(--ok)}
+.stat.c-use .big{color:var(--ok)}
+.stat.c-use.use-mid .ic-badge{background:var(--wnBg);color:var(--warn)}
+.stat.c-use.use-mid .big{color:var(--warn)}
+/* НИЗКАЯ — оранжевый (а не красный), чтобы не сливаться с «Классом сбоя» */
+.stat.c-use.use-bad .ic-badge{background:var(--orangeBg);color:var(--orange)}
+.stat.c-use.use-bad .big{color:var(--orange)}
+
+/* ----- СЕКЦИЯ-ПАНЕЛЬ: аналитические секции 1–11 — панели с шапкой-заголовком;
+   резюме/вывод остаются акцентными карточками-«закладками». */
+section{scroll-margin-top:24px;margin:30px 0}
+h2{margin:0 0 14px;display:flex;align-items:center;gap:11px;font-weight:700;
+  font-size:var(--fs-sm);letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--accent2);
+  border-bottom:1px solid var(--line);padding-bottom:10px}
+h2 .htext{flex:1}
+h2 .anchor{opacity:0;color:var(--muted);font-weight:400;font-size:var(--fs-md);transition:.15s}
+h2:hover .anchor{opacity:.7}
+/* вывод — «закладка» с чистым заголовком (не панель) */
+section#verdict h2{border-bottom:0}
+/* панели-секции: все секции, кроме вывода (резюме и визуализация — тоже панели) */
+#doc>section:not(#verdict){background:var(--panel);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;margin:18px 0;padding:0 20px 16px}
+#doc>section:not(#verdict)>h2{background:var(--panel2);margin:0 -20px 16px;
+  padding:12px 20px;border-bottom:1px solid var(--line)}
+/* внутренние карточки внутри панели — плоские (без двойной рамки) */
+#doc>section:not(#verdict) .card{background:transparent;border:0;border-radius:0;
+  padding:0;margin:10px 0}
+/* разделитель между смежными плоскими карточками в секции (напр. раздел 1:
+   блок мета-полей | блок Модуль/адрес) — пунктир, чтобы не слипались */
+#doc>section:not(#verdict) .card+.card{border-top:1px dashed var(--line);
+  margin-top:14px;padding-top:14px}
+h3{font-size:var(--fs-base);margin:20px 0 8px}
+p{margin:10px 0}.lead{color:var(--muted)}
+/* БЕЗ переносов слов: justify растягивает строку пробелами, слова целые.
+   max-width ЗДЕСЬ НЕ ставим: он сужал абзацы уже секции, и justify
+   выравнивал по узкой мере строки, а не по ширине секции. */
+#doc>section p{hyphens:none;-webkit-hyphens:none}
+p{text-wrap:pretty}
+/* выравнивание по ширине для всего текста в секциях.
+   text-wrap:pretty/balance отключают justify-алгоритм (Gecko/WebKit),
+   поэтому для выравниваемых абзацев возвращаем обычный перенос.
+   Центр-подписи под svg заданы inline и перекрывают это правило. */
+#doc>section p,#doc>section li{text-align:justify;text-wrap:wrap}
+h1.addr,h2,h3{text-wrap:balance}
+ul{margin:10px 0;padding-left:20px}li{margin:6px 0}
+/* акцент капителью вместо «орущего» КАПСА (текст-контент не меняется) */
+b.hi{color:var(--hi);font-variant:small-caps;text-transform:lowercase;
+  letter-spacing:.02em;font-weight:600}
+
+p code,li code,.kv .v code,.chain .ttl code,.chain .desc code,.note code{
+  font-family:var(--font-mono);background:var(--code);
+  border:1px solid var(--line);border-radius:5px;padding:0 5px;font-size:.9em;
+  color:var(--ink);white-space:nowrap}
+.chain .ttl code{white-space:normal;word-break:break-all}
+.note code{background:color-mix(in srgb,var(--ink) 8%,transparent);
+  border-color:color-mix(in srgb,var(--ink) 14%,transparent)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.card.summary{border-left:4px solid var(--accent)}
+.card.verdict{border-left:4px solid var(--orange);background:var(--verdictGrad)}
+/* «Вывод» — фон ПО УРОВНЮ полезности, как лента «Заключение» вверху
+   (раньше был фиксированный розовый verdictGrad — конфликтовал с зелёной лентой) */
+.card.verdict.lvl-low{border-left-color:var(--orange);
+  background:linear-gradient(180deg,var(--orangeBg),var(--panel))}
+.card.verdict.lvl-mid{border-left-color:var(--warn);
+  background:linear-gradient(180deg,var(--wnBg),var(--panel))}
+.card.verdict.lvl-high{border-left-color:var(--ok);
+  background:linear-gradient(180deg,var(--okBg),var(--panel))}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}}
+/* раздел «Достоверность»: блоки «Подтверждено» и «Ограничения»
+   сильно разной длины — ставим их ОДИН ПОД ДРУГИМ (одна колонка),
+   чтобы не было пустоты рядом с коротким блоком.
+   margin у .note гасим: иначе он складывается с gap грида (14+15+14)
+   и даёт слишком большой отступ между блоками */
+#s9 .grid2{grid-template-columns:1fr}
+#s9 .grid2 .note{margin:0}
+.kv{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:var(--fs-sm)}
+.kv:last-child{border-bottom:0}
+.kv .k{color:var(--muted);min-width:118px}.kv .v{font-family:var(--font-mono)}
+.codewrap{position:relative;margin:14px 0}
+.codewrap .copy{position:absolute;top:8px;right:8px;opacity:0;transition:.15s;
+  background:var(--panel2);border:1px solid var(--line);border-radius:7px;color:var(--muted);
+  font-size:var(--fs-2xs);padding:4px 9px;cursor:pointer}
+.codewrap:hover .copy{opacity:1}
+.codewrap .copy:hover{color:var(--ink);border-color:var(--accent2)}
+pre{background:var(--code);border:1px solid var(--line);border-radius:12px;padding:15px 17px;
+  overflow-x:auto;font-size:var(--fs-xs);line-height:var(--lh-code);tab-size:4;margin:0;color:var(--pretext)}
+pre .a{color:var(--cmt)}pre .k{color:var(--kw)}pre .r{color:var(--reg)}
+pre .n{color:var(--num)}pre .c{color:var(--cmt);font-style:italic}
+pre .fault{background:var(--redBg);display:block;border-left:3px solid var(--bad);
+  padding-left:8px;margin-left:-10px}
+.formula{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:center;
+  background:var(--code);border:1px solid var(--line);border-radius:14px;padding:18px;
+  font-family:var(--font-mono);margin:14px 0}
+.formula .tok{font-size:var(--fs-lg)}
+.formula .op{color:var(--muted)}
+.formula .res{color:var(--bad);font-weight:700}
+.formula .eq{color:var(--ok);font-weight:700;font-size:var(--fs-xl)}
+/* сворачиваемый форензик-аппендикс: большие доказательные таблицы по клику */
+.appendix{margin:14px 0;border:1px solid var(--line);border-radius:12px;
+  background:var(--panel2);overflow:hidden}
+.appendix>summary{cursor:pointer;padding:10px 14px;font-size:var(--fs-sm);
+  font-weight:600;color:var(--muted);list-style:none;user-select:none;
+  display:flex;align-items:center;gap:8px;transition:color .15s}
+.appendix>summary::-webkit-details-marker{display:none}
+.appendix>summary::before{content:"";width:0;height:0;
+  border-left:5px solid currentColor;border-top:4px solid transparent;
+  border-bottom:4px solid transparent;transition:transform .15s}
+.appendix[open]>summary::before{transform:rotate(90deg)}
+.appendix>summary:hover{color:var(--accent2)}
+.appendix .tablewrap{border:0;border-top:1px solid var(--line);border-radius:0}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:var(--fs-xs);min-width:780px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+thead th{background:var(--panel2);color:var(--muted);font-weight:700;letter-spacing:.03em;
+  position:sticky;top:0;font-size:var(--fs-2xs);text-transform:uppercase}
+tbody tr:hover{background:var(--blBg)}
+td.mono,th.mono{font-family:var(--font-mono)}
+td .ok{color:var(--ok)}
+td.flag{color:var(--bad);font-weight:700;
+  background:linear-gradient(90deg,var(--redBg),transparent)}
+
+.note{border-radius:12px;padding:13px 17px;margin:14px 0;font-size:var(--fs-md)}
+.note.ok{background:var(--okBg);border:1px solid var(--okLn)}
+/* «Важно» — тёплый янтарный акцент (смещён от чистого жёлтого warn
+   к оранжевому: читается как «обрати внимание», а не как тревога) */
+.note.warn{background:color-mix(in srgb,var(--orange) 10%,transparent);
+  border:1px solid color-mix(in srgb,var(--orange) 36%,transparent)}
+.note.info{background:var(--blBg);border:1px solid var(--blLn)}
+.note .t{font-weight:700;margin-bottom:4px;display:block}
+.chain{margin:16px 0}
+.chain .step{display:flex;align-items:flex-start;gap:14px;padding:9px 0;position:relative}
+.chain .dot{flex:0 0 auto;width:13px;height:13px;border-radius:50%;margin-top:5px;
+  background:var(--panel);border:2px solid var(--accent2);z-index:1}
+.chain .step.fault .dot{border-color:var(--bad);background:var(--redBg)}
+.chain .step:not(:last-child)::before{content:"";position:absolute;left:6px;top:20px;
+  bottom:-9px;width:2px;background:var(--line)}
+.chain .ttl{font-family:var(--font-mono);font-size:var(--fs-sm)}
+.chain .step.fault .ttl{color:var(--badText);font-weight:700}
+.chain .desc{color:var(--muted);font-size:var(--fs-xs)}
+.chain .modtag{font-size:var(--fs-3xs);font-weight:700;padding:1px 7px;border-radius:5px;margin-right:7px;
+  vertical-align:1px}
+.m-exe{background:var(--gyBg);color:var(--gyInk)}
+.m-tc{background:var(--redBg);color:var(--redInk)}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:10px;font-size:var(--fs-sm);
+  font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:80}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ============================================================
+   VISUALIZATION TOOLKIT (.viz-*) для sidecar-врезок (правило о
+   визуализации вылета). ЦЕЛЬ: схемы строятся РАСКЛАДКОЙ CSS
+   (flex/grid), а НЕ ручными SVG-координатами — браузер сам
+   считает позиции, поэтому подписи НИКОГДА не налезают.
+   Все цвета — только из токенов темы (корректно dark/light/print).
+   SVG применять ТОЛЬКО для линий/стрелок (.viz-svg); подписи
+   к ним выносить в .viz-legend под схемой, в графике — короткие
+   .viz-badge. Подробности и шаблоны — в навыке html-report. */
+.viz{margin:16px 0}
+.viz-cap{font-size:var(--fs-xs);color:var(--muted);text-align:center;margin:8px 0 0}
+/* горизонтальная лента блоков (память/массив/диапазон) */
+.viz-strip{display:flex;align-items:stretch;gap:6px;flex-wrap:nowrap;
+  overflow-x:auto;padding:6px 0}
+/* блок-ячейка ленты: подпись внутри, центрируется, перенос строк сам */
+.viz-box{flex:1 1 0;min-width:96px;border:2px solid var(--line);border-radius:10px;
+  background:var(--panel2);padding:12px 10px;text-align:center;
+  font-size:var(--fs-xs);line-height:var(--lh-tight);color:var(--ink);
+  display:flex;flex-direction:column;justify-content:center;gap:4px}
+.viz-box .lbl{font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--muted)}
+.viz-box.ok{border-color:var(--okLn);background:var(--okBg)}
+.viz-box.bad{border-color:var(--redLn);background:var(--redBg)}
+.viz-box.accent{border-color:var(--blLn);background:var(--blBg)}
+.viz-box.dashed{border-style:dashed}
+.viz-box.dim{opacity:.55}
+/* круглый бейдж-маркер (A/B/F/S/0/1) — короткий, не текст */
+.viz-badge{display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:50%;font-weight:700;font-size:var(--fs-sm);
+  font-family:var(--font-mono);border:2px solid var(--accent2);color:var(--ink);
+  background:var(--panel);flex:0 0 auto;vertical-align:middle}
+.viz-badge.ok{border-color:var(--ok);color:var(--ok)}
+.viz-badge.bad{border-color:var(--bad);color:var(--badText)}
+.viz-badge.accent{border-color:var(--accent2);color:var(--accent2)}
+/* координатный холст: ТОЛЬКО для геометрии, рисуем линии/стрелки */
+.viz-svg{display:block;max-width:100%;height:auto;margin:6px auto;
+  font-family:inherit;font-size:var(--fs-xs)}
+.viz-svg .edge{stroke:var(--line);stroke-width:1}
+.viz-svg .flow{stroke:var(--bad);stroke-width:2;fill:none}
+.viz-svg .flow.ok{stroke:var(--ok)}
+.viz-svg .area{fill:var(--panel2);stroke:var(--line);stroke-width:1.5}
+/* легенда под схемой: бейдж + пояснение, в одну/две колонки, без наложений */
+.viz-legend{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin:12px 0 0}
+@media(max-width:680px){.viz-legend{grid-template-columns:1fr}}
+.viz-legend .item{display:flex;align-items:flex-start;gap:9px;
+  font-size:var(--fs-sm);color:var(--ink)}
+.viz-legend .item .txt{color:var(--muted)}
+@media print{.viz-strip{overflow-x:visible;flex-wrap:wrap}
+  .viz-box,.viz-badge,.viz-svg .area{break-inside:avoid}}
+
+@media print{
+  .theme-fab,nav.toc,.btn,.copy,.toast,h2 .anchor{display:none!important}
+  .shell{grid-template-columns:1fr;max-width:none}
+  /* screen-сглаживание на бумаге делает текст слишком тонким; сбрасываем */
+  body{background:#fff;color:#000;
+    -webkit-font-smoothing:auto;-moz-osx-font-smoothing:auto;font-size-adjust:none}
+  pre,.card,.note,table{break-inside:avoid}
+  section{break-inside:avoid-page}
+  /* на печати раскрываем все аппендиксы: details без [open] иначе скроет содержимое */
+  .appendix>summary{display:none}
+  details.appendix>*{display:revert!important}
+  .appendix .tablewrap{border-top:0}
+}
+</style>
+<script>
+(function(){try{var t=localStorage.getItem("hota-theme-v6");
+var m=(t==="light"||t==="dark")?t
+  :((window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches)?"light":"dark");
+document.documentElement.classList.add("theme-"+m);}catch(e){}})();
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="ic-package" viewBox="0 0 24 24"><path d="M16.5 9.4 7.5 4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+  <symbol id="ic-triangle" viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></symbol>
+  <symbol id="ic-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+  <symbol id="ic-sig3" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="currentColor" stroke="none"/><rect x="17" y="5" width="4" height="15" rx="1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="ic-sig2" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="currentColor" stroke="none"/><rect x="17" y="5" width="4" height="15" rx="1" fill="none" stroke="currentColor" opacity=".35"/></symbol>
+  <symbol id="ic-sig1" viewBox="0 0 24 24"><rect x="3" y="13" width="4" height="7" rx="1" fill="currentColor" stroke="none"/><rect x="10" y="9" width="4" height="11" rx="1" fill="none" stroke="currentColor" opacity=".35"/><rect x="17" y="5" width="4" height="15" rx="1" fill="none" stroke="currentColor" opacity=".35"/></symbol>
+  <symbol id="ic-star" viewBox="0 0 24 24"><path d="M12 2.5l2.95 5.98 6.6.96-4.77 4.65 1.13 6.57L12 17.56l-5.9 3.1 1.12-6.57L2.45 9.44l6.6-.96z"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="ic-diamond" viewBox="0 0 24 24"><path d="M12 2 22 12 12 22 2 12Z"/></symbol>
+  <symbol id="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="ic-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+</defs></svg>
+<div class="shell">
+<button class="btn theme-fab" id="themeToggle" type="button" aria-label="Переключить тему оформления"><svg class="tic" aria-hidden="true"><use id="themeUse" href="#ic-sun"/></svg><span id="themeLabel">Светлая</span></button>
+  <nav class="toc" id="toc">
+    <p class="lbl">Содержание</p>
+    <a href="#viz-mechanism"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-diamond"/></svg></span>Визуализация вылета</a>
+    <a href="#summary"><span class="n"><svg class="tic fill" aria-hidden="true"><use href="#ic-star"/></svg></span>Резюме</a>
+    <a href="#s1"><span class="n">1</span>Исходные данные</a>
+    <a href="#s2"><span class="n">2</span>Корреляция дампов</a>
+    <a href="#s3"><span class="n">3</span>Сопоставление адресов</a>
+    <a href="#s4"><span class="n">4</span>Точка сбоя</a>
+    <a href="#s5"><span class="n">5</span>Регистровые инварианты</a>
+    <a href="#s6"><span class="n">6</span>Цепочка вызовов</a>
+    <a href="#s7"><span class="n">7</span>Первопричина</a>
+    <a href="#s8"><span class="n">8</span>Условия сбоя</a>
+    <a href="#s9"><span class="n">9</span>Достоверность</a>
+    <a href="#s10"><span class="n">10</span>Поиск в др. версиях</a>
+    <a href="#s11"><span class="n">11</span>Воспроизведение</a>
+    <a href="#verdict"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-check"/></svg></span>Вывод</a>
+  </nav>
+  <main id="doc">
+
+  <div class="hero">
+    <span class="eyebrow">Анализ вылета</span>
+    <h1 class="addr"><span class="mod">hota.dll</span>+0xAA4D2</h1>
+    <p class="subtitle">подсистема HotA.CanHaveBattles, карта приключений</p>
+    <p class="byline">Claude Opus 4.8 · 17.06.2026</p>
+    <div class="ribbon lvl-mid">
+      <div class="vlabel">Заключение</div>
+      <div class="vtxt">Виновник — <code>hota.dll</code>. Обработчик подсистемы карты приключений читает запись из таблицы по корректному id объекта, но базовый указатель таблицы (поле подсистема<code>+0x10</code>) равен <code>NULL</code>. Сам объект подсистемы цел, индекс валиден — отсутствует сама таблица. Разыменование нулевого указателя.</div>
+    </div>
+    <div class="statstrip"><div class="stat c-ver"><div class="ic-badge"><svg class="ic"><use href="#ic-package"/></svg></div><div class="st-body"><div class="big">1.8.0</div><div class="cap">Версия HotA</div></div></div><div class="stat c-cls"><div class="ic-badge"><svg class="ic"><use href="#ic-triangle"/></svg></div><div class="st-body"><div class="big">разыменование нулевого указателя</div><div class="cap">Класс сбоя</div></div></div><div class="stat c-cnt"><div class="ic-badge"><svg class="ic"><use href="#ic-database"/></svg></div><div class="st-body"><div class="big">12</div><div class="cap">Количество логов</div></div></div><div class="stat c-use use-mid"><div class="ic-badge"><svg class="ic"><use href="#ic-sig2"/></svg></div><div class="st-body"><div class="big">СРЕДНЯЯ</div><div class="cap">Полезность лога</div></div></div></div>
+  </div>
+
+  <section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">#</a></h2>
+
+  <p>Обработчик "HotA.CanHaveBattles" берёт id объекта (0..4), умножает на
+     размер записи 19 байт и прибавляет начало вектора из поля
+     <code>подсистема+0x10</code>. Объект подсистемы цел, id корректен, но
+     вектор записей пуст - его начало (<code>begin</code>) равно нулю,
+     поэтому чтение поля записи <code>[NULL + id*19 + 0x0D]</code> падает
+     по нулевому указателю. Пустой вектор - штатное состояние, не порча.</p>
+
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box ok">A: объект подсистемы<span class="lbl">EAX, валиден</span></div>
+      <div class="viz-box ok">поле +0x10<span class="lbl">begin вектора</span></div>
+      <div class="viz-box bad dashed">B: begin = NULL<span class="lbl">вектор пуст</span></div>
+    </div>
+    <p class="viz-cap">начало вектора (подсистема+0x10) прочитано успешно и равно 0 (вектор пуст)</p>
+  </div>
+
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box bad">B = 0<span class="lbl">база NULL</span></div>
+      <div class="viz-box dim">id*19<span class="lbl">id из {0..4}</span></div>
+      <div class="viz-box bad">F: чтение [+0x0D]<span class="lbl">адрес = id*19+0x0D</span></div>
+    </div>
+    <p class="viz-cap">адрес сбоя = 0 + id*19 + 0x0D (0x0D, 0x20, 0x33, 0x46, 0x59 по логам)</p>
+  </div>
+
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge ok">A</span>
+      <span class="txt">Объект подсистемы выделен (EAX - правдоподобный адрес кучи);
+      его поле +0x10 должно хранить базовый адрес таблицы записей.</span></div>
+    <div class="item"><span class="viz-badge bad">B</span>
+      <span class="txt">Начало вектора (begin) равно NULL - вектор записей пуст
+      (штатное состояние, не порча); загрузчик ещё не добавил записи.</span></div>
+    <div class="item"><span class="viz-badge bad">F</span>
+      <span class="txt">Адрес сбоя = база + id*19 + 0x0D. Так как база = 0,
+      адрес чтения совпадает ровно с id*19 + 0x0D - чистое разыменование нуля.</span></div>
+  </div>
+</section>
+
+  <section id="summary">
+    <h2><span class="htext">Краткое резюме</span><a class="anchor" href="#summary">¶</a></h2>
+    <div class="card summary"><p>При действии игрока на карте приключений (обработка щелчка мышью, идущая через HD-мод обратно в <code>hota.dll</code>) вызывается функция <code>hota.dll</code> <code>sub_100AA4B0</code>. Она берёт небольшой идентификатор объекта (0..4 во всех логах), умножает его на размер записи <code>0x13</code> (19 байт) и прибавляет базовый адрес таблицы записей подсистемы. Базовый адрес лежит в поле "подсистема<code>+0x10</code>" и во всех 12 логах равен нулю. В результате чтение поля записи по адресу "0 + id*<code>19 + 0x0D</code>" падает по нулевому указателю.</p><p>Тип исключения: <code>EXCEPTION_ACCESS_VIOLATION</code>, чтение. Адрес чтения: маленький (<code>0x0D</code>, <code>0x20</code>, <code>0x33</code>, <code>0x46</code>, <code>0x59</code>) — это id*<code>19 + 0x0D</code>. Где: <code>hota.dll</code>, функция <code>sub_100AA4B0</code>, инструкция <code>cmp byte ptr [esi+0Dh], 0</code>. Корневой регистр: <code>ESI</code> = id*19 (id из {0,1,2,3,4}); базовый адрес таблицы, прибавляемый к <code>ESI</code>, равен нулю.</p><p>Сам объект подсистемы выделен корректно (регистр <code>EAX</code> во всех логах — правдоподобный адрес кучи, чтение его поля <code>+0x10</code> проходит и возвращает 0). Отсутствует именно таблица записей, на которую это поле должно указывать.</p><p>Уточнение по структуре (установлено по коду): "таблица" — это обычный растущий вектор. Его заголовок лежит прямо в объекте подсистемы: поле <code>+0x10</code> = begin (начало), <code>+0x14</code> = end (конец), <code>+0x18</code> = capacity (ёмкость). begin = <code>NULL</code> во всех 12 логах означает, что вектор <b class="hi">ПУСТ</b> — это штатное начальное состояние пустого вектора, а НЕ повреждённый ("мусорный") указатель. Подсистема — именованный обработчик движка HotA "HotA.<code>CanHaveBattles</code>" ("может ли объект иметь бои"); его и вызывает HD-мод при обработке действия по карте.</p></div>
+  </section>
+
+  <section id="s1">
+    <h2><span class="htext">Исходные данные</span><a class="anchor" href="#s1">¶</a></h2>
+    <p>Версия HotA: 1.8.0 Версии HD-мода: 5.7 R13 Класс сбоя: разыменование нулевого указателя Уникальных вылетов: 12</p><p>Модуль сбоя: <code>hota.dll</code> (<code>load_base</code> <code>0x5D4F0000</code>, size <code>0x04692000</code>). Листинг: Модули/<code>HotA.dll-180.txt</code> (Imagebase <code>0x10000000</code>, File <code>Name HotA.dll</code>, Timestamp 695C2FC1, версия 1.8.0) — соответствует упавшей сборке.</p><p>Exception (лог N1): <code>Module hota.dll</code>, Address [ <code>hota.dll+0xAA4D2</code> ], Code <code>EXCEPTION_ACCESS_VIOLATION</code>, Information: read of address: <code>0x00000046</code>. Context (лог N1): <code>EAX</code> <code>0x05492780</code>, <code>ECX</code> <code>0x15DE84F8</code>, <code>EDX</code> <code>0x00000045</code>, <code>EBX</code> <code>0x11E44C00</code>, <code>ESP</code> <code>0x00189C80</code>, <code>EBP</code> <code>0x00189C98</code>, <code>ESI</code> <code>0x00000039</code>, <code>EDI</code> <code>0x00000046</code>.</p><p>Состояние игры (по всем логам): Game Type = 2; Network Game = 1 только в 2 логах из 12, в остальных = 0. Me == Active Player во <b class="hi">ВСЕХ</b> логах (<code>1/1</code>, 0/0, 2/2, 5/5) — вылет всегда на <b class="hi">СОБСТВЕННОМ</b> ходу игрока (не ход ИИ). Day, карты и игроки разные (см. раздел 2). Last RMG Seed = 0. Quick Combat = 1, Graphics.Threads = 2, Memory.Mod = 0 (лог N1). <code>has_underground</code>: N/A — поля нет в этой версии лога.</p>
+  </section>
+
+  <section id="s2">
+    <h2><span class="htext">Корреляция дампов (сравнительная таблица)</span><a class="anchor" href="#s2">¶</a></h2>
+    <p>Все 12 логов уникальны (точных дублей нет). Адрес сбоя один, вызывающий код один: <code>HD_HOTA.dll+0x134B74</code> <code>(sub_1134A00+0x174)</code> во всех 12.</p><details class="appendix"><summary>Таблица данных: 12 строк (развернуть)</summary><div class="tablewrap"><table><thead><tr><th class="mono">№</th><th class="mono">Адрес сбоя</th><th class="mono">ESI</th><th class="mono">id</th><th class="mono">EAX(подсист+0x10)</th><th class="mono">День</th><th class="mono">Карта (из лога)</th></tr></thead><tbody><tr><td class="mono">1</td><td class="mono">0x46</td><td class="mono">0x39</td><td class="mono">3</td><td class="mono">0x05492780</td><td class="mono">1 14</td><td class="mono">Petrosan,gross2024 ...</td></tr><tr><td class="mono">2</td><td class="mono">0x20</td><td class="mono">0x13</td><td class="mono">1</td><td class="mono">0x05F5CDB8</td><td class="mono">1 45</td><td class="mono">The Battle of Daeyan' ...</td></tr><tr><td class="mono">3</td><td class="mono">0x0D</td><td class="mono">0x00</td><td class="mono">0</td><td class="mono">0x076C3A18</td><td class="mono">1 14</td><td class="mono">LORd__Ilya17 ...</td></tr><tr><td class="mono">4</td><td class="mono">0x20</td><td class="mono">0x13</td><td class="mono">1</td><td class="mono">0x060919B0</td><td class="mono">3 27</td><td class="mono">The Battle of Daeyan' ...</td></tr><tr><td class="mono">5</td><td class="mono">0x0D</td><td class="mono">0x00</td><td class="mono">0</td><td class="mono">0x0D30A478</td><td class="mono">1 17</td><td class="mono">Player ...</td></tr><tr><td class="mono">6</td><td class="mono">0x20</td><td class="mono">0x13</td><td class="mono">1</td><td class="mono">0x08897FE0</td><td class="mono">1 13</td><td class="mono">Step by Step (Allies) ...</td></tr><tr><td class="mono">7</td><td class="mono">0x33</td><td class="mono">0x26</td><td class="mono">2</td><td class="mono">0x05F7DB50</td><td class="mono">1 12</td><td class="mono">VitaliyDubinin,Novits ...</td></tr><tr><td class="mono">8</td><td class="mono">0x20</td><td class="mono">0x13</td><td class="mono">1</td><td class="mono">0x0836CFF0</td><td class="mono">1 13</td><td class="mono">[HotA] Air Supremacy ...</td></tr><tr><td class="mono">9</td><td class="mono">0x0D</td><td class="mono">0x00</td><td class="mono">0</td><td class="mono">0x07999440</td><td class="mono">1 43</td><td class="mono">Peaceful Ending.h3m</td></tr><tr><td class="mono">10</td><td class="mono">0x0D</td><td class="mono">0x00</td><td class="mono">0</td><td class="mono">0x079B2358</td><td class="mono">1 44</td><td class="mono">Peaceful Ending.h3m</td></tr><tr><td class="mono">11</td><td class="mono">0x59</td><td class="mono">0x4C</td><td class="mono">4</td><td class="mono">0x08A6EC90</td><td class="mono">1 12</td><td class="mono">War of the Mighty.h3m</td></tr><tr><td class="mono">12</td><td class="mono">0x20</td><td class="mono">0x13</td><td class="mono">1</td><td class="mono">0x06010028</td><td class="mono">1 45</td><td class="mono">The Battle of Daeyan' ...</td></tr></tbody></table></div></details><p>Группировка: одна точка сбоя, один вызывающий код, один регистровый шаблон — один корневой дефект.</p><p>Распределение id объекта <code>(ESI / 0x13)</code>: id=0 в 4 логах, id=1 в 5, id=2, id=3, id=4 — по одному. Все значения малые и допустимые (маска <code>0x3FF</code> даёт диапазон 0..1023).</p><p>Повторяемость по контенту: карта "The Battle of Daeyan' ..." дала 3 лога (N2, N4, N12), причём N2 и N12 — один день "1 45" и один id=1; карта "Peaceful Ending.h3m" дала 2 лога (N9, N10) на соседние дни с id=0. То есть на одних и тех же картах/состояниях вылет повторяется у независимых логов — сильный признак воспроизводимости по содержимому, а не случайной порчи памяти.</p>
+  </section>
+
+  <section id="s3">
+    <h2><span class="htext">Сопоставление адресов</span><a class="anchor" href="#s3">¶</a></h2>
+    <p><code>runtime_addr = 0x5D59A4D2</code> (из Call stack V2: 5D59A4D2, hota 5D4F0000). <code>IDA_addr = runtime_addr</code> — <code>load_base</code> + imagebase = <code>0x5D59A4D2</code> — <code>0x5D4F0000 + 0x10000000 = 0x100AA4D2</code>. <code>module_off = 0x100AA4D2</code> — <code>0x10000000 = 0xAA4D2</code> == заголовок лога. Совпало.</p><p>Проверка адреса чтения (по всем логам): инструкция сбоя -</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="k">cmp</span> <span class="r">byte</span> <span class="r">ptr</span> [<span class="r">esi</span>+<span class="n">0Dh</span>], <span class="n">0</span>, то есть адрес чтения = <span class="r">ESI</span> + <span class="n">0</span>x0D.
+   лог N3:  ESI 0x00 -&gt; 0x00 + 0x0D = 0x0D  == read of address. Совпало.
+   лог N2:  ESI 0x13 -&gt; 0x13 + 0x0D = 0x20  == read of address. Совпало.
+   лог N7:  ESI 0x26 -&gt; 0x26 + 0x0D = 0x33  == read of address. Совпало.
+   лог N1:  ESI 0x39 -&gt; 0x39 + 0x0D = 0x46  == read of address. Совпало.
+   лог N11: ESI 0x4C -&gt; 0x4C + 0x0D = 0x59  == read of address. Совпало.</pre></div><p>Поскольку адрес чтения равен ровно id*<code>0x13 + 0x0D</code> <b class="hi">БЕЗ</b> слагаемого-базы, базовый адрес таблицы, прибавляемый перед чтением, равен нулю во всех 12.</p>
+  </section>
+
+  <section id="s4">
+    <h2><span class="htext">Точка сбоя — разбор инструкций</span><a class="anchor" href="#s4">¶</a></h2>
+    <p>Функция <code>hota.dll</code> <code>sub_100AA4B0</code> (.text:100AA4B0):</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:100AA4B0  </span><span class="k">mov</span>   <span class="r">eax</span>, [<span class="r">esp</span>+arg_0]
+<span class="a">.text:100AA4B4  </span><span class="k">push</span>  <span class="r">esi</span>
+<span class="a">.text:100AA4B5  </span><span class="k">push</span>  <span class="r">dword</span> <span class="r">ptr</span> ds:<span class="n">699538h</span>   <span class="c">; GameMgr</span>
+<span class="a">.text:100AA4BB  </span><span class="k">mov</span>   <span class="r">esi</span>, [<span class="r">eax</span>]             <span class="c">; esi = id = *arg_0</span>
+<span class="a">.text:100AA4BD  </span><span class="k">and</span>   <span class="r">esi</span>, <span class="n">3FFh</span>              <span class="c">; id &amp;= 0x3FF (0..1023)</span>
+<span class="a">.text:100AA4C3  </span><span class="k">call</span>  sub_100B5C60           <span class="c">; eax = &amp;GameMgr[dword_10634AC8]</span>
+<span class="a">.text:100AA4C8  </span><span class="k">imul</span>  <span class="r">esi</span>, <span class="n">13h</span>               <span class="c">; esi = id * 19</span>
+<span class="a">.text:100AA4CB  </span><span class="k">mov</span>   <span class="r">eax</span>, [<span class="r">eax</span>]             <span class="c">; eax = указатель подсистемы</span>
+<span class="a">.text:100AA4CD  </span><span class="k">add</span>   <span class="r">eax</span>, <span class="n">10h</span>               <span class="c">; eax = подсистема + 0x10</span>
+<span class="a">.text:100AA4D0  </span><span class="k">add</span>   <span class="r">esi</span>, [<span class="r">eax</span>]             <span class="c">; esi = id*19 + базаТаблицы</span>
+<span class="fault"><span class="a">.text:100AA4D2  </span><span class="k">cmp</span>   <span class="r">byte</span> <span class="r">ptr</span> [<span class="r">esi</span>+<span class="n">0Dh</span>], <span class="n">0</span>  <span class="c">; СБОЙ: базаТаблицы = NULL</span></span>
+<span class="a">.text:100AA4D6  </span><span class="k">jz</span>    <span class="r">short</span> loc_100AA4F9
+<span class="a">.text:100AA4D8  </span><span class="k">push</span>  <span class="r">dword</span> <span class="r">ptr</span> ds:<span class="n">699538h</span>
+<span class="a">.text:100AA4DE  </span><span class="k">call</span>  sub_100B5C60
+<span class="a">.text:100AA4E3  </span><span class="k">push</span>  <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">esi</span>+<span class="n">0Eh</span>]    <span class="c">; дескриптор/handle объекта</span>
+<span class="a">.text:100AA4E6  </span><span class="k">push</span>  <span class="n">0</span>
+<span class="a">.text:100AA4E8  </span><span class="k">mov</span>   <span class="r">ecx</span>, [<span class="r">eax</span>]
+<span class="a">.text:100AA4EA  </span><span class="k">add</span>   <span class="r">ecx</span>, <span class="n">210h</span>
+<span class="a">.text:100AA4F0  </span><span class="k">call</span>  sub_1008D270</pre></div><p>Вспомогательная функция доступа <code>sub_100B5C60</code> (.text:100B5C60):</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:100B5C60  </span><span class="k">mov</span>   <span class="r">eax</span>, dword_10634AC8
+<span class="a">.text:100B5C65  </span><span class="k">add</span>   <span class="r">eax</span>, [<span class="r">esp</span>+arg_0]       <span class="c">; + GameMgr</span>
+<span class="a">.text:100B5C69  </span><span class="k">retn</span>  <span class="n">4</span></pre></div><p>То есть <code>sub_100B5C60</code> возвращает адрес поля внутри <code>GameMgr</code> по фиксированному смещению <code>dword_10634AC8</code>. По этому полю лежит указатель на объект подсистемы. Чтение "<code>mov eax,[eax]</code>" (разыменование указателя подсистемы) проходит успешно — объект подсистемы выделен. Падает следующее звено: поле "подсистема<code>+0x10</code>" хранит базовый адрес таблицы записей, и он равен нулю.</p><p>Механика отказа: чтение поля записи <code>[begin + id*19 + 0x0D]</code> при begin = <code>NULL</code>. Поле <code>+0x0D</code> — это признак валидности записи (см. раздел 7). Размер записи <code>0x13 = 19</code> байт. Поля заголовка вектора: подсистема<code>+0x10</code> = begin, подсистема<code>+0x14</code> = end, подсистема<code>+0x18</code> = capacity; число записей count = (end — begin) / 19. Падающая функция НЕ проверяет ни begin на ноль, ни id против count — сразу считает адрес записи.</p>
+  </section>
+
+  <section id="s5">
+    <h2><span class="htext">Регистровые инварианты</span><a class="anchor" href="#s5">¶</a></h2>
+    <p>Постоянные по всем 12 логам:</p><ul><li>адрес чтения = <code>ESI + 0x0D</code> (поле записи), где <code>ESI</code> = id*<code>0x13</code>;</li><li>id = (*<code>arg_0</code> &amp; <code>0x3FF</code>) принимает только малые значения {0,1,2,3,4};</li><li>базовый адрес таблицы (подсистема<code>+0x10</code>) = 0 (доказано в разделе 3: адрес чтения не содержит слагаемого-базы);</li><li><code>EAX</code> = подсистема + <code>0x10</code> — правдоподобный адрес кучи (объект цел);</li><li>вызывающий код один и тот же: <code>HD_HOTA.dll+0x134B74</code>.</li></ul><p><code>EDI</code>, <code>EBX</code>, <code>ECX</code>, <code>EDX</code>, <code>EBP/ESP</code> в адресной арифметике сбоя не участвуют. <code>EDI</code> в логах принимает разные малые значения и к индексу записи отношения не имеет (совпадение <code>EDI</code> с адресом чтения — лишь в логе N1).</p><p>Размеры буферов в <code>ECX/EDX</code> к формуле буфера не привязаны: размер записи фиксирован (<code>0x13</code>), а вылет вызван отсутствием самой таблицы, а не её размером. Обратную оценку размера карты по <code>ECX</code> применять нельзя.</p><p>Малые допустимые id и стабильно чистый ноль базы (а не "мусор" и не маркер освобождённой памяти <code>0xFEEEFEEE</code>) указывают, что таблица НЕ <b class="hi">ВЫДЕЛЕНА</b>, а не повреждена/освобождена.</p>
+  </section>
+
+  <section id="s6">
+    <h2><span class="htext">Восстановленная цепочка вызовов</span><a class="anchor" href="#s6">¶</a></h2>
+    <p><code>hota.dll</code> <code>sub_100AA4B0</code> (<code>+0xAA4D2</code>)        &lt;- точка сбоя вызвана из <code>HD_HOTA.dll</code> <code>sub_1134A00</code> (<code>+0x174</code> = <code>+0x134B74</code>) &lt;- <code>HD_HOTA</code> <code>sub_112C391</code>, <code>sub_112DED0</code> (через трамплины <code>patcher_x86</code>) &lt;- <code>h3hota.exe</code> <code>A0_AdvMgr_MapClick_sub_40A530</code>   (щелчок по карте) &lt;- <code>h3hota.exe</code> <code>sub_409740</code> &lt;- <code>HD_HOTA</code>-цепочка диспетчеризации событий мыши/карты &lt;- <code>h3hota.exe</code> <code>A0_MainMgr_PlayMgr_sub_4B0BA0</code> / <code>A0_MainMenu</code> (главный цикл)</p><p>Кадры вида <code>0x02478E40</code>, <code>0x0247A144</code> и т.п. — это трамплины-стабы хуков <code>patcher_x86</code>, в листингах их нет; через них переход к ближайшему кадру внутри известного модуля. Call stack V2 подтверждает падение в <code>hota.dll</code> (5D59A4D2, hota 5D4F0000) и кадр <code>HD_HOTA</code> (040C4B79, <code>HD_HOTA</code> 03F90000).</p><p>Подсистема: обработка взаимодействия игрока с объектом на карте приключений (путь от <code>A0_AdvMgr_MapClick</code>). Запрос идёт по id объекта в таблицу записей HotA-подсистемы, прикреплённой к <code>GameMgr</code>.</p><p>Идентификация подсистемы: падающая функция <code>sub_100AA4B0</code> зарегистрирована в реестре функций HotA под именем "HotA.<code>CanHaveBattles</code>" (регистрация в <code>sub_100AA500</code> по адресу 100AAF7D: <code>push offset sub_100AA4B0</code>; <code>push offset</code> "HotA.<code>CanHaveBattles</code>"; <code>call [reg+30h]</code>). Мост HD-мода <code>sub_1134820</code> достаёт этот же обработчик по строке "HotA.<code>CanHaveBattles</code>" (<code>HD_HOTA</code> <code>0x134839</code>) и вызывает его. То есть HD-мод спрашивает у <code>hota.dll</code> "может ли данный объект карты иметь бои", а тот лезет в пустой вектор записей.</p>
+  </section>
+
+  <section id="s7">
+    <h2><span class="htext">Первопричина</span><a class="anchor" href="#s7">¶</a></h2>
+    <p>Падающая функция <code>sub_100AA4B0</code> обращается к таблице записей подсистемы по формуле "база + id*19" и сразу читает поле <code>+0x0D</code> без проверки базы на ноль.</p><p>Сравнение с родственными функциями той же подсистемы (та же связка "and <code>esi</code>,<code>3FFh</code>; <code>call sub_100B5C60</code>; imul <code>esi</code>,<code>13h</code>; <code>mov eax,[eax]</code>; add <code>esi</code>,<code>[eax+10h]</code>; <code>cmp byte ptr [esi+0Dh],0</code>"):</p><ul><li><code>sub_1007FA70</code> (.text:1007FA89)</li><li>функция при .text:1007FC14</li><li><code>sub_1007FE20</code> (.text:1007FE39)</li><li><code>sub_100A84C0</code> (.text:100A84EE) Все четыре используют <b class="hi">ИДЕНТИЧНЫЙ</b> шаблон и НИ <b class="hi">ОДНА</b> не проверяет базовый адрес таблицы (поле <code>+0x10</code>) на ноль перед чтением записи. То есть вся подсистема построена на договорённости "таблица всегда выделена" — это наследованный контракт, а не единичная забытая проверка.</li></ul><p>Путь к сбою единственный и незащищённый: <code>sub_100AA4B0</code> нигде не вызывается напрямую — она только один раз регистрируется как обработчик "HotA.<code>CanHaveBattles</code>" и дёргается через мост HD-мода. Защищённого варианта вызова (с проверкой begin) в <code>hota.dll</code> нет.</p><p>Поставщик данных (наполнение вектора): загрузчики <code>sub_100A8860</code> и <code>sub_100A8AA0</code> (оба — именованные обработчики того же реестра). Они десериализуют 19-байтовую запись через <code>sub_100B5FA0</code> (чтение полей из потока <code>call [edi+4],</code> версионная градация по <code>dword_10634D20</code>: поля при версии &gt;=4, &gt;=6, &gt;=9; поле <code>+0x0D</code>, на котором падаем, читается при версии &gt;= 9), сбрасывают её (байт <code>+0x0D</code> = 0, <code>+0x0E</code> = <code>0xFFFFFFFF</code> "нет объекта", байт <code>+0x12</code> = 0) и <b class="hi">ВСТАВЛЯЮТ</b> в вектор через <code>sub_100ABD20</code>. Вставка — типичный рост вектора: при end == capacity вызывается расширение <code>sub_100ABC20</code>, затем 19 байт записи копируются и end увеличивается на <code>0x13</code>. Значит begin становится НЕ-нулевым только после того, как в вектор добавлена хотя бы одна запись этим путём.</p><p>Что доказано кодом и арифметикой:</p><ul><li>падение — чтение записи из <b class="hi">ПУСТОГО</b> вектора (begin = <code>NULL</code>);</li><li>объект подсистемы при этом валиден (<code>EAX</code> — корректный адрес кучи), id корректен (0..4), повреждения самого объекта/индекса нет;</li><li>begin = <code>NULL</code> — это штатное начальное состояние пустого вектора (стандартный заголовок begin/end/capacity), а НЕ повреждённый указатель: версия "редкой порчи поля базы" исключена;</li><li>падающая функция не проверяет НИ begin на ноль, НИ id против count = (end-begin)/19; все четыре родственных обработчика подсистемы тоже не проверяют — это сквозной контракт "вектор уже наполнен".</li></ul><p>Итог по первопричине: дефект в <code>hota.dll</code> — обработчик "HotA.<code>CanHaveBattles</code>" читает запись из вектора, который к моменту запроса пуст. Поскольку пустой вектор — это нормальное состояние контейнера (не порча), вопрос сводится к логике <b class="hi">ВЫШЕ</b> точки чтения: либо запрос "<code>CanHaveBattles</code>" штатно может прийти для объекта, у которого записей нет (тогда нужна проверка begin/count в самом обработчике — её отсутствие и есть дефект), либо нарушен порядок: загрузчик <code>(sub_100A8860/sub_100A8AA0)</code> ещё не наполнил вектор к моменту обращения. Разделить эти два варианта по статике нельзя — требуется минидамп или точка останова на загрузчике (см. раздел 11). Сам факт чтения из пустого контейнера без проверки доказан кодом.</p>
+  </section>
+
+  <section id="s8">
+    <h2><span class="htext">Условия, спровоцировавшие сбой</span><a class="anchor" href="#s8">¶</a></h2>
+    <ul><li>Действие игрока на карте приключений (обработка щелчка мышью, путь <code>A0_AdvMgr_MapClick</code> → хук HD-мода → <code>sub_100AA4B0</code>). Вылет всегда на <b class="hi">СОБСТВЕННОМ</b> ходу игрока (Me == Active Player во всех логах).</li><li>Режим игры: и одиночная (10 логов, Network Game = 0), и сетевая (2 лога, = 1). Привязки к сетевой игре <b class="hi">НЕТ</b>.</li><li>Quick Combat = 1, Graphics.Threads = 2, Memory.Mod = 0 (лог N1) — к пути сбоя прямого отношения не имеют (путь не зависит от боя).</li><li>Карты и дни разные, но повторяются (см. раздел 2): "The Battle of Daeyan' ..." и "Peaceful Ending.h3m" дали по несколько независимых логов с одинаковыми id — вылет привязан к содержимому/состоянию конкретных карт, а не к одной сессии.</li><li>Комментарии игроков: блок Comment во всех 12 логах содержит только служебный автотекст репортёра (AUTOMATIC CRASH REPORT FROM THE MAIN THREAD); реальных пользовательских показаний нет (проверено по всем логам, включая 4 письма с пометкой WITH COMMENT).</li></ul>
+  </section>
+
+  <section id="s9">
+    <h2><span class="htext">Достоверность и ограничения</span><a class="anchor" href="#s9">¶</a></h2>
+    <p>Верификация листинга: <code>hota.dll</code> 1.8.0 — листинг Модули/<code>HotA.dll-180.txt</code> совпадает по Imagebase, File Name и версии из лога. <code>HD_HOTA.dll</code> 5.7 R13 — листинг той же версии присутствует, вызывающий кадр расшифрован.</p><p>Достоверность сигнатуры: <b class="hi">ВЫСОКАЯ</b>. 12 независимых логов с одним адресом, одним вызывающим кодом и одним регистровым шаблоном; адресная арифметика сходится во всех 12; повтор на одних и тех же картах у разных игроков.</p><p>Полезность лога для исправления: <b class="hi">СРЕДНЯЯ</b>. Точка сбоя локализована точно (чтение записи из пустого вектора, begin = <code>NULL</code>), индекс валиден, сам объект подсистемы цел. Установлено, что begin = <code>NULL</code> — штатное состояние пустого вектора (стандартный заголовок begin/end/capacity по подсистема<code>+0x10</code>/<code>+0x14</code>/<code>+0x18</code>), а не повреждённый указатель: версия рантайм-порчи поля базы <b class="hi">ИСКЛЮЧЕНА</b>. Найден и поставщик данных: вектор наполняется загрузчиками <code>sub_100A8860/sub_100A8AA0</code> через вставку <code>sub_100ABD20</code>; begin становится не-нулевым только после первой вставки. Падающая функция следует сквозному контракту подсистемы "вектор уже наполнен" (одинаково у всех её обработчиков, проверки begin/count нет ни у одного), поэтому точечная правка на месте сбоя — лишь маскировка. Первопричина — выше точки чтения: либо запрос "<code>CanHaveBattles</code>" штатно приходит для объекта без записей (нужна проверка begin/count в обработчике), либо вектор не наполнен загрузчиком к моменту обращения. Разделить эти два варианта по статике нельзя — нужен минидамп (проверить begin/end по подсистема<code>+0x10</code> и был ли отработан загрузчик) или точка останова на вставке <code>sub_100ABD20</code>. Это и удерживает вердикт на уровне <b class="hi">СРЕДНЯЯ</b>, а не <b class="hi">ВЫСОКАЯ</b>.</p><p>Ограничения маппинга: ряд кадров Call stack — трамплины <code>patcher_x86</code>, в листинге не представлены (по построению). Это не мешает диагнозу: точка сбоя и непосредственный вызывающий код определены по V1+V2 и совпадают.</p><p>Листинги, не относящиеся к диагнозу и потому не запрошенные: <code>_hd3_.dll</code> 5.7 R13, системные DLL. Для текущего диагноза достаточно <code>hota.dll</code> 1.8.0 и <code>HD_HOTA.dll</code> 5.7 R13.</p>
+  </section>
+
+  <section id="s10">
+    <h2><span class="htext">Признаки поиска в старых версиях HotA / в SoD</span><a class="anchor" href="#s10">¶</a></h2>
+    <p>Адрес <code>hota.dll+0xAA4D2</code> между версиями HotA не стабилен. Виновный код лежит в <code>hota.dll</code> (HotA-специфичная подсистема), в чистом SoD-движке <code>h3hota.exe</code> его нет.</p><p>Стабильные сигнатуры для опознания дефекта независимо от версии:</p><ul><li>Регистровые инварианты: адрес чтения = <code>ESI + 0x0D</code>, <code>ESI</code> кратен <code>0x13</code> (19), базовый адрес таблицы (подсистема<code>+0x10</code>) = 0, объект подсистемы валиден; вызов всегда с собственного хода игрока (Me == Active Player).</li><li>Текстовая сигнатура по дизассемблеру (ищется в <code>hota.dll</code> любой версии): and  <code>esi</code>, <code>3FFh</code> call &lt;вспом. функция доступа к полю <code>GameMgr</code>&gt; imul <code>esi</code>, <code>13h</code> <code>mov  eax, [eax] add  esi, [eax+10h] cmp  byte ptr [esi+0Dh], 0</code></li><li>Родственные обработчики той же подсистемы с тем же шаблоном (<code>sub_1007FA70</code>, функция при <code>+0x7FC14</code>, <code>sub_1007FE20</code>, <code>sub_100A84C0</code>) — все без проверки базы таблицы на ноль.</li><li>Признак поставщика: функция-десериализатор записей (аналог <code>sub_100B5FA0</code>) с версионной градацией полей и сбросом запись<code>+0x0D</code> = 0, запись<code>+0x0E</code> = <code>0xFFFFFFFF</code>.</li><li>Текстовая сигнатура по строкам (стабильна между версиями): имя обработчика "HotA.<code>CanHaveBattles</code>" в реестре функций HotA (рядом <code>push offset</code> падающей функции и <code>call [reg+30h]</code>); тот же литерал "HotA.<code>CanHaveBattles</code>" в мосте <code>HD_HOTA.dll</code>.</li><li>Признак вставки в вектор: helper роста (аналог <code>sub_100ABD20</code>), копирующий 19 байт записи (dword*3 + word + byte) и делающий add <code>[vector+4]</code>, <code>13h</code>.</li></ul>
+  </section>
+
+  <section id="s11">
+    <h2><span class="htext">Воспроизведение вылета</span><a class="anchor" href="#s11">¶</a></h2>
+    <p>Условие активации пути (из кода): обработка взаимодействия игрока с объектом карты приключений (<code>A0_AdvMgr_MapClick</code> → хук HD-мода → <code>sub_100AA4B0</code>), на <b class="hi">СОБСТВЕННОМ</b> ходу игрока, когда у подсистемы ещё/уже не выделена таблица записей (поле подсистема<code>+0x10</code> = <code>NULL</code>), а запрос идёт по малому id объекта (0..4).</p><p>Роль 1 — тестер за игрой (без отладчика):</p><ul><li>Окружение из логов: HotA 1.8.0 + HD-мод 5.7 R13.</li><li>Наиболее перспективные исходные данные (повторились у независимых игроков): карта "The Battle of Daeyan' ..." (логи N2, N4, N12; пара N2/N12 — один день и тот же id=1) и "Peaceful Ending.h3m" (логи N9/N10, соседние дни, id=0). Если эти карты/сейвы доступны, начинать с них.</li><li>Сценарий: на своём ходу взаимодействовать (щелчок/наведение по пути обработки клика) с объектами карты приключений в начале партии (во всех логах ранняя стадия: день из лога), повторяя действия с первыми объектами (малые id). Что ловить тестеру — сам факт вылета с тем же адресом <code>hota.dll+0xAA4D2</code>.</li><li>Варьировать: одиночная и сетевая игра (вылет встречается в обоих), разные карты ранней стадии, повтор взаимодействия с первыми объектами. Бой/быстрый бой не нужны — путь от них не зависит.</li><li>Воспроизводимость честно: вылет НЕ на каждом клике (иначе игра падала бы у всех сразу) — есть неустановленное условие, при котором таблица к моменту запроса пуста. Поэтому нужен прогон по нескольким ранним состояниям/картам, а не одна попытка.</li></ul><p>Роль 2 — подтверждение причины (с отладчиком / по минидампу):</p><ul><li>Точка останова на инструкции сбоя (<code>hota.dll+0xAA4D2</code>, <code>cmp byte ptr [esi+0Dh], 0</code>).</li><li>Снять <code>EAX</code> (это подсистема<code>+0x10</code>) и значение по нему: причина подтверждается, если <code>[EAX]</code> == 0 (базовый адрес таблицы = <code>NULL</code>), при этом сам <code>EAX</code> — валидный адрес кучи (объект подсистемы цел), а <code>ESI</code> == id*<code>0x13</code> при малом id.</li><li>Проверить формулу: адрес чтения == <code>ESI + 0x0D</code> и == id*<code>0x13 + 0x0D</code> (без слагаемого-базы). Совпадение доказывает нулевую базу таблицы.</li><li>Дифференциальный тест первопричины: поставить точку останова на вставке в вектор <code>sub_100ABD20</code> и на загрузчиках <code>sub_100A8860/ sub_100A8AA0</code>; убедиться, что в упавших сессиях к моменту запроса "<code>CanHaveBattles</code>" вставки в этот вектор не было (begin так и остался <code>NULL</code>, end == begin). Если обеспечить наполнение вектора до запроса, путь сбоя перестаёт достигаться — это подтверждает, что корень выше точки чтения (порядок наполнения / запрос к объекту без записей), а не сама инструкция сбоя.</li></ul>
+  </section>
+
+  <section id="verdict">
+    <h2><span class="htext">Вывод</span><a class="anchor" href="#verdict">¶</a></h2>
+    <div class="card verdict lvl-mid"><p>Виновник — <code>hota.dll</code>. Обработчик "HotA.<code>CanHaveBattles</code>" (<code>sub_100AA4B0</code>) читает запись по корректному малому id объекта из вектора записей, но вектор пуст: его начало (поле подсистема<code>+0x10</code>) равно нулю. Это штатное состояние пустого вектора, а не порча памяти — объект подсистемы цел, индекс валиден. Все родственные обработчики подсистемы одинаково доверяют тому, что вектор наполнен, и не проверяют ни его начало, ни границу. Поэтому первопричина не в точке чтения, а выше: либо запрос приходит для объекта без записей (нужна проверка в обработчике), либо вектор не наполнен загрузчиком к моменту обращения.</p></div>
+  </section>
+
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Скопировано</div>
+
+<script>
+(function(){
+  var KEY="hota-theme-v6",root=document.documentElement;
+  var ic=document.getElementById("themeUse"),lb=document.getElementById("themeLabel");
+  var mq=window.matchMedia?matchMedia("(prefers-color-scheme: light)"):null;
+  // по умолчанию следуем за системной темой; ручной клик фиксирует light/dark и перекрывает её
+  function manual(){try{var s=localStorage.getItem(KEY);return(s==="light"||s==="dark")?s:null;}catch(e){return null;}}
+  function effective(){return manual()||(mq&&mq.matches?"light":"dark");}
+  // иконка — SVG (солнце/луна), переключаем href у <use>, а не emoji-глиф
+  function paintBtn(){var l=effective()==="light";
+    ic.setAttribute("href",l?"#ic-sun":"#ic-moon");
+    lb.textContent=l?"\u0421\u0432\u0435\u0442\u043B\u0430\u044F":"\u0422\u0451\u043C\u043D\u0430\u044F";}
+  // ВСЕГДА ставим явный класс (theme-light либо theme-dark) — без @media-CSS
+  function apply(){root.classList.remove("theme-light","theme-dark");
+    root.classList.add("theme-"+effective());paintBtn();}
+  apply();
+  // смена системной темы -> сбросить ручной выбор и снова следовать за системой
+  if(mq){var hh=function(){try{localStorage.removeItem(KEY);}catch(e){}apply();};
+    mq.addEventListener?mq.addEventListener("change",hh):mq.addListener(hh);}
+  document.getElementById("themeToggle").onclick=function(){
+    var n=effective()==="light"?"dark":"light";
+    try{localStorage.setItem(KEY,n);}catch(e){}apply();};
+  var links={},secs=[].slice.call(document.querySelectorAll("main section[id]"));
+  document.querySelectorAll("nav.toc a").forEach(function(a){links[a.getAttribute("href").slice(1)]=a;});
+  var lock=0,lockT,ticking=0;
+  // подсветка только в оглавлении
+  function setActive(id){
+    Object.keys(links).forEach(function(k){links[k].classList.remove("active");});
+    if(links[id])links[id].classList.add("active");}
+  function unlockSoon(){clearTimeout(lockT);lockT=setTimeout(function(){lock=0;},120);}
+  // активна — ПОСЛЕДНЯЯ секция, чьё начало выше порога чтения.
+  // Пороговая логика детерминирована и НЕ пропускает короткие секции
+  // (IntersectionObserver мог «перепрыгивать» через них при быстром скролле).
+  function pickActive(){
+    ticking=0;
+    if(lock)return;
+    var thr=innerHeight*0.2,cur=secs.length?secs[0].id:null;
+    for(var i=0;i<secs.length;i++){
+      if(secs[i].getBoundingClientRect().top<=thr)cur=secs[i].id;}
+    if(innerHeight+scrollY>=document.body.scrollHeight-2)cur=secs[secs.length-1].id;
+    if(cur)setActive(cur);}
+  // клик по оглавлению: сразу подсветить цель и заглушить scroll-spy до конца плавной прокрутки
+  document.querySelectorAll("nav.toc a").forEach(function(a){
+    a.addEventListener("click",function(){
+      setActive(a.getAttribute("href").slice(1));lock=1;unlockSoon();});
+  });
+  addEventListener("scroll",function(){
+    if(lock){unlockSoon();return;}
+    if(!ticking){ticking=1;requestAnimationFrame(pickActive);}
+  },{passive:true});
+  pickActive();
+  var toast=document.getElementById("toast"),tt;
+  function showToast(m){toast.textContent=m||"\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e";toast.classList.add("show");
+    clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove("show");},1300);}
+  document.querySelectorAll("[data-copy]").forEach(function(b){
+    b.onclick=function(){var sel=b.getAttribute("data-copy");
+      var el=sel==="prev"?b.parentElement.querySelector("pre"):document.querySelector(sel);
+      var txt=el?el.innerText:"";
+      navigator.clipboard&&navigator.clipboard.writeText(txt).then(function(){showToast("\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e");},
+        function(){showToast("\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c");});};
+  });
+})();
+</script>
+</body>
+</html>
