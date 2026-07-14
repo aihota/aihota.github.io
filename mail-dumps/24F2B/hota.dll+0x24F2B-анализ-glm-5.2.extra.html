@@ -1,0 +1,42 @@
+<section id="viz">
+<h2>Визуализация вылета</h2>
+
+<p class="viz-cap">
+Поле [+0x22] (знаковый байт) в узле контекста ИИ используется как индекс
+бита в битовой карте. При штатном значении 0..7 бит лежит внутри карты.
+При контрольном значении 0xFF (минус 1) знаковое расширение и сдвиг
+выбрасывают адрес чтения на ~512 МБ за границу карты, и процесс падает.
+</p>
+
+<div class="viz-strip badge-tl">
+  <div class="viz-box ok">
+    <span class="viz-badge ok">1</span>
+    <span class="lbl">штатный путь<br>[+0x22] = 0..7</span>
+    <div style="font-family:var(--font-mono);font-size:var(--fs-xs);line-height:1.6">
+      idx &amp; 7 = номер бита<br>
+      edx = base + (idx &gt;&gt; 3)<br>
+      чтение внутри карты
+    </div>
+  </div>
+  <div class="viz-box bad">
+    <span class="viz-badge bad">2</span>
+    <span class="lbl">путь сбоя<br>[+0x22] = 0xFF (-1)</span>
+    <div style="font-family:var(--font-mono);font-size:var(--fs-xs);line-height:1.6">
+      movsx esi,byte -&gt; 0xFFFFFFFF<br>
+      esi &gt;&gt; 3 = 0x1FFFFFFF<br>
+      edx = base + 0x1FFFFFFF
+    </div>
+  </div>
+</div>
+
+<div class="viz-legend">
+  <div class="item"><span class="viz-badge ok">1</span><span class="txt">
+    Штатный путь: индекс в диапазоне, чтение бита попадает в выделенную
+    карту памяти.
+  </span></div>
+  <div class="item"><span class="viz-badge bad">2</span><span class="txt">
+    Путь сбоя: проверка на 0xFF отсутствует, чтение уходит за границу карты
+    (адрес сбоя = base + 0x20000000). Так во всех 18 вылетах.
+  </span></div>
+</div>
+</section>
