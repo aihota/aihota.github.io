@@ -1,0 +1,79 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">#</a></h2>
+
+  <p>Игра падает на чтении поля <code>+0x30</code> у нулевого
+  объекта (<code>this == 0</code>). Нулевой объект появляется потому, что
+  фабрика растрового кэша возвращает NULL при отказе аллокатора, а
+  вызвавший её код передаёт этот NULL в функцию заполнения растра без
+  проверки. Схема показывает путь данных от аллокатора до точки сбоя.</p>
+
+  <div class="viz-strip">
+    <div class="viz-box">
+      <div class="viz-cap">1. Аллокатор SoD <code>617492h</code></div>
+      <div>Выделить пиксельный буфер спрайта <code>SpelScBk.pcx</code></div>
+      <div class="viz-badge bad">отказ</div>
+      <div>возвращает <code>NULL</code> (nothrow)</div>
+    </div>
+    <div class="viz-box">
+      <div class="viz-cap">2. Фабрика <code>sub_10079970</code></div>
+      <div>видит: поле <code>[obj+0x30] == 0</code></div>
+      <div class="viz-badge accent">возврат NULL</div>
+      <div><code>xor eax, eax</code></div>
+    </div>
+    <div class="viz-box">
+      <div class="viz-cap">3. Инициализатор <code>sub_10103400</code></div>
+      <div><code>mov ecx, eax</code> (без <code>test/jz</code>)</div>
+      <div class="viz-badge bad">проверки НЕТ</div>
+      <div>вызов <code>sub_1007A370</code></div>
+    </div>
+    <div class="viz-box">
+      <div class="viz-cap">4. Точка сбоя <code>0x1007A370</code></div>
+      <div><code>mov edx, [ecx+30h]</code></div>
+      <div class="viz-badge bad">ECX = 0</div>
+      <div>чтение <code>0x00000030</code></div>
+    </div>
+  </div>
+
+  <p>Дескриптор растра, который функция <code>sub_1007A370</code>
+  пытается читать через <code>ECX</code>:</p>
+
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box">
+        <div class="viz-cap">this == ECX</div>
+        <div class="viz-badge bad">0x00000000</div>
+      </div>
+      <div class="viz-box">
+        <div class="viz-cap">[this+0x24] ширина</div>
+        <div class="viz-badge dim">не достигнуто</div>
+      </div>
+      <div class="viz-box">
+        <div class="viz-cap">[this+0x28] высота</div>
+        <div class="viz-badge dim">не достигнуто</div>
+      </div>
+      <div class="viz-box">
+        <div class="viz-cap">[this+0x2C] шаг</div>
+        <div class="viz-badge dim">не достигнуто</div>
+      </div>
+      <div class="viz-box">
+        <div class="viz-cap">[this+0x30] буфер пикселей</div>
+        <div class="viz-badge bad">== 0x00000030</div>
+        <div class="viz-cap">адрес сбоя</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="viz-legend">
+    <div class="item"><span class="txt"><span class="viz-badge bad">отказ/сбой</span>
+    = отказ аллокатора, нулевой возврат, точка падения</span></div>
+    <div class="item"><span class="txt"><span class="viz-badge accent">возврат NULL</span>
+    = корректное действие фабрики, транслирующей отказ</span></div>
+    <div class="item"><span class="txt"><span class="viz-badge dim">не достигнуто</span>
+    = поля, до которых исполнение не дошло (сбой на первом чтении)</span></div>
+  </div>
+
+  <p>В той же функции инициализатора проверка возврата другой
+  аллокации (<code>operator new</code>) присутствует — значит отсутствие
+  проверки после фабрики именно пропуск, а не сознательное решение.</p>
+</section>
