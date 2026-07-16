@@ -2,78 +2,116 @@
   <h2><span class="htext">Визуализация вылета</span>
       <a class="anchor" href="#viz-mechanism">#</a></h2>
 
-  <p>Игра падает на чтении поля <code>+0x30</code> у нулевого
-  объекта (<code>this == 0</code>). Нулевой объект появляется потому, что
-  фабрика растрового кэша возвращает NULL при отказе аллокатора, а
-  вызвавший её код передаёт этот NULL в функцию заполнения растра без
-  проверки. Схема показывает путь данных от аллокатора до точки сбоя.</p>
+  <p>Сбой происходит при инициализации интерфейсного спрайта книги
+  заклинаний <code>SpelScBk.pcx</code>. Вызывающий код в цикле из 32
+  шагов создаёт растровые кэши и складывает их в глобальный вектор, не
+  освобождая. На одной из средних итераций движковый аллокатор
+  <code>617492h</code> отказывает выделить пиксельный буфер, фабрика
+  честно возвращает <code>NULL</code>, а вызвавший код передаёт этот
+  <code>NULL</code> в функцию заполнения растра без проверки.</p>
 
+  <div class="viz-cap">Путь данных от аллокатора до точки сбоя</div>
   <div class="viz-strip">
+
     <div class="viz-box">
       <div class="viz-cap">1. Аллокатор SoD <code>617492h</code></div>
-      <div>Выделить пиксельный буфер спрайта <code>SpelScBk.pcx</code></div>
-      <div class="viz-badge bad">отказ</div>
-      <div>возвращает <code>NULL</code> (nothrow)</div>
+      <div>выделить пиксельный буфер растра</div>
+      <div><span class="viz-badge bad">отказ</span></div>
+      <div class="viz-cap"><code>return NULL</code> (nothrow)</div>
     </div>
+
     <div class="viz-box">
       <div class="viz-cap">2. Фабрика <code>sub_10079970</code></div>
-      <div>видит: поле <code>[obj+0x30] == 0</code></div>
-      <div class="viz-badge accent">возврат NULL</div>
-      <div><code>xor eax, eax</code></div>
+      <div>видит <code>[obj+0x30] == 0</code></div>
+      <div><span class="viz-badge accent">корректно вернула NULL</span></div>
     </div>
-    <div class="viz-box">
+
+    <div class="viz-box bad">
       <div class="viz-cap">3. Инициализатор <code>sub_10103400</code></div>
-      <div><code>mov ecx, eax</code> (без <code>test/jz</code>)</div>
-      <div class="viz-badge bad">проверки НЕТ</div>
-      <div>вызов <code>sub_1007A370</code></div>
+      <div><code>mov ecx, eax</code></div>
+      <div><span class="viz-badge bad">проверки нет</span></div>
+      <div class="viz-cap">вызов <code>sub_1007A370</code></div>
     </div>
-    <div class="viz-box">
+
+    <div class="viz-box bad">
       <div class="viz-cap">4. Точка сбоя <code>0x1007A370</code></div>
       <div><code>mov edx, [ecx+30h]</code></div>
-      <div class="viz-badge bad">ECX = 0</div>
-      <div>чтение <code>0x00000030</code></div>
+      <div><span class="viz-badge bad">ECX = 0, this = NULL</span></div>
+      <div class="viz-cap">чтение по адресу <code>0x00000030</code></div>
     </div>
+
   </div>
 
-  <p>Дескриптор растра, который функция <code>sub_1007A370</code>
-  пытается читать через <code>ECX</code>:</p>
+  <div class="viz-cap">Дескриптор растра, который функция <code>sub_1007A370</code>
+  пытается читать через <code>ECX</code></div>
+  <div class="viz-strip">
 
-  <div class="viz">
-    <div class="viz-strip">
-      <div class="viz-box">
-        <div class="viz-cap">this == ECX</div>
-        <div class="viz-badge bad">0x00000000</div>
-      </div>
-      <div class="viz-box">
-        <div class="viz-cap">[this+0x24] ширина</div>
-        <div class="viz-badge dim">не достигнуто</div>
-      </div>
-      <div class="viz-box">
-        <div class="viz-cap">[this+0x28] высота</div>
-        <div class="viz-badge dim">не достигнуто</div>
-      </div>
-      <div class="viz-box">
-        <div class="viz-cap">[this+0x2C] шаг</div>
-        <div class="viz-badge dim">не достигнуто</div>
-      </div>
-      <div class="viz-box">
-        <div class="viz-cap">[this+0x30] буфер пикселей</div>
-        <div class="viz-badge bad">== 0x00000030</div>
-        <div class="viz-cap">адрес сбоя</div>
-      </div>
+    <div class="viz-box bad">
+      <div class="viz-cap">this = ECX</div>
+      <div><span class="viz-badge bad">0x00000000</span></div>
+      <div class="viz-cap">нулевой объект</div>
     </div>
+
+    <div class="viz-box dim">
+      <div class="viz-cap">[this+0x24] ширина</div>
+      <div class="viz-cap">не достигнуто</div>
+    </div>
+
+    <div class="viz-box dim">
+      <div class="viz-cap">[this+0x28] высота</div>
+      <div class="viz-cap">не достигнуто</div>
+    </div>
+
+    <div class="viz-box dim">
+      <div class="viz-cap">[this+0x2C] шаг строки</div>
+      <div class="viz-cap">не достигнуто</div>
+    </div>
+
+    <div class="viz-box bad">
+      <div class="viz-cap">[this+0x30] буфер пикселей</div>
+      <div><span class="viz-badge bad">первое чтение</span></div>
+      <div class="viz-cap">адрес чтения <code>0x30</code></div>
+    </div>
+
   </div>
+
+  <div class="viz-cap">Почему аллокатор отказывает: накопление растров в цикле</div>
+  <div class="viz-strip">
+
+    <div class="viz-box">
+      <div class="viz-cap">итерация 0..2</div>
+      <div><span class="viz-badge ok">выделено</span></div>
+    </div>
+
+    <div class="viz-box">
+      <div class="viz-cap">итерация 3..29 (EBP в дампах)</div>
+      <div><span class="viz-badge bad">отказ на одной из них</span></div>
+    </div>
+
+    <div class="viz-box">
+      <div class="viz-cap">итерация 30..31</div>
+      <div class="viz-cap">не достигнуты</div>
+    </div>
+
+  </div>
+
+  <p>Первые итерации успешны, отказ наступает в середине цикла — это
+  сигнатура деградации кучи (заполнение/фрагментация) внутри цикла
+  накопления, а не битый размер одного растра (тогда отказ был бы на
+  итерации 0). Растры складываются в глобальный вектор
+  <code>dword_10634F10</code>, который между построениями не
+  освобождается — накопление идёт и через всю игровую сессию.</p>
 
   <div class="viz-legend">
-    <div class="item"><span class="txt"><span class="viz-badge bad">отказ/сбой</span>
+    <div class="item"><span class="txt"><span class="viz-badge bad">сбой / отказ</span>
     = отказ аллокатора, нулевой возврат, точка падения</span></div>
-    <div class="item"><span class="txt"><span class="viz-badge accent">возврат NULL</span>
-    = корректное действие фабрики, транслирующей отказ</span></div>
-    <div class="item"><span class="txt"><span class="viz-badge dim">не достигнуто</span>
-    = поля, до которых исполнение не дошло (сбой на первом чтении)</span></div>
+    <div class="item"><span class="txt"><span class="viz-badge accent">корректно вернула NULL</span>
+    = фабрика честно транслирует отказ аллокатора</span></div>
+    <div class="item"><span class="txt"><span class="viz-badge ok">выделено</span>
+    = успешные итерации до отказа</span></div>
   </div>
 
-  <p>В той же функции инициализатора проверка возврата другой
-  аллокации (<code>operator new</code>) присутствует — значит отсутствие
-  проверки после фабрики именно пропуск, а не сознательное решение.</p>
+  <p>В той же функции-инициализаторе проверка возврата другой аллокации
+  (<code>operator new</code>) присутствует — значит отсутствие проверки
+  после фабрики именно пропуск, а не сознательное решение.</p>
 </section>

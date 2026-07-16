@@ -486,87 +486,125 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
       <div class="vlabel">Заключение</div>
       <div class="vtxt">В <code>hota.dll</code> при инициализации книги заклинаний в цикле из 32 шагов накапливается до 32 пиксельных растров; движковый nothrow-аллокатор отказывает выделить один из них на итерации 3..29, фабрика растрового кэша возвращает <code>NULL</code>, а вызвавший код использует этот возврат как объект без проверки и падает на разыменовании нулевого this (чтение поля <code>+0x30</code>).</div>
     </div>
-    <div class="statstrip"><div class="stat c-ver"><div class="ic-badge"><svg class="ic"><use href="#ic-package"/></svg></div><div class="st-body"><div class="big">1.8.0</div><div class="cap">Версия HotA</div></div></div><div class="stat c-cls"><div class="ic-badge"><svg class="ic"><use href="#ic-triangle"/></svg></div><div class="st-body"><div class="big">разыменование нулевого указателя. Исключение — нарушение</div><div class="cap">Класс сбоя</div></div></div><div class="stat c-cnt"><div class="ic-badge"><svg class="ic"><use href="#ic-database"/></svg></div><div class="st-body"><div class="big">26</div><div class="cap">Количество логов</div></div></div><div class="stat c-use"><div class="ic-badge"><svg class="ic"><use href="#ic-sig3"/></svg></div><div class="st-body"><div class="big">ВЫСОКАЯ</div><div class="cap">Полезность лога</div></div></div></div>
+    <div class="statstrip"><div class="stat c-ver"><div class="ic-badge"><svg class="ic"><use href="#ic-package"/></svg></div><div class="st-body"><div class="big">1.8.0</div><div class="cap">Версия HotA</div></div></div><div class="stat c-cls"><div class="ic-badge"><svg class="ic"><use href="#ic-triangle"/></svg></div><div class="st-body"><div class="big">разыменование нулевого указателя.</div><div class="cap">Класс сбоя</div></div></div><div class="stat c-cnt"><div class="ic-badge"><svg class="ic"><use href="#ic-database"/></svg></div><div class="st-body"><div class="big">26</div><div class="cap">Количество логов</div></div></div><div class="stat c-use"><div class="ic-badge"><svg class="ic"><use href="#ic-sig3"/></svg></div><div class="st-body"><div class="big">ВЫСОКАЯ</div><div class="cap">Полезность лога</div></div></div></div>
   </div>
 
   <section id="viz-mechanism" data-toc="Визуализация вылета">
   <h2><span class="htext">Визуализация вылета</span>
       <a class="anchor" href="#viz-mechanism">#</a></h2>
 
-  <p>Игра падает на чтении поля <code>+0x30</code> у нулевого
-  объекта (<code>this == 0</code>). Нулевой объект появляется потому, что
-  фабрика растрового кэша возвращает NULL при отказе аллокатора, а
-  вызвавший её код передаёт этот NULL в функцию заполнения растра без
-  проверки. Схема показывает путь данных от аллокатора до точки сбоя.</p>
+  <p>Сбой происходит при инициализации интерфейсного спрайта книги
+  заклинаний <code>SpelScBk.pcx</code>. Вызывающий код в цикле из 32
+  шагов создаёт растровые кэши и складывает их в глобальный вектор, не
+  освобождая. На одной из средних итераций движковый аллокатор
+  <code>617492h</code> отказывает выделить пиксельный буфер, фабрика
+  честно возвращает <code>NULL</code>, а вызвавший код передаёт этот
+  <code>NULL</code> в функцию заполнения растра без проверки.</p>
 
+  <div class="viz-cap">Путь данных от аллокатора до точки сбоя</div>
   <div class="viz-strip">
+
     <div class="viz-box">
       <div class="viz-cap">1. Аллокатор SoD <code>617492h</code></div>
-      <div>Выделить пиксельный буфер спрайта <code>SpelScBk.pcx</code></div>
-      <div class="viz-badge bad">отказ</div>
-      <div>возвращает <code>NULL</code> (nothrow)</div>
+      <div>выделить пиксельный буфер растра</div>
+      <div><span class="viz-badge bad">отказ</span></div>
+      <div class="viz-cap"><code>return NULL</code> (nothrow)</div>
     </div>
+
     <div class="viz-box">
       <div class="viz-cap">2. Фабрика <code>sub_10079970</code></div>
-      <div>видит: поле <code>[obj+0x30] == 0</code></div>
-      <div class="viz-badge accent">возврат NULL</div>
-      <div><code>xor eax, eax</code></div>
+      <div>видит <code>[obj+0x30] == 0</code></div>
+      <div><span class="viz-badge accent">корректно вернула NULL</span></div>
     </div>
-    <div class="viz-box">
+
+    <div class="viz-box bad">
       <div class="viz-cap">3. Инициализатор <code>sub_10103400</code></div>
-      <div><code>mov ecx, eax</code> (без <code>test/jz</code>)</div>
-      <div class="viz-badge bad">проверки НЕТ</div>
-      <div>вызов <code>sub_1007A370</code></div>
+      <div><code>mov ecx, eax</code></div>
+      <div><span class="viz-badge bad">проверки нет</span></div>
+      <div class="viz-cap">вызов <code>sub_1007A370</code></div>
     </div>
-    <div class="viz-box">
+
+    <div class="viz-box bad">
       <div class="viz-cap">4. Точка сбоя <code>0x1007A370</code></div>
       <div><code>mov edx, [ecx+30h]</code></div>
-      <div class="viz-badge bad">ECX = 0</div>
-      <div>чтение <code>0x00000030</code></div>
+      <div><span class="viz-badge bad">ECX = 0, this = NULL</span></div>
+      <div class="viz-cap">чтение по адресу <code>0x00000030</code></div>
     </div>
+
   </div>
 
-  <p>Дескриптор растра, который функция <code>sub_1007A370</code>
-  пытается читать через <code>ECX</code>:</p>
+  <div class="viz-cap">Дескриптор растра, который функция <code>sub_1007A370</code>
+  пытается читать через <code>ECX</code></div>
+  <div class="viz-strip">
 
-  <div class="viz">
-    <div class="viz-strip">
-      <div class="viz-box">
-        <div class="viz-cap">this == ECX</div>
-        <div class="viz-badge bad">0x00000000</div>
-      </div>
-      <div class="viz-box">
-        <div class="viz-cap">[this+0x24] ширина</div>
-        <div class="viz-badge dim">не достигнуто</div>
-      </div>
-      <div class="viz-box">
-        <div class="viz-cap">[this+0x28] высота</div>
-        <div class="viz-badge dim">не достигнуто</div>
-      </div>
-      <div class="viz-box">
-        <div class="viz-cap">[this+0x2C] шаг</div>
-        <div class="viz-badge dim">не достигнуто</div>
-      </div>
-      <div class="viz-box">
-        <div class="viz-cap">[this+0x30] буфер пикселей</div>
-        <div class="viz-badge bad">== 0x00000030</div>
-        <div class="viz-cap">адрес сбоя</div>
-      </div>
+    <div class="viz-box bad">
+      <div class="viz-cap">this = ECX</div>
+      <div><span class="viz-badge bad">0x00000000</span></div>
+      <div class="viz-cap">нулевой объект</div>
     </div>
+
+    <div class="viz-box dim">
+      <div class="viz-cap">[this+0x24] ширина</div>
+      <div class="viz-cap">не достигнуто</div>
+    </div>
+
+    <div class="viz-box dim">
+      <div class="viz-cap">[this+0x28] высота</div>
+      <div class="viz-cap">не достигнуто</div>
+    </div>
+
+    <div class="viz-box dim">
+      <div class="viz-cap">[this+0x2C] шаг строки</div>
+      <div class="viz-cap">не достигнуто</div>
+    </div>
+
+    <div class="viz-box bad">
+      <div class="viz-cap">[this+0x30] буфер пикселей</div>
+      <div><span class="viz-badge bad">первое чтение</span></div>
+      <div class="viz-cap">адрес чтения <code>0x30</code></div>
+    </div>
+
   </div>
+
+  <div class="viz-cap">Почему аллокатор отказывает: накопление растров в цикле</div>
+  <div class="viz-strip">
+
+    <div class="viz-box">
+      <div class="viz-cap">итерация 0..2</div>
+      <div><span class="viz-badge ok">выделено</span></div>
+    </div>
+
+    <div class="viz-box">
+      <div class="viz-cap">итерация 3..29 (EBP в дампах)</div>
+      <div><span class="viz-badge bad">отказ на одной из них</span></div>
+    </div>
+
+    <div class="viz-box">
+      <div class="viz-cap">итерация 30..31</div>
+      <div class="viz-cap">не достигнуты</div>
+    </div>
+
+  </div>
+
+  <p>Первые итерации успешны, отказ наступает в середине цикла — это
+  сигнатура деградации кучи (заполнение/фрагментация) внутри цикла
+  накопления, а не битый размер одного растра (тогда отказ был бы на
+  итерации 0). Растры складываются в глобальный вектор
+  <code>dword_10634F10</code>, который между построениями не
+  освобождается — накопление идёт и через всю игровую сессию.</p>
 
   <div class="viz-legend">
-    <div class="item"><span class="txt"><span class="viz-badge bad">отказ/сбой</span>
+    <div class="item"><span class="txt"><span class="viz-badge bad">сбой / отказ</span>
     = отказ аллокатора, нулевой возврат, точка падения</span></div>
-    <div class="item"><span class="txt"><span class="viz-badge accent">возврат NULL</span>
-    = корректное действие фабрики, транслирующей отказ</span></div>
-    <div class="item"><span class="txt"><span class="viz-badge dim">не достигнуто</span>
-    = поля, до которых исполнение не дошло (сбой на первом чтении)</span></div>
+    <div class="item"><span class="txt"><span class="viz-badge accent">корректно вернула NULL</span>
+    = фабрика честно транслирует отказ аллокатора</span></div>
+    <div class="item"><span class="txt"><span class="viz-badge ok">выделено</span>
+    = успешные итерации до отказа</span></div>
   </div>
 
-  <p>В той же функции инициализатора проверка возврата другой
-  аллокации (<code>operator new</code>) присутствует — значит отсутствие
-  проверки после фабрики именно пропуск, а не сознательное решение.</p>
+  <p>В той же функции-инициализаторе проверка возврата другой аллокации
+  (<code>operator new</code>) присутствует — значит отсутствие проверки
+  после фабрики именно пропуск, а не сознательное решение.</p>
 </section>
 
   <section id="summary">
@@ -581,7 +619,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <section id="s2">
     <h2><span class="htext">Корреляция дампов (сравнительная таблица)</span><a class="anchor" href="#s2">¶</a></h2>
-    <p>26 уникальных вылетов (точных дублей нет). Группировка — по одной точке сбоя и набору регистровых инвариантов; caller'ы в V2-стеке неименованные, поэтому группировка ведётся по падающей функции.</p><p>Регистровые инварианты (абсолютно стабильны во всех 26 логах):</p><ul><li><code>EAX = 0x00000000</code></li><li><code>ECX = 0x00000000</code></li><li>операция: чтение</li><li>адрес сбоя (faulting) = <code>0x00000030</code></li></ul><p>Что меняется от дампа к дампу (и что это значит):</p><ul><li><code>EDX</code>, <code>EBX</code> — это адреса/размеры растровых объектов конкретной сессии (значения вида <code>0x05DC900C</code>, <code>0x09D4200C</code> и т. п. — разные адреса загруженных спрайтов в куче у разных игроков);</li><li><code>EBP</code> — малое число <code>0x03</code>..<code>0x1D</code> (вероятно, индекс/счётчик в цикле подготовки спрайта);</li><li><code>ESI</code>, <code>EDI</code>, <code>ESP</code> — стековые/указательные значения конкретного кадра;</li><li><code>load_base</code> модуля <code>hota.dll</code> плавает (<code>0x031C0000</code>, <code>0x06450000</code>, <code>0x50F60000</code> и т. д.) — ASLR-рандомизация базы DLL, к диагнозу отношения не имеет.</li></ul><p>Состояние игры одинаковое во всех 26 логах: одиночная игра (Network Game = 0), ход игрока (Me = Active Player = 0), день 0/00 (начало партии), карта test.h3m. Пять дампов (№<code>18-20</code>, 22) сопровождаются минидампами Windows (MDMP), которые подтверждают тот же EIP/<code>ECX</code>.</p><p>Поскольку во <b class="hi">ВСЕХ</b> логах адрес сбоя, операция и <code>EAX/ECX</code> идентичны, а различаются только плавающие значения кучи и ASLR-база — это одна сигнатура сбоя, и она носит детерминированный характер в точке кода (подробнее — в разделах 4 и 7).</p>
+    <p>26 уникальных вылетов (точных дублей нет). Группировка — по одной точке сбоя и набору регистровых инвариантов; caller'ы в V2-стеке неименованные, поэтому группировка ведётся по падающей функции.</p><p>Регистровые инварианты (абсолютно стабильны во всех 26 логах):</p><ul><li><code>EAX = 0x00000000</code></li><li><code>ECX = 0x00000000</code></li><li>операция: чтение</li><li>адрес сбоя (faulting) = <code>0x00000030</code></li></ul><p>Что меняется от дампа к дампу (и что это значит):</p><ul><li><code>EDX</code>, <code>EBX</code> — это адреса/размеры растровых объектов конкретной сессии (значения вида <code>0x05DC900C</code>, <code>0x09D4200C</code> и т. п. — разные адреса загруженных спрайтов в куче у разных игроков);</li><li><code>EBP</code> — малое число <code>0x03</code>..<code>0x1D</code> (вероятно, индекс/счётчик в цикле подготовки спрайта);</li><li><code>ESI</code>, <code>EDI</code>, <code>ESP</code> — стековые/указательные значения конкретного кадра;</li><li><code>load_base</code> модуля <code>hota.dll</code> плавает (<code>0x031C0000</code>, <code>0x06450000</code>, <code>0x50F60000</code> и т. д.) — ASLR-рандомизация базы DLL, к диагнозу отношения не имеет.</li></ul><p>Состояние игры одинаковое во всех 26 логах: одиночная игра (Network Game = 0), ход игрока (Me = Active Player = 0), день 0/00 (начало партии), карта test.h3m. Четыре дампа (№<code>18-20</code>, 22) сопровождаются минидампами Windows (MDMP), которые подтверждают тот же EIP/<code>ECX</code>.</p><p>Поскольку во <b class="hi">ВСЕХ</b> логах адрес сбоя, операция и <code>EAX/ECX</code> идентичны, а различаются только плавающие значения кучи и ASLR-база — это одна сигнатура сбоя, и она носит детерминированный характер в точке кода (подробнее — в разделах 4 и 7).</p>
   </section>
 
   <section id="s3">
@@ -627,7 +665,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <section id="s5">
     <h2><span class="htext">Регистровые инварианты</span><a class="anchor" href="#s5">¶</a></h2>
-    <p>Инвариант, общий для <b class="hi">ВСЕХ</b> 26 уникальных дампов: <code>EAX = 0x00000000</code> <code>ECX = 0x00000000</code>   &lt;-- регистр this (thiscall), это и есть нулевой this</p><p>Регистр <code>ECX</code> в вызывающей функции <code>sub_10103400</code> перед падающим вызовом загружается прямо из возврата фабрики <code>sub_10079970</code> (строка листинга <code>0x10103B37</code>: <code>mov ecx, eax</code>). То есть ECX == 0 означает: фабрика вернула <code>NULL</code>. Это единственный корневой регистр, объясняющий адрес сбоя: base(this) + смещение_поля = <code>0 + 0x30 = 0x00000030</code> == faulting address</p><p>Остальные регистры варьируются по дампам и не образуют инварианта: <code>EBP = 3</code>..<code>0x1D</code> (3..29) — это <b class="hi">СЧЁТЧИК</b> <b class="hi">ИТЕРАЦИЙ</b> цикла накопления растров в вызывающей функции <code>sub_10103400</code> (цикл из 32 шагов, <code>ebp</code> 0..<code>0x1F</code>; подробнее в разделе 7). Разные значения <code>EBP</code> в разных дампов означают, на какой итерации цикла отказала аллокация: первые растры (до <code>ebp=3</code>) выделились успешно, отказ наступил позже. Это исключает «битый размер одного растра» (тогда отказ был бы на <code>ebp=0</code>) и подтверждает накопительный характер отказа кучи; <code>EDX</code>, <code>EBX</code>, <code>ESI</code>, <code>EDI</code> — адреса объектов растрового кэша и кучи, разные в каждом дампе (ASLR + состояние аллокатора); <code>ESP</code> — адреса стека в диапазоне <code>0x001A/0x0019F</code>xxx (ASLR).</p><p>Проверки размера буфера здесь НЕ требуется: сбой — это разыменование поля у нулевого указателя, а не выход за границу или массовая запись по <code>NULL</code>. Поэтому формулы размера буфера (через <code>ECX/EDX</code>) к данному адресу сбоя неприменимы — <code>ECX</code> == 0 это не размер, а this.</p>
+    <p>Инвариант, общий для <b class="hi">ВСЕХ</b> 26 уникальных дампов: <code>EAX = 0x00000000</code> <code>ECX = 0x00000000</code>   &lt;-- регистр this (thiscall), это и есть нулевой this</p><p>Регистр <code>ECX</code> в вызывающей функции <code>sub_10103400</code> перед падающим вызовом загружается прямо из возврата фабрики <code>sub_10079970</code> (строка листинга <code>0x10103B37</code>: <code>mov ecx, eax</code>). То есть ECX == 0 означает: фабрика вернула <code>NULL</code>. Это единственный корневой регистр, объясняющий адрес сбоя: base(this) + смещение_поля = <code>0 + 0x30 = 0x00000030</code> == faulting address</p><p>Остальные регистры варьируются по дампам и не образуют инварианта: <code>EBP = 3</code>..<code>0x1D</code> (3..29) — это <b class="hi">СЧЁТЧИК</b> <b class="hi">ИТЕРАЦИЙ</b> цикла накопления растров в вызывающей функции <code>sub_10103400</code> (цикл из 32 шагов, <code>ebp</code> 0..<code>0x1F</code>; подробнее в разделе 7). Разные значения <code>EBP</code> в разных дампах означают, на какой итерации цикла отказала аллокация: первые растры (до <code>ebp=3</code>) выделились успешно, отказ наступил позже. Это исключает «битый размер одного растра» (тогда отказ был бы на <code>ebp=0</code>) и подтверждает накопительный характер отказа кучи; <code>EDX</code>, <code>EBX</code>, <code>ESI</code>, <code>EDI</code> — адреса объектов растрового кэша и кучи, разные в каждом дампе (ASLR + состояние аллокатора); <code>ESP</code> — адреса стека в диапазоне <code>0x001A/0x0019F</code>xxx (ASLR).</p><p>Проверки размера буфера здесь НЕ требуется: сбой — это разыменование поля у нулевого указателя, а не выход за границу или массовая запись по <code>NULL</code>. Поэтому формулы размера буфера (через <code>ECX/EDX</code>) к данному адресу сбоя неприменимы — <code>ECX</code> == 0 это не размер, а this.</p>
   </section>
 
   <section id="s6">
@@ -673,7 +711,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 <span class="a">.text:10103420  </span><span class="k">jz</span>      <span class="r">short</span> loc_10103438           <span class="c">;     и переход при NULL</span></pre></div><p>То есть автор кода знает о необходимости проверять аллокации и делает это для operator new, но НЕ делает для фабрики <code>sub_10079970</code>, которая по контракту тоже может вернуть <code>NULL</code>. Это и есть локализованный дефект: пропущенная проверка возврата фабрики в точке <code>0x10103B3D</code>. Фабрика sub_10079970 вызывается из <code>sub_10103400</code> в семи местах (<code>0x101034C8</code>, <code>0x101034E0</code>, <code>0x101034F0</code>, <code>0x10103629</code>, <code>0x101036DD</code>, <code>0x101037D7</code>, <code>0x10103B30</code>), и ни в одном из них её возврат не проверяется — значит, дефект не локален в один вызов, а является общим шаблоном в этой функции.</p><p>Сопоставление поставщика и потребителя данных (механизм). Поставщик поля <code>+0x30</code> — конструктор <code>sub_100785E0</code> (через nothrow-аллокатор SoD); потребитель — падающая <code>sub_1007A370</code>. Границы потребителя (заполнение всего растра: ширина из <code>+0x24</code>, высота из <code>+0x28</code>, шаг из <code>+0x2C</code>, буфер +0x30) согласованы с границами поставщика (конструктор выделяет ровно stride*height байт для +0x30 и записывает те же размеры в +0x24/+0x28/ +0x2C). Рассинхрона границ <b class="hi">НЕТ</b> — это не off-by-one и не перехлёст. Следовательно, корень именно в непроверенном возврате, а не в ошибке геометрии буфера. Состояние кучи (отказ nothrow-аллокатора) — лишь условие активации; само по себе оно не привело бы к падению, если бы возврат фабрики проверялся.</p><p><b class="hi">ПРИЧИНА</b> <b class="hi">ОТКАЗА</b> <b class="hi">АЛЛОКАТОРА</b>: накопление растров в цикле. Вызов фабрики в точке <code>0x10103B30</code> находится <b class="hi">ВНУТРИ</b> цикла из 32 итераций:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:10103B25 </span>loc_10103B25:               <span class="c">; НАЧАЛО цикла</span>
 <span class="a">.text:10103B30  </span><span class="k">call</span>   sub_10079970         <span class="c">; создать растр (итерация N)</span>
 ...
-<span class="a">.text:10103CFC  </span><span class="k">cmp</span>    <span class="r">ebp</span>, <span class="n">20h</span>             <span class="c">; ebp = счётчик 0..0x1F (32 шага)</span>
+<span class="a">.text:10103CF9  </span><span class="k">cmp</span>    <span class="r">ebp</span>, <span class="n">20h</span>             <span class="c">; ebp = счётчик 0..0x1F (32 шага)</span>
 <span class="a">.text:10103CFC  </span><span class="k">jl</span>     loc_10103B25         <span class="c">; ПОВТОР</span></pre></div><p>На каждой итерации создаётся <b class="hi">НОВЫЙ</b> растр и помещается в глобальный вектор <code>dword_10634F10</code> (рост capacity через <code>sub_101FC820</code>). Источник размеров — поля <code>[ebx+24h]</code>/<code>[ebx+28h]</code> объекта-спрайта, причём регистр <code>ebx</code> <b class="hi">ВНУТРИ</b> цикла не меняется, то есть <b class="hi">ВСЕ</b> 32 растра одного и того же размера (~4*width*height байт каждый).</p><p>Это разрешает ключевую развилку "битый размер" vs "отказ кучи". Регистр <code>EBP</code> в дампах принимает значения <code>0x03</code>..<code>0x1D</code> (3..29), и EBP в момент сбоя — это именно счётчик итераций (он не переприсваивается между сохранением в <code>0x10103B1D</code> и вызовом фабрики в <code>0x10103B30</code>). Если бы причина была в невалидном ("битом") размере растра, фабрика отказала бы на <b class="hi">ПЕРВОЙ</b> итерации <code>(ebp=0)</code>. Но сбой ловится на итерациях 3..29 — первые итерации <b class="hi">УСПЕШНО</b> выделяют растры, и отказ происходит по мере накопления. Это прямое доказательство heap-pressure внутри цикла, а НЕ битого поля размера.</p><p>Замечание о масштабе. Точный размер одного растра (поля width/height объекта-спрайта) лежит в куче и в сокращённых минидамппах недоступен, поэтому суммарный объём 32 растров оценочно — от единиц до десятков МБ. Но для механизма это не существенно: решающее доказательство heap-pressure — не величина, а сам факт "та же аллокация сначала успешна, потом отказывает" (сбой на итерациях 1..29, никогда на 0 при постоянном размере). Это сигнатура деградации кучи (заполнение/ фрагментация) <b class="hi">ВНУТРИ</b> цикла накопления, а не одного невалидного запроса. Вектор <code>sub_101FC820</code> при росте освобождает лишь свой буфер указателей (free старого массива), а НЕ растровые объекты — их адреса копируются в новый буфер, поэтому накопление растров реально.</p><p><b class="hi">ВТОРОЕ</b>, более сильное обоснование: монотонный рост кэша через сессию. Глобальный вектор <code>dword_10634F10</code> (растровый кэш книги заклинаний) просмотрен по всем 8 обращениям в коде (<code>0x100FD6D0</code>, <code>0x100FDF83</code>, <code>0x100FEAFA</code>, <code>0x1010343C</code>, <code>0x10103BF2</code>, <code>0x10108A37</code>, <code>0x1010A64A</code>). Все они — <b class="hi">ЧТЕНИЕ</b> вектора для индексации/отрисовки; ни в одном нет цикла освобождения элементов (нет push элемента; <code>call delete</code>/<code>60B0F0h</code>). Единственная <b class="hi">ЗАПИСЬ</b> в вектор — создание (0x1010343C) и <code>push_back</code> в цикле (0x10103BF2). Значит кэш растров <b class="hi">МОНОТОННО</b> растёт: повторные построения интерфейса книги заклинаний (каждое добавляет до 32 растров) <b class="hi">НИКОГДА</b> не освобождают ранее добавленные. Таким образом heap-pressure складывается не только внутри одного цикла, но и <b class="hi">ЧЕРЕЗ</b> <b class="hi">ВСЮ</b> сессию — поверх буферов HD-мода, локализации и прочих подсистем. Это объясняет, почему вылет стабильно ловится в начале партии (Day=0): к моменту первого построения книги уже накоплены большие буферы инициализации, а кэш растров добавляет к ним непрерывные блоки.</p>
   </section>
 
