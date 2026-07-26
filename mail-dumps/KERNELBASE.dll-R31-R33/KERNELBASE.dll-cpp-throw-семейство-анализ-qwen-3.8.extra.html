@@ -1,0 +1,85 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">#</a></h2>
+
+  <p>Все 9 вылетов — один механизм: игра бросает штатное C++-исключение
+  STL и не перехватывает его. Три разные точки <code>throw</code> в
+  <code>h3hota.exe</code> сходятся в общий финальный путь
+  (<code>A0_Call_Exception</code> далее
+  <code>KERNELBASE!RaiseException</code>), который завершает процесс.
+  Адрес внутри <code>KERNELBASE.dll</code> при этом плавает и является
+  шумом пути диспетчизации, а не идентификатором дефекта.</p>
+
+  <div class="viz">
+    <div class="viz-strip badge-tl">
+      <div class="viz-box accent">
+        <span class="viz-badge accent">A</span>
+        <div>std::out_of_range</div>
+        <div class="lbl">битсет&lt;48&gt; порядка отрисовки · 5 логов</div>
+      </div>
+      <div class="viz-box accent">
+        <span class="viz-badge accent">B</span>
+        <div>std::out_of_range</div>
+        <div class="lbl">позиция курсора в чате · 3 лога</div>
+      </div>
+      <div class="viz-box accent">
+        <span class="viz-badge accent">C</span>
+        <div>std::invalid_argument</div>
+        <div class="lbl">символ битсета · 1 лог</div>
+      </div>
+    </div>
+    <div class="viz-cap">Три точки throw в h3hota.exe (A / B / C) — три
+      разных триггера одного класса дефекта</div>
+  </div>
+
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box dashed">
+        <div>A0_Call_Exception_sub_617B07</div>
+        <div class="lbl">хелпер throw (строит запись исключения)</div>
+      </div>
+      <div class="viz-box dashed">
+        <div>KERNELBASE!RaiseException</div>
+        <div class="lbl">системный путь диспетчизации</div>
+      </div>
+      <div class="viz-box bad">
+        <div>аварийное завершение</div>
+        <div class="lbl">код исключения 0xE06D7363</div>
+      </div>
+    </div>
+    <div class="viz-cap">Общий финальный путь: исключение не ловится —
+      процесс завершается</div>
+  </div>
+
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box ok"><div>0</div><div class="lbl">позиция</div></div>
+      <div class="viz-box ok"><div>1</div><div class="lbl">позиция</div></div>
+      <div class="viz-box ok dim"><div>…</div><div class="lbl"></div></div>
+      <div class="viz-box ok"><div>47</div><div class="lbl">позиция</div></div>
+      <div class="viz-box bad"><div>≥48</div><div class="lbl">throw</div></div>
+    </div>
+    <div class="viz-cap">Дефект A: позиция в битсете = 47 − edi − tmpl_x.
+      Допустимы позиции 0..47; при edi + tmpl_x &gt; 47 позиция выходит
+      за границу и бросается std::out_of_range</div>
+  </div>
+
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge accent">A</span>
+      <span class="txt">Дефект A (5 логов): индекс за пределами
+      битсета&lt;48&gt; порядка отрисовки клеток карты приключений
+      (A0_GameMap_Object_GetCellDrawOrders).</span></div>
+    <div class="item"><span class="viz-badge accent">B</span>
+      <span class="txt">Дефект B (3 лога): позиция курсора за длиной
+      строки текста чата (A0_DlgTextEdit_UpdateTextAndCaretPosition,
+      сетевое лобби/выбор карты).</span></div>
+    <div class="item"><span class="viz-badge accent">C</span>
+      <span class="txt">Дефект C (1 лог): недопустимый символ при разборе
+      битсета из файла объектов objects.txt
+      (A0_Load_Objects_txt).</span></div>
+    <div class="item"><span class="viz-badge bad">!</span>
+      <span class="txt">Виновник — закрытый h3hota.exe: исключения не
+      перехватываются; исправление на стороне разработчиков
+      HotA.</span></div>
+  </div>
+</section>
