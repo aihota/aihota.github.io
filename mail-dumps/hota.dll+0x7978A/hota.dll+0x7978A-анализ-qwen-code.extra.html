@@ -1,0 +1,42 @@
+<section id="viz-crash" data-toc="Визуализация вылета">
+<h2><span class="htext">Визуализация вылета</span>
+    <a class="anchor" href="#viz-crash">#</a></h2>
+<p>Жизненный цикл поля +48h (указатель поверхности)
+и пропущенная проверка в падающей функции.</p>
+
+<div class="viz">
+  <div class="viz-strip">
+    <div class="viz-box ok">Конструктор<br><code>sub_100727E0</code><br>
+      <code>[edi+48h] = 0</code><br>поле = NULL</div>
+    <div class="viz-box accent">Сеттер<br><code>sub_10073490</code><br>
+      <code>[esi+48h] = eax</code><br>поле = указатель или NULL</div>
+    <div class="viz-box ok">Безопасный путь<br><code>sub_10074790</code><br>
+      <code>cmp [esi+48h], 0</code><br>проверяет NULL</div>
+    <div class="viz-box bad">Падающий путь<br><code>sub_100796F0</code><br>
+      <code>mov eax,[esi+48h]</code><br>
+      <code>cmp [eax+35h], 0</code><br>БЕЗ проверки</div>
+  </div>
+</div>
+
+<div class="viz-legend">
+  <div class="item"><span class="viz-badge ok">1</span>
+    <span class="txt">Конструктор инициализирует поле +48h нулём --
+    NULL является легитимным начальным состоянием.</span></div>
+  <div class="item"><span class="viz-badge accent">2</span>
+    <span class="txt">Сеттер может установить валидный указатель
+    или оставить NULL (если поверхность не создана).</span></div>
+  <div class="item"><span class="viz-badge ok">3</span>
+    <span class="txt">Родственная функция sub_10074790 проверяет
+    поле на NULL перед использованием -- безопасный путь.</span></div>
+  <div class="item"><span class="viz-badge bad">4</span>
+    <span class="txt">Падающая функция sub_100796F0 загружает
+    указатель и сразу разыменовывает [eax+35h] без проверки.
+    При EAX=0: чтение адреса 0x35 -- краш.</span></div>
+</div>
+
+<p>Распределение EAX по 26 дампам:
+NULL (0) -- 14; мусорные значения
+(0xCCCCCCCC, 0x01010101, повисшие адреса) -- 12.
+Первое -- пропущенная проверка; второе --
+использование после освобождения.</p>
+</section>
