@@ -2,14 +2,14 @@
 <h2><span class="htext">Визуализация вылета</span>
     <a class="anchor" href="#viz-mechanism">#</a></h2>
 
-<p>Детерминированная цепочка: для растягиваемого режима
-Graphics.Mode=3 HD-мод принудительно переводит игру в оконный
-режим DirectDraw (обнуляет флаг 698808), игра выполняет оконную
-инициализацию и вызывает SetClipper, перехваченный HD-модом.
-Но в оконном пути объект dword_1004C9EC не создаётся вовсе —
-перехватчик разыменовывает нуль. Дефект подтверждён 11 логами
-в 8 версиях HD-мода (адрес инструкции смещается по версиям,
-механизм неизменен).</p>
+<p>Детерминированная цепочка: при ранней инициализации DirectDraw
+флаг полноэкранности 698808 ещё не загружен из реестра (BSS=0),
+игра идёт по оконной ветке и вызывает SetClipper, перехваченный
+HD-модом. Для растягиваемого режима Graphics.Mode=3 в оконном пути
+объект dword_1004C9EC не создаётся вовсе — перехватчик
+разыменовывает нуль. Дефект подтверждён 11 логами в 8 версиях
+HD-мода (адрес инструкции смещается по версиям, механизм
+неизменен).</p>
 
 <div class="viz">
   <div class="viz-strip badge-tl">
@@ -22,10 +22,10 @@ Graphics.Mode=3 HD-мод принудительно переводит игру
     </div>
     <div class="viz-box bad">
       <span class="viz-badge bad">2</span>
-      <span class="lbl">HD-мод</span>
-      <span>обнуляет флаг</span>
-      <span>698808</span>
-      <span class="lbl">оконный режим DirectDraw</span>
+      <span class="lbl">Ранняя инициализация</span>
+      <span>флаг 698808</span>
+      <span>ещё не загружен</span>
+      <span class="lbl">BSS=0, оконная ветка</span>
     </div>
     <div class="viz-box">
       <span class="viz-badge accent">3</span>
@@ -89,11 +89,11 @@ Graphics.Mode=3 HD-мод принудительно переводит игру
     <span class="txt">Graphics.Mode=3 — растягиваемый режим;
     пользовательская настройка FullScreen=1</span></div>
   <div class="item"><span class="viz-badge bad">2</span>
-    <span class="txt">HD-мод обнуляет флаг полноэкранности 698808,
-    переводя DirectDraw в оконный режим (конкретный
-    механизм обнуления для данного запуска статикой
-    не установлен — sub_100157A0 опровергнут для
-    родного разрешения 1920×1080)</span></div>
+    <span class="txt">При ранней инициализации флаг полноэкранности
+    698808 ещё не загружен из реестра (BSS=0) — игра идёт
+    по оконной ветке DirectDraw (подтверждено winedbg:
+    A0_DirectDrawInit срабатывает раньше записи настройки
+    по 0x4EDD22, механизмы обнуления HD-мода не срабатывают)</span></div>
   <div class="item"><span class="viz-badge accent">3</span>
     <span class="txt">h3hota.exe идёт по оконной ветке
     A0_DirectDrawInit: CreateClipper, SetHWnd, SetClipper
