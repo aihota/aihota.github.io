@@ -505,7 +505,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <section id="summary">
     <h2><span class="htext">Краткое резюме</span><a class="anchor" href="#summary">¶</a></h2>
-    <div class="card summary"><p>Игра падает в главном меню при перерисовке окна (<code>WM_PAINT</code>). Функция <code>A0_Flip_AndDrawCursor_sub_600430</code> (WINGRAPH.CPP) проверяет наличие объекта <code>DirectDraw</code>, но НЕ проверяет наличие поверхности заднего буфера (back buffer). Когда сообщение WM_PAINT приходит в момент, когда объект DirectDraw уже создан, а back buffer ещё не создан (или уже освобождён при смене режима), функция разыменовывает нулевой указатель и падает. Дефект унаследован от SoD, проявляется во всех версиях HD-мода (5.7 R3 — R33) и во всех графических режимах <code>(0/2/4)</code>.</p></div>
+    <div class="card summary"><p>Игра падает в главном меню при перерисовке окна (<code>WM_PAINT</code>). Функция <code>A0_Flip_AndDrawCursor_sub_600430</code> (WINGRAPH.CPP) проверяет наличие объекта <code>DirectDraw</code>, но НЕ проверяет наличие поверхности заднего буфера (back buffer). Когда сообщение WM_PAINT приходит в момент, когда объект DirectDraw уже создан, а back buffer ещё не создан (или уже освобождён при смене режима), функция разыменовывает нулевой указатель и падает. Дефект унаследован от SoD, проявляется во всех версиях HD-мода (5.7 R3 — R33); наблюдался в графических режимах 0, 2 и 4 (в падающей функции режим не используется — вылет от него не зависит).</p></div>
   </section>
 
   <section id="s1">
@@ -561,7 +561,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <section id="s9">
     <h2><span class="htext">Условия сбоя</span><a class="anchor" href="#s9">¶</a></h2>
-    <p>Состояние игры (все 91 вылет): Day = 0, Me = 0, Active Player = 0, Network Game = 0 Map file = test.h3m → главное меню (не в игре).</p><p>Graphics.Mode: 2 (×56), 4 (×34), 0 (×1) — все режимы. Graphics.Resolution: различные (800×600 — 2560×1440). HD-мод: все версии 5.7 (R3 — R33, RC7 — RC12).</p><p>Комментарии игроков: отсутствуют (все блоки Comment содержат только автотекст «AUTOMATIC CRASH REPORT FROM THE MAIN THREAD»).</p>
+    <p>Состояние игры (все 91 вылет): Day = 0, Me = 0, Active Player = 0, Network Game = 0 Map file = test.h3m → главное меню (не в игре).</p><p>Graphics.Mode: 2 (×56), 4 (×34), 0 (×1). Вылет не привязан к режиму: в падающей функции нет ветвления по Graphics.Mode, а наблюдаемые режимы покрывают обе внутренние глубины (0 и 2 — 16 бит, 4 — 32 бита). Graphics.Resolution: различные (800×600 — 2560×1440). HD-мод: все версии 5.7 (R3 — R33, RC7 — RC12).</p><p>Комментарии игроков: отсутствуют (все блоки Comment содержат только автотекст «AUTOMATIC CRASH REPORT FROM THE MAIN THREAD»).</p>
   </section>
 
   <section id="s10">
@@ -571,7 +571,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <section id="s11">
     <h2><span class="htext">Воспроизведение вылета</span><a class="anchor" href="#s11">¶</a></h2>
-    <p>Условие активации: <code>WM_PAINT</code> в момент, когда объект <code>DirectDraw</code> создан, а back buffer — нет (или уже освобождён).</p><p>Базовый сценарий: 1. Запустить игру (HotA 1.8.0, HD-мод 5.7, любой режим). 2. Находиться в главном меню. 3. Спровоцировать перерисовку окна (<code>WM_PAINT</code>) в момент инициализации или смены графического режима: а) свернуть/развернуть окно (Alt+Tab, Win+D); б) изменить разрешение экрана; в) переключить полноэкранный/оконный режим. 4. Если WM_PAINT приходит в окно между созданием <code>DirectDraw</code> и созданием back buffer (или между освобождением back buffer и освобождением DirectDraw) — вылет.</p><p>Варьирование:</p><ul><li>Graphics.Mode: не влияет (краш в режимах 0/2/4).</li><li>Разрешение: не влияет (краш при 800×600 — 2560×1440).</li><li>Версия HD-мода: не влияет (краш в R3 — R33).</li></ul><p>Дифф-тест:</p><ul><li>Без HD-мода (чистый SoD): вылет должен воспроизводиться тем же механизмом (код идентичен, но без перехвата <code>HD_SCX2.dll</code>). Для подтверждения нужен дамп чистого SoD.</li></ul>
+    <p>Условие активации: <code>WM_PAINT</code> в момент, когда объект <code>DirectDraw</code> создан, а back buffer — нет (или уже освобождён).</p><p>Базовый сценарий: 1. Запустить игру (HotA 1.8.0, HD-мод 5.7, любой режим). 2. Находиться в главном меню. 3. Спровоцировать перерисовку окна (<code>WM_PAINT</code>) в момент инициализации или смены графического режима: а) свернуть/развернуть окно (Alt+Tab, Win+D); б) изменить разрешение экрана; в) переключить полноэкранный/оконный режим. 4. Если WM_PAINT приходит в окно между созданием <code>DirectDraw</code> и созданием back buffer (или между освобождением back buffer и освобождением DirectDraw) — вылет.</p><p>Варьирование:</p><ul><li>Graphics.Mode: в падающей функции не используется; краш наблюдался в режимах 0/2/4 (16-и 32-битных).</li><li>Разрешение: не влияет (краш при 800×600 — 2560×1440).</li><li>Версия HD-мода: не влияет (краш в R3 — R33).</li></ul><p>Дифф-тест:</p><ul><li>Без HD-мода (чистый SoD): вылет должен воспроизводиться тем же механизмом (код идентичен, но без перехвата <code>HD_SCX2.dll</code>). Для подтверждения нужен дамп чистого SoD.</li></ul>
   </section>
 
   <section id="sdost">
@@ -581,7 +581,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <section id="verdict">
     <h2><span class="htext">Вывод</span><a class="anchor" href="#verdict">¶</a></h2>
-    <div class="card verdict lvl-high"><p>Вылет 600480 — разыменование нулевого указателя на поверхность заднего буфера <code>DirectDraw</code> в функции отрисовки кадра <code>A0_Flip_AndDrawCursor_sub_600430</code> (WINGRAPH.CPP, <code>h3hota.exe</code>). Функция проверяет наличие объекта DirectDraw, но не проверяет наличие back buffer перед вызовом vtable (IDirectDrawSurface::GetDC). Когда <code>WM_PAINT</code> приходит в момент неполной инициализации или частичного освобождения DirectDraw-поверхностей, глобал <code>A0_DirectDraw_Surface_BackBuffer_dword_6AAD28</code> равен <code>NULL</code>, что приводит к падению. Дефект структурный (пропущена одна проверка), унаследован от SoD, проявляется во всех версиях HD-мода и графических режимах. Виновный код — в закрытом модуле h3hota.exe.</p></div>
+    <div class="card verdict lvl-high"><p>Вылет 600480 — разыменование нулевого указателя на поверхность заднего буфера <code>DirectDraw</code> в функции отрисовки кадра <code>A0_Flip_AndDrawCursor_sub_600430</code> (WINGRAPH.CPP, <code>h3hota.exe</code>). Функция проверяет наличие объекта DirectDraw, но не проверяет наличие back buffer перед вызовом vtable (IDirectDrawSurface::GetDC). Когда <code>WM_PAINT</code> приходит в момент неполной инициализации или частичного освобождения DirectDraw-поверхностей, глобал <code>A0_DirectDraw_Surface_BackBuffer_dword_6AAD28</code> равен <code>NULL</code>, что приводит к падению. Дефект структурный (пропущена одна проверка), унаследован от SoD, проявляется во всех версиях HD-мода; наблюдался в графических режимах 0, 2 и 4. Виновный код — в закрытом модуле h3hota.exe.</p></div>
   </section>
 
   </main>
