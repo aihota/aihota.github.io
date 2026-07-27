@@ -22,10 +22,10 @@ Graphics.Mode=3 HD-мод принудительно переводит игру
     </div>
     <div class="viz-box bad">
       <span class="viz-badge bad">2</span>
-      <span class="lbl">sub_100157A0</span>
-      <span>HD-мод обнуляет</span>
-      <span>флаг 698808</span>
-      <span class="lbl">режим не найден (sub_100154F0=0)</span>
+      <span class="lbl">HD-мод</span>
+      <span>обнуляет флаг</span>
+      <span>698808</span>
+      <span class="lbl">оконный режим DirectDraw</span>
     </div>
     <div class="viz-box">
       <span class="viz-badge accent">3</span>
@@ -89,11 +89,11 @@ Graphics.Mode=3 HD-мод принудительно переводит игру
     <span class="txt">Graphics.Mode=3 — растягиваемый режим;
     пользовательская настройка FullScreen=1</span></div>
   <div class="item"><span class="viz-badge bad">2</span>
-    <span class="txt">HD-мод (sub_100157A0) принудительно обнуляет
-    флаг полноэкранности 698808, когда sub_100154F0
-    возвращает 0 (разрешение HD.Rez.X/Y не найдено среди
-    родных полноэкранных режимов), переводя DirectDraw
-    в оконный режим</span></div>
+    <span class="txt">HD-мод обнуляет флаг полноэкранности 698808,
+    переводя DirectDraw в оконный режим (конкретный
+    механизм обнуления для данного запуска статикой
+    не установлен — sub_100157A0 опровергнут для
+    родного разрешения 1920×1080)</span></div>
   <div class="item"><span class="viz-badge accent">3</span>
     <span class="txt">h3hota.exe идёт по оконной ветке
     A0_DirectDrawInit: CreateClipper, SetHWnd, SetClipper
