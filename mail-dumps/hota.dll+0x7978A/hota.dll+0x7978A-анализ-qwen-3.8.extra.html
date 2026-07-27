@@ -34,9 +34,30 @@
     При EAX=0: чтение адреса 0x35 -- краш.</span></div>
 </div>
 
-<p>Распределение EAX по 26 дампам:
-NULL (0) -- 14; мусорные значения
-(0xCCCCCCCC, 0x01010101, повисшие адреса) -- 12.
-Первое -- пропущенная проверка; второе --
-использование после освобождения.</p>
+<p>Распределение EAX по 26 дампам:</p>
+
+<div class="viz">
+  <div class="viz-strip">
+    <div class="viz-box bad" style="flex:14">NULL (0)<br>14 дампов</div>
+    <div class="viz-box accent" style="flex:3">0x51<br>3</div>
+    <div class="viz-box accent" style="flex:1">0x108<br>1</div>
+    <div class="viz-box" style="flex:1;background:var(--panel2)">CCCCCCCC<br>1</div>
+    <div class="viz-box" style="flex:1;background:var(--panel2)">01010101<br>1</div>
+    <div class="viz-box" style="flex:1;background:var(--panel2)">57565300<br>1</div>
+    <div class="viz-box" style="flex:5;background:var(--panel2)">куча<br>5</div>
+  </div>
+</div>
+
+<div class="viz-legend">
+  <div class="item"><span class="viz-badge bad">54%</span>
+    <span class="txt">NULL -- пропущенная проверка: поле не
+    установлено сеттером или подобъект не создан.</span></div>
+  <div class="item"><span class="viz-badge accent">15%</span>
+    <span class="txt">Малые значения (0x51, 0x108) -- возможно,
+    смещения или размеры, записанные не по адресу.</span></div>
+  <div class="item"><span class="viz-badge">31%</span>
+    <span class="txt">Мусорные/повисшие адреса (0xCCCCCCCC --
+    неиниц. куча MSVC; 0x01010101 -- освобождённая память;
+    адреса кучи) -- use-after-free подобъекта.</span></div>
+</div>
 </section>
