@@ -375,7 +375,7 @@ td.flag{color:var(--bad);font-weight:700;
   background:var(--panel2);padding:12px 10px;text-align:center;
   font-size:var(--fs-xs);line-height:var(--lh-tight);color:var(--ink);
   display:flex;flex-direction:column;justify-content:flex-start;align-items:center;gap:6px}
-.viz-box span{display:block;white-space:nowrap}
+.viz-box span:not(.viz-badge){display:block;white-space:nowrap}
 .viz-box .lbl{font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--muted)}
 .viz-box.ok{border-color:var(--okLn);background:var(--okBg)}
 .viz-box.bad{border-color:var(--redLn);background:var(--redBg)}
@@ -496,7 +496,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
     <p class="byline">Qwen 3.8 · 27.07.2026</p>
     <div class="ribbon lvl-mid">
       <div class="vlabel">Заключение</div>
-      <div class="vtxt">HD-мод (<code>_HD3_.dll</code>) вызывает callback, использующий глобальный указатель на объект <code>DirectDraw</code>, без проверки на <code>NULL</code>; при инициализации графики объект ещё не создан, указатель равен нулю.</div>
+      <div class="vtxt">HD-мод (<code>_HD3_.dll</code>) публикует обёртку поверхности <code>DirectDraw</code> (с перехватчиками) раньше, чем создаёт внутренний объект <code>dword_1004C9EC</code>; в оконном пути объект не создаётся вовсе. Перехватчик <code>sub_100189A0</code> разыменовывает нулевой глобал без проверки.</div>
     </div>
     <div class="statstrip"><div class="stat c-ver"><div class="ic-badge"><svg class="ic"><use href="#ic-package"/></svg></div><div class="st-body"><div class="big">1.8.0</div><div class="cap">Версия HotA</div></div></div><div class="stat c-cls"><div class="ic-badge"><svg class="ic"><use href="#ic-triangle"/></svg></div><div class="st-body"><div class="big">разыменование нулевого указателя</div><div class="cap">Класс сбоя</div></div></div><div class="stat c-cnt"><div class="ic-badge"><svg class="ic"><use href="#ic-database"/></svg></div><div class="st-body"><div class="big">1</div><div class="cap">Количество логов</div></div></div><div class="stat c-use use-mid"><div class="ic-badge"><svg class="ic"><use href="#ic-sig2"/></svg></div><div class="st-body"><div class="big">СРЕДНЯЯ</div><div class="cap">Полезность лога</div></div></div></div>
   </div>
@@ -505,19 +505,19 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 <h2><span class="htext">Визуализация вылета</span>
     <a class="anchor" href="#viz-mechanism">#</a></h2>
 
-<p>Окно уязвимости при инициализации: перехватчики HD-мода
-регистрируются РАНЬШЕ создания внутренних объектов.
-Вызов из игрового кода в этом окне попадает в callback
-с нулевым глобальным указателем.</p>
+<p>Корень дефекта — порядок инициализации внутри
+sub_100182C0: обёртка поверхности (с перехватчиками)
+публикуется РАНЬШЕ создания внутреннего объекта, а в
+оконном пути объект не создаётся вовсе.</p>
 
 <div class="viz">
   <div class="viz-strip badge-tl">
     <div class="viz-box ok">
       <span class="viz-badge ok">1</span>
-      <span class="lbl">sub_100181A0</span>
-      <span>Таблица</span>
-      <span>перехватчиков</span>
-      <span class="lbl">слоты +0x0C..+0x84</span>
+      <span class="lbl">sub_100182C0+3C</span>
+      <span>Обёртка</span>
+      <span>опубликована</span>
+      <span class="lbl">перехватчики активны</span>
     </div>
     <div class="viz-box bad">
       <span class="viz-badge bad">!</span>
@@ -530,21 +530,58 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
       <span class="viz-badge accent">2</span>
       <span class="lbl">sub_100182C0+199</span>
       <span>Создание</span>
-      <span>объектов</span>
-      <span class="lbl">dword_1004C9EC = obj</span>
+      <span>объекта</span>
+      <span class="lbl">ТОЛЬКО полный экран</span>
     </div>
     <div class="viz-box ok">
       <span class="viz-badge ok">3</span>
       <span class="lbl">Штатная работа</span>
-      <span>Callback'и</span>
+      <span>Перехватчики</span>
       <span>используют</span>
       <span class="lbl">валидный объект</span>
     </div>
   </div>
-  <p class="viz-cap">Инициализация sub_100182C0: сначала регистрация
-  перехватчиков (шаг 1), затем создание объектов (шаг 2).
-  Вызов из A0_DirectDrawInit в окне между ними
-  разыменовывает нулевой указатель.</p>
+  <p class="viz-cap">Полноэкранный путь ([arg_0+68h] &amp; 0x200
+  установлен): обёртка публикуется на +0x3C, объект
+  создаётся на +0x199 — между ними окно с нулевым
+  глобалом.</p>
+</div>
+
+<div class="viz">
+  <div class="viz-strip badge-tl">
+    <div class="viz-box ok">
+      <span class="viz-badge ok">1</span>
+      <span class="lbl">sub_100182C0+3C</span>
+      <span>Обёртка</span>
+      <span>опубликована</span>
+      <span class="lbl">перехватчики активны</span>
+    </div>
+    <div class="viz-box bad">
+      <span class="viz-badge bad">!</span>
+      <span class="lbl">Ветвление</span>
+      <span>Флаг</span>
+      <span>[arg_0+68h]</span>
+      <span class="lbl">&amp; 0x200 сброшен</span>
+    </div>
+    <div class="viz-box bad">
+      <span class="viz-badge bad">X</span>
+      <span class="lbl">Оконный путь</span>
+      <span>Объект НЕ</span>
+      <span>создаётся</span>
+      <span class="lbl">глобал = 0 всегда</span>
+    </div>
+    <div class="viz-box bad">
+      <span class="viz-badge bad">D</span>
+      <span class="lbl">sub_100189A0</span>
+      <span>mov ecx,[eax]</span>
+      <span>при EAX = 0</span>
+      <span class="lbl">детерминированный краш</span>
+    </div>
+  </div>
+  <p class="viz-cap">Оконный путь (loc_100184B7): объект
+  dword_1004C9EC не создаётся вовсе, глобал остаётся
+  нулевым — первый же вызов перехватчика sub_100189A0
+  падает.</p>
 </div>
 
 <div class="viz">
@@ -577,23 +614,28 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
   инициализацию через диспетчер HD-мода (B), который
   вызывает оригинальную функцию игры (C). Игровой код
   вызывает метод vtable поверхности, перехваченный
-  HD-модом, что приводит к callback'у (D) с EAX = 0.</p>
+  HD-модом, что приводит к перехватчику (D) с EAX = 0.</p>
 </div>
 
 <div class="viz-legend">
   <div class="item"><span class="viz-badge ok">1</span>
-    <span class="txt">Регистрация перехватчиков (таблица
-    sub_100181A0, слот +0x74 = sub_100189A0)</span></div>
+    <span class="txt">Публикация обёртки поверхности
+    (mov [esi], edi на sub_100182C0+3C); таблица
+    перехватчиков содержит sub_100189A0 (слот +0x74)</span></div>
   <div class="item"><span class="viz-badge bad">!</span>
-    <span class="txt">Окно сбоя: перехватчики активны,
-    глобал dword_1004C9EC ещё равен нулю</span></div>
+    <span class="txt">Окно сбоя (полноэкранный путь) или
+    ветвление с сброшенным флагом (оконный путь):
+    глобал dword_1004C9EC равен нулю</span></div>
   <div class="item"><span class="viz-badge accent">2</span>
-    <span class="txt">Создание объектов поверхности
-    (vtable-вызов [ecx+18h], выходной параметр
-    dword_1004C9EC)</span></div>
+    <span class="txt">Создание объекта dword_1004C9EC
+    (vtable-вызов [ecx+18h], выходной параметр) —
+    только в полноэкранном пути</span></div>
   <div class="item"><span class="viz-badge ok">3</span>
     <span class="txt">Штатная работа: глобал валиден,
-    vtable-вызов [ecx+70h] проходит успешно</span></div>
+    vtable-вызов проходит успешно</span></div>
+  <div class="item"><span class="viz-badge bad">X</span>
+    <span class="txt">Оконный путь (loc_100184B7): объект
+    не создаётся, глобал остаётся нулевым</span></div>
   <div class="item"><span class="viz-badge accent">A</span>
     <span class="txt">hota.dll:sub_100D1B10 — запуск
     инициализации графики</span></div>
@@ -602,8 +644,8 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
     диспетчер перехватов (обёрнут в SEH)</span></div>
   <div class="item"><span class="viz-badge accent">C</span>
     <span class="txt">h3hota.exe:A0_DirectDrawInit_sub_601AB0
-    — инициализация DirectDraw (DirectDrawCreate,
-    SetCooperativeLevel, SetDisplayMode)</span></div>
+    — инициализация DirectDraw; первичная поверхность
+    создаётся через sub_600BB0(1)</span></div>
   <div class="item"><span class="viz-badge bad">D</span>
     <span class="txt">_HD3_.dll:sub_100189A0 — точка краша:
     mov ecx, [eax] при EAX = 0 (глобал не создан)</span></div>
@@ -613,7 +655,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <section id="summary">
     <h2><span class="htext">Краткое резюме</span><a class="anchor" href="#summary">¶</a></h2>
-    <div class="card summary"><p>Во время инициализации <code>DirectDraw</code> (запуск игры, день 0) HD-мод перехватывает вызов метода поверхности DirectDraw и передаёт управление собственному callback'у <code>sub_100189A0</code>. Этот callback загружает глобальный указатель <code>dword_1004C9EC</code> (внутренний объект поверхности HD-мода) и делает vtable-вызов по нему без проверки на <code>NULL</code>. На момент вызова объект ещё не инициализирован, указатель равен 0, происходит чтение по адресу <code>0x00000000</code> и аварийное завершение.</p><p>Функция проверяет на <code>NULL</code> свой аргумент <code>arg_0</code>, но НЕ проверяет глобальный указатель. Ни одна из соседних функций, использующих этот глобал, также не имеет проверки.</p><p>Виновник: HD-мод (<code>_HD3_.dll</code>, закрытый модуль).</p></div>
+    <div class="card summary"><p>Во время инициализации <code>DirectDraw</code> (запуск игры, день 0) HD-мод перехватывает вызов метода поверхности DirectDraw и передаёт управление собственному перехватчику <code>sub_100189A0</code>. Этот перехватчик загружает глобальный указатель <code>dword_1004C9EC</code> (внутренний объект поверхности HD-мода) и делает vtable-вызов по нему без проверки на <code>NULL</code>. На момент вызова объект ещё не создан, указатель равен 0, происходит чтение по адресу <code>0x00000000</code> и аварийное завершение.</p><p>Корень — порядок инициализации внутри <code>sub_100182C0</code>: обёртка поверхности (с таблицей перехватчиков) публикуется на <code>+0x3C</code>, а объект <code>dword_1004C9EC</code> создаётся лишь на <code>+0x199</code>, причём <b class="hi">ТОЛЬКО</b> в полноэкранном пути; в оконном пути он не создаётся вовсе. Перехватчик проверяет на <code>NULL</code> свой аргумент <code>arg_0</code>, но НЕ проверяет глобальный указатель.</p><p>Виновник: HD-мод (<code>_HD3_.dll</code>, закрытый модуль).</p></div>
   </section>
 
   <section id="s1">
@@ -638,7 +680,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <section id="s5">
     <h2><span class="htext">Инструкция краша и адресная проверка</span><a class="anchor" href="#s5">¶</a></h2>
-    <p>Функция <code>sub_100189A0</code> (callback, слот <code>+0x74</code> таблицы перехватчиков):</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:100189A0 </span>sub_100189A0 proc near
+    <p>Функция <code>sub_100189A0</code> (перехватчик, слот <code>+0x74</code> таблицы перехватчиков):</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:100189A0 </span>sub_100189A0 proc near
 <span class="a">.text:100189A0 </span>arg_0 = <span class="r">dword</span> <span class="r">ptr</span>  <span class="n">8</span>
 <span class="a">.text:100189A0 </span>arg_4 = <span class="r">dword</span> <span class="r">ptr</span>  <span class="n">0Ch</span>
 <span class="a">.text:100189A0     </span><span class="k">push</span>    <span class="r">ebp</span>
@@ -658,7 +700,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <section id="s6">
     <h2><span class="htext">Цепочка вызовов</span><a class="anchor" href="#s6">¶</a></h2>
-    <p>Call stack V2 (сверху вниз, от точки краша):</p><p>100189B2 (<code>_HD3_</code>)   <code>sub_100189A0</code> (callback <code>+0x74</code>) 00601C60 (h3hota)  <code>A0_DirectDrawInit_sub_601AB0+0x1B0</code> 02C202C5 (?)       трамплин <code>patcher_x86</code> 100111B0 (_HD3_)   <code>sub_10010CE0+0x4D0</code> (диспетчер) 02C20158 (?)       трамплин patcher_x86 02C5D5D4 (?)       трамплин patcher_x86 69491B26 (hota)    <code>sub_100D1B10+0x16</code> 77BDE00B (ntdll)   <code>RtlInitializeExceptionChain</code> 77BDDF91 (ntdll)   <code>RtlGetAppContainerNamedObjectPath</code></p><p>Call stack V1 (уточнение): <code>0x00601AA0</code> (h3hota) <code>A0_DirectDrawInit_j_sub_601AA0</code> вызван из <code>0x02C202C0</code> (трамплин) <code>_HD3_.dll+0x10CE0</code> (<code>sub_10010CE0</code>) вызван из <code>0x02C20153</code> (трамплин) <code>0x02DC0011</code> вызван из <code>0x02C5D5CF</code> (трамплин)</p><p>Восстановленная цепочка (снизу вверх):</p><p><code>hota.dll</code>:<code>sub_100D1B10</code> (проверка <code>sub_100DF140</code>, затем vtable-вызов по <code>dword_10634DEC</code> и косвенный <code>call eax</code>) далее трамплины <code>patcher_x86</code> далее <code>_HD3_.dll</code>:<code>sub_10010CE0</code> (главный диспетчер перехватов HD-мода, обёрнут в SEH с <code>TopLevelExceptionFilter</code>) далее трамплин далее <code>h3hota.exe</code>:<code>A0_DirectDrawInit_sub_601AB0</code> (инициализация <code>DirectDraw</code>: <code>DirectDrawCreate</code>, <code>SetCooperativeLevel</code>, <code>SetDisplayMode</code>, создание первичной поверхности) далее vtable-вызов <code>[ecx+70h]</code> на первичной поверхности (перехвачен HD-модом) далее трамплин далее _HD3_.dll:<code>sub_100189A0</code> — <b class="hi">КРАШ</b></p><p>Адреса <code>0x02C2xxxx</code>, <code>0x02C5xxxx</code>, <code>0x02DCxxxx</code> не попадают ни в один модуль из секции Modules — это рантайм-стабы перехватов <code>patcher_x86</code>.</p><p>Подсистема: инициализация графики (<code>DirectDraw</code>).</p>
+    <p>Call stack V2 (сверху вниз, от точки краша):</p><p>100189B2 (<code>_HD3_</code>)   <code>sub_100189A0</code> (перехватчик <code>+0x74</code>) 00601C60 (h3hota)  <code>A0_DirectDrawInit_sub_601AB0+0x1B0</code> 02C202C5 (?)       трамплин <code>patcher_x86</code> 100111B0 (_HD3_)   <code>sub_10010CE0+0x4D0</code> (диспетчер) 02C20158 (?)       трамплин patcher_x86 02C5D5D4 (?)       трамплин patcher_x86 69491B26 (hota)    <code>sub_100D1B10+0x16</code> 77BDE00B (ntdll)   <code>RtlInitializeExceptionChain</code> 77BDDF91 (ntdll)   <code>RtlGetAppContainerNamedObjectPath</code></p><p>Call stack V1 (уточнение): <code>0x00601AA0</code> (h3hota) <code>A0_DirectDrawInit_j_sub_601AA0</code> вызван из <code>0x02C202C0</code> (трамплин) <code>_HD3_.dll+0x10CE0</code> (<code>sub_10010CE0</code>) вызван из <code>0x02C20153</code> (трамплин) <code>0x02DC0011</code> вызван из <code>0x02C5D5CF</code> (трамплин)</p><p>Восстановленная цепочка (снизу вверх):</p><p><code>hota.dll</code>:<code>sub_100D1B10</code> (проверка <code>sub_100DF140</code>, затем vtable-вызов по <code>dword_10634DEC</code> и косвенный <code>call eax</code>) далее трамплины <code>patcher_x86</code> далее <code>_HD3_.dll</code>:<code>sub_10010CE0</code> (главный диспетчер перехватов HD-мода, обёрнут в SEH с <code>TopLevelExceptionFilter</code>) далее трамплин далее <code>h3hota.exe</code>:<code>A0_DirectDrawInit_sub_601AB0</code> (инициализация <code>DirectDraw</code>: <code>DirectDrawCreate</code>, <code>SetCooperativeLevel</code>, <code>SetDisplayMode</code>, создание первичной поверхности) далее vtable-вызов <code>[ecx+70h]</code> на первичной поверхности (перехвачен HD-модом) далее трамплин далее _HD3_.dll:<code>sub_100189A0</code> — <b class="hi">КРАШ</b></p><p>Адреса <code>0x02C2xxxx</code>, <code>0x02C5xxxx</code>, <code>0x02DCxxxx</code> не попадают ни в один модуль из секции Modules — это рантайм-стабы перехватов <code>patcher_x86</code>.</p><p>Подсистема: инициализация графики (<code>DirectDraw</code>).</p>
   </section>
 
   <section id="s7">
@@ -674,7 +716,8 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 <span class="a">.text:10018985  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">eax</span>]
 <span class="a">.text:10018987  </span><span class="k">call</span>    <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">ecx</span>+<span class="n">8</span>]
 <span class="a">.text:1001898A  </span><span class="k">mov</span>     dword_1004C9EC, <span class="r">edi</span></pre></div><p>При освобождении <code>edi = 0</code> (результат предшествующего вызова), глобал обнуляется.</p><p>3) Использование (<code>sub_100189A0</code>, строка 100189A9):</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:100189A9  </span><span class="k">mov</span>     <span class="r">eax</span>, dword_1004C9EC
-<span class="a">.text:100189B2  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">eax</span>]</pre></div><p>Глобал загружается и разыменовывается <b class="hi">БЕЗ</b> проверки.</p><p>Порядок инициализации: <code>sub_100182C0</code> сначала строит таблицу перехватчиков (вызов <code>sub_100181A0</code> на <code>+0x2E</code>), затем создаёт объекты поверхностей (на <code>+0x199</code>). Между этими двумя этапами перехватчики уже активны, но глобальные указатели ещё равны нулю. Если в этом окне игровой код вызывает метод поверхности <code>DirectDraw</code> (перехваченный HD-модом), управление попадает в callback, который разыменовывает неинициализированный глобал.</p><p>Сравнение с соседними функциями:</p><p><code>sub_100189C0</code> (слот <code>+0x78</code>): проверяет <code>arg_0</code>, затем использует <code>[arg_0+0x94]</code> — НЕ обращается к глобалу <code>dword_1004C9EC</code>. <code>sub_100189E0</code> (слот <code>+0x70</code>): проверяет arg_0, затем использует <code>[arg_0+0x94]</code> — НЕ обращается к глобалу. <code>sub_10018580</code>, <code>sub_10018700</code> (обработчики Blt): используют dword_1004C9EC <b class="hi">БЕЗ</b> проверки на <code>NULL</code> (тот же паттерн, что и <code>sub_100189A0</code>).</p><p>Ни одна функция, использующая <code>dword_1004C9EC</code>, не проверяет его на <code>NULL</code>. Инвариант «глобал всегда валиден при активном перехватчике» нарушается в окне между регистрацией перехватчиков и созданием объектов.</p>
+<span class="a">.text:100189B2  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">eax</span>]</pre></div><p>Глобал загружается и разыменовывается <b class="hi">БЕЗ</b> проверки.</p><p>Порядок инициализации (корень дефекта). Объект-обёртка поверхности, чья таблица перехватчиков содержит <code>sub_100189A0</code>, создаётся функцией <code>sub_100182C0</code>. Внутри неё порядок операций следующий:</p><p><code>+0x2E</code>   <code>call sub_100181A0</code>     — построить таблицу перехватчиков (слот <code>+0x74</code> = <code>sub_100189A0</code>) <code>+0x3C</code>   <code>mov [esi], edi</code>        — <b class="hi">ОПУБЛИКОВАТЬ</b> обёртку (с этого момента sub_100189A0 достижим через перехваченную vtable) <code>+0x12F</code>  <code>call [ecx+18h]</code>        — создать первичную поверхность (<code>dword_1004C9D8</code>) <code>+0x199</code>  <code>call [ecx+18h]</code>        — создать объект <code>dword_1004C9EC</code> (<b class="hi">ТОЛЬКО</b> полноэкранный путь)</p><p>Таким образом, обёртка публикуется (<code>+0x3C</code>) <b class="hi">РАНЬШЕ</b>, чем создаётся объект <code>dword_1004C9EC</code> (<code>+0x199</code>). В интервале между ними перехватчик <code>sub_100189A0</code> уже достижим, но глобал ещё равен нулю.</p><p>Два пути <code>sub_100182C0</code>. Ветвление по флагу <code>[arg_0+68h]</code> &amp; <code>0x200</code> (строка 1001836A):</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:1001836A  </span><span class="k">test</span>    <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">ebx</span>+<span class="n">68h</span>], <span class="n">200h</span>
+<span class="a">.text:10018371  </span><span class="k">jz</span>      loc_100184B7</pre></div><p>Полноэкранный путь (флаг установлен) создаёт <code>dword_1004C9D8</code>, <code>dword_1004C9F0</code> и <code>dword_1004C9EC</code>. Оконный путь (<code>loc_100184B7</code>, флаг сброшен) создаёт <b class="hi">ТОЛЬКО</b> объект по смещению <code>+0x94</code> обёртки; глобал dword_1004C9EC в этом пути НЕ создаётся вовсе и остаётся равным нулю (неинициализированный BSS). Таблица перехватчиков с <code>sub_100189A0</code> строится и публикуется в <b class="hi">ОБЕИХ</b> путях (до ветвления).</p><p>Следствие: если обёртка первичной поверхности создана через оконный путь (или создание полноэкранного пути завершилось неудачей), любой вызов перехватчика <code>sub_100189A0</code> детерминированно падает на разыменовании нулевого глобала.</p><p>Как обёртка попадает в игру. Первичную поверхность создаёт игровой код: <code>A0_DirectDrawInit_sub_601AB0</code> вызывает <code>sub_600BB0</code>(1) (строка 00601B6A), результат сохраняется в <code>A0_DirectDraw_Surface_Primary_dword_6AAD24</code> (строка 00601B75). Вызов <code>CreateSurface</code> перехвачен HD-модом и проходит через <code>sub_10018B30</code> → <code>sub_100182C0</code>, которая и возвращает обёртку. Далее игра вызывает vtable-метод обёртки (строка 00601C5D, <code>call [ecx+70h]</code>), перехват направляет управление в <code>sub_100189A0</code>. К этому моменту обёртка уже существует (строка 00601C5B <code>mov ecx, [eax]</code> успешно читает её vtable), а глобал <code>dword_1004C9EC</code> равен нулю.</p><p>Сравнение с соседними функциями:</p><p><code>sub_100189C0</code> (слот <code>+0x78</code>): проверяет <code>arg_0</code>, затем использует <code>[arg_0+0x94]</code> — НЕ обращается к глобалу <code>dword_1004C9EC</code>. <code>sub_100189E0</code> (слот <code>+0x70</code>): проверяет arg_0, затем использует <code>[arg_0+0x94]</code> — НЕ обращается к глобалу. <code>sub_10018580</code>, <code>sub_10018700</code> (обработчики Blt): используют dword_1004C9EC <b class="hi">БЕЗ</b> проверки на <code>NULL</code> (тот же паттерн, что и <code>sub_100189A0</code>).</p><p>Ни одна функция, использующая <code>dword_1004C9EC</code>, не проверяет его на <code>NULL</code>. Инвариант «глобал всегда валиден при активном перехватчике» нарушается: обёртка публикуется до создания глобала, а в оконном пути глобал не создаётся вовсе.</p>
   </section>
 
   <section id="s9">
@@ -684,7 +727,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <section id="s10">
     <h2><span class="htext">Сводные данные</span><a class="anchor" href="#s10">¶</a></h2>
-    <p>Адрес сбоя: <code>_HD3_.dll+0x189B2</code> Модуль: <code>_HD3_.dll</code> (HD-мод, ядро) Функция: <code>sub_100189A0</code> (callback, слот <code>+0x74</code>) Подсистема: инициализация графики Класс сбоя: разыменование нулевого указателя Виновный модуль: HD-мод (_HD3_.dll)</p><p>Были до 1.8.0: не подтверждено (данных нет) Были в SoD: нет (код в <code>_HD3_.dll</code>, модуль HD-мода; в SoD отсутствует)</p><p>Признаки поиска в старых версиях HotA / в SoD:</p><p>Context-инварианты: <code>EAX = 0x00000000</code> (глобал <code>dword_1004C9EC</code> = <code>NULL</code>) <code>EBX = 0x00000000</code></p><p>Текстовые сигнатуры по дизассемблеру: Паттерн в <code>_HD3_.dll</code> любой версии:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="k">mov</span> <span class="r">eax</span>, dword_&lt;глобал&gt;
+    <p>Адрес сбоя: <code>_HD3_.dll+0x189B2</code> Модуль: <code>_HD3_.dll</code> (HD-мод, ядро) Функция: <code>sub_100189A0</code> (перехватчик, слот <code>+0x74</code>) Подсистема: инициализация графики Класс сбоя: разыменование нулевого указателя Виновный модуль: HD-мод (_HD3_.dll)</p><p>Были до 1.8.0: не подтверждено (данных нет) Были в SoD: нет (код в <code>_HD3_.dll</code>, модуль HD-мода; в SoD отсутствует)</p><p>Признаки поиска в старых версиях HotA / в SoD:</p><p>Context-инварианты: <code>EAX = 0x00000000</code> (глобал <code>dword_1004C9EC</code> = <code>NULL</code>) <code>EBX = 0x00000000</code></p><p>Текстовые сигнатуры по дизассемблеру: Паттерн в <code>_HD3_.dll</code> любой версии:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="k">mov</span> <span class="r">eax</span>, dword_&lt;глобал&gt;
 <span class="k">push</span> [<span class="r">ebp</span>+arg_4]
 <span class="k">push</span> <span class="r">eax</span>
 <span class="k">mov</span> <span class="r">ecx</span>, [<span class="r">eax</span>]
@@ -698,12 +741,12 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <section id="sdost">
     <h2><span class="htext">Достоверность и ограничения</span><a class="anchor" href="#sdost">¶</a></h2>
-    <div class="note ok"><span class="t">Подтверждено / высокая достоверность</span><ul><li>Точка краша доказана: <code>mov ecx, [eax]</code> при <code>EAX=0</code>, адресная арифметика сошлась <code>(0+0 = 0x00000000)</code>.</li><li>Листинг <code>_HD3_.dll</code> верифицирован по entry point (<code>0x1001B36C</code> = <code>DllEntryPoint</code>) и timestamp.</li><li>Механизм подтверждён чтением кода: глобал <code>dword_1004C9EC</code> инициализируется в <code>sub_100182C0</code>, обнуляется в <code>sub_10018920</code>, используется без проверки в <code>sub_100189A0</code>.</li><li>Цепочка вызовов восстановлена по V2 и V1: <code>hota.dll</code>, трамплины <code>patcher_x86</code>, диспетчер <code>sub_10010CE0</code>, <code>A0_DirectDrawInit_sub_601AB0</code>, перехваченный vtable-вызов.</li><li>Ни одна из функций, использующих <code>dword_1004C9EC</code>, не проверяет его на <code>NULL</code> (проверено по всем 12 xref глобала).</li></ul></div><div class="note info"><span class="t">Ограничения и неизвестное</span><ul><li>Единственный дамп: нет корреляции нескольких вылетов, инвариант <code>EAX=0</code> подтверждён одним наблюдением.</li><li>Точный момент, когда перехватчик получает управление до создания объектов, зависит от рантайм-порядка вызовов <code>DirectDraw</code> и не воспроизводится детерминированно по статике.</li><li>Трамплины <code>patcher_x86</code> (<code>0x02C2xxxx</code>, <code>0x02C5xxxx</code>, <code>0x02DCxxxx</code>) не мапятся на листинг — это рантайм-стабы, их содержимое недоступно.</li><li>Полезность лога <b class="hi">СРЕДНЯЯ</b>: точка сбоя и отсутствующая проверка локализованы, но корень — в порядке инициализации внутри <code>_HD3_.dll</code> (закрытый модуль HD-мода). Точечная проверка глобала на <code>NULL</code> в <code>sub_100189A0</code> устранила бы краш, но не меняла бы порядок инициализации.</li></ul></div>
+    <div class="note ok"><span class="t">Подтверждено / высокая достоверность</span><ul><li>Точка краша доказана: <code>mov ecx, [eax]</code> при <code>EAX=0</code>, адресная арифметика сошлась <code>(0+0 = 0x00000000)</code>.</li><li>Листинг <code>_HD3_.dll</code> верифицирован по entry point (<code>0x1001B36C</code> = <code>DllEntryPoint</code>) и timestamp.</li><li>Механизм подтверждён чтением кода: глобал <code>dword_1004C9EC</code> инициализируется в <code>sub_100182C0</code>, обнуляется в <code>sub_10018920</code>, используется без проверки в <code>sub_100189A0</code>.</li><li>Порядок инициализации прочитан: обёртка публикуется (<code>mov [esi], edi</code> на <code>+0x3C</code>) раньше создания глобала (<code>+0x199</code>); ветвление на полноэкранный/оконный путь по <code>[arg_0+68h]</code> &amp; <code>0x200</code> (строка 1001836A).</li><li>Оконный путь (<code>loc_100184B7</code>) прочитан полностью: <code>dword_1004C9EC</code> в нём не создаётся (глобал остаётся нулевым), таблица перехватчиков строится до ветвления.</li><li>Цепочка вызовов восстановлена по V2 и V1: <code>hota.dll</code>, трамплины <code>patcher_x86</code>, диспетчер <code>sub_10010CE0</code>, <code>A0_DirectDrawInit_sub_601AB0</code>, перехваченный vtable-вызов. Обёртка первичной поверхности создаётся через <code>sub_600BB0</code>(1).</li><li>Ни одна из функций, использующих <code>dword_1004C9EC</code>, не проверяет его на <code>NULL</code> (проверено по всем 12 xref глобала).</li></ul></div><div class="note info"><span class="t">Ограничения и неизвестное</span><ul><li>Единственный дамп: нет корреляции нескольких вылетов, инвариант <code>EAX=0</code> подтверждён одним наблюдением.</li><li>По статике не установить, <b class="hi">КАКОЙ</b> путь <code>sub_100182C0</code> (полноэкранный/оконный) был пройден в данном запуске: флаг <code>[arg_0+68h]</code> &amp; <code>0x200</code> — рантайм-значение, его связь с настройкой <code>FullScreen</code>=1 и Graphics.Mode=3 требует отладчика. В логе FullScreen=1, что указывает на полноэкранный путь, но внутреннее флаговое поле обёртки может определяться иначе.</li><li>Трамплины <code>patcher_x86</code> (<code>0x02C2xxxx</code>, <code>0x02C5xxxx</code>, <code>0x02DCxxxx</code>) не мапятся на листинг — это рантайм-стабы, их содержимое недоступно. Точное соответствие смещений vtable игры и слотов таблицы перехватчиков восстанавливается по трамплинам.</li><li>Полезность лога <b class="hi">СРЕДНЯЯ</b>: точка сбоя, отсутствующая проверка и порядок инициализации локализованы, но корень — в закрытом модуле HD-мода (<code>_HD3_.dll</code>).</li></ul></div>
   </section>
 
   <section id="verdict">
     <h2><span class="htext">Вывод</span><a class="anchor" href="#verdict">¶</a></h2>
-    <div class="card verdict lvl-mid"><p>Виновник: HD-мод (<code>_HD3_.dll</code>, закрытый модуль).</p><p>Callback <code>sub_100189A0</code> (слот <code>+0x74</code> таблицы перехватчиков) использует глобальный указатель <code>dword_1004C9EC</code> на внутренний объект поверхности <code>DirectDraw</code> без проверки на <code>NULL</code>. При инициализации графики перехватчик получает управление до создания объекта, глобал равен нулю, происходит чтение по адресу <code>0x00000000</code>.</p></div>
+    <div class="card verdict lvl-mid"><p>Виновник: HD-мод (<code>_HD3_.dll</code>, закрытый модуль).</p><p>Перехватчик <code>sub_100189A0</code> (слот <code>+0x74</code> таблицы перехватчиков) использует глобальный указатель <code>dword_1004C9EC</code> на внутренний объект поверхности <code>DirectDraw</code> без проверки на <code>NULL</code>. Обёртка поверхности, содержащая этот перехватчик, публикуется функцией <code>sub_100182C0</code> раньше, чем создаётся сам объект; в оконном пути (флаг <code>[arg_0+68h]</code> &amp; <code>0x200</code> сброшен) объект не создаётся вовсе. При инициализации графики перехватчик получает управление с нулевым глобалом, происходит чтение по адресу <code>0x00000000</code>.</p></div>
   </section>
 
   </main>
