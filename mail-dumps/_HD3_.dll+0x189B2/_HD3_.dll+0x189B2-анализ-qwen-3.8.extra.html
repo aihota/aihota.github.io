@@ -2,152 +2,115 @@
 <h2><span class="htext">Визуализация вылета</span>
     <a class="anchor" href="#viz-mechanism">#</a></h2>
 
-<p>Корень дефекта — порядок инициализации внутри
-sub_100182C0: обёртка поверхности (с перехватчиками)
-публикуется РАНЬШЕ создания внутреннего объекта, а в
-оконном пути объект не создаётся вовсе. Дефект подтверждён
-11 логами в 8 версиях HD-мода (адрес инструкции смещается
-по версиям, механизм неизменен).</p>
+<p>Детерминированная цепочка: для растягиваемого режима
+Graphics.Mode=3 HD-мод принудительно переводит игру в оконный
+режим DirectDraw (обнуляет флаг 698808), игра выполняет оконную
+инициализацию и вызывает SetClipper, перехваченный HD-модом.
+Но в оконном пути объект dword_1004C9EC не создаётся вовсе —
+перехватчик разыменовывает нуль. Дефект подтверждён 11 логами
+в 8 версиях HD-мода (адрес инструкции смещается по версиям,
+механизм неизменен).</p>
 
 <div class="viz">
   <div class="viz-strip badge-tl">
-    <div class="viz-box ok">
-      <span class="viz-badge ok">1</span>
-      <span class="lbl">sub_100182C0+3C</span>
-      <span>Обёртка</span>
-      <span>опубликована</span>
-      <span class="lbl">перехватчики активны</span>
+    <div class="viz-box accent">
+      <span class="viz-badge accent">1</span>
+      <span class="lbl">Graphics.Mode=3</span>
+      <span>Растягиваемый</span>
+      <span>режим</span>
+      <span class="lbl">FullScreen=1 у пользователя</span>
     </div>
     <div class="viz-box bad">
-      <span class="viz-badge bad">!</span>
-      <span class="lbl">ОКНО СБОЯ</span>
-      <span>Перехватчики</span>
-      <span>активны, но</span>
-      <span class="lbl">dword_1004C9EC = 0</span>
+      <span class="viz-badge bad">2</span>
+      <span class="lbl">sub_1000BF50</span>
+      <span>HD-мод обнуляет</span>
+      <span>флаг 698808</span>
+      <span class="lbl">mov ds:698808h, 0</span>
     </div>
-    <div class="viz-box accent">
-      <span class="viz-badge accent">2</span>
-      <span class="lbl">sub_100182C0+199</span>
-      <span>Создание</span>
-      <span>объекта</span>
-      <span class="lbl">ТОЛЬКО полный экран</span>
+    <div class="viz-box">
+      <span class="viz-badge accent">3</span>
+      <span class="lbl">h3hota.exe</span>
+      <span>Оконная ветка</span>
+      <span>DirectDraw</span>
+      <span class="lbl">CreateClipper, SetClipper</span>
     </div>
-    <div class="viz-box ok">
-      <span class="viz-badge ok">3</span>
-      <span class="lbl">Штатная работа</span>
-      <span>Перехватчики</span>
-      <span>используют</span>
-      <span class="lbl">валидный объект</span>
+    <div class="viz-box bad">
+      <span class="viz-badge bad">4</span>
+      <span class="lbl">sub_100189A0</span>
+      <span>SetClipper</span>
+      <span>mov ecx,[eax]</span>
+      <span class="lbl">EAX = 0, краш</span>
     </div>
   </div>
-  <p class="viz-cap">Полноэкранный путь ([arg_0+68h] &amp; 0x200
-  установлен): обёртка публикуется на +0x3C, объект
-  создаётся на +0x199 — между ними окно с нулевым
-  глобалом.</p>
+  <p class="viz-cap">Цепочка активации: HD-мод переводит игру
+  в оконный режим (шаг 2), игра вызывает SetClipper (шаг 3),
+  перехватчик HD-мода падает на нулевом глобале (шаг 4).</p>
 </div>
 
 <div class="viz">
   <div class="viz-strip badge-tl">
     <div class="viz-box ok">
-      <span class="viz-badge ok">1</span>
-      <span class="lbl">sub_100182C0+3C</span>
-      <span>Обёртка</span>
-      <span>опубликована</span>
-      <span class="lbl">перехватчики активны</span>
+      <span class="viz-badge ok">A</span>
+      <span class="lbl">Полный экран</span>
+      <span>sub_100182C0+199</span>
+      <span>создаёт</span>
+      <span class="lbl">dword_1004C9EC = obj</span>
     </div>
     <div class="viz-box bad">
-      <span class="viz-badge bad">!</span>
-      <span class="lbl">Ветвление</span>
-      <span>Флаг</span>
-      <span>[arg_0+68h]</span>
-      <span class="lbl">&amp; 0x200 сброшен</span>
+      <span class="viz-badge bad">B</span>
+      <span class="lbl">Оконный путь</span>
+      <span>loc_100184B7</span>
+      <span>НЕ создаёт</span>
+      <span class="lbl">dword_1004C9EC = 0</span>
     </div>
     <div class="viz-box bad">
       <span class="viz-badge bad">X</span>
-      <span class="lbl">Оконный путь</span>
-      <span>Объект НЕ</span>
-      <span>создаётся</span>
-      <span class="lbl">глобал = 0 всегда</span>
+      <span class="lbl">Перехватчики</span>
+      <span>строятся в ОБЕИХ</span>
+      <span>путях</span>
+      <span class="lbl">sub_100189A0 активен</span>
     </div>
     <div class="viz-box bad">
       <span class="viz-badge bad">D</span>
-      <span class="lbl">sub_100189A0</span>
-      <span>mov ecx,[eax]</span>
-      <span>при EAX = 0</span>
+      <span class="lbl">Итог</span>
+      <span>в окне —</span>
+      <span>нулевой</span>
       <span class="lbl">детерминированный краш</span>
     </div>
   </div>
-  <p class="viz-cap">Оконный путь (loc_100184B7): объект
-  dword_1004C9EC не создаётся вовсе, глобал остаётся
-  нулевым — первый же вызов перехватчика sub_100189A0
-  падает.</p>
-</div>
-
-<div class="viz">
-  <div class="viz-strip badge-tl">
-    <div class="viz-box dim">
-      <span class="viz-badge accent">A</span>
-      <span class="lbl">hota.dll</span>
-      <span>sub_100D1B10</span>
-    </div>
-    <div class="viz-box dim">
-      <span class="viz-badge accent">B</span>
-      <span class="lbl">_HD3_.dll</span>
-      <span>sub_10010CE0</span>
-      <span class="lbl">диспетчер (SEH)</span>
-    </div>
-    <div class="viz-box">
-      <span class="viz-badge accent">C</span>
-      <span class="lbl">h3hota.exe</span>
-      <span>A0_DirectDraw</span>
-      <span>Init_sub_601AB0</span>
-    </div>
-    <div class="viz-box bad">
-      <span class="viz-badge bad">D</span>
-      <span class="lbl">_HD3_.dll</span>
-      <span>sub_100189A0</span>
-      <span class="lbl">mov ecx,[eax]</span>
-    </div>
-  </div>
-  <p class="viz-cap">Цепочка вызовов: hota.dll запускает
-  инициализацию через диспетчер HD-мода (B), который
-  вызывает оригинальную функцию игры (C). Игровой код
-  вызывает метод vtable поверхности, перехваченный
-  HD-модом, что приводит к перехватчику (D) с EAX = 0.</p>
+  <p class="viz-cap">Несогласованность sub_100182C0: таблица
+  перехватчиков (с sub_100189A0) строится в обоих путях, а объект
+  dword_1004C9EC создаётся только в полноэкранном (A); в оконном
+  (B) его нет — перехватчик (X) падает (D).</p>
 </div>
 
 <div class="viz-legend">
-  <div class="item"><span class="viz-badge ok">1</span>
-    <span class="txt">Публикация обёртки поверхности
-    (mov [esi], edi на sub_100182C0+3C); таблица
-    перехватчиков содержит sub_100189A0 (слот +0x74)</span></div>
-  <div class="item"><span class="viz-badge bad">!</span>
-    <span class="txt">Окно сбоя (полноэкранный путь) или
-    ветвление с сброшенным флагом (оконный путь):
-    глобал dword_1004C9EC равен нулю</span></div>
-  <div class="item"><span class="viz-badge accent">2</span>
-    <span class="txt">Создание объекта dword_1004C9EC
-    (vtable-вызов [ecx+18h], выходной параметр) —
-    только в полноэкранном пути</span></div>
-  <div class="item"><span class="viz-badge ok">3</span>
-    <span class="txt">Штатная работа: глобал валиден,
-    vtable-вызов проходит успешно</span></div>
+  <div class="item"><span class="viz-badge accent">1</span>
+    <span class="txt">Graphics.Mode=3 — растягиваемый режим;
+    пользовательская настройка FullScreen=1</span></div>
+  <div class="item"><span class="viz-badge bad">2</span>
+    <span class="txt">HD-мод (sub_1000BF50) принудительно обнуляет
+    флаг полноэкранности игры 698808 (mov ds:698808h, 0),
+    переводя DirectDraw в оконный режим</span></div>
+  <div class="item"><span class="viz-badge accent">3</span>
+    <span class="txt">h3hota.exe идёт по оконной ветке
+    A0_DirectDrawInit: CreateClipper, SetHWnd, SetClipper
+    первичной поверхности (vtable +0x70)</span></div>
+  <div class="item"><span class="viz-badge bad">4</span>
+    <span class="txt">_HD3_.dll:sub_100189A0 — перехватчик SetClipper;
+    mov ecx, [eax] при EAX = 0 (dword_1004C9EC не создан)</span></div>
+  <div class="item"><span class="viz-badge ok">A</span>
+    <span class="txt">Полноэкранный путь sub_100182C0 (+0x199):
+    объект dword_1004C9EC создаётся</span></div>
+  <div class="item"><span class="viz-badge bad">B</span>
+    <span class="txt">Оконный путь sub_100182C0 (loc_100184B7):
+    объект dword_1004C9EC НЕ создаётся, глобал = 0</span></div>
   <div class="item"><span class="viz-badge bad">X</span>
-    <span class="txt">Оконный путь (loc_100184B7): объект
-    не создаётся, глобал остаётся нулевым</span></div>
-  <div class="item"><span class="viz-badge accent">A</span>
-    <span class="txt">hota.dll:sub_100D1B10 — запуск
-    инициализации графики</span></div>
-  <div class="item"><span class="viz-badge accent">B</span>
-    <span class="txt">_HD3_.dll:sub_10010CE0 — главный
-    диспетчер перехватов (обёрнут в SEH)</span></div>
-  <div class="item"><span class="viz-badge accent">C</span>
-    <span class="txt">h3hota.exe:A0_DirectDrawInit_sub_601AB0
-    — инициализация DirectDraw; первичная поверхность
-    создаётся через sub_600BB0(1)</span></div>
+    <span class="txt">Таблица перехватчиков (sub_100181A0) строится
+    в обоих путях — sub_100189A0 активен и в окне</span></div>
   <div class="item"><span class="viz-badge bad">D</span>
-    <span class="txt">_HD3_.dll:sub_100189A0 — точка краша:
-    mov ecx, [eax] при EAX = 0 (глобал не создан)</span></div>
+    <span class="txt">Итог в оконном режиме: перехватчик разыменовывает
+    нулевой глобал — детерминированный краш</span></div>
 </div>
 
 </section>
