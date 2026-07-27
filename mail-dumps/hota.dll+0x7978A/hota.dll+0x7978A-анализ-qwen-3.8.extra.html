@@ -8,7 +8,7 @@
   <div class="viz-strip">
     <div class="viz-box ok">Конструктор<br><code>sub_100727E0</code><br>
       <code>[edi+48h] = 0</code><br>поле = NULL</div>
-    <div class="viz-box accent">Сеттер<br><code>sub_10073490</code><br>
+    <div class="viz-box accent">Установщик<br><code>sub_10073490</code><br>
       <code>[esi+48h] = eax</code><br>поле = указатель или NULL</div>
     <div class="viz-box ok">Безопасный путь<br><code>sub_10074790</code><br>
       <code>cmp [esi+48h], 0</code><br>проверяет NULL</div>
@@ -23,7 +23,7 @@
     <span class="txt">Конструктор инициализирует поле +48h нулём --
     NULL является легитимным начальным состоянием.</span></div>
   <div class="item"><span class="viz-badge accent">2</span>
-    <span class="txt">Сеттер может установить валидный указатель
+    <span class="txt">Установщик может задать валидный указатель
     или оставить NULL (если поверхность не создана).</span></div>
   <div class="item"><span class="viz-badge ok">3</span>
     <span class="txt">Родственная функция sub_10074790 проверяет
@@ -49,15 +49,15 @@
 </div>
 
 <div class="viz-legend">
-  <div class="item"><span class="viz-badge bad">54%</span>
-    <span class="txt">NULL -- пропущенная проверка: поле не
-    установлено сеттером или подобъект не создан.</span></div>
-  <div class="item"><span class="viz-badge accent">15%</span>
-    <span class="txt">Малые значения (0x51, 0x108) -- возможно,
-    смещения или размеры, записанные не по адресу.</span></div>
-  <div class="item"><span class="viz-badge">31%</span>
-    <span class="txt">Мусорные/повисшие адреса (0xCCCCCCCC --
-    неиниц. куча MSVC; 0x01010101 -- освобождённая память;
-    адреса кучи) -- use-after-free подобъекта.</span></div>
+  <div class="item">
+    <span class="txt"><b>54% — NULL:</b> пропущенная проверка --
+    поле не установлено или подобъект не создан.</span></div>
+  <div class="item">
+    <span class="txt"><b>15% — малые значения</b> (0x51, 0x108):
+    возможно, смещения или размеры, записанные не по адресу.</span></div>
+  <div class="item">
+    <span class="txt"><b>31% — мусор/повисшие адреса:</b>
+    0xCCCCCCCC (неиниц. куча MSVC), 0x01010101 (освобождённая
+    память), адреса кучи -- use-after-free подобъекта.</span></div>
 </div>
 </section>
