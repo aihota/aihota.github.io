@@ -1,0 +1,109 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+<h2><span class="htext">Визуализация вылета</span>
+    <a class="anchor" href="#viz-mechanism">#</a></h2>
+
+<p>Окно уязвимости при инициализации: перехватчики HD-мода
+регистрируются РАНЬШЕ создания внутренних объектов.
+Вызов из игрового кода в этом окне попадает в callback
+с нулевым глобальным указателем.</p>
+
+<div class="viz">
+  <div class="viz-strip badge-tl">
+    <div class="viz-box ok">
+      <span class="viz-badge ok">1</span>
+      <span class="lbl">sub_100181A0</span>
+      <span>Таблица</span>
+      <span>перехватчиков</span>
+      <span class="lbl">слоты +0x0C..+0x84</span>
+    </div>
+    <div class="viz-box bad">
+      <span class="viz-badge bad">!</span>
+      <span class="lbl">ОКНО СБОЯ</span>
+      <span>Перехватчики</span>
+      <span>активны, но</span>
+      <span class="lbl">dword_1004C9EC = 0</span>
+    </div>
+    <div class="viz-box accent">
+      <span class="viz-badge accent">2</span>
+      <span class="lbl">sub_100182C0+199</span>
+      <span>Создание</span>
+      <span>объектов</span>
+      <span class="lbl">dword_1004C9EC = obj</span>
+    </div>
+    <div class="viz-box ok">
+      <span class="viz-badge ok">3</span>
+      <span class="lbl">Штатная работа</span>
+      <span>Callback'и</span>
+      <span>используют</span>
+      <span class="lbl">валидный объект</span>
+    </div>
+  </div>
+  <p class="viz-cap">Инициализация sub_100182C0: сначала регистрация
+  перехватчиков (шаг 1), затем создание объектов (шаг 2).
+  Вызов из A0_DirectDrawInit в окне между ними
+  разыменовывает нулевой указатель.</p>
+</div>
+
+<div class="viz">
+  <div class="viz-strip badge-tl">
+    <div class="viz-box dim">
+      <span class="viz-badge accent">A</span>
+      <span class="lbl">hota.dll</span>
+      <span>sub_100D1B10</span>
+    </div>
+    <div class="viz-box dim">
+      <span class="viz-badge accent">B</span>
+      <span class="lbl">_HD3_.dll</span>
+      <span>sub_10010CE0</span>
+      <span class="lbl">диспетчер (SEH)</span>
+    </div>
+    <div class="viz-box">
+      <span class="viz-badge accent">C</span>
+      <span class="lbl">h3hota.exe</span>
+      <span>A0_DirectDraw</span>
+      <span>Init_sub_601AB0</span>
+    </div>
+    <div class="viz-box bad">
+      <span class="viz-badge bad">D</span>
+      <span class="lbl">_HD3_.dll</span>
+      <span>sub_100189A0</span>
+      <span class="lbl">mov ecx,[eax]</span>
+    </div>
+  </div>
+  <p class="viz-cap">Цепочка вызовов: hota.dll запускает
+  инициализацию через диспетчер HD-мода (B), который
+  вызывает оригинальную функцию игры (C). Игровой код
+  вызывает метод vtable поверхности, перехваченный
+  HD-модом, что приводит к callback'у (D) с EAX = 0.</p>
+</div>
+
+<div class="viz-legend">
+  <div class="item"><span class="viz-badge ok">1</span>
+    <span class="txt">Регистрация перехватчиков (таблица
+    sub_100181A0, слот +0x74 = sub_100189A0)</span></div>
+  <div class="item"><span class="viz-badge bad">!</span>
+    <span class="txt">Окно сбоя: перехватчики активны,
+    глобал dword_1004C9EC ещё равен нулю</span></div>
+  <div class="item"><span class="viz-badge accent">2</span>
+    <span class="txt">Создание объектов поверхности
+    (vtable-вызов [ecx+18h], выходной параметр
+    dword_1004C9EC)</span></div>
+  <div class="item"><span class="viz-badge ok">3</span>
+    <span class="txt">Штатная работа: глобал валиден,
+    vtable-вызов [ecx+70h] проходит успешно</span></div>
+  <div class="item"><span class="viz-badge accent">A</span>
+    <span class="txt">hota.dll:sub_100D1B10 — запуск
+    инициализации графики</span></div>
+  <div class="item"><span class="viz-badge accent">B</span>
+    <span class="txt">_HD3_.dll:sub_10010CE0 — главный
+    диспетчер перехватов (обёрнут в SEH)</span></div>
+  <div class="item"><span class="viz-badge accent">C</span>
+    <span class="txt">h3hota.exe:A0_DirectDrawInit_sub_601AB0
+    — инициализация DirectDraw (DirectDrawCreate,
+    SetCooperativeLevel, SetDisplayMode)</span></div>
+  <div class="item"><span class="viz-badge bad">D</span>
+    <span class="txt">_HD3_.dll:sub_100189A0 — точка краша:
+    mov ecx, [eax] при EAX = 0 (глобал не создан)</span></div>
+</div>
+
+</section>
