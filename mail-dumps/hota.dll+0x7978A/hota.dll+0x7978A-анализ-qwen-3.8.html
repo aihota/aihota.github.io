@@ -374,6 +374,7 @@ td.flag{color:var(--bad);font-weight:700;
   background:var(--panel2);padding:12px 10px;text-align:center;
   font-size:var(--fs-xs);line-height:var(--lh-tight);color:var(--ink);
   display:flex;flex-direction:column;justify-content:flex-start;align-items:center;gap:6px}
+.viz-box span{display:block;white-space:nowrap}
 .viz-box .lbl{font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--muted)}
 .viz-box.ok{border-color:var(--okLn);background:var(--okBg)}
 .viz-box.bad{border-color:var(--redLn);background:var(--redBg)}
@@ -507,15 +508,15 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
 <div class="viz">
   <div class="viz-strip">
-    <div class="viz-box ok">Конструктор<br><code>sub_100727E0</code><br>
-      <code>[edi+48h] = 0</code><br>поле = NULL</div>
-    <div class="viz-box accent">Установщик<br><code>sub_10073490</code><br>
-      <code>[esi+48h] = eax</code><br>поле = указатель или NULL</div>
-    <div class="viz-box ok">Безопасный путь<br><code>sub_10074790</code><br>
-      <code>cmp [esi+48h], 0</code><br>проверяет NULL</div>
-    <div class="viz-box bad">Падающий путь<br><code>sub_100796F0</code><br>
-      <code>mov eax,[esi+48h]</code><br>
-      <code>cmp [eax+35h], 0</code><br>БЕЗ проверки</div>
+    <div class="viz-box ok"><span>Конструктор</span><span><code>sub_100727E0</code></span>
+      <span><code>[edi+48h] = 0</code></span><span>поле = NULL</span></div>
+    <div class="viz-box accent"><span>Установщик</span><span><code>sub_10073490</code></span>
+      <span><code>[esi+48h] = eax</code></span><span>поле = указатель или NULL</span></div>
+    <div class="viz-box ok"><span>Безопасный путь</span><span><code>sub_10074790</code></span>
+      <span><code>cmp [esi+48h], 0</code></span><span>проверяет NULL</span></div>
+    <div class="viz-box bad"><span>Падающий путь</span><span><code>sub_100796F0</code></span>
+      <span><code>mov eax,[esi+48h]</code></span>
+      <span><code>cmp [eax+35h], 0</code></span><span>БЕЗ проверки</span></div>
   </div>
 </div>
 
@@ -539,13 +540,13 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
 <div class="viz">
   <div class="viz-strip">
-    <div class="viz-box bad" style="flex:14">NULL (0)<br>14 дампов</div>
-    <div class="viz-box accent" style="flex:3">0x51<br>3</div>
-    <div class="viz-box accent" style="flex:1">0x108<br>1</div>
-    <div class="viz-box" style="flex:1;background:var(--panel2)">CCCCCCCC<br>1</div>
-    <div class="viz-box" style="flex:1;background:var(--panel2)">01010101<br>1</div>
-    <div class="viz-box" style="flex:1;background:var(--panel2)">57565300<br>1</div>
-    <div class="viz-box" style="flex:5;background:var(--panel2)">куча<br>5</div>
+    <div class="viz-box bad" style="flex:14"><span>NULL (0)</span><span>14 дампов</span></div>
+    <div class="viz-box accent" style="flex:3"><span>0x51</span><span>3</span></div>
+    <div class="viz-box accent" style="flex:1"><span>0x108</span><span>1</span></div>
+    <div class="viz-box" style="flex:1;background:var(--panel2)"><span>CCCCCCCC</span><span>1</span></div>
+    <div class="viz-box" style="flex:1;background:var(--panel2)"><span>01010101</span><span>1</span></div>
+    <div class="viz-box" style="flex:1;background:var(--panel2)"><span>57565300</span><span>1</span></div>
+    <div class="viz-box" style="flex:5;background:var(--panel2)"><span>куча</span><span>5</span></div>
   </div>
 </div>
 
