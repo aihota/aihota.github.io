@@ -566,7 +566,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <section id="s10">
     <h2><span class="htext">Сводные данные</span><a class="anchor" href="#s10">¶</a></h2>
-    <p>Адрес сбоя: <code>0x00600480</code> (<code>h3hota.exe+0x200480</code>) Модуль: <code>h3hotaHD.exe</code> (главный EXE, imagebase <code>0x400000</code>) Функция: <code>A0_Flip_AndDrawCursor_sub_600430</code> (WINGRAPH.CPP) Подсистема: отрисовка интерфейса Класс сбоя: разыменование нулевого указателя Виновный модуль: <code>h3hota.exe</code> (SoD-код, закрытый бинарь) Были до 1.8.0: да (код в главном EXE, унаследован от SoD) Были в SoD: да (функция из WINGRAPH.CPP — оригинальный код SoD; дефект структурный: проверка back buffer отсутствует в исходном коде, а не добавлена/удалена в HotA)</p>
+    <p>Адрес сбоя: <code>0x00600480</code> (<code>h3hota.exe+0x200480</code>) Модуль: <code>h3hotaHD.exe</code> (главный EXE, imagebase <code>0x400000</code>) Функция: <code>A0_Flip_AndDrawCursor_sub_600430</code> (WINGRAPH.CPP) Подсистема: отрисовка интерфейса Класс сбоя: разыменование нулевого указателя Виновный модуль: <code>h3hota.exe</code> (закрытый SoD-код) Были до 1.8.0: да (код в главном EXE, унаследован от SoD) Были в SoD: да (функция из WINGRAPH.CPP — оригинальный код SoD; дефект структурный: проверка back buffer отсутствует в исходном коде, а не добавлена/удалена в HotA)</p>
   </section>
 
   <section id="s11">
@@ -581,7 +581,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <section id="verdict">
     <h2><span class="htext">Вывод</span><a class="anchor" href="#verdict">¶</a></h2>
-    <div class="card verdict lvl-high"><p>Вылет 600480 — разыменование нулевого указателя на поверхность заднего буфера <code>DirectDraw</code> в функции отрисовки кадра <code>A0_Flip_AndDrawCursor_sub_600430</code> (WINGRAPH.CPP, <code>h3hota.exe</code>). Функция проверяет наличие объекта DirectDraw, но не проверяет наличие back buffer перед вызовом vtable (IDirectDrawSurface::GetDC). Когда <code>WM_PAINT</code> приходит в момент неполной инициализации или частичного освобождения DirectDraw-поверхностей, глобал <code>A0_DirectDraw_Surface_BackBuffer_dword_6AAD28</code> равен <code>NULL</code>, что приводит к падению. Дефект структурный (пропущена одна проверка), унаследован от SoD, проявляется во всех версиях HD-мода и графических режимах. Виновный код — в закрытом бинаре h3hota.exe, поэтому результат анализа — репорт разработчикам HotA/HD-мода, а не правка кода.</p></div>
+    <div class="card verdict lvl-high"><p>Вылет 600480 — разыменование нулевого указателя на поверхность заднего буфера <code>DirectDraw</code> в функции отрисовки кадра <code>A0_Flip_AndDrawCursor_sub_600430</code> (WINGRAPH.CPP, <code>h3hota.exe</code>). Функция проверяет наличие объекта DirectDraw, но не проверяет наличие back buffer перед вызовом vtable (IDirectDrawSurface::GetDC). Когда <code>WM_PAINT</code> приходит в момент неполной инициализации или частичного освобождения DirectDraw-поверхностей, глобал <code>A0_DirectDraw_Surface_BackBuffer_dword_6AAD28</code> равен <code>NULL</code>, что приводит к падению. Дефект структурный (пропущена одна проверка), унаследован от SoD, проявляется во всех версиях HD-мода и графических режимах. Виновный код — в закрытом модуле h3hota.exe.</p></div>
   </section>
 
   </main>
