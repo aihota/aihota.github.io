@@ -282,7 +282,8 @@ p code,li code,.kv .v code,.chain .ttl code,.chain .desc code,.note code{
 .codewrap:hover .copy{opacity:1}
 .codewrap .copy:hover{color:var(--ink);border-color:var(--accent2)}
 pre{background:var(--code);border:1px solid var(--line);border-radius:12px;padding:15px 17px;
-  overflow-x:auto;font-size:var(--fs-xs);line-height:var(--lh-code);tab-size:4;margin:0;color:var(--pretext)}
+  overflow-x:auto;font-size:var(--fs-xs);line-height:var(--lh-code);tab-size:4;margin:0;color:var(--pretext);
+  max-height:420px;overflow-y:auto}
 pre .a{color:var(--cmt)}pre .k{color:var(--kw)}pre .r{color:var(--reg)}
 pre .n{color:var(--num)}pre .c{color:var(--cmt);font-style:italic}
 pre .fault{background:var(--redBg);display:block;border-left:3px solid var(--bad);
@@ -453,6 +454,8 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
   <symbol id="ic-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
   <symbol id="ic-diamond" viewBox="0 0 24 24"><path d="M12 2 22 12 12 22 2 12Z"/></symbol>
   <symbol id="ic-shield" viewBox="0 0 24 24"><path d="M12 2 3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7l-9-5z"/></symbol>
+  <symbol id="ic-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="ic-layers" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/></symbol>
   <symbol id="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
   <symbol id="ic-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
 </defs></svg>
@@ -472,7 +475,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
     <a href="#s7"><span class="n">7</span>Анализ регистров и группировка</a>
     <a href="#s8"><span class="n">8</span>Первопричина</a>
     <a href="#s9"><span class="n">9</span>Условия сбоя</a>
-    <a href="#s10"><span class="n">10</span>Сводная таблица</a>
+    <a href="#s10"><span class="n">10</span>Сводные данные</a>
     <a href="#s11"><span class="n">11</span>Воспроизведение вылета</a>
     <a href="#sdost"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-shield"/></svg></span>Достоверность</a>
     <a href="#verdict"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-check"/></svg></span>Вывод</a>
@@ -488,7 +491,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
       <div class="vlabel">Заключение</div>
       <div class="vtxt"><code>hota.dll</code> — пропущенная проверка <code>NULL</code> указателя поверхности при отрисовке элемента интерфейса в 32-битных графических режимах.</div>
     </div>
-    <div class="statstrip"><div class="stat c-ver"><div class="ic-badge"><svg class="ic"><use href="#ic-package"/></svg></div><div class="st-body"><div class="big">1.8.0</div><div class="cap">Версия HotA</div></div></div><div class="stat c-cls"><div class="ic-badge"><svg class="ic"><use href="#ic-triangle"/></svg></div><div class="st-body"><div class="big">разыменование нулевого указателя</div><div class="cap">Класс сбоя</div></div></div><div class="stat c-cnt"><div class="ic-badge"><svg class="ic"><use href="#ic-database"/></svg></div><div class="st-body"><div class="big">26</div><div class="cap">Количество логов</div></div></div><div class="stat c-use use-mid"><div class="ic-badge"><svg class="ic"><use href="#ic-sig2"/></svg></div><div class="st-body"><div class="big">СРЕДНЯЯ</div><div class="cap">Полезность лога</div></div></div></div>
+    <div class="statstrip"><div class="stat c-ver"><div class="ic-badge"><svg class="ic"><use href="#ic-package"/></svg></div><div class="st-body"><div class="big">1.8.0</div><div class="cap">Версия HotA</div></div></div><div class="stat c-cls"><div class="ic-badge"><svg class="ic"><use href="#ic-triangle"/></svg></div><div class="st-body"><div class="big">разыменование нулевого указателя</div><div class="cap">Класс сбоя</div></div></div><div class="stat c-cnt"><div class="ic-badge"><svg class="ic"><use href="#ic-database"/></svg></div><div class="st-body"><div class="big">26</div><div class="cap">Количество логов</div></div></div><div class="stat c-use use-mid"><div class="ic-badge"><svg class="ic"><use href="#ic-sig2"/></svg></div><div class="st-body"><div class="big">СРЕДНЯЯ</div><div class="cap">Полезность лога</div></div></div><div class="stat c-cls"><div class="ic-badge"><svg class="ic"><use href="#ic-target"/></svg></div><div class="st-body"><div class="big">hota.dll</div><div class="cap">Виновный модуль</div></div></div><div class="stat c-ver"><div class="ic-badge"><svg class="ic"><use href="#ic-layers"/></svg></div><div class="st-body"><div class="big">отрисовка интерфейса</div><div class="cap">Подсистема</div></div></div></div>
   </div>
 
   <section id="viz-crash" data-toc="Визуализация вылета">
@@ -617,7 +620,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
   </section>
 
   <section id="s10">
-    <h2><span class="htext">Сводная таблица</span><a class="anchor" href="#s10">¶</a></h2>
+    <h2><span class="htext">Сводные данные</span><a class="anchor" href="#s10">¶</a></h2>
     <p>Были до 1.8.0: не подтверждено по имеющимся данным Были в SoD: не подтверждено (код в <code>hota.dll</code> — HotA-специфичный) Виновный модуль: hota.dll (закрытый код HotA) Подсистема: отрисовка интерфейса Класс сбоя: разыменование нулевого указателя Механизм: пропущенная проверка <code>NULL</code> поля +<code>48h</code> (указатель подобъекта P32F) перед <code>[eax+35h]</code> Триггер: отрисовка элемента интерфейса в 32-битном режиме при отсутствии подобъекта Частота: 26 вылетов за февраль-июль 2026, разные версии HD-мода</p>
   </section>
 
