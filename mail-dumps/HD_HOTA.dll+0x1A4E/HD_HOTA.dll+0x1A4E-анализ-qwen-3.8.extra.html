@@ -1,0 +1,65 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">#</a></h2>
+
+  <p>Отладочный распределитель HD-мода <code>sub_1001A30</code>
+  вызывает <code>malloc(размер+4)</code> и по результату идёт одним
+  из двух путей. При успехе он ставит в заголовок блока служебную
+  метку <code>0xF00DBEEF</code> и возвращает указатель. При отказе
+  (malloc вернул NULL) вместо возврата NULL выполняется запись
+  <code>mov [esi], esi</code> по адресу, равному запрошенному
+  размеру, — это и есть точка сбоя.</p>
+
+  <div class="viz">
+    <div class="viz-strip badge-tl">
+      <div class="viz-box accent">
+        <span class="viz-badge accent">1</span>
+        <span class="lbl">call _malloc</span>
+        <span>malloc(размер+4)</span>
+        <span class="lbl">ECX = размер</span>
+      </div>
+      <div class="viz-box">
+        <span class="viz-badge">2</span>
+        <span class="lbl">test eax, eax</span>
+        <span>EAX = результат</span>
+        <span class="lbl">развилка</span>
+      </div>
+      <div class="viz-box ok">
+        <span class="viz-badge ok">A</span>
+        <span class="lbl">EAX != 0</span>
+        <span>[eax] = 0xF00DBEEF</span>
+        <span class="lbl">возврат блок+4</span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">B</span>
+        <span class="lbl">EAX = 0 (все 13)</span>
+        <span>mov [esi], esi</span>
+        <span class="lbl">адрес = размер &#8594; сбой</span>
+      </div>
+    </div>
+    <div class="viz-cap">Путь B пройден во всех 13 дампах: EAX = 0,
+    ESI = адрес сбоя = запрошенный размер.</div>
+  </div>
+
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge accent">1</span>
+      <span class="txt">Вход: ECX хранит размер выделения
+      (например 0x100000 = 1 МиБ). Значение передаёт конструктор
+      объекта <code>sub_109A7E0</code>, округляя ёмкость
+      буфера.</span></div>
+    <div class="item"><span class="viz-badge">2</span>
+      <span class="txt">malloc возвращает указатель в EAX; проверка
+      <code>test eax, eax</code> выбирает путь — успех или
+      отказ.</span></div>
+    <div class="item"><span class="viz-badge ok">A</span>
+      <span class="txt">Успех: в первые 4 байта блока пишется метка
+      <code>0xF00DBEEF</code>, возвращается указатель за ней.
+      Штатный путь.</span></div>
+    <div class="item"><span class="viz-badge bad">B</span>
+      <span class="txt">Отказ: malloc вернул NULL (EAX = 0 во всех
+      13 дампах). Вместо возврата NULL выполняется
+      <code>mov [esi], esi</code> — запись числа (размера) по
+      адресу, равному размеру. Вызывающий код готов обработать NULL,
+      но сбой случается раньше возврата.</span></div>
+  </div>
+</section>
