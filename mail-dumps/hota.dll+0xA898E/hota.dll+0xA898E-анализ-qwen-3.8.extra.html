@@ -1,0 +1,61 @@
+<section id="viz">
+  <h2>Визуализация вылета</h2>
+  <p>Таблица GameMgr хранит записи по 9 dword (36 байт) каждая; начало
+  таблицы указывает регистр <code>EAX = 0x145AA020</code>. Геттер умножает
+  индекс типа объекта (<code>ESI</code>) на 9 и читает запись
+  <code>table[ESI*9]</code>. Корректные индексы 0, 1, 2… идут ВПЕРЁД от
+  начала. В этом вылете индекс равен <code>-1</code> (контрольное значение
+  «тип не назначен»), поэтому обращение <code>table[-9]</code> уходит на
+  36 байт НАЗАД от начала таблицы — в неотображённую страницу памяти.</p>
+
+  <div class="viz">
+    <div class="viz-strip badge-tl">
+      <div class="viz-box bad">
+        <span class="viz-badge bad">&minus;9</span>
+        <span class="lbl">table[-9]</span>
+        <span>0x145A9FFC</span>
+        <span class="lbl">начало &minus; 36</span>
+      </div>
+      <div class="viz-box accent">
+        <span class="viz-badge accent">0</span>
+        <span class="lbl">table[0]</span>
+        <span>0x145AA020</span>
+        <span class="lbl">начало = EAX</span>
+      </div>
+      <div class="viz-box ok">
+        <span class="viz-badge ok">1</span>
+        <span class="lbl">table[1]</span>
+        <span>+36</span>
+      </div>
+      <div class="viz-box ok">
+        <span class="viz-badge ok">2</span>
+        <span class="lbl">table[2]</span>
+        <span>+72</span>
+      </div>
+      <div class="viz-box ok">
+        <span class="viz-badge ok">3</span>
+        <span class="lbl">table[3]</span>
+        <span>+108</span>
+      </div>
+      <div class="viz-box dim">
+        <span class="lbl">&hellip;</span>
+      </div>
+    </div>
+    <div class="viz-legend">
+      <div class="item"><span class="viz-badge bad">&minus;9</span>
+        <span class="txt">адрес сбоя 0x145A9FFC: чтение записи table[-9]
+        за нижней границей таблицы (неотображённая страница) —
+        EXCEPTION_ACCESS_VIOLATION</span></div>
+      <div class="item"><span class="viz-badge accent">0</span>
+        <span class="txt">начало таблицы (EAX = 0x145AA020), запись
+        table[0]; корректные индексы идут вперёд</span></div>
+      <div class="item"><span class="viz-badge ok">+</span>
+        <span class="txt">штатные записи table[1], table[2]… — читаются
+        без сбоя при индексе &ge; 0</span></div>
+      <div class="item"><span class="viz-badge bad">&minus;1</span>
+        <span class="txt">ESI = -1 (индекс типа объекта) &rarr; ECX = ESI*9
+        = -9; родственные геттеры отсеивают отрицательный индекс, этот —
+        нет</span></div>
+    </div>
+  </div>
+</section>
