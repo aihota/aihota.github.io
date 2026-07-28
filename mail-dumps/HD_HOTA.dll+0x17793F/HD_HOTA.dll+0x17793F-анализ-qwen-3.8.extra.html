@@ -1,0 +1,29 @@
+<section id="viz-crash">
+<h2>Визуализация вылета</h2>
+<p>Сбой вторичный: игра уже бросала C++-исключение, а упала внутри
+служебного механизма его обработки. Верхняя лента — тракт отрисовки
+карты приключений, где зародилось исключение. Нижняя лента — путь
+выброса; он обрывается на первой же инструкции функции notify_debugger,
+которая читает среду потока (TEB) из сегмента FS и попадает на
+невалидную базу 0xFFFFFFFF.</p>
+<div class="viz">
+  <div class="viz-strip">
+    <div class="viz-box dim"><span class="lbl">hota.dll</span><span>MainProc</span></div>
+    <div class="viz-box ok"><span class="lbl">h3hota.exe</span><span>отрисовка карты</span><span class="lbl">sub_40F7D0</span></div>
+    <div class="viz-box accent"><span class="lbl">HD_HOTA.dll</span><span>DimDoor / _File_</span></div>
+    <div class="viz-box accent"><span class="lbl">бросок</span><span>C++-исключение</span></div>
+  </div>
+  <div class="viz-strip badge-tl">
+    <div class="viz-box accent"><span class="lbl">CRT</span><span>_CxxThrowException</span></div>
+    <div class="viz-box bad"><span class="viz-badge bad">✗</span><span class="lbl">notify_debugger</span><span>mov eax, fs:0</span></div>
+    <div class="viz-box bad"><span class="lbl">база FS</span><span>= 0xFFFFFFFF</span></div>
+    <div class="viz-box bad"><span class="lbl">итог</span><span>нарушение доступа</span></div>
+  </div>
+</div>
+<div class="viz-legend">
+  <div class="item"><span class="viz-badge ok">1</span><span class="txt">Игровой код отрисовки карты (h3hota.exe) — исправен, здесь лишь зародилось исключение.</span></div>
+  <div class="item"><span class="viz-badge accent">2</span><span class="txt">Код HD-мода (DimDoor, буфер _File_) и механизм выброса CRT — тракт, где идёт обработка.</span></div>
+  <div class="item"><span class="viz-badge bad">✗</span><span class="txt">Точка сбоя: чтение fs:0 в SEH-прологе notify_debugger.</span></div>
+  <div class="item"><span class="viz-badge bad">3</span><span class="txt">База сегмента FS = 0xFFFFFFFF — среда потока (TEB) разрушена; у здорового потока это чтение не сбоит.</span></div>
+</div>
+</section>
