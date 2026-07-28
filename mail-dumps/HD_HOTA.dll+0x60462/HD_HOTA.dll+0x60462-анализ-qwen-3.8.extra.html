@@ -1,0 +1,96 @@
+<!--
+  Врезка ручных визуализаций для HD_HOTA.dll+0x60462-анализ-qwen-3.8.html.
+  Этот файл НЕ перезаписывается генератором: render_report.py читает его
+  и вставляет в маркер @SECTION_EXTRA (перед «Краткое резюме»), а каждую
+  <section id="..."> добавляет в оглавление (@TOC_EXTRA).
+  Правила: цвета только из токенов темы (классы .viz-*), подписи на русском,
+  числа/факты согласованы с txt-отчётом (txt — источник истины).
+-->
+<section id="viz" data-toc="Визуализация вылета">
+  <h2>Визуализация вылета</h2>
+  <p>Указатель на объект диалога (<code>this</code>, передаётся в ECX)
+  зарождается как ноль в функции-перехватчике лобби и без единой проверки
+  проходит всю цепочку вызовов до падающей функции. Штатный диспетчер того
+  же уведомления передаёт валидный объект под проверкой — это контраст,
+  показывающий аномальность нулевого пути.</p>
+
+  <div class="viz">
+    <div class="viz-strip badge-tl">
+      <div class="viz-box accent">
+        <span class="viz-badge accent">A</span>
+        <span class="lbl">sub_1077070</span>
+        <span>this = NULL</span>
+        <span>xor ecx, ecx</span>
+      </div>
+      <div class="viz-box">
+        <span class="viz-badge">B</span>
+        <span class="lbl">sub_106FDD0</span>
+        <span>case 23</span>
+        <span>this = NULL</span>
+      </div>
+      <div class="viz-box">
+        <span class="viz-badge">C</span>
+        <span class="lbl">sub_106A570</span>
+        <span>[ebp-44h]</span>
+        <span>this = NULL</span>
+      </div>
+      <div class="viz-box">
+        <span class="viz-badge">D</span>
+        <span class="lbl">sub_106FDD0</span>
+        <span>case 11</span>
+        <span>this = NULL</span>
+      </div>
+      <div class="viz-box">
+        <span class="viz-badge">E</span>
+        <span class="lbl">sub_1060640</span>
+        <span>ECX без изменений</span>
+        <span>this = NULL</span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">F</span>
+        <span class="lbl">sub_1060430</span>
+        <span>EBX = 0</span>
+        <span>mov eax,[ebx+48h]</span>
+        <span>[0x48] — краш</span>
+      </div>
+    </div>
+
+    <div class="viz-strip badge-tl">
+      <div class="viz-box ok">
+        <span class="viz-badge ok">G</span>
+        <span class="lbl">sub_1070310</span>
+        <span>this = var_7C</span>
+        <span>под проверкой</span>
+      </div>
+    </div>
+    <div class="viz-cap">Штатный путь (G) диспетчит то же уведомление с
+    валидным объектом; проблемный путь (A–F) — с нулевым указателем.</div>
+
+    <div class="viz-legend">
+      <div class="item"><span class="viz-badge accent">A</span>
+        <span class="txt">Функция-перехватчик лобби: инструкция
+        <code>xor ecx, ecx</code> кладёт в <code>this</code> ноль, хотя
+        валидный объект есть в EDI и используется выше по функции.</span></div>
+      <div class="item"><span class="viz-badge">B</span>
+        <span class="txt">Оконная процедура лобби, case 23: ноль проходит
+        транзитом, ECX не переопределяется.</span></div>
+      <div class="item"><span class="viz-badge">C</span>
+        <span class="txt">Диспетчер сохраняет ноль в локальную переменную
+        <code>[ebp-44h]</code> и передаёт его дальше.</span></div>
+      <div class="item"><span class="viz-badge">D</span>
+        <span class="txt">Повторный вход в оконную процедуру, case 11:
+        <code>this</code> по-прежнему ноль.</span></div>
+      <div class="item"><span class="viz-badge">E</span>
+        <span class="txt">Ноль уходит в падающую функцию без
+        переопределения ECX.</span></div>
+      <div class="item"><span class="viz-badge bad">F</span>
+        <span class="txt">Падающая функция обнуляет EBX (ветка при
+        <code>this == NULL</code>) и читает <code>[ebx+48h]</code> =
+        <code>[0x48]</code> — адрес сбоя.</span></div>
+      <div class="item"><span class="viz-badge ok">G</span>
+        <span class="txt">Контраст: штатный диспетчер того же уведомления
+        передаёт валидный объект под проверкой
+        <code>test eax,eax; jz</code>.</span></div>
+    </div>
+  </div>
+</section>
