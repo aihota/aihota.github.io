@@ -2,117 +2,111 @@
 <h2><span class="htext">Визуализация вылета</span>
     <a class="anchor" href="#viz-mechanism">#</a></h2>
 
-<p>Детерминированная цепочка: при ранней инициализации DirectDraw
-флаг полноэкранности 698808 ещё не загружен из реестра (BSS=0),
-игра идёт по оконной ветке и вызывает SetClipper, перехваченный
-HD-модом. Для растягиваемого режима Graphics.Mode=3 в оконном пути
-объект dword_1004C9EC не создаётся вовсе — перехватчик
-разыменовывает нуль. Дефект подтверждён 11 логами в 8 версиях
-HD-мода (адрес инструкции смещается по версиям, механизм
-неизменен).</p>
+<p>При ранней инициализации DirectDraw игра вызывает SetClipper
+первичной поверхности (флаг 698808 ещё не загружен, BSS=0 — оконная
+ветка инициализации). К этому моменту первичная поверхность не создана:
+IDirectDraw::CreateSurface завершился неудачей (внешняя причина —
+DirectDraw/видеодрайвер), поэтому dword_1004C9EC = 0. Перехватчик
+SetClipper HD-мода (sub_100189A0) разыменовывает нулевой указатель.
+Первичная поверхность при этом всегда запрашивается с
+DDSCAPS_PRIMARYSURFACE (полноэкранный путь создания) — дело именно
+в неудаче создания, а не в оконном пути. Вылет подтверждён 11 логами
+в 8 версиях HD-мода.</p>
 
 <div class="viz">
   <div class="viz-strip badge-tl">
     <div class="viz-box accent">
       <span class="viz-badge accent">1</span>
-      <span class="lbl">Graphics.Mode=3</span>
-      <span>Растягиваемый</span>
-      <span>режим</span>
-      <span class="lbl">FullScreen=1 у пользователя</span>
-    </div>
-    <div class="viz-box bad">
-      <span class="viz-badge bad">2</span>
       <span class="lbl">Ранняя инициализация</span>
       <span>флаг 698808</span>
       <span>ещё не загружен</span>
-      <span class="lbl">BSS=0, оконная ветка</span>
+      <span class="lbl">BSS=0, оконная ветка игры</span>
     </div>
     <div class="viz-box">
-      <span class="viz-badge accent">3</span>
+      <span class="viz-badge accent">2</span>
       <span class="lbl">h3hota.exe</span>
-      <span>Оконная ветка</span>
-      <span>DirectDraw</span>
-      <span class="lbl">CreateClipper, SetClipper</span>
+      <span>игра вызывает</span>
+      <span>SetClipper</span>
+      <span class="lbl">первичной поверхности</span>
+    </div>
+    <div class="viz-box bad">
+      <span class="viz-badge bad">3</span>
+      <span class="lbl">CreateSurface</span>
+      <span>создание НЕ</span>
+      <span>удалось</span>
+      <span class="lbl">dword_1004C9EC = 0</span>
     </div>
     <div class="viz-box bad">
       <span class="viz-badge bad">4</span>
       <span class="lbl">sub_100189A0</span>
-      <span>SetClipper</span>
       <span>mov ecx,[eax]</span>
-      <span class="lbl">EAX = 0, краш</span>
+      <span>при EAX = 0</span>
+      <span class="lbl">краш (0x00000000)</span>
     </div>
   </div>
-  <p class="viz-cap">Цепочка активации: HD-мод переводит игру
-  в оконный режим (шаг 2), игра вызывает SetClipper (шаг 3),
-  перехватчик HD-мода падает на нулевом глобале (шаг 4).</p>
+  <p class="viz-cap">Механизм краша: игра вызывает SetClipper (шаги 1-2),
+  но поверхность не создана — CreateSurface не удался (шаг 3),
+  перехватчик HD-мода разыменовывает нуль (шаг 4).</p>
 </div>
 
 <div class="viz">
   <div class="viz-strip badge-tl">
-    <div class="viz-box ok">
-      <span class="viz-badge ok">A</span>
-      <span class="lbl">Полный экран</span>
-      <span>sub_100182C0+199</span>
-      <span>создаёт</span>
-      <span class="lbl">dword_1004C9EC = obj</span>
-    </div>
     <div class="viz-box bad">
-      <span class="viz-badge bad">B</span>
-      <span class="lbl">Оконный путь</span>
-      <span>loc_100184B7</span>
-      <span>НЕ создаёт</span>
+      <span class="viz-badge bad">W</span>
+      <span class="lbl">Windows (краш)</span>
+      <span>CreateSurface</span>
+      <span>не удался</span>
       <span class="lbl">dword_1004C9EC = 0</span>
     </div>
-    <div class="viz-box bad">
-      <span class="viz-badge bad">X</span>
-      <span class="lbl">Перехватчики</span>
-      <span>строятся в ОБЕИХ</span>
-      <span>путях</span>
-      <span class="lbl">sub_100189A0 активен</span>
+    <div class="viz-box ok">
+      <span class="viz-badge ok">L</span>
+      <span class="lbl">Wine (нет краша)</span>
+      <span>CreateSurface</span>
+      <span>успешен</span>
+      <span class="lbl">dword_1004C9EC = obj</span>
     </div>
-    <div class="viz-box bad">
-      <span class="viz-badge bad">D</span>
-      <span class="lbl">Итог</span>
-      <span>в окне —</span>
-      <span>нулевой</span>
-      <span class="lbl">детерминированный краш</span>
+    <div class="viz-box accent">
+      <span class="viz-badge accent">=</span>
+      <span class="lbl">Различие</span>
+      <span>в успешности</span>
+      <span>создания</span>
+      <span class="lbl">внешняя причина</span>
     </div>
   </div>
-  <p class="viz-cap">Несогласованность sub_100182C0: таблица
-  перехватчиков (с sub_100189A0) строится в обоих путях, а объект
-  dword_1004C9EC создаётся только в полноэкранном (A); в оконном
-  (B) его нет — перехватчик (X) падает (D).</p>
+  <p class="viz-cap">Различие между Windows (краш) и Wine (нет краша) —
+  в успешности создания поверхности DirectDraw (проверено winedbg:
+  под Wine dword_1004C9EC/D8/F0 созданы). Причина неудачи на Windows —
+  внешняя (DirectDraw/видеодрайвер), код ошибки в краш-лог не попадает.</p>
 </div>
 
 <div class="viz-legend">
   <div class="item"><span class="viz-badge accent">1</span>
-    <span class="txt">Graphics.Mode=3 — растягиваемый режим;
-    пользовательская настройка FullScreen=1</span></div>
-  <div class="item"><span class="viz-badge bad">2</span>
     <span class="txt">При ранней инициализации флаг полноэкранности
-    698808 ещё не загружен из реестра (BSS=0) — игра идёт
-    по оконной ветке DirectDraw (подтверждено winedbg:
-    A0_DirectDrawInit срабатывает раньше записи настройки
-    по 0x4EDD22, механизмы обнуления HD-мода не срабатывают)</span></div>
-  <div class="item"><span class="viz-badge accent">3</span>
-    <span class="txt">h3hota.exe идёт по оконной ветке
-    A0_DirectDrawInit: CreateClipper, SetHWnd, SetClipper
-    первичной поверхности (vtable +0x70)</span></div>
+    698808 ещё не загружен из реестра (BSS=0) — игра идёт по оконной
+    ветке A0_DirectDrawInit (подтверждено winedbg: A0_DirectDrawInit
+    срабатывает раньше записи настройки по 0x4EDD22)</span></div>
+  <div class="item"><span class="viz-badge accent">2</span>
+    <span class="txt">h3hota.exe вызывает SetClipper первичной
+    поверхности (vtable +0x70, строка 00601C5D) — перехватывается
+    HD-модом (sub_100189A0)</span></div>
+  <div class="item"><span class="viz-badge bad">3</span>
+    <span class="txt">IDirectDraw::CreateSurface ([ecx+18h] в
+    sub_100182C0) завершился неудачей — dword_1004C9EC остался 0.
+    Первичная поверхность всегда с DDSCAPS_PRIMARYSURFACE
+    (sub_600BB0(800,600,1) → ddsCaps=0x200), так что оконный путь
+    создания ни при чём</span></div>
   <div class="item"><span class="viz-badge bad">4</span>
     <span class="txt">_HD3_.dll:sub_100189A0 — перехватчик SetClipper;
-    mov ecx, [eax] при EAX = 0 (dword_1004C9EC не создан)</span></div>
-  <div class="item"><span class="viz-badge ok">A</span>
-    <span class="txt">Полноэкранный путь sub_100182C0 (+0x199):
-    объект dword_1004C9EC создаётся</span></div>
-  <div class="item"><span class="viz-badge bad">B</span>
-    <span class="txt">Оконный путь sub_100182C0 (loc_100184B7):
-    объект dword_1004C9EC НЕ создаётся, глобал = 0</span></div>
-  <div class="item"><span class="viz-badge bad">X</span>
-    <span class="txt">Таблица перехватчиков (sub_100181A0) строится
-    в обоих путях — sub_100189A0 активен и в окне</span></div>
-  <div class="item"><span class="viz-badge bad">D</span>
-    <span class="txt">Итог в оконном режиме: перехватчик разыменовывает
-    нулевой глобал — детерминированный краш</span></div>
+    mov ecx, [eax] при EAX = 0 (dword_1004C9EC не создан) → чтение
+    по адресу 0x00000000</span></div>
+  <div class="item"><span class="viz-badge bad">W</span>
+    <span class="txt">Windows: создание поверхности не удалось
+    (внешняя причина) → dword_1004C9EC = 0 → краш (11 логов,
+    8 версий HD-мода, Graphics.Mode=3)</span></div>
+  <div class="item"><span class="viz-badge ok">L</span>
+    <span class="txt">Wine: создание поверхности успешно
+    (dword_1004C9EC = 0x411b778, dword_1004C9D8 = 0x3f1d188,
+    dword_1004C9F0 = 0x47cf348) → краш не воспроизводится</span></div>
 </div>
 
 </section>
