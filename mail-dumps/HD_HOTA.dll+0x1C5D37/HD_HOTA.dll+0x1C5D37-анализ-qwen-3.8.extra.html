@@ -1,0 +1,59 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">#</a></h2>
+
+  <p>При записи сейва memmove копирует данные очередной клетки карты в буфер
+  потока по 4 байта. Источник — массив данных клетки
+  (<code>[edi+12h]&nbsp;…&nbsp;[edi+16h]</code> в h3hota.exe). Когда длина
+  массива превышает реально выделенный буфер, обход уходит за его конец.
+  На схеме — чистый случай дампа 2: буфер обрывается на границе страницы,
+  и последнее чтение 4 байт цепляет соседнюю недоступную страницу.</p>
+
+  <div class="viz">
+    <div class="viz-strip badge-tl">
+      <div class="viz-box ok">
+        <span class="viz-badge ok">1</span>
+        <span>буфер данных клетки</span>
+        <span class="lbl">[edi+12h] … 0x14E54FFD</span>
+        <span class="lbl">доступен</span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">2</span>
+        <span>чтение 4 байт (dword)</span>
+        <span class="lbl">ESI = 0x14E54FFE</span>
+        <span class="lbl">mov edx, [esi]</span>
+      </div>
+      <div class="viz-box dim dashed">
+        <span class="viz-badge accent">3</span>
+        <span>недоступная страница</span>
+        <span class="lbl">0x14E55000 →</span>
+        <span class="lbl">сбой чтения</span>
+      </div>
+    </div>
+    <div class="viz-cap">адрес сбоя = ESI + 2 = 0x14E55000 (граница страницы); адреса растут слева направо</div>
+
+    <div class="viz-legend">
+      <div class="item">
+        <span class="viz-badge ok">1</span>
+        <span class="txt">доступный буфер — данные клетки карты, источник memmove;
+        копируется в буфер потока записи сейва.</span>
+      </div>
+      <div class="item">
+        <span class="viz-badge bad">2</span>
+        <span class="txt">последнее чтение 4 байт (ECX = 1, EAX = 4); начинается за
+        2 байта до границы страницы и пересекает её.</span>
+      </div>
+      <div class="item">
+        <span class="viz-badge accent">3</span>
+        <span class="txt">адрес сбоя 0x14E55000 — первая недоступная страница;
+        чтение dword останавливается здесь (EXCEPTION_ACCESS_VIOLATION, чтение).</span>
+      </div>
+      <div class="item">
+        <span class="viz-badge accent">?</span>
+        <span class="txt">вторая форма сбоя: указатель данных клетки мусорный
+        (0x7A8800F3, 0x01CE0894, 0x0000FFFF) — чтение сбоит сразу, не доходя до
+        границы страницы.</span>
+      </div>
+    </div>
+  </div>
+</section>
