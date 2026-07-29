@@ -1,0 +1,50 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">#</a></h2>
+  <p>Теневая рабочая поверхность HD-мода хранится в глобальном указателе
+  и создаётся лениво. Создатель проверяет указатель на ноль, а потребитель
+  (метод получения описания поверхности) — нет. Если движок запрашивает
+  описание раньше, чем поверхность создана, потребитель читает ноль.</p>
+  <div class="viz">
+    <div class="viz-strip badge-tl">
+      <div class="viz-box accent dashed">
+        <span class="viz-badge accent">1</span>
+        <span class="lbl">dword_2022244</span>
+        <span>= 0 (NULL)</span>
+      </div>
+    </div>
+    <div class="viz-strip badge-tl">
+      <div class="viz-box ok">
+        <span class="viz-badge ok">2</span>
+        <span class="lbl">создатель sub_2007450</span>
+        <span>проверка cmp ..., 0</span>
+        <span>создаёт поверхность</span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">3</span>
+        <span class="lbl">потребитель sub_2007320</span>
+        <span>БЕЗ проверки</span>
+        <span>mov eax, [edx+14h]</span>
+      </div>
+    </div>
+    <p class="viz-cap">Глобал остаётся нулевым, пока создатель не наполнит его.
+    Потребитель может быть вызван движком раньше — тогда он разыменовывает ноль
+    по смещению +0x14 (адрес сбоя 0x00000014).</p>
+    <div class="viz-legend">
+      <div class="item"><span class="viz-badge accent">1</span>
+        <span class="txt">Глобальный указатель на теневую поверхность
+        (GDI DIB-секция). Инициализирован нулём, после создания не обнуляется
+        (единственная запись — в создателе).</span></div>
+      <div class="item"><span class="viz-badge ok">2</span>
+        <span class="txt">Создатель sub_2007450 проверяет глобал
+        (cmp dword_2022244, 0) и создаёт поверхность через sub_20011A0;
+        при отказе GDI (CreateCompatibleDC / CreateDIBSection) сохраняет
+        ноль.</span></div>
+      <div class="item"><span class="viz-badge bad">3</span>
+        <span class="txt">Потребитель sub_2007320 (метод vtable +0x68,
+        получение описания поверхности) читает поле +0x14 без проверки
+        указателя. Нулевой глобал — штатно достижимое состояние, поэтому
+        отсутствие проверки приводит к крашу.</span></div>
+    </div>
+  </div>
+</section>
