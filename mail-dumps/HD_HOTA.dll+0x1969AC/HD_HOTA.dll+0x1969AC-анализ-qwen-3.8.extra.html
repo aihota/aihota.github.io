@@ -1,0 +1,83 @@
+<!--
+  Врезка ручных визуализаций для HD_HOTA.dll+0x1969AC-анализ-qwen-3.8.html.
+  Этот файл НЕ перезаписывается генератором: render_report.py читает его
+  и вставляет в маркер @SECTION_EXTRA (перед «Краткое резюме»), а каждую
+  <section id="..."> добавляет в оглавление (@TOC_EXTRA).
+  Правила: цвета только из токенов темы (классы .viz-*), подписи на русском,
+  числа/факты согласованы с txt-отчётом (txt — источник истины).
+-->
+<section id="viz" data-toc="Визуализация вылета">
+  <h2>Визуализация вылета</h2>
+  <p>Рабочий буфер клеток карты зарождается как ноль в момент отказа
+  <code>operator new</code> и без проверки доходит до цикла копирования:
+  первая же запись попадает в адрес <code>0x0</code>. Источник данных
+  (клетка карты) при этом исправен — бит именно приёмник.</p>
+
+  <div class="viz">
+    <div class="viz-strip badge-tl">
+      <div class="viz-box accent">
+        <span class="viz-badge accent">A</span>
+        <span class="lbl">call esi (0x617492)</span>
+        <span>operator new</span>
+        <span>размер (слоёв+1)·W·H·38</span>
+        <span>EAX = 0 (отказ)</span>
+      </div>
+      <div class="viz-box">
+        <span class="viz-badge">B</span>
+        <span class="lbl">mov [var_C], eax</span>
+        <span>var_C = 0</span>
+        <span>проверки на ноль нет</span>
+      </div>
+      <div class="viz-box">
+        <span class="viz-badge">C</span>
+        <span class="lbl">add edx, [var_C]</span>
+        <span>EDX = 0 + 0·38</span>
+        <span>первая итерация</span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">D</span>
+        <span class="lbl">mov [edx], ecx</span>
+        <span>запись [0x0]</span>
+        <span>адрес сбоя</span>
+      </div>
+    </div>
+
+    <div class="viz-strip badge-tl">
+      <div class="viz-box ok">
+        <span class="viz-badge ok">S</span>
+        <span class="lbl">A0_GameMap_GetCell</span>
+        <span>ESI = 0x16610024</span>
+        <span>клетка жива, ECX = 0xFFFFFFFF</span>
+      </div>
+    </div>
+    <div class="viz-cap">Источник (S) отдаёт корректную клетку карты;
+    нулевой путь (A–D) — это буфер-приёмник, а не данные.</div>
+
+    <div class="viz-legend">
+      <div class="item"><span class="viz-badge accent">A</span>
+        <span class="txt">Функция просит у <code>operator new</code>
+        (h3hota.exe, 0x617492, сводится к <code>_nh_malloc</code>) буфер
+        под копию карты. При нехватке памяти распределитель возвращает
+        ноль — в EAX приходит 0.</span></div>
+      <div class="item"><span class="viz-badge">B</span>
+        <span class="txt">Результат сохраняется в <code>var_C</code> без
+        проверки. Единственное условие после выделения
+        (<code>add ecx,1; jz</code>) проверяет число слоёв карты, а не
+        указатель.</span></div>
+      <div class="item"><span class="viz-badge">C</span>
+        <span class="txt">Адрес приёмника считается как
+        <code>var_C + индекс·38</code>. На первой итерации индекс нулевой
+        (EBX = 0, EDI только что увеличен с 0 до 1), поэтому
+        EDX = var_C = 0.</span></div>
+      <div class="item"><span class="viz-badge bad">D</span>
+        <span class="txt">Первая запись <code>mov [edx], ecx</code> идёт
+        по адресу EDX + 0 = 0x0 — нарушение доступа на запись. Это и есть
+        адрес сбоя из поля Information.</span></div>
+      <div class="item"><span class="viz-badge ok">S</span>
+        <span class="txt">Контраст: данные даёт
+        <code>A0_GameMap_GetCell</code> (ESI = 0x16610024 — живой указатель
+        в кучу). Записываемое значение ECX = 0xFFFFFFFF — первые 4 байта
+        исправной клетки; поставщик данных не повреждён.</span></div>
+    </div>
+  </div>
+</section>
