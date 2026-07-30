@@ -1,11 +1,11 @@
 <section id="viz">
 <h2>Визуализация вылета</h2>
-<p>Патчер HD-мода хранит для каждого хука «ведро» со счётчиком глубины
+<p>Патчер HD-мода хранит для каждого хука «ячейку» со счётчиком глубины
 вложенных вызовов. Вход в контекст наращивает счётчик, выход — уменьшает.
 Пока счётчик не опускается ниже нуля, всё штатно. Сбой начинается, когда
 выходов оказывается на один больше, чем входов: счётчик из нуля уходит
 в минус один, отрицательный уровень превращается в индекс массива, а
-указатель на этот массив у ведра ещё нулевой — чтение по нулю обрушивает
+указатель на этот массив у ячейки ещё нулевой — чтение по нулю обрушивает
 процесс.</p>
 
 <div class="viz">
@@ -23,7 +23,7 @@
     <div class="viz-box"><span class="viz-badge">2</span><span class="lbl">ВЫХОД</span><span>счётчик 1 → 0</span></div>
     <div class="viz-box bad"><span class="viz-badge bad">3</span><span class="lbl">ЛИШНИЙ ВЫХОД</span><span>счётчик 0 → −1</span></div>
     <div class="viz-box bad"><span class="viz-badge bad">4</span><span class="lbl">ИНДЕКС</span><span>уровень −2 (ECX = −6)</span></div>
-    <div class="viz-box bad dashed"><span class="viz-badge bad">5</span><span class="lbl">БУФЕР ВЕДРА</span><span>указатель = NULL</span></div>
+    <div class="viz-box bad dashed"><span class="viz-badge bad">5</span><span class="lbl">БУФЕР ЯЧЕЙКИ</span><span>указатель = NULL</span></div>
   </div>
   <div class="viz-cap">Сбой: лишний выход уводит счётчик в минус; отрицательный индекс
   читает никогда не выделенный буфер — адрес сбоя 0 + (−6)×8 = 0xFFFFFFD0</div>
@@ -33,6 +33,6 @@
   <div class="item"><span class="viz-badge ok">✓</span><span class="txt"><b>Шаги 1–2 (норма)</b> — функция входа sub_1000F020 увеличивает счётчик (inc), функция выхода sub_1000EE60 уменьшает (dec); на нуле возвращается сохранённое значение.</span></div>
   <div class="item"><span class="viz-badge bad">3</span><span class="txt"><b>Лишний выход</b> — dec на счётчике 0 даёт −1; ненулевое значение уводит код на «путь вложенности» вместо штатного возврата.</span></div>
   <div class="item"><span class="viz-badge bad">4</span><span class="txt"><b>Отрицательный индекс</b> — уровень = счётчик − 1 = −2; в хвосте функции он умножается на три (lea ecx, [eax+eax*2]) и становится индексом ECX = −6.</span></div>
-  <div class="item"><span class="viz-badge bad">5</span><span class="txt"><b>Нулевой буфер</b> — массив ведра (поле +0x1C) выделяется только при росте глубины; для этого ведра он не создавался, mov eax, [ebx+1Ch] загружает 0, и mov eax, [eax+ecx*8] читает память по нулю.</span></div>
+  <div class="item"><span class="viz-badge bad">5</span><span class="txt"><b>Нулевой буфер</b> — массив ячейки (поле +0x1C) выделяется только при росте глубины; для этой ячейки он не создавался, mov eax, [ebx+1Ch] загружает 0, и mov eax, [eax+ecx*8] читает память по нулю.</span></div>
 </div>
 </section>
