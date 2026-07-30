@@ -1,0 +1,35 @@
+<section id="viz-crash">
+<h2>Визуализация вылета</h2>
+<p>Блиттер True Color читает поля спрайта Pcx8 по порядку. Шаг строки и
+таблица палитры читаются успешно — значит, сам объект-спрайт жив. Сбой
+происходит на третьем чтении: буфер пикселей источника невалиден, инструкция
+<code>mov cl,[edx]</code> разыменовывает его без проверки.</p>
+
+<div class="viz">
+  <div class="viz-strip badge-tl">
+    <div class="viz-box ok"><span class="viz-badge ok">1</span><span class="lbl">this+0x2C</span><span>шаг строки</span><span>читается</span></div>
+    <div class="viz-box ok"><span class="viz-badge ok">2</span><span class="lbl">this+0x24C</span><span>таблица палитры</span><span>читается</span></div>
+    <div class="viz-box bad"><span class="viz-badge bad">3</span><span class="lbl">this+0x30</span><span>буфер пикселей</span><span>СБОЙ</span></div>
+  </div>
+  <div class="viz-cap">Порядок чтений полей спрайта: первые два проходят, третье (буфер пикселей) падает.</div>
+</div>
+
+<p>Три проявления одного дефекта — буфер пикселей невалиден по-разному, но
+механизм общий (разыменование источника без проверки):</p>
+
+<div class="viz">
+  <div class="viz-strip badge-tl">
+    <div class="viz-box bad"><span class="viz-badge bad">A</span><span>источник = нуль</span><span class="lbl">77 дампов</span><span>this+0x30 == 0</span></div>
+    <div class="viz-box bad"><span class="viz-badge bad">B</span><span>висячий указатель</span><span class="lbl">24 дампа</span><span>адрес освобождён</span></div>
+    <div class="viz-box bad"><span class="viz-badge bad">C</span><span>выход за буфер</span><span class="lbl">13 дампов</span><span>ширина больше буфера</span></div>
+  </div>
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge ok">1</span><span class="txt">Поля спрайта, которые читаются до сбоя: объект размещён и жив, таблица палитры на месте.</span></div>
+    <div class="item"><span class="viz-badge bad">3</span><span class="txt">Буфер пикселей (this+0x30) — единственное битое поле; адрес сбоя совпадает с EDX во всех 114 дампах.</span></div>
+    <div class="item"><span class="viz-badge bad">A</span><span class="txt">Буфер не загружен (остался нулевым) — сбой на первом пикселе первой строки.</span></div>
+    <div class="item"><span class="viz-badge bad">B</span><span class="txt">Буфер освобождён (висячий указатель) — чтение незамапленной памяти на первом пикселе.</span></div>
+    <div class="item"><span class="viz-badge bad">C</span><span class="txt">Буфер короче объявленной ширины — строка началась годно, ширина увела за границу страницы.</span></div>
+    <div class="item"><span class="viz-badge accent">i</span><span class="txt">Поставщик спрайта — подсистема ресурсов движка SoD (h3hota.exe); блиттер HD_TC2 — исправный порт рисовалки SoD, место проявления, не причина.</span></div>
+  </div>
+</div>
+</section>
