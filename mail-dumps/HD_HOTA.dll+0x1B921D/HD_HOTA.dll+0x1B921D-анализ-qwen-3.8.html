@@ -575,31 +575,13 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <section id="s5">
     <h2><span class="htext">Инструкция краша и адресная проверка</span><a class="anchor" href="#s5">¶</a></h2>
-    <p>Падающая функция <code>sub_11B9210</code> (R33) целиком:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">    .text:011B9210  </span><span class="k">push</span>    <span class="r">edx</span>
-<span class="a">    .text:011B9211  </span><span class="k">mov</span>     <span class="r">edx</span>, <span class="r">ecx</span>
-<span class="a">    .text:011B9213  </span><span class="k">mov</span>     <span class="r">ecx</span>, <span class="r">offset</span> asc_11FBD50 <span class="c">; "*"</span>
-<span class="a">    .text:011B9218  </span><span class="k">call</span>    sub_11B6EC0
-<span class="a">    .text:011B921D  </span><span class="k">mov</span>     <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">eax</span>], <span class="r">offset</span> off_120BD7C  <span class="c">; КРАШ</span>
-<span class="a">    .text:011B9223  </span><span class="k">retn</span>
-Это конструктор производного класса: он зовёт функцию создания
-sub_11B6EC0 (та возвращает указатель на объект в EAX и ставит базовую
-таблицу виртуальных методов 63B9C8h), затем перезаписывает [eax]
-таблицей производного класса off_120BD7C. Между call и mov нет
-проверки test eax,eax / jz — возврат не проверяется.
-Адресная проверка: эффективный адрес записи mov [eax],... равен
-EAX + 0 = 0x00000000 + 0 = 0x00000000, что в точности совпадает с
-полем Information «write of address: 0x00000000». Проверка сошлась.
-Таблица off_120BD7C (R33):
-    .data:0120BD7C  off_120BD7C  dd offset sub_11B91D0  ; деструктор
-    .data:0120BD80               dd offset sub_11B33E0  ; виртуальный метод
-Идентификация объекта: производная таблица off_120BD7C накладывает
-поверх базового класса игры. Базовая таблица off_63B9C8 лежит в
-h3hota.exe (imagebase 0x400000, три метода: sub_44DCF0, sub_55D300,
-sub_44DF10; конструктор базы sub_44DC40 ставит mov [esi], off_63B9C8).
-Функция создания sub_11B6EC0 ставит базовую таблицу (mov [edi],
-63B9C8h), а конструктор sub_11B9210 перезаписывает её производной.
-Производный метод sub_11B33E0 — саморазрушение объекта: mov eax,[ecx];
-<span class="k">mov</span> <span class="r">eax</span>,[<span class="r">eax</span>]<span class="c">; call eax (зовёт собственный деструктор vtable+0 с</span></pre></div><p>аргументом 1). Дефект находится в производном конструкторе HD-мода, базовый код игры на пути сбоя не участвует.</p>
+    <p>Падающая функция <code>sub_11B9210</code> (R33) целиком:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:011B9210  </span><span class="k">push</span>    <span class="r">edx</span>
+<span class="a">.text:011B9211  </span><span class="k">mov</span>     <span class="r">edx</span>, <span class="r">ecx</span>
+<span class="a">.text:011B9213  </span><span class="k">mov</span>     <span class="r">ecx</span>, <span class="r">offset</span> asc_11FBD50 <span class="c">; "*"</span>
+<span class="a">.text:011B9218  </span><span class="k">call</span>    sub_11B6EC0
+<span class="a">.text:011B921D  </span><span class="k">mov</span>     <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">eax</span>], <span class="r">offset</span> off_120BD7C  <span class="c">; КРАШ</span>
+<span class="a">.text:011B9223  </span><span class="k">retn</span></pre></div><p>Это конструктор производного класса: он зовёт функцию создания <code>sub_11B6EC0</code> (та возвращает указатель на объект в <code>EAX</code> и ставит базовую таблицу виртуальных методов <code>63B9C8h</code>), затем перезаписывает <code>[eax]</code> таблицей производного класса <code>off_120BD7C</code>. Между call и mov нет проверки test <code>eax</code>,eax / jz — возврат не проверяется.</p><p>Адресная проверка: эффективный адрес записи <code>mov [eax],</code>... равен <code>EAX + 0 = 0x00000000 + 0 = 0x00000000</code>, что в точности совпадает с полем Information «write of address: <code>0x00000000</code>». Проверка сошлась.</p><p>Таблица <code>off_120BD7C</code> (R33):</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.data:0120BD7C  </span>off_120BD7C  dd <span class="r">offset</span> sub_11B91D0  <span class="c">; деструктор</span>
+<span class="a">.data:0120BD80               </span>dd <span class="r">offset</span> sub_11B33E0  <span class="c">; виртуальный метод</span></pre></div><p>Идентификация объекта: производная таблица <code>off_120BD7C</code> накладывает поверх базового класса игры. Базовая таблица <code>off_63B9C8</code> лежит в <code>h3hota.exe</code> (imagebase <code>0x400000</code>, три метода: <code>sub_44DCF0</code>, <code>sub_55D300</code>, <code>sub_44DF10</code>; конструктор базы <code>sub_44DC40</code> ставит <code>mov [esi], off_63B9C8</code>). Функция создания <code>sub_11B6EC0</code> ставит базовую таблицу (<code>mov [edi], 63B9C8h</code>), а конструктор <code>sub_11B9210</code> перезаписывает её производной. Производный метод <code>sub_11B33E0</code> — саморазрушение объекта: <code>mov eax,[ecx]</code>; <code>mov eax,[eax]</code>; <code>call eax</code> (зовёт собственный деструктор vtable+0 с аргументом 1). Дефект находится в производном конструкторе HD-мода, базовый код игры на пути сбоя не участвует.</p>
   </section>
 
   <section id="s6">
