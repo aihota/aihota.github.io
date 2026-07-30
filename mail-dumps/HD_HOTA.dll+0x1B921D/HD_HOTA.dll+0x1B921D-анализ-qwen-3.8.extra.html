@@ -1,0 +1,46 @@
+<section id="viz">
+  <h2>Визуализация вылета</h2>
+  <p>Путь сбоя: обработчик городского экрана HD-мода лениво создаёт
+  объект-сетку диалога найма. Функция создания возвращает NULL
+  (отказ <code>operator new</code>), а конструктор возврат не проверяет
+  и пишет таблицу виртуальных методов по нулевому указателю.</p>
+
+  <div class="viz">
+    <div class="viz-strip badge-tl">
+      <div class="viz-box">
+        <span class="viz-badge">1</span>
+        <span class="lbl">sub_1015780</span>
+        <span>обработчик города</span>
+      </div>
+      <div class="viz-box">
+        <span class="viz-badge">2</span>
+        <span class="lbl">sub_11B30D0</span>
+        <span>ленивое создание</span>
+      </div>
+      <div class="viz-box accent">
+        <span class="viz-badge accent">3</span>
+        <span class="lbl">sub_11B9210</span>
+        <span>конструктор</span>
+      </div>
+      <div class="viz-box accent dashed">
+        <span class="viz-badge accent">4</span>
+        <span class="lbl">sub_11B6EC0</span>
+        <span>создание → NULL</span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">5</span>
+        <span class="lbl">mov [eax], …</span>
+        <span>КРАШ: EAX = 0</span>
+      </div>
+    </div>
+    <div class="viz-cap">Цепочка вызовов и поток нулевого указателя (R33; в RC4/RC10 функции смещены по образу)</div>
+  </div>
+
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge">1</span><span class="txt">HD-мод перехватывает сообщения городского экрана (<code>sub_1015780</code>, зарегистрирован инициализатором <code>sub_1034EC0</code>).</span></div>
+    <div class="item"><span class="viz-badge">2</span><span class="txt"><code>sub_11B30D0</code> создаёт объекты-сетки при первом открытии диалога найма; <code>this</code> = глобальный менеджер <code>dword_120BD9C</code> (EDI = 0x0839BD9C).</span></div>
+    <div class="item"><span class="viz-badge accent">3</span><span class="txt">Конструктор <code>sub_11B9210</code> зовёт функцию создания <code>sub_11B6EC0</code> и ждёт указатель в EAX.</span></div>
+    <div class="item"><span class="viz-badge accent">4</span><span class="txt">Функция создания корректно возвращает NULL при отказе <code>operator new</code> (и освобождает заголовок) — контракт поставщика соблюдён.</span></div>
+    <div class="item"><span class="viz-badge bad">5</span><span class="txt">Конструктор не проверяет возврат (<code>test eax,eax</code> отсутствует) и пишет таблицу виртуальных методов <code>off_120BD7C</code> по EAX = 0 → запись по нулю.</span></div>
+  </div>
+</section>
