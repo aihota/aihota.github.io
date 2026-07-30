@@ -26,7 +26,7 @@
   <div class="viz-legend">
     <div class="item"><span class="viz-badge ok">1</span><span class="txt">Поля спрайта, которые читаются до сбоя: объект размещён и жив, таблица палитры на месте.</span></div>
     <div class="item"><span class="viz-badge bad">3</span><span class="txt">Буфер пикселей (this+0x30) — единственное битое поле; адрес сбоя совпадает с EDX во всех 114 дампах.</span></div>
-    <div class="item"><span class="viz-badge bad">A</span><span class="txt">Буфер не загружен (остался нулевым) — сбой на первом пикселе первой строки.</span></div>
+    <div class="item"><span class="viz-badge bad">A</span><span class="txt">Указатель буфера нулевой: буфер не выделен (отказ operator new, 56 дампов) либо память уже переиспользована (use-after-free, 21 дамп — в поле ширины видно чужое содержимое «CmNumWHD.pcx»/«.bmp»).</span></div>
     <div class="item"><span class="viz-badge bad">B</span><span class="txt">Буфер освобождён (висячий указатель) — чтение незамапленной памяти на первом пикселе.</span></div>
     <div class="item"><span class="viz-badge bad">C</span><span class="txt">Буфер короче объявленной ширины — строка началась годно, ширина увела за границу страницы.</span></div>
     <div class="item"><span class="viz-badge accent">i</span><span class="txt">Корень — жизненный цикл Pcx8 в движке SoD (h3hota.exe): функция чтения оставляет нулевой буфер при отказе operator new, создатель не проверяет код возврата; HD-мод воспроизводит дефект. Блиттер HD_TC2 — исправный порт, место проявления.</span></div>
