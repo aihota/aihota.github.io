@@ -587,7 +587,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <section id="s10">
     <h2><span class="htext">Сводные данные</span><a class="anchor" href="#s10">¶</a></h2>
-    <p>Подсистема: интерфейс карты приключений (панели портретов героев)</p><p>Были до 1.8.0: <b class="hi">НЕТ</b> Были в SoD: ДА</p><p>Виновный код — в <code>HD_HOTA.dll</code> (функция <code>sub_100A810</code>, перехватчик HD-мода), но дефект <b class="hi">УНАСЛЕДОВАН</b> от SoD: оригинальная функция <code>A0_AdvMgr_UpdateHeroPort_sub_403560</code> (<code>h3hota.exe</code>) содержит ту же логику и ту же недостающую проверку. HD-мод воспроизводит код движка, включая дефект.</p>
+    <p>Подсистема: интерфейс карты приключений (панели портретов героев)</p><p>Виновный код — в <code>HD_HOTA.dll</code> (функция <code>sub_100A810</code>, перехватчик HD-мода), но дефект <b class="hi">УНАСЛЕДОВАН</b> от SoD: оригинальная функция <code>A0_AdvMgr_UpdateHeroPort_sub_403560</code> (<code>h3hota.exe</code>) содержит ту же логику и ту же недостающую проверку. HD-мод воспроизводит код движка, включая дефект.</p>
   </section>
 
   <section id="s11">
