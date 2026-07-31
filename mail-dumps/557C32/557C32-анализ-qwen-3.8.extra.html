@@ -1,0 +1,41 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">#</a></h2>
+
+  <p>Функция <code>RecieveNetMsg</code> пишет в выходной указатель
+  <code>out_msg_was_recieved</code> (EDI) в трёх точках.
+  Две из трёх защищены проверкой <code>test edi, edi</code>;
+  третья (путь раннего возврата) — нет.</p>
+
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box accent">Вход: EDI = out_msg_was_recieved<br>
+        <small>вызывающий код вправе передать NULL</small></div>
+    </div>
+
+    <div class="viz-strip">
+      <div class="viz-box ok">0x557C1E: *EDI = 0<br>
+        <small>test edi, edi → jz — ЗАЩИЩЕНО</small></div>
+    </div>
+
+    <div class="viz-strip">
+      <div class="viz-box dim">field_8 != 0? &amp;&amp; in_dauther_dlg != 0?</div>
+    </div>
+
+    <div class="viz-strip">
+      <div class="viz-box bad">0x557C32: *EDI = 1<br>
+        <small>БЕЗ проверки — КРАШ при EDI = 0</small>
+        <span class="viz-badge bad">!</span></div>
+      <div class="viz-box ok">0x557C6F: *EDI = 1<br>
+        <small>test edi, edi → jz — ЗАЩИЩЕНО</small>
+        <span class="viz-badge ok">✓</span></div>
+    </div>
+  </div>
+
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge ok">✓</span>
+      <span class="txt">Защищённая запись (проверка NULL перед обращением)</span></div>
+    <div class="item"><span class="viz-badge bad">!</span>
+      <span class="txt">Незащищённая запись — точка краша (EDI = 0)</span></div>
+  </div>
+</section>
