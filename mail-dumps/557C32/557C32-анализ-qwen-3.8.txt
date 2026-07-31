@@ -75,16 +75,31 @@ Entry point лога: 0x00639C00.
 
 5. Цепочка вызовов
 ------------------
-Функция вызывается виртуально (vtable[1], offset +4). В стеке V2
-общие кадры h3hota.exe по всем дампам:
+Функция вызывается виртуально (vtable[1], offset +4). Точный
+вызывающий код определён по листингам HD_HOTA.dll (R33 и R34):
 
-- 0x00557C32 — точка краша (RecieveNetMsg)
-- 0x005FFACB — A0_DialogFunction_sub_5FFAC0+0xB (возврат из vtable[3])
+HD_HOTA.dll (R34, sub_1185E20; R33, sub_1004F20):
 
-Вызов проходит через перехватчики HD_HOTA.dll и трамплины patcher_x86
-(адреса 0x02Axxxxx), которые подменяют штатный диспетчер сообщений.
-Непосредственный вызывающий код — HD_HOTA.dll (разные offset в R33/R34),
-далее через трамплин в игровой код.
+    .text:01185E7A  mov     eax, 553BA0h    ; A0_NetMgr_Get_Processor
+    .text:01185E7F  call    eax             ; процессор = NetMgr->field_F0
+    .text:01185E81  mov     esi, eax
+    .text:01185E83  test    esi, esi
+    .text:01185E85  jz      short skip
+    .text:01185E87  mov     edx, [esi]      ; vtable
+    .text:01185E89  mov     ecx, esi        ; this
+    .text:01185E8B  push    0               ; out_msg_was_recieved = NULL
+    .text:01185E8D  push    1               ; in_dauther_dlg = 1
+    .text:01185E8F  mov     edx, [edx+4]    ; vtable[1] = RecieveNetMsg
+    .text:01185E92  call    edx             ; КРАШ на 0x557C32
+
+HD_HOTA явно передаёт NULL (push 0) и 1 (push 1). Вызов через
+абсолютный адрес h3hota.exe (mov eax, 553BA0h; call eax) —
+признак репликации логики движка. A0_NetMgr_Get_Processor
+возвращает NetMgr->field_F0 (текущий процессор сообщений).
+
+В стеке V2 общих кадры h3hota.exe: 0x005FFACB
+(A0_DialogFunction_sub_5FFAC0+0xB) — диспетчер диалогов,
+через который HD_HOTA перехватывает управление.
 
 Отложенное сообщение (field_8) устанавливает A0_BattleMgr_Main_sub_473A00
 через A0_NetMsgProcessor_Set_CloseMsg_sub_557CB0:
@@ -195,16 +210,16 @@ RecieveNetMsg с NULL out_msg_was_recieved при отложенном сооб�
   родственный путь 0x557C6B С проверкой (цитаты в разделе 4).
 - in_dauther_dlg = 1 восстановлено по ECX/ESI во всех 4 дампах.
 - field_8 != 0 (EAX) во всех 4 дампах.
-- Set_CloseMsg (0x473EBB) — единственный writer field_8,
-  вызывается из A0_BattleMgr_Main.
+- Точный вызывающий код: HD_HOTA.dll (R34 sub_1185E20,
+  R33 sub_1004F20) явно передаёт push 0 (NULL) и push 1
+  через vtable[1] — прочитано по листингам обеих версий.
+- Writer field_8: конструктор ставит 0 (0x557BAD),
+  Set_CloseMsg (0x557CB6) — единственный writer nonzero,
+  вызывается из A0_BattleMgr_Main (0x473EBB). Функция
+  RecieveNetMsg сама сбрасывает field_8 в 0 (0x557C42).
 
 Ограничения:
 
-- Точный вызывающий код, передающий NULL в out_msg_was_recieved,
-  не определён статически: вызов виртуальный (vtable[1]), проходит
-  через перехватчики HD_HOTA.dll и трамплины patcher_x86.
-  Для точной трассировки нужен листинг HD_HOTA.dll соответствующей
-  версии (R33/R34) или рантайм-отладка.
 - Минидампы сокращённые (без кучи): содержимое объекта
   NetMsgProcessor (field_8, vtable) не проверить в отладчике.
   Значение field_8 подтверждено только регистром EAX.
@@ -213,12 +228,13 @@ RecieveNetMsg с NULL out_msg_was_recieved при отложенном сооб�
 -----
 Вылет 0x00557C32 — разыменование нулевого указателя в функции приёма
 сетевых сообщений A0_NetMsgProcessor_RecieveNetMsg_sub_557C10 (h3hota.exe).
-Функция получает out_msg_was_recieved = NULL и корректно обрабатывает
-его на первом пути записи (0x557C1E, с проверкой), но пропускает
-проверку на пути раннего возврата (0x557C32), когда in_dauther_dlg != 0
-и есть отложенное сообщение о закрытии боя (field_8 != 0). Родственный
-путь 0x557C6B ту же запись выполняет с проверкой. Дефект унаследован
-от SoD (базовый класс NetMsgProcessor). Все 4 вылета — сетевые партии,
-середина игры, разные карты и дни. Полезность лога ВЫСОКАЯ: дефект
-локализован, точечная правка — добавить test edi, edi / jz перед
-записью на 0x557C32 (по образцу 0x557C6B).
+HD_HOTA.dll явно передаёт out_msg_was_recieved = NULL и in_dauther_dlg = 1
+(push 0; push 1; call vtable[1] — прочитано в листингах R33 и R34).
+Функция корректно обрабатывает NULL на первом пути записи (0x557C1E,
+с проверкой), но пропускает проверку на пути раннего возврата (0x557C32),
+когда in_dauther_dlg != 0 и есть отложенное сообщение о закрытии боя
+(field_8 != 0, устанавливает A0_BattleMgr_Main через Set_CloseMsg).
+Родственный путь 0x557C6B ту же запись выполняет с проверкой. Дефект
+унаследован от SoD (базовый класс NetMsgProcessor). Все 4 вылета —
+сетевые партии, середина игры, разные карты и дни. Полезность лога
+ВЫСОКАЯ: дефект локализован, механизм доказан полностью.
