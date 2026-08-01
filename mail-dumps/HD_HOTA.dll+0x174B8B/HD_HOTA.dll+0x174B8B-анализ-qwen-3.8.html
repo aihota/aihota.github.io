@@ -402,6 +402,7 @@ td.flag{color:var(--bad);font-weight:700;
 .viz-legend .viz-badge.ok{background:var(--ok)}
 .viz-legend .viz-badge.bad{background:var(--bad)}
 .viz-legend .viz-badge.accent{background:var(--accent2)}
+.viz-legend .viz-badge.neutral{background:var(--line)}
 /* координатный холст: ТОЛЬКО для геометрии, рисуем линии/стрелки */
 .viz-svg{display:block;max-width:100%;height:auto;margin:6px auto;
   font-family:inherit;font-size:var(--fs-xs)}
@@ -421,7 +422,7 @@ td.flag{color:var(--bad);font-weight:700;
 /* легенда под схемой: бейдж + пояснение, в одну/две колонки, без наложений */
 .viz-legend{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin:12px 0 0}
 @media(max-width:680px){.viz-legend{grid-template-columns:1fr}}
-.viz-legend .item{display:flex;align-items:flex-start;gap:9px;
+.viz-legend .item{display:flex;align-items:center;gap:9px;
   font-size:var(--fs-sm);color:var(--ink)}
 .viz-legend .item .txt{color:var(--muted)}
 @media print{.viz-strip{overflow-x:visible;flex-wrap:wrap}
@@ -505,22 +506,22 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <section id="viz">
   <h2>Визуализация вылета</h2>
-  <p>HD-мод выбирает случайного активного игрока: считает количество
-  игроков с ненулевым сетевым идентификатором (net_id), затем делит
-  случайное число на это количество. Когда активных игроков нет,
-  делитель равен нулю.</p>
+  <p>HD-мод строит из массива игроков связный список активных (с ненулевым
+  сетевым идентификатором net_id), считает их количество и делит на него
+  случайное число, чтобы обойти список и выбрать случайного игрока. Когда
+  активных игроков нет, делитель равен нулю.</p>
 
   <div class="viz">
     <div class="viz-strip badge-tl">
       <div class="viz-box accent">
         <span class="viz-badge accent">1</span>
         <span>Массив игроков</span>
-        <span class="lbl">8 слотов, поле net_id</span>
+        <span class="lbl">8 слотов · поле net_id</span>
       </div>
       <div class="viz-box">
-        <span class="viz-badge">2</span>
-        <span>Подсчёт активных</span>
-        <span class="lbl">sub_11744F0: net_id ≠ 0</span>
+        <span class="viz-badge neutral">2</span>
+        <span>sub_11744F0</span>
+        <span class="lbl">список активных · next=record+3</span>
       </div>
       <div class="viz-box bad">
         <span class="viz-badge bad">3</span>
@@ -529,7 +530,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
       </div>
       <div class="viz-box bad">
         <span class="viz-badge bad">4</span>
-        <span>rand() ÷ var_30</span>
+        <span>rand() % var_30</span>
         <span class="lbl">idiv [ebp+var_30]</span>
       </div>
       <div class="viz-box bad">
@@ -539,12 +540,12 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
       </div>
     </div>
     <div class="viz-legend">
-      <div class="item"><span class="viz-badge accent"></span><span class="txt">Массив игроков движка (player_astr20AD0): HD-мод читает поле net_id каждого из 8 слотов.</span></div>
-      <div class="item"><span class="viz-badge"></span><span class="txt">Функция sub_11744F0 ставит флаг «активен» для каждого игрока с ненулевым net_id.</span></div>
+      <div class="item"><span class="viz-badge accent"></span><span class="txt">Массив игроков движка (player_astr20AD0): HD-мод читает net_id каждого из 8 слотов.</span></div>
+      <div class="item"><span class="viz-badge neutral"></span><span class="txt">sub_11744F0 ставит флаг «активен» (net_id ≠ 0) и связывает активных игроков указателями «следующий» (record+3).</span></div>
       <div class="item"><span class="viz-badge bad"></span><span class="txt">В начале сетевой партии (день 1 1 1) все net_id нулевые → активных игроков 0 → делитель var_30 = 0.</span></div>
-      <div class="item"><span class="viz-badge bad"></span><span class="txt">Деление rand() на 0 без проверки «число игроков &gt; 0» → EXCEPTION_INT_DIVIDE_BY_ZERO.</span></div>
+      <div class="item"><span class="viz-badge bad"></span><span class="txt">Деление rand() на 0 без проверки «число игроков &gt; 0» → вылет. При var_30 &gt; 0 остаток rand % var_30 задал бы число шагов обхода связного списка для выбора случайного игрока.</span></div>
     </div>
-    <p class="viz-cap">Поток данных: массив игроков → подсчёт активных → нулевой делитель → деление → вылет.</p>
+    <p class="viz-cap">Поток: массив игроков → связный список активных → нулевой делитель → деление → вылет.</p>
   </div>
 </section>
 
@@ -594,7 +595,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 <span class="a">.text:01174557  </span><span class="k">inc</span>     <span class="r">edx</span>
 <span class="a">.text:01174558  </span><span class="k">add</span>     <span class="r">esi</span>, <span class="n">168h</span>           <span class="c">; следующий игрок (360 байт)</span>
 <span class="a">.text:0117455E  </span><span class="k">cmp</span>     <span class="r">eax</span>, (<span class="r">offset</span> dword_120E07A+<span class="n">2</span>)
-<span class="a">.text:01174563  </span><span class="k">jl</span>      <span class="r">short</span> loc_1174510</pre></div><p>Функция обходит восемь слотов игроков и для каждого читает поле <code>net_id</code> (сетевой идентификатор) из массива игроков движка. Если net_id != 0 — ставит флаг «активен» (байт record+1 = 1), если net_id == 0 — флаг = 0. Сумма этих флагов и есть <code>var_30</code> в месте вылета.</p><p>Что такое поле <code>net_id</code> и массив игроков, подтверждено по листингу главного EXE (<code>h3hota.exe</code>). Комментарий декомпилятора в <code>A0_Recieve_NewTurnMsg</code> (<code>0x4CBB5F</code>): «v14 = 360 * a4; v69 = <code>A0_GameMgr_dword_699538</code>→<code>player_astr20AD0</code><code>[a4]</code>.<code>net_id_dwordC8</code>». Массив игроков player_astr20AD0 начинается у <code>_GameMgr_</code> по смещению <code>0x20AD0</code>, размер структуры игрока 360 (<code>0x168</code>) байт, поле net_id_dwordC8 лежит по смещению <code>0xC8</code> внутри структуры: 0x20AD0 + 0xC8 = <code>0x20B98</code> — ровно тот адрес, который читает HD-мод. Глобаль <code>699538h</code> — это A0_GameMgr_dword_699538 (указатель на менеджер игры), а <code>4CE6E0h</code> — функция <code>A0_GameMgr_GetMyID_AsPlayer_sub_4CE6E0</code> (возвращает идентификатор локального игрока).</p><p>Признаки поиска в других версиях: контекст-инварианты EDX = 0, EDI = <code>0x4CE6E0</code>, EAX == ECX, <code>EXCEPTION_INT_DIVIDE_BY_ZERO</code>; текстовая сигнатура — последовательность <code>call _rand</code>; cdq; <code>mov edi, 4CE6E0h</code>; idiv <code>[ebp+var_30]</code>; <code>mov ecx, ds</code>:<code>699538h</code>; <code>mov esi, edx</code>; <code>call edi</code>. Адрес вылета = (начало функции выбора случайного игрока в данной сборке) + <code>0x47B</code>.</p>
+<span class="a">.text:01174563  </span><span class="k">jl</span>      <span class="r">short</span> loc_1174510</pre></div><p>Функция обходит восемь слотов игроков и для каждого читает поле <code>net_id</code> (сетевой идентификатор) из массива игроков движка. Если net_id != 0 — ставит флаг «активен» (байт record+1 = 1), если net_id == 0 — флаг = 0. Сумма этих флагов и есть <code>var_30</code> в месте вылета.</p><p>Назначение функции (что происходит сразу после деления). Остаток от деления (rand % <code>var_30</code>, попадает в ESI) задаёт число шагов обхода связного списка активных игроков: начиная со своего идентификатора (<code>GetMyID_AsPlayer</code>), функция следует по указателям «следующий» (байт record+3 тех же записей 120E04C; список строит <code>sub_11744F0</code>, связывая активных игроков: record+3 первого хранит индекс второго, второго — третьего и так далее, у последнего равен <code>0xFF</code>). Пройдя столько шагов, функция выбирает случайного активного игрока и заполняет его индексом побайтный буфер <code>dword_120E07A</code>, обходя игроков (шаг структуры <code>0x168</code>). Иначе говоря, это построение рандомизированного распределения по игрокам, а не единичный выбор. Сбой происходит на самом первом шаге — вычислении rand % var_30 при var_30 = 0, до обхода списка дело не доходит.</p><p>Что такое поле <code>net_id</code> и массив игроков, подтверждено по листингу главного EXE (<code>h3hota.exe</code>). Комментарий декомпилятора в <code>A0_Recieve_NewTurnMsg</code> (<code>0x4CBB5F</code>): «v14 = 360 * a4; v69 = <code>A0_GameMgr_dword_699538</code>→<code>player_astr20AD0</code><code>[a4]</code>.<code>net_id_dwordC8</code>». Массив игроков player_astr20AD0 начинается у <code>_GameMgr_</code> по смещению <code>0x20AD0</code>, размер структуры игрока 360 (<code>0x168</code>) байт, поле net_id_dwordC8 лежит по смещению <code>0xC8</code> внутри структуры: 0x20AD0 + 0xC8 = <code>0x20B98</code> — ровно тот адрес, который читает HD-мод. Глобаль <code>699538h</code> — это A0_GameMgr_dword_699538 (указатель на менеджер игры), а <code>4CE6E0h</code> — функция <code>A0_GameMgr_GetMyID_AsPlayer_sub_4CE6E0</code> (возвращает идентификатор локального игрока).</p><p>Признаки поиска в других версиях: контекст-инварианты EDX = 0, EDI = <code>0x4CE6E0</code>, EAX == ECX, <code>EXCEPTION_INT_DIVIDE_BY_ZERO</code>; текстовая сигнатура — последовательность <code>call _rand</code>; cdq; <code>mov edi, 4CE6E0h</code>; idiv <code>[ebp+var_30]</code>; <code>mov ecx, ds</code>:<code>699538h</code>; <code>mov esi, edx</code>; <code>call edi</code>. Адрес вылета = (начало функции выбора случайного игрока в данной сборке) + <code>0x47B</code>.</p>
   </section>
 
   <section id="s4">
