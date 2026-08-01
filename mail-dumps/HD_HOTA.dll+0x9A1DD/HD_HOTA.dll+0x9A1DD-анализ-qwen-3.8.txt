@@ -173,9 +173,16 @@ cells_base = 0, координаты (0, 0, 0), результат = 0.
     676355EE (hota)    — MainProc
     675005B2 (hota)    — hota.dll
 
-Цепочка: движок (h3hota.exe) -> трамплин patcher -> HD_HOTA.dll
-(sub_1009400) -> трамплин -> sub_109A660 (хук на A0_Dlg_Redraw) ->
-sub_1099940 («починка» карты) -> GetCell -> краш.
+Цепочка:
+
+-> hota.dll (MainProc)
+-> h3hota.exe (движок: call [eax+4])
+-> трамплин patcher_x86
+-> HD_HOTA.dll sub_1009400
+-> трамплин patcher_x86
+-> sub_109A660 (хук на A0_Dlg_Redraw)
+-> sub_1099940 («починка» карты)
+-> A0_GameMap_GetCell (h3hota.exe) — КРАШ: [EBX+1Eh], EBX=0
 
 sub_1099020 (вызывается из Start(), инициализация HD-мода) регистрирует
 хук модуля "HD.Af":
