@@ -475,11 +475,11 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
     <a href="#viz-crash"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-diamond"/></svg></span>Визуализация вылета</a>
     <a href="#summary"><span class="n"><svg class="tic fill" aria-hidden="true"><use href="#ic-star"/></svg></span>Резюме</a>
     <a href="#s1"><span class="n">1</span>Исходные данные</a>
-    <a href="#s2"><span class="n">2</span>Верификация листинга</a>
+    <a href="#s2"><span class="n">2</span>Проверка листинга</a>
     <a href="#s3"><span class="n">3</span>Сопоставление адресов</a>
-    <a href="#s4"><span class="n">4</span>Инструкция краша и адресная арифметика</a>
+    <a href="#s4"><span class="n">4</span>Точка сбоя и адресная арифметика</a>
     <a href="#s5"><span class="n">5</span>Цепочка вызовов</a>
-    <a href="#s6"><span class="n">6</span>Регистрация хука</a>
+    <a href="#s6"><span class="n">6</span>Контекст вызова</a>
     <a href="#s7"><span class="n">7</span>Родственные функции</a>
     <a href="#s8"><span class="n">8</span>Первопричина</a>
     <a href="#s9"><span class="n">9</span>Условия сбоя</a>
@@ -587,7 +587,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
   </section>
 
   <section id="s2">
-    <h2><span class="htext">Верификация листинга</span><a class="anchor" href="#s2">¶</a></h2>
+    <h2><span class="htext">Проверка листинга</span><a class="anchor" href="#s2">¶</a></h2>
     <p>Листинг: modules/<code>HD_HOTA.dll</code>-5.7 R35.txt Imagebase: <code>0x01000000</code> Timestamp: 6A6D5839 (Sat Aug 01 02:21:45 2026 UTC) SHA256: 1E905E3685BC85F436CAA3C27FFB8ACBB6497DA947149E80E8EA6061069398D7</p><p>Entry point лога: <code>0x037E4C67</code>, <code>load_base</code> <code>0x03620000</code>. RVA = 0x037E4C67 — <code>0x03620000 = 0x1C4C67</code>. IDA = <code>0x01000000 + 0x1C4C67 = 0x011C4C67</code>. В листинге по этому адресу — граница подпрограммы сразу после <code>dllmain_raw</code> (retn <code>0Ch</code> на <code>0x011C4C64</code>), что соответствует точке входа DLL.</p><p>Отрицательный тест версии: адрес краша EIP = <code>HD_HOTA.dll+0x9A1DD</code> попадает НА <b class="hi">ГРАНИЦУ</b> инструкции в листинге:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0109A1DD  </span><span class="k">cmp</span>     <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">ebx</span>+<span class="n">1Eh</span>], <span class="n">22h</span></pre></div><p>Инструкция начинается ровно на <code>0x0109A1DD</code> — листинг совпадает.</p><p>Кросс-версия (R23): адрес <code>0x01096FFD</code> содержит побайтно ту же последовательность:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:01096FF1  </span><span class="k">mov</span>     <span class="r">eax</span>, <span class="n">4086D0h</span>
 <span class="a">.text:01096FF6  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">ecx</span>+<span class="n">5Ch</span>]
 <span class="a">.text:01096FF9  </span><span class="k">call</span>    <span class="r">eax</span>
@@ -601,7 +601,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
   </section>
 
   <section id="s4">
-    <h2><span class="htext">Инструкция краша и адресная арифметика</span><a class="anchor" href="#s4">¶</a></h2>
+    <h2><span class="htext">Точка сбоя и адресная арифметика</span><a class="anchor" href="#s4">¶</a></h2>
     <div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0109A1CA  </span><span class="k">mov</span>     <span class="r">eax</span>, <span class="n">6992B8h</span>
 <span class="a">.text:0109A1CF  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">eax</span>]
 <span class="a">.text:0109A1D1  </span><span class="k">mov</span>     <span class="r">eax</span>, <span class="n">4086D0h</span>
@@ -635,7 +635,7 @@ sub_1099940 («починка» карты) -&gt; GetCell -&gt; краш.</pre><
   </section>
 
   <section id="s6">
-    <h2><span class="htext">Регистрация хука</span><a class="anchor" href="#s6">¶</a></h2>
+    <h2><span class="htext">Контекст вызова</span><a class="anchor" href="#s6">¶</a></h2>
     <p><code>sub_1099020</code> (вызывается из Start(), инициализация HD-мода) регистрирует хук модуля "HD.Af":</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0109905B  </span><span class="k">push</span>    <span class="r">offset</span> sub_109A660   <span class="c">; замена</span>
 <span class="a">.text:01099068  </span><span class="k">push</span>    <span class="n">5FF5E0h</span>              <span class="c">; SoD-оригинал</span>
 <span class="a">.text:0109906E  </span><span class="k">call</span>    <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">ecx</span>+<span class="n">1Ch</span>]  <span class="c">; регистрация хука</span></pre></div><p><code>sub_109A660</code> замещает <code>A0_Dlg_Redraw_sub_5FF5E0</code> — функцию перерисовки диалога SoD. Логика хука:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0109A663  </span><span class="k">mov</span>     <span class="r">eax</span>, ds:<span class="n">6992B8h</span>      <span class="c">; A0_AdvMgr_dword_6992B8</span>
