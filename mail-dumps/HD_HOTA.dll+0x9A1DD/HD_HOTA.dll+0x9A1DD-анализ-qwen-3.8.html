@@ -402,6 +402,7 @@ td.flag{color:var(--bad);font-weight:700;
 .viz-legend .viz-badge.ok{background:var(--ok)}
 .viz-legend .viz-badge.bad{background:var(--bad)}
 .viz-legend .viz-badge.accent{background:var(--accent2)}
+.viz-legend .viz-badge.neutral{background:var(--line)}
 /* координатный холст: ТОЛЬКО для геометрии, рисуем линии/стрелки */
 .viz-svg{display:block;max-width:100%;height:auto;margin:6px auto;
   font-family:inherit;font-size:var(--fs-xs)}
@@ -574,6 +575,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
   <span class="item"><span class="viz-badge ok"></span><span class="txt">Проверка NULL есть</span></span>
   <span class="item"><span class="viz-badge bad"></span><span class="txt">Пропущенная проверка → вылет</span></span>
   <span class="item"><span class="viz-badge accent"></span><span class="txt">Код HD-мода</span></span>
+  <span class="item"><span class="viz-badge neutral"></span><span class="txt">Код движка (вызов и возврат)</span></span>
 </div>
 </section>
 
