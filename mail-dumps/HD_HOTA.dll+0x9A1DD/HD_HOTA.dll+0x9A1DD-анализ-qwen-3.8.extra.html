@@ -1,0 +1,73 @@
+<section id="viz-crash">
+<h2>Визуализация вылета</h2>
+<p>Цепочка вызова и место сбоя: хук HD-мода на перерисовку диалога вызывает
+функцию «починки» карты, которая получает клетку через
+<code>A0_GameMap_GetCell</code> и обращается к полю без проверки.</p>
+
+<div class="viz" style="gap:6px;align-items:stretch;">
+
+  <!-- Row 1: hook chain -->
+  <div class="viz-strip" style="gap:4px;flex-wrap:wrap;">
+    <span class="viz-box ok" style="flex:1;min-width:120px;text-align:center;">
+      <b>h3hota.exe</b><br>движок: перерисовка
+    </span>
+    <span class="viz-box dim" style="flex:0 0 auto;align-self:center;">→</span>
+    <span class="viz-box accent" style="flex:1;min-width:120px;text-align:center;">
+      <b>sub_109A660</b><br>хук HD-мода<br>на A0_Dlg_Redraw
+    </span>
+    <span class="viz-box dim" style="flex:0 0 auto;align-self:center;">→</span>
+    <span class="viz-box accent" style="flex:1;min-width:120px;text-align:center;">
+      <b>sub_1099940</b><br>«починка» карты<br><i>HD.Af.RepareFunc</i>
+    </span>
+  </div>
+
+  <!-- Row 2: GetCell call -->
+  <div class="viz-strip" style="gap:4px;flex-wrap:wrap;">
+    <span class="viz-box" style="flex:2;min-width:200px;text-align:center;">
+      <b>Вызов GetCell</b><br>
+      <code>mov ecx,[AdvMgr+5Ch]</code><br>
+      <code>call 4086D0h</code>
+    </span>
+    <span class="viz-box dim" style="flex:0 0 auto;align-self:center;">→</span>
+    <span class="viz-box" style="flex:1;min-width:140px;text-align:center;">
+      <b>Возврат</b><br>
+      EAX = cells_base + 0<br>
+      = <b>0</b> (NULL)
+    </span>
+  </div>
+
+  <!-- Row 3: 5 calls comparison -->
+  <div class="viz-strip" style="gap:3px;flex-wrap:wrap;">
+    <span class="viz-box ok" style="flex:1;text-align:center;font-size:.85em;">
+      #1 ✓<br><code>test edi,edi</code>
+    </span>
+    <span class="viz-box ok" style="flex:1;text-align:center;font-size:.85em;">
+      #2 ✓<br><code>test edi,edi</code>
+    </span>
+    <span class="viz-box ok" style="flex:1;text-align:center;font-size:.85em;">
+      #3 ✓<br><code>test eax,eax</code>
+    </span>
+    <span class="viz-box bad" style="flex:1;text-align:center;font-size:.85em;">
+      #4 ✗ КРАШ<br><code>cmp [ebx+1Eh]</code>
+    </span>
+    <span class="viz-box ok" style="flex:1;text-align:center;font-size:.85em;">
+      #5 ✓<br><code>test eax,eax</code>
+    </span>
+  </div>
+
+  <!-- Row 4: crash -->
+  <div class="viz-strip" style="gap:4px;">
+    <span class="viz-box bad" style="flex:1;text-align:center;">
+      <b>Нарушение доступа</b><br>
+      чтение [0x00000000 + 0x1E] = <b>0x0000001E</b>
+    </span>
+  </div>
+
+</div>
+
+<div class="viz-legend">
+  <span class="item"><span class="viz-badge ok"></span><span class="txt">Проверка NULL есть</span></span>
+  <span class="item"><span class="viz-badge bad"></span><span class="txt">Пропущенная проверка → краш</span></span>
+  <span class="item"><span class="viz-badge accent"></span><span class="txt">Код HD-мода</span></span>
+</div>
+</section>
