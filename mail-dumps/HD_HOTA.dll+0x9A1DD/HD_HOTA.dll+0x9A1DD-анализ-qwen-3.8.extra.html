@@ -48,7 +48,7 @@
       #3 ✓<br><code>test eax,eax</code>
     </span>
     <span class="viz-box bad" style="flex:1;text-align:center;font-size:.85em;">
-      #4 ✗ КРАШ<br><code>cmp [ebx+1Eh]</code>
+      #4 ✗ ВЫЛЕТ<br><code>cmp [ebx+1Eh]</code>
     </span>
     <span class="viz-box ok" style="flex:1;text-align:center;font-size:.85em;">
       #5 ✓<br><code>test eax,eax</code>
@@ -59,7 +59,7 @@
   <div class="viz-strip" style="gap:4px;">
     <span class="viz-box bad" style="flex:1;text-align:center;">
       <b>Нарушение доступа</b><br>
-      чтение [0x00000000 + 0x1E] = <b>0x0000001E</b>
+      чтение [0 + 1Eh] = <b>0x0000001E</b>
     </span>
   </div>
 
@@ -67,7 +67,7 @@
 
 <div class="viz-legend">
   <span class="item"><span class="viz-badge ok"></span><span class="txt">Проверка NULL есть</span></span>
-  <span class="item"><span class="viz-badge bad"></span><span class="txt">Пропущенная проверка → краш</span></span>
+  <span class="item"><span class="viz-badge bad"></span><span class="txt">Пропущенная проверка → вылет</span></span>
   <span class="item"><span class="viz-badge accent"></span><span class="txt">Код HD-мода</span></span>
 </div>
 </section>
