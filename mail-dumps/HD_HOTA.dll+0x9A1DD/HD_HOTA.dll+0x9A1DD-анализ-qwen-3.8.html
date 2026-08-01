@@ -397,6 +397,11 @@ td.flag{color:var(--bad);font-weight:700;
 .viz-badge.ok{border-color:var(--ok);color:var(--ok)}
 .viz-badge.bad{border-color:var(--bad);color:var(--badText)}
 .viz-badge.accent{border-color:var(--accent2);color:var(--accent2)}
+/* бейджи в легенде — залитые цветовые образцы (пустые, без буквы) */
+.viz-legend .viz-badge{width:14px;height:14px;border-width:0}
+.viz-legend .viz-badge.ok{background:var(--ok)}
+.viz-legend .viz-badge.bad{background:var(--bad)}
+.viz-legend .viz-badge.accent{background:var(--accent2)}
 /* координатный холст: ТОЛЬКО для геометрии, рисуем линии/стрелки */
 .viz-svg{display:block;max-width:100%;height:auto;margin:6px auto;
   font-family:inherit;font-size:var(--fs-xs)}
