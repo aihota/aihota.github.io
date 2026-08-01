@@ -164,17 +164,6 @@ cells_base = 0, координаты (0, 0, 0), результат = 0.
 
 По V2 (надёжный источник):
 
-    036BA1DD (HD_HOTA) — sub_1099940+0x89D: краш
-    036BA6CD (HD_HOTA) — sub_109A660+0x6D: возврат из sub_1099940
-    02A6D565           — трамплин patcher_x86
-    03629688 (HD_HOTA) — sub_1009400: возврат
-    02A62731           — трамплин patcher_x86
-    006029C5 (h3hota)  — движок: call [eax+4] / test eax, eax
-    676355EE (hota)    — MainProc
-    675005B2 (hota)    — hota.dll
-
-Цепочка:
-
 -> hota.dll (MainProc)
 -> h3hota.exe (движок: call [eax+4])
 -> трамплин patcher_x86
