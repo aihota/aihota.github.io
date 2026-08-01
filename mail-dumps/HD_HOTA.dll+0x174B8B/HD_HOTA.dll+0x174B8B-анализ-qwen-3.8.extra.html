@@ -1,0 +1,44 @@
+<section id="viz">
+  <h2>Визуализация вылета</h2>
+  <p>HD-мод выбирает случайного активного игрока: считает количество
+  игроков с ненулевым сетевым идентификатором (net_id), затем делит
+  случайное число на это количество. Когда активных игроков нет,
+  делитель равен нулю.</p>
+
+  <div class="viz">
+    <div class="viz-strip badge-tl">
+      <div class="viz-box accent">
+        <span class="viz-badge accent">1</span>
+        <span>Массив игроков</span>
+        <span class="lbl">8 слотов, поле net_id</span>
+      </div>
+      <div class="viz-box">
+        <span class="viz-badge">2</span>
+        <span>Подсчёт активных</span>
+        <span class="lbl">sub_11744F0: net_id ≠ 0</span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">3</span>
+        <span>Делитель = 0</span>
+        <span class="lbl">var_30 = число активных</span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">4</span>
+        <span>rand() ÷ var_30</span>
+        <span class="lbl">idiv [ebp+var_30]</span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">5</span>
+        <span>Вылет</span>
+        <span class="lbl">INT_DIVIDE_BY_ZERO</span>
+      </div>
+    </div>
+    <div class="viz-legend">
+      <div class="item"><span class="viz-badge accent"></span><span class="txt">Массив игроков движка (player_astr20AD0): HD-мод читает поле net_id каждого из 8 слотов.</span></div>
+      <div class="item"><span class="viz-badge"></span><span class="txt">Функция sub_11744F0 ставит флаг «активен» для каждого игрока с ненулевым net_id.</span></div>
+      <div class="item"><span class="viz-badge bad"></span><span class="txt">В начале сетевой партии (день 1 1 1) все net_id нулевые → активных игроков 0 → делитель var_30 = 0.</span></div>
+      <div class="item"><span class="viz-badge bad"></span><span class="txt">Деление rand() на 0 без проверки «число игроков &gt; 0» → EXCEPTION_INT_DIVIDE_BY_ZERO.</span></div>
+    </div>
+    <p class="viz-cap">Поток данных: массив игроков → подсчёт активных → нулевой делитель → деление → вылет.</p>
+  </div>
+</section>
