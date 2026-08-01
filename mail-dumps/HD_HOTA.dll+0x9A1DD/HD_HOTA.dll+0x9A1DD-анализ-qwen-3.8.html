@@ -480,7 +480,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
     <a href="#s4"><span class="n">4</span>Инструкция краша и адресная арифметика</a>
     <a href="#s5"><span class="n">5</span>Цепочка вызовов</a>
     <a href="#s6"><span class="n">6</span>Регистрация хука</a>
-    <a href="#s7"><span class="n">7</span>Логика sub_109A660 (хук)</a>
+    <a href="#s7"><span class="n">7</span>Родственные функции</a>
     <a href="#s8"><span class="n">8</span>Первопричина</a>
     <a href="#s9"><span class="n">9</span>Условия сбоя</a>
     <a href="#s10"><span class="n">10</span>Сводные данные</a>
@@ -638,12 +638,7 @@ sub_1099940 («починка» карты) -&gt; GetCell -&gt; краш.</pre><
     <h2><span class="htext">Регистрация хука</span><a class="anchor" href="#s6">¶</a></h2>
     <p><code>sub_1099020</code> (вызывается из Start(), инициализация HD-мода) регистрирует хук модуля "HD.Af":</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0109905B  </span><span class="k">push</span>    <span class="r">offset</span> sub_109A660   <span class="c">; замена</span>
 <span class="a">.text:01099068  </span><span class="k">push</span>    <span class="n">5FF5E0h</span>              <span class="c">; SoD-оригинал</span>
-<span class="a">.text:0109906E  </span><span class="k">call</span>    <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">ecx</span>+<span class="n">1Ch</span>]  <span class="c">; регистрация хука</span></pre></div><p><code>sub_109A660</code> замещает <code>A0_Dlg_Redraw_sub_5FF5E0</code> — функцию перерисовки диалога SoD.</p>
-  </section>
-
-  <section id="s7">
-    <h2><span class="htext">Логика sub_109A660 (хук)</span><a class="anchor" href="#s7">¶</a></h2>
-    <div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0109A663  </span><span class="k">mov</span>     <span class="r">eax</span>, ds:<span class="n">6992B8h</span>      <span class="c">; A0_AdvMgr_dword_6992B8</span>
+<span class="a">.text:0109906E  </span><span class="k">call</span>    <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">ecx</span>+<span class="n">1Ch</span>]  <span class="c">; регистрация хука</span></pre></div><p><code>sub_109A660</code> замещает <code>A0_Dlg_Redraw_sub_5FF5E0</code> — функцию перерисовки диалога SoD. Логика хука:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0109A663  </span><span class="k">mov</span>     <span class="r">eax</span>, ds:<span class="n">6992B8h</span>      <span class="c">; A0_AdvMgr_dword_6992B8</span>
 <span class="a">.text:0109A66D  </span><span class="k">test</span>    <span class="r">eax</span>, <span class="r">eax</span>
 <span class="a">.text:0109A66F  </span><span class="k">jz</span>      loc_109A6F6          <span class="c">; выход если NULL</span>
 <span class="a">.text:0109A675  </span><span class="k">cmp</span>     <span class="r">edi</span>, [<span class="r">eax</span>+<span class="n">44h</span>]       <span class="c">; сверка ID диалога</span>
@@ -652,8 +647,8 @@ sub_1099940 («починка» карты) -&gt; GetCell -&gt; краш.</pre><
 <span class="a">.text:0109A699  </span><span class="k">push</span>    <span class="r">offset</span> aHdAfFixed    <span class="c">; "HD.Af.Fixed"</span>
 ...
 <span class="a">.text:0109A6C3  </span><span class="k">cmp</span>     <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">eax</span>], <span class="n">0</span>   <span class="c">; флаг «уже починено»</span>
-<span class="a">.text:0109A6C6  </span><span class="k">jnz</span>     <span class="r">short</span> loc_109A72C    <span class="c">; пропуск если ≠ 0</span>
-<span class="a">.text:0109A6C8  </span><span class="k">call</span>    sub_1099940           <span class="c">; ← ВЫЗОВ «ПОЧИНКИ»</span>
+<span class="a">.text:0109A6C6  </span><span class="k">jnz</span>     <span class="r">short</span> loc_109A72C    <span class="c">; пропуск если != 0</span>
+<span class="a">.text:0109A6C8  </span><span class="k">call</span>    sub_1099940           <span class="c">; вызов «починки»</span>
 <span class="a">.text:0109A6CD  </span><span class="k">push</span>    <span class="n">1</span>
 <span class="a">.text:0109A6D1  </span><span class="k">push</span>    <span class="n">8A4h</span>                  <span class="c">; отправка сообщения 0x8A4</span>
 <span class="a">.text:0109A6D6  </span><span class="k">call</span>    sub_11B1D00
@@ -665,9 +660,14 @@ sub_1099940 («починка» карты) -&gt; GetCell -&gt; краш.</pre><
 <span class="a">.text:0109A740  </span><span class="k">call</span>    <span class="r">eax</span>                   <span class="c">; A0_Dlg_Redraw</span></pre></div><p>Хук перехватывает перерисовку диалога. При первом срабатывании ("HD.Af.Fixed" = 0) он вызывает <code>sub_1099940</code> для однократной «починки» карты приключений, затем ставит флаг и передаёт управление оригиналу SoD. Проверка [<code>0x6992B8</code>] на <code>NULL</code> есть, но проверка готовности данных карты (<code>cells_base</code>) — отсутствует.</p>
   </section>
 
+  <section id="s7">
+    <h2><span class="htext">Родственные функции</span><a class="anchor" href="#s7">¶</a></h2>
+    <p><code>sub_1099940</code> содержит 5 вызовов <code>A0_GameMap_GetCell</code>. Четыре из пяти проверяют возврат на <code>NULL</code>; один — нет:</p><div class="tablewrap"><table><thead><tr><th class="mono">Вызов (IDA)</th><th class="mono">Проверка NULL</th></tr></thead><tbody><tr><td class="mono">0x01099D0E</td><td class="mono">test edi, edi; jz — ЕСТЬ</td></tr><tr><td class="mono">0x01099E95</td><td class="mono">test edi, edi; jz — ЕСТЬ</td></tr><tr><td class="mono">0x0109A0B1</td><td class="mono">test eax, eax; jz — ЕСТЬ</td></tr><tr><td class="mono">0x0109A1D9</td><td class="mono">mov ebx, eax; cmp [ebx+1Eh] — НЕТ (краш)</td></tr><tr><td class="mono">0x0109A37B</td><td class="mono">test eax, eax; jz — ЕСТЬ</td></tr></tbody></table></div><p>Пропущенная проверка в четвёртом вызове — дефект: разработчик добавлял код и забыл поставить проверку в одном месте.</p>
+  </section>
+
   <section id="s8">
     <h2><span class="htext">Первопричина</span><a class="anchor" href="#s8">¶</a></h2>
-    <p><code>sub_1099940</code> — функция «починки» карты приключений HD-мода ("HD.Af.<code>RepareFunc</code>"). Она содержит 5 вызовов <code>A0_GameMap_GetCell</code>:</p><div class="tablewrap"><table><thead><tr><th class="mono">Вызов (IDA)</th><th class="mono">Проверка NULL</th></tr></thead><tbody><tr><td class="mono">0x01099D0E</td><td class="mono">test edi, edi; jz — ЕСТЬ</td></tr><tr><td class="mono">0x01099E95</td><td class="mono">test edi, edi; jz — ЕСТЬ</td></tr><tr><td class="mono">0x0109A0B1</td><td class="mono">test eax, eax; jz — ЕСТЬ</td></tr><tr><td class="mono">0x0109A1D9</td><td class="mono">mov ebx, eax; cmp [ebx+1Eh] — НЕТ ← КРАШ</td></tr><tr><td class="mono">0x0109A37B</td><td class="mono">test eax, eax; jz — ЕСТЬ</td></tr></tbody></table></div><p>Четыре из пяти вызовов проверяют возврат на <code>NULL</code>; пятый (<code>0x0109A1D9</code>) — нет. Это пропущенная проверка: разработчик добавлял код и забыл поставить проверку в одном месте.</p><p>Указатель this для <code>GetCell</code> берётся из цепочки:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0109A1CA  </span><span class="k">mov</span>     <span class="r">eax</span>, <span class="n">6992B8h</span>         <span class="c">; A0_AdvMgr_dword_6992B8</span>
+    <p>Указатель this для <code>GetCell</code> берётся из цепочки:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0109A1CA  </span><span class="k">mov</span>     <span class="r">eax</span>, <span class="n">6992B8h</span>         <span class="c">; A0_AdvMgr_dword_6992B8</span>
 <span class="a">.text:0109A1CF  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">eax</span>]           <span class="c">; объект AdvMgr</span>
 <span class="a">.text:0109A1D6  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">ecx</span>+<span class="n">5Ch</span>]       <span class="c">; GameMap из [AdvMgr+5Ch]</span></pre></div><p>Поле <code>GameMap+0xD0</code> (база клеток карты) равно нулю: карта ещё не загружена или находится в переходном состоянии. <code>GetCell</code> вычисляет <code>cells_base</code> + индекс * <code>38 = 0 + 0 * 38 = 0</code> и возвращает нулевой указатель.</p><p>Дефект НЕ унаследован от SoD: оригинальная <code>A0_Dlg_Redraw_sub_5FF5E0</code> работает только с элементами диалога (перебирает список this→<code>first_item</code> и вызывает виртуальные методы отрисовки) и НЕ обращается к клеткам карты. Вызов <code>GetCell</code> — исключительно код HD-мода.</p>
   </section>
