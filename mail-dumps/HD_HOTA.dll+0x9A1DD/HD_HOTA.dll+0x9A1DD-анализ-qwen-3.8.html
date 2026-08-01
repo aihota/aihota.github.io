@@ -475,16 +475,13 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
     <a href="#viz-crash"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-diamond"/></svg></span>Визуализация вылета</a>
     <a href="#summary"><span class="n"><svg class="tic fill" aria-hidden="true"><use href="#ic-star"/></svg></span>Резюме</a>
     <a href="#s1"><span class="n">1</span>Исходные данные</a>
-    <a href="#s2"><span class="n">2</span>Проверка листинга</a>
-    <a href="#s3"><span class="n">3</span>Сопоставление адресов</a>
-    <a href="#s4"><span class="n">4</span>Точка сбоя и адресная арифметика</a>
-    <a href="#s5"><span class="n">5</span>Цепочка вызовов</a>
-    <a href="#s6"><span class="n">6</span>Контекст вызова</a>
-    <a href="#s7"><span class="n">7</span>Родственные функции</a>
-    <a href="#s8"><span class="n">8</span>Первопричина</a>
-    <a href="#s9"><span class="n">9</span>Условия сбоя</a>
-    <a href="#s10"><span class="n">10</span>Сводные данные</a>
-    <a href="#s11"><span class="n">11</span>Воспроизведение вылета</a>
+    <a href="#s2"><span class="n">2</span>Проверка листинга и адреса</a>
+    <a href="#s3"><span class="n">3</span>Точка сбоя и адресная арифметика</a>
+    <a href="#s4"><span class="n">4</span>Цепочка вызовов и контекст</a>
+    <a href="#s5"><span class="n">5</span>Первопричина</a>
+    <a href="#s6"><span class="n">6</span>Условия сбоя</a>
+    <a href="#s7"><span class="n">7</span>Сводные данные</a>
+    <a href="#s8"><span class="n">8</span>Воспроизведение вылета</a>
     <a href="#sdost"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-shield"/></svg></span>Достоверность</a>
     <a href="#verdict"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-check"/></svg></span>Вывод</a>
   </nav>
@@ -587,21 +584,16 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
   </section>
 
   <section id="s2">
-    <h2><span class="htext">Проверка листинга</span><a class="anchor" href="#s2">¶</a></h2>
+    <h2><span class="htext">Проверка листинга и адреса</span><a class="anchor" href="#s2">¶</a></h2>
     <p>Листинг: modules/<code>HD_HOTA.dll</code>-5.7 R35.txt Imagebase: <code>0x01000000</code> Timestamp: 6A6D5839 (Sat Aug 01 02:21:45 2026 UTC) SHA256: 1E905E3685BC85F436CAA3C27FFB8ACBB6497DA947149E80E8EA6061069398D7</p><p>Entry point лога: <code>0x037E4C67</code>, <code>load_base</code> <code>0x03620000</code>. RVA = 0x037E4C67 — <code>0x03620000 = 0x1C4C67</code>. IDA = <code>0x01000000 + 0x1C4C67 = 0x011C4C67</code>. В листинге по этому адресу — граница подпрограммы сразу после <code>dllmain_raw</code> (retn <code>0Ch</code> на <code>0x011C4C64</code>), что соответствует точке входа DLL.</p><p>Отрицательный тест версии: адрес краша EIP = <code>HD_HOTA.dll+0x9A1DD</code> попадает НА <b class="hi">ГРАНИЦУ</b> инструкции в листинге:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0109A1DD  </span><span class="k">cmp</span>     <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">ebx</span>+<span class="n">1Eh</span>], <span class="n">22h</span></pre></div><p>Инструкция начинается ровно на <code>0x0109A1DD</code> — листинг совпадает.</p><p>Кросс-версия (R23): адрес <code>0x01096FFD</code> содержит побайтно ту же последовательность:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:01096FF1  </span><span class="k">mov</span>     <span class="r">eax</span>, <span class="n">4086D0h</span>
 <span class="a">.text:01096FF6  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">ecx</span>+<span class="n">5Ch</span>]
 <span class="a">.text:01096FF9  </span><span class="k">call</span>    <span class="r">eax</span>
 <span class="a">.text:01096FFB  </span><span class="k">mov</span>     <span class="r">ebx</span>, <span class="r">eax</span>
-<span class="a">.text:01096FFD  </span><span class="k">cmp</span>     <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">ebx</span>+<span class="n">1Eh</span>], <span class="n">22h</span></pre></div><p>Функция сместилась на <code>0x31E0</code> байт (R23 → R35), но код идентичен.</p>
+<span class="a">.text:01096FFD  </span><span class="k">cmp</span>     <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">ebx</span>+<span class="n">1Eh</span>], <span class="n">22h</span></pre></div><p>Функция сместилась на <code>0x31E0</code> байт (R23 → R35), но код идентичен.</p><div class="formula"><span class="tok">IDA_addr</span><span class="eq">=</span><span class="tok">runtime_addr</span><span class="op">-</span><span class="tok">load_base</span><span class="op">+</span><span class="tok">imagebase.</span></div><p><code>HD_HOTA.dll</code> (R35): <code>load_base = 0x03620000</code>, imagebase = <code>0x01000000</code>.</p><p>Краш: <code>0x03620000 + 0x9A1DD = 0x036BA1DD</code></p><div class="card"><div class="kv"><span class="k">IDA</span><span class="v"><code>0x036BA1DD</code> — <code>0x03620000 + 0x01000000 = 0x0109A1DD</code> (совпадает)</span></div></div><p><code>h3hota.exe</code>: <code>load_base = 0x00400000</code>, imagebase = <code>0x00400000</code>.</p><p>Кадр V2: <code>0x006029C5</code> = IDA 0x006029C5 (совпадает)</p>
   </section>
 
   <section id="s3">
-    <h2><span class="htext">Сопоставление адресов</span><a class="anchor" href="#s3">¶</a></h2>
-    <div class="formula"><span class="tok">IDA_addr</span><span class="eq">=</span><span class="tok">runtime_addr</span><span class="op">-</span><span class="tok">load_base</span><span class="op">+</span><span class="tok">imagebase.</span></div><p><code>HD_HOTA.dll</code> (R35): <code>load_base = 0x03620000</code>, imagebase = <code>0x01000000</code>.</p><p>Краш: <code>0x03620000 + 0x9A1DD = 0x036BA1DD</code></p><div class="card"><div class="kv"><span class="k">IDA</span><span class="v"><code>0x036BA1DD</code> — <code>0x03620000 + 0x01000000 = 0x0109A1DD</code> (совпадает)</span></div></div><p><code>h3hota.exe</code>: <code>load_base = 0x00400000</code>, imagebase = <code>0x00400000</code>.</p><p>Кадр V2: <code>0x006029C5</code> = IDA 0x006029C5 (совпадает)</p>
-  </section>
-
-  <section id="s4">
-    <h2><span class="htext">Точка сбоя и адресная арифметика</span><a class="anchor" href="#s4">¶</a></h2>
+    <h2><span class="htext">Точка сбоя и адресная арифметика</span><a class="anchor" href="#s3">¶</a></h2>
     <div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0109A1CA  </span><span class="k">mov</span>     <span class="r">eax</span>, <span class="n">6992B8h</span>
 <span class="a">.text:0109A1CF  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">eax</span>]
 <span class="a">.text:0109A1D1  </span><span class="k">mov</span>     <span class="r">eax</span>, <span class="n">4086D0h</span>
@@ -627,16 +619,11 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 <span class="a">.text:004086FE  </span><span class="k">retn</span>    <span class="n">0Ch</span></pre></div><p><code>GetCell</code> — чисто арифметическая функция: результат = <code>cells_base</code> + индекс * 38. Она НЕ возвращает <code>NULL</code> явно; нулевой результат возможен только при <code>cells_base = 0</code> и индексе = 0.</p><p>После возврата <code>GetCell</code> регистры: <code>EAX</code> = результат (в <code>EBX</code>), <code>ECX = cells_base</code> (из <code>[this+0xD0]</code>), <code>EDX</code> = x. В дампе <code>EBX = ECX = EDX = 0</code>, что подтверждает: <code>cells_base = 0</code>, координаты (0, 0, 0), результат = 0.</p>
   </section>
 
-  <section id="s5">
-    <h2><span class="htext">Цепочка вызовов</span><a class="anchor" href="#s5">¶</a></h2>
+  <section id="s4">
+    <h2><span class="htext">Цепочка вызовов и контекст</span><a class="anchor" href="#s4">¶</a></h2>
     <p>По V2 (надёжный источник):</p><p>036BA1DD (<code>HD_HOTA</code>) — <code>sub_1099940+0x89D</code>: краш 036BA6CD (HD_HOTA) — <code>sub_109A660+0x6D</code>: возврат из <code>sub_1099940</code> 02A6D565           — трамплин <code>patcher_x86</code> 03629688 (HD_HOTA) — <code>sub_1009400</code>: возврат 02A62731           — трамплин patcher_x86 006029C5 (h3hota)  — движок: <code>call [eax+4]</code> / test <code>eax</code>, eax 676355EE (hota)    — <code>MainProc</code> 675005B2 (hota)    — <code>hota.dll</code></p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre>Цепочка: движок (h3hota.exe) -&gt; трамплин patcher -&gt; HD_HOTA.dll
 (sub_1009400) -&gt; трамплин -&gt; sub_109A660 (хук на A0_Dlg_Redraw) -&gt;
-sub_1099940 («починка» карты) -&gt; GetCell -&gt; краш.</pre></div>
-  </section>
-
-  <section id="s6">
-    <h2><span class="htext">Контекст вызова</span><a class="anchor" href="#s6">¶</a></h2>
-    <p><code>sub_1099020</code> (вызывается из Start(), инициализация HD-мода) регистрирует хук модуля "HD.Af":</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0109905B  </span><span class="k">push</span>    <span class="r">offset</span> sub_109A660   <span class="c">; замена</span>
+sub_1099940 («починка» карты) -&gt; GetCell -&gt; краш.</pre></div><p><code>sub_1099020</code> (вызывается из Start(), инициализация HD-мода) регистрирует хук модуля "HD.Af":</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0109905B  </span><span class="k">push</span>    <span class="r">offset</span> sub_109A660   <span class="c">; замена</span>
 <span class="a">.text:01099068  </span><span class="k">push</span>    <span class="n">5FF5E0h</span>              <span class="c">; SoD-оригинал</span>
 <span class="a">.text:0109906E  </span><span class="k">call</span>    <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">ecx</span>+<span class="n">1Ch</span>]  <span class="c">; регистрация хука</span></pre></div><p><code>sub_109A660</code> замещает <code>A0_Dlg_Redraw_sub_5FF5E0</code> — функцию перерисовки диалога SoD. Логика хука:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0109A663  </span><span class="k">mov</span>     <span class="r">eax</span>, ds:<span class="n">6992B8h</span>      <span class="c">; A0_AdvMgr_dword_6992B8</span>
 <span class="a">.text:0109A66D  </span><span class="k">test</span>    <span class="r">eax</span>, <span class="r">eax</span>
@@ -657,33 +644,28 @@ sub_1099940 («починка» карты) -&gt; GetCell -&gt; краш.</pre><
 ...
 <span class="a">.text:0109A73B  </span><span class="k">call</span>    <span class="r">dword</span> <span class="r">ptr</span> [<span class="r">edx</span>+<span class="n">2Ch</span>]  <span class="c">; вызов оригинала SoD</span>
 <span class="a">.text:0109A73E  </span><span class="k">mov</span>     <span class="r">ecx</span>, <span class="r">edi</span>
-<span class="a">.text:0109A740  </span><span class="k">call</span>    <span class="r">eax</span>                   <span class="c">; A0_Dlg_Redraw</span></pre></div><p>Хук перехватывает перерисовку диалога. При первом срабатывании ("HD.Af.Fixed" = 0) он вызывает <code>sub_1099940</code> для однократной «починки» карты приключений, затем ставит флаг и передаёт управление оригиналу SoD. Проверка [<code>0x6992B8</code>] на <code>NULL</code> есть, но проверка готовности данных карты (<code>cells_base</code>) — отсутствует.</p>
+<span class="a">.text:0109A740  </span><span class="k">call</span>    <span class="r">eax</span>                   <span class="c">; A0_Dlg_Redraw</span></pre></div><p>Хук перехватывает перерисовку диалога. При первом срабатывании ("HD.Af.Fixed" = 0) он вызывает <code>sub_1099940</code> для однократной «починки» карты приключений, затем ставит флаг и передаёт управление оригиналу SoD. Проверка [<code>0x6992B8</code>] на <code>NULL</code> есть, но проверка готовности данных карты (<code>cells_base</code>) — отсутствует.</p><p><code>sub_1099940</code> содержит 5 вызовов <code>A0_GameMap_GetCell</code>. Четыре из пяти проверяют возврат на <code>NULL</code>; один — нет:</p><div class="tablewrap"><table><thead><tr><th class="mono">Вызов (IDA)</th><th class="mono">Проверка NULL</th></tr></thead><tbody><tr><td class="mono">0x01099D0E</td><td class="mono">test edi, edi; jz — ЕСТЬ</td></tr><tr><td class="mono">0x01099E95</td><td class="mono">test edi, edi; jz — ЕСТЬ</td></tr><tr><td class="mono">0x0109A0B1</td><td class="mono">test eax, eax; jz — ЕСТЬ</td></tr><tr><td class="mono">0x0109A1D9</td><td class="mono">mov ebx, eax; cmp [ebx+1Eh] — НЕТ (краш)</td></tr><tr><td class="mono">0x0109A37B</td><td class="mono">test eax, eax; jz — ЕСТЬ</td></tr></tbody></table></div><p>Пропущенная проверка в четвёртом вызове — дефект: разработчик добавлял код и забыл поставить проверку в одном месте.</p>
   </section>
 
-  <section id="s7">
-    <h2><span class="htext">Родственные функции</span><a class="anchor" href="#s7">¶</a></h2>
-    <p><code>sub_1099940</code> содержит 5 вызовов <code>A0_GameMap_GetCell</code>. Четыре из пяти проверяют возврат на <code>NULL</code>; один — нет:</p><div class="tablewrap"><table><thead><tr><th class="mono">Вызов (IDA)</th><th class="mono">Проверка NULL</th></tr></thead><tbody><tr><td class="mono">0x01099D0E</td><td class="mono">test edi, edi; jz — ЕСТЬ</td></tr><tr><td class="mono">0x01099E95</td><td class="mono">test edi, edi; jz — ЕСТЬ</td></tr><tr><td class="mono">0x0109A0B1</td><td class="mono">test eax, eax; jz — ЕСТЬ</td></tr><tr><td class="mono">0x0109A1D9</td><td class="mono">mov ebx, eax; cmp [ebx+1Eh] — НЕТ (краш)</td></tr><tr><td class="mono">0x0109A37B</td><td class="mono">test eax, eax; jz — ЕСТЬ</td></tr></tbody></table></div><p>Пропущенная проверка в четвёртом вызове — дефект: разработчик добавлял код и забыл поставить проверку в одном месте.</p>
-  </section>
-
-  <section id="s8">
-    <h2><span class="htext">Первопричина</span><a class="anchor" href="#s8">¶</a></h2>
+  <section id="s5">
+    <h2><span class="htext">Первопричина</span><a class="anchor" href="#s5">¶</a></h2>
     <p>Указатель this для <code>GetCell</code> берётся из цепочки:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0109A1CA  </span><span class="k">mov</span>     <span class="r">eax</span>, <span class="n">6992B8h</span>         <span class="c">; A0_AdvMgr_dword_6992B8</span>
 <span class="a">.text:0109A1CF  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">eax</span>]           <span class="c">; объект AdvMgr</span>
 <span class="a">.text:0109A1D6  </span><span class="k">mov</span>     <span class="r">ecx</span>, [<span class="r">ecx</span>+<span class="n">5Ch</span>]       <span class="c">; GameMap из [AdvMgr+5Ch]</span></pre></div><p>Поле <code>GameMap+0xD0</code> (база клеток карты) равно нулю: карта ещё не загружена или находится в переходном состоянии. <code>GetCell</code> вычисляет <code>cells_base</code> + индекс * <code>38 = 0 + 0 * 38 = 0</code> и возвращает нулевой указатель.</p><p>Дефект НЕ унаследован от SoD: оригинальная <code>A0_Dlg_Redraw_sub_5FF5E0</code> работает только с элементами диалога (перебирает список this→<code>first_item</code> и вызывает виртуальные методы отрисовки) и НЕ обращается к клеткам карты. Вызов <code>GetCell</code> — исключительно код HD-мода.</p>
   </section>
 
-  <section id="s9">
-    <h2><span class="htext">Условия сбоя</span><a class="anchor" href="#s9">¶</a></h2>
+  <section id="s6">
+    <h2><span class="htext">Условия сбоя</span><a class="anchor" href="#s6">¶</a></h2>
     <ul><li>Первый игровой день (Day = 1 1 1 во всех 4 логах) — партия только начата</li><li>Одиночная игра (Network Game = 0)</li><li>Первая перерисовка диалога: хук <code>sub_109A660</code> срабатывает, когда "HD.Af.Fixed" ещё = 0</li><li>База клеток карты (<code>GameMap+0xD0</code>) в этот момент равна нулю — данные карты не готовы</li><li>Graphics.Mode: 5 (x3 лога) и 7 (x1 лог) — не влияет (краш в логике, не в отрисовке)</li><li>Разные карты и разные игроки — не зависит от конкретной карты</li></ul>
   </section>
 
-  <section id="s10">
-    <h2><span class="htext">Сводные данные</span><a class="anchor" href="#s10">¶</a></h2>
+  <section id="s7">
+    <h2><span class="htext">Сводные данные</span><a class="anchor" href="#s7">¶</a></h2>
     <p>Подсистема: интерфейс карты приключений Модуль виновника: <code>HD_HOTA.dll</code> (<code>sub_1099940</code>, «HD.Af.<code>RepareFunc</code>») Замещаемая функция SoD: <code>A0_Dlg_Redraw_sub_5FF5E0</code> (<code>0x5FF5E0</code>) Поставщик данных: <code>A0_GameMap_GetCell_sub_4086D0</code> (<code>h3hota.exe</code>, <code>0x4086D0</code>) Глобал: <code>A0_AdvMgr_dword_6992B8</code> (h3hota.exe, <code>0x6992B8</code>)</p><p>Семья адресов (один дефект, функция смещается по сборкам):</p><div class="tablewrap"><table><thead><tr><th class="mono">Сборка</th><th class="mono">Адрес</th><th class="mono">IDA-адрес</th><th class="mono">Логов</th></tr></thead><tbody><tr><td class="mono">R23</td><td class="mono">+0x96FFD</td><td class="mono">0x01096FFD</td><td class="mono">2</td></tr><tr><td class="mono">R28</td><td class="mono">+0x99C7D</td><td class="mono">0x01099C7D</td><td class="mono">1</td></tr><tr><td class="mono">R35</td><td class="mono">+0x9A1DD</td><td class="mono">0x0109A1DD</td><td class="mono">1</td></tr></tbody></table></div><p>Побайтная верификация: R23, R28 и R35 подтверждены (идентичная последовательность из 5 инструкций).</p>
   </section>
 
-  <section id="s11">
-    <h2><span class="htext">Воспроизведение вылета</span><a class="anchor" href="#s11">¶</a></h2>
+  <section id="s8">
+    <h2><span class="htext">Воспроизведение вылета</span><a class="anchor" href="#s8">¶</a></h2>
     <p>Условие активации пути: первая перерисовка диалога в партии (хук <code>sub_109A660</code> на <code>A0_Dlg_Redraw</code>), когда "HD.Af.Fixed" = 0 и база клеток карты ещё не инициализирована.</p><p>Базовый сценарий:</p><ul><li>Начать одиночную партию на любой карте</li><li>Дождаться первого диалога (перерисовка интерфейса) в первый игровой день</li><li>Если база клеток карты в момент перерисовки равна нулю — происходит краш</li></ul><p>Краш ненадёжен: зависит от момента, когда перерисовка диалога совпадает с ещё не загруженными данными карты. Частота низкая (4 лога на несколько месяцев), что указывает на узкое окно состояния.</p>
   </section>
 
