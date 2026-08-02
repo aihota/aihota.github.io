@@ -332,13 +332,25 @@ GetSetup возвращает валидный индекс города.
     .text:004FD2A5  lea  eax, [ecx+eax*2+21620h]
     .text:004FD2AC  mov  eax, [eax+14h]   ; miu_setup героя
     .text:004FD2AF  retn
-    ; для корабля (тип 8): индекс из boats_4dword4E3C1
-    .text:004FD2B5  mov  ecx, [ecx]
-    .text:004FD2C5  mov  eax, [ecx+edx*8+14h]
+    ; для корабля (тип 8): miu_setup лодки (boats[индекс*40+0x14])
+    .text:004FD2B5  mov  ecx, [ecx]        ; индекс лодки (setup клетки)
+    .text:004FD2BC  lea  edx, [ecx+ecx*4]  ; индекс*5
+    .text:004FD2BF  mov  ecx, [eax+4E3BCh] ; база массива лодок
+    .text:004FD2C5  mov  eax, [ecx+edx*8+14h] ; boats[индекс*40+0x14]
     .text:004FD2C9  retn
     ; для остальных: setup_dword0 клетки
     .text:004FD2CA  mov  eax, [ecx]
     .text:004FD2CC  retn
+
+Запись лодки — 40 байт (подтверждено: A0_Savegame_Load_Boats
+делит (end-data) массива лодок на 40), поле +0x14 — тот же
+miu_setup, что у героя. Асимметрия: ветка героя проверяет
+setup_dword0 == -1 (0x4FD28A), ветка лодки — НЕТ; при битом
+индексе лодки GetSetup читает boats[-20] — выход за границу
+массива лодок внутри самого GetSetup (отдельный латентный вылет,
+не миникартный). Лодки стоят на воде, поэтому их штатный
+miu_setup — setup клетки воды (малый); наблюдаемые большие
+индексы (91-173) — порча, а не штатное значение.
 
 Что такое miu_setup. У наследников _MovableObject_ (_Hero_,
 _Boat_) поля miu_object_type (+0x0C), miu_object_c_flag (+0x10),
