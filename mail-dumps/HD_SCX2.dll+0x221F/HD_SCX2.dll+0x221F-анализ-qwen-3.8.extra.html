@@ -16,7 +16,7 @@ NOP-заполнением хука hota.dll (0x04 → 0x90, сдвиг 16 по 
   <div style="display:flex;align-items:center;gap:10px;">
     <span style="flex:0 0 118px;text-align:right;font-size:var(--fs-xs);color:var(--ink);white-space:nowrap;">выделено:</span>
     <div class="viz-box ok" style="flex:1.23 1 0;min-width:8px;height:36px;padding:0;"></div>
-    <span style="flex:0 0 150px;font-size:var(--fs-xs);color:var(--ok);white-space:nowrap;">≈1–2 МБ (куча)</span>
+    <span style="flex:0 0 150px;font-size:var(--fs-xs);color:var(--ok);white-space:nowrap;">6648 байт (166×5×8)</span>
   </div>
 
   <!-- Ряд 2: пространство, которое индексирует код -->
@@ -42,13 +42,14 @@ NOP-заполнением хука hota.dll (0x04 → 0x90, сдвиг 16 по 
     <span style="flex:0 0 150px;font-size:var(--fs-xs);color:var(--bad);white-space:nowrap;">до 23,6 МБ (5 × 0x90000)</span>
   </div>
 
-  <div class="viz-cap">Общая шкала: зелёный отрезок — реальное выделение,
+  <div class="viz-cap">Схема (зелёный отрезок увеличен для наглядности,
+реальный контраст ~700 раз): зелёное — реальное выделение 6648 байт,
 красные сегменты — типы 1–4, читаемые за его пределами. Первый же
-доступ к типу 1 (+4,7 МБ) в несколько раз дальше конца выделения.</div>
+доступ к типу 1 (+4,7 МБ) в ~700 раз дальше конца выделения.</div>
 </div>
 
 <div class="viz-legend">
-  <div class="item"><span class="viz-badge ok"></span><span class="txt">Реальное выделение таблицы (≈1–2 МБ, куча)</span></div>
+  <div class="item"><span class="viz-badge ok"></span><span class="txt">Реальное выделение таблицы (6648 байт = 166×5×8, куча)</span></div>
   <div class="item"><span class="viz-badge bad"></span><span class="txt">Чтение за границей выделения (типы 1–4)</span></div>
   <div class="item"><span class="viz-badge neutral"></span><span class="txt">Тип 0 — частично внутри выделения</span></div>
 </div>
