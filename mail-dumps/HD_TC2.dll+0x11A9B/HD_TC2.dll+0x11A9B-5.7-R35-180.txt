@@ -1,0 +1,219 @@
+Comment
+{
+AUTOMATIC CRASH REPORT FROM THE MAIN THREAD
+}
+
+Log
+{
+compability_dir = C:\GOG Games\Heroes of Might and Magic 3 Complete\_HD3_Data\Compability\#hota15
+EXE_VERSION & SOD
+EXE_VERSION & HOTA
+work_ini_name = hota.ini
+HD.Ini.Main name: hota.ini, dir: C:\GOG Games\Heroes of Might and Magic 3 Complete\_HD3_Data\Settings
+No Files.ini for 'C:\GOG Games\Heroes of Might and Magic 3 Complete\_HD3_Data\Lang\#en'
+
+}
+
+HOMM3 HD version: 5.7 R35
+HotA version: 1.8.0
+
+Time { 08/01/2026 22:08:47 }
+
+[DW-DXX6U2PG98XQDWX DW89VAVC-99YM4Z9]
+
+Exception
+{
+   Module: HD_TC2.dll
+   Address: [ HD_TC2.dll+0x11A9B ]
+   Code: EXCEPTION_ACCESS_VIOLATION
+   Flags: 0x00000000
+   Information: read of address: 0x1648E000
+}
+
+Context { EAX: 0x00000000, ECX: 0x00000004, EDX: 0x00000008, EBX: 0x00000004, ESP: 0x001A9D48, EBP: 0x001A9D70, ESI: 0x1648DFB0, EDI: 0x0E3236D0 }
+
+Call stack
+{
+                                                   ? called from before [ hota.dll+0x76B81 ]
+                                                   ? called from before [ 0x001AFBA4 ]
+}
+
+Call stack V2
+{
+   03B51A9B (HD_TC2: 03B40000): (?): Start
+   6D626B81 (hota: 6D5B0000): (?): (?)
+   02C50B39 (?): (?): (?)
+   7744F719 (ntdll: 77410000): (?): RtlAllocateHeap
+   774A1805 (ntdll: 77410000): (?): RtlGetSystemTimeAndBias
+   7744F719 (ntdll: 77410000): (?): RtlAllocateHeap
+   043A5123 (HD_HOTA: 041D0000): (?): Start
+   0435EF70 (HD_HOTA: 041D0000): (?): Start
+   02C7B2E8 (?): (?): (?)
+   02C7CEBC (?): (?): (?)
+   02C75E68 (?): (?): (?)
+   02C723AC (?): (?): (?)
+   02C3D874 (?): (?): (?)
+}
+
+Modules
+{
+   0x00400000: h3hota HD.exe (size: 0x002E7000, entry point: 0x00639C00) - C:\GOG Games\Heroes of Might and Magic 3 Complete\h3hota HD.exe
+   0x10000000: _hd3_.dll (size: 0x00054000, entry point: 0x1001B64C) - C:\GOG Games\Heroes of Might and Magic 3 Complete\_hd3_.dll
+   0x71C90000: patcher_x86.dll (size: 0x000BD000, entry point: 0x71CA2DE6) - C:\GOG Games\Heroes of Might and Magic 3 Complete\patcher_x86.dll
+   0x02670000: smackw32.dll (size: 0x0001B000, entry point: 0x0267C0B0) - C:\GOG Games\Heroes of Might and Magic 3 Complete\smackw32.dll
+   0x02690000: IFC20.dll (size: 0x00023000, entry point: 0x0269F04E) - C:\GOG Games\Heroes of Might and Magic 3 Complete\IFC20.dll
+   0x026C0000: binkw32.dll (size: 0x0002B000, entry point: 0x026D1705) - C:\GOG Games\Heroes of Might and Magic 3 Complete\binkw32.dll
+   0x6D5B0000: hota.dll (size: 0x04692000, entry point: 0x6D7B94FE) - C:\GOG Games\Heroes of Might and Magic 3 Complete\hota.dll
+   0x74D20000: HD_UPD.dll (size: 0x00076000, entry point: 0x74D27F82) - C:\GOG Games\Heroes of Might and Magic 3 Complete\HD_UPD.dll
+   0x039B0000: HD_MCR.dll (size: 0x00026000, entry point: 0x039BAE49) - C:\GOG Games\Heroes of Might and Magic 3 Complete\HD_MCR.dll
+   0x03B40000: HD_TC2.dll (size: 0x003CF000, entry point: 0x03B4E8A7) - C:\GOG Games\Heroes of Might and Magic 3 Complete\HD_TC2.dll
+   0x04060000: HD_SCX2.dll (size: 0x0001B000, entry point: 0x0406623D) - C:\GOG Games\Heroes of Might and Magic 3 Complete\HD_SCX2.dll
+   0x041D0000: HD_HOTA.dll (size: 0x011F8000, entry point: 0x04394C67) - C:\GOG Games\Heroes of Might and Magic 3 Complete\HD_HOTA.dll
+   0x056C0000: HW_HOTA.dll (size: 0x00033000, entry point: 0x056C3650) - C:\GOG Games\Heroes of Might and Magic 3 Complete\HW_HOTA.dll
+   0x6D560000: cursors.dll (size: 0x0004A000, entry point: 0x00000000) - C:\GOG Games\Heroes of Might and Magic 3 Complete\_HD3_Data\Common\cursors.dll
+   0x21100000: mss32.dll (size: 0x0005F000, entry point: 0x2112F2E5) - C:\GOG Games\Heroes of Might and Magic 3 Complete\HotA_Data\mss32.dll
+   0x30000000: binkw32new.dll (size: 0x0006E000, entry point: 0x30006668) - C:\GOG Games\Heroes of Might and Magic 3 Complete\binkw32new.dll
+   0x6D0C0000: discord.dll (size: 0x002CD000, entry point: 0x6D2D357D) - C:\GOG Games\Heroes of Might and Magic 3 Complete\_HD3_Data\discord.dll
+   0x26F00000: mp3dec.asi (size: 0x0002A000, entry point: 0x26F0A805) - C:\GOG Games\Heroes of Might and Magic 3 Complete\HotA_Data\mp3dec.asi
+}
+
+Command Line
+{
+   "h3hota HD.exe"
+}
+
+Main INI
+{
+
+<Version> = 5007318
+<Language> = "#en.ini"
+<Graphics.AdvMap.ShowFPS> = 0
+<Graphics.AdvMap.Threads> = -1
+<Graphics.ComplexFilter> = 2
+<Graphics.Fullscreen.Minimize> = 0
+<Graphics.MaximizedMode> = 0
+<Graphics.Mode> = 5
+<Graphics.Resolution> = 1180, 664
+<Graphics.SimpleFilter> = 2
+<Graphics.SystemCursors> = 1
+<Graphics.Threads> = 12
+<HD+.RecentTimers> = "00:30 + 00:30 + 00:00 / 02:00", "00:30 + 00:30 + 00:00 / 02:00", "00:30 + 00:30 + 00:00 / 02:00", "00:30 + 00:30 + 00:00 / 02:00", "00:30 + 00:30 + 00:00 / 02:00", "00:00 + 00:00 + 00:00 / 02:00"
+<HD+.Settings> = 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 120000, 0, 6, 0, 1
+<LC.Settings>
+<Memory.Mod> = 0
+<Misc.TournamentSaver> = 1
+<Misc.BattleSaver> = 1
+<Sys.AutoLobbyIn> = 0
+<Sys.CPU.SmartReduceUsage> = 1
+<Sys.WriteToIniInsteadRegistry> = 1
+<UI.AdvMgr.DragMap> = 1
+<UI.AdvMgr.HigherFPS> = 2
+<UI.AdvMgr.SkipMapMsgs> = 1
+<UI.AdvMgr.SkipMapMsgs.Shcolar> = 0
+<UI.Battle.Highlight.Lava.White> = 1
+<UI.Battle.HighlightOnHover> = 0
+<UI.Battle.HpBar> = 1
+<UI.Battle.Queue> = 1
+<UI.Battle.ShowAlwaysHeroInfo> = 1
+<UI.ClipCursor> = 1
+<UI.DarkTransitions> = 1
+<UI.Ext.ScenarioMgr.Settings> = 4, 252, 2, 8, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1
+<UI.Ext.ScenarioMgr.Folders> = 1
+<UI.Ext.TownMgr.AvailableInsteadGrowth> = 1
+<UI.HiRezCore> = 1
+<UI.QuickArmyManagementMode> = 0
+<UI.RecruitDlg.AutoSet> = 1
+<UI.RecruitDlg.AutoSet.Max> = 0
+<UI.Tavern.InviteHero> = 0
+<UI.CapsAsEnter> = 0
+<UI.SpaceAsEnter> = 1
+<UI.Town.InfoTime> = 5000
+<UI.Town.SpaceAsEnter> = 0
+<Update.CheckAtStart> = 1
+<Window.Position> = 0, 0
+<OpenGL.UseSingleWindow> = 0
+<OpenGL.Renderer> = 0
+<OpenGL.UpdateMode> = 1
+<OpenGL.Interpolation> = 2
+<OpenGL.Upscaling> = 4
+<OpenGL.Aspect> = 1
+<OpenGL.VSync> = 0
+<OpenGL.Benchmark> = 0
+<OpenGL.ShowFPS> = 0
+<OpenGL.Colors.HueSat> = 32768500
+<OpenGL.Colors.RgbInput> = 65536000
+<OpenGL.Colors.RedInput> = 65536000
+<OpenGL.Colors.GreenInput> = 65536000
+<OpenGL.Colors.BlueInput> = 65536000
+<OpenGL.Colors.RgbGamma> = 500
+<OpenGL.Colors.RedGamma> = 500
+<OpenGL.Colors.GreenGamma> = 500
+<OpenGL.Colors.BlueGamma> = 500
+<OpenGL.Colors.RgbOutput> = 65536000
+<OpenGL.Colors.RedOutput> = 65536000
+<OpenGL.Colors.GreenOutput> = 65536000
+<OpenGL.Colors.BlueOutput> = 65536000
+<Show Intro> = 1
+<AppPath> = "C:\GOG Games\Heroes of Might and Magic 3 Complete\"
+<Music Volume> = 0
+<Sound Volume> = 3
+<Last Music Volume> = 0
+<Last Sound Volume> = 3
+<Walk Speed> = 2
+<Computer Walk Speed> = 3
+<Show Route> = 1
+<Move Reminder> = 1
+<Quick Combat> = 1
+<Video Subtitles> = 1
+<Town Outlines> = 1
+<Animate SpellBook> = 1
+<Window Scroll Speed> = 1
+<Bink Video> = 0
+<Blackout Computer> = 0
+<First Time> = 0
+<Test Decomp> = 0
+<Test Read> = 0
+<Test Blit> = 0
+<Unique System ID> = "GM1"
+<Network Default Name> = "Chris"
+<Autosave> = 1
+<Show Combat Grid> = 0
+<Show Combat Mouse Hex> = 1
+<Combat Shade Level> = 1
+<Combat Army Info Level> = 1
+<Combat Auto Creatures> = 0
+<Combat Auto Spells> = 0
+<Combat Catapult> = 0
+<Combat Ballista> = 0
+<Combat First Aid Tent> = 0
+<Combat Speed>
+<Main Game Show Menu> = 1
+<Main Game X> = 0
+<Main Game Y> = 0
+<Main Game Full Screen> = 1
+<CDDrive>
+<OpenGL.Wrapper.Version> = 2
+<OpenGL.FixedRefreshRate> = 1
+<OpenGL.SingleWindow> = 1
+<Sys.CPU.ReduceUsage> = 0
+<OpenGL.SmoothMapScroll> = 1
+<OpenGL.SmoothHeroMove> = 1
+<Hacky.Hack> = 0
+}
+
+RtlGetVersion { "Windows 11" 10.0.26200 product type: 1 }
+
+GetVersionEx { "Windows 8" 6.2.9200 product type: 1 }
+
+Some ingame values
+{
+   FullScreen Mode = 1
+   Game Type = 0
+   Network Game = 0
+
+             Me: 0
+   Active Player: 0
+   Day = 3 11
+   Map file = Chris 2026.08.01 19;20 {Default}.h3m
+   Last RMG Seed = 1785612015
+}

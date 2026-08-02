@@ -1,0 +1,41 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span><a class="anchor" href="#viz-mechanism">#</a></h2>
+
+  <p>Механизм в двух схемах. Сначала рассинхрон формата пикселя:
+  источник хранит 16 бит, а порт HD_TC2 читает его как 32 бита.
+  Затем геометрия чтения: адрес сбоя ложится ровно на границу
+  страницы за концом буфера-источника.</p>
+
+  <p class="viz-cap">Схема 1. Одна строка изображения; источник хранит 16 бит (2 байта на пиксел).</p>
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box ok"><span>пиксел</span><span class="lbl">2 Б</span></div>
+      <div class="viz-box ok"><span>пиксел</span><span class="lbl">2 Б</span></div>
+      <div class="viz-box ok"><span>пиксел</span><span class="lbl">2 Б</span></div>
+      <div class="viz-box ok"><span>пиксел</span><span class="lbl">2 Б</span></div>
+    </div>
+    <p class="viz-cap">Оригинал SoD A0_Pcx16_Draw: копия WORD, 2 Б/пиксел — читает ровно строку</p>
+    <div class="viz-strip">
+      <div class="viz-box bad"><span>пиксел</span><span class="lbl">4 Б</span></div>
+      <div class="viz-box bad"><span>пиксел</span><span class="lbl">4 Б</span></div>
+      <div class="viz-box bad"><span>пиксел</span><span class="lbl">4 Б</span></div>
+      <div class="viz-box bad"><span>пиксел</span><span class="lbl">4 Б</span></div>
+    </div>
+    <p class="viz-cap">Порт HD_TC2 sub_2005B30: memmove, 4 Б/пиксел — на ту же строку читает вдвое больше</p>
+  </div>
+
+  <p class="viz-cap">Схема 2. Память вокруг конца буфера-источника (ESI = 0x1648DFB0, граница страницы — между B и C).</p>
+  <div class="viz">
+    <div class="viz-strip badge-tl">
+      <div class="viz-box ok"><span class="viz-badge">A</span><span>готово</span><span class="lbl">...DFB0</span></div>
+      <div class="viz-box accent"><span class="viz-badge">B</span><span>успех</span><span class="lbl">...DFF0</span></div>
+      <div class="viz-box bad"><span class="viz-badge">C</span><span>сбой</span><span class="lbl">...E000</span></div>
+    </div>
+  </div>
+
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge ok"></span><span class="txt">Схема 1: верный размер (2 Б/пиксел). Схема 2, A: уже скопированные байты строки, память отображена</span></div>
+    <div class="item"><span class="viz-badge accent"></span><span class="txt">Схема 2, B: последнее успешное чтение [ESI+40h] = 0x1648DFF0 (в отображённой странице)</span></div>
+    <div class="item"><span class="viz-badge bad"></span><span class="txt">Схема 1: лишний расход (4 Б/пиксел). Схема 2, C: чтение [ESI+50h] = 0x1648E000 за концом буфера — первая неотображённая страница, вылет</span></div>
+  </div>
+</section>
