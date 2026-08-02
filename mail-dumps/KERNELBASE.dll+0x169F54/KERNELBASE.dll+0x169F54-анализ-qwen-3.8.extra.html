@@ -1,0 +1,95 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+<h2><span class="htext">Визуализация вылета</span>
+    <a class="anchor" href="#viz-mechanism">#</a></h2>
+
+<p>Поле ввода чата хранит текст (длина N) и смещение горизонтальной
+прокрутки K (поле +6Ah — сколько символов пропущено с начала, чтобы
+курсор вписался в окно). Пока K ≤ N, взятие подстроки substr(K) безопасно.
+При отправке длинного сообщения движок очищает текст (N становится 0),
+но НЕ сбрасывает K. Следующая же итерация цикла подгонки ширины берёт
+substr(K) на пустом тексте: проверка «N &lt; K» срабатывает, и движок
+бросает необработанное std::out_of_range.</p>
+
+<div class="viz">
+  <div class="viz-strip badge-tl">
+    <div class="viz-box accent">
+      <span class="viz-badge accent">1</span>
+      <span class="lbl">Ввод</span>
+      <span>длинный</span>
+      <span>текст</span>
+      <span class="lbl">шире окна</span>
+    </div>
+    <div class="viz-box ok">
+      <span class="viz-badge ok">2</span>
+      <span class="lbl">+6Ah</span>
+      <span>K ≤ длины</span>
+      <span>прокрутка</span>
+      <span class="lbl">в пределах</span>
+    </div>
+    <div class="viz-box ok">
+      <span class="viz-badge ok">3</span>
+      <span class="lbl">substr</span>
+      <span>K в тексте</span>
+      <span>граница ОК</span>
+      <span class="lbl">нет броска</span>
+    </div>
+  </div>
+  <p class="viz-cap">До отправки: набран длинный текст (шаг 1), прокрутка K
+  взведена, но не превышает длину (шаг 2) — substr(K) безопасен (шаг 3).</p>
+</div>
+
+<div class="viz">
+  <div class="viz-strip badge-tl">
+    <div class="viz-box accent">
+      <span class="viz-badge accent">4</span>
+      <span class="lbl">Enter</span>
+      <span>отправка</span>
+      <span>очистка</span>
+      <span class="lbl">длина = 0</span>
+    </div>
+    <div class="viz-box bad">
+      <span class="viz-badge bad">5</span>
+      <span class="lbl">+6Ah</span>
+      <span>K не сброшен</span>
+      <span>длина = 0</span>
+      <span class="lbl">K &gt; длины</span>
+    </div>
+    <div class="viz-box bad">
+      <span class="viz-badge bad">6</span>
+      <span class="lbl">substr</span>
+      <span>K &gt; 0</span>
+      <span>бросок</span>
+      <span class="lbl">вылет</span>
+    </div>
+  </div>
+  <p class="viz-cap">После отправки: текст очищен (шаг 4), но прокрутка K
+  не сброшена и теперь превышает длину 0 (шаг 5) — substr(K) бросает
+  std::out_of_range, которое не обрабатывается (шаг 6).</p>
+</div>
+
+<div class="viz-legend">
+  <div class="item"><span class="viz-badge accent">1</span>
+    <span class="txt">Игрок набирает в чат лобби сообщение длиннее ширины
+    окна ввода — поле прокручивается по горизонтали</span></div>
+  <div class="item"><span class="viz-badge ok">2</span>
+    <span class="txt">Смещение прокрутки K (поле +6Ah) следует за курсором
+    и не превышает длину текста — инвариант соблюдается (обработчик клавиш
+    ограничивает K позицией курсора)</span></div>
+  <div class="item"><span class="viz-badge ok">3</span>
+    <span class="txt">Взятие подстроки substr(K) проходит проверку границы
+    (длина ≥ K) — исключения нет</span></div>
+  <div class="item"><span class="viz-badge accent">4</span>
+    <span class="txt">Нажатие Enter: A0_DlgTextEditChat_Enter отправляет
+    сообщение и очищает поле ввода (текст становится пустым, длина 0)</span></div>
+  <div class="item"><span class="viz-badge bad">5</span>
+    <span class="txt">Смещение прокрутки K НЕ сбрасывается при очистке
+    (ни A0_DlgTextEditChat_Enter, ни A0_DlgTextEdit_UpdateTextAndCaretPosition,
+    ни SetText не пишут +6Ah) — K остаётся от длинного текста и превышает
+    новую длину 0</span></div>
+  <div class="item"><span class="viz-badge bad">6</span>
+    <span class="txt">Цикл подгонки ширины берёт substr(K) на пустом тексте;
+    проверка «длина &lt; K» истинна — sub_472E90 бросает std::out_of_range
+    ("invalid string position"), обработчика catch нет — вылет</span></div>
+</div>
+
+</section>
