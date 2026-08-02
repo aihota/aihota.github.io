@@ -1,49 +1,50 @@
 <section id="viz-crash">
 <h2>Визуализация вылета</h2>
-<p>Курсорная таблица выделена размером 1,23 МБ (161 518 записей). Код
-индексирует её с шагом 0x90000 записей на тип: HD_SCX2.dll читает шаг
-из байта 50D095h, который затёрт NOP-заполнением хука hota.dll
-(0x04 → 0x90, сдвиг 16 по маске). Обращение к любому типу ≥ 1 читает
-за границей выделения.</p>
+<p>Курсорная таблица выделена размером порядка 1–2 МБ (верхняя оценка
+по границе сегментов дампа). Код индексирует её с шагом 0x90000
+записей на тип: HD_SCX2.dll читает шаг из байта 50D095h, который
+затёрт NOP-заполнением хука hota.dll (0x04 → 0x90, сдвиг 16 по маске).
+Обращение к любому типу ≥ 1 читает за границей выделения.</p>
 
-<div class="viz" style="display:flex;flex-direction:column;gap:10px;">
+<div class="viz" style="display:flex;flex-direction:column;gap:14px;">
 
   <!-- Ряд 1: реальное выделение -->
   <div style="display:flex;align-items:center;gap:10px;">
-    <div class="viz-box ok" style="flex:0 0 5.2%;min-width:0;height:38px;padding:0;"></div>
-    <span style="font-size:var(--fs-xs);color:var(--ink);white-space:nowrap;">выделено: 1,23 МБ (161 518 записей × 8 Б)</span>
+    <span style="flex:0 0 118px;text-align:right;font-size:var(--fs-xs);color:var(--ink);white-space:nowrap;">выделено:</span>
+    <div class="viz-box ok" style="flex:1.23 1 0;min-width:8px;height:36px;padding:0;"></div>
+    <span style="flex:0 0 150px;font-size:var(--fs-xs);color:var(--ok);white-space:nowrap;">≈1–2 МБ (куча)</span>
   </div>
 
   <!-- Ряд 2: пространство, которое индексирует код -->
-  <div style="display:flex;align-items:stretch;gap:0;">
-    <div style="flex:0 0 85%;display:flex;gap:3px;">
-      <div class="viz-box dim" style="flex:1 1 0;min-width:0;height:38px;padding:0 4px;justify-content:center;">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span style="flex:0 0 118px;text-align:right;font-size:var(--fs-xs);color:var(--ink);white-space:nowrap;">индексируется:</span>
+    <div style="flex:23.6 1 0;display:flex;gap:3px;min-width:0;">
+      <div class="viz-box dim" style="flex:1 1 0;min-width:0;height:36px;padding:0 4px;justify-content:center;">
         <span class="lbl">тип 0</span>
       </div>
-      <div class="viz-box bad" style="flex:1 1 0;min-width:0;height:38px;padding:0 4px;justify-content:center;">
+      <div class="viz-box bad" style="flex:1 1 0;min-width:0;height:36px;padding:0 4px;justify-content:center;">
         <span>тип 1</span><span class="lbl">+4,7 МБ</span>
       </div>
-      <div class="viz-box bad" style="flex:1 1 0;min-width:0;height:38px;padding:0 4px;justify-content:center;">
+      <div class="viz-box bad" style="flex:1 1 0;min-width:0;height:36px;padding:0 4px;justify-content:center;">
         <span>тип 2</span><span class="lbl">+9,4 МБ</span>
       </div>
-      <div class="viz-box bad" style="flex:1 1 0;min-width:0;height:38px;padding:0 4px;justify-content:center;">
+      <div class="viz-box bad" style="flex:1 1 0;min-width:0;height:36px;padding:0 4px;justify-content:center;">
         <span>тип 3</span><span class="lbl">+14,1 МБ</span>
       </div>
-      <div class="viz-box bad" style="flex:1 1 0;min-width:0;height:38px;padding:0 4px;justify-content:center;">
+      <div class="viz-box bad" style="flex:1 1 0;min-width:0;height:36px;padding:0 4px;justify-content:center;">
         <span>тип 4</span><span class="lbl">+18,9 МБ</span>
       </div>
     </div>
-    <span style="flex:0 0 auto;display:flex;align-items:center;padding-left:10px;font-size:var(--fs-xs);color:var(--bad);white-space:nowrap;">индексируется: до 23,6 МБ</span>
+    <span style="flex:0 0 150px;font-size:var(--fs-xs);color:var(--bad);white-space:nowrap;">до 23,6 МБ (5 × 0x90000)</span>
   </div>
 
-  <div class="viz-cap">Масштаб общий: зелёный отрезок — реальное выделение,
-красные сегменты — типы 1–4, читаемые за его пределами (тип 0 лишь
-частично внутри). Первый же доступ к типу 1 (+4,7 МБ) в 3,8 раза
-дальше конца выделения.</div>
+  <div class="viz-cap">Общая шкала: зелёный отрезок — реальное выделение,
+красные сегменты — типы 1–4, читаемые за его пределами. Первый же
+доступ к типу 1 (+4,7 МБ) в несколько раз дальше конца выделения.</div>
 </div>
 
 <div class="viz-legend">
-  <div class="item"><span class="viz-badge ok"></span><span class="txt">Реальное выделение таблицы (1,23 МБ, куча)</span></div>
+  <div class="item"><span class="viz-badge ok"></span><span class="txt">Реальное выделение таблицы (≈1–2 МБ, куча)</span></div>
   <div class="item"><span class="viz-badge bad"></span><span class="txt">Чтение за границей выделения (типы 1–4)</span></div>
   <div class="item"><span class="viz-badge neutral"></span><span class="txt">Тип 0 — частично внутри выделения</span></div>
 </div>
