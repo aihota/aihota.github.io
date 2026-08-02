@@ -499,70 +499,65 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
     <p class="byline">Qwen 3.8 · 02.08.2026</p>
     <div class="ribbon lvl-high">
       <div class="vlabel">Заключение</div>
-      <div class="vtxt">HD-мод патчит байт шага курсорной таблицы (<code>50D095h</code>) с 4 на 16, раздувая шаг с 144 до <code>0x90000</code>; таблица выделена под меньший шаг — выход за границы при любом типе курсора &gt;= 1 в 32-битных режимах.</div>
+      <div class="vtxt">6-байтовый хук <code>hota.dll</code> на <code>50D090h</code> затирает байт <code>50D095h</code> NOP-заполнением (<code>0x04</code> → <code>0x90</code>); <code>HD_SCX2.dll</code> читает этот байт как сдвиг шага курсорной таблицы и получает 0x90 (сдвиг 16) вместо 4 — шаг раздувается до <code>0x90000</code>, таблица выделена под меньший размер, выход за границы при любом типе курсора &gt;= 1 в 32-битных режимах.</div>
     </div>
     <div class="statstrip"><div class="stat c-ver"><div class="ic-badge"><svg class="ic"><use href="#ic-package"/></svg></div><div class="st-body"><div class="big">1.8.0</div><div class="cap">Версия HotA</div></div></div><div class="stat c-cls"><div class="ic-badge"><svg class="ic"><use href="#ic-triangle"/></svg></div><div class="st-body"><div class="big">выход за границы массива</div><div class="cap">Класс сбоя</div></div></div><div class="stat c-cnt"><div class="ic-badge"><svg class="ic"><use href="#ic-database"/></svg></div><div class="st-body"><div class="big">34</div><div class="cap">Количество логов</div></div></div><div class="stat c-use"><div class="ic-badge"><svg class="ic"><use href="#ic-sig3"/></svg></div><div class="st-body"><div class="big">ВЫСОКАЯ</div><div class="cap">Полезность лога</div></div></div></div>
   </div>
 
   <section id="viz-crash">
 <h2>Визуализация вылета</h2>
-<p>Курсорная таблица выделена с малым шагом (оригинал SoD: 144 записи
-на тип). Код HD-мода индексирует её с шагом HotA.ArtifactsCount
-(0x90000 = 589824) — обращение к типу ≥ 1 уходит за границу буфера.</p>
+<p>Курсорная таблица выделена размером 1,23 МБ (161 518 записей). Код
+индексирует её с шагом 0x90000 записей на тип: HD_SCX2.dll читает шаг
+из байта 50D095h, который затёрт NOP-заполнением хука hota.dll
+(0x04 → 0x90, сдвиг 16 по маске). Обращение к любому типу ≥ 1 читает
+за границей выделения.</p>
 
-<div class="viz" style="flex-direction:column;gap:12px;">
+<div class="viz" style="display:flex;flex-direction:column;gap:10px;">
 
-
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-  <span class="viz-badge ok" style="min-width:24px;">✓</span>
-  <span style="font-size:0.85rem;color:var(--ink);min-width:180px;">Реальная таблица (SoD-шаг 144):</span>
-  <div class="viz-strip" style="max-width:320px;">
-    <div class="viz-box ok"><span>тип 0</span><span class="lbl">144×8 Б</span></div>
-    <div class="viz-box ok"><span>тип 1</span><span class="lbl">144×8 Б</span></div>
-    <div class="viz-box ok"><span>тип 2</span><span class="lbl">144×8 Б</span></div>
-    <div class="viz-box ok"><span>…</span><span class="lbl">5 типов</span></div>
+  
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div class="viz-box ok" style="flex:0 0 5.2%;min-width:0;height:38px;padding:0;"></div>
+    <span style="font-size:var(--fs-xs);color:var(--ink);white-space:nowrap;">выделено: 1,23 МБ (161 518 записей × 8 Б)</span>
   </div>
-  <span style="font-size:0.8rem;color:var(--ok);">≈ 5760 Б</span>
-</div>
 
-
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-  <span class="viz-badge bad" style="min-width:24px;">✗</span>
-  <span style="font-size:0.85rem;color:var(--ink);min-width:180px;">Индексация кода (шаг 0x90000):</span>
-  <div class="viz-strip" style="max-width:320px;">
-    <div class="viz-box"><span>тип 0</span><span class="lbl">0x90000×8</span></div>
-    <div class="viz-box bad"><span>тип 1</span><span class="lbl">+0x480000</span></div>
-    <div class="viz-box bad"><span>тип 2</span><span class="lbl">+0x900000</span></div>
-    <div class="viz-box bad"><span>тип 4</span><span class="lbl">+0x1200000</span></div>
+  
+  <div style="display:flex;align-items:stretch;gap:0;">
+    <div style="flex:0 0 85%;display:flex;gap:3px;">
+      <div class="viz-box dim" style="flex:1 1 0;min-width:0;height:38px;padding:0 4px;justify-content:center;">
+        <span class="lbl">тип 0</span>
+      </div>
+      <div class="viz-box bad" style="flex:1 1 0;min-width:0;height:38px;padding:0 4px;justify-content:center;">
+        <span>тип 1</span><span class="lbl">+4,7 МБ</span>
+      </div>
+      <div class="viz-box bad" style="flex:1 1 0;min-width:0;height:38px;padding:0 4px;justify-content:center;">
+        <span>тип 2</span><span class="lbl">+9,4 МБ</span>
+      </div>
+      <div class="viz-box bad" style="flex:1 1 0;min-width:0;height:38px;padding:0 4px;justify-content:center;">
+        <span>тип 3</span><span class="lbl">+14,1 МБ</span>
+      </div>
+      <div class="viz-box bad" style="flex:1 1 0;min-width:0;height:38px;padding:0 4px;justify-content:center;">
+        <span>тип 4</span><span class="lbl">+18,9 МБ</span>
+      </div>
+    </div>
+    <span style="flex:0 0 auto;display:flex;align-items:center;padding-left:10px;font-size:var(--fs-xs);color:var(--bad);white-space:nowrap;">индексируется: до 23,6 МБ</span>
   </div>
-  <span style="font-size:0.8rem;color:var(--bad);">до 18,9 МБ</span>
-</div>
 
-
-<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-  <span class="viz-badge accent" style="min-width:24px;">!</span>
-  <span style="font-size:0.85rem;color:var(--ink);min-width:180px;">Вылет:</span>
-  <div class="viz-strip" style="max-width:400px;">
-    <div class="viz-box dim"><span>буфер</span><span class="lbl">куча</span></div>
-    <div class="viz-box accent"><span>граница</span><span class="lbl">конец alloc</span></div>
-    <div class="viz-box bad"><span>чтение</span><span class="lbl">[ecx+eax×8+4]</span></div>
-  </div>
-  <span style="font-size:0.8rem;color:var(--accent2);">ACCESS_VIOLATION</span>
-</div>
-
+  <div class="viz-cap">Масштаб общий: зелёный отрезок — реальное выделение,
+красные сегменты — типы 1–4, читаемые за его пределами (тип 0 лишь
+частично внутри). Первый же доступ к типу 1 (+4,7 МБ) в 3,8 раза
+дальше конца выделения.</div>
 </div>
 
 <div class="viz-legend">
-  <div class="item"><span class="viz-badge ok"></span><span class="txt">Реальный размер таблицы (SoD-наследование, шаг 144)</span></div>
-  <div class="item"><span class="viz-badge bad"></span><span class="txt">Обращение за границей (шаг ArtifactsCount = 0x90000)</span></div>
-  <div class="item"><span class="viz-badge accent"></span><span class="txt">Точка вылета — чтение за пределами выделения</span></div>
-  <div class="item"><span class="viz-badge neutral"></span><span class="txt">Выделенный буфер кучи</span></div>
+  <div class="item"><span class="viz-badge ok"></span><span class="txt">Реальное выделение таблицы (1,23 МБ, куча)</span></div>
+  <div class="item"><span class="viz-badge bad"></span><span class="txt">Чтение за границей выделения (типы 1–4)</span></div>
+  <div class="item"><span class="viz-badge neutral"></span><span class="txt">Тип 0 — частично внутри выделения</span></div>
 </div>
 </section>
 
   <section id="summary">
     <h2><span class="htext">Краткое резюме</span><a class="anchor" href="#summary">¶</a></h2>
-    <div class="card summary"><p>Модуль системных курсоров HD-мода (<code>HD_SCX2.dll</code>, «<code>HD_SysCurX2</code>») при установке курсора обращается к таблице по индексу «тип * шаг + кадр». Шаг таблицы код читает из байта <code>50D095h</code> (оригинальная инструкция SoD `shl eax, 4`, непосредственный операнд). HD-мод патчит этот байт с 4 на 16, раздувая шаг с 144 (9*16) до <code>0x90000</code> (9*65536 = 589824). Курсорная таблица, на которую указывает <code>50D09Dh</code>, выделена под гораздо меньший размер, поэтому любое обращение к типу &gt;= 1 читает память далеко за пределами буфера.</p><p>Предусмотренная кодом перезапись шага настройкой HotA.ArtifactsCount (~146, реальное число кадров артефактов) НЕ срабатывает: к моменту чтения настройка равна 0 (<code>HD_SCX2.dll</code> авторегистрирует её с нулём раньше, чем <code>hota.dll</code> записывает корректное значение), и шаг остаётся <code>0x90000</code>.</p><p>Вылет воспроизводится в 32-битных графических режимах (4, 5, 7) на любой карте, в любом состоянии игры (включая предыгровое меню). Наблюдается на 12 версиях HD-мода (5.6 R37 — 5.7 R35), 34 уникальных вылета.</p></div>
+    <div class="card summary"><p>Модуль системных курсоров HD-мода (<code>HD_SCX2.dll</code>, «<code>HD_SysCurX2</code>») при установке курсора обращается к таблице по индексу «тип * шаг + кадр». Шаг таблицы код читает из байта <code>50D095h</code> — это непосредственный операнд инструкции SoD `shl eax, 4` (оригинальное значение <code>0x04</code>, шаг 9*16=144). Но <code>hota.dll</code> ставит на начало функции (<code>50D090h</code>) 6-байтовый хук (E9 &lt;адрес&gt; 90 = JMP + NOP), и NOP-заполнение ложится ровно на байт 50D095h, меняя его с 0x04 на <code>0x90</code>. HD_SCX2.dll читает 0x90 как сдвиг: по модулю 32 это 16, шаг = 9 &lt;&lt; 16 = <code>0x90000</code> (589824 записи на тип). Курсорная таблица, на которую указывает <code>50D09Dh</code>, выделена под гораздо меньший размер, поэтому любое обращение к типу &gt;= 1 читает память далеко за пределами буфера.</p><p>Предусмотренная кодом перезапись шага настройкой HotA.ArtifactsCount (~146, реальное число кадров артефактов) НЕ срабатывает: к моменту чтения настройка равна 0 (<code>HD_SCX2.dll</code> авторегистрирует её с нулём раньше, чем <code>hota.dll</code> записывает корректное значение), и шаг остаётся <code>0x90000</code>.</p><p>Вылет воспроизводится в 32-битных графических режимах (4, 5, 7) на любой карте, в любом состоянии игры (включая предыгровое меню). Наблюдается на 12 версиях HD-мода (5.6 R37 — 5.7 R35), 34 уникальных вылета.</p></div>
   </section>
 
   <section id="s1">
@@ -597,13 +592,13 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
     <p>Функция <code>sub_2002030</code> устанавливает системный курсор по типу (<code>arg_4</code>, 0-4) и индексу кадра (<code>arg_0</code>). Шаг таблицы (<code>var_4</code>) определяется так:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0200214B  </span><span class="k">movzx</span> <span class="r">ecx</span>, <span class="r">byte</span> <span class="r">ptr</span> ds:<span class="n">50D095h</span>  <span class="c">; байт из кода h3hota.exe</span>
 <span class="a">.text:02002152  </span><span class="k">mov</span> <span class="r">eax</span>, <span class="n">9</span>
 <span class="a">.text:02002157  </span><span class="k">shl</span> <span class="r">eax</span>, <span class="r">cl</span>                     <span class="c">; 9 &lt;&lt; байт</span>
-<span class="a">.text:02002159  </span><span class="k">mov</span> [<span class="r">ebp</span>+var_4], <span class="r">eax</span></pre></div><p>Адрес <code>50D095h</code> — непосредственный операнд инструкции SoD `shl eax, 4` (байты C1 E0 **04**) в функции <code>A0_MouseMgr_DrawCursor_sub_50CF90</code>. В оригинале байт = 4, шаг = 9 &lt;&lt; 4 = 144 (совпадает с таблицей SoD). HD-мод патчит этот байт на <code>0x90</code> (подтверждено рантаймом, winedbg, <code>180_rus</code>, Graphics.Mode=7). x86 маскирует сдвиг по модулю 32: 0x90 mod 32 = 16, поэтому `shl eax, 0x90` = `shl eax, 16`. Шаг раздувается до 9 &lt;&lt; 16 = <code>0x90000</code> (589824 записи на тип). 0x90 — одновременно opcode NOP: если инструкция выполнится, это безвредный NOP; прочитанный как сдвиг — даёт 16.</p><p>Предусмотренная защита — перезапись шага настройкой HotA:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0200216E  </span><span class="k">and</span> <span class="r">ecx</span>, <span class="n">8</span>                 <span class="c">; бит 3 HD.ExeVersion</span>
+<span class="a">.text:02002159  </span><span class="k">mov</span> [<span class="r">ebp</span>+var_4], <span class="r">eax</span></pre></div><p>Адрес <code>50D095h</code> — непосредственный операнд инструкции SoD `shl eax, 4` (байты C1 E0 **04**) в функции <code>A0_MouseMgr_DrawCursor_sub_50CF90</code>; оригинальный байт = 4, шаг = 9 &lt;&lt; 4 = 144 (совпадает с таблицей SoD). Однако <code>hota.dll</code> ставит на начало этой функции (<code>50D090h</code>) 6-байтовый LoHook (запись патчера: `0050D090 06 LoHook 0000001909 — HotA`), который заменяет первые 6 байт (50D090-50D095 = `<code>lea eax,[eax+eax*8]</code>` + `shl eax,4`) на JMP + NOP. Реальные байты в дампе: `E9 F7 77 B4 00 90` — NOP-заполнение (<code>0x90</code>) ложится ровно на байт 50D095h, затирая оригинальный операнд <code>0x04</code>. <code>HD_SCX2.dll</code> читает 0x90 как сдвиг; x86 маскирует сдвиг по модулю 32: 0x90 mod 32 = 16, поэтому `shl eax, 0x90` = `shl eax, 16`. Шаг раздувается до 9 &lt;&lt; 16 = <code>0x90000</code> (589824 записи на тип). Указатель таблицы по <code>50D09Dh</code> тоже пишется hota.dll (`0050D09D 04 Patch 0000000438 — HotA`): таблица выделена под реальный (малый) шаг hota.dll, а не под 0x90000, который получает HD_SCX2.dll из затёртого байта.</p><p>Предусмотренная защита — перезапись шага настройкой HotA:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:0200216E  </span><span class="k">and</span> <span class="r">ecx</span>, <span class="n">8</span>                 <span class="c">; бит 3 HD.ExeVersion</span>
 <span class="a">.text:02002171  </span><span class="k">jz</span> <span class="r">short</span> loc_200219D       <span class="c">; если 0 -- НЕ перезаписывать</span>
 <span class="a">.text:02002173  </span><span class="k">push</span> <span class="r">offset</span> "HotA.ArtifactsCount"
 <span class="a">.text:02002198  </span><span class="k">mov</span> <span class="r">edx</span>, [<span class="r">eax</span>]
 <span class="a">.text:0200219A  </span><span class="k">mov</span> [<span class="r">ebp</span>+var_4], <span class="r">edx</span>       <span class="c">; var_4 = ArtifactsCount</span></pre></div><p>HotA.ArtifactsCount — реальное число кадров артефактов: <code>hota.dll</code> (<code>sub_100F2410</code>) вычисляет его как max([артефакт<code>+41h</code>]+1), начальное значение 146 (<code>0x92</code>). Рантайм (winedbg): к моменту первого вызова курсора <code>dword_10634DF4</code> = <code>0xA6</code> (166) — значение <b class="hi">ВЫЧИСЛЕНО</b>, но настройка патчера ещё НЕ зарегистрирована hota.dll. <code>sub_2002940</code> в <code>HD_SCX2.dll</code> авторегистрирует отсутствующую настройку с начальным значением 0 (код <code>0x200295A</code>: <code>push 0</code>; <code>call [vtable+30h]</code>). Проверка `<code>cmp [eax], 0</code>; jz` пропускает перезапись, и <code>var_4</code> остаётся <code>0x90000</code>. Регистрация hota.dll (vtable+<code>30h</code>) <b class="hi">ОБНОВЛЯЕТ</b> существующую настройку (подтверждено дизассемблером <code>patcher_x86+0xE3D0</code>), но происходит <b class="hi">ПОСЛЕ</b> первого вызова курсора — гонка инициализации.</p><p>Проверка границ:</p><div class="codewrap"><button class="copy" data-copy="prev" type="button">Копировать</button><pre><span class="a">.text:020021FB  </span><span class="k">imul</span> <span class="r">ecx</span>, [<span class="r">ebp</span>+var_4], <span class="n">5</span>  <span class="c">; var_4 * 5</span>
 <span class="a">.text:020021FF  </span><span class="k">cmp</span> <span class="r">eax</span>, <span class="r">ecx</span>              <span class="c">; индекс &lt; var_4 * 5?</span>
-<span class="a">.text:02002201  </span><span class="k">jge</span> <span class="r">short</span> loc_2002275     <span class="c">; если &gt;= -- другой путь</span></pre></div><p>При <code>var_4</code> = <code>0x90000</code> предел = <code>0x2D0000</code>. Любой индекс с типом &lt;= 4 проходит проверку (максимум: 4 * 0x90000 + <code>0x8FFFF</code> = <code>0x2CFFFF</code> &lt; 0x2D0000). Но реальная таблица выделена с меньшим шагом — обращение по индексу ~0x90000 (тип 1) читает далеко за её пределами.</p><p>Дефект НЕ унаследован от SoD: оригинальный байт = 4 (шаг 144), таблица SoD (<code>dword_67FFA0</code>) согласована с этим шагом. Рассинхрон создан патчем HD-мода (байт 4 → 16 без соответствующего увеличения таблицы).</p>
+<span class="a">.text:02002201  </span><span class="k">jge</span> <span class="r">short</span> loc_2002275     <span class="c">; если &gt;= -- другой путь</span></pre></div><p>При <code>var_4</code> = <code>0x90000</code> предел = <code>0x2D0000</code>. Любой индекс с типом &lt;= 4 проходит проверку (максимум: 4 * 0x90000 + <code>0x8FFFF</code> = <code>0x2CFFFF</code> &lt; 0x2D0000). Но реальная таблица выделена с меньшим шагом — обращение по индексу ~0x90000 (тип 1) читает далеко за её пределами.</p><p>Дефект НЕ унаследован от SoD: в чистом SoD байт <code>50D095h</code> = 4 (шаг 144), таблица (<code>dword_67FFA0</code>) согласована с этим шагом, хука <code>hota.dll</code> нет. Рассинхрон возникает только в связке HotA + HD-мод: хук hota.dll на <code>50D090h</code> затирает байт, который <code>HD_SCX2.dll</code> использует как источник шага. Это конфликт двух модификаций: hota.dll перехватывает функцию расчёта шага, а HD_SCX2.dll полагается на байт, который этот перехват затирает; указатель таблицы (<code>50D09Dh</code>) при этом пишется hota.dll под её собственный (малый) шаг.</p>
   </section>
 
   <section id="s6">
@@ -613,17 +608,17 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <section id="s7">
     <h2><span class="htext">Воспроизведение вылета</span><a class="anchor" href="#s7">¶</a></h2>
-    <p>Условие активации пути: 32-битный графический режим (4, 5 или 7) в сочетании с HotA (бит 3 HD.ExeVersion установлен, настройка HotA.ArtifactsCount не равна 0).</p><p>Базовый сценарий:</p><ul><li>Запустить игру с Graphics.Mode = 5 (или 4, 7).</li><li>В главном меню или в партии выполнить действие, меняющее тип курсора на &gt;= 1 (наведение на объект карты, открытие окна, выбор артефакта).</li><li>Вылет происходит в потоке отрисовки (SIDE THREAD).</li></ul><p>Варьирование:</p><ul><li>Режимы 0-3, 6: вылет НЕ воспроизводится (модуль не активен).</li><li>Без HotA (чистый SoD под HD-модом): бит 3 не установлен, <code>var_4</code> остаётся 144 — вылет НЕ воспроизводится.</li></ul>
+    <p>Условие активации пути: 32-битный графический режим (4, 5 или 7) в сочетании с HotA (хук <code>hota.dll</code> на <code>50D090h</code> установлен, байт <code>50D095h</code> затёрт в <code>0x90</code>).</p><p>Базовый сценарий:</p><ul><li>Запустить игру с Graphics.Mode = 5 (или 4, 7).</li><li>В главном меню или в партии выполнить действие, меняющее тип курсора на &gt;= 1 (наведение на объект карты, открытие окна, выбор артефакта).</li><li>Вылет происходит в потоке отрисовки (SIDE THREAD).</li></ul><p>Варьирование:</p><ul><li>Режимы 0-3, 6: вылет НЕ воспроизводится (модуль не активен).</li><li>Без HotA (чистый SoD под HD-модом): бит 3 не установлен, <code>var_4</code> остаётся 144 — вылет НЕ воспроизводится.</li></ul>
   </section>
 
   <section id="s8">
     <h2><span class="htext">Достоверность и ограничения</span><a class="anchor" href="#s8">¶</a></h2>
-    <div class="note ok"><span class="t">Подтверждено / высокая достоверность</span><ul><li>Формула адреса сбоя (ECX + EAX*8 + 4) сходится для всех 33 дампов с известным адресом (1 дамп без адреса сбоя в поле Information).</li><li>Инструкция сбоя попадает на границу инструкции в листинге.</li><li>Entry point листинга совпадает с логом R35.</li><li><code>var_4</code> = <code>0x90000</code> = 9 &lt;&lt; 16 выведено из EAX всех 34 дампов (согласуется с EBX и <code>arg_0</code>; доказывает байт <code>50D095h</code> = <code>0x90</code>).</li><li><b class="hi">РАНТАЙМ</b> (winedbg, <code>180_rus</code>, Mode=7): байт <code>50D095h</code> = <code>0x90</code> (патчен с 04), указатель таблицы <code>50D09Dh</code> = <code>0x1C25888</code> (куча).</li><li>Код <code>sub_2002030</code> прочитан: источник <code>var_4</code>, проверка границ, доступ к таблице — цитированы.</li><li>HotA.ArtifactsCount прочитан в <code>hota.dll</code> (<code>sub_100F2410</code>): max([артефакт<code>+41h</code>]+1), начальное 146; поле +41h — WORD (макс <code>0xFFFF</code>) — ArtifactsCount НЕ может быть <code>0x90000</code>.</li><li>Бит 3 HD.ExeVersion = 1: подтверждено логами («<code>EXE_VERSION</code> &amp; HOTA» в секции Log всех дампов). Код <code>_HD3_.dll</code> (<code>0x1000C918</code>): бит 3 = флаг HOTA.</li><li>ArtifactsCount = 0 к моменту чтения: <code>sub_2002940</code> (<code>HD_SCX2.dll</code>) авторегистрирует отсутствующую настройку с начальным значением 0 (код <code>0x200295A</code><code>-0x2002961</code>: <code>push 0</code>; <code>call [vtable+30h]</code>).</li><li>Оригинальный код SoD (50D090-50D09B): шаг 144, байт = 4.</li></ul></div><div class="note info"><span class="t">Ограничения и неизвестное</span><ul><li>Место выделения таблицы (запись указателя в <code>0x50D09D</code>) и место патча байта <code>50D095h</code> не найдены статически — выполняются через механизм патчера (data-driven, динамический код).</li><li>Листинг <code>HD_SCX2.dll</code> один (без версионных суффиксов); для версий 5.6 R37 — 5.7 R35 адрес <code>+0x221F</code> стабилен (все 34 дампа падают на нём), что подтверждает неизменность функции.</li><li>Точный момент регистрации ArtifactsCount относительно первого вызова курсорной функции <b class="hi">ПОДТВЕРЖДЁН</b> рантаймом (winedbg, <code>180_rus</code>): в момент первого вызова <code>sub_2002030</code> внутренняя переменная <code>hota.dll</code> <code>dword_10634DF4</code> = <code>0xA6</code> (166, вычислена), но настройка патчера «HotA.ArtifactsCount» ещё НЕ зарегистрирована hota.dll — <code>sub_2002940</code> авторегистрирует её с 0. Регистрация hota.dll (vtable+<code>30h</code>, обновляет существующую) происходит <b class="hi">ПОСЛЕ</b> первого вызова курсора. Рантайм-подтверждение (winedbg + полный дамп, 180_rus, Mode=7):</li><li>Байт <code>50D095h</code> = <code>0x90</code> (патчен с 04; 0x90 mod 32 = 16).</li><li>Указатель таблицы <code>50D09Dh</code> = <code>0x1C25888</code> (куча).</li><li>Размер таблицы (полный дамп, граница сегмента): ~1.23 МБ (161518 записей по 8 байт). Таблица увеличена HD-модом (оригинал SoD: 5760 байт), но для шага <code>0x90000</code> нужно 0x90000 * 5 * 8 = 23.6 МБ — в ~18 раз больше.</li><li>Запись [4] таблицы = {<code>0x0A</code>, <code>0x0C</code>} (единственная ненулевая в первых 128 байтах); остальные — нули.</li></ul></div>
+    <div class="note ok"><span class="t">Подтверждено / высокая достоверность</span><ul><li>Формула адреса сбоя (ECX + EAX*8 + 4) сходится для всех 33 дампов с известным адресом (1 дамп без адреса сбоя в поле Information).</li><li>Инструкция сбоя попадает на границу инструкции в листинге.</li><li>Entry point листинга совпадает с логом R35.</li><li><code>var_4</code> = <code>0x90000</code> = 9 &lt;&lt; 16 выведено из EAX всех 34 дампов (согласуется с EBX и <code>arg_0</code>; доказывает байт <code>50D095h</code> = <code>0x90</code>).</li><li><b class="hi">РАНТАЙМ</b> (winedbg, <code>180_rus</code>, Mode=7): байт <code>50D095h</code> = <code>0x90</code> (патчен с 04), указатель таблицы <code>50D09Dh</code> = <code>0x1C25888</code> (куча).</li><li>Код <code>sub_2002030</code> прочитан: источник <code>var_4</code>, проверка границ, доступ к таблице — цитированы.</li><li>HotA.ArtifactsCount прочитан в <code>hota.dll</code> (<code>sub_100F2410</code>): max([артефакт<code>+41h</code>]+1), начальное 146; поле +41h — WORD (макс <code>0xFFFF</code>) — ArtifactsCount НЕ может быть <code>0x90000</code>.</li><li>Бит 3 HD.ExeVersion = 1: подтверждено логами («<code>EXE_VERSION</code> &amp; HOTA» в секции Log всех дампов). Код <code>_HD3_.dll</code> (<code>0x1000C918</code>): бит 3 = флаг HOTA.</li><li>ArtifactsCount = 0 к моменту чтения: <code>sub_2002940</code> (<code>HD_SCX2.dll</code>) авторегистрирует отсутствующую настройку с начальным значением 0 (код <code>0x200295A</code><code>-0x2002961</code>: <code>push 0</code>; <code>call [vtable+30h]</code>).</li><li>Оригинальный код SoD (50D090-50D09B): шаг 144, байт = 4.</li></ul></div><div class="note info"><span class="t">Ограничения и неизвестное</span><ul><li>Точный размер выделения курсорной таблицы известен по границе сегмента дампа (~1.23 МБ), но не из заголовка heap-блока; код, выделяющий таблицу (в <code>hota.dll</code>), статически не читался.</li><li>Листинг <code>HD_SCX2.dll</code> один (без версионных суффиксов); для версий 5.6 R37 — 5.7 R35 адрес <code>+0x221F</code> стабилен (все 34 дампа падают на нём), что подтверждает неизменность функции.</li><li>Точный момент регистрации ArtifactsCount относительно первого вызова курсорной функции <b class="hi">ПОДТВЕРЖДЁН</b> рантаймом (winedbg, <code>180_rus</code>): в момент первого вызова <code>sub_2002030</code> внутренняя переменная <code>hota.dll</code> <code>dword_10634DF4</code> = <code>0xA6</code> (166, вычислена), но настройка патчера «HotA.ArtifactsCount» ещё НЕ зарегистрирована hota.dll — <code>sub_2002940</code> авторегистрирует её с 0. Регистрация hota.dll (vtable+<code>30h</code>, обновляет существующую) происходит <b class="hi">ПОСЛЕ</b> первого вызова курсора. Рантайм-подтверждение (winedbg + полный дамп, 180_rus, Mode=7):</li><li>Байты 50D090-50D095 = E9 F7 77 B4 00 90: 6-байтовый <code>LoHook hota.dll</code> (JMP + NOP), NOP-заполнение <code>0x90</code> на месте байта <code>50D095h</code>. Запись патчера: `0050D090 06 LoHook 0000001909 — HotA`.</li><li>Указатель таблицы <code>50D09Dh</code> пишет <code>hota.dll</code> (`0050D09D 04 Patch 0000000438 — HotA`); в дампе [50D09D] = указатель на кучу.</li><li>Размер таблицы (полный дамп, граница сегмента): ~1.23 МБ (161518 записей по 8 байт). Для шага <code>0x90000</code> нужно 0x90000 * 5 * 8 = 23.6 МБ — в ~18 раз больше.</li><li>Запись [4] таблицы = {<code>0x0A</code>, <code>0x0C</code>} (единственная ненулевая в первых 128 байтах); остальные — нули.</li></ul></div>
   </section>
 
   <section id="verdict">
     <h2><span class="htext">Вывод</span><a class="anchor" href="#verdict">¶</a></h2>
-    <div class="card verdict lvl-high"><p>Виновник: HD-мод (модуль <code>HD_SCX2.dll</code>, подсистема системных курсоров).</p><p>Дефект: HD-мод патчит байт шага курсорной таблицы (<code>50D095h</code>) с 4 на 16, раздувая шаг с 144 до <code>0x90000</code> (589824 записи на тип). Таблица выделена под меньший размер. Проверка границ формально проходит (индекс &lt; 0x90000 * 5), но не защищает от выхода за пределы реального буфера. Любой тип курсора &gt;= 1 вызывает чтение за границами в 32-битных графических режимах.</p><p>Предусмотренная кодом коррекция шага через HotA.ArtifactsCount (~146) не срабатывает: настройка равна 0 (авторегистрация <code>HD_SCX2.dll</code> опережает <code>hota.dll</code>).</p><p>Вылет стабильно воспроизводится на 12 версиях HD-мода (5.6 R37 — 5.7 R35), 34 уникальных лога. В SoD дефект отсутствует (оригинальный байт = 4, шаг 144 согласован с таблицей).</p></div>
+    <div class="card verdict lvl-high"><p>Виновник: HD-мод (модуль <code>HD_SCX2.dll</code>, подсистема системных курсоров) в связке с <code>hota.dll</code>.</p><p>Дефект: <code>HD_SCX2.dll</code> вычисляет шаг курсорной таблицы как 9 &lt;&lt; [<code>50D095h</code>], читая байт 50D095h как непосредственный операнд инструкции SoD `shl eax, 4` (оригинал <code>0x04</code>, шаг 144). Но <code>hota.dll</code> ставит 6-байтовый LoHook на начало функции (<code>50D090h</code>), и NOP-заполнение хука затирает байт 50D095h значением <code>0x90</code>. HD_SCX2.dll читает 0x90 как сдвиг (по модулю 32 = 16) и получает шаг 9 &lt;&lt; 16 = <code>0x90000</code> (589824 записи на тип). Указатель таблицы (<code>50D09Dh</code>) пишет hota.dll под её собственный малый шаг (~1.23 МБ всего). Проверка границ формально проходит (индекс &lt; 0x90000 * 5), но не защищает от выхода за реальный буфер. Любой тип курсора &gt;= 1 вызывает чтение за границами в 32-битных графических режимах.</p><p>Предусмотренная кодом коррекция шага через HotA.ArtifactsCount (~146) не срабатывает: настройка равна 0 (авторегистрация <code>HD_SCX2.dll</code> опережает <code>hota.dll</code>).</p><p>Совет по исправлению (HD-мод): источник шага в <code>HD_SCX2.dll</code> (<code>sub_2002030</code>/<code>sub_2001D80</code>, код `9 &lt;&lt; [<code>50D095h</code>]`) ненадёжен — байт 50D095h затирается хуком <code>hota.dll</code> на <code>50D090h</code>. Не брать шаг из этого байта при работе с HotA; использовать согласованный с hota.dll источник — настройку HotA.ArtifactsCount (~146, совпадает с реальным размером таблицы), устранив гонку инициализации (читать её после регистрации hota.dll, а не авторегистрировать с 0), либо подставлять корректный шаг по умолчанию (144) вместо 9 &lt;&lt; [затёртый байт].</p><p>Вылет стабильно воспроизводится на 12 версиях HD-мода (5.6 R37 — 5.7 R35), 34 уникальных лога. В чистом SoD дефект отсутствует (оригинальный байт = 4, шаг 144 согласован с таблицей, хука нет).</p></div>
   </section>
 
   </main>
