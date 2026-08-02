@@ -1,0 +1,51 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">#</a></h2>
+
+  <p>Рабочий поток рендера делает два выделения подряд. Первое
+  (мелкая структура) проверяется на NULL, второе (буфер кадра
+  в несколько мегабайт) — нет: результат сразу разыменовывается.
+  Когда malloc возвращает NULL, запись <code>mov [eax],ecx</code>
+  при EAX=0 бьёт по адресу 0x00000000.</p>
+
+  <div class="viz">
+    <div class="viz-strip badge-tl">
+      <div class="viz-box">
+        <span class="viz-badge">1</span>
+        <span>malloc</span>
+        <span class="lbl">0x4C байта</span>
+      </div>
+      <div class="viz-box ok">
+        <span class="viz-badge ok">&#10003;</span>
+        <span>проверка</span>
+        <span class="lbl">test esi,esi; jz</span>
+      </div>
+      <div class="viz-box">
+        <span class="viz-badge">2</span>
+        <span>malloc</span>
+        <span class="lbl">кадр W*H+0x18</span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">&#10007;</span>
+        <span>без проверки</span>
+        <span class="lbl">сразу [eax]</span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">&#10007;</span>
+        <span>запись [0]</span>
+        <span class="lbl">EAX=0, вылет</span>
+      </div>
+    </div>
+    <div class="viz-cap">Поток выделения буфера кадра в sub_10003970
+      (HD_VGL2.dll+0x460B&hellip;+0x4624)</div>
+
+    <div class="viz-legend">
+      <div class="item"><span class="viz-badge neutral"></span>
+        <span class="txt">код рабочего потока рендера</span></div>
+      <div class="item"><span class="viz-badge ok"></span>
+        <span class="txt">результат malloc проверяется (ветка отказа есть)</span></div>
+      <div class="item"><span class="viz-badge bad"></span>
+        <span class="txt">проверка пропущена и вылет: запись по EAX=0</span></div>
+    </div>
+  </div>
+</section>
