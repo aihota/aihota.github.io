@@ -1,0 +1,55 @@
+<section id="viz-crash">
+<h2>Визуализация вылета</h2>
+<p>Case 98 использует результат <code>A0_MapCell_GetSetup</code>
+как индекс массива городов. Для клетки с городом индекс
+допустим (0-47). Для клетки с героем или кораблём GetSetup
+возвращает другое значение (91, 141, 167, 173), и чтение
+выходит за границы массива.</p>
+
+<div class="viz">
+  <div class="viz-strip" style="max-width:600px">
+    <div class="viz-box ok" style="flex:3">
+      <span class="viz-badge ok">0</span>
+      Массив городов<br>
+      <small>[game_state+0x21614], шаг 0x168</small><br>
+      <small>до ~48 элементов</small>
+    </div>
+    <div class="viz-box bad" style="flex:1;border-left:3px dashed var(--bad)">
+      <span class="viz-badge bad">!</span>
+      Чтение за<br>границей
+    </div>
+  </div>
+</div>
+
+<div class="viz" style="margin-top:12px">
+  <div class="viz-strip" style="max-width:600px">
+    <div class="viz-box" style="flex:1;text-align:center">
+      <small>Индекс 91 (R33)</small><br>
+      <code>0x1E2E7030 + 91*0x168 + 1</code><br>
+      <code>= 0x1E2EF029</code>
+    </div>
+    <div class="viz-box" style="flex:1;text-align:center">
+      <small>Индекс 141 (R23)</small><br>
+      <code>0x1E288600 + 141*0x168 + 1</code><br>
+      <code>= 0x1E294C49</code>
+    </div>
+    <div class="viz-box" style="flex:1;text-align:center">
+      <small>Индекс 167 (R29)</small><br>
+      <code>0x194DD8D8 + 167*0x168 + 1</code><br>
+      <code>= 0x194EC3B1</code>
+    </div>
+    <div class="viz-box" style="flex:1;text-align:center">
+      <small>Индекс 173 (R35)</small><br>
+      <code>0x2E8B82B0 + 173*0x168 + 1</code><br>
+      <code>= 0x2E8C75F9</code>
+    </div>
+  </div>
+</div>
+
+<div class="viz-legend">
+  <div class="item"><span class="viz-badge ok">OK</span>
+    <span class="txt">Допустимый диапазон индексов (города)</span></div>
+  <div class="item"><span class="viz-badge bad">!</span>
+    <span class="txt">Индекс из GetSetup для героя/корабля — за границей</span></div>
+</div>
+</section>
