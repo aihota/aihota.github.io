@@ -1,0 +1,55 @@
+<section id="viz-crash">
+<h2>Визуализация вылета</h2>
+<p>Курсорная таблица выделена с малым шагом (оригинал SoD: 144 записи
+на тип). Код HD-мода индексирует её с шагом HotA.ArtifactsCount
+(0x90000 = 589824) — обращение к типу ≥ 1 уходит за границу буфера.</p>
+
+<div class="viz" style="flex-direction:column;gap:12px;">
+
+<!-- Row 1: actual table -->
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+  <span class="viz-badge ok" style="min-width:24px;">✓</span>
+  <span style="font-size:0.85rem;color:var(--ink);min-width:180px;">Реальная таблица (SoD-шаг 144):</span>
+  <div class="viz-strip" style="max-width:320px;">
+    <div class="viz-box ok"><span>тип 0</span><span class="lbl">144×8 Б</span></div>
+    <div class="viz-box ok"><span>тип 1</span><span class="lbl">144×8 Б</span></div>
+    <div class="viz-box ok"><span>тип 2</span><span class="lbl">144×8 Б</span></div>
+    <div class="viz-box ok"><span>…</span><span class="lbl">5 типов</span></div>
+  </div>
+  <span style="font-size:0.8rem;color:var(--ok);">≈ 5760 Б</span>
+</div>
+
+<!-- Row 2: code's view -->
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+  <span class="viz-badge bad" style="min-width:24px;">✗</span>
+  <span style="font-size:0.85rem;color:var(--ink);min-width:180px;">Индексация кода (шаг 0x90000):</span>
+  <div class="viz-strip" style="max-width:320px;">
+    <div class="viz-box"><span>тип 0</span><span class="lbl">0x90000×8</span></div>
+    <div class="viz-box bad"><span>тип 1</span><span class="lbl">+0x480000</span></div>
+    <div class="viz-box bad"><span>тип 2</span><span class="lbl">+0x900000</span></div>
+    <div class="viz-box bad"><span>тип 4</span><span class="lbl">+0x1200000</span></div>
+  </div>
+  <span style="font-size:0.8rem;color:var(--bad);">до 18,9 МБ</span>
+</div>
+
+<!-- Row 3: crash point -->
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+  <span class="viz-badge accent" style="min-width:24px;">!</span>
+  <span style="font-size:0.85rem;color:var(--ink);min-width:180px;">Вылет:</span>
+  <div class="viz-strip" style="max-width:400px;">
+    <div class="viz-box dim"><span>буфер</span><span class="lbl">куча</span></div>
+    <div class="viz-box accent"><span>граница</span><span class="lbl">конец alloc</span></div>
+    <div class="viz-box bad"><span>чтение</span><span class="lbl">[ecx+eax×8+4]</span></div>
+  </div>
+  <span style="font-size:0.8rem;color:var(--accent2);">ACCESS_VIOLATION</span>
+</div>
+
+</div>
+
+<div class="viz-legend">
+  <div class="item"><span class="viz-badge ok"></span><span class="txt">Реальный размер таблицы (SoD-наследование, шаг 144)</span></div>
+  <div class="item"><span class="viz-badge bad"></span><span class="txt">Обращение за границей (шаг ArtifactsCount = 0x90000)</span></div>
+  <div class="item"><span class="viz-badge accent"></span><span class="txt">Точка вылета — чтение за пределами выделения</span></div>
+  <div class="item"><span class="viz-badge neutral"></span><span class="txt">Выделенный буфер кучи</span></div>
+</div>
+</section>
