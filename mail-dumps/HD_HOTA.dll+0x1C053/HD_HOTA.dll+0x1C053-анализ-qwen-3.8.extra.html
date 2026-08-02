@@ -1,10 +1,11 @@
 <section id="viz-crash">
 <h2>Визуализация вылета</h2>
-<p>Case 98 использует результат <code>A0_MapCell_GetSetup</code>
-как индекс массива городов. Для клетки с городом индекс
-допустим (0-47). Для клетки с героем или кораблём GetSetup
-возвращает другое значение (91, 141, 167, 173), и чтение
-выходит за границы массива.</p>
+<p>Case 98 (<code>OBJ_TOWN</code>) использует <code>miu_setup</code>
+как индекс массива городов. Штатно <code>miu_setup</code> героя
+или корабля, стоящего на городе, — это индекс города (0-47),
+и отрисовка идёт штатно. Вылет происходит, когда
+<code>miu_setup</code> ПОВРЕЖДЁН и содержит значение вне массива
+(91, 141, 167, 173).</p>
 
 <div class="viz">
   <div class="viz-strip" style="max-width:600px">
@@ -48,8 +49,8 @@
 
 <div class="viz-legend">
   <div class="item"><span class="viz-badge ok">OK</span>
-    <span class="txt">Допустимый диапазон индексов (города)</span></div>
+    <span class="txt">Штатный miu_setup = индекс города (0-47)</span></div>
   <div class="item"><span class="viz-badge bad">!</span>
-    <span class="txt">Индекс из GetSetup для героя/корабля — за границей</span></div>
+    <span class="txt">Повреждённый miu_setup — индекс вне массива городов</span></div>
 </div>
 </section>
