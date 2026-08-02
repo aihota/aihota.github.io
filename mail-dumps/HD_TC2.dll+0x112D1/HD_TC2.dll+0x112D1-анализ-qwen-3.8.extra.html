@@ -1,0 +1,35 @@
+<section id="viz">
+  <h2>Визуализация вылета</h2>
+  <p>Адрес сбоя HD_TC2.dll+0x112D1 лежит не на границе инструкции: это второй
+  байт команды <code>movdqu xmm0, [esi]</code> внутри библиотечной
+  <code>_memmove</code>. Управление попало сюда извне (переход по битому
+  адресу), а регистровое состояние недостижимо штатным ходом функции.</p>
+
+  <div class="viz">
+    <div class="viz-strip badge-tl">
+      <div class="viz-box"><span class="viz-badge">0</span><span>F3</span><span class="lbl">0x112D0</span><span>префикс</span></div>
+      <div class="viz-box bad"><span class="viz-badge bad">1</span><span>0F</span><span class="lbl">0x112D1</span><span>EIP сюда</span></div>
+      <div class="viz-box"><span class="viz-badge">2</span><span>6F</span><span class="lbl">0x112D2</span><span>опкод</span></div>
+      <div class="viz-box"><span class="viz-badge">3</span><span>06</span><span class="lbl">0x112D3</span><span>ModRM</span></div>
+    </div>
+    <div class="viz-cap">Команда movdqu (F3 0F 6F 06): EIP приземлился на 2-й байт,
+    минуя начало инструкции на 0x112D0</div>
+  </div>
+
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box ok"><span>Норма</span><span class="lbl">XmmMovLargeLoop</span><span>ECX &gt;= 0x80</span></div>
+      <div class="viz-box bad"><span>Факт</span><span class="lbl">контекст</span><span>ECX = 0x28</span></div>
+      <div class="viz-box bad"><span>Факт</span><span class="lbl">контекст</span><span>EDI = EAX &gt;&gt; 8</span></div>
+    </div>
+    <div class="viz-cap">Большой цикл выполняет movdqu только при ECX &gt;= 0x80;
+    в контексте ECX = 0x28, а EDI = EAX &gt;&gt; 8 (повреждённый указатель).
+    Штатным ходом _memmove такое состояние не создаётся</div>
+  </div>
+
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge neutral"></span><span class="txt">байты инструкции (штатный код, совпадает с листингом)</span></div>
+    <div class="item"><span class="viz-badge bad"></span><span class="txt">точка приземления EIP / недостижимое значение регистра</span></div>
+    <div class="item"><span class="viz-badge ok"></span><span class="txt">нормальное условие входа в цикл</span></div>
+  </div>
+</section>
