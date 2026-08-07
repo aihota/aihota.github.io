@@ -1,0 +1,72 @@
+<!-- ВРЕЗКА ВИЗУАЛИЗАЦИЙ (sidecar). Правится руками; render_report.py её НЕ перезаписывает.
+     Только классы .viz-* из template.html: без <style>, без хардкода цветов,
+     без ручных координат в SVG. Все числа совпадают с txt-отчётом (источник истины):
+     раздел 3 (точка сбоя, строки 530-560) и раздел 5 (первопричина, строки 834-880). -->
+<section id="extra-viz" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span><a class="anchor" href="#extra-viz">¶</a></h2>
+  <p>Три схемы показывают весь путь вылета: лишний нулевой байт за концом буфера сообщения (раздел 5), затёртый служебный заголовок соседнего блока и превращение этой порчи в запись по несуществующему адресу (раздел 3). Новых фактов схемы не вводят.</p>
+
+  <h3>Шаг 1. Буфер сообщения: выделено на байт меньше, чем записано</h3>
+  <div class="viz">
+    <div class="viz-strip badge-tl">
+      <div class="viz-box accent"><span class="viz-badge accent">H</span>заголовок<span class="lbl">0x00…0x1B</span></div>
+      <div class="viz-box ok"><span class="viz-badge ok">S</span>строка 35 байт<span class="lbl">0x1C…0x3E</span></div>
+      <div class="viz-box ok"><span class="viz-badge ok">Z</span>ноль строки<span class="lbl">0x3F</span></div>
+      <div class="viz-box bad dashed"><span class="viz-badge bad">X</span>лишний ноль<span class="lbl">0x40</span><span class="lbl">за концом</span></div>
+    </div>
+    <p class="viz-cap">запрошено <code>strlen + 0x1D</code> = 0x40 байт (законные индексы 0x00…0x3F), а записано <code>strlen + 2</code> байта от смещения 0x1C — последний байт ложится на 0x40</p>
+  </div>
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge accent">H</span>
+      <span class="txt">Заголовок сообщения — 0x1C байт; признак типа <code>0x96B</code> в +0x08, длина запроса в +0x0C.</span></div>
+    <div class="item"><span class="viz-badge ok">S</span>
+      <span class="txt">Строка вида &laquo;&lt;СИСТЕМА&gt;: Случайный город: Темница&raquo; — 35 байт; именно при такой длине запрос равен ровно 0x40.</span></div>
+    <div class="item"><span class="viz-badge ok">Z</span>
+      <span class="txt">Завершающий ноль строки — последний законный байт блока.</span></div>
+    <div class="item"><span class="viz-badge bad">X</span>
+      <span class="txt">Лишний ноль: правильный запрос — <code>strlen + 0x1E</code>. Рабочее дефектное место — 0x1001BFE9 в HW_HOTA.dll; вторая копия того же кода в модуле недостижима.</span></div>
+  </div>
+  <p>В дампе найдено 49 буферов этого сообщения, и у девяти из них запрос равен ровно 0x40 — при других длинах строки лишний байт попадает в выравнивающий хвост блока и следа не оставляет.</p>
+
+  <h3>Шаг 2. Куда попадает лишний ноль</h3>
+  <div class="viz">
+    <div class="viz-strip badge-tl">
+      <div class="viz-box accent dim"><span class="viz-badge accent">A</span>буфер сообщения<span class="lbl">0x0F300DF0</span><span class="lbl">… 0x0F300E2F</span></div>
+      <div class="viz-box bad"><span class="viz-badge bad">B</span>заголовок соседа<span class="lbl">0x0F300E30</span><span class="lbl">E9 → 00</span></div>
+      <div class="viz-box ok"><span class="viz-badge ok">C</span>тело соседа<span class="lbl">0x0F300E38</span></div>
+    </div>
+    <p class="viz-cap">0x0F300DF0 + 0x40 = 0x0F300E30: байт ложится не в свой блок, а в служебный заголовок следующего</p>
+  </div>
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge accent">A</span>
+      <span class="txt">Слот буфера-виновника, тело ровно 0x40 байт; к моменту снимка уже переиспользован под кэш-подложку диалога 600×260 (A0_Pcx16).</span></div>
+    <div class="item"><span class="viz-badge bad">B</span>
+      <span class="txt">Служебное слово заголовка: было 0x418E4CE9, стало 0x418E4C00 — изменён ровно один байт, остальные три целы.</span></div>
+    <div class="item"><span class="viz-badge ok">C</span>
+      <span class="txt">Пользовательский указатель 0x0F300E38 — дочерний элемент закрываемого диалога; именно его освобождение читает испорченный заголовок.</span></div>
+  </div>
+
+  <h3>Шаг 3. Как один байт превращается в вылет</h3>
+  <div class="viz">
+    <div class="viz-strip badge-tl">
+      <div class="viz-box accent"><span class="viz-badge accent">1</span>освобождение<span class="lbl">_free</span><span class="lbl">0x00619BF6</span></div>
+      <div class="viz-box accent"><span class="viz-badge accent">2</span>короткий путь LFH<span class="lbl">HeapFree</span><span class="lbl">RtlFreeHeap</span></div>
+      <div class="viz-box bad"><span class="viz-badge bad">3</span>разбор заголовка<span class="lbl">0x0ECDEF61</span><span class="lbl">вместо 0x0ECDEF88</span></div>
+      <div class="viz-box bad"><span class="viz-badge bad">4</span>чтение мусора<span class="lbl">[ESI] =</span><span class="lbl">0x000ECDF2</span></div>
+      <div class="viz-box bad dashed"><span class="viz-badge bad">F</span>запись в никуда<span class="lbl">0x77A0E52B</span><span class="lbl">0xC0000005</span></div>
+    </div>
+    <p class="viz-cap">формула <code>SubSegment = raw XOR (адрес заголовка &gt;&gt; 3) XOR RtlpLFHKey XOR куча</code> на испорченном слове даёт невыровненный подсегмент</p>
+  </div>
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge accent">1</span>
+      <span class="txt">Закрытие диалога поэлементно удаляет дочерние элементы; освобождение идёт через накладку HD-мода _HD3_.dll+0x118F0.</span></div>
+    <div class="item"><span class="viz-badge accent">2</span>
+      <span class="txt">Куча 0x061E0000: блок до 64 байт освобождается коротким путём, и ntdll читает его служебный заголовок.</span></div>
+    <div class="item"><span class="viz-badge bad">3</span>
+      <span class="txt">Из затёртого слова декодируется подсегмент 0x0ECDEF61 вместо истинного 0x0ECDEF88 (разница — те самые 0xE9).</span></div>
+    <div class="item"><span class="viz-badge bad">4</span>
+      <span class="txt">По нему читаются мнимые поля: <code>[ESI+4]</code> = 0xA0000000 и <code>[ESI]</code> = 0x000ECDF2, которое попадает в EAX.</span></div>
+    <div class="item"><span class="viz-badge bad">F</span>
+      <span class="txt">Адрес сбоя ntdll.dll+0x2E52B: <code>mov [eax], esi</code> пишет по 0x000ECDF2 — такой страницы в процессе нет, отсюда исключение 0xC0000005.</span></div>
+  </div>
+</section>
