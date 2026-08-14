@@ -1,0 +1,188 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-14T17:32:05.242286+00:00",
+  "parser_revision": "184a5d04d80e5babd30c02009ecf8f739277122d",
+  "report": {
+    "path": "HD_HOTA.dll+0x18FBEE-анализ-gpt-5.6-sol.txt",
+    "size": 30781,
+    "sha256": "0a74be2f5a043d60d152b41b5beb664f8b2f0a44daa0756c3878b67fe11b09b4"
+  },
+  "inputs": [
+    {
+      "path": "HD_HOTA.dll+0x18FBEE-5.7-R40-180.txt",
+      "size": 11372,
+      "sha256": "3b09e8597add8dc0c645a17f63279667314699de6d10d694babaebae4c44a0d6",
+      "role": "source"
+    },
+    {
+      "path": "HD_HOTA.dll+0x18FBEE-5.7-R40-180.dmp",
+      "size": 92957,
+      "sha256": "197a0d01ed278e8d36fd7f7566e2ad324b24dbee3d3304cf13bd7395ccacc574",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_HOTA.dll+0x18FBEE-5.7-R40-180-AUTOZAPIS.GM1",
+      "size": 180648,
+      "sha256": "7d6b5030837d2938444df0903c880bf3a858bece76be4dbe2c9106fb8a27a3b7",
+      "role": "derived"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.7 R40.txt",
+      "size": 50700332,
+      "sha256": "1e982b9b517af1f3f1744ff1e87f0941609af2bf08c7b8d6867d2ead92903054",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/h3hota.exe.txt",
+      "size": 79196875,
+      "sha256": "a659b437fa53df6e65a763481c03538a79b0899130ea4b9dfeba1dd9b5e0ddd6",
+      "role": "source"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x13F68E-1.8.0-1.txt",
+      "size": 9505,
+      "sha256": "99c4d639547b72f4f7a654e5413680300dfe7f14629c98895b51b35b5a63ebce",
+      "role": "source"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x13F68E-1.8.0-1-97CAD.txt",
+      "size": 9505,
+      "sha256": "99c4d639547b72f4f7a654e5413680300dfe7f14629c98895b51b35b5a63ebce",
+      "role": "source"
+    },
+    {
+      "path": "relocation-manifest.json",
+      "size": 1863,
+      "sha256": "2f37bcd9d6ef48e3ce5e0356448c52fc2222148aaff5eb87bb0d6d27ab04a410",
+      "role": "derived"
+    },
+    {
+      "path": "HD_HOTA.dll+0x18FBEE-static-exhaustion.txt",
+      "size": 5559,
+      "sha256": "7cf9012014aed4912b8636d2976970c7791c817e9161bb352dbe384d8c86fc3b",
+      "role": "derived"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 13386,
+      "sha256": "54446dc4c180803d7640a92e8995d37cfa8e66ac37549ebf792b5a806039a740"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/report_schema.py",
+      "size": 4385,
+      "sha256": "a12921b9ee548c4b35580ad731d28e93a46c088dac96214b6bbce4cee45b4a8f"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/lint_report.py",
+      "size": 67222,
+      "sha256": "b525723943b41147816383e2eac9516f62dcdc83f266cebec851fc757057bc5b"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+      "size": 22472,
+      "sha256": "add6c99dbeba0fa008bf563f2c1522ca72160b1148bab66ce62e3965578d2709"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/effective_address.py",
+      "size": 5466,
+      "sha256": "2d5e90dccd5e31b886f03c879eed8ba141fe9c826d58e0c79fe5748416816673"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/relocate_crash_family.py",
+      "size": 37831,
+      "sha256": "24ed349a271c6dea5e23f7e94aec3be00bfe9e298f26470c51b20d6e33a27ece"
+    },
+    {
+      "path": "../../.agents/skills/html-report/render_report.py",
+      "size": 969,
+      "sha256": "ede2dd05af3e754cf2c1004ae1d0b1e83277617dc8da912e7308fc4f74e03cb2"
+    }
+  ],
+  "commands": [
+    "effective_address: base=0x117A8C20 offset=+1 observed=0x117A8C21",
+    "effective_address: base=0x1427BD40 offset=+1 observed=0x1427BD41",
+    "listing_lookup: modules/HD_HOTA.dll-5.7 R40.txt address=0x0118FBEE",
+    "dump_query: HD_HOTA.dll+0x18FBEE-5.7-R40-180.dmp what=streams,ranges,threads,exception",
+    "dump_query: HD_HOTA.dll+0x18FBEE-5.7-R40-180.dmp what=read address=0x117A8C20",
+    "corpus_query: mail-dumps mode=crash_address dedup=true mapped-owner-check-sites",
+    "python3 .agents/skills/hota-crash-triage/static_exhaustion_check.py modules/HD_HOTA.dll-5.7\\ R40.txt --crash 0x0118FBEE --func 0x0118F9FA --fields 38h 1h 22h --module HD_HOTA.dll --versions RC4 R40",
+    "python3 .agents/skills/multi-dump-diff/relocate_crash_family.py verify --manifest mail-dumps/HD_HOTA.dll+0x18FBEE/relocation-manifest.json"
+  ],
+  "facts": {
+    "r40_effective_address": "0x117A8C20 + 1 = 0x117A8C21",
+    "rc4_effective_address": "0x1427BD40 + 1 = 0x1427BD41",
+    "r40_mapping": "0x0393FBEE - 0x037B0000 + 0x01000000 = 0x0118FBEE",
+    "r40_instruction": ".text:0118FBEE 3A 41 01 cmp al,[ecx+1]",
+    "family": "3 physical TXT; 2 unique incidents",
+    "rc4_relation": "confirmed_same_defect by registers and stack; exact RC4 listing absent",
+    "corpus": "5194 files read; 5124 crash logs; 1262 byte-identical duplicates skipped; 2 mapped hits",
+    "dmp_capture": "29 MemoryList ranges; about 43.8 KiB; 0x117A8C20 not captured",
+    "listing_coverage": "30 available HD_HOTA.dll 5.7 listings; RC4 absent",
+    "town_layout": "GameMgr+0x21614 begin; +0x21618 end; element size 0x168"
+  },
+  "claims": [
+    {
+      "id": "r40-ea",
+      "statement": "Для R40 арифметика точна: 0x117A8C20 + 1 = 0x117A8C21.",
+      "evidence": [
+        "fact:r40_effective_address",
+        "command:1"
+      ]
+    },
+    {
+      "id": "rc4-ea",
+      "statement": "Для RC4 арифметика также точна: 0x1427BD40 + 1 = 0x1427BD41.",
+      "evidence": [
+        "fact:rc4_effective_address",
+        "command:2"
+      ]
+    },
+    {
+      "id": "local-mechanism",
+      "statement": "Именно потеря этой проверки является доказанным локальным дефектом.",
+      "evidence": [
+        "fact:town_layout",
+        "command:3"
+      ]
+    },
+    {
+      "id": "family-sites",
+      "statement": "попадания: HD_HOTA.dll+0x18FBEE и HD_HOTA.dll+0x13F68E.",
+      "evidence": [
+        "fact:corpus",
+        "command:6"
+      ]
+    },
+    {
+      "id": "dmp-limit",
+      "statement": "имеет статус not_captured, а не «объект отсутствовал».",
+      "evidence": [
+        "fact:dmp_capture",
+        "command:4",
+        "command:5"
+      ]
+    },
+    {
+      "id": "market-term",
+      "statement": "Это не городской объект «Рынок».",
+      "evidence": [
+        "fact:rc4_relation",
+        "command:3"
+      ]
+    },
+    {
+      "id": "rc4-listing-limit",
+      "statement": "Листинг RC4 среди этих 30 отсутствует",
+      "evidence": [
+        "fact:listing_coverage",
+        "command:7"
+      ]
+    }
+  ],
+  "code_evidence": {
+    "level": "instruction-boundary",
+    "note": "граница инструкции подтверждена листингом"
+  }
+}
