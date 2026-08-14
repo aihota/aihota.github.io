@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-14T16:28:38.929823+00:00",
+  "generated_at": "2026-08-14T16:32:47.871315+00:00",
   "parser_revision": "cb4eaeb",
   "report": {
     "path": "HD_MCR.dll+0x790D-анализ-gpt-5.6-sol.txt",
-    "size": 17071,
-    "sha256": "a7511d14f0c98745192b35e5dd4d5beb6159d843fe782df0d6ff331700e6d604"
+    "size": 17088,
+    "sha256": "2d732bcf899376559956cc0a6e27f09f596a569aadeb34e8fec1077082613bb0"
   },
   "inputs": [
     {
