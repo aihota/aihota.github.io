@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-14T12:12:37.428810+00:00",
+  "parser_revision": "1df893b45c9b7477871bdfadfd70855eb850205c",
+  "report": {
+    "path": "HD_HOTA.dll+0x1BF22-анализ-gpt-5.6-sol.txt",
+    "size": 40363,
+    "sha256": "a7127ad3b856a0517e30f4f03392bb12d3161e8043f6a81ed4d34ee73fd8c999"
+  },
+  "inputs": [
+    {
+      "path": "HD_HOTA.dll+0x1BF22-5.7-R40-180.txt",
+      "size": 9768,
+      "sha256": "4ecfcab3f72987831beaaaf01258462a06b76218153db8e946bb254f2d6caeb2",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_HOTA.dll+0x1BF22-5.7-R40-180.dmp",
+      "size": 112092,
+      "sha256": "a93b3303844bf74dc4bf6d79b211a538c9e6cc957d10106ae67decdf65091465",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_HOTA.dll+0x1BF22-5.7-R40-180-AUTOSAVE.GM2",
+      "size": 76483,
+      "sha256": "3c382c7d749bb94752dbf5f6b5cdf90d074f95a11ed2748add6acc296f8daaf0",
+      "role": "derived"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.7 R40.txt",
+      "size": 50700332,
+      "sha256": "1e982b9b517af1f3f1744ff1e87f0941609af2bf08c7b8d6867d2ead92903054",
+      "role": "source"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1AA22-1.8.0-1.txt",
+      "size": 9124,
+      "sha256": "0c458b3d71019140e734528f8cff60de2f4081ad85cc3deab96aea373cb7ac4c",
+      "role": "runtime"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1AA22-1.8.0-1-97CAD.txt",
+      "size": 9124,
+      "sha256": "0c458b3d71019140e734528f8cff60de2f4081ad85cc3deab96aea373cb7ac4c",
+      "role": "runtime"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/save-map-analysis/read_save_map.py",
+      "size": 23329,
+      "sha256": "2e5d4df0180b6a34444ed3136644a9358e33875c114c8bfbcaa9a0c84bb39461"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/dump_profile.py",
+      "size": 22819,
+      "sha256": "5128c70afe92a145302351e680530f3038206393672f297f7d09854cf10a5ace"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/modular_index.py",
+      "size": 5388,
+      "sha256": "6c3655ec13c04213c6d123fdddbc0e828f65d485780c358f841356fa7ba67076"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/branch_census.py",
+      "size": 5186,
+      "sha256": "95f36773091c1338fa889c1b05485b1f6e6466eef71d8f107b3e7124b672daec"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/family_fingerprint.py",
+      "size": 7949,
+      "sha256": "85c69624c15966eb8e98713b21cdef154759468e2fb21b1d803555bff60654d6"
+    }
+  ],
+  "commands": [
+    "read_save_map.py AUTOSAVE.GM2 --role derived --find 0x309B4D72 --find 0xB09B4D72",
+    "dump_profile.py HD_HOTA.dll+0x1BF22-5.7-R40-180.dmp --json",
+    "modular_index.py --stride 0x492 --delta 0x25C7F304 --min 0 --max 155",
+    "branch_census.py 'modules/HD_HOTA.dll-5.7 R40.txt' --address 0x101B61A --length 9"
+  ],
+  "facts": {
+    "unpack": "raw-deflate@10",
+    "inner_signature": "H3SVG@0x49",
+    "unpacked_size": "473923",
+    "save_format": "10",
+    "players": "2",
+    "map": "pipetko,atata 2026.08.13 20;03 {Default}.h3m",
+    "candidate_setup_hits": "0,0",
+    "minidump_stream_count": "12",
+    "process_thread_count": "37",
+    "memory_ranges": "44",
+    "saved_memory_bytes": "50816",
+    "modular_representatives": "0x309B4D72,0xB09B4D72",
+    "branch_coverage": "2/2 sites; 713921 instructions"
+  },
+  "code_evidence": {
+    "level": "dmp-window",
+    "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
+  }
+}
