@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-14T14:56:25.123280+00:00",
-  "parser_revision": "4260572536ce2983d84eb0c2e5607239f9612ae6",
+  "generated_at": "2026-08-14T16:28:38.929823+00:00",
+  "parser_revision": "cb4eaeb",
   "report": {
     "path": "HD_MCR.dll+0x790D-анализ-gpt-5.6-sol.txt",
-    "size": 15746,
-    "sha256": "3af07eaaa587c2dfa4ef23260ac418752e184dae3ef1d0b5559081143e4062fc"
+    "size": 17071,
+    "sha256": "a7511d14f0c98745192b35e5dd4d5beb6159d843fe782df0d6ff331700e6d604"
   },
   "inputs": [
     {
@@ -31,22 +31,94 @@
       "size": 3522265,
       "sha256": "658e825b53447bbb544da32bb5c84ae113b2b37ffe883f885efbb0acd8e29d70",
       "role": "source"
+    },
+    {
+      "path": "HD_MCR.dll+0x790D-indirect-call-contract.input.json",
+      "size": 419,
+      "sha256": "55c6bbb120ecd55dad9f73c9f1804a6abb5c7af7cc8971ed5f62fcf60156090f",
+      "role": "derived"
+    },
+    {
+      "path": "HD_MCR.dll+0x790D-abi-audit.json",
+      "size": 814,
+      "sha256": "a2150d77dc88e408c7d42a0df7b873de0ee1f34c2d1848796e0363e6cfcbb071",
+      "role": "derived"
+    },
+    {
+      "path": "HD_MCR.dll+0x790D-state-tuple.input.json",
+      "size": 535,
+      "sha256": "22586acfee5ea93036d740edb28911c038e3a467db292b4d618e11d029f14ec8",
+      "role": "derived"
+    },
+    {
+      "path": "HD_MCR.dll+0x790D-state-tuple-audit.json",
+      "size": 728,
+      "sha256": "d45a9501e16aced271821bd4b112610f2f059dab6e6b71a46fafa39d45b22574",
+      "role": "derived"
+    },
+    {
+      "path": "HD_MCR.dll+0x790D-PAIRPROBE-WDBG/result.json",
+      "size": 2124,
+      "sha256": "59a14c2e7ed5da85a02bc36bff7288ae01cd01b19ae1c866b09315f97f9e922a",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_MCR.dll+0x790D-PAIRPROBE-WDBG/identity.json",
+      "size": 817,
+      "sha256": "006f57336b3775219123d611e2f3f314a0e71d9b754974d47a2240dfe4b0d6d1",
+      "role": "runtime"
+    },
+    {
+      "path": "family-manifest.json",
+      "size": 41811,
+      "sha256": "124112852158ae78d8b0b17b1bd1a6cd0fd718429bb5f1a2d498de87705e58bd",
+      "role": "derived"
     }
   ],
   "tools": [
     {
       "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
-      "size": 8605,
-      "sha256": "b5aa3b7343f54406ad474d6c1ac35d50254f88650e98506525b92283d1c4ff4e"
+      "size": 13386,
+      "sha256": "54446dc4c180803d7640a92e8995d37cfa8e66ac37549ebf792b5a806039a740"
     },
     {
       "path": "../../.agents/skills/address-mapping/dump_profile.py",
       "size": 23887,
       "sha256": "1bb0d18599e26a6c78f6e3515a9864d953cf2aa758b85f1da50f904783624499"
+    },
+    {
+      "path": "../../.agents/skills/root-cause-by-sibling/indirect_call_contract.py",
+      "size": 5001,
+      "sha256": "1e4f1afcbc55a80bb9ae77573d7bc0889e8c7660dc5b1121359bbadc9f043a6b"
+    },
+    {
+      "path": "../../.agents/skills/root-cause-by-sibling/state_tuple_audit.py",
+      "size": 3619,
+      "sha256": "7f152e5b9cd23b51698b24f1fdde78aff8702497615fedbd5cc2fbf06b854246"
+    },
+    {
+      "path": "../../.agents/skills/runtime-verification/runtime_result.py",
+      "size": 17222,
+      "sha256": "3d55d416da060d71e808854ad9ad5de0c30ba13d14c0a96e0e8a607fcb46d63f"
+    },
+    {
+      "path": "../../.agents/skills/runtime-verification/publication_gate.py",
+      "size": 5649,
+      "sha256": "a1f46fcbb4711cbc6f84ce9d848d651b2371559634900570fc343912a1ebbf5b"
+    },
+    {
+      "path": "../../report_consistency.py",
+      "size": 10152,
+      "sha256": "b2d4ba73fbff42f4f558d28d7985ae7fc0c933c6519782e7a9a5f00dd8c1a15f"
     }
   ],
   "commands": [
-    "python3 .agents/skills/address-mapping/dump_profile.py --input mail-dumps/HD_MCR.dll+0x790D/HD_MCR.dll+0x790D-5.7-R40-180-1.dmp --threads"
+    "python3 .agents/skills/address-mapping/dump_profile.py --input mail-dumps/HD_MCR.dll+0x790D/HD_MCR.dll+0x790D-5.7-R40-180-1.dmp --threads",
+    "python3 .agents/skills/root-cause-by-sibling/indirect_call_contract.py mail-dumps/HD_MCR.dll+0x790D/HD_MCR.dll+0x790D-indirect-call-contract.input.json --out mail-dumps/HD_MCR.dll+0x790D/HD_MCR.dll+0x790D-abi-audit.json --expect invalid",
+    "python3 .agents/skills/root-cause-by-sibling/state_tuple_audit.py mail-dumps/HD_MCR.dll+0x790D/HD_MCR.dll+0x790D-state-tuple.input.json --out mail-dumps/HD_MCR.dll+0x790D/HD_MCR.dll+0x790D-state-tuple-audit.json --expect has_impossible",
+    "python3 .agents/skills/runtime-verification/runtime_result.py check mail-dumps/HD_MCR.dll+0x790D/HD_MCR.dll+0x790D-PAIRPROBE-WDBG/result.json --run-dir mail-dumps/HD_MCR.dll+0x790D/HD_MCR.dll+0x790D-PAIRPROBE-WDBG",
+    "python3 - <<'PY'\nimport glob,os,re\nfiles=[p for p in glob.glob('mail-dumps/HD_MCR.dll/*.txt') if '-анализ-' not in os.path.basename(p)]\ntags=('+0x76ED','+0x7AFC','+0x7B21','+0x7B25','+0x7B66','+0x7B9B')\nprint(len(files),sum(any(t.lower() in os.path.basename(p).lower() for t in tags) for p in files),sum('+0x790d' in os.path.basename(p).lower() for p in files),len({m.group(1).lower() for p in files for m in [re.search(r'\\+0x([0-9a-f]+)',os.path.basename(p),re.I)] if m}))\nPY",
+    "python3 report_consistency.py --root 'mail-dumps/HD_MCR.dll+0x790D'"
   ],
   "facts": {
     "exception_address": "0x20449570",
@@ -55,8 +127,93 @@
     "exception_tid": "46788",
     "stack_owner_tid": "42280",
     "confirmed_family_txt": "1",
-    "probable_related_txt": "162"
+    "probable_related_txt": "162",
+    "physical_txt": "226",
+    "unique_offsets": "24",
+    "exact_790d": "0",
+    "caller_argument_words": "8",
+    "callee_argument_words": "10",
+    "callee_retn_bytes": "0x28",
+    "runtime_target": "HD_MCR.dll+0x790D",
+    "runtime_root": "runtime-runs",
+    "runtime_required": "true",
+    "runtime_result": "HD_MCR.dll+0x790D-PAIRPROBE-WDBG/result.json",
+    "runtime_outcome": "harness_termination",
+    "runtime_negative_result_valid": "false",
+    "runtime_snapshot": "HD_MCR.dll+0x790D-PAIRPROBE-WDBG",
+    "probable_selected_txt": "162"
   },
+  "claims": [
+    {
+      "id": "fault-address",
+      "statement": "ESI = 0x20449570",
+      "evidence": [
+        "fact:exception_address",
+        "fact:esi",
+        "input:HD_MCR.dll+0x790D-5.7-R40-180-1.txt",
+        "command:1"
+      ]
+    },
+    {
+      "id": "caller-abi",
+      "statement": "case 0 передаёт 8",
+      "evidence": [
+        "fact:caller_argument_words",
+        "input:HD_MCR.dll+0x790D-abi-audit.json",
+        "tool:../../.agents/skills/root-cause-by-sibling/indirect_call_contract.py",
+        "command:2"
+      ]
+    },
+    {
+      "id": "callee-abi",
+      "statement": "sub_2007780 читает 10",
+      "evidence": [
+        "fact:callee_argument_words",
+        "fact:callee_retn_bytes",
+        "input:HD_MCR.dll+0x790D-abi-audit.json",
+        "command:2"
+      ]
+    },
+    {
+      "id": "impossible-tuple",
+      "statement": "невозможное штатное состояние",
+      "evidence": [
+        "input:HD_MCR.dll+0x790D-state-tuple-audit.json",
+        "tool:../../.agents/skills/root-cause-by-sibling/state_tuple_audit.py",
+        "command:3"
+      ]
+    },
+    {
+      "id": "probable-family",
+      "statement": "162 журнала",
+      "evidence": [
+        "fact:probable_related_txt",
+        "fact:physical_txt",
+        "command:5",
+        "input:family-manifest.json",
+        "command:6"
+      ]
+    },
+    {
+      "id": "exact-absence",
+      "statement": "точного +0x790D там нет",
+      "evidence": [
+        "fact:exact_790d",
+        "fact:physical_txt",
+        "command:5"
+      ]
+    },
+    {
+      "id": "runtime-outcome",
+      "statement": "outcome=harness_termination, negative_result_valid=false",
+      "evidence": [
+        "fact:runtime_outcome",
+        "fact:runtime_negative_result_valid",
+        "input:HD_MCR.dll+0x790D-PAIRPROBE-WDBG/result.json",
+        "command:4"
+      ]
+    }
+  ],
   "code_evidence": {
     "level": "dmp-window",
     "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"

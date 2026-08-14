@@ -1,0 +1,1141 @@
+{
+  "schema": 2,
+  "primary": "HD_MCR.dll+0x790D-5.7-R40-180-1.txt",
+  "external_series": [],
+  "relationships": [
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R35-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R36-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R36-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-10.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-11.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-12.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-13.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-14.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-15.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-16.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-17.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-18.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-19.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-20.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-21.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-22.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-23.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-24.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-25.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-26.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-27.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-28.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-29.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-3.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-30.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-31.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-4.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-5.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-6.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-7.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-8.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.6-R37-180-9.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-R3-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC10-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC10-180-10.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC10-180-11.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC10-180-12.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC10-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC10-180-3.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC10-180-4.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC10-180-5.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC10-180-6.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC10-180-7.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC10-180-8.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC10-180-9.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC11-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC11-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC11-180-3.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC2-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC2-180-10.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC2-180-11.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC2-180-12.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC2-180-13.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC2-180-14.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC2-180-15.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC2-180-16.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC2-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC2-180-3.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC2-180-4.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC2-180-5.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC2-180-6.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC2-180-7.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC2-180-8.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC2-180-9.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC4-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC4-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC4-180-3.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC4-180-4.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC4-180-5.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC6-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC6-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC6-180-3.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC6-180-4.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC6-180-5.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC7-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC7-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC7-180-3.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC9-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC9-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC9-180-3.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC9-180-4.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC9-180-5.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC9-180-6.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x76ED-5.7-RC9-180-7.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.6-R35-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.6-R35-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.6-R35-180-3.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.6-R37-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.6-R37-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.6-R37-180-3.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.6-R37-180-4.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.6-R37-180-5.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.6-R37-180-6.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-R1-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-R1-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-R3-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-R3-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC1-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC10-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC10-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC10-180-3.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC10-180-4.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC10-180-5.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC10-180-6.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC11-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC11-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC11-180-3.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC12-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC12-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC12-180-3.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC2-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC2-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC2-180-3.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC2-180-4.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC4-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC4-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC4-180-3.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC4-180-4.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC4-180-5.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC6-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC6-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC6-180-3.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC6-180-4.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC6-180-5.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC6-180-6.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC6-180-7.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC7-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC7-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC8-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC9-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC9-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC9-180-3.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC9-180-4.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC9-180-5.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC9-180-6.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC9-180-7.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7AFC-5.7-RC9-180-8.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B21-5.6-R36-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B21-5.7-RC11-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B21-5.7-RC11-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B21-5.7-RC4-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B21-5.7-RC4-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B21-5.7-RC6-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B21-5.7-RC7-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B25-5.6-R35-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B25-5.6-R36-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B25-5.6-R37-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B25-5.7-R1-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B25-5.7-RC1-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B25-5.7-RC10-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B25-5.7-RC10-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B25-5.7-RC4-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B25-5.7-RC7-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B25-5.7-RC7-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B25-5.7-RC9-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B25-5.7-RC9-180-2.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B66-5.7-RC4-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B66-5.7-RC7-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B9B-5.7-RC8-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x7B9B-5.7-RC9-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "count_in_family": false,
+      "publish_with_primary": false,
+      "basis": "neighboring MMX kernel; shared subsystem only"
+    }
+  ]
+}
