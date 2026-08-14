@@ -1,0 +1,30 @@
+<!-- Ручная врезка: механизм уже доказан в TXT; стили берутся из шаблона. -->
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>HD_TC2.dll складывает три компонента адреса, сохраняет результат в
+  кадре и без проверки читает первый байт текущей строки.</p>
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box accent"><span class="viz-badge accent">B</span>
+        <span class="lbl">поле [+30h]</span></div>
+      <div class="viz-box dim"><span class="viz-badge">O</span>
+        <span class="lbl">строка * шаг + X</span></div>
+      <div class="viz-box bad dashed"><span class="viz-badge bad">F</span>
+        <span class="lbl">0 или 0x32</span></div>
+      <div class="viz-box bad"><span class="viz-badge bad">R</span>
+        <span class="lbl">mov cl, [edx]</span></div>
+    </div>
+    <p class="viz-cap">[EBP+14h] = EDI = EDX = адрес сбоя во всех пяти DMP</p>
+  </div>
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge accent">B</span>
+      <span class="txt">Буфер пикселей Pcx8 берётся из поля [+30h].</span></div>
+    <div class="item"><span class="viz-badge">O</span>
+      <span class="txt">К нему добавляются номер строки, шаг [+2Ch] и X.</span></div>
+    <div class="item"><span class="viz-badge bad">F</span>
+      <span class="txt">Итоговый адрес уже равен 0 или 0x32 до цикла.</span></div>
+    <div class="item"><span class="viz-badge bad">R</span>
+      <span class="txt">Первое чтение по EDX вызывает нарушение доступа.</span></div>
+  </div>
+</section>

@@ -1,0 +1,241 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-14T13:38:29.401812+00:00",
+  "parser_revision": "workspace-2026-08-14",
+  "report": {
+    "path": "HD_TC2.dll+0x6B24-анализ-gpt-5.6-sol.txt",
+    "size": 29523,
+    "sha256": "4ba98a6887ea27caa496b767c2d9514cff9e34c72022b570f44a61999ee0073a"
+  },
+  "inputs": [
+    {
+      "path": "HD_TC2.dll+0x6B24.parse.json",
+      "size": 47007,
+      "sha256": "39ca626cdd52b99633a0134e825f2d08a5ef8fdb63d0ec516e94a6999b956acb",
+      "role": "derived"
+    },
+    {
+      "path": "../HD_TC2.dll/HD_TC2.dll-all.parse.json",
+      "size": 1665274,
+      "sha256": "d98d3c8787f6a1a32d6a75cc711f74d83a5177eb4f128172c7d0f2b6576acbf5",
+      "role": "derived"
+    },
+    {
+      "path": "HD_TC2.dll+0x6B24-relocation.json",
+      "size": 11569,
+      "sha256": "d4faeb044c535235e0846da81e1e4559dd4dbdca30b43a098044ce9409ab11dc",
+      "role": "derived"
+    },
+    {
+      "path": "../../180/HD_TC2.dll",
+      "size": 144896,
+      "sha256": "75629770e9e094114ab8e2761ececbf52e1584f31a5dfe74282c6e60ed1390c6",
+      "role": "source"
+    },
+    {
+      "path": "../../180/HotA.dll",
+      "size": 2513920,
+      "sha256": "0a1daa1d8f29870b5cb72ebba54a88c43a366473530b908bd23fafc7968223a7",
+      "role": "source"
+    },
+    {
+      "path": "../../180/h3hota_HD.exe",
+      "size": 2932736,
+      "sha256": "5aaab925f06cccf23bb09814767590a95b84a557eb33d244800520be4f1f18de",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_TC2.dll-5.7 R36.txt",
+      "size": 3711986,
+      "sha256": "86ba1a23f84f12ef6ca52d4daf9aed48cddd9dae2b151959a4c62a0b76d52105",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_TC2.dll-5.7 R37.txt",
+      "size": 3711988,
+      "sha256": "45e5ec542c5b579d7610cfe325074274e1ad633cad86df6504d45383dc65580d",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_TC2.dll-5.7 R39.txt",
+      "size": 3711986,
+      "sha256": "3f45c80d7d4c8b34d50621894144ab4905965b196933ced943688b99101bd93b",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_TC2.dll.txt",
+      "size": 3552079,
+      "sha256": "1b5320a390c5a2cfbc830b0b95bc1574f3266f1f4966a93275bde5d175cb3b0c",
+      "role": "source"
+    },
+    {
+      "path": "HD_TC2.dll+0x6B24-5.7-R40-180-1.txt",
+      "size": 13828,
+      "sha256": "40d54de8b857cbfe2e92796e48ca1d5d8350cc5ce1222c15c610bdfc60c144b5",
+      "role": "source"
+    },
+    {
+      "path": "HD_TC2.dll+0x6B24-5.7-R40-180-2.txt",
+      "size": 12636,
+      "sha256": "0fde898ab1cdb643119989ce0d5d29cb32850825fff709f45c553990844572a7",
+      "role": "source"
+    },
+    {
+      "path": "HD_TC2.dll+0x6B24-5.7-R40-180-3.txt",
+      "size": 12219,
+      "sha256": "66f2ef3cb32d58bbbb16b0cd0d4f2f64f642ef97e8fe8699b1a2eb1133b5965e",
+      "role": "source"
+    },
+    {
+      "path": "HD_TC2.dll+0x6B24-5.7-R40-180-4.txt",
+      "size": 12509,
+      "sha256": "2377c28d4c396e0382d1b6927c8f5bdd52a89eea8b84214c086539345878a7c7",
+      "role": "source"
+    },
+    {
+      "path": "HD_TC2.dll+0x6B24-5.7-R40-180-5.txt",
+      "size": 8389,
+      "sha256": "e453a0c15f691db4da061cc4e8c4c6c021794d4e056f8756224a037ed3a6501e",
+      "role": "source"
+    },
+    {
+      "path": "../HD_TC2.dll/HD_TC2.dll+0x6AD4-5.7-R37-180-1.txt",
+      "size": 7380,
+      "sha256": "b749bc73919dac826ad0bf3be2eccf2dc1a62c9ec4fc5d229eee4f9d7f1219b9",
+      "role": "source"
+    },
+    {
+      "path": "../HD_TC2.dll/HD_TC2.dll+0x6AD4-5.7-R37-180-2.txt",
+      "size": 7504,
+      "sha256": "b23f49483aa016abee4662cb51559f8baa4f39637d65c0cfd2c6cae21b1de2a3",
+      "role": "source"
+    },
+    {
+      "path": "HD_TC2.dll+0x6B24-5.7-R40-180-1.dmp",
+      "size": 140207,
+      "sha256": "6ccd0dd886187cd2ed8ebf5e311dbd30335a790c93fff8f588cb7fbed466294b",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_TC2.dll+0x6B24-5.7-R40-180-2.dmp",
+      "size": 109546,
+      "sha256": "a2ff799be791d38b3a5e3adda590d7e8768b2806f1d014b3ae7b6589ff69eaba",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_TC2.dll+0x6B24-5.7-R40-180-3.dmp",
+      "size": 113947,
+      "sha256": "aeb6194f3dbf9c4a93b749630092cdc348e340837bc79728b8021d9dc51a0286",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_TC2.dll+0x6B24-5.7-R40-180-4.dmp",
+      "size": 109455,
+      "sha256": "8963050a432f308f3addab9241adee6427ea948c88c5a5d2cf46227d75fd1e89",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_TC2.dll+0x6B24-5.7-R40-180-5.dmp",
+      "size": 151401,
+      "sha256": "646fb3fbb57bc72b3ad1bfe9c7b9b3b02fb75d23a3634dedd26f51a911349b82",
+      "role": "runtime"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_TC2.dll+0x67B0-5.7-R23-180-1.dmp",
+      "size": 130983,
+      "sha256": "9b3eb221b879ddaf1755941a4c7f1f0cac9ede06a61be1fe9d5d403c0fb0a734",
+      "role": "runtime"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_TC2.dll+0x67B0-5.7-R35-180-1.dmp",
+      "size": 180408,
+      "sha256": "0bbf52e2b47cf0da511d11fc4a0102b1bb5dfa78460d72d795d4d95537bb2b8f",
+      "role": "runtime"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_TC2.dll+0x67B0-5.7-R35-180-2.dmp",
+      "size": 219063,
+      "sha256": "7d0f27e5add88aea2e0b20e150020a954350c4e270e10422a4c3341749788d0f",
+      "role": "runtime"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_TC2.dll+0x6805-5.7-R19-180-1.dmp",
+      "size": 115676,
+      "sha256": "34f28e75124ae96cd1535ae05be9e2f5e4c3e315560681a8c1a8b559f8ae9a7c",
+      "role": "runtime"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_TC2.dll+0x6AD4-5.7-R38-180-1.dmp",
+      "size": 174535,
+      "sha256": "3263bb04af4fa89ebcb0c416664dfb8151e476b63ee075769458d61559ecb2af",
+      "role": "runtime"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_TC2.dll+0x6AD4-5.7-R39-180-1.dmp",
+      "size": 89537,
+      "sha256": "deef2dc632c44916ab38ea2c98b76354bfde43d958f91f7fe95292b3a77d2ead",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_TC2.dll+0x6B24-5.7-R40-180-1-BATTLE.GM1",
+      "size": 1026704,
+      "sha256": "66817fd7c8d833a2366736f56feea58a43f19d16139c0482f378aa117f475bce",
+      "role": "unknown"
+    },
+    {
+      "path": "HD_TC2.dll+0x6B24-5.7-R40-180-3-TURN_BEGIN.GM2",
+      "size": 145129,
+      "sha256": "7d4e04e82418414461cc7f8085a74b5ac7fcdef071f5e6437ee4af38fc05c9cf",
+      "role": "unknown"
+    },
+    {
+      "path": "HD_TC2.dll+0x6B24-5.7-R40-180-4-BATTLE_non_continuable.GM2",
+      "size": 143951,
+      "sha256": "b89395781a895fb5bd5f07f7f489c06bb47e67fcbf7b378f936fb6d13992202e",
+      "role": "unknown"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/multi-dump-diff/parse_dumps.py",
+      "size": 24799,
+      "sha256": "72f633b464bb4f2719aa85947fec9b91ab6c652662bcae89fca3a418b6c57015"
+    },
+    {
+      "path": "../../.agents/skills/save-map-analysis/read_save_map.py",
+      "size": 23329,
+      "sha256": "2e5d4df0180b6a34444ed3136644a9358e33875c114c8bfbcaa9a0c84bb39461"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+      "size": 22472,
+      "sha256": "add6c99dbeba0fa008bf563f2c1522ca72160b1148bab66ce62e3965578d2709"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/relocate_crash_family.py",
+      "size": 21500,
+      "sha256": "36b5da652097ace93ad0b1c40fb34fe33946116ee3d427a79b5b37b27313abb1"
+    }
+  ],
+  "commands": [
+    "parse_dumps.py: target 5 TXT with report table and JSON",
+    "dump_query: context, modules, frame memory and object-range checks for 11 DMP",
+    "objdump: exact R40 Draw 0x02006A50, loader 0x02009630 and HotA caller 0x10076E60",
+    "read_save_map.py: three target saves, structural parse only, role unknown",
+    "relocate_crash_family.py: plan, apply and verify 22 confirmed files"
+  ],
+  "facts": {
+    "target_unique": "5",
+    "target_dmp": "5",
+    "target_faults": "0,0,0,0,0x32",
+    "confirmed_family_unique": "21",
+    "relocated_txt": "16",
+    "relocated_dmp": "6",
+    "probable_hd56": "87",
+    "object_ranges_missing": "11/11"
+  },
+  "code_evidence": {
+    "level": "full-binary",
+    "note": "полный бинарный образ сверён по размеру, метке и SHA-256"
+  }
+}
