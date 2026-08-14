@@ -1,0 +1,14 @@
+{
+  "schema": 2,
+  "purpose": "Границы подтверждённой межверсионной семьи вылетов",
+  "local_series": ".",
+  "relationships": [
+    {
+      "path": "../HD_HOTA.dll+0xA91F",
+      "relation": "confirmed_same_defect",
+      "reason": "Тот же обработчик, форма чтения ECX+0x34, сетевой стек и Me: ERROR; серия опубликована отдельно",
+      "count_in_family": true,
+      "publish_with_primary": false
+    }
+  ]
+}

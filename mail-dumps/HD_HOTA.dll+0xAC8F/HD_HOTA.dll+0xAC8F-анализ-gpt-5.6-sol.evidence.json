@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-14T13:29:27.321460+00:00",
+  "parser_revision": "82210b2e377a4b10d56f63146e37c2165bfd146e",
+  "report": {
+    "path": "HD_HOTA.dll+0xAC8F-анализ-gpt-5.6-sol.txt",
+    "size": 25217,
+    "sha256": "e3f417fea22455508bffb095b134dc3378964d17151ad36865671e847a4f4fe1"
+  },
+  "inputs": [
+    {
+      "path": "HD_HOTA.dll+0xAC8F-5.7-R40-180.txt",
+      "size": 9290,
+      "sha256": "e7b574dd4ff27e9c1cf93d0b4d07260dec1985abba91d6d41b509e267148789d",
+      "role": "source"
+    },
+    {
+      "path": "HD_HOTA.dll+0xAC8F-5.7-R40-180.dmp",
+      "size": 137730,
+      "sha256": "b00abde6104126e8606cb77d1163f38fc31fc59c9c8c979240bf184df7350887",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_HOTA.dll+0xAC8F-5.7-R40-180-AUTOSAVE.GM2",
+      "size": 384554,
+      "sha256": "06b0b5ce11e048e71a085dbfe97f2385a49341449aa496ec9eff3a0aa3275296",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.7 R40.txt",
+      "size": 50700332,
+      "sha256": "1e982b9b517af1f3f1744ff1e87f0941609af2bf08c7b8d6867d2ead92903054",
+      "role": "source"
+    },
+    {
+      "path": "relocation-manifest.json",
+      "size": 23268,
+      "sha256": "fbf9e022a3f04c572aa9796eab5f56ea4b32a3ef04185e38cd348efbd2032610",
+      "role": "derived"
+    },
+    {
+      "path": "family-manifest.json",
+      "size": 519,
+      "sha256": "67fed24673da095b85be18dcaff8d9c1fabd6fe2370a957179eb4f1a98df7fbb",
+      "role": "derived"
+    },
+    {
+      "path": "../../runtime-runs/AC8F-20260814-1508-ONESHOT2-AC8F/result.json",
+      "size": 1492,
+      "sha256": "734f8ebae586dc6fda89c3bf5eaa1ce1b0bbc8e51646af303f30d79e6a9b4a6c",
+      "role": "runtime"
+    },
+    {
+      "path": "../../runtime-runs/AC8F-20260814-1508-ONESHOT2-AC8F/topology.json",
+      "size": 1175,
+      "sha256": "5719d81ed25d2a466b432f546154801f14022f47e018cf3819a775c43f05e6e2",
+      "role": "runtime"
+    },
+    {
+      "path": "../../runtime-runs/AC8F-20260814-1508-ONESHOT2-AC8F/wdbg_out",
+      "size": 9862,
+      "sha256": "a10d4a1ed7e665e14d7c6f218fcfe4bb68863ef2cc0718294c004005c0eccff2",
+      "role": "runtime"
+    },
+    {
+      "path": "../../runtime-runs/AC8F-20260814-1508-ONESHOT2-AC8F/PATCH_STATE.json",
+      "size": 596,
+      "sha256": "9c155d215c6dac136a2885888625d0e342f0e3a8862fa24d356b9ed5e6197c71",
+      "role": "runtime"
+    },
+    {
+      "path": "../../runtime-runs/AC8F-20260814-1508-ONESHOT2-AC8F/PATCH_LOG.txt",
+      "size": 392,
+      "sha256": "78eef475a1e1f97e2df4a32c4053d833b7e1d80b3f1c64b8b84e5b81b8650382",
+      "role": "runtime"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 8605,
+      "sha256": "b5aa3b7343f54406ad474d6c1ac35d50254f88650e98506525b92283d1c4ff4e"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/lint_report.py",
+      "size": 57906,
+      "sha256": "4b00f193811b4959bc041c06b0e9727a97d321956236eac766c463bb8bf7459c"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/report_metadata.py",
+      "size": 4918,
+      "sha256": "fdb914334827de3d562db9ccb13031fb89b843a917ef7d121a5899e5934f5e2a"
+    },
+    {
+      "path": "../../.agents/skills/runtime-verification/runtime_result.py",
+      "size": 6029,
+      "sha256": "1561170d69aed0067ab3166975d6a4d01f817f2594a139666f1b0da859a95d0f"
+    },
+    {
+      "path": "../../report_consistency.py",
+      "size": 10152,
+      "sha256": "b2d4ba73fbff42f4f558d28d7985ae7fc0c933c6519782e7a9a5f00dd8c1a15f"
+    }
+  ],
+  "commands": [
+    "python3 .agents/skills/runtime-verification/runtime_result.py check runtime-runs/AC8F-20260814-1508-ONESHOT2-AC8F/result.json",
+    "python3 .agents/skills/hota-crash-triage/lint_report.py --publish mail-dumps/HD_HOTA.dll+0xAC8F/HD_HOTA.dll+0xAC8F-анализ-gpt-5.6-sol.txt",
+    "python3 report_consistency.py --root mail-dumps/HD_HOTA.dll+0xAC8F"
+  ],
+  "facts": {
+    "crash_instruction": "movzx ecx, byte ptr [ecx+34h]",
+    "crash_bytes": "0F B6 49 34",
+    "runtime_outcome": "armed_not_reached",
+    "instrumentation": "disk-int3-verified",
+    "target_hits": "0",
+    "natural_crash": "no",
+    "final_stop": "synthetic_debugger_stop",
+    "dll_restored": "yes",
+    "local_family": "31 unique / 59 physical TXT",
+    "confirmed_family": "32 unique / 90 physical TXT",
+    "clean_dll_sha256": "b2e45e452c6f96ee1272d571bc663c76fd2beaa936790becfc999e5424033138"
+  },
+  "code_evidence": {
+    "level": "dmp-window",
+    "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
+  }
+}
