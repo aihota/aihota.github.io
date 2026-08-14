@@ -1,0 +1,186 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-14T20:24:15.927054+00:00",
+  "parser_revision": "daef505115c008749fbe56501dc1143683e481c2",
+  "report": {
+    "path": "HD_HOTA.dll+0x44EED-анализ-gpt-5.6-sol.txt",
+    "size": 29141,
+    "sha256": "18f59a26b53c54472b40fe9a1b9557a7066e25d9bf8ca172c2cd12c01dfe24ae"
+  },
+  "inputs": [
+    {
+      "path": "HD_HOTA.dll+0x44EED-5.7-R40-180.txt",
+      "size": 6797,
+      "sha256": "7551ad081615b1fc225fc82d479eb056ea72041a15090c018b7bcb5d7e023e3d",
+      "role": "source"
+    },
+    {
+      "path": "HD_HOTA.dll+0x44EED-5.7-R40-180.dmp",
+      "size": 52953,
+      "sha256": "2583c3762fb24f397a8fbdaf0f7aa2635f83ab1f6312e439e463d9d9ec852e0c",
+      "role": "runtime"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x44E82-5.7-R39-180.txt",
+      "size": 6809,
+      "sha256": "fd890d8dbde12e7c58a9786e14dcfb8337c0cfe29cc9fc24487f98c12b099171",
+      "role": "source"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x44E82-5.7-R39-180.dmp",
+      "size": 54306,
+      "sha256": "3deeff60493c1575a7d1255688ee6bf2029ba1b4fc0062cfa3ca564b7db5953a",
+      "role": "runtime"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.7 R40.txt",
+      "size": 50700332,
+      "sha256": "1e982b9b517af1f3f1744ff1e87f0941609af2bf08c7b8d6867d2ead92903054",
+      "role": "derived"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.7 R39.txt",
+      "size": 50679267,
+      "sha256": "e84030e1493f601b69bd8ecd2e9717624f4f117f533b9986aa00d7d26d8b0929",
+      "role": "derived"
+    },
+    {
+      "path": "relocation-manifest.json",
+      "size": 44681,
+      "sha256": "f4f780bcfba799b989ccbca15f4c218de4fd4b84a5c9bd1611e2797c83564138",
+      "role": "derived"
+    },
+    {
+      "path": "pair-audit.json",
+      "size": 25570,
+      "sha256": "e9fc64bb48ad097189292a85daffc88a2b9c6e8b15680e443450cd588eb15f3b",
+      "role": "derived"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+      "size": 22472,
+      "sha256": "add6c99dbeba0fa008bf563f2c1522ca72160b1148bab66ce62e3965578d2709"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/branch_census.py",
+      "size": 5186,
+      "sha256": "95f36773091c1338fa889c1b05485b1f6e6466eef71d8f107b3e7124b672daec"
+    },
+    {
+      "path": "../../.agents/skills/version-regression-diff/diff_funcs.py",
+      "size": 8834,
+      "sha256": "b372816799b923290467701bd5f00b790fdce98afcd01439d65437c17ca25827"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/relocate_crash_family.py",
+      "size": 37831,
+      "sha256": "24ed349a271c6dea5e23f7e94aec3be00bfe9e298f26470c51b20d6e33a27ece"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/pair_audit.py",
+      "size": 18325,
+      "sha256": "c7232e7c353faefdc46a728f047262989abf0fe6952200e3e9a8e08e7e872ecf"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 14851,
+      "sha256": "d11c4d1f174243d7533fbf785cc9691750c80a7481593c27b3341d706216f97f"
+    }
+  ],
+  "commands": [
+    "python3 .agents/skills/hota-crash-triage/static_exhaustion_check.py 'modules/HD_HOTA.dll-5.7 R40.txt' --crash 0x01044EED --func 0x01044EA0 --fields 8h --module HD_HOTA.dll --versions R40 R39 R18 R17 R12 R8 R6 RC12 RC11 RC10 RC9 RC7 RC6 RC4 RC2 R37 R36 R29 R24",
+    "python3 .agents/skills/address-mapping/branch_census.py 'modules/HD_HOTA.dll-5.7 R40.txt' --address 0x01044EDB --length 12 --json",
+    "python3 .agents/skills/multi-dump-diff/pair_audit.py 'mail-dumps/HD_HOTA.dll+0x44EED' --json-out 'mail-dumps/HD_HOTA.dll+0x44EED/pair-audit.json' --allow-unpaired --summary-only",
+    "MCP corpus_query mode=crash_address subdir=mail-dumps/HD_HOTA.dll+0x44EED dedup=true",
+    "python3 .agents/skills/multi-dump-diff/relocate_crash_family.py verify --manifest 'mail-dumps/HD_HOTA.dll+0x44EED/relocation-manifest.json'"
+  ],
+  "facts": {
+    "unique_incidents": "35",
+    "physical_txt": "65",
+    "physical_dmp": "4",
+    "crash_addresses": "16",
+    "hd_builds": "19",
+    "exact_pairs": "4",
+    "search_path": "21",
+    "rebuild_path": "14",
+    "null_key_reads": "23",
+    "nonnull_bad_key_reads": "12",
+    "exact_listing_cases": "11",
+    "missing_listing_cases": "24",
+    "r40_instruction": "0x01044EED",
+    "r40_key_value": "0x00000000",
+    "r39_instruction": "0x01044E82",
+    "function_instructions": "212",
+    "function_calls": "7",
+    "relation": "confirmed_same_defect",
+    "target_object_capture": "not_captured",
+    "exception_tid": "1112",
+    "esp_tid": "5284",
+    "listing_scan_instructions": "713921",
+    "hd_folder_unique": "781",
+    "hd_folder_mapped_cases": "207",
+    "hd_folder_unmapped_cases": "574",
+    "hd_folder_known_addresses": "0",
+    "race_status": "not_proven"
+  },
+  "claims": [
+    {
+      "confidence": "не проверено",
+      "id": "local_mechanism",
+      "statement": "Непосредственная причина — нулевой строковый ключ уже готового узла.",
+      "evidence": [
+        "fact:r40_instruction",
+        "fact:r40_key_value",
+        "input:HD_HOTA.dll+0x44EED-5.7-R40-180.txt",
+        "input:HD_HOTA.dll+0x44EED-5.7-R40-180.dmp"
+      ]
+    },
+    {
+      "confidence": "не проверено",
+      "id": "family_count",
+      "statement": "35 уникальных инцидентов, 16 адресов и 19 сборок;",
+      "evidence": [
+        "fact:unique_incidents",
+        "fact:crash_addresses",
+        "fact:hd_builds",
+        "input:relocation-manifest.json",
+        "input:pair-audit.json"
+      ]
+    },
+    {
+      "confidence": "не проверено",
+      "id": "family_relation",
+      "statement": "статус confirmed_same_defect.",
+      "evidence": [
+        "fact:relation",
+        "input:relocation-manifest.json"
+      ]
+    },
+    {
+      "confidence": "не проверено",
+      "id": "race_limit",
+      "statement": "гонка не доказана.",
+      "evidence": [
+        "fact:race_status",
+        "input:HD_HOTA.dll+0x44EED-5.7-R40-180.dmp"
+      ]
+    },
+    {
+      "confidence": "не проверено",
+      "id": "folder_limit",
+      "statement": "известных адресов и сопоставленных функций семьи не выявлено",
+      "evidence": [
+        "fact:hd_folder_known_addresses",
+        "fact:hd_folder_mapped_cases",
+        "fact:hd_folder_unmapped_cases",
+        "command:4"
+      ]
+    }
+  ],
+  "code_evidence": {
+    "level": "instruction-boundary",
+    "note": "граница инструкции подтверждена листингом"
+  }
+}
