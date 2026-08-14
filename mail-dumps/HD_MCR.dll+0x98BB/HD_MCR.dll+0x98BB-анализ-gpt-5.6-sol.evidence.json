@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-14T12:22:08.345083+00:00",
+  "parser_revision": "6ec75899fa7c6e76205a54f10d1f46151bf25a98",
+  "report": {
+    "path": "HD_MCR.dll+0x98BB-анализ-gpt-5.6-sol.txt",
+    "size": 17573,
+    "sha256": "ef4f686118982bfbdde58b04886a9a3dedbccb181f509b99e224e330e7aa7b17"
+  },
+  "inputs": [
+    {
+      "path": "HD_MCR.dll+0x98BB-5.7-R40-180.txt",
+      "size": 6382,
+      "sha256": "bab3400371e07d1ec9c420fa3bcadf1b32ec19062256b8aa25308c41606dde23",
+      "role": "source"
+    },
+    {
+      "path": "HD_MCR.dll+0x98BB-5.7-R40-180.dmp",
+      "size": 111819,
+      "sha256": "24a2875be839328d5ea465d88351d53877739c3cbe63f493974e16dcba17cb66",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_MCR.dll+0x98BB-5.7-R40-180-BATTLE.GM2",
+      "size": 748384,
+      "sha256": "d70fb1b600b58d2127fd115a95537b89226dd375befa559c82ddb481e49befa5",
+      "role": "unknown"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_MCR.dll+0xA240-5.7-R23-180-1.txt",
+      "size": 8760,
+      "sha256": "a16469626a3d690497e19f86c1b310d42d5ebc906db35f8989556125959e0f82",
+      "role": "source"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_MCR.dll+0xA240-5.7-R23-180-1.dmp",
+      "size": 112711,
+      "sha256": "145d3c83ffef62f95773706b79ad4d194530d64715f96b4b632e94da6d95edcf",
+      "role": "runtime"
+    },
+    {
+      "path": "relocation-manifest.json",
+      "size": 1320,
+      "sha256": "6aa9d018cb9dd94b3e8b9b298db8584b964b6e14408421565308356c0da734bf",
+      "role": "derived"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x98BB-5.7-R40-180-1.txt",
+      "size": 6523,
+      "sha256": "866200c737b04362b66961251f0152b3216a051a2c97e17d8a789d398fa341d2",
+      "role": "source"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x98BB-5.7-R40-180-1.dmp",
+      "size": 111819,
+      "sha256": "24a2875be839328d5ea465d88351d53877739c3cbe63f493974e16dcba17cb66",
+      "role": "runtime"
+    },
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0x98BB-5.7-R40-180-1-BATTLE.GM2",
+      "size": 748384,
+      "sha256": "d70fb1b600b58d2127fd115a95537b89226dd375befa559c82ddb481e49befa5",
+      "role": "unknown"
+    },
+    {
+      "path": "../../modules/HD_MCR.dll-5.7 R40.txt",
+      "size": 3522265,
+      "sha256": "658e825b53447bbb544da32bb5c84ae113b2b37ffe883f885efbb0acd8e29d70",
+      "role": "derived"
+    },
+    {
+      "path": "../../modules/HD_MCR.dll-5.7 R39.txt",
+      "size": 3522267,
+      "sha256": "7fc823433889d5208a3121e6a6d26bb3f6a879d5125487fdf2e318ef7b708fe6",
+      "role": "derived"
+    },
+    {
+      "path": "../../modules/HD_MCR.dll.txt",
+      "size": 3522235,
+      "sha256": "882727ce96e62083c42020d1d30d2a438beb49dfb9a43cb9eecb00dc7772fd22",
+      "role": "derived"
+    },
+    {
+      "path": "../../modules/HD_MCR.dll-old.txt",
+      "size": 1993207,
+      "sha256": "7b4699c850ba33557894414f28efb592e65311c0ee265a4bf2109d21255e3de0",
+      "role": "derived"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/address-mapping/read_dump.py",
+      "size": 14393,
+      "sha256": "2f4e50788965e00e48cfca9e77bc76ca0bbdce5d7daa7a0724ae17db7ec2bdf1"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/dump_profile.py",
+      "size": 22819,
+      "sha256": "5128c70afe92a145302351e680530f3038206393672f297f7d09854cf10a5ace"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/parse_dumps.py",
+      "size": 24799,
+      "sha256": "72f633b464bb4f2719aa85947fec9b91ab6c652662bcae89fca3a418b6c57015"
+    },
+    {
+      "path": "../../.agents/skills/save-map-analysis/read_save_map.py",
+      "size": 23329,
+      "sha256": "2e5d4df0180b6a34444ed3136644a9358e33875c114c8bfbcaa9a0c84bb39461"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/triage.py",
+      "size": 8286,
+      "sha256": "3ba63bd2b52036cdbc98b1b8957f7281974b8bb926b3fc3f733bf117b8b7b415"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 8605,
+      "sha256": "b5aa3b7343f54406ad474d6c1ac35d50254f88650e98506525b92283d1c4ff4e"
+    }
+  ],
+  "commands": [
+    "MCP crash_case: mail-dumps/HD_MCR.dll+0x98BB",
+    "MCP dump_query: exception, modules, threads, ranges и read для двух DMP",
+    "MCP listing_lookup: 0x020098BB и родственные обработчики",
+    "python3 .agents/skills/multi-dump-diff/parse_dumps.py mail-dumps/HD_MCR.dll+0x98BB --report-table",
+    "python3 .agents/skills/save-map-analysis/read_save_map.py mail-dumps/HD_MCR.dll+0x98BB/HD_MCR.dll+0x98BB-5.7-R40-180-BATTLE.GM2",
+    "python3 .agents/skills/mail-fetch/fetch_mail.py --folder \"HD_MCR.dll\" --out \"mail-dumps/HD_MCR.dll\" --attachments --limit 233"
+  ],
+  "facts": {
+    "crash_address": "HD_MCR.dll+0x98BB",
+    "exception": "0xC0000005 read 0x2CA861DC",
+    "effective_address": "0x022463E0 + 4 * 0x0AA0FF7F = 0x2CA861DC",
+    "exception_thread": "1268",
+    "esp_stack_thread": "2904",
+    "related_case": "HD_MCR.dll+0xA240; связь вероятна",
+    "related_effective_address": "0x00640824 + 0x00170F09 = 0x007B172D",
+    "corpus": "227 unique TXT; 25 crash offsets; 224 without exact version listing",
+    "save_role": "unknown"
+  },
+  "code_evidence": {
+    "level": "dmp-window",
+    "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
+  }
+}
