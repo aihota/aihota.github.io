@@ -1,0 +1,15 @@
+{
+  "schema": 2,
+  "purpose": "Явные границы подтверждённой семьи и вероятных связей",
+  "local_series": ".",
+  "external_series": [],
+  "relationships": [
+    {
+      "path": "../HD_MCR.dll/HD_MCR.dll+0xA240-5.7-R23-180-1.txt",
+      "relation": "probable_same_subsystem",
+      "reason": "Общая подсистема, диспетчер и пакет параметров; точного листинга R23 и доказательства общей первопричины нет",
+      "count_in_family": false,
+      "publish_with_primary": false
+    }
+  ]
+}
