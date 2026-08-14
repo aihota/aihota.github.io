@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-14T15:54:40.204181+00:00",
+  "generated_at": "2026-08-14T16:38:48.434441+00:00",
   "parser_revision": "parse_dumps.py/current-project",
   "report": {
     "path": "549BD8-анализ-gpt-5.6-sol.txt",
-    "size": 26768,
-    "sha256": "4b06c6d6a67d669570c1d999451821146b3bddbe1c8547d2515e93e81a5da335"
+    "size": 34903,
+    "sha256": "efb3fb77d9bb7997030dcbe80f9a57999204d3751677e21a363300b5c8f06099"
   },
   "inputs": [
     {
@@ -103,6 +103,30 @@
       "size": 79196875,
       "sha256": "a659b437fa53df6e65a763481c03538a79b0899130ea4b9dfeba1dd9b5e0ddd6",
       "role": "source"
+    },
+    {
+      "path": "549BD8-vs-532D1F.json",
+      "role": "derived",
+      "size": 3472,
+      "sha256": "27ab948b852c13b3854d20cc1e84ed681b7ea49b5879961e7e63cdac81798649"
+    },
+    {
+      "path": "../532D1F/532D1F-анализ-gpt-5.6-sol.txt",
+      "role": "source",
+      "size": 27179,
+      "sha256": "82b7f175d7c9cd049bec0c25e63bee2a953a16d87969fd9021a4a6268be171ea"
+    },
+    {
+      "path": "0x00549BD8-5.6-R24-180-5-AUTOSAVE.GM1",
+      "role": "runtime",
+      "size": 352389,
+      "sha256": "e77b9685bacd887a638a83e2871af6c700937f86c8181faf5de5b572f77802cf"
+    },
+    {
+      "path": "../532D1F/0x00532D1F-5.6-R24-180-7-AUTOSAVE.GM1",
+      "role": "runtime",
+      "size": 352389,
+      "sha256": "e77b9685bacd887a638a83e2871af6c700937f86c8181faf5de5b572f77802cf"
     }
   ],
   "tools": [
@@ -128,8 +152,8 @@
     },
     {
       "path": "../../.agents/skills/hota-crash-triage/lint_report.py",
-      "size": 63588,
-      "sha256": "81ab453cd839baa1b04bb2550f4c27636db34d3b7d5ea391db86d98e58a5f1d7"
+      "size": 67222,
+      "sha256": "b525723943b41147816383e2eac9516f62dcdc83f266cebec851fc757057bc5b"
     },
     {
       "path": "../../.agents/skills/html-report/render_report.py",
@@ -142,7 +166,8 @@
     "Профили 54 DMP и выборочная проверка четырёх полных контекстов через dump_profile.py",
     "Кросс-версионная матрица по 230 записям и 52 меткам HD-мода через cross_version_matrix.py",
     "python3 .agents/skills/hota-crash-triage/static_exhaustion_check.py modules/h3hota.exe.txt --crash 0x549BD8 --func 0x5492E0 --fields 10h 14h 18h 28h --module h3hota.exe",
-    "python3 .agents/skills/hota-crash-triage/lint_report.py mail-dumps/549BD8/549BD8-анализ-gpt-5.6-sol.txt --publish"
+    "python3 .agents/skills/hota-crash-triage/lint_report.py mail-dumps/549BD8/549BD8-анализ-gpt-5.6-sol.txt --publish",
+    "Побайтовое сопоставление 106 и 262 файлов сохранений, значений ingame.Map file и путей 532D1F; результат 549BD8-vs-532D1F.json"
   ],
   "facts": {
     "unique_logs": "230",
@@ -156,7 +181,12 @@
     "dmp_code_windows_matching_listing": "2",
     "hd_labels": "52",
     "directory_scan_depth_two": "92",
-    "river_placer_body": "0x0055F080-0x0055F0F3"
+    "river_placer_body": "0x0055F080-0x0055F0F3",
+    "related_case": "532D1F",
+    "related_path_a": "488/513",
+    "related_shared_save_files": "1 of 106 vs 262",
+    "related_shared_save_sha256": "e77b9685bacd887a638a83e2871af6c700937f86c8181faf5de5b572f77802cf",
+    "related_common_map_strings": "5"
   },
   "code_evidence": {
     "level": "dmp-window",
