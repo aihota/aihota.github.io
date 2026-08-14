@@ -1,0 +1,37 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+    <a class="anchor" href="#viz-mechanism">#</a></h2>
+  <p>Две установленные ветви передают нулевой адрес назначения в
+    <code>_memset</code> при ненулевой длине.</p>
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box accent">R<span class="lbl">operator new</span></div>
+      <div class="viz-box bad dashed">0<span class="lbl">NULL</span></div>
+      <div class="viz-box accent">M<span class="lbl">_memset, N &gt; 0</span></div>
+      <div class="viz-box bad">F<span class="lbl">запись 0x00000000</span></div>
+    </div>
+    <div class="viz-strip">
+      <div class="viz-box accent">A<span class="lbl">[AIMgr+24h] = 0</span></div>
+      <div class="viz-box bad dashed">0<span class="lbl">NULL</span></div>
+      <div class="viz-box accent">M<span class="lbl">_memset, N &gt; 0</span></div>
+      <div class="viz-box bad">F<span class="lbl">запись 0x00000000</span></div>
+    </div>
+    <p class="viz-cap">Ресурсный путь и путь ИИ сходятся на одной
+      инструкции <code>rep stosb</code>.</p>
+  </div>
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge accent">R</span>
+      <span class="txt">Ресурсная ветвь: <code>operator new</code>
+      возвращает нулевой адрес.</span></div>
+    <div class="item"><span class="viz-badge accent">A</span>
+      <span class="txt">Ветка ИИ: функция поиска возвращает ноль при
+      нулевом поле <code>[AIMgr+24h]</code>.</span></div>
+    <div class="item"><span class="viz-badge bad">0</span>
+      <span class="txt">Нулевой адрес не проверяется потребителем.</span></div>
+    <div class="item"><span class="viz-badge accent">M</span>
+      <span class="txt"><code>_memset</code> получает ненулевую длину.</span></div>
+    <div class="item"><span class="viz-badge bad">F</span>
+      <span class="txt">Первая запись выполняется по адресу
+      <code>0x00000000</code>.</span></div>
+  </div>
+</section>

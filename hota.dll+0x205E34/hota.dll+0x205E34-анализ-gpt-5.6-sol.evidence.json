@@ -1,0 +1,89 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-14T20:43:38.899144+00:00",
+  "parser_revision": "daef505115c008749fbe56501dc1143683e481c2",
+  "report": {
+    "path": "hota.dll+0x205E34-анализ-gpt-5.6-sol.txt",
+    "size": 31424,
+    "sha256": "ca7a4ef76ed88e1906ec0eb28f451b787de18843847bbee078cfb3a5aeedeb77"
+  },
+  "inputs": [
+    {
+      "path": "series-parse.json",
+      "size": 914540,
+      "sha256": "d5d4056db333bcff7a5c900956d7778064bd878cf67e6cca99428c0474b8f04e",
+      "role": "derived"
+    },
+    {
+      "path": "subgroup-analysis.json",
+      "size": 98984,
+      "sha256": "953d010728a66bdcbae1846f88fa05d0ffe051107c637ca78108a2a047ba38f8",
+      "role": "derived"
+    },
+    {
+      "path": "save-inventory.json",
+      "size": 117259,
+      "sha256": "6b147c12a7396c023a65ffaae010149a4a9d1c0203200fd36e1354a5bca30a31",
+      "role": "derived"
+    },
+    {
+      "path": "pair-audit.json",
+      "size": 63218,
+      "sha256": "d5396f1bc01be0a5cb537826bacffdaf68c58481e4a19c7dcddd51b888d27656",
+      "role": "derived"
+    },
+    {
+      "path": "corpus-period-comparison.json",
+      "size": 256,
+      "sha256": "4f962c12924fe1f7baed3e96eb656606769d5cdbf91a0106d9db92e7f8aa6d76",
+      "role": "derived"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/multi-dump-diff/parse_dumps.py",
+      "size": 25100,
+      "sha256": "777d3ab3b772c95935d650dbd648aa114143a5364861ae9683f3565fd996c89e"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/read_dump.py",
+      "size": 14393,
+      "sha256": "2f4e50788965e00e48cfca9e77bc76ca0bbdce5d7daa7a0724ae17db7ec2bdf1"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+      "size": 22472,
+      "sha256": "add6c99dbeba0fa008bf563f2c1522ca72160b1148bab66ce62e3965578d2709"
+    },
+    {
+      "path": "../../.agents/skills/save-map-analysis/read_save_map.py",
+      "size": 23329,
+      "sha256": "2e5d4df0180b6a34444ed3136644a9358e33875c114c8bfbcaa9a0c84bb39461"
+    },
+    {
+      "path": "../../modules/HotA.dll-180.txt",
+      "size": 52759034,
+      "sha256": "2eda8c0001709380da6045c46dcd4d18d74ae3f7d06cabd66ac8cb27e46c39d6"
+    },
+    {
+      "path": "../../modules/h3hota.exe.txt",
+      "size": 79196875,
+      "sha256": "a659b437fa53df6e65a763481c03538a79b0899130ea4b9dfeba1dd9b5e0ddd6"
+    }
+  ],
+  "commands": [
+    "parse_dumps.py mail-dumps/hota.dll+0x205E34",
+    "static_exhaustion_check.py modules/HotA.dll-180.txt --symbol _memset"
+  ],
+  "facts": {
+    "physical_txt": "215",
+    "unique_txt": "213",
+    "target": "hota.dll+0x205E34",
+    "mechanism": "_memset(NULL, 0, N)"
+  },
+  "claims": [],
+  "code_evidence": {
+    "level": "instruction-boundary",
+    "note": "граница инструкции подтверждена листингом"
+  }
+}
