@@ -1,0 +1,25 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Непроверенный ID героя превращается в адрес структуры, после чего
+     обработчик читает поле портрета по смещению <code>+34h</code>.</p>
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box accent">P<span class="lbl">heroes_ids[slot]</span></div>
+      <div class="viz-box bad">I<span class="lbl">проверено только -1</span></div>
+      <div class="viz-box bad dashed">H<span class="lbl">base + ID*0x492</span></div>
+      <div class="viz-box bad">F<span class="lbl">[ECX+34h]</span></div>
+    </div>
+    <p class="viz-cap">ID без верхней границы выводит указатель за допустимый массив героев</p>
+  </div>
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge accent">P</span>
+      <span class="txt">Запись из <code>Player::heroes_ids</code> является поставщиком ID.</span></div>
+    <div class="item"><span class="viz-badge bad">I</span>
+      <span class="txt">Код исключает <code>0xFFFFFFFF</code>, но не ограничивает максимальный ID.</span></div>
+    <div class="item"><span class="viz-badge bad">H</span>
+      <span class="txt">Адрес героя равен <code>GameMgr + 0x21620 + ID * 0x492</code>.</span></div>
+    <div class="item"><span class="viz-badge bad">F</span>
+      <span class="txt">При <code>ECX=0xBBA18300</code> чтение идёт по <code>0xBBA18334</code> и вызывает сбой.</span></div>
+  </div>
+</section>
