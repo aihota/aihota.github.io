@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-14T13:22:16.529392+00:00",
-  "parser_revision": "8bd2e4eb60be6ffc672163a888597046dae5acfd",
+  "generated_at": "2026-08-14T13:28:53.566405+00:00",
+  "parser_revision": "21b86339ec6e7930f1cc46de35ffb80cc8c0fd61",
   "report": {
     "path": "HD_MCR.dll+0x98BB-анализ-gpt-5.6-sol.txt",
     "size": 18243,
@@ -54,25 +54,32 @@
       "path": "../../modules/HD_MCR.dll-5.7 R40.txt",
       "size": 3522265,
       "sha256": "658e825b53447bbb544da32bb5c84ae113b2b37ffe883f885efbb0acd8e29d70",
-      "role": "derived"
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_MCR.dll-5.7 R39.txt",
+      "size": 3522267,
+      "sha256": "7fc823433889d5208a3121e6a6d26bb3f6a879d5125487fdf2e318ef7b708fe6",
+      "role": "source"
     },
     {
       "path": "../../modules/HD_MCR.dll.txt",
       "size": 3522235,
       "sha256": "882727ce96e62083c42020d1d30d2a438beb49dfb9a43cb9eecb00dc7772fd22",
-      "role": "derived"
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_MCR.dll-old.txt",
+      "size": 1993207,
+      "sha256": "7b4699c850ba33557894414f28efb592e65311c0ee265a4bf2109d21255e3de0",
+      "role": "source"
     }
   ],
   "tools": [
     {
-      "path": "../../.agents/skills/address-mapping/read_dump.py",
-      "size": 14393,
-      "sha256": "2f4e50788965e00e48cfca9e77bc76ca0bbdce5d7daa7a0724ae17db7ec2bdf1"
-    },
-    {
-      "path": "../../.agents/skills/address-mapping/dump_profile.py",
-      "size": 22819,
-      "sha256": "5128c70afe92a145302351e680530f3038206393672f297f7d09854cf10a5ace"
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 8605,
+      "sha256": "b5aa3b7343f54406ad474d6c1ac35d50254f88650e98506525b92283d1c4ff4e"
     },
     {
       "path": "../../.agents/skills/address-mapping/effective_address.py",
@@ -80,14 +87,14 @@
       "sha256": "2d5e90dccd5e31b886f03c879eed8ba141fe9c826d58e0c79fe5748416816673"
     },
     {
-      "path": "../../.agents/skills/multi-dump-diff/parse_dumps.py",
-      "size": 24799,
-      "sha256": "72f633b464bb4f2719aa85947fec9b91ab6c652662bcae89fca3a418b6c57015"
+      "path": "../../.agents/skills/address-mapping/dump_profile.py",
+      "size": 22819,
+      "sha256": "5128c70afe92a145302351e680530f3038206393672f297f7d09854cf10a5ace"
     },
     {
       "path": "../../.agents/skills/multi-dump-diff/relocate_crash_family.py",
-      "size": 20583,
-      "sha256": "d508537616d325a9192301c025243bf4e180503ae85ffe6c4453a7439ba355ac"
+      "size": 21500,
+      "sha256": "36b5da652097ace93ad0b1c40fb34fe33946116ee3d427a79b5b37b27313abb1"
     },
     {
       "path": "../../report_consistency.py",
@@ -96,18 +103,21 @@
     }
   ],
   "commands": [
-    "MCP: разбор исключения, потоков, памяти и листингов двух случаев",
-    "python3 .agents/skills/address-mapping/effective_address.py --expr [edx+eax*4] --reg edx=0x022463E0 --reg eax=0x0AA0FF7F --fault 0x2CA861DC",
-    "python3 .agents/skills/multi-dump-diff/relocate_crash_family.py revert --manifest mail-dumps/HD_MCR.dll+0x98BB/relocation-manifest.json"
+    "python3 .agents/skills/address-mapping/effective_address.py --base 0x022463E0 --index 0x0AA0FF7F --scale 4 --expect 0x2CA861DC",
+    "python3 .agents/skills/address-mapping/dump_profile.py --input mail-dumps/HD_MCR.dll+0x98BB/HD_MCR.dll+0x98BB-5.7-R40-180.dmp --threads",
+    "python3 .agents/skills/address-mapping/dump_profile.py --input mail-dumps/HD_MCR.dll/HD_MCR.dll+0xA240-5.7-R23-180-1.dmp --threads",
+    "python3 report_consistency.py --root mail-dumps/HD_MCR.dll+0x98BB"
   ],
   "facts": {
-    "crash_address": "HD_MCR.dll+0x98BB",
-    "exception": "0xC0000005 read 0x2CA861DC",
-    "effective_address": "0x022463E0 + 4 * 0x0AA0FF7F = 0x2CA861DC; совпадает",
-    "thread_provenance": "ExceptionStream 1268; ESP stack 2904; mismatch",
-    "confirmed_family": "1 unique among 1 physical TXT",
-    "probable_related": "HD_MCR.dll+0xA240; 1 unique among 1 physical TXT; not published",
-    "corpus": "227 unique TXT; 25 crash offsets; 224 missing exact listing"
+    "effective_address": "0x2CA861DC",
+    "exception_address": "0x2CA861DC",
+    "effective_address_verdict": "совпадает",
+    "confirmed_family_txt": "1",
+    "probable_related_txt": "1",
+    "primary_exception_tid": "1268",
+    "primary_stack_owner_tid": "2904",
+    "probable_exception_tid": "10172",
+    "probable_stack_owner_tid": "9224"
   },
   "code_evidence": {
     "level": "dmp-window",
