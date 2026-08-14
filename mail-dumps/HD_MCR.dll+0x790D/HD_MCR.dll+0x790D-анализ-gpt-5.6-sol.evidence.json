@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-14T14:56:25.123280+00:00",
+  "parser_revision": "4260572536ce2983d84eb0c2e5607239f9612ae6",
+  "report": {
+    "path": "HD_MCR.dll+0x790D-анализ-gpt-5.6-sol.txt",
+    "size": 15746,
+    "sha256": "3af07eaaa587c2dfa4ef23260ac418752e184dae3ef1d0b5559081143e4062fc"
+  },
+  "inputs": [
+    {
+      "path": "HD_MCR.dll+0x790D-5.7-R40-180-1.txt",
+      "size": 6653,
+      "sha256": "88e1415fd6e5260607832cbfa0e8d84e796f568fc9d3f25a5856af31daed6beb",
+      "role": "source"
+    },
+    {
+      "path": "HD_MCR.dll+0x790D-5.7-R40-180-1.dmp",
+      "size": 134252,
+      "sha256": "5a71d36af4d0adec87372813f4094fc956f7b7d3c2a8f3793aa7f8dcb0385cfd",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_MCR.dll+0x790D-5.7-R40-180-1-BATTLE.GM1",
+      "size": 1030090,
+      "sha256": "dc070b7f2373f25ec42d18aad5456d4c930d1c8389c84467136c8d3e1eeede2d",
+      "role": "unknown"
+    },
+    {
+      "path": "../../modules/HD_MCR.dll-5.7 R40.txt",
+      "size": 3522265,
+      "sha256": "658e825b53447bbb544da32bb5c84ae113b2b37ffe883f885efbb0acd8e29d70",
+      "role": "source"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 8605,
+      "sha256": "b5aa3b7343f54406ad474d6c1ac35d50254f88650e98506525b92283d1c4ff4e"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/dump_profile.py",
+      "size": 23887,
+      "sha256": "1bb0d18599e26a6c78f6e3515a9864d953cf2aa758b85f1da50f904783624499"
+    }
+  ],
+  "commands": [
+    "python3 .agents/skills/address-mapping/dump_profile.py --input mail-dumps/HD_MCR.dll+0x790D/HD_MCR.dll+0x790D-5.7-R40-180-1.dmp --threads"
+  ],
+  "facts": {
+    "exception_address": "0x20449570",
+    "esi": "0x20449570",
+    "return_address": "0x0307137C",
+    "exception_tid": "46788",
+    "stack_owner_tid": "42280",
+    "confirmed_family_txt": "1",
+    "probable_related_txt": "162"
+  },
+  "code_evidence": {
+    "level": "dmp-window",
+    "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
+  }
+}
