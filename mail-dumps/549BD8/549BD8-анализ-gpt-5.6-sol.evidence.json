@@ -1,0 +1,165 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-14T15:54:40.204181+00:00",
+  "parser_revision": "parse_dumps.py/current-project",
+  "report": {
+    "path": "549BD8-анализ-gpt-5.6-sol.txt",
+    "size": 26768,
+    "sha256": "4b06c6d6a67d669570c1d999451821146b3bddbe1c8547d2515e93e81a5da335"
+  },
+  "inputs": [
+    {
+      "path": "549BD8-parse.json",
+      "size": 1426235,
+      "sha256": "c95777c66349fdb46fc66ede97c99bdbf1df108459be2f01cd952fb003204238",
+      "role": "derived"
+    },
+    {
+      "path": "549BD8-evidence.json",
+      "size": 95537,
+      "sha256": "84545e3cb07c139d06bcfbfaad1a5c71a1518781b406eb11e7d26850a83398ec",
+      "role": "derived"
+    },
+    {
+      "path": "549BD8-cross-version.json",
+      "size": 67776,
+      "sha256": "96c071e3581b58f764605e41e596c4907c568c61107f836dc718b4cc4d2377a0",
+      "role": "derived"
+    },
+    {
+      "path": "549BD8-cross-version-evidence.json",
+      "size": 13615,
+      "sha256": "3b130c41569fb28763080181c026862edf5059c33e8ebf36b42c1c93ad0d0687",
+      "role": "derived"
+    },
+    {
+      "path": "pair-audit.json",
+      "size": 65217,
+      "sha256": "a3e031b1da3a08440caf1f5c0063b86254372ce6eb8aeabea9f780b7c1a66742",
+      "role": "derived"
+    },
+    {
+      "path": "ingest-manifest.json",
+      "size": 131953,
+      "sha256": "62ceb643c61a62e98da593388ec8e1e3ff67ce3f8051e3a47371d759cc13d43a",
+      "role": "derived"
+    },
+    {
+      "path": "0x00549BD8-5.7-R23-180-11.txt",
+      "size": 7994,
+      "sha256": "40c248942ee726c8c70d8d7045640bc0476110180fd7065874973d2ff8f87e70",
+      "role": "runtime"
+    },
+    {
+      "path": "0x00549BD8-5.7-R23-180-11.dmp",
+      "size": 102513,
+      "sha256": "7c9a506acff3205c30e6acbb666c9bc7daade097a109dbc60fbffd4476555bed",
+      "role": "runtime"
+    },
+    {
+      "path": "0x00549BD8-5.7-R30-180-1.txt",
+      "size": 9246,
+      "sha256": "08892a1c1d8497546a706bbeaebe0a5089861e47ad0e1d7a8a9a94a72d51d250",
+      "role": "runtime"
+    },
+    {
+      "path": "0x00549BD8-5.7-R30-180-1.dmp",
+      "size": 102400,
+      "sha256": "0cf4bb9f69efb38ad029c6fa95c0d1aba7915ec7de41cb906adb7deb93bf891c",
+      "role": "runtime"
+    },
+    {
+      "path": "0x00549BD8-5.7-R35-180-3.txt",
+      "size": 9642,
+      "sha256": "177ed66a8c044f327eb1cef1be1d711ce0a44a06bab4fd678c776a16bf541c3d",
+      "role": "runtime"
+    },
+    {
+      "path": "0x00549BD8-5.7-R35-180-3.dmp",
+      "size": 120278,
+      "sha256": "1b33077325202ef607674b5dc1a790c32f2c7c146a324665ded17d6f4ee73a20",
+      "role": "runtime"
+    },
+    {
+      "path": "0x00549BD8-5.7-R40-180-2.txt",
+      "size": 8292,
+      "sha256": "791a883d4b0fea840870f45c54bc568b3a03e6fca8a1696524b28c7ba202852b",
+      "role": "runtime"
+    },
+    {
+      "path": "0x00549BD8-5.7-R40-180-2.dmp",
+      "size": 160863,
+      "sha256": "4da3ec623137093a3ebe9493bf46cb0cab4c56892d1378ff2af01fff86b88ed1",
+      "role": "runtime"
+    },
+    {
+      "path": "0x00549BD8-5.7-R23-180-12-BATTLE.GM2",
+      "size": 225789,
+      "sha256": "c99f0853b456632bd35a624517ac4cfd162e3c5a986d0d9240a41b885ae21b6a",
+      "role": "unknown"
+    },
+    {
+      "path": "../../modules/h3hota.exe.txt",
+      "size": 79196875,
+      "sha256": "a659b437fa53df6e65a763481c03538a79b0899130ea4b9dfeba1dd9b5e0ddd6",
+      "role": "source"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/multi-dump-diff/parse_dumps.py",
+      "size": 24799,
+      "sha256": "72f633b464bb4f2719aa85947fec9b91ab6c652662bcae89fca3a418b6c57015"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/dump_profile.py",
+      "size": 23887,
+      "sha256": "1bb0d18599e26a6c78f6e3515a9864d953cf2aa758b85f1da50f904783624499"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/cross_version_matrix.py",
+      "size": 7490,
+      "sha256": "41e1c187792bcd58c5671535850634837a4b96b34a6c60d4da8a5bbbcddacea1"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+      "size": 22472,
+      "sha256": "add6c99dbeba0fa008bf563f2c1522ca72160b1148bab66ce62e3965578d2709"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/lint_report.py",
+      "size": 63588,
+      "sha256": "81ab453cd839baa1b04bb2550f4c27636db34d3b7d5ea391db86d98e58a5f1d7"
+    },
+    {
+      "path": "../../.agents/skills/html-report/render_report.py",
+      "size": 969,
+      "sha256": "ede2dd05af3e754cf2c1004ae1d0b1e83277617dc8da912e7308fc4f74e03cb2"
+    }
+  ],
+  "commands": [
+    "python3 .agents/skills/multi-dump-diff/parse_dumps.py mail-dumps/549BD8 --json mail-dumps/549BD8/549BD8-parse.json",
+    "Профили 54 DMP и выборочная проверка четырёх полных контекстов через dump_profile.py",
+    "Кросс-версионная матрица по 230 записям и 52 меткам HD-мода через cross_version_matrix.py",
+    "python3 .agents/skills/hota-crash-triage/static_exhaustion_check.py modules/h3hota.exe.txt --crash 0x549BD8 --func 0x5492E0 --fields 10h 14h 18h 28h --module h3hota.exe",
+    "python3 .agents/skills/hota-crash-triage/lint_report.py mail-dumps/549BD8/549BD8-анализ-gpt-5.6-sol.txt --publish"
+  ],
+  "facts": {
+    "unique_logs": "230",
+    "dmp_total": "54",
+    "exact_pairs": "15",
+    "build_mismatch_pairs": "39",
+    "unpaired_txt": "176",
+    "unpaired_dmp": "0",
+    "address_formula_matches": "230",
+    "dmp_full_contexts": "4",
+    "dmp_code_windows_matching_listing": "2",
+    "hd_labels": "52",
+    "directory_scan_depth_two": "92",
+    "river_placer_body": "0x0055F080-0x0055F0F3"
+  },
+  "code_evidence": {
+    "level": "dmp-window",
+    "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
+  }
+}
