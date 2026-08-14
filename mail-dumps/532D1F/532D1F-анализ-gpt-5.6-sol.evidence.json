@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-14T14:41:56.458222+00:00",
+  "parser_revision": "parse_dumps.py/current-project",
+  "report": {
+    "path": "532D1F-анализ-gpt-5.6-sol.txt",
+    "size": 25764,
+    "sha256": "660c9e4628ba46899e135ee3dc6211f5f4a71426f229ce74dba8e9dd28a3e4f9"
+  },
+  "inputs": [
+    {
+      "path": "532D1F-parse.json",
+      "size": 3546785,
+      "sha256": "1be59908d2d78aa4b66298f9b1275fdddf380b77b893190ec0df481e21d50f49",
+      "role": "derived"
+    },
+    {
+      "path": "0x00532D1F-5.7-R22-180-2.txt",
+      "size": 8858,
+      "sha256": "385eeb46dff82d5794c203fa192b6890c33387fbcae0a1208ada491179983bf6",
+      "role": "runtime"
+    },
+    {
+      "path": "0x00532D1F-5.7-R22-180-2.dmp",
+      "size": 111913,
+      "sha256": "385895738b6b75c553ef104883b4abd4dde6f1d33ed89c321c7cc1e88bddd6c2",
+      "role": "runtime"
+    },
+    {
+      "path": "0x00532D1F-5.7-R23-180-10.txt",
+      "size": 8577,
+      "sha256": "301489e4dea76d213fde5a14bf524d975f1ee4f3767d7291b9d1dc30061999d2",
+      "role": "runtime"
+    },
+    {
+      "path": "0x00532D1F-5.7-R23-180-10.dmp",
+      "size": 108957,
+      "sha256": "e273fd833c1596f21476b767240bb3cd4c173b52dd11e3bf09ac34778766d48c",
+      "role": "runtime"
+    },
+    {
+      "path": "0x00532D1F-5.7-R20-180-1.txt",
+      "size": 8517,
+      "sha256": "893be4be0cb9347730bcfbc9ba45e28b8b70455953e9a234f98b5988d6d1db3b",
+      "role": "runtime"
+    },
+    {
+      "path": "0x00532D1F-5.7-R20-180-1.dmp",
+      "size": 104300,
+      "sha256": "4c1af89e19c31177aaaa6a3b950e0c0df80aa83f4e997f06034bc42bb5c9bccf",
+      "role": "runtime"
+    },
+    {
+      "path": "0x00532D1F-5.7-R39-180-1.txt",
+      "size": 10415,
+      "sha256": "362ed6c541c00b0fd52e7e990c09f475b502bd2a9699ede2d24f4faf53c7b446",
+      "role": "runtime"
+    },
+    {
+      "path": "0x00532D1F-5.7-R39-180-1.dmp",
+      "size": 88588,
+      "sha256": "3cead69eb12f572d7903995ec4f33a8a2e5a204a70b411936c3904e21ae63f51",
+      "role": "runtime"
+    },
+    {
+      "path": "../../modules/h3hota.exe.txt",
+      "size": 79196875,
+      "sha256": "a659b437fa53df6e65a763481c03538a79b0899130ea4b9dfeba1dd9b5e0ddd6",
+      "role": "source"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/multi-dump-diff/parse_dumps.py",
+      "size": 24799,
+      "sha256": "72f633b464bb4f2719aa85947fec9b91ab6c652662bcae89fca3a418b6c57015"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/read_dump.py",
+      "size": 14393,
+      "sha256": "2f4e50788965e00e48cfca9e77bc76ca0bbdce5d7daa7a0724ae17db7ec2bdf1"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/lint_report.py",
+      "size": 62339,
+      "sha256": "dd3ff1e1f1c40b16a562f5115b1cf4eec16a187984b4e4b3b315dd1a6ee8bfee"
+    },
+    {
+      "path": "../../.agents/skills/html-report/render_report.py",
+      "size": 969,
+      "sha256": "ede2dd05af3e754cf2c1004ae1d0b1e83277617dc8da912e7308fc4f74e03cb2"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/pair_audit.py",
+      "size": 15310,
+      "sha256": "eb0f41b1e59df47051404c0f90971404e3ea8da9886e7e34a443f9ecc98d553f"
+    }
+  ],
+  "commands": [
+    "python3 .agents/skills/multi-dump-diff/parse_dumps.py mail-dumps/532D1F --json mail-dumps/532D1F/532D1F-parse.json",
+    "MiniDump census over all 130 DMP via read_dump.py",
+    "python3 .agents/skills/multi-dump-diff/pair_audit.py mail-dumps/532D1F --allow-unpaired --summary-only --json-out <temporary>"
+  ],
+  "facts": {
+    "files_total": "514",
+    "unique_logs": "513",
+    "exact_duplicate_groups": "1",
+    "dmp_total": "130",
+    "dmp_context_eip_matches": "130",
+    "dmp_register_sets_match": "130",
+    "dmp_without_memory64list": "130",
+    "dmp_windows_captured": "128",
+    "dmp_window_sha256": "57b6d0d43c5272a702f30ff90f5027874c22ac68d26de4fda6be7877cf26fd96",
+    "code_window_matches_listing": "true",
+    "address_formula_matches": "510",
+    "path_a": "488",
+    "path_b": "25",
+    "corner_family": "360",
+    "distant_indices": "15",
+    "distant_path_a": "2",
+    "distant_path_b": "13",
+    "semantic_family_sha256": "88bb752737f3ee4f312f1f89bb725641ddf57640b99fe32d680f5074c3828cd7",
+    "pair_audit_rows": "514",
+    "pair_audit_exact": "130",
+    "pair_audit_unpaired_txt": "384",
+    "pair_audit_unpaired_dmp": "0",
+    "pair_audit_exception_mismatch": "0",
+    "pair_audit_build_mismatch": "0"
+  },
+  "code_evidence": {
+    "level": "dmp-window",
+    "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
+  }
+}
