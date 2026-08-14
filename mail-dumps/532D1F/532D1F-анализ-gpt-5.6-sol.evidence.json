@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-14T15:01:59.015068+00:00",
+  "generated_at": "2026-08-14T15:37:09.867784+00:00",
   "parser_revision": "parse_dumps.py/current-project",
   "report": {
     "path": "532D1F-анализ-gpt-5.6-sol.txt",
-    "size": 27212,
-    "sha256": "23d0a967bf493f8621f62d33a53d6f60781d9a4940a30acf69882da343849c56"
+    "size": 27179,
+    "sha256": "82b7f175d7c9cd049bec0c25e63bee2a953a16d87969fd9021a4a6268be171ea"
   },
   "inputs": [
     {
@@ -67,6 +67,24 @@
       "size": 79196875,
       "sha256": "a659b437fa53df6e65a763481c03538a79b0899130ea4b9dfeba1dd9b5e0ddd6",
       "role": "source"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/fixtures/532D1F_index_records.json",
+      "size": 57507,
+      "sha256": "f6752b34c45289c2387e3d1597ae8ed676b3f2f7ecaa246086c8880f2ce91762",
+      "role": "derived"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/fixtures/532D1F_code_window_summary.json",
+      "size": 609,
+      "sha256": "5b957780d474a47c4019ec09a3b63fb85186b96db9072c833f1c4924372ed221",
+      "role": "derived"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/fixtures/532D1F_fix_coverage.json",
+      "size": 1064,
+      "sha256": "6bde5833660386b409d628efefc673bb6626cde32fcb4466cb7988ffce8e6b4a",
+      "role": "derived"
     }
   ],
   "tools": [
@@ -82,8 +100,8 @@
     },
     {
       "path": "../../.agents/skills/hota-crash-triage/lint_report.py",
-      "size": 62339,
-      "sha256": "dd3ff1e1f1c40b16a562f5115b1cf4eec16a187984b4e4b3b315dd1a6ee8bfee"
+      "size": 63588,
+      "sha256": "81ab453cd839baa1b04bb2550f4c27636db34d3b7d5ea391db86d98e58a5f1d7"
     },
     {
       "path": "../../.agents/skills/html-report/render_report.py",
@@ -91,15 +109,27 @@
       "sha256": "ede2dd05af3e754cf2c1004ae1d0b1e83277617dc8da912e7308fc4f74e03cb2"
     },
     {
-      "path": "../../.agents/skills/multi-dump-diff/pair_audit.py",
-      "size": 15310,
-      "sha256": "eb0f41b1e59df47051404c0f90971404e3ea8da9886e7e34a443f9ecc98d553f"
+      "path": "../../.agents/skills/multi-dump-diff/series_index_audit.py",
+      "size": 6485,
+      "sha256": "d71d70a61117d6091bb5e42a7d2c964fdff7816366bd1b37465b42fc2a169bc9"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/code_window_fingerprint.py",
+      "size": 4824,
+      "sha256": "08d2783f9022736337be6329092bf36496cc0fc17436138dbe15dddc438b2f36"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/fix_coverage.py",
+      "size": 4570,
+      "sha256": "7ea84ffface5130b3ed20e9846a7f33bbb61b159f6a1b06c7d797f7755de8194"
     }
   ],
   "commands": [
     "python3 .agents/skills/multi-dump-diff/parse_dumps.py mail-dumps/532D1F --json mail-dumps/532D1F/532D1F-parse.json",
     "MiniDump census over all 130 DMP via read_dump.py",
-    "python3 .agents/skills/multi-dump-diff/pair_audit.py mail-dumps/532D1F --allow-unpaired --summary-only --json-out <temporary>"
+    "python3 .agents/skills/multi-dump-diff/series_index_audit.py mail-dumps/532D1F/532D1F-parse.json --stride 48 --scaled-register EAX --base-register ECX --field-offset 0x24 --widths 108,144,180,216,252 --near-limit 514",
+    "python3 .agents/skills/multi-dump-diff/code_window_fingerprint.py mail-dumps/532D1F --before 16 --after 16",
+    "python3 .agents/skills/hota-crash-triage/fix_coverage.py .agents/skills/hota-crash-triage/fixtures/532D1F_fix_coverage.json"
   ],
   "facts": {
     "files_total": "514",
@@ -120,12 +150,13 @@
     "distant_path_a": "2",
     "distant_path_b": "13",
     "semantic_family_sha256": "88bb752737f3ee4f312f1f89bb725641ddf57640b99fe32d680f5074c3828cd7",
-    "pair_audit_rows": "514",
-    "pair_audit_exact": "130",
-    "pair_audit_unpaired_txt": "384",
-    "pair_audit_unpaired_dmp": "0",
-    "pair_audit_exception_mismatch": "0",
-    "pair_audit_build_mismatch": "0"
+    "index_audit_total": "513",
+    "index_audit_divisible_negative": "513",
+    "index_audit_address_matches": "510",
+    "index_audit_corner_family": "360",
+    "index_audit_far_outliers": "15",
+    "code_window_unique_hashes": "1",
+    "fix_coverage_paths": "2"
   },
   "code_evidence": {
     "level": "dmp-window",
