@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "status": "blocked",
+  "failures": [
+    "build_identity.sha256"
+  ],
+  "binary_sha256": null,
+  "breakpoints": [
+    {
+      "role": "queue_empty",
+      "address": "0x00549502"
+    },
+    {
+      "role": "target_marker",
+      "address": "0x00549797"
+    },
+    {
+      "role": "backtrack_start",
+      "address": "0x00549B9A"
+    },
+    {
+      "role": "prev_xyz",
+      "address": "0x00549B9A"
+    },
+    {
+      "role": "dangerous_access",
+      "address": "0x00549BD8"
+    }
+  ],
+  "captures": [
+    "ESI",
+    "coordinates",
+    "cost_0x7D00",
+    "prev_xyz",
+    "queue_state",
+    "target_bit_0x40000000"
+  ],
+  "positive_control": {
+    "expected_safe_completion": true,
+    "description": "same map seed without queue exhaustion"
+  },
+  "steps": [
+    "Verify binary SHA-256 before attaching the debugger.",
+    "Break when the search queue becomes empty and record queue state.",
+    "Observe target marker and bit 0x40000000 before backtracking.",
+    "At backtrack start capture ESI, cost, coordinates and prev_xyz.",
+    "At dangerous access confirm effective address and whether the write executes.",
+    "Repeat with the positive control and require safe completion."
+  ],
+  "completion_rule": "No causal claim is runtime-observed until every point and the positive control are recorded.",
+  "generated_at": "2026-08-14T17:59:40.640335+00:00",
+  "case": "549BD8",
+  "sources": [
+    {
+      "path": "549BD8-runtime-plan-input.json",
+      "size": 737,
+      "sha256": "7cb17579806720740225894e50debece317dcc73d1adce9e32b44ebb2177b053"
+    }
+  ]
+}

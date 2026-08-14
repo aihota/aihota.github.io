@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "limit": 8,
+  "selected": [
+    {
+      "id": "0x00549BD8-5.7-R23-180-11.dmp",
+      "new_coverage": [
+        "boundary:yes",
+        "captured_memory:yes",
+        "hd_version:older-5.7",
+        "levels:2",
+        "map_size:144",
+        "pair_quality:exact"
+      ],
+      "all_features": [
+        "boundary:yes",
+        "captured_memory:yes",
+        "hd_version:older-5.7",
+        "levels:2",
+        "map_size:144",
+        "pair_quality:exact"
+      ]
+    },
+    {
+      "id": "0x00549BD8-5.7-R40-180-3.dmp",
+      "new_coverage": [
+        "captured_memory:no",
+        "hd_version:latest-5.7-R40",
+        "map_size:252",
+        "pair_quality:build-mismatch"
+      ],
+      "all_features": [
+        "boundary:yes",
+        "captured_memory:no",
+        "hd_version:latest-5.7-R40",
+        "map_size:252",
+        "pair_quality:build-mismatch"
+      ]
+    },
+    {
+      "id": "0x00549BD8-5.7-R35-180-3.dmp",
+      "new_coverage": [
+        "levels:1",
+        "map_size:108"
+      ],
+      "all_features": [
+        "boundary:yes",
+        "captured_memory:yes",
+        "hd_version:older-5.7",
+        "levels:1",
+        "map_size:108",
+        "pair_quality:exact"
+      ]
+    },
+    {
+      "id": "0x00549BD8-5.7-R23-180-15.dmp",
+      "new_coverage": [
+        "map_size:180"
+      ],
+      "all_features": [
+        "boundary:yes",
+        "captured_memory:no",
+        "hd_version:older-5.7",
+        "map_size:180",
+        "pair_quality:exact"
+      ]
+    },
+    {
+      "id": "0x00549BD8-5.7-R23-180-6.dmp",
+      "new_coverage": [
+        "map_size:216"
+      ],
+      "all_features": [
+        "boundary:yes",
+        "captured_memory:no",
+        "hd_version:older-5.7",
+        "map_size:216",
+        "pair_quality:exact"
+      ]
+    },
+    {
+      "id": "0x00549BD8-5.7-R33-180-5.dmp",
+      "new_coverage": [
+        "map_size:72"
+      ],
+      "all_features": [
+        "boundary:yes",
+        "captured_memory:no",
+        "hd_version:older-5.7",
+        "map_size:72",
+        "pair_quality:build-mismatch"
+      ]
+    }
+  ],
+  "covered": [
+    "boundary:yes",
+    "captured_memory:no",
+    "captured_memory:yes",
+    "hd_version:latest-5.7-R40",
+    "hd_version:older-5.7",
+    "levels:1",
+    "levels:2",
+    "map_size:108",
+    "map_size:144",
+    "map_size:180",
+    "map_size:216",
+    "map_size:252",
+    "map_size:72",
+    "pair_quality:build-mismatch",
+    "pair_quality:exact"
+  ],
+  "uncovered": [],
+  "coverage_ratio": 1.0,
+  "generated_at": "2026-08-14T17:59:40.640335+00:00",
+  "case": "549BD8",
+  "sources": [
+    {
+      "path": "549BD8-representative-candidates.json",
+      "size": 12385,
+      "sha256": "f8f20ab792b7264f749a7864244bb60d899c5d3d8bd5beb4fd32ef9ee5e2d5e9"
+    },
+    {
+      "path": "pair-audit.json",
+      "size": 65217,
+      "sha256": "a3e031b1da3a08440caf1f5c0063b86254372ce6eb8aeabea9f780b7c1a66742"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-14T18:01:37.576323+00:00",
+  "left": "549BD8",
+  "right": "532D1F",
+  "signals": {
+    "same_immediate_mechanism": false,
+    "same_immediate_trigger": false,
+    "same_defect": false,
+    "same_subsystem_contract": true,
+    "same_structure_role": true,
+    "same_record_stride": true,
+    "same_field_contract": true,
+    "same_containing_function": true,
+    "shared_attachment_hash": true,
+    "shared_map_name": true,
+    "shared_version": true
+  },
+  "result": {
+    "schema": 1,
+    "level": 3,
+    "classification": "different_defects_same_subsystem_contract",
+    "label_ru": "разные дефекты одного контракта подсистемы",
+    "reasons": [
+      "same subsystem contract",
+      "shared structural invariant"
+    ],
+    "weak_context_only": false,
+    "limitation": "Общие имена карт, версии и вложения сами по себе не повышают уровень выше 4."
+  },
+  "sources": [
+    {
+      "path": "549BD8-анализ-gpt-5.6-sol.txt",
+      "size": 36504,
+      "sha256": "b33bde2fbf771e0ee2f12576300c0e06770014286722b08ad0615d440f0a8a30"
+    },
+    {
+      "path": "../532D1F/532D1F-анализ-gpt-5.6-sol.txt",
+      "size": 27179,
+      "sha256": "82b7f175d7c9cd049bec0c25e63bee2a953a16d87969fd9021a4a6268be171ea"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "covered_paths": [
+    "queue_exhaustion_backtrack"
+  ],
+  "failures": [],
+  "scenario_contract_checked": true,
+  "schema": 2,
+  "generated_at": "2026-08-14T17:59:40.640335+00:00",
+  "case": "549BD8",
+  "sources": [
+    {
+      "path": "../../.agents/skills/hota-crash-triage/fixtures/549BD8_fix_coverage.json",
+      "size": 1568,
+      "sha256": "6899e2414fe26f78b0c62aaf83170775298228cec6d8bb63517f7df7f715b9ba"
+    }
+  ]
+}

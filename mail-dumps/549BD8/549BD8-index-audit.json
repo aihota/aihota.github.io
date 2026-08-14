@@ -1,0 +1,55 @@
+{
+  "schema": 2,
+  "parameters": {
+    "stride": 48,
+    "scaled_register": "ESI-EAX",
+    "base_register": "EAX",
+    "field_offset": 40,
+    "square_sizes": [
+      72,
+      108,
+      144,
+      180,
+      216,
+      252
+    ],
+    "near_limit": 70000
+  },
+  "counts": {
+    "total": 230,
+    "divisible": 230,
+    "negative": 230,
+    "sentinel_xyz_index": 230,
+    "address_checked": 230,
+    "address_match": 230
+  },
+  "index_histogram": {
+    "-63757": 64,
+    "-46873": 34,
+    "-32581": 32,
+    "-20881": 76,
+    "-11773": 21,
+    "-5257": 3
+  },
+  "map_size_distribution": {
+    "72": 3,
+    "108": 21,
+    "144": 76,
+    "180": 32,
+    "216": 34,
+    "252": 64
+  },
+  "outliers": [],
+  "address_mismatches": [],
+  "sentinel_mismatches": [],
+  "linear_compensation_cases": [],
+  "generated_at": "2026-08-14T17:59:40.640335+00:00",
+  "case": "549BD8",
+  "sources": [
+    {
+      "path": "549BD8-parse.json",
+      "size": 1500609,
+      "sha256": "e45709f12841f8c4452cb3e079211d45e142568821d000ec14ff587a8a7358f9"
+    }
+  ]
+}

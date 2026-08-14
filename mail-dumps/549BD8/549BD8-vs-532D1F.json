@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-14T18:01:37.575760+00:00",
+  "purpose": "Сопоставление семейств 549BD8 и 532D1F",
+  "sources": [
+    {
+      "path": "mail-dumps/549BD8/549BD8-parse.json",
+      "size": 1500609,
+      "sha256": "e45709f12841f8c4452cb3e079211d45e142568821d000ec14ff587a8a7358f9"
+    },
+    {
+      "path": "mail-dumps/532D1F/532D1F-parse.json",
+      "size": 3546785,
+      "sha256": "1be59908d2d78aa4b66298f9b1275fdddf380b77b893190ec0df481e21d50f49"
+    },
+    {
+      "path": "mail-dumps/549BD8/549BD8-анализ-gpt-5.6-sol.txt",
+      "size": 36504,
+      "sha256": "b33bde2fbf771e0ee2f12576300c0e06770014286722b08ad0615d440f0a8a30"
+    },
+    {
+      "path": "mail-dumps/532D1F/532D1F-анализ-gpt-5.6-sol.txt",
+      "size": 27179,
+      "sha256": "82b7f175d7c9cd049bec0c25e63bee2a953a16d87969fd9021a4a6268be171ea"
+    }
+  ],
+  "save_comparison": {
+    "extensions": [
+      ".cgm",
+      ".gm1",
+      ".gm2",
+      ".gm3",
+      ".gm4",
+      ".gm5",
+      ".gm6",
+      ".gm7",
+      ".gm8"
+    ],
+    "files_scanned": {
+      "549BD8": 106,
+      "532D1F": 262
+    },
+    "common_sha256_count": 1,
+    "common_files": [
+      {
+        "sha256": "e77b9685bacd887a638a83e2871af6c700937f86c8181faf5de5b572f77802cf",
+        "549BD8": [
+          "0x00549BD8-5.6-R24-180-5-AUTOSAVE.GM1"
+        ],
+        "532D1F": [
+          "0x00532D1F-5.6-R24-180-7-AUTOSAVE.GM1"
+        ]
+      }
+    ]
+  },
+  "map_field_comparison": {
+    "field": "ingame.Map file",
+    "distinct_values": {
+      "549BD8": 19,
+      "532D1F": 16
+    },
+    "common_values_count": 5,
+    "common_values": [
+      {
+        "value": "All for One.h3m",
+        "549BD8": 1,
+        "532D1F": 2
+      },
+      {
+        "value": "Myth and Legend.h3m",
+        "549BD8": 2,
+        "532D1F": 6
+      },
+      {
+        "value": "[HotA] Air Supremacy.h3m",
+        "549BD8": 204,
+        "532D1F": 483
+      },
+      {
+        "value": "[HotA] The Devil Is in the Detail.h3m",
+        "549BD8": 2,
+        "532D1F": 5
+      },
+      {
+        "value": "ІШ±¦Buried Treasure.h3m",
+        "549BD8": 7,
+        "532D1F": 6
+      }
+    ],
+    "limitation": "Это названия сценариев H3M, а не шаблоны RMG.",
+    "normalization": "Сырые непустые значения без удаления приписки Last RMG Seed."
+  },
+  "stack_relation": {
+    "532D1F_unique_records": 513,
+    "path_a_count_from_related_report": 488,
+    "path_b_count_from_related_report": 25,
+    "path_a_named_function": "A0_ARandMapGen_CreateRiverWithDeltaFromSource_ToXYZ_sub_5492E0",
+    "broad_frame_range_matches": 511,
+    "broad_frame_range": [
+      "0x005492E0",
+      "0x00549C7C"
+    ],
+    "limitation": "Широкий подсчёт любого адреса внутри диапазона функции не равен классификации полного пути A и в отчёт как число пути не переносится."
+  },
+  "assessment": {
+    "shared": "Одна подсистема HotA 1.8.0 и один массив клеток размером 48 байт.",
+    "different": "Разные адреса и непосредственные ошибочные значения.",
+    "conclusion": "Сильная системная связь без доказательства единого непосредственного пускового условия."
+  },
+  "signals": {
+    "same_immediate_mechanism": false,
+    "same_immediate_trigger": false,
+    "same_defect": false,
+    "same_subsystem_contract": true,
+    "same_structure_role": true,
+    "same_record_stride": true,
+    "same_field_contract": true,
+    "same_containing_function": true,
+    "shared_attachment_hash": true,
+    "shared_map_name": true,
+    "shared_version": true
+  },
+  "relation": {
+    "schema": 1,
+    "level": 3,
+    "classification": "different_defects_same_subsystem_contract",
+    "label_ru": "разные дефекты одного контракта подсистемы",
+    "reasons": [
+      "same subsystem contract",
+      "shared structural invariant"
+    ],
+    "weak_context_only": false,
+    "limitation": "Общие имена карт, версии и вложения сами по себе не повышают уровень выше 4."
+  }
+}

@@ -1,48 +1,48 @@
 {
-  "schema": 1,
-  "generated_at": "2026-08-14T16:38:48.434441+00:00",
-  "parser_revision": "parse_dumps.py/current-project",
+  "schema": 2,
+  "generated_at": "2026-08-14T19:23:29.247645+00:00",
+  "parser_revision": "e661736d601f95b911d8592993df127a479f790d",
   "report": {
     "path": "549BD8-анализ-gpt-5.6-sol.txt",
-    "size": 34903,
-    "sha256": "efb3fb77d9bb7997030dcbe80f9a57999204d3751677e21a363300b5c8f06099"
+    "size": 36504,
+    "sha256": "b33bde2fbf771e0ee2f12576300c0e06770014286722b08ad0615d440f0a8a30"
   },
   "inputs": [
     {
       "path": "549BD8-parse.json",
-      "size": 1426235,
-      "sha256": "c95777c66349fdb46fc66ede97c99bdbf1df108459be2f01cd952fb003204238",
-      "role": "derived"
+      "size": 1500609,
+      "sha256": "e45709f12841f8c4452cb3e079211d45e142568821d000ec14ff587a8a7358f9",
+      "role": "derived-cache"
     },
     {
       "path": "549BD8-evidence.json",
       "size": 95537,
       "sha256": "84545e3cb07c139d06bcfbfaad1a5c71a1518781b406eb11e7d26850a83398ec",
-      "role": "derived"
+      "role": "derived-cache"
     },
     {
       "path": "549BD8-cross-version.json",
       "size": 67776,
       "sha256": "96c071e3581b58f764605e41e596c4907c568c61107f836dc718b4cc4d2377a0",
-      "role": "derived"
+      "role": "derived-cache"
     },
     {
       "path": "549BD8-cross-version-evidence.json",
       "size": 13615,
       "sha256": "3b130c41569fb28763080181c026862edf5059c33e8ebf36b42c1c93ad0d0687",
-      "role": "derived"
+      "role": "derived-cache"
     },
     {
       "path": "pair-audit.json",
       "size": 65217,
       "sha256": "a3e031b1da3a08440caf1f5c0063b86254372ce6eb8aeabea9f780b7c1a66742",
-      "role": "derived"
+      "role": "derived-cache"
     },
     {
       "path": "ingest-manifest.json",
       "size": 131953,
       "sha256": "62ceb643c61a62e98da593388ec8e1e3ff67ce3f8051e3a47371d759cc13d43a",
-      "role": "derived"
+      "role": "derived-cache"
     },
     {
       "path": "0x00549BD8-5.7-R23-180-11.txt",
@@ -105,35 +105,83 @@
       "role": "source"
     },
     {
-      "path": "549BD8-vs-532D1F.json",
-      "role": "derived",
-      "size": 3472,
-      "sha256": "27ab948b852c13b3854d20cc1e84ed681b7ea49b5879961e7e63cdac81798649"
-    },
-    {
       "path": "../532D1F/532D1F-анализ-gpt-5.6-sol.txt",
-      "role": "source",
       "size": 27179,
-      "sha256": "82b7f175d7c9cd049bec0c25e63bee2a953a16d87969fd9021a4a6268be171ea"
+      "sha256": "82b7f175d7c9cd049bec0c25e63bee2a953a16d87969fd9021a4a6268be171ea",
+      "role": "source"
     },
     {
       "path": "0x00549BD8-5.6-R24-180-5-AUTOSAVE.GM1",
-      "role": "runtime",
       "size": 352389,
-      "sha256": "e77b9685bacd887a638a83e2871af6c700937f86c8181faf5de5b572f77802cf"
+      "sha256": "e77b9685bacd887a638a83e2871af6c700937f86c8181faf5de5b572f77802cf",
+      "role": "runtime"
     },
     {
       "path": "../532D1F/0x00532D1F-5.6-R24-180-7-AUTOSAVE.GM1",
-      "role": "runtime",
       "size": 352389,
-      "sha256": "e77b9685bacd887a638a83e2871af6c700937f86c8181faf5de5b572f77802cf"
+      "sha256": "e77b9685bacd887a638a83e2871af6c700937f86c8181faf5de5b572f77802cf",
+      "role": "runtime"
+    },
+    {
+      "path": "549BD8-vs-532D1F.json",
+      "size": 4362,
+      "sha256": "eeb5bffaeb3557f5e5823b267f5571c6bb52b20b6b0208bd87a124ad1206efb0",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "549BD8-access-audit.json",
+      "size": 737,
+      "sha256": "9dfe9211fec9db6883e8a9a2692eba492652eda53cb659645ac7de8a6d3b783a",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "549BD8-index-audit.json",
+      "size": 1037,
+      "sha256": "f6aa61334384ead615ba5e96d4aeb35f1466bc2907596abb6099d82ff13fdcff",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "549BD8-fix-coverage-result.json",
+      "size": 445,
+      "sha256": "4b0283a23c7b44bbc5125a5ad9b08428d861c366f7d9896d1ed83888d0441f52",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "549BD8-family-relation.json",
+      "size": 1370,
+      "sha256": "7fe9e8fa92bdceaf10826beb86d8a33789aff179a07c0b205550c0fd95ecec88",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "549BD8-representative-dumps.json",
+      "size": 2908,
+      "sha256": "4c300de725e939f763e9137626c1fe38a4ee71843dcd71afbe6a6ca41fbcfad7",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "549BD8-runtime-plan.json",
+      "size": 1583,
+      "sha256": "31b551de8ab4466f32318631573716229173026b08590f75409ef78b53e8c110",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "549BD8-representative-candidates.json",
+      "size": 12385,
+      "sha256": "f8f20ab792b7264f749a7864244bb60d899c5d3d8bd5beb4fd32ef9ee5e2d5e9",
+      "role": "derived-cache"
+    },
+    {
+      "path": "549BD8-runtime-plan-input.json",
+      "size": 737,
+      "sha256": "7cb17579806720740225894e50debece317dcc73d1adce9e32b44ebb2177b053",
+      "role": "derived-cache"
     }
   ],
   "tools": [
     {
       "path": "../../.agents/skills/multi-dump-diff/parse_dumps.py",
-      "size": 24799,
-      "sha256": "72f633b464bb4f2719aa85947fec9b91ab6c652662bcae89fca3a418b6c57015"
+      "size": 25100,
+      "sha256": "777d3ab3b772c95935d650dbd648aa114143a5364861ae9683f3565fd996c89e"
     },
     {
       "path": "../../.agents/skills/address-mapping/dump_profile.py",
@@ -152,22 +200,58 @@
     },
     {
       "path": "../../.agents/skills/hota-crash-triage/lint_report.py",
-      "size": 67222,
-      "sha256": "b525723943b41147816383e2eac9516f62dcdc83f266cebec851fc757057bc5b"
+      "size": 68100,
+      "sha256": "cfdf3ecd2f20f3f2b173b13067d9cd2fe74f13d240f8605c731e16d1a5e44ca8"
     },
     {
       "path": "../../.agents/skills/html-report/render_report.py",
       "size": 969,
       "sha256": "ede2dd05af3e754cf2c1004ae1d0b1e83277617dc8da912e7308fc4f74e03cb2"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/dumplib.py",
+      "size": 28311,
+      "sha256": "0502ce5c5a24aa4ffc2d31e2305d7bdb4ae7a0dde7b1c38ab55313c2ae46aca5"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/series_index_audit.py",
+      "size": 8014,
+      "sha256": "a030828a2e4bf111c46e2c1285b05874289c34a535879bfaf819ba3edda7774f"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/family_relation.py",
+      "size": 3384,
+      "sha256": "67dd904c49b4628684539df0e44d67b6289a4c133016eff86a75fe1467e1f874"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/representative_dumps.py",
+      "size": 3236,
+      "sha256": "b358819b2c0f5ff43229e652b894633dc22a28b6baf391e58494752cd3eb7b46"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/fix_coverage.py",
+      "size": 5392,
+      "sha256": "21f0ac1e7799f9232fbbbc1b3d2c5297ee03365590d83acbf5df4e0ca0d16b97"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 14851,
+      "sha256": "d11c4d1f174243d7533fbf785cc9691750c80a7481593c27b3341d706216f97f"
+    },
+    {
+      "path": "../../.agents/skills/repro-plan-builder/runtime_plan.py",
+      "size": 3192,
+      "sha256": "c3a41078bedbb1e4af098cdc30a12817efb394ef54446d53328deeb41ff638bf"
     }
   ],
   "commands": [
-    "python3 .agents/skills/multi-dump-diff/parse_dumps.py mail-dumps/549BD8 --json mail-dumps/549BD8/549BD8-parse.json",
-    "Профили 54 DMP и выборочная проверка четырёх полных контекстов через dump_profile.py",
-    "Кросс-версионная матрица по 230 записям и 52 меткам HD-мода через cross_version_matrix.py",
-    "python3 .agents/skills/hota-crash-triage/static_exhaustion_check.py modules/h3hota.exe.txt --crash 0x549BD8 --func 0x5492E0 --fields 10h 14h 18h 28h --module h3hota.exe",
-    "python3 .agents/skills/hota-crash-triage/lint_report.py mail-dumps/549BD8/549BD8-анализ-gpt-5.6-sol.txt --publish",
-    "Побайтовое сопоставление 106 и 262 файлов сохранений, значений ingame.Map file и путей 532D1F; результат 549BD8-vs-532D1F.json"
+    "python3 .agents/skills/multi-dump-diff/parse_dumps.py mail-dumps/549BD8 --instruction-access write --json mail-dumps/549BD8/549BD8-parse.json",
+    "python3 .agents/skills/multi-dump-diff/series_index_audit.py mail-dumps/549BD8/549BD8-parse.json --scaled-register ESI-EAX --base-register EAX --stride 48 --field-offset 0x28 --square-sizes 72,108,144,180,216,252",
+    "python3 .agents/skills/hota-crash-triage/fix_coverage.py .agents/skills/hota-crash-triage/fixtures/549BD8_fix_coverage.json",
+    "python3 .agents/skills/multi-dump-diff/family_relation.py mail-dumps/549BD8/549BD8-vs-532D1F.json",
+    "python3 .agents/skills/multi-dump-diff/representative_dumps.py mail-dumps/549BD8/549BD8-representative-candidates.json --limit 8",
+    "python3 .agents/skills/repro-plan-builder/runtime_plan.py mail-dumps/549BD8/549BD8-runtime-plan-input.json",
+    "python3 .agents/skills/hota-crash-triage/lint_report.py mail-dumps/549BD8/549BD8-анализ-gpt-5.6-sol.txt --publish"
   ],
   "facts": {
     "unique_logs": "230",
@@ -176,7 +260,7 @@
     "build_mismatch_pairs": "39",
     "unpaired_txt": "176",
     "unpaired_dmp": "0",
-    "address_formula_matches": "230",
+    "address_formula_matches": "230/230 unique TXT",
     "dmp_full_contexts": "4",
     "dmp_code_windows_matching_listing": "2",
     "hd_labels": "52",
@@ -186,8 +270,62 @@
     "related_path_a": "488/513",
     "related_shared_save_files": "1 of 106 vs 262",
     "related_shared_save_sha256": "e77b9685bacd887a638a83e2871af6c700937f86c8181faf5de5b572f77802cf",
-    "related_common_map_strings": "5"
+    "related_common_map_strings": "5",
+    "reporter_access_conflicts": "2/230 unique TXT",
+    "effective_write_family": "230/230 unique TXT",
+    "map_size_distribution": "72:3;108:21;144:76;180:32;216:34;252:64",
+    "family_relation_level": "3",
+    "archive_expected_layout": "8 latest-root / 276 older-subfolder / 284 total",
+    "runtime_plan_status": "blocked: binary SHA-256 not captured"
   },
+  "claims": [
+    {
+      "id": "address-230",
+      "statement": "Основание: арифметика совпала в 230/230 TXT; проверены 54 DMP.",
+      "confidence": "выведено из совокупности признаков",
+      "sample": {
+        "numerator": 230,
+        "denominator": 230,
+        "population": "уникальные crash TXT серии 549BD8"
+      },
+      "evidence": [
+        "fact:address_formula_matches",
+        "input:549BD8-index-audit.json"
+      ]
+    },
+    {
+      "id": "access-conflict",
+      "statement": "Код: EXCEPTION_ACCESS_VIOLATION, фактически запись; два заголовка\n        из 230 ошибочно указывают чтение.",
+      "confidence": "выведено из совокупности признаков",
+      "sample": {
+        "numerator": 2,
+        "denominator": 230,
+        "population": "уникальные crash TXT серии 549BD8"
+      },
+      "evidence": [
+        "fact:reporter_access_conflicts",
+        "input:549BD8-access-audit.json"
+      ]
+    },
+    {
+      "id": "family-level",
+      "statement": "По пятиуровневой шкале это уровень 3: разные дефекты одного контракта\n    подсистемы; общий файл сохранения остаётся только контекстным признаком.",
+      "confidence": "выведено из совокупности признаков",
+      "evidence": [
+        "fact:family_relation_level",
+        "input:549BD8-family-relation.json"
+      ]
+    },
+    {
+      "id": "state-origin",
+      "statement": "Происхождение состояния: выведено из совокупности признаков.",
+      "confidence": "выведено из совокупности признаков",
+      "evidence": [
+        "input:549BD8-runtime-plan.json",
+        "input:549BD8-fix-coverage-result.json"
+      ]
+    }
+  ],
   "code_evidence": {
     "level": "dmp-window",
     "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
