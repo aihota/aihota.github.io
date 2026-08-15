@@ -1,0 +1,46 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-15T19:53:19.285246+00:00",
+  "input": "mail-dumps/HD_VGL2.dll+0x4644/HD_VGL2.dll+0x4644-5.7-R39-180-1-AUTOSAVE.GM2",
+  "input_role": "derived",
+  "input_size": 85137,
+  "input_sha256": "d2a56453dba0fca3e38764d5e09e755a0f225106d5d5fe3f3ce6ae5e452acb15",
+  "unpack_method": "raw-deflate со смещения 10",
+  "unpacked_bytes": 591862,
+  "layout": "H3SVG",
+  "layout_known": true,
+  "decompression_ok": true,
+  "content_ok": true,
+  "format_version": 10,
+  "players": 2,
+  "embedded_map_name": "Rumble in the BogsA.h3m",
+  "control": {
+    "signature_h3svg": true,
+    "map_name_readable": true,
+    "method_passed": true
+  },
+  "artifact_identity": {
+    "reported_artifact_name": null,
+    "attached_artifact": {
+      "path": "mail-dumps/HD_VGL2.dll+0x4644/HD_VGL2.dll+0x4644-5.7-R39-180-1-AUTOSAVE.GM2",
+      "name": "HD_VGL2.dll+0x4644-5.7-R39-180-1-AUTOSAVE.GM2",
+      "size": 85137,
+      "sha256": "d2a56453dba0fca3e38764d5e09e755a0f225106d5d5fe3f3ce6ae5e452acb15",
+      "reported_name_matches": null
+    },
+    "embedded_map_name": "Rumble in the BogsA.h3m",
+    "local_map_candidates": [],
+    "rmg_template": {
+      "entity": "HD.File.RMG",
+      "same_as_map": false
+    },
+    "rmg_table": {
+      "entity": "rmg.txt",
+      "same_as_map": false
+    },
+    "valid": true,
+    "note": "Имя .GM1 и внутреннее имя .h3m относятся к разным сущностям и не обязаны совпадать."
+  },
+  "searches": [],
+  "provenance_limit": "РОЛЬ derived: значение не найдено в производном артефакте; об исходном входе это ничего не доказывает."
+}

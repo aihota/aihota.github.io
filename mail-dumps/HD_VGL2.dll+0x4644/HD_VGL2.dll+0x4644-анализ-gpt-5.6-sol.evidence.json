@@ -1,0 +1,130 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-15T20:06:09.747444+00:00",
+  "parser_revision": "041c2c7cfd8fc65a9677c78b4b80a6e020570cf6",
+  "report": {
+    "path": "HD_VGL2.dll+0x4644-анализ-gpt-5.6-sol.txt",
+    "size": 32183,
+    "sha256": "6728798d8f44ecc6b380e3faad5584fed826b23468975495562db845e9461328"
+  },
+  "inputs": [
+    {
+      "path": "HD_VGL2.dll+0x4644-5.7-R39-180-1.txt",
+      "size": 5043,
+      "sha256": "e37a01a309a90c71441fa20e327354283938fdbd2df1e37fa194f6586ee5e0ba",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_VGL2.dll-5.7 R39.txt",
+      "size": 6353880,
+      "sha256": "44cdf06cd7654f105d2651c151d2487ddf37eae260e0dca0f95e6edabf2590ad",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_VGL2.dll-5.7 R23.txt",
+      "size": 6333535,
+      "sha256": "b43e9f98408e4518f4139afe453a27f30f3f98f51d8fe497e01762ded75e8988",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_VGL2.dll-5.7 R40.txt",
+      "size": 6353880,
+      "sha256": "c2360a0be082ade878904f58884504308560461ef20ee0f27023a5b3037d442f",
+      "role": "source"
+    },
+    {
+      "path": "HD_VGL2.dll+0x4644-5.7-R39-180-1-AUTOSAVE.GM2",
+      "size": 85137,
+      "sha256": "d2a56453dba0fca3e38764d5e09e755a0f225106d5d5fe3f3ce6ae5e452acb15",
+      "role": "derived"
+    },
+    {
+      "path": "static-analysis.json",
+      "size": 34663,
+      "sha256": "cf66adc400b61b0c2c71566c301fa29f1512e6f80da556bbdcb6e977b969883b",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "save-audit.json",
+      "size": 1726,
+      "sha256": "1cc78750c356a979b1de8106607a4dfd5b0ed9394744145d0d04b2a5bbd4902b",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-census.json",
+      "size": 1813,
+      "sha256": "97329617c8541c7a8c361eb62b4b807e603ffd697897ef8a14d208929f90615f",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "capabilities.json",
+      "size": 1404,
+      "sha256": "a4f5c660175bab76c4722bb158ed636366c6578fd1d75a3af823f8d8db28e35c",
+      "role": "derived-evidence"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+      "size": 36665,
+      "sha256": "76028aee0b366ea232c582443c8af415ec044a8c7e0cd990e7eb83b27b28fd9e"
+    },
+    {
+      "path": "../../.agents/skills/save-map-analysis/read_save_map.py",
+      "size": 31452,
+      "sha256": "80fc8ad7d4053666778c120eb6a1a3124c3d1c0ed46e7dd99123dee6a07cee39"
+    },
+    {
+      "path": "../../.agents/skills/version-regression-diff/diff_funcs.py",
+      "size": 8834,
+      "sha256": "b372816799b923290467701bd5f00b790fdce98afcd01439d65437c17ca25827"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 27611,
+      "sha256": "3834e938041f42bb2fe11dbbbc35a33466617002d2ebd8f2f31aa76f7ac1b590"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/lint_report.py",
+      "size": 79802,
+      "sha256": "c05bb3c4e2881adb0ef59f754352bc863e784a8b806df0cc272c263f88ad93df"
+    },
+    {
+      "path": "../../.agents/skills/html-report/render_report.py",
+      "size": 969,
+      "sha256": "ede2dd05af3e754cf2c1004ae1d0b1e83277617dc8da912e7308fc4f74e03cb2"
+    }
+  ],
+  "commands": [
+    "crash_case: exact R39 mapping HD_VGL2.dll+0x4644 -> 0x10004644",
+    "static_exhaustion_check.py: sub_10003990 0x10003990..0x100050A7",
+    "read_save_map.py: AUTOSAVE.GM2 --role derived --json-out save-audit.json",
+    "corpus_query: full corpus exact HD_VGL2.dll+0x4644 and HD_VGL2.dll RVA census",
+    "diff_funcs.py: R23 vs R39 and R39 vs R40 for crash function"
+  ],
+  "facts": {
+    "crash_address": "HD_VGL2.dll+0x4644",
+    "ida_address": "0x10004644",
+    "function": "sub_10003990+0xCB4",
+    "instruction": "mov_[eax],ecx",
+    "eax": "0x00000000",
+    "local_mechanism": "malloc_NULL_without_check_then_null_write",
+    "payload_bytes": "5184000",
+    "allocation_bytes": "5184024",
+    "malloc_sites": "26",
+    "checked_malloc_sites": "17",
+    "unchecked_malloc_sites": "9",
+    "corpus_txt": "5492",
+    "exact_rva_hits": "1",
+    "direct_family_events": "13",
+    "dmp": "absent",
+    "state_origin": "not_confirmed",
+    "save_role": "derived"
+  },
+  "claims": [],
+  "code_evidence": {
+    "level": "instruction-boundary",
+    "note": "граница инструкции подтверждена листингом"
+  },
+  "machine_results": []
+}

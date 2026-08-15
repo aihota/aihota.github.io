@@ -1,0 +1,47 @@
+{
+  "schema": 3,
+  "kind": "case_capabilities",
+  "source": "HD_VGL2.dll+0x4644-5.7-R39-180-1.txt",
+  "dump_level": "no_dmp",
+  "source_identity": {"txt_count": 1, "dmp_count": 0},
+  "available_now": [
+    "text_exception_context",
+    "text_call_stack_v2",
+    "version_matched_listing",
+    "derived_autosave_header"
+  ],
+  "capabilities": {
+    "exception_context": true,
+    "call_stack": true,
+    "module_binary_identity": false,
+    "captured_memory": false,
+    "heap_state": false,
+    "memory_permissions": false,
+    "thread_provenance": false
+  },
+  "requires_full_dump": [
+    "virtual_address_space_map",
+    "heap_metadata",
+    "largest_free_region",
+    "module_timestamp_and_runtime_bytes",
+    "object_memory_and_neighbours"
+  ],
+  "requires_runtime_capture": [
+    "first_heap_corrupting_write",
+    "allocator_failure_reason",
+    "race_ordering",
+    "object_lifetime_transition"
+  ],
+  "strong_claim_gates": {
+    "specific_out_of_memory_origin": "requires_full_dump_or_runtime_capture",
+    "heap_corruption": "requires_full_dump_or_runtime_capture",
+    "race": "requires_runtime_capture",
+    "use_after_free": "requires_full_dump_or_runtime_capture"
+  },
+  "limitations": [
+    "No DMP was supplied",
+    "The Modules section in the TXT is empty",
+    "Heap and virtual-memory state are unavailable",
+    "Runtime bytes cannot be matched to a PE by timestamp or SHA-256"
+  ]
+}

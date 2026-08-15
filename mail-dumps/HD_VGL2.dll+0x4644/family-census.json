@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "kind": "crash_family_census",
+  "family_key": "HD_VGL2 framebuffer raw malloc -> unchecked mov [eax],ecx in corresponding sub_10003970/sub_10003990 +0xCB4",
+  "target": "HD_VGL2.dll+0x4644",
+  "corpus": {
+    "files_matched": 5492,
+    "files_read": 5492,
+    "files_truncated": 0,
+    "crash_logs": 5409,
+    "duplicates_skipped": 1262,
+    "hd_vgl2_events": 65,
+    "hd_vgl2_distinct_rva": 16
+  },
+  "members": [
+    {"rva": "0x4604", "count": 1, "versions": ["5.7 R22"], "evidence": "structural"},
+    {"rva": "0x4624", "count": 4, "versions": ["5.7 R23", "5.7 R29", "5.7 R30", "5.7 R33"], "evidence": "code-confirmed for R23/R33; structural for R29/R30"},
+    {"rva": "0x4627", "count": 1, "versions": ["5.7 R20"], "evidence": "structural"},
+    {"rva": "0x4633", "count": 6, "versions": ["5.7 RC2", "5.7 RC9", "5.7 RC10", "5.7 RC11", "5.7 R10", "5.7 R17"], "evidence": "structural"},
+    {"rva": "0x4644", "count": 1, "versions": ["5.7 R39"], "evidence": "code-confirmed exact listing"}
+  ],
+  "totals": {
+    "unique_events": 13,
+    "code_confirmed": 3,
+    "structural_analogues": 10,
+    "exact_target_rva": 1
+  },
+  "invariants": {
+    "operation": "write",
+    "faulting_address": "0x00000000",
+    "EAX": "0x00000000",
+    "ESI_role": "plausible multi-megabyte frame payload size",
+    "subsystem": "HD/OpenGL worker path"
+  },
+  "excluded": [
+    {"group": "HD_VGL2.dll+0x97CF..0x9827", "reason": "same heap-pressure class and subsystem, but a different allocation site inside the surface constructor"},
+    {"group": "HD_VGL2.dll+0xFC4C", "reason": "different path and insufficient code identity"}
+  ],
+  "relocation": {
+    "performed": false,
+    "reason": "No publication or corpus reorganisation was requested; existing source folders and prior reports were preserved"
+  }
+}
