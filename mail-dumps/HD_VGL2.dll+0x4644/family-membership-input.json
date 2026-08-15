@@ -1,0 +1,192 @@
+{
+  "schema": 1,
+  "family_id": "HD_VGL2-frame-buffer-allocation-46xx",
+  "enumeration_complete": true,
+  "dedup": "sha256",
+  "scope": {
+    "root": "mail-dumps",
+    "module": "HD_VGL2.dll",
+    "rvas": [
+      "0x4604",
+      "0x4624",
+      "0x4627",
+      "0x4633",
+      "0x4644"
+    ],
+    "kind": "corpus"
+  },
+  "memberships": [
+    {
+      "incident_id": "sha256:252e8d4310637303c6642ad2f2cf992684a2049e1829fb14ab42f67de41425c9",
+      "membership": "confirmed",
+      "basis": "точный листинг версии подтверждает тот же allocator-flow",
+      "evidence": [
+        "log:mail-dumps/HD_VGL2.dll+0x4624/HD_VGL2.dll+0x4624-5.7-R23-180-1.txt"
+      ],
+      "observed_rva": "0x4624",
+      "path": "mail-dumps/HD_VGL2.dll+0x4624/HD_VGL2.dll+0x4624-5.7-R23-180-1.txt",
+      "fingerprint": {
+        "kind": "allocator_flow",
+        "structure_role": "создание CPU-буфера кадра",
+        "field": "[allocated_block+0]",
+        "call_tail": [
+          "allocator wrapper",
+          "StartAddress"
+        ],
+        "frame_depth": 2,
+        "allocator": "_malloc",
+        "allocation_formula": "width*height*4+0x18",
+        "first_use": "mov [result],ecx",
+        "guard_status": "unchecked"
+      }
+    },
+    {
+      "incident_id": "sha256:112981184ef254351969e2404b3506bc23d72937792f9010c048aa6ad8ac1b44",
+      "membership": "probable",
+      "basis": "структурный аналог HD_VGL2.dll+0x46xx; точный листинг версии отсутствует",
+      "evidence": [
+        "log:mail-dumps/HD_VGL2.dll+0x4624/HD_VGL2.dll+0x4624-5.7-R29-180-1.txt"
+      ],
+      "observed_rva": "0x4624",
+      "path": "mail-dumps/HD_VGL2.dll+0x4624/HD_VGL2.dll+0x4624-5.7-R29-180-1.txt"
+    },
+    {
+      "incident_id": "sha256:5850edfefe8d39db6a561afc7b5933c6fcc551e67923ce69cde3cc7baf6b9dbe",
+      "membership": "probable",
+      "basis": "структурный аналог HD_VGL2.dll+0x46xx; точный листинг версии отсутствует",
+      "evidence": [
+        "log:mail-dumps/HD_VGL2.dll+0x4624/HD_VGL2.dll+0x4624-5.7-R30-180-1.txt"
+      ],
+      "observed_rva": "0x4624",
+      "path": "mail-dumps/HD_VGL2.dll+0x4624/HD_VGL2.dll+0x4624-5.7-R30-180-1.txt"
+    },
+    {
+      "incident_id": "sha256:85d2c3ae48fdb54a53b7e5ab31ed17a2deb9b51f6bafd7e9c4a2981cfa7b7fea",
+      "membership": "confirmed",
+      "basis": "точный листинг версии подтверждает тот же allocator-flow",
+      "evidence": [
+        "log:mail-dumps/HD_VGL2.dll+0x4624/HD_VGL2.dll+0x4624-5.7-R33-180-1.txt"
+      ],
+      "observed_rva": "0x4624",
+      "path": "mail-dumps/HD_VGL2.dll+0x4624/HD_VGL2.dll+0x4624-5.7-R33-180-1.txt",
+      "fingerprint": {
+        "kind": "allocator_flow",
+        "structure_role": "создание CPU-буфера кадра",
+        "field": "[allocated_block+0]",
+        "call_tail": [
+          "allocator wrapper",
+          "StartAddress"
+        ],
+        "frame_depth": 2,
+        "allocator": "_malloc",
+        "allocation_formula": "width*height*4+0x18",
+        "first_use": "mov [result],ecx",
+        "guard_status": "unchecked"
+      }
+    },
+    {
+      "incident_id": "sha256:e37a01a309a90c71441fa20e327354283938fdbd2df1e37fa194f6586ee5e0ba",
+      "membership": "confirmed",
+      "basis": "точный листинг версии подтверждает тот же allocator-flow",
+      "evidence": [
+        "log:mail-dumps/HD_VGL2.dll+0x4644/HD_VGL2.dll+0x4644-5.7-R39-180-1.txt"
+      ],
+      "observed_rva": "0x4644",
+      "path": "mail-dumps/HD_VGL2.dll+0x4644/HD_VGL2.dll+0x4644-5.7-R39-180-1.txt",
+      "fingerprint": {
+        "kind": "allocator_flow",
+        "structure_role": "создание CPU-буфера кадра",
+        "field": "[allocated_block+0]",
+        "call_tail": [
+          "allocator wrapper",
+          "StartAddress"
+        ],
+        "frame_depth": 2,
+        "allocator": "_malloc",
+        "allocation_formula": "width*height*4+0x18",
+        "first_use": "mov [result],ecx",
+        "guard_status": "unchecked"
+      }
+    },
+    {
+      "incident_id": "sha256:e4eecdc35b4793697e2d0678dfcddd7a9366032731469f1ed32a3aa3f94948eb",
+      "membership": "probable",
+      "basis": "структурный аналог HD_VGL2.dll+0x46xx; точный листинг версии отсутствует",
+      "evidence": [
+        "log:mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x4604-5.7-R22-180-1.txt"
+      ],
+      "observed_rva": "0x4604",
+      "path": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x4604-5.7-R22-180-1.txt"
+    },
+    {
+      "incident_id": "sha256:ec23cd8cc191b503dd1395408ea2ae896f1523c42708a549ae7a96daf55cece4",
+      "membership": "probable",
+      "basis": "структурный аналог HD_VGL2.dll+0x46xx; точный листинг версии отсутствует",
+      "evidence": [
+        "log:mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x4627-5.7-R20-180-1.txt"
+      ],
+      "observed_rva": "0x4627",
+      "path": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x4627-5.7-R20-180-1.txt"
+    },
+    {
+      "incident_id": "sha256:9e46916fb431a34cdc05212b2715b571c3175e9891c28335e7b1693f9a2a7858",
+      "membership": "probable",
+      "basis": "структурный аналог HD_VGL2.dll+0x46xx; точный листинг версии отсутствует",
+      "evidence": [
+        "log:mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x4633-5.7-R10-180-1.txt"
+      ],
+      "observed_rva": "0x4633",
+      "path": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x4633-5.7-R10-180-1.txt"
+    },
+    {
+      "incident_id": "sha256:351c1dec2b303f7ac074c4dd0a10eafa359b45258c1572abce0fb46fa4c29240",
+      "membership": "probable",
+      "basis": "структурный аналог HD_VGL2.dll+0x46xx; точный листинг версии отсутствует",
+      "evidence": [
+        "log:mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x4633-5.7-R17-180-1.txt"
+      ],
+      "observed_rva": "0x4633",
+      "path": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x4633-5.7-R17-180-1.txt"
+    },
+    {
+      "incident_id": "sha256:6599eac1d8f7c37ccfba004c2c61de2bbde8af25b6ce7eddd8f77219ee9edc53",
+      "membership": "probable",
+      "basis": "структурный аналог HD_VGL2.dll+0x46xx; точный листинг версии отсутствует",
+      "evidence": [
+        "log:mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x4633-5.7-RC10-180-1.txt"
+      ],
+      "observed_rva": "0x4633",
+      "path": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x4633-5.7-RC10-180-1.txt"
+    },
+    {
+      "incident_id": "sha256:984d6a4bf35394ea0baee9ff5d4ab35b377faa4d7f653c5d7b4947437b675695",
+      "membership": "probable",
+      "basis": "структурный аналог HD_VGL2.dll+0x46xx; точный листинг версии отсутствует",
+      "evidence": [
+        "log:mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x4633-5.7-RC11-180-1.txt"
+      ],
+      "observed_rva": "0x4633",
+      "path": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x4633-5.7-RC11-180-1.txt"
+    },
+    {
+      "incident_id": "sha256:c5b6f5675ce03f1b0e196312ff65a7e2345e397cee98e8692ecd74dd4c91e95b",
+      "membership": "probable",
+      "basis": "структурный аналог HD_VGL2.dll+0x46xx; точный листинг версии отсутствует",
+      "evidence": [
+        "log:mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x4633-5.7-RC2-180-1.txt"
+      ],
+      "observed_rva": "0x4633",
+      "path": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x4633-5.7-RC2-180-1.txt"
+    },
+    {
+      "incident_id": "sha256:bfd298375b3961fad7dcd596d672000b39c28c8c9c206fc75220d3102aaf2abc",
+      "membership": "probable",
+      "basis": "структурный аналог HD_VGL2.dll+0x46xx; точный листинг версии отсутствует",
+      "evidence": [
+        "log:mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x4633-5.7-RC9-180-1.txt"
+      ],
+      "observed_rva": "0x4633",
+      "path": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x4633-5.7-RC9-180-1.txt"
+    }
+  ]
+}

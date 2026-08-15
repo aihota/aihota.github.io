@@ -1,7 +1,7 @@
 {
-  "schema": 2,
-  "generated_at": "2026-08-15T20:06:09.747444+00:00",
-  "parser_revision": "041c2c7cfd8fc65a9677c78b4b80a6e020570cf6",
+  "schema": 3,
+  "generated_at": "2026-08-15T21:09:54.074736+00:00",
+  "parser_revision": "e70926b7aa593023425c91219edc2ec30cac65ad",
   "report": {
     "path": "HD_VGL2.dll+0x4644-анализ-gpt-5.6-sol.txt",
     "size": 32183,
@@ -15,39 +15,15 @@
       "role": "source"
     },
     {
-      "path": "../../modules/HD_VGL2.dll-5.7 R39.txt",
-      "size": 6353880,
-      "sha256": "44cdf06cd7654f105d2651c151d2487ddf37eae260e0dca0f95e6edabf2590ad",
-      "role": "source"
-    },
-    {
-      "path": "../../modules/HD_VGL2.dll-5.7 R23.txt",
-      "size": 6333535,
-      "sha256": "b43e9f98408e4518f4139afe453a27f30f3f98f51d8fe497e01762ded75e8988",
-      "role": "source"
-    },
-    {
-      "path": "../../modules/HD_VGL2.dll-5.7 R40.txt",
-      "size": 6353880,
-      "sha256": "c2360a0be082ade878904f58884504308560461ef20ee0f27023a5b3037d442f",
-      "role": "source"
-    },
-    {
-      "path": "HD_VGL2.dll+0x4644-5.7-R39-180-1-AUTOSAVE.GM2",
-      "size": 85137,
-      "sha256": "d2a56453dba0fca3e38764d5e09e755a0f225106d5d5fe3f3ce6ae5e452acb15",
-      "role": "derived"
-    },
-    {
-      "path": "static-analysis.json",
-      "size": 34663,
-      "sha256": "cf66adc400b61b0c2c71566c301fa29f1512e6f80da556bbdcb6e977b969883b",
+      "path": "capabilities.json",
+      "size": 309,
+      "sha256": "3ad62ca4b05b49d7d708a979536bad4b5be353d5b90d671e626b8c01f8673ae8",
       "role": "derived-evidence"
     },
     {
-      "path": "save-audit.json",
-      "size": 1726,
-      "sha256": "1cc78750c356a979b1de8106607a4dfd5b0ed9394744145d0d04b2a5bbd4902b",
+      "path": "coverage.json",
+      "size": 3784,
+      "sha256": "497d6a306d449a76a4818abf8854dfd072b62d00f1f46275f66555d041c05f12",
       "role": "derived-evidence"
     },
     {
@@ -57,74 +33,226 @@
       "role": "derived-evidence"
     },
     {
-      "path": "capabilities.json",
-      "size": 1404,
-      "sha256": "a4f5c660175bab76c4722bb158ed636366c6578fd1d75a3af823f8d8db28e35c",
+      "path": "family-membership-input.json",
+      "size": 8083,
+      "sha256": "ea055992d62c6ebd94d4c8ab56136c5e158d77c4815ce910cc89179e7ba2570c",
       "role": "derived-evidence"
+    },
+    {
+      "path": "family-membership.json",
+      "size": 8400,
+      "sha256": "aba85007e74d941510a2964e167b4440d420cf6ae354837ebc371c6cdb2a4648",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "static-analysis.json",
+      "size": 38129,
+      "sha256": "f954d55b15aa2a90f5befa7ac94021e06e165263cc4f7fe674b1a49e14141248",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "evidence-config.json",
+      "size": 1799,
+      "sha256": "f739bd48451e5bf1450692347581e5ed58edd7fbfbcdb0aa97007daa0686b30e",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "claims.json",
+      "size": 3215,
+      "sha256": "1e29c65e3906c108cf3701b5d99ef25b63e666b3965b4b4d5c928f1e70737ea2",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "save-audit.json",
+      "size": 1726,
+      "sha256": "1cc78750c356a979b1de8106607a4dfd5b0ed9394744145d0d04b2a5bbd4902b",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "HD_VGL2.dll+0x4644-5.7-R39-180-1-AUTOSAVE.GM2",
+      "size": 85137,
+      "sha256": "d2a56453dba0fca3e38764d5e09e755a0f225106d5d5fe3f3ce6ae5e452acb15",
+      "role": "derived"
     }
   ],
   "tools": [
     {
       "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
-      "size": 36665,
-      "sha256": "76028aee0b366ea232c582443c8af415ec044a8c7e0cd990e7eb83b27b28fd9e"
+      "size": 45966,
+      "sha256": "a09d9ab5e5f6c09d917e62ba3fc1821b65f8a1f1f107287a59f7e646f1baa21c"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 29023,
+      "sha256": "edb9161f7e2953b9e73deffb12d00f4134a8b79496764710eab2b938ec2e2e8f"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+      "size": 5175,
+      "sha256": "3bf507bb95908fe3aaaba4c423fe263aedc0d6fe93402db5e44d4ef98bf5f9e8"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/family_membership.py",
+      "size": 7966,
+      "sha256": "d5ee82612fe40c2f95af2775c3337dbac03acd3f7a20a6c630b41ac363d6a4cd"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/case_quality_gate.py",
+      "size": 17247,
+      "sha256": "c0485ed0e2fc38f51b8475e6a3b8147aeea7f2a8f04b741f21feaed3151c0d00"
     },
     {
       "path": "../../.agents/skills/save-map-analysis/read_save_map.py",
       "size": 31452,
       "sha256": "80fc8ad7d4053666778c120eb6a1a3124c3d1c0ed46e7dd99123dee6a07cee39"
-    },
-    {
-      "path": "../../.agents/skills/version-regression-diff/diff_funcs.py",
-      "size": 8834,
-      "sha256": "b372816799b923290467701bd5f00b790fdce98afcd01439d65437c17ca25827"
-    },
-    {
-      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
-      "size": 27611,
-      "sha256": "3834e938041f42bb2fe11dbbbc35a33466617002d2ebd8f2f31aa76f7ac1b590"
-    },
-    {
-      "path": "../../.agents/skills/hota-crash-triage/lint_report.py",
-      "size": 79802,
-      "sha256": "c05bb3c4e2881adb0ef59f754352bc863e784a8b806df0cc272c263f88ad93df"
-    },
-    {
-      "path": "../../.agents/skills/html-report/render_report.py",
-      "size": 969,
-      "sha256": "ede2dd05af3e754cf2c1004ae1d0b1e83277617dc8da912e7308fc4f74e03cb2"
     }
   ],
   "commands": [
-    "crash_case: exact R39 mapping HD_VGL2.dll+0x4644 -> 0x10004644",
-    "static_exhaustion_check.py: sub_10003990 0x10003990..0x100050A7",
-    "read_save_map.py: AUTOSAVE.GM2 --role derived --json-out save-audit.json",
-    "corpus_query: full corpus exact HD_VGL2.dll+0x4644 and HD_VGL2.dll RVA census",
-    "diff_funcs.py: R23 vs R39 and R39 vs R40 for crash function"
+    "static_exhaustion_check.py modules/HD_VGL2.dll-5.7 R39.txt --crash 0x10004644 --register EAX=0 --register ESI=0x4F1A00 --buffer-shape 1440x900x4",
+    "coverage_contract.py create claims.json --out coverage.json",
+    "family_membership.py create family-membership-input.json --out family-membership.json",
+    "evidence_manifest.py create --config evidence-config.json"
   ],
   "facts": {
-    "crash_address": "HD_VGL2.dll+0x4644",
-    "ida_address": "0x10004644",
-    "function": "sub_10003990+0xCB4",
-    "instruction": "mov_[eax],ecx",
-    "eax": "0x00000000",
-    "local_mechanism": "malloc_NULL_without_check_then_null_write",
-    "payload_bytes": "5184000",
-    "allocation_bytes": "5184024",
-    "malloc_sites": "26",
-    "checked_malloc_sites": "17",
-    "unchecked_malloc_sites": "9",
-    "corpus_txt": "5492",
-    "exact_rva_hits": "1",
-    "direct_family_events": "13",
-    "dmp": "absent",
-    "state_origin": "not_confirmed",
-    "save_role": "derived"
+    "case": "HD_VGL2.dll+0x4644",
+    "incident_count": "13",
+    "confirmed_members": "3",
+    "probable_members": "10",
+    "machine:save-audit:schema": "2",
+    "machine:save-audit:input_sha256": "d2a56453dba0fca3e38764d5e09e755a0f225106d5d5fe3f3ce6ae5e452acb15",
+    "machine:save-audit:unpack_method": "raw-deflate со смещения 10",
+    "machine:save-audit:embedded_map_name": "Rumble in the BogsA.h3m",
+    "machine:save-audit:artifact_identity": "{\"attached_artifact\": {\"name\": \"HD_VGL2.dll+0x4644-5.7-R39-180-1-AUTOSAVE.GM2\", \"path\": \"mail-dumps/HD_VGL2.dll+0x4644/HD_VGL2.dll+0x4644-5.7-R39-180-1-AUTOSAVE.GM2\", \"reported_name_matches\": null, \"sha256\": \"d2a56453dba0fca3e38764d5e09e755a0f225106d5d5fe3f3ce6ae5e452acb15\", \"size\": 85137}, \"embedded_map_name\": \"Rumble in the BogsA.h3m\", \"local_map_candidates\": [], \"note\": \"Имя .GM1 и внутреннее имя .h3m относятся к разным сущностям и не обязаны совпадать.\", \"reported_artifact_name\": null, \"rmg_table\": {\"entity\": \"rmg.txt\", \"same_as_map\": false}, \"rmg_template\": {\"entity\": \"HD.File.RMG\", \"same_as_map\": false}, \"valid\": true}",
+    "machine:save-audit:searches": "[]"
   },
-  "claims": [],
+  "claims": [
+    {
+      "confidence": "однозначно следует из листинга",
+      "id": "crash-site-4644",
+      "type": "crash_site",
+      "statement": "0x10004644 mov [eax],ecx — ВЫЛЕТ",
+      "evidence": [
+        "input:static-analysis.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "id": "local-malloc-null",
+      "type": "local_mechanism",
+      "statement": "Доказанная непосредственная причина — необработанный отказ _malloc.",
+      "evidence": [
+        "input:static-analysis.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "id": "allocator-origin-unknown",
+      "type": "state_origin",
+      "statement": "Конкретная более ранняя причина NULL не установлена.",
+      "evidence": [
+        "input:capabilities.json",
+        "input:static-analysis.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "id": "buffer-shape",
+      "type": "observation",
+      "statement": "Полезный размер 0x4F1A00 равен 1440 × 900 × 4, запрос — 0x4F1A18.",
+      "evidence": [
+        "input:static-analysis.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "family-46xx-census",
+      "type": "family_coverage",
+      "statement": "HD_VGL2.dll по 16 RVA и 13 событий межверсионной группы текущего места.",
+      "evidence": [
+        "input:family-census.json",
+        "input:family-membership.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "id": "null-check-fix",
+      "type": "fix",
+      "statement": "сразу после _malloc проверить EAX на NULL до обращения [eax];",
+      "evidence": [
+        "input:static-analysis.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    }
+  ],
   "code_evidence": {
     "level": "instruction-boundary",
     "note": "граница инструкции подтверждена листингом"
   },
-  "machine_results": []
+  "machine_results": [
+    {
+      "path": "save-audit.json",
+      "schema": 2,
+      "input": "mail-dumps/HD_VGL2.dll+0x4644/HD_VGL2.dll+0x4644-5.7-R39-180-1-AUTOSAVE.GM2",
+      "input_role": "derived",
+      "input_sha256": "d2a56453dba0fca3e38764d5e09e755a0f225106d5d5fe3f3ce6ae5e452acb15",
+      "artifact_identity": {
+        "reported_artifact_name": null,
+        "attached_artifact": {
+          "path": "mail-dumps/HD_VGL2.dll+0x4644/HD_VGL2.dll+0x4644-5.7-R39-180-1-AUTOSAVE.GM2",
+          "name": "HD_VGL2.dll+0x4644-5.7-R39-180-1-AUTOSAVE.GM2",
+          "size": 85137,
+          "sha256": "d2a56453dba0fca3e38764d5e09e755a0f225106d5d5fe3f3ce6ae5e452acb15",
+          "reported_name_matches": null
+        },
+        "embedded_map_name": "Rumble in the BogsA.h3m",
+        "local_map_candidates": [],
+        "rmg_template": {
+          "entity": "HD.File.RMG",
+          "same_as_map": false
+        },
+        "rmg_table": {
+          "entity": "rmg.txt",
+          "same_as_map": false
+        },
+        "valid": true,
+        "note": "Имя .GM1 и внутреннее имя .h3m относятся к разным сущностям и не обязаны совпадать."
+      },
+      "searches": []
+    }
+  ]
 }

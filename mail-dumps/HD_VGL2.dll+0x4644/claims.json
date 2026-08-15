@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "claims": [
+    {
+      "id": "crash-site-4644",
+      "type": "crash_site",
+      "statement": "0x10004644 mov [eax],ecx — ВЫЛЕТ",
+      "evidence": [
+        "input:static-analysis.json"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "local-malloc-null",
+      "type": "local_mechanism",
+      "statement": "Доказанная непосредственная причина — необработанный отказ _malloc.",
+      "evidence": [
+        "input:static-analysis.json"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "allocator-origin-unknown",
+      "type": "state_origin",
+      "statement": "Конкретная более ранняя причина NULL не установлена.",
+      "evidence": [
+        "input:capabilities.json",
+        "input:static-analysis.json"
+      ],
+      "confidence": "не проверено",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "buffer-shape",
+      "type": "observation",
+      "statement": "Полезный размер 0x4F1A00 равен 1440 × 900 × 4, запрос — 0x4F1A18.",
+      "evidence": [
+        "input:static-analysis.json"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "family-46xx-census",
+      "type": "family_coverage",
+      "statement": "HD_VGL2.dll по 16 RVA и 13 событий межверсионной группы текущего места.",
+      "evidence": [
+        "input:family-census.json",
+        "input:family-membership.json"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "null-check-fix",
+      "type": "fix",
+      "statement": "сразу после _malloc проверить EAX на NULL до обращения [eax];",
+      "evidence": [
+        "input:static-analysis.json"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "manifest_schema": 3,
+  "report": "HD_VGL2.dll+0x4644-анализ-gpt-5.6-sol.txt",
+  "inputs": [
+    {
+      "role": "source",
+      "path": "HD_VGL2.dll+0x4644-5.7-R39-180-1.txt"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "capabilities.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "coverage.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "family-census.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "family-membership-input.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "family-membership.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "static-analysis.json"
+    }
+  ],
+  "claim_json": [
+    "claims.json"
+  ],
+  "machine_json": [
+    "save-audit.json"
+  ],
+  "tools": [
+    "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+    "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+    "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+    "../../.agents/skills/hota-crash-triage/family_membership.py",
+    "../../.agents/skills/hota-crash-triage/case_quality_gate.py"
+  ],
+  "commands": [
+    "static_exhaustion_check.py modules/HD_VGL2.dll-5.7 R39.txt --crash 0x10004644 --register EAX=0 --register ESI=0x4F1A00 --buffer-shape 1440x900x4",
+    "coverage_contract.py create claims.json --out coverage.json",
+    "family_membership.py create family-membership-input.json --out family-membership.json",
+    "evidence_manifest.py create --config evidence-config.json"
+  ],
+  "facts": {
+    "case": "HD_VGL2.dll+0x4644",
+    "incident_count": 13,
+    "confirmed_members": 3,
+    "probable_members": 10
+  },
+  "parser_revision": "e70926b7aa593023425c91219edc2ec30cac65ad",
+  "code_evidence": "instruction-boundary"
+}

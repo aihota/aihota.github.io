@@ -215,8 +215,14 @@ h1.addr .mod{color:var(--hi)}
 .stat .cap{color:var(--muted);font-size:var(--fs-2xs);margin-top:2px}
 .stat.c-ver .ic-badge{background:var(--blBg);color:var(--blInk)}
 .stat.c-ver .big{color:var(--blInk);font-size:var(--fs-lg);letter-spacing:-.2px}
-.stat.c-cls .ic-badge{background:var(--redBg);color:var(--redInk)}
-.stat.c-cls .big{color:var(--redInk);font-size:var(--fs-md);word-break:break-word}
+/* Длинное название класса не режем внутри слова: для этой карточки
+   слегка ужимаем только локальные отступы, иконку и кегль. */
+.stat.c-cls{gap:8px;padding-left:10px;padding-right:10px}
+.stat.c-cls .ic-badge{width:34px;height:34px;background:var(--redBg);color:var(--redInk)}
+.stat.c-cls .ic{width:18px;height:18px}
+.stat.c-cls .big{color:var(--redInk);font-size:var(--fs-xs);line-height:1.18;
+  overflow-wrap:normal;word-break:normal;hyphens:none;-webkit-hyphens:none;
+  letter-spacing:-.1px}
 .stat.c-cnt .ic-badge{background:var(--gyBg);color:var(--gyInk)}
 /* КОЛИЧЕСТВО ЛОГОВ — базовый стиль бейджа шапки (--fs-2xl/700, цвет
    текста), как в template.html в корне проекта: решение владельца
