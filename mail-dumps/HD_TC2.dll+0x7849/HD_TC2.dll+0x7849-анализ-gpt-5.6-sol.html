@@ -572,65 +572,61 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
     <div class="statstrip"><div class="stat c-ver"><div class="ic-badge"><svg class="ic"><use href="#ic-package"/></svg></div><div class="st-body"><div class="big">1.8.0</div><div class="cap">Версия HotA</div></div></div><div class="stat c-cls"><div class="ic-badge"><svg class="ic"><use href="#ic-triangle"/></svg></div><div class="st-body"><div class="big">чтение/запись за концом буфера</div><div class="cap">Класс сбоя</div></div></div><div class="stat c-cnt"><div class="ic-badge"><svg class="ic"><use href="#ic-database"/></svg></div><div class="st-body"><div class="big">1</div><div class="cap">Количество журналов</div></div></div><div class="stat c-use"><div class="ic-badge"><svg class="ic"><use href="#ic-sig3"/></svg></div><div class="st-body"><div class="big">ВЫСОКАЯ</div><div class="cap">Полезность журнала</div></div></div></div>
   </div>
 
-  <section id="crash-visualization" data-toc="Визуализация вылета" class="geometry-evidence" aria-labelledby="surface-geometry-title">
-  <style>
-    #crash-visualization{color:var(--ink);font:inherit}
-    #crash-visualization .geometry-lead{margin:0 0 18px;color:var(--ink);font-weight:500}
-    #crash-visualization .geometry-grid{display:grid;grid-template-columns:minmax(250px,1fr) minmax(300px,1.25fr);gap:18px;align-items:start}
-    #crash-visualization .geometry-card{padding:16px;border-radius:12px;background:var(--panel2);border:1px solid var(--line);color:var(--ink)}
-    #crash-visualization .geometry-card h3{margin:0 0 12px;color:var(--ink);font-size:var(--fs-base)}
-    #crash-visualization .row-map{position:relative;height:330px;margin:8px 54px 8px 58px;border:2px solid var(--line);background:linear-gradient(180deg,var(--blBg),var(--panel));color:var(--ink)}
-    #crash-visualization .band{position:absolute;left:0;right:0;display:flex;align-items:center;justify-content:center;padding:0 8px;text-align:center;font-weight:700;color:var(--ink)}
-    #crash-visualization .text-rect{top:0;height:100%;border:2px dashed var(--accent2);background:color-mix(in srgb,var(--blBg) 55%,transparent)}
-    #crash-visualization .glyph-valid{top:26.47%;height:29.42%;background:var(--okBg);border-block:1px solid var(--okLn);z-index:2}
-    #crash-visualization .glyph-oob{top:calc(55.88% + 8px);height:14.71%;background:repeating-linear-gradient(135deg,var(--redBg) 0 10px,color-mix(in srgb,var(--redBg) 55%,var(--panel)) 10px 20px);border-block:1px solid var(--redLn);z-index:2}
-    #crash-visualization .surface-end{position:absolute;left:0;right:0;top:55.88%;border-top:3px solid var(--warn);z-index:1}
-    #crash-visualization .tick{position:absolute;left:-50px;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
-    #crash-visualization .t645{top:-9px}#crash-visualization .t654{top:25%}#crash-visualization .t663{top:52%}#crash-visualization .t668{top:96%}
-    #crash-visualization .surface-caption{margin:10px 0 0;padding:7px 10px;border-left:4px solid var(--warn);background:var(--panel);color:var(--ink);font-weight:700}
-    #crash-visualization .geometry-legend{display:grid;grid-template-columns:14px 1fr;gap:7px 9px;margin-top:14px;color:var(--ink)}
-    #crash-visualization .geometry-swatch{height:14px;border-radius:3px}
-    #crash-visualization .swatch-valid{background:var(--okBg);border:1px solid var(--okLn)}
-    #crash-visualization .swatch-overflow{background:var(--redBg);border:1px solid var(--redLn)}
-    #crash-visualization .swatch-rect{border:2px dashed var(--accent2)}
-    #crash-visualization .geometry-equation{padding:12px;border-radius:9px;background:var(--panel);border:1px solid var(--line);color:var(--ink);font:var(--fs-xs)/1.65 var(--font-mono);overflow-wrap:anywhere}
-    #crash-visualization .geometry-comparison{display:grid;gap:10px;margin-top:12px}
-    #crash-visualization .geometry-metric{padding:10px 12px;border-left:4px solid var(--line);background:var(--panel);color:var(--ink)}
-    #crash-visualization .geometry-metric.bad{border-color:var(--bad)}#crash-visualization .geometry-metric.good{border-color:var(--ok)}
-    #crash-visualization .geometry-metric strong{display:block;color:var(--ink)}
-    #crash-visualization .geometry-rows{display:grid;grid-template-columns:repeat(15,minmax(18px,1fr));gap:3px;margin-top:14px}
-    #crash-visualization .geometry-rows span{padding:6px 0;text-align:center;border-radius:4px;background:var(--okBg);border:1px solid var(--okLn);color:var(--ink);font-weight:700;font-size:var(--fs-2xs)}
-    #crash-visualization .geometry-rows span:nth-last-child(-n+5){background:var(--redBg);border-color:var(--redLn);color:var(--ink)}
-    #crash-visualization .geometry-conclusion{margin:14px 0 0;padding:10px 12px;border-radius:8px;background:var(--blBg);border:1px solid var(--blLn);color:var(--ink)}
-    @media(max-width:760px){#crash-visualization .geometry-grid{grid-template-columns:1fr}#crash-visualization .row-map{height:300px}#crash-visualization .geometry-rows{grid-template-columns:repeat(5,1fr)}}
-  </style>
-  <h2 id="surface-geometry-title"><span class="htext">Визуализация вылета</span><a class="anchor" href="#crash-visualization">¶</a></h2>
-  <p class="geometry-lead">Логический прямоугольник текста охватывал строки 645–678, хотя поверхность заканчивалась строкой 663. После центрирования глиф занял строки 654–668.</p>
-  <div class="geometry-grid">
-    <div class="geometry-card">
-      <h3>Границы поверхности и глифа</h3>
-      <div class="row-map" role="img" aria-label="Поверхность заканчивается на строке 663; строки глифа 664–668 выходят за её границу">
-        <div class="band text-rect">логический прямоугольник: 645–678</div>
-        <div class="band glyph-valid">глиф: 654–663 · 10 допустимых строк</div>
-        <div class="band glyph-oob">664–668 · 5 строк за границей</div>
-        <div class="surface-end" aria-hidden="true"></div>
-        <span class="tick t645">645</span><span class="tick t654">654</span>
-        <span class="tick t663">663</span><span class="tick t668">668</span>
-      </div>
-      <p class="surface-caption">Нижняя граница поверхности: строка 663</p>
-      <div class="geometry-legend"><i class="geometry-swatch swatch-rect"></i><span>логический прямоугольник отсечения</span><i class="geometry-swatch swatch-valid"></i><span>10 допустимых строк</span><i class="geometry-swatch swatch-overflow"></i><span>5 строк за пределами поверхности</span></div>
+  <section id="crash-visualization" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#crash-visualization">¶</a></h2>
+  <p>Схема показывает уже доказанную геометрию: логический прямоугольник
+     охватывает строки 645–678, физическая поверхность заканчивается после
+     строки 663, а глиф занимает строки 654–668.</p>
+
+  <div class="viz">
+    <svg class="viz-svg" viewBox="0 0 360 420" role="img"
+         aria-label="Геометрическая схема: логический прямоугольник, допустимая часть глифа, выход за границу поверхности и аварийная строка">
+      <title>Геометрия выхода глифа за поверхность</title>
+      <rect class="area accent" x="100" y="20" width="160" height="370" rx="12"
+            stroke-dasharray="8 6"/>
+      <rect class="area accent" x="118" y="120" width="124" height="112" rx="8"/>
+      <rect class="area bad" x="118" y="232" width="124" height="56" rx="8"/>
+      <line class="edge" x1="72" y1="232" x2="288" y2="232"/>
+      <line class="flow" x1="118" y1="266" x2="242" y2="266"/>
+    </svg>
+    <div class="viz-strip">
+      <div class="viz-box accent dashed">П<span class="lbl">645–678</span></div>
+      <div class="viz-box ok">Д<span class="lbl">654–663</span></div>
+      <div class="viz-box bad">В<span class="lbl">664–668</span></div>
+      <div class="viz-box bad">А<span class="lbl">строка 13</span></div>
     </div>
-    <div class="geometry-card">
-      <h3>Арифметика адресов HD_TC2</h3>
-      <div class="geometry-equation">начало = 0x0F76424C<br>межстрочный шаг = 0x127C (4732)<br>ширина = 8, размер пикселя = 4, высота = 15<br><br>ошибочная граница = начало + высота × ширина × 4<br>                   = 0x0F76442C<br><br>фактическая граница = начало + (высота − 1) × межстрочный шаг + ширина × 4<br>                     = 0x0F774534</div>
-      <div class="geometry-comparison">
-        <div class="geometry-metric bad"><strong>Ошибочная проверка пропустила вызов</strong>0x0F76442C меньше 0x0F76F1A0, потому что проверка не учла 14 межстрочных переходов.</div>
-        <div class="geometry-metric good"><strong>Фактический цикл не помещался</strong>Правильная граница превышает конец буфера на 0x5394 байта.</div>
-        <div class="geometry-metric bad"><strong>Авария на строке с индексом 13</strong>Запись по адресу 0x0F773298 находится уже на 0x40F8 байта за концом буфера.</div>
-      </div>
-      <div class="geometry-rows" aria-label="15 строк: 10 допустимых и 5 выходящих"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span></div>
-      <p class="geometry-conclusion"><strong>Вывод:</strong> логический прямоугольник отсечения не заменяет проверку фактических границ поверхности с учётом межстрочного шага.</p>
+    <p class="viz-cap">Горизонтальная нейтральная линия — граница поверхности после строки 663.
+       Красная линия внутри нижней области — строка глифа с индексом 13, на которой произошла запись.</p>
+  </div>
+
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge accent">П</span>
+      <span class="txt">Логический прямоугольник текста: строки 645–678. Его граница не является физической границей поверхности.</span></div>
+    <div class="item"><span class="viz-badge ok">Д</span>
+      <span class="txt">Десять допустимых строк глифа: 654–663. Они ещё размещаются в поверхности высотой 664 строки.</span></div>
+    <div class="item"><span class="viz-badge bad">В</span>
+      <span class="txt">Пять строк за границей поверхности: 664–668.</span></div>
+    <div class="item"><span class="viz-badge bad">А</span>
+      <span class="txt">Аварийная строка глифа с индексом 13: запись по адресу 0x0F773298 уже на 0x40F8 байта за концом буфера.</span></div>
+  </div>
+
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box bad dashed">О<span class="lbl">0x0F76442C</span></div>
+      <div class="viz-box accent">Ш<span class="lbl">0x127C</span></div>
+      <div class="viz-box ok">Ф<span class="lbl">0x0F774534</span></div>
     </div>
+    <p class="viz-cap">Сравнение ошибочной и фактической границ доступа.</p>
+  </div>
+
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge bad">О</span>
+      <span class="txt">Ошибочная проверка получила 0x0F76442C: начало + высота × ширина × 4. Она не учитывает межстрочный шаг.</span></div>
+    <div class="item"><span class="viz-badge accent">Ш</span>
+      <span class="txt">Межстрочный шаг равен 0x127C, или 4732 байта.</span></div>
+    <div class="item"><span class="viz-badge ok">Ф</span>
+      <span class="txt">Фактическая граница равна 0x0F774534: начало + (высота − 1) × межстрочный шаг + ширина × 4. Это на 0x5394 байта за концом буфера.</span></div>
   </div>
 </section>
 
