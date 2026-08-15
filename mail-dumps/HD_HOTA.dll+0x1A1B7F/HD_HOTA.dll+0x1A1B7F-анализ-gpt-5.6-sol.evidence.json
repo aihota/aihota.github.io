@@ -1,0 +1,235 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-15T10:26:08.403721+00:00",
+  "parser_revision": "f5dcef57a10883931c0863fbb4d9786654fde739",
+  "report": {
+    "path": "HD_HOTA.dll+0x1A1B7F-анализ-gpt-5.6-sol.txt",
+    "size": 31752,
+    "sha256": "534d7976e1be5f5ae7e1897109fe93f312d792891b2ab72ac4cf3f506d439eb0"
+  },
+  "inputs": [
+    {
+      "path": "HD_HOTA.dll+0x1A1B7F-5.7-R40-180.txt",
+      "size": 8193,
+      "sha256": "627573f8365c6cb0958d022d33d12731ac03c1d75d4e3bd3dd5ad803204fa6f9",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_HOTA.dll+0x1A1B7F-5.7-R40-180.dmp",
+      "size": 133481,
+      "sha256": "ea8bd5d86c2595eb61d7ae2fa48357615f0fe5801fda294d3b416e8a5184d1e0",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_HOTA.dll+0x1A1B7F-5.7-R40-180-AUTOSAVE.GM1",
+      "size": 246857,
+      "sha256": "446a95f00cd7b0c114c51534c7652576a7491b8758430b768a51840600ec9c24",
+      "role": "derived"
+    },
+    {
+      "path": "../../180/HD_HOTA.dll",
+      "size": 2299392,
+      "sha256": "b2e45e452c6f96ee1272d571bc663c76fd2beaa936790becfc999e5424033138",
+      "role": "source"
+    },
+    {
+      "path": "save-audit.json",
+      "size": 1296,
+      "sha256": "eb145cbca7f95f3a5cfd6ecaf2565d1fb1a4268eb737d9b895c7a2a61f61e5ca",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "artifact-context-census.json",
+      "size": 10248,
+      "sha256": "5538944089100c5d10438ca4363d9bc89902f6296b567c0d06ba9cb8ed2d0b92",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-membership.json",
+      "size": 10518,
+      "sha256": "5a25372b733f3e68a578c4dacda92f4aae666a0ec40d3588ea590f1a28897c65",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "claims.json",
+      "size": 3243,
+      "sha256": "00c23149a56872f1574a5a0f547cfee602125bdec3b0fe911f5a454f52e37eeb",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "coverage.json",
+      "size": 3829,
+      "sha256": "10223204b5687bd6406a7c6e6e041ea3d0dc59c4d0c29698dc92a37e2e0574eb",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "capabilities.json",
+      "size": 888,
+      "sha256": "afc8e50ec224f1072181fef2511ef1902ce0b744f527c85fe94e88a3031b8ab1",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "pair-audit.json",
+      "size": 809,
+      "sha256": "57363f78ed8f39a8b7c2ff7abc389131623444eb609a70c95d2ca1d6a5b3508b",
+      "role": "derived-cache"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/address-mapping/dumplib.py",
+      "size": 28311,
+      "sha256": "0502ce5c5a24aa4ffc2d31e2305d7bdb4ae7a0dde7b1c38ab55313c2ae46aca5"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/dump_profile.py",
+      "size": 26434,
+      "sha256": "e2bb8143a087e0e8e2eadf204fbfc9933cecf9f084c8a4949090685df8f5b256"
+    },
+    {
+      "path": "../../.agents/skills/save-map-analysis/read_save_map.py",
+      "size": 23329,
+      "sha256": "2e5d4df0180b6a34444ed3136644a9358e33875c114c8bfbcaa9a0c84bb39461"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/pair_audit.py",
+      "size": 18325,
+      "sha256": "c7232e7c353faefdc46a728f047262989abf0fe6952200e3e9a8e08e7e872ecf"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+      "size": 5118,
+      "sha256": "b422c4666be47287bcb90b5a030cea2ecf0b54d0cb8fc8f6faa4a3d094f3d087"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/family_membership.py",
+      "size": 5324,
+      "sha256": "212391c7dee92bac67088aab40ce0ca42aece2c723d9bc85fcb08c8831a73330"
+    }
+  ],
+  "commands": [
+    "MCP crash_case: exact TXT/DMP pair audit and capability profile",
+    "MCP dump_query: streams, exception, modules, threads, ranges and code window",
+    "python3 .agents/skills/save-map-analysis/read_save_map.py mail-dumps/HD_HOTA.dll+0x1A1B7F/HD_HOTA.dll+0x1A1B7F-5.7-R40-180-AUTOSAVE.GM1 --role derived --find 0xE8E4EEF5",
+    "dumplib.read_text/is_dump over mail-dumps/**/*.txt; literal Reclamation.h3m; exclude .staging-*; SHA-256 dedup",
+    "python3 .agents/skills/hota-crash-triage/coverage_contract.py check mail-dumps/HD_HOTA.dll+0x1A1B7F/coverage.json",
+    "python3 .agents/skills/hota-crash-triage/family_membership.py check mail-dumps/HD_HOTA.dll+0x1A1B7F/family-membership.json"
+  ],
+  "facts": {
+    "runtime_eip": "0x08371B7F",
+    "module_base": "0x081D0000",
+    "crash_rva": "0x1A1B7F",
+    "ida_address": "0x011A1B7F",
+    "instruction": "mov eax,[eax]",
+    "bad_pointer": "0xE8E4EEF5",
+    "source_field": "поле [+4h] первой строки _TxtTbl_",
+    "caller_callsite": "sub_11A2220, call 0x011A238C",
+    "state_origin": "unknown",
+    "globals_and_heap": "false",
+    "minidump_captured_bytes": "58248",
+    "context_scan_complete": "true",
+    "context_unique_incidents": "16",
+    "family_relation_level": "4",
+    "same_mechanism_confirmed": "false",
+    "autosave_role": "derived",
+    "autosave_unpacked_bytes": "1054145",
+    "autosave_bad_value_hits": "0",
+    "autosave_map": "Reclamation.h3m"
+  },
+  "claims": [
+    {
+      "confidence": "видно непосредственно в DMP",
+      "id": "crash-site",
+      "statement": "Точка сбоя: высокая надежность - совпали журнал, DMP, байты и листинг.",
+      "type": "crash_site",
+      "evidence": [
+        "fact:runtime_eip",
+        "fact:module_base",
+        "fact:crash_rva",
+        "fact:ida_address",
+        "fact:instruction"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "id": "local-mechanism",
+      "statement": "Локальный механизм: высокая надежность - восстановлен путь из поля [+4h].",
+      "type": "local_mechanism",
+      "evidence": [
+        "fact:instruction",
+        "fact:bad_pointer",
+        "fact:source_field",
+        "fact:caller_callsite"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "id": "state-origin",
+      "statement": "Первый источник записи 0xE8E4EEF5 не установлен.",
+      "type": "state_origin",
+      "evidence": [
+        "fact:state_origin",
+        "fact:globals_and_heap",
+        "fact:minidump_captured_bytes"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "family-coverage",
+      "statement": "Полнота поиска семейства: частичная - 16 контекстных кандидатов",
+      "type": "family_coverage",
+      "evidence": [
+        "fact:context_scan_complete",
+        "fact:context_unique_incidents",
+        "fact:family_relation_level",
+        "fact:same_mechanism_confirmed"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "autosave-negative",
+      "statement": "В распакованном AUTOSAVE значение 0xE8E4EEF5 не найдено",
+      "type": "observation",
+      "evidence": [
+        "fact:autosave_role",
+        "fact:autosave_unpacked_bytes",
+        "fact:autosave_bad_value_hits",
+        "fact:autosave_map"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    }
+  ],
+  "code_evidence": {
+    "level": "dmp-window",
+    "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
+  }
+}

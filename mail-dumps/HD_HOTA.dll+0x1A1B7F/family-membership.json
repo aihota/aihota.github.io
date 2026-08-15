@@ -1,0 +1,272 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-15T10:22:35.631673+00:00",
+  "family_id": "HD_HOTA.dll+0x1A1B7F-rmg-txt-row0-field4",
+  "source": "mail-dumps/HD_HOTA.dll+0x1A1B7F/family-membership-input.json",
+  "memberships": [
+    {
+      "incident_id": "sha256:627573f8365c6cb0958d022d33d12731ac03c1d75d4e3bd3dd5ad803204fa6f9",
+      "membership": "confirmed",
+      "basis": "целевой инцидент HD_HOTA.dll+0x1A1B7F",
+      "evidence": [
+        "pair-audit.json",
+        "capabilities.json"
+      ],
+      "fingerprint": {
+        "structure_role": "_TxtTbl_ row 0",
+        "field": "+4h data pointer",
+        "call_tail": [
+          "sub_11A2220",
+          "sub_11A1A30"
+        ],
+        "frame_depth": 2
+      }
+    },
+    {
+      "incident_id": "sha256:4acf6978a249965c79c20ac20d587864ec182e1ab56ca9d0b83965ef6fc6ca74",
+      "membership": "unknown",
+      "basis": "совпадает только имя карты; локальный механизм не установлен",
+      "evidence": [
+        "artifact-context-census.json",
+        "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x16920E-1.8.0-1-97CAD.txt"
+      ],
+      "context": {
+        "map_name": "Reclamation.h3m",
+        "module": "HD_HOTA.dll",
+        "address": "HD_HOTA.dll+0x16920E",
+        "hd_version": "5.7 RC6"
+      }
+    },
+    {
+      "incident_id": "sha256:106c588106c925c226062ca361d3b4bfb8b173ae73b365fe87aae8ebc77f6108",
+      "membership": "unknown",
+      "basis": "совпадает только имя карты; локальный механизм не установлен",
+      "evidence": [
+        "artifact-context-census.json",
+        "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x16920E-1.8.0-2-97CAD.txt"
+      ],
+      "context": {
+        "map_name": "Reclamation.h3m",
+        "module": "HD_HOTA.dll",
+        "address": "HD_HOTA.dll+0x16920E",
+        "hd_version": "5.7 RC6"
+      }
+    },
+    {
+      "incident_id": "sha256:ca670a063f7abaaa3ee94ef8a9f59ea8016d4ebe31f44fa3e03181c8e5c6ebba",
+      "membership": "unknown",
+      "basis": "совпадает только имя карты; локальный механизм не установлен",
+      "evidence": [
+        "artifact-context-census.json",
+        "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x8224-1.8.0-1-97CAD.txt"
+      ],
+      "context": {
+        "map_name": "Reclamation.h3m",
+        "module": "HD_HOTA.dll",
+        "address": "HD_HOTA.dll+0x8224",
+        "hd_version": "5.7 R10"
+      }
+    },
+    {
+      "incident_id": "sha256:a15aafdb22d70765c699880408b8d81350a101a8183c1849bcd4de1903ae77df",
+      "membership": "unknown",
+      "basis": "совпадает только имя карты; локальный механизм не установлен",
+      "evidence": [
+        "artifact-context-census.json",
+        "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x94AED-1.8.0-1-97CAD.txt"
+      ],
+      "context": {
+        "map_name": "Reclamation.h3m",
+        "module": "HD_HOTA.dll",
+        "address": null,
+        "hd_version": "5.6 R20"
+      }
+    },
+    {
+      "incident_id": "sha256:6634dc5a69e71568fc6b8009a7bac0fe8269f321757bebfe8a5705af4f6e186d",
+      "membership": "unknown",
+      "basis": "совпадает только имя карты; локальный механизм не установлен",
+      "evidence": [
+        "artifact-context-census.json",
+        "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0xF9DF8-1.8.0-2-97CAD.txt"
+      ],
+      "context": {
+        "map_name": "Reclamation.h3m",
+        "module": "HD_HOTA.dll",
+        "address": null,
+        "hd_version": "5.6 R9"
+      }
+    },
+    {
+      "incident_id": "sha256:621d484af8cc9d3460c055470e2e42273d35d7de481db64f7925abd12fdbfa41",
+      "membership": "unknown",
+      "basis": "совпадает только имя карты; локальный механизм не установлен",
+      "evidence": [
+        "artifact-context-census.json",
+        "mail-dumps/HD_SCX2.dll+0x221F/Краш-логи и дампы старых версий HD-мода/HD_SCX2.dll+0x221F-5.7-RC6-180-2.txt"
+      ],
+      "context": {
+        "map_name": "Reclamation.h3m",
+        "module": "HD_SCX2.dll",
+        "address": "HD_SCX2.dll+0x221F",
+        "hd_version": "5.7 RC6"
+      }
+    },
+    {
+      "incident_id": "sha256:8ff3be509a79c619f64347746517e605ff3b76e809cea40b6f8d3a4976af5e47",
+      "membership": "unknown",
+      "basis": "совпадает только имя карты; локальный механизм не установлен",
+      "evidence": [
+        "artifact-context-census.json",
+        "mail-dumps/HD_SCX2.dll+0x221F/Краш-логи и дампы старых версий HD-мода/HD_SCX2.dll+0x221F-5.7-RC6-180-3.txt"
+      ],
+      "context": {
+        "map_name": "Reclamation.h3m",
+        "module": "HD_SCX2.dll",
+        "address": "HD_SCX2.dll+0x221F",
+        "hd_version": "5.7 RC6"
+      }
+    },
+    {
+      "incident_id": "sha256:53e2c40227264ca6838e481e7a6ed563c31df3a74f8b769413adeffa82643d0f",
+      "membership": "unknown",
+      "basis": "совпадает только имя карты; локальный механизм не установлен",
+      "evidence": [
+        "artifact-context-census.json",
+        "mail-dumps/HD_SCX2.dll+0x221F/Краш-логи и дампы старых версий HD-мода/HD_SCX2.dll+0x221F-5.7-RC6-180-5.txt"
+      ],
+      "context": {
+        "map_name": "Reclamation.h3m",
+        "module": "HD_SCX2.dll",
+        "address": "HD_SCX2.dll+0x221F",
+        "hd_version": "5.7 RC6"
+      }
+    },
+    {
+      "incident_id": "sha256:070ab47bbdd802af052ef794b2d35fce0c860879da7fd29772413e7772faf357",
+      "membership": "unknown",
+      "basis": "совпадает только имя карты; локальный механизм не установлен",
+      "evidence": [
+        "artifact-context-census.json",
+        "mail-dumps/HD_SCX2.dll+0x221F/Краш-логи и дампы старых версий HD-мода/HD_SCX2.dll+0x221F-5.7-RC6-180-6.txt"
+      ],
+      "context": {
+        "map_name": "Reclamation.h3m",
+        "module": "HD_SCX2.dll",
+        "address": "HD_SCX2.dll+0x221F",
+        "hd_version": "5.7 RC6"
+      }
+    },
+    {
+      "incident_id": "sha256:e2ffab3356d19f6ae577fbc707c49a234371c4a695eef7ee7fd64da6dfe5fb96",
+      "membership": "unknown",
+      "basis": "совпадает только имя карты; локальный механизм не установлен",
+      "evidence": [
+        "artifact-context-census.json",
+        "mail-dumps/HD_SCX2.dll+0x221F/Краш-логи и дампы старых версий HD-мода/HD_SCX2.dll+0x221F-5.7-RC6-180-8.txt"
+      ],
+      "context": {
+        "map_name": "Reclamation.h3m",
+        "module": "HD_SCX2.dll",
+        "address": "HD_SCX2.dll+0x221F",
+        "hd_version": "5.7 RC6"
+      }
+    },
+    {
+      "incident_id": "sha256:6c7470e4bd18ca8cd5e9d0ee225e9814026b84a624b1029ded588d850e31d9ff",
+      "membership": "unknown",
+      "basis": "совпадает только имя карты; локальный механизм не установлен",
+      "evidence": [
+        "artifact-context-census.json",
+        "mail-dumps/HD_TC2.dll+0x67B0/HD_TC2.dll+0x67B0-1.8.0-101.txt"
+      ],
+      "context": {
+        "map_name": "Reclamation.h3m",
+        "module": "HD_TC2.dll",
+        "address": "HD_TC2.dll+0x67B0",
+        "hd_version": "5.7 R29"
+      }
+    },
+    {
+      "incident_id": "sha256:49077013443b7881a55615b470f9a992d789382059d03b7f23bcee4709875919",
+      "membership": "unknown",
+      "basis": "совпадает только имя карты; локальный механизм не установлен",
+      "evidence": [
+        "artifact-context-census.json",
+        "mail-dumps/HD_TC2.dll+0x67B0/HD_TC2.dll+0x67B0-1.8.0-5.txt"
+      ],
+      "context": {
+        "map_name": "Reclamation.h3m",
+        "module": "HD_TC2.dll",
+        "address": "HD_TC2.dll+0x67B0",
+        "hd_version": "5.6 R37"
+      }
+    },
+    {
+      "incident_id": "sha256:a3865d285c72c1cc187b9d9c95b5028d00fb8b04e2a983118b3b8bcb4290f7f5",
+      "membership": "unknown",
+      "basis": "совпадает только имя карты; локальный механизм не установлен",
+      "evidence": [
+        "artifact-context-census.json",
+        "mail-dumps/HD_TC2.dll/HD_TC2.dll+0x6E69-5.7-RC6-180-1.txt"
+      ],
+      "context": {
+        "map_name": "Reclamation.h3m",
+        "module": "HD_TC2.dll",
+        "address": "HD_TC2.dll+0x6E69",
+        "hd_version": "5.7 RC6"
+      }
+    },
+    {
+      "incident_id": "sha256:f1aa51d9b4aab384e17271114800b7ef94b6e2583f37f6ae24d2f5ff1ef55882",
+      "membership": "unknown",
+      "basis": "совпадает только имя карты; локальный механизм не установлен",
+      "evidence": [
+        "artifact-context-census.json",
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14E702-1.8.0-1.txt"
+      ],
+      "context": {
+        "map_name": "Reclamation.h3m",
+        "module": "KERNELBASE.dll",
+        "address": "KERNELBASE.dll+0x14E702",
+        "hd_version": "5.7 R6"
+      }
+    },
+    {
+      "incident_id": "sha256:62ad9630aebc051ae3c7e8e41876d938304ef04646b5bdfc263b9d8dfb14a820",
+      "membership": "unknown",
+      "basis": "совпадает только имя карты; локальный механизм не установлен",
+      "evidence": [
+        "artifact-context-census.json",
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x164984-1.8.0-18.txt"
+      ],
+      "context": {
+        "map_name": "Reclamation.h3m",
+        "module": "KERNELBASE.dll",
+        "address": "KERNELBASE.dll+0x164984",
+        "hd_version": "5.7 R29"
+      }
+    },
+    {
+      "incident_id": "sha256:37c3f63023f2386b891484a39c4efc110715652e51e49755e8a370b350f6d7d7",
+      "membership": "unknown",
+      "basis": "совпадает только имя карты; локальный механизм не установлен",
+      "evidence": [
+        "artifact-context-census.json",
+        "mail-dumps/hota.dll+0x7978A/hota.dll+0x7978A-1.8.0-4.txt"
+      ],
+      "context": {
+        "map_name": "Reclamation.h3m",
+        "module": "hota.dll",
+        "address": "hota.dll+0x7978A",
+        "hd_version": "5.7 RC6"
+      }
+    }
+  ],
+  "counts": {
+    "confirmed": 1,
+    "unknown": 16
+  },
+  "errors": [],
+  "complete": true
+}

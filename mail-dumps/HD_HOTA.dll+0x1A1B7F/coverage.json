@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-15T10:26:08.329146+00:00",
+  "source": "mail-dumps/HD_HOTA.dll+0x1A1B7F/claims.json",
+  "axes": [
+    "instruction",
+    "mechanism",
+    "state_origin",
+    "family_coverage"
+  ],
+  "levels": [
+    "confirmed",
+    "probable",
+    "unknown",
+    "not_applicable"
+  ],
+  "claims": [
+    {
+      "id": "crash-site",
+      "statement": "Точка сбоя: высокая надежность - совпали журнал, DMP, байты и листинг.",
+      "type": "crash_site",
+      "evidence": [
+        "fact:runtime_eip",
+        "fact:module_base",
+        "fact:crash_rva",
+        "fact:ida_address",
+        "fact:instruction"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "local-mechanism",
+      "statement": "Локальный механизм: высокая надежность - восстановлен путь из поля [+4h].",
+      "type": "local_mechanism",
+      "evidence": [
+        "fact:instruction",
+        "fact:bad_pointer",
+        "fact:source_field",
+        "fact:caller_callsite"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "state-origin",
+      "statement": "Первый источник записи 0xE8E4EEF5 не установлен.",
+      "type": "state_origin",
+      "evidence": [
+        "fact:state_origin",
+        "fact:globals_and_heap",
+        "fact:minidump_captured_bytes"
+      ],
+      "confidence": "не проверено",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "family-coverage",
+      "statement": "Полнота поиска семейства: частичная - 16 контекстных кандидатов",
+      "type": "family_coverage",
+      "evidence": [
+        "fact:context_scan_complete",
+        "fact:context_unique_incidents",
+        "fact:family_relation_level",
+        "fact:same_mechanism_confirmed"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "id": "autosave-negative",
+      "statement": "В распакованном AUTOSAVE значение 0xE8E4EEF5 не найдено",
+      "type": "observation",
+      "evidence": [
+        "fact:autosave_role",
+        "fact:autosave_unpacked_bytes",
+        "fact:autosave_bad_value_hits",
+        "fact:autosave_map"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    }
+  ],
+  "matrix": {
+    "instruction": {
+      "confirmed": 3,
+      "not_applicable": 2
+    },
+    "mechanism": {
+      "not_applicable": 3,
+      "confirmed": 2
+    },
+    "state_origin": {
+      "unknown": 4,
+      "not_applicable": 1
+    },
+    "family_coverage": {
+      "not_applicable": 4,
+      "probable": 1
+    }
+  },
+  "errors": [],
+  "ready": true
+}

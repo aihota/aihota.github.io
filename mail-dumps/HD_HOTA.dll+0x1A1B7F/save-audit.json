@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-15T10:21:09.543714+00:00",
+  "input": "mail-dumps/HD_HOTA.dll+0x1A1B7F/HD_HOTA.dll+0x1A1B7F-5.7-R40-180-AUTOSAVE.GM1",
+  "input_role": "derived",
+  "input_size": 246857,
+  "input_sha256": "446a95f00cd7b0c114c51534c7652576a7491b8758430b768a51840600ec9c24",
+  "tool": ".agents/skills/save-map-analysis/read_save_map.py",
+  "tool_sha256": "2e5d4df0180b6a34444ed3136644a9358e33875c114c8bfbcaa9a0c84bb39461",
+  "command": "python3 .agents/skills/save-map-analysis/read_save_map.py mail-dumps/HD_HOTA.dll+0x1A1B7F/HD_HOTA.dll+0x1A1B7F-5.7-R40-180-AUTOSAVE.GM1 --role derived --find 0xE8E4EEF5",
+  "unpack_method": "raw-deflate со смещения 10",
+  "unpacked_size": 1054145,
+  "layout_known": true,
+  "decompression_ok": true,
+  "content_ok": true,
+  "format_version": 10,
+  "players": 1,
+  "embedded_map_name": "Reclamation.h3m",
+  "control": {
+    "signature_h3svg": true,
+    "map_name_readable": true,
+    "method_passed": true
+  },
+  "search": {
+    "representation": "little-endian dword",
+    "value": "0xE8E4EEF5",
+    "searched_bytes": 1054145,
+    "hit_count": 0,
+    "offsets": []
+  },
+  "provenance_limit": "derived AUTOSAVE: отсутствие значения ничего не доказывает об исходном входе"
+}
