@@ -1,0 +1,39 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Цикл начал вывод с позиции, равной числу записей. Первый проход
+     попал точно на конец массива, второй - ещё на один элемент дальше
+     и вызвал чтение по недоступному адресу.</p>
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box ok">
+        <span class="viz-badge ok">B</span>
+        допустимые записи
+        <span class="lbl">индексы 0..183; начало 0x04100020</span>
+      </div>
+      <div class="viz-box bad dashed">
+        <span class="viz-badge bad">E</span>
+        первый недопустимый индекс
+        <span class="lbl">184 = end = 0x04191600</span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">F</span>
+        адрес исключения
+        <span class="lbl">185 = 0x041922A4</span>
+      </div>
+    </div>
+    <p class="viz-cap">Шаг записи равен 0xCA4; start_index=184,
+       row=1, поэтому фактический индекс равен 185.</p>
+  </div>
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge ok">B</span>
+      <span class="txt">Начало массива; в нём 184 записи с индексами
+      от 0 до 183.</span></div>
+    <div class="item"><span class="viz-badge bad">E</span>
+      <span class="txt">Указатель конца массива. Он не является
+      допустимой записью.</span></div>
+    <div class="item"><span class="viz-badge bad">F</span>
+      <span class="txt">ECX и адрес неудавшегося чтения на втором
+      недопустимом проходе.</span></div>
+  </div>
+</section>
