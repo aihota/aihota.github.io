@@ -215,8 +215,14 @@ h1.addr .mod{color:var(--hi)}
 .stat .cap{color:var(--muted);font-size:var(--fs-2xs);margin-top:2px}
 .stat.c-ver .ic-badge{background:var(--blBg);color:var(--blInk)}
 .stat.c-ver .big{color:var(--blInk);font-size:var(--fs-lg);letter-spacing:-.2px}
-.stat.c-cls .ic-badge{background:var(--redBg);color:var(--redInk)}
-.stat.c-cls .big{color:var(--redInk);font-size:var(--fs-md);word-break:break-word}
+/* Длинное название класса не режем внутри слова: для этой карточки
+   слегка ужимаем только локальные отступы, иконку и кегль. */
+.stat.c-cls{gap:8px;padding-left:10px;padding-right:10px}
+.stat.c-cls .ic-badge{width:34px;height:34px;background:var(--redBg);color:var(--redInk)}
+.stat.c-cls .ic{width:18px;height:18px}
+.stat.c-cls .big{color:var(--redInk);font-size:var(--fs-xs);line-height:1.18;
+  overflow-wrap:normal;word-break:normal;hyphens:none;-webkit-hyphens:none;
+  letter-spacing:-.1px}
 .stat.c-cnt .ic-badge{background:var(--gyBg);color:var(--gyInk)}
 /* КОЛИЧЕСТВО ЛОГОВ — базовый стиль бейджа шапки (--fs-2xl/700, цвет
    текста), как в template.html в корне проекта: решение владельца
@@ -597,7 +603,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
         <span class="lbl">CW=0x1372; ZM=0; доставка</span>
       </div>
     </div>
-    <p class="viz-cap">Причина возникает в h3hota HD.exe+0xB4912;
+    <p class="viz-cap">Причина возникает в <code>h3hota HD.exe+0xB4912</code>;
        HD_VGL2.dll сообщает о ней позже.</p>
   </div>
   <div class="viz-legend">
@@ -685,7 +691,7 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
     <h2><span class="htext">Вывод</span><a class="anchor" href="#verdict">¶</a></h2>
     <div class="card verdict conf-derived">
       <p class="conflabel">Выведено из листинга</p>
-      <p>Фактическая причинная инструкция находится не в <code>HD_VGL2.dll</code>, а в h3hota <code>HD.exe+0xB4912</code>, <code>A0_Battle_Stack_Draw_Flying_sub_4B47A0+0x172</code>. Точный листинг и сохранённый кадр показывают деление <code>X_Dist</code>=-22.0 на FramesCount=0.0. Ноль возникает при Distance=47 и положительном <code>FlightAnim_FrameDistance</code>&gt;=95 из-за целочисленной формулы без нижнего ограничения результата. Перед двумя fdiv требуется FramesCount=max(1, FramesCount).</p><p><code>HD_VGL2.dll+0x5EAA</code> — только точка доставки: fild сообщила о накопленном ZE после того, как неизвестный код снял ZM и оставил CW=<code>0x1372</code>. Главный внешний кандидат на изменение масок — Free2X Webcam Recorder\<code>zHook.dll</code>, общий с другим случаем CW=0x1372; его вина не доказана без бинарника или остановки на конкретной записи слова управления. Поэтому ответственность двойная: основной EXE допускает и потребляет нулевой FramesCount, а внешний код превращает обычно замаскированное состояние x87 в фатальное исключение.</p>
+      <p>Фактическая причинная инструкция находится не в <code>HD_VGL2.dll</code>, а в <code>h3hota HD.exe+0xB4912</code>, <code>A0_Battle_Stack_Draw_Flying_sub_4B47A0+0x172</code>. Точный листинг и сохранённый кадр показывают деление <code>X_Dist</code>=-22.0 на FramesCount=0.0. Ноль возникает при Distance=47 и положительном <code>FlightAnim_FrameDistance</code>&gt;=95 из-за целочисленной формулы без нижнего ограничения результата. Перед двумя fdiv требуется FramesCount=max(1, FramesCount).</p><p><code>HD_VGL2.dll+0x5EAA</code> — только точка доставки: fild сообщила о накопленном ZE после того, как неизвестный код снял ZM и оставил CW=<code>0x1372</code>. Главный внешний кандидат на изменение масок — Free2X Webcam Recorder\<code>zHook.dll</code>, общий с другим случаем CW=0x1372; его вина не доказана без бинарника или остановки на конкретной записи слова управления. Поэтому ответственность двойная: основной EXE допускает и потребляет нулевой FramesCount, а внешний код превращает обычно замаскированное состояние x87 в фатальное исключение.</p>
     </div>
   </section>
 
