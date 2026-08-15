@@ -1,0 +1,518 @@
+{
+  "schema": 3,
+  "root": "/Users/Shared/ii/mail-dumps/HD_VGL2.dll",
+  "rows": [
+    {
+      "stem": "HD_VGL2.dll+0x4604-5.7-R22-180-1",
+      "txt": "HD_VGL2.dll+0x4604-5.7-R22-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x4627-5.7-R20-180-1",
+      "txt": "HD_VGL2.dll+0x4627-5.7-R20-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x4633-5.7-R10-180-1",
+      "txt": "HD_VGL2.dll+0x4633-5.7-R10-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x4633-5.7-R17-180-1",
+      "txt": "HD_VGL2.dll+0x4633-5.7-R17-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x4633-5.7-RC10-180-1",
+      "txt": "HD_VGL2.dll+0x4633-5.7-RC10-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x4633-5.7-RC11-180-1",
+      "txt": "HD_VGL2.dll+0x4633-5.7-RC11-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x4633-5.7-RC2-180-1",
+      "txt": "HD_VGL2.dll+0x4633-5.7-RC2-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x4633-5.7-RC9-180-1",
+      "txt": "HD_VGL2.dll+0x4633-5.7-RC9-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x4644-5.7-R39-180-1",
+      "txt": "HD_VGL2.dll+0x4644-5.7-R39-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x5B1D-5.6-R35-180-1",
+      "txt": "HD_VGL2.dll+0x5B1D-5.6-R35-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x5B1D-5.7-RC10-180-1",
+      "txt": "HD_VGL2.dll+0x5B1D-5.7-RC10-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x5B1D-5.7-RC10-180-2",
+      "txt": "HD_VGL2.dll+0x5B1D-5.7-RC10-180-2.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x5EAA-5.7-R39-180-1",
+      "txt": "HD_VGL2.dll+0x5EAA-5.7-R39-180-1.txt",
+      "dmp": "HD_VGL2.dll+0x5EAA-5.7-R39-180-1.dmp",
+      "context_eip": "0x71FA5EAA",
+      "module": "HD_VGL2.dll",
+      "rva": "0x5EAA",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_FLT_DIVIDE_BY_ZERO",
+      "dmp_exception": "0xC000008E",
+      "operation": "read",
+      "status": "unknown_exception_class",
+      "reason": "класс исключения не распознан: TXT='EXCEPTION_FLT_DIVIDE_BY_ZERO' DMP=3221225614"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.6-R33-180-1",
+      "txt": "HD_VGL2.dll+0x91BF-5.6-R33-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.6-R35-180-1",
+      "txt": "HD_VGL2.dll+0x91BF-5.6-R35-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.6-R35-180-10",
+      "txt": "HD_VGL2.dll+0x91BF-5.6-R35-180-10.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.6-R35-180-2",
+      "txt": "HD_VGL2.dll+0x91BF-5.6-R35-180-2.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.6-R35-180-3",
+      "txt": "HD_VGL2.dll+0x91BF-5.6-R35-180-3.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.6-R35-180-4",
+      "txt": "HD_VGL2.dll+0x91BF-5.6-R35-180-4.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.6-R35-180-5",
+      "txt": "HD_VGL2.dll+0x91BF-5.6-R35-180-5.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.6-R35-180-6",
+      "txt": "HD_VGL2.dll+0x91BF-5.6-R35-180-6.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.6-R35-180-7",
+      "txt": "HD_VGL2.dll+0x91BF-5.6-R35-180-7.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.6-R35-180-8",
+      "txt": "HD_VGL2.dll+0x91BF-5.6-R35-180-8.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.6-R35-180-9",
+      "txt": "HD_VGL2.dll+0x91BF-5.6-R35-180-9.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.7-R12-180-1",
+      "txt": "HD_VGL2.dll+0x91BF-5.7-R12-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.7-R5-180-1",
+      "txt": "HD_VGL2.dll+0x91BF-5.7-R5-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.7-R5-180-2",
+      "txt": "HD_VGL2.dll+0x91BF-5.7-R5-180-2.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.7-R5-180-3",
+      "txt": "HD_VGL2.dll+0x91BF-5.7-R5-180-3.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.7-RC10-180-1",
+      "txt": "HD_VGL2.dll+0x91BF-5.7-RC10-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.7-RC10-180-2",
+      "txt": "HD_VGL2.dll+0x91BF-5.7-RC10-180-2.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.7-RC10-180-3",
+      "txt": "HD_VGL2.dll+0x91BF-5.7-RC10-180-3.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.7-RC10-180-4",
+      "txt": "HD_VGL2.dll+0x91BF-5.7-RC10-180-4.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.7-RC10-180-5",
+      "txt": "HD_VGL2.dll+0x91BF-5.7-RC10-180-5.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.7-RC11-180-1",
+      "txt": "HD_VGL2.dll+0x91BF-5.7-RC11-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.7-RC2-180-1",
+      "txt": "HD_VGL2.dll+0x91BF-5.7-RC2-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.7-RC7-180-1",
+      "txt": "HD_VGL2.dll+0x91BF-5.7-RC7-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.7-RC7-180-2",
+      "txt": "HD_VGL2.dll+0x91BF-5.7-RC7-180-2.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.7-RC9-180-1",
+      "txt": "HD_VGL2.dll+0x91BF-5.7-RC9-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91BF-5.7-RC9-180-2",
+      "txt": "HD_VGL2.dll+0x91BF-5.7-RC9-180-2.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91E7-5.6-R35-180-1",
+      "txt": "HD_VGL2.dll+0x91E7-5.6-R35-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91E7-5.6-R35-180-2",
+      "txt": "HD_VGL2.dll+0x91E7-5.6-R35-180-2.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91E7-5.7-R17-180-1",
+      "txt": "HD_VGL2.dll+0x91E7-5.7-R17-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91E7-5.7-R3-180-1",
+      "txt": "HD_VGL2.dll+0x91E7-5.7-R3-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91E7-5.7-RC9-180-1",
+      "txt": "HD_VGL2.dll+0x91E7-5.7-RC9-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91E7-5.7-RC9-180-2",
+      "txt": "HD_VGL2.dll+0x91E7-5.7-RC9-180-2.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x91E7-5.7-RC9-180-3",
+      "txt": "HD_VGL2.dll+0x91E7-5.7-RC9-180-3.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x97CF-5.7-R23-180-1",
+      "txt": "HD_VGL2.dll+0x97CF-5.7-R23-180-1.txt",
+      "dmp": "HD_VGL2.dll+0x97CF-5.7-R23-180-1.dmp",
+      "context_eip": "0x70EE97CF",
+      "module": "HD_VGL2.dll",
+      "rva": "0x97CF",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "write",
+      "identity": {
+        "txt_module_size": 376832,
+        "dmp_module_size": 376832,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x97CF-5.7-R30-180-1",
+      "txt": "HD_VGL2.dll+0x97CF-5.7-R30-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x97DF-5.7-R21-180-1",
+      "txt": "HD_VGL2.dll+0x97DF-5.7-R21-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x97DF-5.7-R21-180-2",
+      "txt": "HD_VGL2.dll+0x97DF-5.7-R21-180-2.txt",
+      "dmp": "HD_VGL2.dll+0x97DF-5.7-R21-180-2.dmp",
+      "context_eip": "0x6EA697DF",
+      "module": "HD_VGL2.dll",
+      "rva": "0x97DF",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "write",
+      "identity": {
+        "txt_module_size": 389120,
+        "dmp_module_size": 389120,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x97F7-5.7-R23-180-1",
+      "txt": "HD_VGL2.dll+0x97F7-5.7-R23-180-1.txt",
+      "dmp": "HD_VGL2.dll+0x97F7-5.7-R23-180-1.dmp",
+      "context_eip": "0x6C8997F7",
+      "module": "HD_VGL2.dll",
+      "rva": "0x97F7",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "write",
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": 376832,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x97F7-5.7-R26-180-1",
+      "txt": "HD_VGL2.dll+0x97F7-5.7-R26-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x97F7-5.7-R28-180-1",
+      "txt": "HD_VGL2.dll+0x97F7-5.7-R28-180-1.txt",
+      "dmp": "HD_VGL2.dll+0x97F7-5.7-R28-180-1.dmp",
+      "context_eip": "0x5C7D97F7",
+      "module": "HD_VGL2.dll",
+      "rva": "0x97F7",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "write",
+      "identity": {
+        "txt_module_size": 376832,
+        "dmp_module_size": 376832,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x9807-5.7-R20-180-1",
+      "txt": "HD_VGL2.dll+0x9807-5.7-R20-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x9807-5.7-R21-180-1",
+      "txt": "HD_VGL2.dll+0x9807-5.7-R21-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x9807-5.7-R31-180-1",
+      "txt": "HD_VGL2.dll+0x9807-5.7-R31-180-1.txt",
+      "dmp": "HD_VGL2.dll+0x9807-5.7-R31-180-1.dmp",
+      "context_eip": "0x6DCA9807",
+      "module": "HD_VGL2.dll",
+      "rva": "0x9807",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "write",
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": 376832,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x9827-5.7-R39-180-1",
+      "txt": "HD_VGL2.dll+0x9827-5.7-R39-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_VGL2.dll+0x9827-5.7-R40-180-1",
+      "txt": "HD_VGL2.dll+0x9827-5.7-R40-180-1.txt",
+      "dmp": "HD_VGL2.dll+0x9827-5.7-R40-180-1.dmp",
+      "context_eip": "0x6ED99827",
+      "module": "HD_VGL2.dll",
+      "rva": "0x9827",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "write",
+      "identity": {
+        "txt_module_size": 339968,
+        "dmp_module_size": 339968,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    }
+  ],
+  "counts": {
+    "exact_pair": 4,
+    "unverifiable_missing_txt_identity": 2,
+    "unverifiable_missing_dmp_identity": 0,
+    "same_site_different_exception": 0,
+    "build_mismatch": 0,
+    "empty_dump": 0,
+    "unknown_exception_class": 1,
+    "txt_parse_error": 0,
+    "dmp_parse_error": 0,
+    "unpaired_txt": 51,
+    "unpaired_dmp": 0,
+    "parse_error": 1
+  },
+  "legacy_count_aliases": {
+    "parse_error": [
+      "unknown_exception_class",
+      "txt_parse_error",
+      "dmp_parse_error"
+    ]
+  },
+  "complete": false,
+  "analysis_ready": false,
+  "quality_complete": false,
+  "hard_blockers": 1,
+  "identity_gaps": 2,
+  "blockers": 52
+}

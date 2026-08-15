@@ -1,0 +1,40 @@
+{
+  "schema": 3,
+  "root": "/Users/Shared/ii/mail-dumps/HD_VGL2.dll+0x97FF",
+  "rows": [
+    {
+      "stem": "HD_VGL2.dll+0x97FF-5.7-R40-180-1",
+      "txt": "HD_VGL2.dll+0x97FF-5.7-R40-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    }
+  ],
+  "counts": {
+    "exact_pair": 0,
+    "unverifiable_missing_txt_identity": 0,
+    "unverifiable_missing_dmp_identity": 0,
+    "same_site_different_exception": 0,
+    "build_mismatch": 0,
+    "empty_dump": 0,
+    "unknown_exception_class": 0,
+    "txt_parse_error": 0,
+    "dmp_parse_error": 0,
+    "unpaired_txt": 1,
+    "unpaired_dmp": 0,
+    "parse_error": 0
+  },
+  "legacy_count_aliases": {
+    "parse_error": [
+      "unknown_exception_class",
+      "txt_parse_error",
+      "dmp_parse_error"
+    ]
+  },
+  "complete": false,
+  "analysis_ready": false,
+  "quality_complete": false,
+  "hard_blockers": 0,
+  "identity_gaps": 0,
+  "blockers": 1
+}

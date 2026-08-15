@@ -1,0 +1,240 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-15T17:10:05.057014+00:00",
+  "parser_revision": "a00c474c5cf4a9784ef6d20c46a14ad1e0bb9532",
+  "report": {
+    "path": "HD_VGL2.dll+0x97FF-анализ-gpt-5.6-sol.txt",
+    "size": 17646,
+    "sha256": "bc855932c0b83055fbe352e2ce381ffeefd6dbf54dfb6fd622b87cf424083e7c"
+  },
+  "inputs": [
+    {
+      "path": "HD_VGL2.dll+0x97FF-5.7-R40-180-1.txt",
+      "size": 5040,
+      "sha256": "2dbfb5f9289da200907ada0524eae17aada2af27e2afd430f2b3060ddead05ca",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_VGL2.dll-5.7 R40.txt",
+      "size": 6353880,
+      "sha256": "c2360a0be082ade878904f58884504308560461ef20ee0f27023a5b3037d442f",
+      "role": "source"
+    },
+    {
+      "path": "../../180/HD_VGL2.dll",
+      "size": 307712,
+      "sha256": "1e8b1b2e8aeb7daa888176905e55842dae10489b4c4a27c21a26e565c60d535a",
+      "role": "source"
+    },
+    {
+      "path": "static-analysis.json",
+      "size": 2534,
+      "sha256": "1153d564cbd32ddab808911dcce8f677ee0e3a586b3ac4ded56fb7b760c29a4f",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "pair-audit.json",
+      "size": 974,
+      "sha256": "83b3fa447d951ed9a2413d1da09f7da87a23eb07d5dcecccd13911676017d333",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-parse.json",
+      "size": 3094,
+      "sha256": "fff0453f4b9d794e7be234e574c6d75c26575e1b03725f194c980b96ee2676ac",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "capabilities.json",
+      "size": 309,
+      "sha256": "3ad62ca4b05b49d7d708a979536bad4b5be353d5b90d671e626b8c01f8673ae8",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "candidate-pair-audit.json",
+      "size": 17283,
+      "sha256": "fc5601aa927046297fdbf0f18e9e0b7baaa822301add0b951006a697d7dae544",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "evidence-config.json",
+      "size": 5013,
+      "sha256": "05e26ddec1355931afa59c918ea14c89e14b81c9a1aeed16f1d9824f3464c01c",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "save-audit.json",
+      "size": 1726,
+      "sha256": "91d8bce14356bb80f6ff214ab5da350c95396095329d14cd47a647c81339f55d",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "HD_VGL2.dll+0x97FF-5.7-R40-180-1-AUTOSAVE.GM2",
+      "size": 81174,
+      "sha256": "e346ffeda8eee73ef1c83cc3da805dbb45ab39028dcbeecf62dcbf1e145525cc",
+      "role": "derived"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 27611,
+      "sha256": "3834e938041f42bb2fe11dbbbc35a33466617002d2ebd8f2f31aa76f7ac1b590"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/lint_report.py",
+      "size": 79802,
+      "sha256": "c05bb3c4e2881adb0ef59f754352bc863e784a8b806df0cc272c263f88ad93df"
+    },
+    {
+      "path": "../../.agents/skills/html-report/render_report.py",
+      "size": 969,
+      "sha256": "ede2dd05af3e754cf2c1004ae1d0b1e83277617dc8da912e7308fc4f74e03cb2"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/pair_audit.py",
+      "size": 22342,
+      "sha256": "356efd1cf550ee77a73ae86d18baba252f47166c8e2d67cfd5f43f7ce8cf1abf"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/parse_dumps.py",
+      "size": 25100,
+      "sha256": "777d3ab3b772c95935d650dbd648aa114143a5364861ae9683f3565fd996c89e"
+    },
+    {
+      "path": "../../.agents/skills/save-map-analysis/read_save_map.py",
+      "size": 31452,
+      "sha256": "80fc8ad7d4053666778c120eb6a1a3124c3d1c0ed46e7dd99123dee6a07cee39"
+    }
+  ],
+  "commands": [
+    "python3 .agents/skills/multi-dump-diff/pair_audit.py mail-dumps/HD_VGL2.dll+0x97FF --json-out mail-dumps/HD_VGL2.dll+0x97FF/pair-audit.json",
+    "python3 .agents/skills/multi-dump-diff/parse_dumps.py mail-dumps/HD_VGL2.dll+0x97FF --json-out mail-dumps/HD_VGL2.dll+0x97FF/series-parse.json",
+    "MCP crash_case: case_dir=mail-dumps/HD_VGL2.dll+0x97FF, version=5.7 R40",
+    "MCP listing_lookup: modules/HD_VGL2.dll-5.7 R40.txt at 0x100097FF",
+    "MCP pe_info and read_bytes: 180/HD_VGL2.dll, file offset 0x8BFF",
+    "python3 .agents/skills/save-map-analysis/read_save_map.py <AUTOSAVE.GM2> --json-out save-audit.json"
+  ],
+  "facts": {
+    "crash_address": "HD_VGL2.dll+0x97FF",
+    "ida_address": "0x100097FF",
+    "instruction": "mov [eax],ecx",
+    "eax": "0x00000000",
+    "faulting_address": "0x00000000",
+    "local_physical_txt": "1",
+    "local_unique_incidents": "1",
+    "usable_dmp_count": "0",
+    "full_width_allocation_bytes": "5184024",
+    "half_width_allocation_bytes": "2592024",
+    "external_candidate_txt": "12",
+    "state_origin": "malloc returned NULL; reason not established",
+    "machine:save-audit:schema": "2",
+    "machine:save-audit:input_sha256": "e346ffeda8eee73ef1c83cc3da805dbb45ab39028dcbeecf62dcbf1e145525cc",
+    "machine:save-audit:unpack_method": "raw-deflate со смещения 10",
+    "machine:save-audit:embedded_map_name": "Crimson and CloverA.h3m",
+    "machine:save-audit:artifact_identity": "{\"attached_artifact\": {\"name\": \"HD_VGL2.dll+0x97FF-5.7-R40-180-1-AUTOSAVE.GM2\", \"path\": \"mail-dumps/HD_VGL2.dll+0x97FF/HD_VGL2.dll+0x97FF-5.7-R40-180-1-AUTOSAVE.GM2\", \"reported_name_matches\": null, \"sha256\": \"e346ffeda8eee73ef1c83cc3da805dbb45ab39028dcbeecf62dcbf1e145525cc\", \"size\": 81174}, \"embedded_map_name\": \"Crimson and CloverA.h3m\", \"local_map_candidates\": [], \"note\": \"Имя .GM1 и внутреннее имя .h3m относятся к разным сущностям и не обязаны совпадать.\", \"reported_artifact_name\": null, \"rmg_table\": {\"entity\": \"rmg.txt\", \"same_as_map\": false}, \"rmg_template\": {\"entity\": \"HD.File.RMG\", \"same_as_map\": false}, \"valid\": true}",
+    "machine:save-audit:searches": "[]"
+  },
+  "claims": [
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "local-mechanism",
+      "statement": "Доказанная непосредственная причина — необработанный отказ malloc.",
+      "evidence": [
+        "fact:eax",
+        "fact:faulting_address",
+        "input:HD_VGL2.dll+0x97FF-5.7-R40-180-1.txt",
+        "input:../../modules/HD_VGL2.dll-5.7 R40.txt",
+        "input:static-analysis.json"
+      ]
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "id": "crash-instruction",
+      "statement": "Падающая инструкция mov [eax],ecx записывает четыре байта по адресу из",
+      "evidence": [
+        "fact:ida_address",
+        "fact:instruction",
+        "input:../../modules/HD_VGL2.dll-5.7 R40.txt",
+        "input:../../180/HD_VGL2.dll",
+        "input:static-analysis.json"
+      ]
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "id": "allocation-sizes",
+      "statement": "Для 1440 × 900 возможны два размера: 5 184 024 байта при полной ширине",
+      "evidence": [
+        "fact:full_width_allocation_bytes",
+        "fact:half_width_allocation_bytes",
+        "input:../../modules/HD_VGL2.dll-5.7 R40.txt",
+        "input:static-analysis.json"
+      ]
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "no-usable-dmp",
+      "statement": "Пригодных DMP нет: capabilities.json содержит 0 DMP из 1 локального TXT.",
+      "evidence": [
+        "fact:usable_dmp_count",
+        "input:capabilities.json",
+        "input:pair-audit.json"
+      ]
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "family-partial",
+      "statement": "Семейная перепись частична: 12 внешних TXT на смещениях +0x97CF, +0x97DF,",
+      "evidence": [
+        "fact:external_candidate_txt",
+        "input:static-analysis.json",
+        "input:candidate-pair-audit.json"
+      ]
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "save-role",
+      "statement": "Его роль производная; причинной связи содержимого",
+      "evidence": [
+        "input:save-audit.json",
+        "input:HD_VGL2.dll+0x97FF-5.7-R40-180-1-AUTOSAVE.GM2"
+      ]
+    }
+  ],
+  "code_evidence": {
+    "level": "instruction-boundary",
+    "note": "граница инструкции подтверждена листингом"
+  },
+  "machine_results": [
+    {
+      "path": "save-audit.json",
+      "schema": 2,
+      "input": "mail-dumps/HD_VGL2.dll+0x97FF/HD_VGL2.dll+0x97FF-5.7-R40-180-1-AUTOSAVE.GM2",
+      "input_role": "derived",
+      "input_sha256": "e346ffeda8eee73ef1c83cc3da805dbb45ab39028dcbeecf62dcbf1e145525cc",
+      "artifact_identity": {
+        "reported_artifact_name": null,
+        "attached_artifact": {
+          "path": "mail-dumps/HD_VGL2.dll+0x97FF/HD_VGL2.dll+0x97FF-5.7-R40-180-1-AUTOSAVE.GM2",
+          "name": "HD_VGL2.dll+0x97FF-5.7-R40-180-1-AUTOSAVE.GM2",
+          "size": 81174,
+          "sha256": "e346ffeda8eee73ef1c83cc3da805dbb45ab39028dcbeecf62dcbf1e145525cc",
+          "reported_name_matches": null
+        },
+        "embedded_map_name": "Crimson and CloverA.h3m",
+        "local_map_candidates": [],
+        "rmg_template": {
+          "entity": "HD.File.RMG",
+          "same_as_map": false
+        },
+        "rmg_table": {
+          "entity": "rmg.txt",
+          "same_as_map": false
+        },
+        "valid": true,
+        "note": "Имя .GM1 и внутреннее имя .h3m относятся к разным сущностям и не обязаны совпадать."
+      },
+      "searches": []
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+Comment
+{
+AUTOMATIC CRASH REPORT FROM A SIDE THREAD
+}
+
+Log
+{
+Is gog.com HotA.
+compability_dir = D:\Games\Heroes 3 Complete\Heroes of Might and Magic III - Horn of the Abyss\_HD3_Data\Compability\#hota15
+EXE_VERSION & SOD
+EXE_VERSION & HOTA
+work_ini_name = hota.ini
+HD.Ini.Main name: hota.ini, dir: D:\Games\Heroes 3 Complete\Heroes of Might and Magic III - Horn of the Abyss\_HD3_Data\Settings
+No Files.ini for 'D:\Games\Heroes 3 Complete\Heroes of Might and Magic III - Horn of the Abyss\_HD3_Data\Lang\#en'
+
+}
+
+HOMM3 HD version: 5.7 R40
+HotA version: 1.8.0
+
+Time {   08/13/2026	23:10:10 }
+
+[9974_61U6_48X2_X0XV.HZNHFMT NAEO1487SUOF-99YS8]
+
+Exception
+{
+   Module: 	HD_VGL2.dll
+   Address:      [ HD_VGL2.dll+0x97FF ]
+   Code:        EXCEPTION_ACCESS_VIOLATION
+   Flags:       0x00000000
+   Information: write of address: 0x00000000
+}
+
+Context { EAX: 0x00000000, ECX: 0x7E250020, EDX: 0x00000000, EBX: 0x04B00780, ESP: 0x5BB8FCE8, EBP: 0x5BB8FCFC, ESI: 0x5FE03F50, EDI: 0x00000384 }
+
+Call stack
+{
+   						? called from before	[ 0x032F5140 ]
+}
+
+Call stack V2
+{
+   6D5597FF (HD_VGL2: 6D550000): (?): (?)
+   6D55461F (HD_VGL2: 6D550000): (?): (?)
+   6D5524F7 (HD_VGL2: 6D550000): (?): (?)
+   757B5D49 (KERNEL32: 757A0000): (?): BaseThreadInitThunk
+   76F3E12B (ntdll: 76ED0000): (?): RtlInitializeExceptionChain
+   76F3E0B1 (ntdll: 76ED0000): (?): RtlGetAppContainerNamedObjectPath
+}
+
+Modules
+{
+}
+
+Command Line
+{
+   "h3hota HD.exe"
+}
+
+Main INI
+{
+
+<Version> = 5007340
+<Language> = "#en.ini"
+<Graphics.AdvMap.ShowFPS> = 0
+<Graphics.AdvMap.Threads> = -1
+<Graphics.ComplexFilter> = 2
+<Graphics.Fullscreen.Minimize> = 1
+<Graphics.MaximizedMode> = 0
+<Graphics.Mode> = 7
+<Graphics.Resolution> = 1440, 900
+<Graphics.SimpleFilter> = 2
+<Graphics.SystemCursors> = 1
+<Graphics.Threads> = 16
+<HD+.RecentTimers> = "00:30 + 00:30 + 00:00 / 02:00", "00:30 + 00:30 + 00:00 / 02:00", "00:30 + 00:30 + 00:00 / 02:00", "00:30 + 00:30 + 00:00 / 02:00", "00:30 + 00:30 + 00:00 / 02:00", "00:00 + 00:00 + 00:00 / 02:00"
+<HD+.Settings> = 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 120000, 0, 6, 0, 0
+<LC.Settings>
+<Memory.Mod> = 0
+<Misc.TournamentSaver> = 0
+<Misc.BattleSaver> = 0
+<Sys.AutoLobbyIn> = 0
+<Sys.CPU.SmartReduceUsage> = 1
+<Sys.WriteToIniInsteadRegistry> = 1
+<UI.AdvMgr.DragMap> = 1
+<UI.AdvMgr.HigherFPS> = 2
+<UI.AdvMgr.SkipMapMsgs> = 0
+<UI.AdvMgr.SkipMapMsgs.Shcolar> = 0
+<UI.Battle.Highlight.Lava.White> = 1
+<UI.Battle.HighlightOnHover> = 0
+<UI.Battle.HpBar> = 1
+<UI.Battle.Queue> = 1
+<UI.Battle.ShowAlwaysHeroInfo> = 1
+<UI.ClipCursor> = 1
+<UI.DarkTransitions> = 1
+<UI.Ext.ScenarioMgr.Settings> = 2, 72, 2, 2, 0, 0, 2, 0, 0, 0, 0, 1, 1, 1
+<UI.Ext.ScenarioMgr.Folders> = 1
+<UI.Ext.TownMgr.AvailableInsteadGrowth> = 1
+<UI.HiRezCore> = 1
+<UI.QuickArmyManagementMode> = 0
+<UI.RecruitDlg.AutoSet> = 1
+<UI.RecruitDlg.AutoSet.Max> = 0
+<UI.Tavern.InviteHero> = 0
+<UI.CapsAsEnter> = 0
+<UI.SpaceAsEnter> = 1
+<UI.Town.InfoTime> = 5000
+<UI.Town.SpaceAsEnter> = 0
+<Update.CheckAtStart> = 1
+<Window.Position> = 0, 0
+<OpenGL.UseSingleWindow> = 0
+<OpenGL.Renderer> = 0
+<OpenGL.UpdateMode> = 0
+<OpenGL.Interpolation> = 2
+<OpenGL.Upscaling> = 6
+<OpenGL.Aspect>
+<OpenGL.VSync>
+<OpenGL.Benchmark> = 0
+<OpenGL.ShowFPS> = 0
+<OpenGL.Colors.HueSat>
+<OpenGL.Colors.RgbInput>
+<OpenGL.Colors.RedInput>
+<OpenGL.Colors.GreenInput>
+<OpenGL.Colors.BlueInput>
+<OpenGL.Colors.RgbGamma>
+<OpenGL.Colors.RedGamma>
+<OpenGL.Colors.GreenGamma>
+<OpenGL.Colors.BlueGamma>
+<OpenGL.Colors.RgbOutput>
+<OpenGL.Colors.RedOutput>
+<OpenGL.Colors.GreenOutput>
+<OpenGL.Colors.BlueOutput>
+<Show Intro> = 1
+<AppPath> = "D:\Games\Heroes 3 Complete\Heroes of Might and Magic III - Horn of the Abyss\"
+<Music Volume> = 1
+<Sound Volume> = 1
+<Last Music Volume> = 1
+<Last Sound Volume> = 1
+<Walk Speed> = 2
+<Computer Walk Speed> = 3
+<Show Route> = 1
+<Move Reminder> = 1
+<Quick Combat> = 1
+<Video Subtitles> = 1
+<Town Outlines> = 1
+<Animate SpellBook> = 1
+<Window Scroll Speed> = 1
+<Bink Video> = 1
+<Blackout Computer> = 0
+<First Time> = 0
+<Test Decomp> = 0
+<Test Read> = 0
+<Test Blit> = 0
+<Unique System ID> = "N4S"
+<Network Default Name> = "Djambi"
+<Autosave> = 1
+<Show Combat Grid> = 0
+<Show Combat Mouse Hex> = 1
+<Combat Shade Level> = 1
+<Combat Army Info Level> = 1
+<Combat Auto Creatures> = 1
+<Combat Auto Spells> = 0
+<Combat Catapult> = 1
+<Combat Ballista> = 1
+<Combat First Aid Tent> = 1
+<Combat Speed>
+<Main Game Show Menu> = 1
+<Main Game X> = 0
+<Main Game Y> = 0
+<Main Game Full Screen> = 1
+<CDDrive>
+<OpenGL.Wrapper.Version> = 2
+<OpenGL.FixedRefreshRate> = 1
+<OpenGL.SingleWindow>
+<Hacky.Hack> = 0
+}
+
+RtlGetVersion { "Windows 11" 10.0.26200 product type: 1 }
+
+GetVersionEx { "Windows 8" 6.2.9200 product type: 1 }
+
+Some ingame values
+{
+   FullScreen Mode = 1
+   Game Type       = 2
+   Network Game    = 1
+
+             Me: 1
+   Active Player: 1
+   Day = 1 36
+   Map file = Crimson and CloverA.h3m
+   Last RMG Seed = 0
+}
+

@@ -1,0 +1,125 @@
+{
+  "source_dir": "/Users/Shared/ii/mail-dumps/HD_VGL2.dll+0x97FF",
+  "files_total": 1,
+  "uniques_count": 1,
+  "duplicate_groups": [],
+  "family_fingerprint": {
+    "unique_incidents": 1,
+    "modules": {
+      "hd_vgl2.dll": 1
+    },
+    "structure_role": "не задана",
+    "field_offset": "не задано",
+    "faulting_equals_register": {
+      "EAX=EDX": 1
+    },
+    "pointer_classes": {
+      "нуль": 1
+    },
+    "frame_depths": {
+      "0x14": 1
+    },
+    "subtypes": {
+      "прочее": 1
+    },
+    "call_tail_shapes": {
+      "0x032f5140": 1
+    },
+    "evidence": "не задано",
+    "cross_version_matrix": null,
+    "cross_version_level": "не задано",
+    "sha256": "7c1cbd9e56bfac68e6b8af6bafd8f6ed9f933cdf1f5d58a0fe46694c13e2d19c"
+  },
+  "uniques": [
+    {
+      "file": "HD_VGL2.dll+0x97FF-5.7-R40-180-1.txt",
+      "hd_version": "5.7 R40",
+      "hota_version": "1.8.0",
+      "time": "08/13/2026\t23:10:10",
+      "tag": "9974_61U6_48X2_X0XV.HZNHFMT NAEO1487SUOF-99YS8",
+      "exc_module": "HD_VGL2.dll",
+      "exc_module_raw": "HD_VGL2.dll",
+      "exc_module_canonical": "HD_VGL2.dll",
+      "exc_address": "HD_VGL2.dll+0x97FF",
+      "exc_code": "EXCEPTION_ACCESS_VIOLATION",
+      "op": "write",
+      "reported_access": "write",
+      "effective_access": "write",
+      "access_sources": {
+        "reporter_text": "write",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "faulting": "0x00000000",
+      "exc_params": [],
+      "regs": {
+        "EAX": "0x00000000",
+        "ECX": "0x7E250020",
+        "EDX": "0x00000000",
+        "EBX": "0x04B00780",
+        "ESP": "0x5BB8FCE8",
+        "EBP": "0x5BB8FCFC",
+        "ESI": "0x5FE03F50",
+        "EDI": "0x00000384"
+      },
+      "deltas": {
+        "EBP-EDI": 1538849144,
+        "EDI-ESP": -1538849124,
+        "ESP-EBP": -20,
+        "EBX-EBP": -1460204924,
+        "EBX-ESP": -1460204904
+      },
+      "frame_pairs": [],
+      "frame_tokens": [
+        "0x032F5140"
+      ],
+      "frames_v2_map": {
+        "1834326015": [
+          "HD_VGL2",
+          1834287104
+        ],
+        "1834305055": [
+          "HD_VGL2",
+          1834287104
+        ],
+        "1834296567": [
+          "HD_VGL2",
+          1834287104
+        ],
+        "1971019081": [
+          "KERNEL32",
+          1970929664
+        ],
+        "1995694379": [
+          "ntdll",
+          1995243520
+        ],
+        "1995694257": [
+          "ntdll",
+          1995243520
+        ]
+      },
+      "modules": [],
+      "ingame": {
+        "Me": "1",
+        "Active Player": "1",
+        "Day": "1 36",
+        "Map file": "Crimson and CloverA.h3m",
+        "Last RMG Seed": "0",
+        "Network Game": "1"
+      },
+      "comment": "",
+      "ini": {
+        "Graphics.Threads": "16",
+        "Graphics.AdvMap.Threads": "-1",
+        "Graphics.Mode": "7",
+        "Memory.Mod": "0",
+        "Quick Combat": "1",
+        "OpenGL.Upscaling": "6",
+        "Misc.BattleSaver": "0",
+        "Misc.TournamentSaver": "0"
+      }
+    }
+  ]
+}

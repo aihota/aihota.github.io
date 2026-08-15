@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "kind": "static_crash_analysis",
+  "crash_address": "HD_VGL2.dll+0x97FF",
+  "reported_runtime_address": "0x6D5597FF",
+  "reported_load_base": "0x6D550000",
+  "image_base": "0x10000000",
+  "ida_address": "0x100097FF",
+  "file_offset": "0x8BFF",
+  "function": {
+    "name": "sub_10009790",
+    "start": "0x10009790",
+    "end_exclusive": "0x10009910",
+    "offset": "0x6F"
+  },
+  "instruction": {
+    "address": "0x100097FF",
+    "text": "mov [eax], ecx",
+    "opcode": "89 08"
+  },
+  "context": {
+    "EAX": "0x00000000",
+    "ECX": "0x7E250020",
+    "EDX": "0x00000000",
+    "EDI": "0x00000384",
+    "faulting_address": "0x00000000",
+    "operation": "write"
+  },
+  "allocation": {
+    "first_malloc_call": "0x100097F4",
+    "first_dereference": "0x100097FF",
+    "second_malloc_call": "0x1000981C",
+    "second_dereference": "0x10009827",
+    "null_check_between_malloc_and_dereference": false,
+    "formula": "4 * effective_width * height + 0x18",
+    "effective_width": "arg_0 or arg_0/2 when arg_8=0",
+    "resolution": "1440x900",
+    "full_width_bytes": 5184024,
+    "half_width_bytes": 2592024,
+    "arg_8_captured": false
+  },
+  "call_chain": [
+    "StartAddress -> sub_10003990 at 0x100024F2; return 0x100024F7",
+    "sub_10003990 -> sub_10009790 at 0x1000461A; return 0x1000461F",
+    "sub_10009790+0x6F -> mov [eax],ecx at 0x100097FF"
+  ],
+  "local_module": {
+    "path": "180/HD_VGL2.dll",
+    "format": "PE32",
+    "file_size": 307712,
+    "time_date_stamp": "0x6A7C298D",
+    "size_of_image": "0x53000",
+    "sha256": "1e8b1b2e8aeb7daa888176905e55842dae10489b4c4a27c21a26e565c60d535a"
+  },
+  "local_series": {
+    "physical_txt": 1,
+    "unique_incidents": 1,
+    "dmp_count": 0
+  },
+  "external_candidates": {
+    "physical_txt": 12,
+    "offsets": [
+      "0x97CF",
+      "0x97DF",
+      "0x97F7",
+      "0x9807",
+      "0x9827"
+    ],
+    "pointwise_static_matches": [
+      "HD_VGL2.dll+0x97CF-5.7-R23-180-1.txt",
+      "HD_VGL2.dll+0x97F7-5.7-R23-180-1.txt",
+      "HD_VGL2.dll+0x9827-5.7-R40-180-1.txt"
+    ],
+    "membership_status": "partial; not relocated into the local confirmed family"
+  },
+  "confidence": {
+    "crash_site": "confirmed from TXT mapping and instruction boundary",
+    "local_mechanism": "unambiguous from TXT registers and listing",
+    "state_origin": "partial; malloc returned NULL, reason unknown",
+    "family_coverage": "partial"
+  },
+  "limitations": [
+    "no usable DMP",
+    "Modules section empty",
+    "arg_8 not captured",
+    "heap state not captured"
+  ]
+}

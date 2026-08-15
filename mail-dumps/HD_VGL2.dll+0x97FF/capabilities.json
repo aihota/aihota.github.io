@@ -1,0 +1,14 @@
+{
+  "schema": 3,
+  "kind": "series_dump_capabilities",
+  "dmp_count": 0,
+  "profiled_count": 0,
+  "items": [],
+  "errors": [],
+  "complete": true,
+  "audit_selection": {
+    "selected": null,
+    "rule": "profile every DMP independently; never choose one silently",
+    "no_dmp_is_analysis_ready": true
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-15T16:49:42.506588+00:00",
+  "input": "mail-dumps/HD_VGL2.dll+0x97FF/HD_VGL2.dll+0x97FF-5.7-R40-180-1-AUTOSAVE.GM2",
+  "input_role": "derived",
+  "input_size": 81174,
+  "input_sha256": "e346ffeda8eee73ef1c83cc3da805dbb45ab39028dcbeecf62dcbf1e145525cc",
+  "unpack_method": "raw-deflate со смещения 10",
+  "unpacked_bytes": 583930,
+  "layout": "H3SVG",
+  "layout_known": true,
+  "decompression_ok": true,
+  "content_ok": true,
+  "format_version": 10,
+  "players": 2,
+  "embedded_map_name": "Crimson and CloverA.h3m",
+  "control": {
+    "signature_h3svg": true,
+    "map_name_readable": true,
+    "method_passed": true
+  },
+  "artifact_identity": {
+    "reported_artifact_name": null,
+    "attached_artifact": {
+      "path": "mail-dumps/HD_VGL2.dll+0x97FF/HD_VGL2.dll+0x97FF-5.7-R40-180-1-AUTOSAVE.GM2",
+      "name": "HD_VGL2.dll+0x97FF-5.7-R40-180-1-AUTOSAVE.GM2",
+      "size": 81174,
+      "sha256": "e346ffeda8eee73ef1c83cc3da805dbb45ab39028dcbeecf62dcbf1e145525cc",
+      "reported_name_matches": null
+    },
+    "embedded_map_name": "Crimson and CloverA.h3m",
+    "local_map_candidates": [],
+    "rmg_template": {
+      "entity": "HD.File.RMG",
+      "same_as_map": false
+    },
+    "rmg_table": {
+      "entity": "rmg.txt",
+      "same_as_map": false
+    },
+    "valid": true,
+    "note": "Имя .GM1 и внутреннее имя .h3m относятся к разным сущностям и не обязаны совпадать."
+  },
+  "searches": [],
+  "provenance_limit": "РОЛЬ derived: значение не найдено в производном артефакте; об исходном входе это ничего не доказывает."
+}

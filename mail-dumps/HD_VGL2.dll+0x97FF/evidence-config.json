@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "report": "HD_VGL2.dll+0x97FF-анализ-gpt-5.6-sol.txt",
+  "inputs": [
+    {
+      "role": "source",
+      "path": "HD_VGL2.dll+0x97FF-5.7-R40-180-1.txt"
+    },
+    {
+      "role": "source",
+      "path": "../../modules/HD_VGL2.dll-5.7 R40.txt"
+    },
+    {
+      "role": "source",
+      "path": "../../180/HD_VGL2.dll"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "static-analysis.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "pair-audit.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "series-parse.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "capabilities.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "candidate-pair-audit.json"
+    }
+  ],
+  "tools": [
+    "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+    "../../.agents/skills/hota-crash-triage/lint_report.py",
+    "../../.agents/skills/html-report/render_report.py",
+    "../../.agents/skills/multi-dump-diff/pair_audit.py",
+    "../../.agents/skills/multi-dump-diff/parse_dumps.py",
+    "../../.agents/skills/save-map-analysis/read_save_map.py"
+  ],
+  "commands": [
+    "python3 .agents/skills/multi-dump-diff/pair_audit.py mail-dumps/HD_VGL2.dll+0x97FF --json-out mail-dumps/HD_VGL2.dll+0x97FF/pair-audit.json",
+    "python3 .agents/skills/multi-dump-diff/parse_dumps.py mail-dumps/HD_VGL2.dll+0x97FF --json-out mail-dumps/HD_VGL2.dll+0x97FF/series-parse.json",
+    "MCP crash_case: case_dir=mail-dumps/HD_VGL2.dll+0x97FF, version=5.7 R40",
+    "MCP listing_lookup: modules/HD_VGL2.dll-5.7 R40.txt at 0x100097FF",
+    "MCP pe_info and read_bytes: 180/HD_VGL2.dll, file offset 0x8BFF",
+    "python3 .agents/skills/save-map-analysis/read_save_map.py <AUTOSAVE.GM2> --json-out save-audit.json"
+  ],
+  "facts": {
+    "crash_address": "HD_VGL2.dll+0x97FF",
+    "ida_address": "0x100097FF",
+    "instruction": "mov [eax],ecx",
+    "eax": "0x00000000",
+    "faulting_address": "0x00000000",
+    "local_physical_txt": "1",
+    "local_unique_incidents": "1",
+    "usable_dmp_count": "0",
+    "full_width_allocation_bytes": "5184024",
+    "half_width_allocation_bytes": "2592024",
+    "external_candidate_txt": "12",
+    "state_origin": "malloc returned NULL; reason not established"
+  },
+  "claims": [
+    {
+      "id": "local-mechanism",
+      "statement": "Доказанная непосредственная причина — необработанный отказ malloc.",
+      "confidence": "выведено из совокупности признаков",
+      "evidence": [
+        "fact:eax",
+        "fact:faulting_address",
+        "input:HD_VGL2.dll+0x97FF-5.7-R40-180-1.txt",
+        "input:../../modules/HD_VGL2.dll-5.7 R40.txt",
+        "input:static-analysis.json"
+      ]
+    },
+    {
+      "id": "crash-instruction",
+      "statement": "Падающая инструкция mov [eax],ecx записывает четыре байта по адресу из",
+      "confidence": "однозначно следует из листинга",
+      "evidence": [
+        "fact:ida_address",
+        "fact:instruction",
+        "input:../../modules/HD_VGL2.dll-5.7 R40.txt",
+        "input:../../180/HD_VGL2.dll",
+        "input:static-analysis.json"
+      ]
+    },
+    {
+      "id": "allocation-sizes",
+      "statement": "Для 1440 × 900 возможны два размера: 5 184 024 байта при полной ширине",
+      "confidence": "однозначно следует из листинга",
+      "evidence": [
+        "fact:full_width_allocation_bytes",
+        "fact:half_width_allocation_bytes",
+        "input:../../modules/HD_VGL2.dll-5.7 R40.txt",
+        "input:static-analysis.json"
+      ]
+    },
+    {
+      "id": "no-usable-dmp",
+      "statement": "Пригодных DMP нет: capabilities.json содержит 0 DMP из 1 локального TXT.",
+      "confidence": "выведено из совокупности признаков",
+      "evidence": [
+        "fact:usable_dmp_count",
+        "input:capabilities.json",
+        "input:pair-audit.json"
+      ]
+    },
+    {
+      "id": "family-partial",
+      "statement": "Семейная перепись частична: 12 внешних TXT на смещениях +0x97CF, +0x97DF,",
+      "confidence": "выведено из совокупности признаков",
+      "evidence": [
+        "fact:external_candidate_txt",
+        "input:static-analysis.json",
+        "input:candidate-pair-audit.json"
+      ]
+    },
+    {
+      "id": "save-role",
+      "statement": "Его роль производная; причинной связи содержимого",
+      "confidence": "выведено из совокупности признаков",
+      "evidence": [
+        "input:save-audit.json",
+        "input:HD_VGL2.dll+0x97FF-5.7-R40-180-1-AUTOSAVE.GM2"
+      ]
+    }
+  ],
+  "machine_json": [
+    "save-audit.json"
+  ],
+  "code_evidence": "instruction-boundary"
+}
