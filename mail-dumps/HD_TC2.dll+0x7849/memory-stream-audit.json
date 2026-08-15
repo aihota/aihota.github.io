@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "dump": "HD_TC2.dll+0x7849-5.7-R40-180.dmp",
+  "raw_stream_types": [3, 4, 5, 6, 7, 15, 21, 22, 24, 0, 0, 0, 0],
+  "memory_list_stream_type_5": true,
+  "memory64_list_stream_type_9": false,
+  "memory_info_list_stream_type_16": false,
+  "misc_info_stream_type_15": true,
+  "captured_memory_ranges": 37,
+  "conclusion": "The dump does not contain MemoryInfoListStream; virtual-memory state and page protection for 0x0F773298 cannot be recovered from this dump.",
+  "correction": "Any derived artifact that labels stream type 15 as MemoryInfoList or memory_permissions=true is not used as evidence for page state."
+}

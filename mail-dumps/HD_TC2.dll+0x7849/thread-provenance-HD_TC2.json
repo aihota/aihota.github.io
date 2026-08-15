@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "source": "capabilities.json",
+  "thread_provenance": {
+    "exception_tid": 8580,
+    "esp_tid": 1700,
+    "status": "CONTEXT_THREAD_MISMATCH",
+    "esp": 1673440,
+    "register_sets_may_be_combined": false,
+    "selected_stack_thread_id": 1700,
+    "policy": "use_one_context_only; never combine ExceptionStream registers with the text/ESP stack when thread ids differ"
+  }
+}

@@ -1,0 +1,57 @@
+<section class="geometry-evidence" aria-labelledby="surface-geometry-title">
+  <style>
+    .geometry-evidence{margin:24px 0;padding:22px;border:1px solid #334155;border-radius:16px;background:#0f172a;color:#e2e8f0;font:14px/1.45 system-ui,sans-serif}
+    .geometry-evidence h2{margin:0 0 6px;color:#f8fafc;font-size:22px}
+    .geometry-evidence .lead{margin:0 0 18px;color:#cbd5e1}
+    .geometry-grid{display:grid;grid-template-columns:minmax(240px,1fr) minmax(280px,1.35fr);gap:20px;align-items:start}
+    .geometry-card{padding:16px;border-radius:12px;background:#111c31;border:1px solid #334155}
+    .geometry-card h3{margin:0 0 12px;font-size:16px;color:#f8fafc}
+    .row-map{position:relative;height:330px;margin:8px 48px 8px 58px;border-left:2px solid #64748b;border-right:2px solid #64748b;background:linear-gradient(#172554,#1e3a8a)}
+    .band{position:absolute;left:0;right:0;display:flex;align-items:center;justify-content:center;font-weight:700;letter-spacing:.02em}
+    .text-rect{top:0;height:100%;border:2px dashed #38bdf8;color:#bae6fd;background:rgba(14,165,233,.08)}
+    .glyph-valid{top:26.47%;height:29.42%;background:rgba(34,197,94,.72);color:#052e16}
+    .glyph-oob{top:55.89%;height:14.71%;background:repeating-linear-gradient(135deg,#ef4444 0 10px,#991b1b 10px 20px);color:white}
+    .surface-end{position:absolute;left:-58px;right:-48px;top:55.88%;border-top:3px solid #fbbf24;color:#fde68a}
+    .surface-end span{position:absolute;right:0;top:-24px;background:#0f172a;padding:2px 5px}
+    .tick{position:absolute;left:-52px;color:#cbd5e1;font-variant-numeric:tabular-nums}
+    .t645{top:-9px}.t654{top:25%}.t663{top:52%}.t668{top:96%}
+    .legend{display:grid;grid-template-columns:14px 1fr;gap:7px 9px;margin-top:14px;color:#cbd5e1}
+    .swatch{height:14px;border-radius:3px}.valid{background:#22c55e}.overflow{background:#ef4444}.clip{border:2px dashed #38bdf8}
+    .formula{padding:12px;border-radius:9px;background:#020617;color:#dbeafe;font:13px/1.55 ui-monospace,SFMono-Regular,monospace;overflow-wrap:anywhere}
+    .compare{display:grid;gap:10px;margin-top:12px}
+    .metric{padding:10px 12px;border-left:4px solid #64748b;background:#0b1220}
+    .metric.bad{border-color:#ef4444}.metric.good{border-color:#22c55e}.metric strong{display:block;color:#f8fafc}
+    .rows{display:grid;grid-template-columns:repeat(15,minmax(18px,1fr));gap:3px;margin-top:14px}
+    .rows span{padding:6px 0;text-align:center;border-radius:4px;background:#22c55e;color:#052e16;font-weight:700;font-size:11px}
+    .rows span:nth-last-child(-n+5){background:#ef4444;color:white}
+    .note{margin:14px 0 0;padding:10px 12px;border-radius:8px;background:#422006;color:#fef3c7}
+    @media(max-width:760px){.geometry-grid{grid-template-columns:1fr}.row-map{height:280px}.rows{grid-template-columns:repeat(5,1fr)}}
+  </style>
+  <h2 id="surface-geometry-title">Почему packed-проверка пропустила пять строк</h2>
+  <p class="lead">Логический прямоугольник текста разрешал строки 645–678, но физическая поверхность заканчивалась строкой 663. Глиф высотой 15 строк начинался на 654.</p>
+  <div class="geometry-grid">
+    <div class="geometry-card">
+      <h3>Вертикальная геометрия</h3>
+      <div class="row-map" role="img" aria-label="Поверхность заканчивается на строке 663; строки глифа 664–668 выходят за неё">
+        <div class="band text-rect">clip 645–678</div>
+        <div class="band glyph-valid">глиф: 654–663 · 10 строк</div>
+        <div class="band glyph-oob">664–668 · 5 строк вне поверхности</div>
+        <div class="surface-end"><span>физический конец: y=663</span></div>
+        <span class="tick t645">645</span><span class="tick t654">654</span>
+        <span class="tick t663">663</span><span class="tick t668">668</span>
+      </div>
+      <div class="legend"><i class="swatch clip"></i><span>логический clip, не физическая гарантия</span><i class="swatch valid"></i><span>10 допустимых строк</span><i class="swatch overflow"></i><span>5 выходящих строк</span></div>
+    </div>
+    <div class="geometry-card">
+      <h3>Адресная арифметика HD_TC2</h3>
+      <div class="formula">start = 0x0F76424C<br>stride = 0x127C (4732)<br>width = 8, element = 4, height = 15<br><br>packed = start + height × width × 4<br>       = 0x0F76442C<br><br>correct = start + (height − 1) × stride + width × 4<br>        = 0x0F774534</div>
+      <div class="compare">
+        <div class="metric bad"><strong>Ошибочная защита прошла</strong>0x0F76442C &lt; 0x0F76F1A0, потому что она проигнорировала 14 межстрочных шагов.</div>
+        <div class="metric good"><strong>Фактический цикл не помещался</strong>Правильный конец превышает буфер на 0x5394 байта.</div>
+        <div class="metric bad"><strong>Аварийная строка 13</strong>Запись 0x0F773298 уже на 0x40F8 байта за end-exclusive.</div>
+      </div>
+      <div class="rows" aria-label="15 строк: 10 допустимых и 5 выходящих"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span></div>
+      <p class="note"><strong>Вывод:</strong> clip-прямоугольник и packed span не заменяют проверку физической поверхности по реальному stride.</p>
+    </div>
+  </div>
+</section>

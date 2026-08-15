@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "report": "HD_TC2.dll+0x7849-анализ-gpt-5.6-sol.txt",
+  "inputs": [
+    {"role": "source", "path": "HD_TC2.dll+0x7849-5.7-R40-180.txt"},
+    {"role": "runtime", "path": "HD_TC2.dll+0x7849-5.7-R40-180.dmp"},
+    {"role": "source", "path": "../../180/HD_TC2.dll"},
+    {"role": "source", "path": "../../modules/h3hota.exe.txt"},
+    {"role": "source", "path": "../../modules/HotA.dll-180.txt"},
+    {"role": "source", "path": "../../modules/HD_HOTA.dll-5.7 R40.txt"},
+    {"role": "derived-evidence", "path": "geometry-facts.json"},
+    {"role": "derived-evidence", "path": "memory-stream-audit.json"},
+    {"role": "derived-evidence", "path": "pair-audit.json"},
+    {"role": "derived-evidence", "path": "series-parse.json"},
+    {"role": "derived-evidence", "path": "coverage.json"},
+    {"role": "derived-evidence", "path": "capabilities.json"},
+    {"role": "derived-evidence", "path": "surface-span-audit.json"},
+    {"role": "derived-evidence", "path": "thread-provenance-HD_TC2.json"}
+  ],
+  "tools": [
+    "../../.agents/skills/address-mapping/effective_address.py",
+    "../../.agents/skills/address-mapping/dump_profile.py",
+    "../../.agents/skills/address-mapping/surface_span_check.py",
+    "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+    "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+    "../../.agents/skills/hota-crash-triage/evidence_manifest.py"
+  ],
+  "commands": [
+    "dump_profile.py DMP --esp 0x001988E0 --json-out capabilities.json --capabilities-only",
+    "surface_span_check.py --buffer-begin 0x0F470000 --buffer-end 0x0F76F1A0 --start 0x0F76424C --stride 0x127C --width 8 --height 15 --element-size 4 --fault-address 0x0F773298"
+  ],
+  "facts": {
+    "eip": "0x03A87849",
+    "fault_address": "0x0F773298",
+    "instruction": "mov dword ptr [ecx],ebx",
+    "buggy_guard_end": "0x0F76442C",
+    "correct_end": "0x0F774534",
+    "stride": "4732",
+    "text_rect": "x=310,y=645,width=552,height=34",
+    "glyph_rows": "654..668",
+    "corpus_files": "5430 TXT; 5350 crash logs",
+    "exact_rva_unique": "1",
+    "r40_listing_status": "missing-version 28/28",
+    "correct_formula": "start+(height-1)*stride+width*4",
+    "maximum_overflow": "0x5394 bytes",
+    "memory_info_absent": "stream type 16 absent",
+    "memory_ranges": "37"
+  },
+  "claim_json": ["claims.json"],
+  "parser_revision": "working-tree-2026-08-15",
+  "code_evidence": "dmp-window",
+  "out": "HD_TC2.dll+0x7849-анализ-gpt-5.6-sol.evidence.json"
+}

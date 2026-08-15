@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "root": "/Users/Shared/ii/mail-dumps/HD_TC2.dll+0x7849",
+  "rows": [
+    {
+      "stem": "HD_TC2.dll+0x7849-5.7-R40-180",
+      "txt": "HD_TC2.dll+0x7849-5.7-R40-180.txt",
+      "dmp": "HD_TC2.dll+0x7849-5.7-R40-180.dmp",
+      "context_eip": "0x03A87849",
+      "module": "HD_TC2.dll",
+      "rva": "0x7849",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "write",
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    }
+  ],
+  "counts": {
+    "exact_pair": 1,
+    "same_site_different_exception": 0,
+    "build_mismatch": 0,
+    "unpaired_txt": 0,
+    "unpaired_dmp": 0
+  },
+  "complete": true,
+  "blockers": 0
+}

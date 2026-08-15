@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "claims": [
+    {
+      "id": "crash-site",
+      "type": "crash_site",
+      "statement": ".text:02007849                 mov     dword ptr [ecx], ebx",
+      "evidence": ["fact:eip", "fact:fault_address", "fact:instruction"],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "id": "local-bound-check",
+      "type": "local_mechanism",
+      "statement": "real_end = start + (height - 1) * stride + width * 4",
+      "evidence": ["fact:buggy_guard_end", "fact:correct_end", "fact:stride"],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "id": "bad-text-rectangle",
+      "type": "state_origin",
+      "statement": "Кадр A0_DrawTextToPcx16 содержит Pcx16=0x13C45570, x=310, y=645,",
+      "evidence": ["fact:text_rect", "fact:glyph_rows"],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "unknown"
+      }
+    },
+    {
+      "id": "exact-rva-census",
+      "type": "family_coverage",
+      "statement": "Полный проход 5430 TXT не выявил второго уникального журнала с точным RVA +0x7849; контрольный случай найден и распознан.",
+      "evidence": ["fact:corpus_files", "fact:exact_rva_unique", "fact:r40_listing_status"],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "probable",
+        "state_origin": "unknown",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "id": "recommended-fix",
+      "type": "fix",
+      "statement": "Рекомендуемое исправление: в HD_TC2 проверять диапазон с межстрочным шагом, учитывать",
+      "evidence": ["fact:correct_formula", "fact:maximum_overflow"],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "unknown"
+      }
+    },
+    {
+      "id": "dump-memory-limit",
+      "type": "limitation",
+      "statement": "В сыром каталоге потоков DMP отсутствует MemoryInfoListStream типа 16; тип 15 является MiscInfo.",
+      "evidence": ["fact:memory_info_absent", "fact:memory_ranges"],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    }
+  ]
+}

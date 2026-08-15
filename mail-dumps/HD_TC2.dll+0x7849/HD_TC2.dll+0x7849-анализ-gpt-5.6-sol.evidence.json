@@ -1,0 +1,267 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-15T15:45:00.985724+00:00",
+  "parser_revision": "working-tree-2026-08-15",
+  "report": {
+    "path": "HD_TC2.dll+0x7849-анализ-gpt-5.6-sol.txt",
+    "size": 21844,
+    "sha256": "f6a06b16f80d20b5212a4a131dc6697e6d9ba876de59d9890299dfb28f366cc4"
+  },
+  "inputs": [
+    {
+      "path": "HD_TC2.dll+0x7849-5.7-R40-180.txt",
+      "size": 8526,
+      "sha256": "e9fa4000b2725bd8d94f22c120c487ae390b09d11306b842d5ce912eab00634e",
+      "role": "source"
+    },
+    {
+      "path": "HD_TC2.dll+0x7849-5.7-R40-180.dmp",
+      "size": 106162,
+      "sha256": "e270c44af3f5ee6f4cf44984802255c30be02017aff84bd3d2d3847a0d8a45a8",
+      "role": "runtime"
+    },
+    {
+      "path": "../../180/HD_TC2.dll",
+      "size": 144896,
+      "sha256": "75629770e9e094114ab8e2761ececbf52e1584f31a5dfe74282c6e60ed1390c6",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/h3hota.exe.txt",
+      "size": 79196875,
+      "sha256": "a659b437fa53df6e65a763481c03538a79b0899130ea4b9dfeba1dd9b5e0ddd6",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HotA.dll-180.txt",
+      "size": 52759034,
+      "sha256": "2eda8c0001709380da6045c46dcd4d18d74ae3f7d06cabd66ac8cb27e46c39d6",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.7 R40.txt",
+      "size": 50700332,
+      "sha256": "1e982b9b517af1f3f1744ff1e87f0941609af2bf08c7b8d6867d2ead92903054",
+      "role": "source"
+    },
+    {
+      "path": "geometry-facts.json",
+      "size": 1023,
+      "sha256": "53aeb9324d640e983e1da927f7f9e0464cc3a1c3892c519d1da75d35e4e1797b",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "memory-stream-audit.json",
+      "size": 632,
+      "sha256": "bb37332004c48e85b9172d1ac42fcc6079def98f9f4d40f18b597a01643c5a01",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "pair-audit.json",
+      "size": 795,
+      "sha256": "ea676d82eefa9f4c228bcadb6c021a2fe7ea479e226af75b7302eba41f4c7fc1",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-parse.json",
+      "size": 6443,
+      "sha256": "a9377fd19f3b73cde4f6fea95876099b5627282495546095048782395f09ebcf",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "coverage.json",
+      "size": 3659,
+      "sha256": "e4b62f1ed133a62a3da030fab636cf2a9f520d74151db7275bda86d008b1aaba",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "capabilities.json",
+      "size": 2305,
+      "sha256": "e428dee09d5fc891bbf87b1f65344d95acac3f3219e7f460001bfb771673f7ea",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "surface-span-audit.json",
+      "size": 903,
+      "sha256": "e1b7740f48a4164d9e68f612694c223d49f2a4f011507d88f898a2e09fd9fd73",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "thread-provenance-HD_TC2.json",
+      "size": 397,
+      "sha256": "ce38ea9cee12491feb038f915b17f5abcb6270f6b7d7d818fda95e49fcae39dc",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "evidence-config.json",
+      "size": 2514,
+      "sha256": "dec0fd6308b97fdb2adc69f6198813fd58761d5af98c8f02299e9c0fbb125de1",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "claims.json",
+      "size": 2835,
+      "sha256": "714cbd1d705f26aca1c59c63b2095117a5e76de846857941df2be72046492e25",
+      "role": "derived-evidence"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/address-mapping/effective_address.py",
+      "size": 5466,
+      "sha256": "2d5e90dccd5e31b886f03c879eed8ba141fe9c826d58e0c79fe5748416816673"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/dump_profile.py",
+      "size": 31189,
+      "sha256": "b15ea8289f3577ff0836efe2faf00b5371c1013c00ad38ed028615deb9f405a8"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/surface_span_check.py",
+      "size": 7718,
+      "sha256": "25fd4657b11c289450792e399bf81c2aee2c5ab531954e7cb9289c0f4a72d339"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+      "size": 36665,
+      "sha256": "76028aee0b366ea232c582443c8af415ec044a8c7e0cd990e7eb83b27b28fd9e"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+      "size": 5118,
+      "sha256": "b422c4666be47287bcb90b5a030cea2ecf0b54d0cb8fc8f6faa4a3d094f3d087"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 27611,
+      "sha256": "3834e938041f42bb2fe11dbbbc35a33466617002d2ebd8f2f31aa76f7ac1b590"
+    }
+  ],
+  "commands": [
+    "dump_profile.py DMP --esp 0x001988E0 --json-out capabilities.json --capabilities-only",
+    "surface_span_check.py --buffer-begin 0x0F470000 --buffer-end 0x0F76F1A0 --start 0x0F76424C --stride 0x127C --width 8 --height 15 --element-size 4 --fault-address 0x0F773298"
+  ],
+  "facts": {
+    "eip": "0x03A87849",
+    "fault_address": "0x0F773298",
+    "instruction": "mov dword ptr [ecx],ebx",
+    "buggy_guard_end": "0x0F76442C",
+    "correct_end": "0x0F774534",
+    "stride": "4732",
+    "text_rect": "x=310,y=645,width=552,height=34",
+    "glyph_rows": "654..668",
+    "corpus_files": "5430 TXT; 5350 crash logs",
+    "exact_rva_unique": "1",
+    "r40_listing_status": "missing-version 28/28",
+    "correct_formula": "start+(height-1)*stride+width*4",
+    "maximum_overflow": "0x5394 bytes",
+    "memory_info_absent": "stream type 16 absent",
+    "memory_ranges": "37"
+  },
+  "claims": [
+    {
+      "confidence": "не проверено",
+      "id": "crash-site",
+      "type": "crash_site",
+      "statement": ".text:02007849                 mov     dword ptr [ecx], ebx",
+      "evidence": [
+        "fact:eip",
+        "fact:fault_address",
+        "fact:instruction"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "id": "local-bound-check",
+      "type": "local_mechanism",
+      "statement": "real_end = start + (height - 1) * stride + width * 4",
+      "evidence": [
+        "fact:buggy_guard_end",
+        "fact:correct_end",
+        "fact:stride"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "id": "bad-text-rectangle",
+      "type": "state_origin",
+      "statement": "Кадр A0_DrawTextToPcx16 содержит Pcx16=0x13C45570, x=310, y=645,",
+      "evidence": [
+        "fact:text_rect",
+        "fact:glyph_rows"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "unknown"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "id": "exact-rva-census",
+      "type": "family_coverage",
+      "statement": "Полный проход 5430 TXT не выявил второго уникального журнала с точным RVA +0x7849; контрольный случай найден и распознан.",
+      "evidence": [
+        "fact:corpus_files",
+        "fact:exact_rva_unique",
+        "fact:r40_listing_status"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "probable",
+        "state_origin": "unknown",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "id": "recommended-fix",
+      "type": "fix",
+      "statement": "Рекомендуемое исправление: в HD_TC2 проверять диапазон с межстрочным шагом, учитывать",
+      "evidence": [
+        "fact:correct_formula",
+        "fact:maximum_overflow"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "unknown"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "id": "dump-memory-limit",
+      "type": "limitation",
+      "statement": "В сыром каталоге потоков DMP отсутствует MemoryInfoListStream типа 16; тип 15 является MiscInfo.",
+      "evidence": [
+        "fact:memory_info_absent",
+        "fact:memory_ranges"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    }
+  ],
+  "code_evidence": {
+    "level": "dmp-window",
+    "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
+  },
+  "machine_results": []
+}
