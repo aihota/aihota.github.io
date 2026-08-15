@@ -1,11 +1,11 @@
 {
   "schema": 2,
-  "generated_at": "2026-08-15T15:45:00.985724+00:00",
+  "generated_at": "2026-08-15T16:44:49.473884+00:00",
   "parser_revision": "working-tree-2026-08-15",
   "report": {
     "path": "HD_TC2.dll+0x7849-анализ-gpt-5.6-sol.txt",
-    "size": 21844,
-    "sha256": "f6a06b16f80d20b5212a4a131dc6697e6d9ba876de59d9890299dfb28f366cc4"
+    "size": 22497,
+    "sha256": "c2347cbabcf5450fa711c928064c54a212e900b0eda40aa69860e3a6f5c2d7e8"
   },
   "inputs": [
     {
@@ -100,8 +100,8 @@
     },
     {
       "path": "claims.json",
-      "size": 2835,
-      "sha256": "714cbd1d705f26aca1c59c63b2095117a5e76de846857941df2be72046492e25",
+      "size": 2903,
+      "sha256": "05563790afa4d1f2ee0fa098a575c8f6f6ec2d04007f900114bff79ab490a453",
       "role": "derived-evidence"
     }
   ],
@@ -180,7 +180,7 @@
       "confidence": "не проверено",
       "id": "local-bound-check",
       "type": "local_mechanism",
-      "statement": "real_end = start + (height - 1) * stride + width * 4",
+      "statement": "фактический_конец = начало + (высота - 1) * межстрочный_шаг + ширина * 4",
       "evidence": [
         "fact:buggy_guard_end",
         "fact:correct_end",

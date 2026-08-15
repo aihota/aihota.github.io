@@ -16,7 +16,7 @@
     {
       "id": "local-bound-check",
       "type": "local_mechanism",
-      "statement": "real_end = start + (height - 1) * stride + width * 4",
+      "statement": "фактический_конец = начало + (высота - 1) * межстрочный_шаг + ширина * 4",
       "evidence": ["fact:buggy_guard_end", "fact:correct_end", "fact:stride"],
       "confidence_vector": {
         "instruction": "confirmed",
