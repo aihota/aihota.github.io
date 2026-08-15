@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "kind": "dmp_passport",
+  "source": "HD_VGL2.dll+0x9827-5.7-R40-180-1.dmp",
+  "size": 75044,
+  "sha256": "c6afd81bf3a3f96af6b3b983f518a077c77466d8f696f0b4e70fbd785c81a3ca",
+  "level": "MiniDumpNormal",
+  "saved_ranges": 32,
+  "captured_bytes": 24356,
+  "memory64_list": false,
+  "process_thread_records": 23,
+  "exception": {
+    "thread_id": 4992,
+    "code": "0xC0000005",
+    "address": "0x6ED99827",
+    "operation": "write",
+    "target": "0x00000000",
+    "stack_range": "0x02B7EE4C..0x02B80000"
+  },
+  "text_context": {
+    "esp": "0x0F77FCE4",
+    "matched_thread_id": 27348,
+    "stack_range": "0x0F77F56C..0x0F780000",
+    "status": "CONTEXT_THREAD_MISMATCH",
+    "policy": "do not combine register sets from different threads"
+  },
+  "module": {
+    "name": "HD_VGL2.dll",
+    "range": "0x6ED90000..0x6EDE3000",
+    "time_date_stamp": "0x6A7C298D",
+    "size_of_image": "0x53000"
+  },
+  "captured_stack_words": {
+    "request_size_1": "0x003E0418",
+    "request_size_2": "0x003E0418",
+    "return_address": "0x6ED9461F",
+    "arguments": [
+      "0x540",
+      "0x2F4",
+      "0x1",
+      "0x80E1",
+      "0x1"
+    ]
+  },
+  "code_identity": {
+    "runtime_address": "0x6ED99827",
+    "file_offset": "0x8C27",
+    "bytes_match_local_after_relocation": true
+  },
+  "can_answer": [
+    "exception site and operation",
+    "module identity",
+    "saved instruction bytes",
+    "text-context stack arguments"
+  ],
+  "cannot_answer": [
+    "whole-process virtual memory availability",
+    "heap fragmentation",
+    "heap metadata integrity",
+    "first earlier corrupting write"
+  ]
+}

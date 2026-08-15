@@ -1,0 +1,113 @@
+{
+  "schema": 3,
+  "source": "/Users/Shared/ii/mail-dumps/HD_VGL2.dll+0x9827/HD_VGL2.dll+0x9827-5.7-R40-180-1.dmp",
+  "source_identity": {
+    "path": "/Users/Shared/ii/mail-dumps/HD_VGL2.dll+0x9827/HD_VGL2.dll+0x9827-5.7-R40-180-1.dmp",
+    "size": 75044,
+    "sha256": "c6afd81bf3a3f96af6b3b983f518a077c77466d8f696f0b4e70fbd785c81a3ca"
+  },
+  "dump_level": "минимальный",
+  "flags": [
+    "MiniDumpNormal"
+  ],
+  "stream_names": [
+    "ExceptionList",
+    "MemoryList",
+    "MiscInfo",
+    "ModuleList",
+    "SystemInfo",
+    "ThreadList",
+    "тип 0",
+    "тип 21",
+    "тип 22"
+  ],
+  "captured_bytes": 24356,
+  "thread_provenance": {
+    "exception_tid": 4992,
+    "esp_tid": 27348,
+    "status": "CONTEXT_THREAD_MISMATCH",
+    "esp": 259521764,
+    "register_sets_may_be_combined": false,
+    "selected_stack_thread_id": 27348,
+    "policy": "use_one_context_only; never combine ExceptionStream registers with the text/ESP stack when thread ids differ"
+  },
+  "counts": {
+    "minidump_streams": 12,
+    "process_threads_in_thread_list": 23,
+    "exception_thread_id": 4992,
+    "esp_stack_thread_id": 27348
+  },
+  "capabilities": {
+    "exception_context": true,
+    "thread_stacks": true,
+    "module_identity": true,
+    "captured_memory": true,
+    "code_window": true,
+    "globals_and_heap": false,
+    "memory_permissions": false,
+    "thread_provenance": true
+  },
+  "available_now": [
+    "captured_memory",
+    "code_window",
+    "exception_context",
+    "module_identity",
+    "thread_provenance",
+    "thread_stacks"
+  ],
+  "requires_full_dump": [
+    "global_state_snapshot",
+    "heap_object_lifetime",
+    "heap_neighbour_overwrite",
+    "whole_container_traversal"
+  ],
+  "requires_runtime_capture": [
+    "first_corrupting_write",
+    "writer_identity",
+    "race_ordering",
+    "object_lifetime_transition"
+  ],
+  "strong_claim_gates": {
+    "race": "requires_runtime_capture",
+    "use_after_free": "requires_full_dump_or_runtime_capture",
+    "heap_overwrite": "requires_full_dump_or_runtime_capture"
+  },
+  "limitations": [
+    ".data модулей: глобалы, карты, реестр-контейнер",
+    "куча целиком: обход списков объектов и поиск блобов",
+    "права и тип страниц (нет MemoryInfoList)",
+    "MiniDumpNormal не содержит полного адресного пространства процесса",
+    "ExceptionStream TID 4992 и стек текстового Context TID 27348 относятся к разным потокам",
+    "без полного DMP нельзя различить исчерпание, фрагментацию и более раннее повреждение кучи"
+  ],
+  "audit_selection": {
+    "selected": "HD_VGL2.dll+0x9827-5.7-R40-180-1.dmp",
+    "dmp_count": 1,
+    "rule": "single DMP profiled without silent selection"
+  },
+  "text_context_evidence": {
+    "txt": "HD_VGL2.dll+0x9827-5.7-R40-180-1.txt",
+    "esp": "0x0F77FCE4",
+    "matched_thread_id": 27348,
+    "stack_range": "0x0F77F56C..0x0F780000"
+  },
+  "exception_stream_evidence": {
+    "thread_id": 4992,
+    "stack_range": "0x02B7EE4C..0x02B80000",
+    "address": "0x6ED99827",
+    "code": "0xC0000005"
+  },
+  "module_identity": {
+    "name": "HD_VGL2.dll",
+    "runtime_range": "0x6ED90000..0x6EDE3000",
+    "time_date_stamp": "0x6A7C298D",
+    "local_sha256": "1e8b1b2e8aeb7daa888176905e55842dae10489b4c4a27c21a26e565c60d535a",
+    "runtime_bytes_match_local_after_relocation": true
+  },
+  "memory_summary": {
+    "saved_ranges": 32,
+    "captured_bytes": 24356,
+    "memory64_list": false,
+    "full_process_memory": false
+  }
+}

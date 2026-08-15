@@ -1,0 +1,328 @@
+{
+  "schema": 1,
+  "source": "/Users/Shared/ii/mail-dumps/HD_VGL2.dll+0x9827",
+  "count_contract": "physical_txt = unique_incidents + duplicate_instances",
+  "counts": {
+    "physical_txt": 2,
+    "unique_incidents": 2,
+    "duplicate_instances": 0,
+    "signature_groups": 1,
+    "cause_groups": 1,
+    "unresolved_incidents": 0
+  },
+  "counters": {
+    "physical_txt": {
+      "numerator": 2,
+      "denominator": 2,
+      "population": "physical crash TXT"
+    },
+    "unique_incidents": {
+      "numerator": 2,
+      "denominator": 2,
+      "population": "physical crash TXT after exact deduplication"
+    },
+    "duplicate_instances": {
+      "numerator": 0,
+      "denominator": 2,
+      "population": "physical crash TXT removed by exact deduplication"
+    },
+    "classified_incidents": {
+      "numerator": 2,
+      "denominator": 2,
+      "population": "unique incidents"
+    },
+    "unresolved_incidents": {
+      "numerator": 0,
+      "denominator": 2,
+      "population": "unique incidents"
+    }
+  },
+  "incidents": [
+    {
+      "incident_id": "incident-833e9f335e3b2169",
+      "sha256_txt": "833e9f335e3b2169e015bf35eaec20fbb99d4d30fe69074440fea30df35b2b48",
+      "physical_copies": [
+        "HD_VGL2.dll+0x9827-5.7-R39-180-1.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_VGL2.dll+0x9827-5.7-R39-180-1.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R39"
+      },
+      "eip_or_rva": "HD_VGL2.dll+0x9827",
+      "effective_access": "write",
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x7F77D020",
+        "EDX": "0x00000000",
+        "EBX": "0x07340CCE",
+        "ESP": "0x0F56FCE4",
+        "EBP": "0x0F56FCFC",
+        "ESI": "0x50F23988",
+        "EDI": "0x0000039A"
+      },
+      "caller": "sub_10003990 -> sub_10009790",
+      "signature": {
+        "crash_site": "HD_VGL2.dll+0x9827",
+        "instruction": "mov [eax],ecx",
+        "effective_access": "write",
+        "operand_address": "0x00000000",
+        "register_invariants": [
+          "EAX=0",
+          "EDX=0",
+          "faulting=0",
+          "ESP-EBP=-0x18"
+        ],
+        "helper_family": "_malloc"
+      },
+      "cause": {
+        "caller": "sub_10003990 -> sub_10009790",
+        "destination_origin": "second _malloc return value in EAX",
+        "size_origin": "effective_width * height * 4 + 0x18",
+        "size_formula": "4 * effective_width * height + 0x18",
+        "subsystem": "HD/OpenGL ping-pong render-surface buffers"
+      },
+      "signature_group": "sig-5ef61a7f6e18",
+      "cause_group": "cause-3bb1249ae54a",
+      "destination_provenance": "second _malloc return value in EAX",
+      "size_provenance": "effective_width * height * 4 + 0x18",
+      "capabilities": [
+        "exact_rva",
+        "no_dmp",
+        "no_exact_listing",
+        "stack_v2",
+        "text_context"
+      ],
+      "saves": [
+        {
+          "path": "HD_VGL2.dll+0x9827-5.7-R39-180-1-AUTOSAVE.GM2",
+          "sha256": "e77e7854065762ca1bc13b19f224fbcda2f9c431d836a5d7bb06bed2c4b6c419",
+          "role": "derived",
+          "representative": true
+        }
+      ],
+      "state_origin": "structural_candidate",
+      "classification_status": "candidate",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-6196bdff02e62bca",
+      "sha256_txt": "6196bdff02e62bca13e42371508b85d79c548e8f08cc9c1e9de80cde24c8bb79",
+      "physical_copies": [
+        "HD_VGL2.dll+0x9827-5.7-R40-180-1.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_VGL2.dll+0x9827-5.7-R40-180-1.txt",
+      "dmp": "HD_VGL2.dll+0x9827-5.7-R40-180-1.dmp",
+      "pair_quality": "exact_pair",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R40"
+      },
+      "eip_or_rva": "HD_VGL2.dll+0x9827",
+      "effective_access": "write",
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x18E7C020",
+        "EDX": "0x00000000",
+        "EBX": "0x05E80A80",
+        "ESP": "0x0F77FCE4",
+        "EBP": "0x0F77FCFC",
+        "ESI": "0x0870E588",
+        "EDI": "0x000002F4"
+      },
+      "caller": "sub_10003990 -> sub_10009790",
+      "signature": {
+        "crash_site": "HD_VGL2.dll+0x9827",
+        "instruction": "mov [eax],ecx",
+        "effective_access": "write",
+        "operand_address": "0x00000000",
+        "register_invariants": [
+          "EAX=0",
+          "EDX=0",
+          "faulting=0",
+          "ESP-EBP=-0x18"
+        ],
+        "helper_family": "_malloc"
+      },
+      "cause": {
+        "caller": "sub_10003990 -> sub_10009790",
+        "destination_origin": "second _malloc return value in EAX",
+        "size_origin": "effective_width * height * 4 + 0x18",
+        "size_formula": "4 * effective_width * height + 0x18",
+        "subsystem": "HD/OpenGL ping-pong render-surface buffers"
+      },
+      "signature_group": "sig-5ef61a7f6e18",
+      "cause_group": "cause-3bb1249ae54a",
+      "destination_provenance": "second _malloc return value in EAX",
+      "size_provenance": "effective_width * height * 4 + 0x18",
+      "capabilities": [
+        "captured_code",
+        "exact_listing",
+        "exact_pair",
+        "exception_context",
+        "module_identity",
+        "stack_bytes",
+        "text_context"
+      ],
+      "saves": [],
+      "state_origin": "static_confirmed",
+      "classification_status": "resolved",
+      "root_cause_allowed": true,
+      "outlier": false
+    }
+  ],
+  "signature_groups": [
+    {
+      "id": "sig-5ef61a7f6e18",
+      "count": 2,
+      "signature": {
+        "crash_site": "HD_VGL2.dll+0x9827",
+        "instruction": "mov [eax],ecx",
+        "effective_access": "write",
+        "operand_address": "0x00000000",
+        "register_invariants": [
+          "EAX=0",
+          "EDX=0",
+          "faulting=0",
+          "ESP-EBP=-0x18"
+        ],
+        "helper_family": "_malloc"
+      },
+      "cause_groups": [
+        "cause-3bb1249ae54a"
+      ],
+      "representative": "incident-833e9f335e3b2169"
+    }
+  ],
+  "cause_groups": [
+    {
+      "id": "cause-3bb1249ae54a",
+      "count": 2,
+      "cause": {
+        "caller": "sub_10003990 -> sub_10009790",
+        "destination_origin": "second _malloc return value in EAX",
+        "size_origin": "effective_width * height * 4 + 0x18",
+        "size_formula": "4 * effective_width * height + 0x18",
+        "subsystem": "HD/OpenGL ping-pong render-surface buffers"
+      },
+      "signature_group": "sig-5ef61a7f6e18",
+      "representative": "incident-833e9f335e3b2169",
+      "unresolved": false
+    }
+  ],
+  "signature_only_separations": [],
+  "related_cases": [
+    {
+      "case": "HD_VGL2.dll+0x97CF",
+      "count": 2,
+      "relation_status": "confirmed_same_defect_or_structural_analogue",
+      "allocation": "first"
+    },
+    {
+      "case": "HD_VGL2.dll+0x97DF",
+      "count": 2,
+      "relation_status": "confirmed_same_defect_or_structural_analogue",
+      "allocation": "first"
+    },
+    {
+      "case": "HD_VGL2.dll+0x97F7",
+      "count": 3,
+      "relation_status": "confirmed_same_defect_or_structural_analogue",
+      "allocation": "second"
+    },
+    {
+      "case": "HD_VGL2.dll+0x97FF",
+      "count": 1,
+      "relation_status": "confirmed_same_defect",
+      "allocation": "first"
+    },
+    {
+      "case": "HD_VGL2.dll+0x9807",
+      "count": 3,
+      "relation_status": "confirmed_same_defect_or_structural_analogue",
+      "allocation": "second"
+    },
+    {
+      "case": "HD_VGL2.dll+0x4624",
+      "count": 4,
+      "relation_status": "probable_same_subsystem",
+      "family_counter_increment": false
+    },
+    {
+      "case": "HD_VGL2.dll+0xFC4C",
+      "count": 2,
+      "relation_status": "unrelated",
+      "family_counter_increment": false
+    }
+  ],
+  "representatives": {
+    "algorithm": "deterministic_greedy_set_cover",
+    "selected": [
+      {
+        "incident_id": "incident-6196bdff02e62bca",
+        "txt": "HD_VGL2.dll+0x9827-5.7-R40-180-1.txt",
+        "newly_covered": [
+          "capability:captured_code",
+          "capability:exact_listing",
+          "capability:exact_pair",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:stack_bytes",
+          "capability:text_context",
+          "cause:cause-3bb1249ae54a",
+          "formula:4 * effective_width * height + 0x18",
+          "hd:5.7 R40",
+          "hota:1.8.0",
+          "subsystem:HD/OpenGL ping-pong render-surface buffers"
+        ],
+        "all_features": [
+          "capability:captured_code",
+          "capability:exact_listing",
+          "capability:exact_pair",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:stack_bytes",
+          "capability:text_context",
+          "cause:cause-3bb1249ae54a",
+          "formula:4 * effective_width * height + 0x18",
+          "hd:5.7 R40",
+          "hota:1.8.0",
+          "subsystem:HD/OpenGL ping-pong render-surface buffers"
+        ]
+      },
+      {
+        "incident_id": "incident-833e9f335e3b2169",
+        "txt": "HD_VGL2.dll+0x9827-5.7-R39-180-1.txt",
+        "newly_covered": [
+          "capability:exact_rva",
+          "capability:no_dmp",
+          "capability:no_exact_listing",
+          "capability:stack_v2",
+          "hd:5.7 R39"
+        ],
+        "all_features": [
+          "capability:exact_rva",
+          "capability:no_dmp",
+          "capability:no_exact_listing",
+          "capability:stack_v2",
+          "capability:text_context",
+          "cause:cause-3bb1249ae54a",
+          "formula:4 * effective_width * height + 0x18",
+          "hd:5.7 R39",
+          "hota:1.8.0",
+          "subsystem:HD/OpenGL ping-pong render-surface buffers"
+        ]
+      }
+    ],
+    "uncovered": []
+  },
+  "validation_errors": [],
+  "valid": true
+}

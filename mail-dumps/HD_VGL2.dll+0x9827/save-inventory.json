@@ -1,0 +1,47 @@
+{
+  "schema": 3,
+  "root": "/Users/Shared/ii/mail-dumps/HD_VGL2.dll+0x9827",
+  "count_contract": "physical_files = unique_sha256 + duplicate_instances",
+  "summary": {
+    "physical_files": 1,
+    "unique_sha256": 1,
+    "duplicate_instances": 0,
+    "roles": {
+      "derived": 1
+    },
+    "extensions": {
+      ".GM2": 1
+    },
+    "phase": "unknown",
+    "phase_relevance": {
+      "unresolved": 1
+    },
+    "unknown_blocks_only_its_file": 0
+  },
+  "items": [
+    {
+      "path": "HD_VGL2.dll+0x9827-5.7-R39-180-1-AUTOSAVE.GM2",
+      "size": 349631,
+      "sha256": "e77e7854065762ca1bc13b19f224fbcda2f9c431d836a5d7bb06bed2c4b6c419",
+      "extension": ".GM2",
+      "role": "derived",
+      "artifact_role": "derived_autosave",
+      "role_basis": "имя указывает на автоматический/боевой выход игры; роль source без отдельного доказательства запрещена",
+      "phase": "unknown",
+      "phase_relevance": "unresolved",
+      "phase_relevance_basis": "роль или временной порядок не доказаны",
+      "corresponding_logs": [
+        "HD_VGL2.dll+0x9827-5.7-R39-180-1.txt"
+      ],
+      "corresponding_dumps": [],
+      "attachment_names": [],
+      "origin_inference_allowed": true,
+      "can_support_source_origin": false,
+      "duplicate_group": "save-sha-e77e78540657",
+      "duplicate_physical_count": 1,
+      "representative": true
+    }
+  ],
+  "validation_errors": [],
+  "valid": true
+}

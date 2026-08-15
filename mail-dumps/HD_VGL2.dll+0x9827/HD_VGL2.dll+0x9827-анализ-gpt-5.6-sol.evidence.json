@@ -1,0 +1,148 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-15T17:41:28.822744+00:00",
+  "parser_revision": "0987c704e16db50835a6d0a7a14f04e3510a0764",
+  "report": {
+    "path": "HD_VGL2.dll+0x9827-анализ-gpt-5.6-sol.txt",
+    "size": 25907,
+    "sha256": "e995fcfb50b4c327c458a79659ac82adcee294f8cf8651e7d8cf6478dcdd0307"
+  },
+  "inputs": [
+    {
+      "path": "HD_VGL2.dll+0x9827-5.7-R39-180-1.txt",
+      "size": 5017,
+      "sha256": "833e9f335e3b2169e015bf35eaec20fbb99d4d30fe69074440fea30df35b2b48",
+      "role": "source"
+    },
+    {
+      "path": "HD_VGL2.dll+0x9827-5.7-R40-180-1.txt",
+      "size": 7092,
+      "sha256": "6196bdff02e62bca13e42371508b85d79c548e8f08cc9c1e9de80cde24c8bb79",
+      "role": "source"
+    },
+    {
+      "path": "HD_VGL2.dll+0x9827-5.7-R40-180-1.dmp",
+      "size": 75044,
+      "sha256": "c6afd81bf3a3f96af6b3b983f518a077c77466d8f696f0b4e70fbd785c81a3ca",
+      "role": "runtime"
+    },
+    {
+      "path": "../../180/HD_VGL2.dll",
+      "size": 307712,
+      "sha256": "1e8b1b2e8aeb7daa888176905e55842dae10489b4c4a27c21a26e565c60d535a",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_VGL2.dll-5.7 R40.txt",
+      "size": 6353880,
+      "sha256": "c2360a0be082ade878904f58884504308560461ef20ee0f27023a5b3037d442f",
+      "role": "source"
+    },
+    {
+      "path": "pair-audit.json",
+      "size": 1632,
+      "sha256": "f61cfe4f478b410c58c5559cff2b73f4b710e322354c2631dbb04e8fb49d3fd1",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "capabilities.json",
+      "size": 3690,
+      "sha256": "c98be851ef8610e7cf9bbbd4d2863a8fc1af34fe6512a6a61510ce1e9d2adc7f",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "dmp-passport.json",
+      "size": 1609,
+      "sha256": "1e7e1489f6b858973cba28b3646bedbe76c8534906197a39df0244e0968636aa",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "static-analysis.json",
+      "size": 5602,
+      "sha256": "28910a1856c2b7f915a2bf3734c0b07d56cbe57be7558fa4cdcad7e00ca83164",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "save-inventory.json",
+      "size": 1518,
+      "sha256": "219b4afdf4e4bc72282a1aa47f18b6dbcb901da088579f12ad2ca56c344435a2",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-parse.json",
+      "size": 6851,
+      "sha256": "7c524910634f4d1789f940df9918be5a75311d58275c8a52b2f719c663005f01",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-groups.json",
+      "size": 9934,
+      "sha256": "b2c8d21f0a8b88698d5afc6784dc9b581d1b3695ecc6543ae9110967fd29fd85",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-annotations.json",
+      "size": 2285,
+      "sha256": "adfa7494d830cfb332c18eab2112d204682b773352db3862896a43c97d384586",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-census.json",
+      "size": 18777,
+      "sha256": "d28a0df51799afe916c9c64ae98f89bf78f0d6136787bb4d69c3df2e780a1963",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-relocation-plan.json",
+      "size": 9162,
+      "sha256": "a3da4101aad9fa52da363cdca47a45c5d1e6f520b71eaa04aefc33cd98434b24",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "case-state.json",
+      "size": 8234,
+      "sha256": "3c788880fb62acdf571125b676a7ed524461f4668ab3dd49302a2b599fe8fc9a",
+      "role": "derived-evidence"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/multi-dump-diff/pair_audit.py",
+      "size": 22342,
+      "sha256": "356efd1cf550ee77a73ae86d18baba252f47166c8e2d67cfd5f43f7ce8cf1abf"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 27611,
+      "sha256": "3834e938041f42bb2fe11dbbbc35a33466617002d2ebd8f2f31aa76f7ac1b590"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/lint_report.py",
+      "size": 79802,
+      "sha256": "c05bb3c4e2881adb0ef59f754352bc863e784a8b806df0cc272c263f88ad93df"
+    },
+    {
+      "path": "../../.agents/skills/html-report/render_report.py",
+      "size": 969,
+      "sha256": "ede2dd05af3e754cf2c1004ae1d0b1e83277617dc8da912e7308fc4f74e03cb2"
+    }
+  ],
+  "commands": [
+    "crash_triage mail-dumps/HD_VGL2.dll+0x9827",
+    "listing_lookup modules/HD_VGL2.dll-5.7 R40.txt 0x10009827",
+    "pe_info 180/HD_VGL2.dll --rva 0x9827",
+    "dump_query HD_VGL2.dll+0x9827-5.7-R40-180-1.dmp --address 0x6ED99827 --size 16"
+  ],
+  "facts": {
+    "semantic_fingerprint": "357c622a7d64a5ce0acfdfa6e3c91c814cd337ed34c872ad29ea950cac74723a",
+    "r40_request_bytes": "4064280",
+    "code_confirmed_incidents": "7",
+    "structural_analogues": "6"
+  },
+  "claims": [],
+  "code_evidence": {
+    "level": "full-binary",
+    "note": "полный бинарный образ сверён по размеру, метке и SHA-256"
+  },
+  "machine_results": []
+}

@@ -1,0 +1,222 @@
+{
+  "version": 3,
+  "created": "2026-08-15",
+  "target": "mail-dumps/HD_VGL2.dll+0x9827",
+  "source_root": "",
+  "relation": "confirmed_same_defect",
+  "reason": "Та же непроверенная первая/вторая _malloc в sub_10009790: EAX=0 и mov [eax],ecx; точный листинг или DMP-кодовый инвариант",
+  "count_in_family": true,
+  "publish_with_primary": true,
+  "family_contract": {
+    "event_role": "crash",
+    "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+    "operation": "write",
+    "mechanism_side": "destination",
+    "events": 6
+  },
+  "state": "planned",
+  "items": [
+    {
+      "source": "mail-dumps/HD_VGL2.dll+0x97FF/HD_VGL2.dll+0x97FF-5.7-R40-180-1.txt",
+      "destination": "mail-dumps/HD_VGL2.dll+0x9827/Краш-логи и дампы старых версий HD-мода/HD_VGL2.dll+0x97FF-5.7-R40-180-1.txt",
+      "kind": "txt",
+      "size": 5040,
+      "sha256": "2dbfb5f9289da200907ada0524eae17aada2af27e2afd430f2b3060ddead05ca",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "write",
+      "mechanism_side": "destination",
+      "evidence_level": "dump_invariant"
+    },
+    {
+      "source": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x97CF-5.7-R23-180-1.dmp",
+      "destination": "mail-dumps/HD_VGL2.dll+0x9827/Краш-логи и дампы старых версий HD-мода/HD_VGL2.dll+0x97CF-5.7-R23-180-1.dmp",
+      "kind": "dmp",
+      "size": 196820,
+      "sha256": "1a9588c9597c779c23da2edd397d1ea9fb77eba0eb52f6798117db6b188550c9",
+      "pair_check": {
+        "context_eip": "0x70EE97CF",
+        "module": "HD_VGL2.dll",
+        "rva": "0x97CF",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_VGL2.dll+0x97CF-5.7-R23-180-1"
+      },
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "write",
+      "mechanism_side": "destination",
+      "evidence_level": "dump_invariant"
+    },
+    {
+      "source": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x97CF-5.7-R23-180-1.txt",
+      "destination": "mail-dumps/HD_VGL2.dll+0x9827/Краш-логи и дампы старых версий HD-мода/HD_VGL2.dll+0x97CF-5.7-R23-180-1.txt",
+      "kind": "txt",
+      "size": 7628,
+      "sha256": "0be070d82ae5098379421b86f9d41ebb4fb72e31563b7e89c249721a96e88ffc",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "write",
+      "mechanism_side": "destination",
+      "evidence_level": "dump_invariant",
+      "pair_check": {
+        "context_eip": "0x70EE97CF",
+        "module": "HD_VGL2.dll",
+        "rva": "0x97CF",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_VGL2.dll+0x97CF-5.7-R23-180-1"
+      }
+    },
+    {
+      "source": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x97DF-5.7-R21-180-2.dmp",
+      "destination": "mail-dumps/HD_VGL2.dll+0x9827/Краш-логи и дампы старых версий HD-мода/HD_VGL2.dll+0x97DF-5.7-R21-180-2.dmp",
+      "kind": "dmp",
+      "size": 169501,
+      "sha256": "702d3333fe10fe1c5a81ae6df4bda6ab5e87c5f72f05510f4c433f2f7f4c944f",
+      "pair_check": {
+        "context_eip": "0x6EA697DF",
+        "module": "HD_VGL2.dll",
+        "rva": "0x97DF",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_VGL2.dll+0x97DF-5.7-R21-180-2"
+      },
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "write",
+      "mechanism_side": "destination",
+      "evidence_level": "dump_invariant"
+    },
+    {
+      "source": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x97DF-5.7-R21-180-2.txt",
+      "destination": "mail-dumps/HD_VGL2.dll+0x9827/Краш-логи и дампы старых версий HD-мода/HD_VGL2.dll+0x97DF-5.7-R21-180-2.txt",
+      "kind": "txt",
+      "size": 7056,
+      "sha256": "1e809008f5745b2fb676a42d72669193310e2a8b89d6bbbd3985c24c029e7bfb",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "write",
+      "mechanism_side": "destination",
+      "evidence_level": "dump_invariant",
+      "pair_check": {
+        "context_eip": "0x6EA697DF",
+        "module": "HD_VGL2.dll",
+        "rva": "0x97DF",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_VGL2.dll+0x97DF-5.7-R21-180-2"
+      }
+    },
+    {
+      "source": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x97F7-5.7-R23-180-1.dmp",
+      "destination": "mail-dumps/HD_VGL2.dll+0x9827/Краш-логи и дампы старых версий HD-мода/HD_VGL2.dll+0x97F7-5.7-R23-180-1.dmp",
+      "kind": "dmp",
+      "size": 70924,
+      "sha256": "d1e4d11cf2ba221b873533156104cd5cd94ce3af2cfa88d24ad05a8e33df2ba4",
+      "pair_check": {
+        "context_eip": "0x6C8997F7",
+        "module": "HD_VGL2.dll",
+        "rva": "0x97F7",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_VGL2.dll+0x97F7-5.7-R23-180-1"
+      },
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "write",
+      "mechanism_side": "destination",
+      "evidence_level": "dump_invariant"
+    },
+    {
+      "source": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x97F7-5.7-R23-180-1.txt",
+      "destination": "mail-dumps/HD_VGL2.dll+0x9827/Краш-логи и дампы старых версий HD-мода/HD_VGL2.dll+0x97F7-5.7-R23-180-1.txt",
+      "kind": "txt",
+      "size": 5211,
+      "sha256": "ec5f2f97ea1a430b5250d9abc8b4605644b6bf98535ddb0a91d55e884d886983",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "write",
+      "mechanism_side": "destination",
+      "evidence_level": "dump_invariant",
+      "pair_check": {
+        "context_eip": "0x6C8997F7",
+        "module": "HD_VGL2.dll",
+        "rva": "0x97F7",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_VGL2.dll+0x97F7-5.7-R23-180-1"
+      }
+    },
+    {
+      "source": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x97F7-5.7-R28-180-1.dmp",
+      "destination": "mail-dumps/HD_VGL2.dll+0x9827/Краш-логи и дампы старых версий HD-мода/HD_VGL2.dll+0x97F7-5.7-R28-180-1.dmp",
+      "kind": "dmp",
+      "size": 352240,
+      "sha256": "c799068a8dd7cbd607de701ceae8055999e652afd3ef8c88badda12cce2f8a6f",
+      "pair_check": {
+        "context_eip": "0x5C7D97F7",
+        "module": "HD_VGL2.dll",
+        "rva": "0x97F7",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_VGL2.dll+0x97F7-5.7-R28-180-1"
+      },
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "write",
+      "mechanism_side": "destination",
+      "evidence_level": "dump_invariant"
+    },
+    {
+      "source": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x97F7-5.7-R28-180-1.txt",
+      "destination": "mail-dumps/HD_VGL2.dll+0x9827/Краш-логи и дампы старых версий HD-мода/HD_VGL2.dll+0x97F7-5.7-R28-180-1.txt",
+      "kind": "txt",
+      "size": 6816,
+      "sha256": "6dc23b0c36fb2036b88e390e4870e549fef0b11883595f41026b37ef9b6f0ef6",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "write",
+      "mechanism_side": "destination",
+      "evidence_level": "dump_invariant",
+      "pair_check": {
+        "context_eip": "0x5C7D97F7",
+        "module": "HD_VGL2.dll",
+        "rva": "0x97F7",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_VGL2.dll+0x97F7-5.7-R28-180-1"
+      }
+    },
+    {
+      "source": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x9807-5.7-R31-180-1.dmp",
+      "destination": "mail-dumps/HD_VGL2.dll+0x9827/Краш-логи и дампы старых версий HD-мода/HD_VGL2.dll+0x9807-5.7-R31-180-1.dmp",
+      "kind": "dmp",
+      "size": 130566,
+      "sha256": "a13c2f5e964ece9af1f3ee405f9d3ea20f5a1a5535b590aff08fe1977b663637",
+      "pair_check": {
+        "context_eip": "0x6DCA9807",
+        "module": "HD_VGL2.dll",
+        "rva": "0x9807",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_VGL2.dll+0x9807-5.7-R31-180-1"
+      },
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "write",
+      "mechanism_side": "destination",
+      "evidence_level": "dump_invariant"
+    },
+    {
+      "source": "mail-dumps/HD_VGL2.dll/HD_VGL2.dll+0x9807-5.7-R31-180-1.txt",
+      "destination": "mail-dumps/HD_VGL2.dll+0x9827/Краш-логи и дампы старых версий HD-мода/HD_VGL2.dll+0x9807-5.7-R31-180-1.txt",
+      "kind": "txt",
+      "size": 4972,
+      "sha256": "53233b36aa68aee62f22e179067ac6458825902a07fe4cc3736d788aa2188d10",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "write",
+      "mechanism_side": "destination",
+      "evidence_level": "dump_invariant",
+      "pair_check": {
+        "context_eip": "0x6DCA9807",
+        "module": "HD_VGL2.dll",
+        "rva": "0x9807",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_VGL2.dll+0x9807-5.7-R31-180-1"
+      }
+    }
+  ]
+}

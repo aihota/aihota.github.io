@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "defaults": {
+    "helper_family": "_malloc",
+    "instruction": "mov [eax],ecx",
+    "effective_access": "write",
+    "operand_address": "0x00000000",
+    "register_invariants": [
+      "EAX=0",
+      "EDX=0",
+      "faulting=0",
+      "ESP-EBP=-0x18"
+    ],
+    "caller": "sub_10003990 -> sub_10009790",
+    "destination_origin": "second _malloc return value in EAX",
+    "size_origin": "effective_width * height * 4 + 0x18",
+    "size_formula": "4 * effective_width * height + 0x18",
+    "subsystem": "HD/OpenGL ping-pong render-surface buffers"
+  },
+  "incidents": {
+    "HD_VGL2.dll+0x9827-5.7-R39-180-1.txt": {
+      "state_origin": "structural_candidate",
+      "capabilities": [
+        "text_context",
+        "stack_v2",
+        "exact_rva",
+        "no_exact_listing",
+        "no_dmp"
+      ]
+    },
+    "HD_VGL2.dll+0x9827-5.7-R40-180-1.txt": {
+      "state_origin": "static_confirmed",
+      "capabilities": [
+        "text_context",
+        "exact_pair",
+        "exception_context",
+        "captured_code",
+        "module_identity",
+        "stack_bytes",
+        "exact_listing"
+      ]
+    }
+  },
+  "related_cases": [
+    {
+      "case": "HD_VGL2.dll+0x97CF",
+      "count": 2,
+      "relation_status": "confirmed_same_defect_or_structural_analogue",
+      "allocation": "first"
+    },
+    {
+      "case": "HD_VGL2.dll+0x97DF",
+      "count": 2,
+      "relation_status": "confirmed_same_defect_or_structural_analogue",
+      "allocation": "first"
+    },
+    {
+      "case": "HD_VGL2.dll+0x97F7",
+      "count": 3,
+      "relation_status": "confirmed_same_defect_or_structural_analogue",
+      "allocation": "second"
+    },
+    {
+      "case": "HD_VGL2.dll+0x97FF",
+      "count": 1,
+      "relation_status": "confirmed_same_defect",
+      "allocation": "first"
+    },
+    {
+      "case": "HD_VGL2.dll+0x9807",
+      "count": 3,
+      "relation_status": "confirmed_same_defect_or_structural_analogue",
+      "allocation": "second"
+    },
+    {
+      "case": "HD_VGL2.dll+0x4624",
+      "count": 4,
+      "relation_status": "probable_same_subsystem",
+      "family_counter_increment": false
+    },
+    {
+      "case": "HD_VGL2.dll+0xFC4C",
+      "count": 2,
+      "relation_status": "unrelated",
+      "family_counter_increment": false
+    }
+  ]
+}

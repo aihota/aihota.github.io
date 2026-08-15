@@ -1,0 +1,165 @@
+{
+  "schema": 1,
+  "stages": {
+    "pair_audit": {
+      "fingerprint": "7fdda5d641ddcfd6100e23aa4322f9b7659f1f4703656fb8ce311f7e0e6a27d5",
+      "status": "done",
+      "cached": false,
+      "outputs": [
+        "mail-dumps/HD_VGL2.dll+0x9827/pair-audit.json"
+      ],
+      "detail": {
+        "returncode": 0,
+        "stdout": "СВЕРКА TXT/DMP\n  unpaired_txt                    HD_VGL2.dll+0x9827-5.7-R39-180-1\n    одноимённый DMP отсутствует\n  exact_pair                      HD_VGL2.dll+0x9827-5.7-R40-180-1\nИтог: строк=2; точных=1; неполная идентичность=0; другой код=0; доказанный mismatch=0; пустых DMP=0; ошибок разбора=0; без DMP=1; без TXT=0\n",
+        "stderr": ""
+      }
+    },
+    "series_parse": {
+      "fingerprint": "7fdda5d641ddcfd6100e23aa4322f9b7659f1f4703656fb8ce311f7e0e6a27d5",
+      "status": "done",
+      "cached": false,
+      "outputs": [
+        "mail-dumps/HD_VGL2.dll+0x9827/series-parse.json"
+      ],
+      "detail": {
+        "returncode": 0,
+        "stdout": "УНИКАЛЬНЫХ ВЫЛЕТОВ: 2  (файлов: 2, точных дублей свёрнуто: 0)\nАдрес(а) сбоя: HD_VGL2.dll+0x9827\n\nВЕРСИИ (по уникальным вылетам)\n  HotA: 1.8.0×2\n  HD-мод: 5.7 R39×1, 5.7 R40×1\n  (!) ВНИМАНИЕ: в серии СМЕШАННЫЕ версии (HD-мод) — НЕ обобщать\n      вывод на одну версию; сверять версию КАЖДОГО дампа и листинг под неё.\n\nРЕГИСТРЫ (по уникальным вылетам)\n№  Faulting    Op     EAX         ECX         EDX         EBX         ESI         EDI         EBP         ESP\n-  ----------  -----  ----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------\n1  0x00000000  write  0x00000000  0x7F77D020  0x00000000  0x07340CCE  0x50F23988  0x0000039A  0x0F56FCFC  0x0F56FCE4\n2  0x00000000  write  0x00000000  0x18E7C020  0x00000000  0x05E80A80  0x0870E588  0x000002F4  0x0F77FCFC  0x0F77FCE4\n\nДЕЛЬТЫ ФРЕЙМА И СОСТОЯНИЕ ИГРЫ\n№  EBP-EDI    EDI-ESP     ESP-EBP  Day   Me  AP  Net  Map file                HotA   HD\n-  ---------  ----------  -------  ----  --  --  ---  ----------------------  -----  -------\n1  257358178  -257358154  -24      2 22  3   7   1    MaxMoRoZz,_Vova_Neste…  1.8.0  5.7 R39\n2  259521032  -259521008  -24      0 00  0   0   0    test.h3m                1.8.0  5.7 R40\n\nИНВАРИАНТЫ ПО ВСЕМ УНИКАЛЬНЫМ ВЫЛЕТАМ\n  Постоянные регистры: EAX=0x00000000, EDX=0x00000000\n  Регистр == faulting addr: [EAX,EDX]×2\n  EBP-EDI: 257358178, 259521032\n  EDI-ESP: -259521008, -257358154\n  EBX-EBP: 0xF6700D84, 0xF7DD0FD2\n  EBX-ESP: 0xF6700D9C, 0xF7DD0FEA\n  Network Game: 0×1, 1×1\n  Me == Active Player: 1 из 2\n\nГРУППИРОВКА (адрес сбоя + op -> непосредственные caller'ы)\n  HD_VGL2.dll+0x9827 [write] ×2\n     caller'ы: ?\n\nКОММЕНТАРИИ ИГРОКОВ (блок Comment, без автотекста)\n  не найдено (проверьте фильтр на логе с темой\n  WITH COMMENT, если он есть в серии - см. §28/§29)\n\n\nСЕМАНТИЧЕСКИЙ ОТПЕЧАТОК СЕМЬИ\n  SHA-256: 357c622a7d64a5ce0acfdfa6e3c91c814cd337ed34c872ad29ea950cac74723a\n  роль: не задана; поле: не задано\n  ошибочные указатели: нуль=2\n  глубины кадров: 0x18=2\n  подтипы: прочее=2\n  межверсионная связь: не задано\n\nJSON сохранён: /Users/Shared/ii/mail-dumps/HD_VGL2.dll+0x9827/series-parse.json\n",
+        "stderr": ""
+      }
+    },
+    "save_inventory": {
+      "fingerprint": "7fdda5d641ddcfd6100e23aa4322f9b7659f1f4703656fb8ce311f7e0e6a27d5",
+      "status": "done",
+      "cached": false,
+      "outputs": [
+        "mail-dumps/HD_VGL2.dll+0x9827/save-inventory.json"
+      ],
+      "detail": {
+        "returncode": 0,
+        "stdout": "SAVE INVENTORY: /Users/Shared/ii/mail-dumps/HD_VGL2.dll+0x9827/save-inventory.json; physical=1; unique=1; unknown=0; phase=unknown; valid=true\n",
+        "stderr": ""
+      }
+    },
+    "capabilities": {
+      "fingerprint": "0083df71c2a4d785511a81f9b5d439aa0bfa6cf0fe4a6a4d1f0ed482cea30afb",
+      "status": "done",
+      "cached": true,
+      "outputs": [
+        "mail-dumps/HD_VGL2.dll+0x9827/capabilities.json"
+      ],
+      "detail": {
+        "returncode": 0,
+        "dmp_count": 1,
+        "selected": "HD_VGL2.dll+0x9827-5.7-R40-180-1.dmp"
+      }
+    },
+    "series_registry": {
+      "fingerprint": "4c5033f071d7d0a31de9e162a4a68cf1e3e78cc72a40eecb6cc4ee606f3c908a",
+      "status": "done",
+      "cached": false,
+      "outputs": [
+        "mail-dumps/HD_VGL2.dll+0x9827/series-groups.json"
+      ],
+      "detail": {
+        "returncode": 0,
+        "stdout": "SERIES REGISTRY: /Users/Shared/ii/mail-dumps/HD_VGL2.dll+0x9827/series-groups.json; incidents=2; signatures=1; causes=1; valid=true\n",
+        "stderr": ""
+      }
+    }
+  },
+  "case": "mail-dumps/HD_VGL2.dll+0x9827",
+  "inputs": [
+    {
+      "path": "mail-dumps/HD_VGL2.dll+0x9827/HD_VGL2.dll+0x9827-5.7-R39-180-1-AUTOSAVE.GM2",
+      "size": 349631,
+      "sha256": "e77e7854065762ca1bc13b19f224fbcda2f9c431d836a5d7bb06bed2c4b6c419"
+    },
+    {
+      "path": "mail-dumps/HD_VGL2.dll+0x9827/HD_VGL2.dll+0x9827-5.7-R39-180-1.txt",
+      "size": 5017,
+      "sha256": "833e9f335e3b2169e015bf35eaec20fbb99d4d30fe69074440fea30df35b2b48"
+    },
+    {
+      "path": "mail-dumps/HD_VGL2.dll+0x9827/HD_VGL2.dll+0x9827-5.7-R40-180-1.dmp",
+      "size": 75044,
+      "sha256": "c6afd81bf3a3f96af6b3b983f518a077c77466d8f696f0b4e70fbd785c81a3ca"
+    },
+    {
+      "path": "mail-dumps/HD_VGL2.dll+0x9827/HD_VGL2.dll+0x9827-5.7-R40-180-1.txt",
+      "size": 7092,
+      "sha256": "6196bdff02e62bca13e42371508b85d79c548e8f08cc9c1e9de80cde24c8bb79"
+    }
+  ],
+  "tools": [
+    {
+      "path": ".agents/skills/address-mapping/dump_profile.py",
+      "size": 31189,
+      "sha256": "b15ea8289f3577ff0836efe2faf00b5371c1013c00ad38ed028615deb9f405a8"
+    },
+    {
+      "path": ".agents/skills/multi-dump-diff/artifact_context_census.py",
+      "size": 9601,
+      "sha256": "a6f954689762926e93f6c2a4d24502580c00f1fa8455201e3c5a34649d91121b"
+    },
+    {
+      "path": ".agents/skills/multi-dump-diff/pair_audit.py",
+      "size": 22342,
+      "sha256": "356efd1cf550ee77a73ae86d18baba252f47166c8e2d67cfd5f43f7ce8cf1abf"
+    },
+    {
+      "path": ".agents/skills/multi-dump-diff/parse_dumps.py",
+      "size": 25100,
+      "sha256": "777d3ab3b772c95935d650dbd648aa114143a5364861ae9683f3565fd996c89e"
+    },
+    {
+      "path": ".agents/skills/multi-dump-diff/series_registry.py",
+      "size": 21472,
+      "sha256": "7631d00f7b7d9aaf88840324fd06f274e0a4caf63d07043ad0ee46ed556e0947"
+    },
+    {
+      "path": ".agents/skills/runtime-verification/runtime_plan_gate.py",
+      "size": 6439,
+      "sha256": "7e9a76fa82975a03ee8b0c33ab0d9053035bb155be266112d144c0e707e77e12"
+    },
+    {
+      "path": ".agents/skills/save-map-analysis/save_inventory.py",
+      "size": 12789,
+      "sha256": "01541c327f9cbcfdab15e0768358419a6b0782e8eea3eb00792be9d0048160ec"
+    }
+  ],
+  "static_only": true,
+  "prohibited_actions": [
+    "Wine",
+    "game launch",
+    "commit",
+    "push",
+    "publication"
+  ],
+  "capabilities": {
+    "path": "mail-dumps/HD_VGL2.dll+0x9827/capabilities.json",
+    "schema": 3,
+    "dmp_count": 1,
+    "complete": true
+  },
+  "series_registry": {
+    "path": "mail-dumps/HD_VGL2.dll+0x9827/series-groups.json",
+    "counts": {
+      "physical_txt": 2,
+      "unique_incidents": 2,
+      "duplicate_instances": 0,
+      "signature_groups": 1,
+      "cause_groups": 1,
+      "unresolved_incidents": 0
+    },
+    "valid": true,
+    "canonical_source": true
+  },
+  "complete": true,
+  "stage_statuses": {
+    "pair_audit": "done",
+    "series_parse": "done",
+    "save_inventory": "done",
+    "capabilities": "done",
+    "series_registry": "done"
+  }
+}

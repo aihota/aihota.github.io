@@ -1,0 +1,172 @@
+{
+  "schema": 2,
+  "kind": "static_crash_analysis",
+  "crash_address": "HD_VGL2.dll+0x9827",
+  "target_build": "HD 5.7 R40 / HotA 1.8.0",
+  "reported_runtime_address": "0x6ED99827",
+  "reported_load_base": "0x6ED90000",
+  "image_base": "0x10000000",
+  "ida_address": "0x10009827",
+  "file_offset": "0x8C27",
+  "function": {
+    "name": "sub_10009790",
+    "start": "0x10009790",
+    "end_exclusive": "0x10009910",
+    "offset": "0x97",
+    "role": "constructor-like initializer for a 0x4C-byte HD/OpenGL render-surface descriptor"
+  },
+  "instruction": {
+    "address": "0x10009827",
+    "section": ".text",
+    "text": "mov [eax], ecx",
+    "opcode": "89 08",
+    "effective_address": "0x00000000"
+  },
+  "context": {
+    "EAX": "0x00000000",
+    "ECX": "0x18E7C020",
+    "EDX": "0x00000000",
+    "EBX": "0x05E80A80",
+    "ESI": "0x0870E588",
+    "EDI": "0x000002F4",
+    "EBP": "0x0F77FCFC",
+    "ESP": "0x0F77FCE4",
+    "faulting_address": "0x00000000",
+    "operation": "write"
+  },
+  "arguments": {
+    "arg_0": {
+      "hex": "0x540",
+      "decimal": 1344
+    },
+    "arg_4": {
+      "hex": "0x2F4",
+      "decimal": 756
+    },
+    "arg_8": 1,
+    "arg_C": "0x80E1",
+    "arg_10": 1,
+    "source": "text-context stack saved in DMP, TID 27348"
+  },
+  "allocation": {
+    "payload_formula": "arg_0 * arg_4 * 4",
+    "payload_hex": "0x3E0400",
+    "payload_decimal": 4064256,
+    "request_formula": "payload + 0x18",
+    "request_hex": "0x3E0418",
+    "request_decimal": 4064280,
+    "first_malloc_call": "0x100097F4",
+    "first_unsafe_write": "0x100097FF",
+    "second_malloc_call": "0x1000981C",
+    "second_unsafe_write": "0x10009827",
+    "null_check_after_either_malloc": false,
+    "result": "the first equal-sized allocation returned non-NULL; the second returned NULL and was dereferenced immediately"
+  },
+  "allocation_node": {
+    "raw_plus_0": "next pointer in global Block list",
+    "raw_plus_4": "16-byte-aligned payload pointer",
+    "header_and_alignment_slack": "0x18",
+    "global_list": "Block at 0x10032570"
+  },
+  "surface_object": {
+    "size": "0x4C",
+    "buffer_fields": [
+      "+0x28",
+      "+0x2C"
+    ],
+    "usage": "equal ping-pong render buffers, cleared by _memset, consumed by sub_10009910 and swapped after frames",
+    "cleanup": "sub_10002EA0 unlinks matching raw nodes from Block and frees them; failure occurs before caller can run cleanup",
+    "vtable": "none observed at object start"
+  },
+  "call_chain": [
+    "KERNEL32!BaseThreadInitThunk",
+    "HD_VGL2.dll!StartAddress",
+    "HD_VGL2.dll!sub_10003990 (call 0x1000461A, return 0x1000461F)",
+    "HD_VGL2.dll!sub_10009790",
+    "second _malloc",
+    "0x10009827 mov [eax],ecx"
+  ],
+  "static_callers": [
+    "0x10002A74 in sub_100025C0",
+    "0x100035EC in sub_10002F30",
+    "0x1000444D in sub_10003990",
+    "0x1000461A in sub_10003990"
+  ],
+  "binary_identity": {
+    "local_path": "180/HD_VGL2.dll",
+    "format": "PE32",
+    "file_size": 307712,
+    "time_date_stamp": "0x6A7C298D",
+    "size_of_image": "0x53000",
+    "sha256": "1e8b1b2e8aeb7daa888176905e55842dae10489b4c4a27c21a26e565c60d535a",
+    "dmp_module_time_date_stamp": "0x6A7C298D",
+    "local_bytes": "89 08 8D 48 18 83 E1 F0 89 48 04 A3 70 25 03 10",
+    "runtime_bytes": "89 08 8D 48 18 83 E1 F0 89 48 04 A3 70 25 DC 6E",
+    "relocation_note": "the final absolute address differs only by module relocation; instruction stream otherwise matches"
+  },
+  "local_series": {
+    "physical_txt": 2,
+    "unique_incidents": 2,
+    "duplicates": 0,
+    "exact_pair": 1,
+    "unpaired_txt": 1,
+    "versions": [
+      "5.7 R39",
+      "5.7 R40"
+    ],
+    "semantic_fingerprint": "357c622a7d64a5ce0acfdfa6e3c91c814cd337ed34c872ad29ea950cac74723a"
+  },
+  "r39": {
+    "status": "strict structural analogue",
+    "exact_listing": false,
+    "dmp": false,
+    "EAX": "0x00000000",
+    "EDX": "0x00000000",
+    "EDI": 922,
+    "request_hex": "0x5C4A58",
+    "payload_hex": "0x5C4A40",
+    "derived_dimensions": "1640 x 922 x 4",
+    "confidence_boundary": "same RVA and frame shape do not substitute for an exact R39 binary/listing"
+  },
+  "family": {
+    "direct_incidents": 13,
+    "code_confirmed": 7,
+    "structural_analogues": 6,
+    "first_allocation": 5,
+    "second_allocation": 8,
+    "network_game_1": 8,
+    "network_game_0": 5,
+    "census": "family-census.json"
+  },
+  "root_cause": {
+    "local_mechanism": "raw _malloc returned NULL; missing NULL check caused scalar write to address zero",
+    "failure_class": "heap-pressure",
+    "allocator_failure_origin": "unknown",
+    "compatible_explanations": [
+      "32-bit virtual address-space exhaustion",
+      "address-space fragmentation",
+      "earlier heap-metadata corruption not visible in MiniDumpNormal"
+    ],
+    "not_proven": [
+      "specific OOM cause",
+      "heap corruption",
+      "race",
+      "save/map causality"
+    ]
+  },
+  "sod_comparison": "N/A: this is HD/OpenGL-owned infrastructure, not an original SoD function",
+  "confidence": {
+    "crash_site": "confirmed by TXT, exact pair, listing, local PE and DMP bytes",
+    "local_mechanism": "unambiguous",
+    "allocator_failure_origin": "not established",
+    "r39": "structural only",
+    "family_coverage": "complete for the three named source folders and full crash-address corpus scan"
+  },
+  "limitations": [
+    "MiniDumpNormal only; no Memory64List",
+    "captured memory is 24,356 bytes in 32 ranges",
+    "ExceptionStream TID 4992 differs from text-context ESP thread TID 27348",
+    "full heap and virtual memory map are absent",
+    "exact HD_VGL2 5.7 R39 listing and DMP are absent"
+  ]
+}
