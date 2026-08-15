@@ -1,0 +1,232 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-15T11:28:20.411884+00:00",
+  "parser_revision": "fb85f73cdc5d0de42291ef6cc120bef116cd431c",
+  "report": {
+    "path": "5170D3-анализ-gpt-5.6-sol.txt",
+    "size": 16198,
+    "sha256": "f5246bf199d6d7fa1bd818114bed6b1deb836f73cf77c14a99e601a3f1423b9a"
+  },
+  "inputs": [
+    {
+      "path": "KERNELBASE.dll+0x16A2B4-5.7-R39-180.txt",
+      "size": 8980,
+      "sha256": "d67bd74d50aba5deeed434b4dbf96908aad7b5794f62670afb0ae65173593998",
+      "role": "runtime"
+    },
+    {
+      "path": "KERNELBASE.dll+0x16A2B4-5.7-R39-180.dmp",
+      "size": 114908,
+      "sha256": "a928cac04de1b2538d501e0efa5ff67367025d4e9cd281a33fb6c62784d78822",
+      "role": "runtime"
+    },
+    {
+      "path": "KERNELBASE.dll+0x16A2B4-5.7-R39-180-2.txt",
+      "size": 8980,
+      "sha256": "2c86ff49cd291d0819993d06d2707ac32d70160dbcf425a81befda5a2bfb9646",
+      "role": "runtime"
+    },
+    {
+      "path": "KERNELBASE.dll+0x16A2B4-5.7-R39-180-2.dmp",
+      "size": 114908,
+      "sha256": "80ad5dfac2033114c26b2acdb0300875590b99db94538d1c01b9a53b35330548",
+      "role": "runtime"
+    },
+    {
+      "path": "KERNELBASE.dll+0x16A2B4-5.7-R40-180.txt",
+      "size": 9522,
+      "sha256": "e10413a5983a6a57015b94e7ee5301d5d8a67178d1df5b195d896020c31cb40d",
+      "role": "runtime"
+    },
+    {
+      "path": "KERNELBASE.dll+0x16A2B4-5.7-R40-180.dmp",
+      "size": 113581,
+      "sha256": "e9230a1d448524524f6167847ee0ff9e126402ba67ca0c8f9c0195fcff78e507",
+      "role": "runtime"
+    },
+    {
+      "path": "KERNELBASE.dll+0x16A2B4-5.7-R40-180-2.txt",
+      "size": 9579,
+      "sha256": "69074b7714a02b1175d6118cb638ff7f11ddf0d28229e4427ef01f14de3efc5b",
+      "role": "runtime"
+    },
+    {
+      "path": "KERNELBASE.dll+0x16A2B4-5.7-R40-180-2.dmp",
+      "size": 115384,
+      "sha256": "31355f756819713c639b7f32769d654746b616320bade403b2e349c73eb6b6bc",
+      "role": "runtime"
+    },
+    {
+      "path": "KERNELBASE.dll+0x16A2B4-5.7-R40-180-3.txt",
+      "size": 8980,
+      "sha256": "a7928732ed6334ab3e3713b073aceaf6451dea981d56687042ed7da82fa9a865",
+      "role": "runtime"
+    },
+    {
+      "path": "KERNELBASE.dll+0x16A2B4-5.7-R40-180-3.dmp",
+      "size": 114908,
+      "sha256": "42d5353517197643c17183acd5ab33744a23a699e4d241a7fd2add444f729a7f",
+      "role": "runtime"
+    },
+    {
+      "path": "../../180/h3hota.exe",
+      "size": 2932736,
+      "sha256": "b5f2f793af0986050fb41df7209c25d861ae0f837af52bb3bd6864ba4de84f41",
+      "role": "source"
+    },
+    {
+      "path": "capabilities-invalid-argument.json",
+      "size": 894,
+      "sha256": "2ab1f71c5c6a18632514c057f7c612815a41495866fe1b7f7f2f541a8171090c",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-corpus-dedup.json",
+      "size": 10276,
+      "sha256": "3f9dbde753226a37e7c48af00dc6728e48f7e830f3a33d2389e64911c9164dca",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "static-exhaustion-5170D3.json",
+      "size": 1649,
+      "sha256": "b171ef51a86fa3060fdec0be89bb66013a0357d693a88d4f9560f0b3bb192c27",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "claims-5170D3.json",
+      "size": 2501,
+      "sha256": "2e4e64551119f45bdbe67f9b7d4df22caac5e2c0306c2e5e8af2c63e9cd7c0c0",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "coverage-5170D3.json",
+      "size": 3199,
+      "sha256": "f145a5e469ed4cb8d6f3773584a3fb1eb8bf66b1eabd19032ece984ed80db71e",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-membership-5170D3.json",
+      "size": 3939,
+      "sha256": "7092c024ca9f1cde0b1e750184201ae3cd2f3875a46ac3bc3363963f984fdbb2",
+      "role": "derived-evidence"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/address-mapping/dump_profile.py",
+      "size": 29297,
+      "sha256": "071daf1f070b0d464af4ae2974ca926936895e895c00f07906e0c879c20e8aba"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+      "size": 27698,
+      "sha256": "f91bec5910a8eee83e2634f7fa48ee0f66840b66826abe0f30445f30bc3c2ebc"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+      "size": 5118,
+      "sha256": "b422c4666be47287bcb90b5a030cea2ecf0b54d0cb8fc8f6faa4a3d094f3d087"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/family_membership.py",
+      "size": 7769,
+      "sha256": "6371edf24f998f14322ba238ff84b7712da4b3d6948d97f5843b65f3eca356a2"
+    }
+  ],
+  "commands": [
+    "MCP dump_query: exception, modules, threads, ranges and object bytes",
+    "static_exhaustion_check.py: 0x005170D3 and sub_517010",
+    "raw crash-log census over 5266 files with SHA-256 dedup",
+    "coverage_contract.py and family_membership.py checks"
+  ],
+  "facts": {
+    "throw_site": "0x005170D3",
+    "throw_info": "0x006504B0",
+    "local_incidents": "5",
+    "caller": "0x00515960",
+    "accepted_bytes": "ASCII_0_or_1",
+    "message": "invalid_bitset_char",
+    "state_origin": "partial",
+    "heap_captured": "false",
+    "message_pointer": "0x0B3F55F9",
+    "corpus_scanned": "5266",
+    "corpus_physical": "43",
+    "corpus_unique_sha256": "42"
+  },
+  "claims": [
+    {
+      "confidence": "видно непосредственно в DMP",
+      "id": "crash-site",
+      "type": "crash_site",
+      "statement": "В пяти DMP параметр Information[2] равен 0x006504B0.",
+      "evidence": [
+        "fact:throw_site",
+        "fact:throw_info",
+        "fact:local_incidents"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "id": "local-mechanism",
+      "type": "local_mechanism",
+      "statement": "Попадание в 0x00515960 однозначно означает: проверенный байт не равен\n    ни ASCII 1, ни ASCII 0.",
+      "evidence": [
+        "fact:caller",
+        "fact:accepted_bytes",
+        "fact:message"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "id": "state-origin",
+      "type": "state_origin",
+      "statement": "Точный символ, строка Objects.txt и первый писатель\n  не установлены.",
+      "evidence": [
+        "fact:state_origin",
+        "fact:heap_captured",
+        "fact:message_pointer"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "family-coverage",
+      "type": "family_coverage",
+      "statement": "Семейная перепись в обозначенных границах даёт 42 уникальных SHA-256\n  среди 43 физических TXT, отобранных из 5266 сырых журналов.",
+      "evidence": [
+        "fact:corpus_scanned",
+        "fact:corpus_physical",
+        "fact:corpus_unique_sha256",
+        "fact:caller"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "confirmed",
+        "state_origin": "not_applicable",
+        "family_coverage": "confirmed"
+      }
+    }
+  ],
+  "code_evidence": {
+    "level": "instruction-boundary",
+    "note": "граница инструкции подтверждена листингом"
+  },
+  "machine_results": []
+}

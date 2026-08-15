@@ -1,0 +1,121 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-15T11:27:50.744158+00:00",
+  "family_id": "h3hota-5170D3-invalid-bitset-char",
+  "source": "mail-dumps/KERNELBASE.dll+0x16A2B4/family-membership-5170D3-input.json",
+  "memberships": [
+    {
+      "incident_id": "sha256:7ea42c22bccecfeb612f96af244a77902864c7f4c33564af0db578115399376c",
+      "membership": "excluded",
+      "basis": "другой тип и caller: std::out_of_range через 0x0050573B",
+      "evidence": [
+        "KERNELBASE.dll+0x13B702-5.7-R39-180.txt"
+      ]
+    },
+    {
+      "incident_id": "sha256:2c86ff49cd291d0819993d06d2707ac32d70160dbcf425a81befda5a2bfb9646",
+      "membership": "confirmed",
+      "basis": "совпали caller 0x00515960, throw 0x005170D3 и ThrowInfo 0x006504B0",
+      "evidence": [
+        "KERNELBASE.dll+0x16A2B4-5.7-R39-180-2.txt"
+      ],
+      "fingerprint": {
+        "structure_role": "Objects.txt template mask",
+        "field": "bitset<48> input character",
+        "call_tail": [
+          "0x00515960",
+          "0x005170D3"
+        ],
+        "frame_depth": 2
+      }
+    },
+    {
+      "incident_id": "sha256:d67bd74d50aba5deeed434b4dbf96908aad7b5794f62670afb0ae65173593998",
+      "membership": "confirmed",
+      "basis": "совпали caller 0x00515960, throw 0x005170D3 и ThrowInfo 0x006504B0",
+      "evidence": [
+        "KERNELBASE.dll+0x16A2B4-5.7-R39-180.txt"
+      ],
+      "fingerprint": {
+        "structure_role": "Objects.txt template mask",
+        "field": "bitset<48> input character",
+        "call_tail": [
+          "0x00515960",
+          "0x005170D3"
+        ],
+        "frame_depth": 2
+      }
+    },
+    {
+      "incident_id": "sha256:69074b7714a02b1175d6118cb638ff7f11ddf0d28229e4427ef01f14de3efc5b",
+      "membership": "confirmed",
+      "basis": "совпали caller 0x00515960, throw 0x005170D3 и ThrowInfo 0x006504B0",
+      "evidence": [
+        "KERNELBASE.dll+0x16A2B4-5.7-R40-180-2.txt"
+      ],
+      "fingerprint": {
+        "structure_role": "Objects.txt template mask",
+        "field": "bitset<48> input character",
+        "call_tail": [
+          "0x00515960",
+          "0x005170D3"
+        ],
+        "frame_depth": 2
+      }
+    },
+    {
+      "incident_id": "sha256:a7928732ed6334ab3e3713b073aceaf6451dea981d56687042ed7da82fa9a865",
+      "membership": "confirmed",
+      "basis": "совпали caller 0x00515960, throw 0x005170D3 и ThrowInfo 0x006504B0",
+      "evidence": [
+        "KERNELBASE.dll+0x16A2B4-5.7-R40-180-3.txt"
+      ],
+      "fingerprint": {
+        "structure_role": "Objects.txt template mask",
+        "field": "bitset<48> input character",
+        "call_tail": [
+          "0x00515960",
+          "0x005170D3"
+        ],
+        "frame_depth": 2
+      }
+    },
+    {
+      "incident_id": "sha256:0698cf4f1545a15974941ca536ccbd48d130b0d065b27db1f7da96f7900a91a5",
+      "membership": "unknown",
+      "basis": "нулевой DMP и повреждённый стек не позволяют классифицировать событие",
+      "evidence": [
+        "KERNELBASE.dll+0x16A2B4-5.7-R40-180-4.txt"
+      ]
+    },
+    {
+      "incident_id": "sha256:e10413a5983a6a57015b94e7ee5301d5d8a67178d1df5b195d896020c31cb40d",
+      "membership": "confirmed",
+      "basis": "совпали caller 0x00515960, throw 0x005170D3 и ThrowInfo 0x006504B0",
+      "evidence": [
+        "KERNELBASE.dll+0x16A2B4-5.7-R40-180.txt"
+      ],
+      "fingerprint": {
+        "structure_role": "Objects.txt template mask",
+        "field": "bitset<48> input character",
+        "call_tail": [
+          "0x00515960",
+          "0x005170D3"
+        ],
+        "frame_depth": 2
+      }
+    }
+  ],
+  "counts": {
+    "excluded": 1,
+    "confirmed": 5,
+    "unknown": 1
+  },
+  "errors": [],
+  "registry_valid": true,
+  "enumeration_complete": true,
+  "classification_complete": false,
+  "unknown_count": 1,
+  "blocked_by_listing_count": 0,
+  "complete": false
+}

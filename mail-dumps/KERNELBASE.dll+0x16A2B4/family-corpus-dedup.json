@@ -1,0 +1,217 @@
+{
+  "invalid_mask_check": {
+    "raw_files": 43,
+    "unique_sha256": 42,
+    "duplicate_groups": 1,
+    "call_groups_unique": {
+      "second_mask_514E24": 36,
+      "first_mask_514E1B": 6
+    },
+    "versions_unique": {
+      "unknown": 42
+    },
+    "system_sites_unique": {
+      "[ KERNELBASE.dll+0x169F54 ]": 2,
+      "[ KERNELBASE.dll+0x14A782 ]": 11,
+      "[ KERNELBASE.dll+0x1659A4 ]": 3,
+      "[ KERNELBASE.dll+0x162CA4 ]": 3,
+      "[ KERNELBASE.dll+0x164984 ]": 3,
+      "[ KERNELBASE.dll+0x17E3CD ]": 2,
+      "[ KERNELBASE.dll+0x163184 ]": 6,
+      "[ KERNELBASE.dll+0x14D802 ]": 1,
+      "[ KERNELBASE.dll+0x16A394 ]": 4,
+      "[ KERNELBASE.dll+0x164644 ]": 1,
+      "unknown": 1,
+      "[ KERNELBASE.dll+0x16A2B4 ]": 5
+    },
+    "sha_groups": {
+      "ad72cd09c83d6d8122f6b7cb47a425db18d3315bb2e3e76e6292e86ae24fbad7": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x169F54-1.8.0-1.txt"
+      ],
+      "58ceeff6ae549331c11ba60d338577ef5941167fc854f8052495ee92796e4477": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14A782-1.8.0-1.txt"
+      ],
+      "46f774cc45b8370ee0f688ce4fcfe881dd09325ec2c026685027e097234d0193": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x1659A4-1.8.0-9.txt"
+      ],
+      "b20dda31b151b6d98a157b548ddc0a16fd548123d48df69712a7d020f8463fc0": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x162CA4-1.8.0-3.txt"
+      ],
+      "26511867fc100b7bfeeb032581eb85ad351a63b9d7113a450d9e32445a364c4f": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x164984-1.8.0-7.txt"
+      ],
+      "9074d874f2fe7bddd24e5eb0b5137cb975f76a86cfab3545449507056c828852": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14A782-1.8.0-2.txt"
+      ],
+      "36c9925e67c8f5b2d84bc01667e91c2cb0981dc875ce81af59f5e85d09c2c6af": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x162CA4-1.8.0-1.txt"
+      ],
+      "178322a041a4834f33cd0da9fb938fd26f3b1ac48be6c6fab57d3edbb5186fbc": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x1659A4-1.8.0-22.txt"
+      ],
+      "0e41a177bc06d8f61b9b8f5bd08b281a83435840f716f7b1ea241e6b00dc2fd3": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14A782-1.8.0-3.txt"
+      ],
+      "b1c1a91d4597e099559653e40ffd1c0ae547998047152d31a8cb63036e7af3a6": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x164984-1.8.0-6.txt"
+      ],
+      "18ed22215c700409fbb71f48be3d9b85a6738488588c1bbb1e88293fe4c05600": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x169F54-1.8.0-3.txt",
+        "mail-dumps/KERNELBASE.dll-R31-R33/KERNELBASE.dll+0x169F54-1.8.0-3.txt"
+      ],
+      "4c1af1d76ad73bb367c26439840eddc88a28ecfc4229717e2b2332b6e85eeb5b": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14A782-1.8.0-7.txt"
+      ],
+      "0f008805bfa0817545ebc9481501ae50be09da3b7c3b0c26856ff2f68d499936": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x162CA4-1.8.0-4.txt"
+      ],
+      "a2472441ce6fac866ff64de829dd6ebc96a267c6a0137f91cc2f57de4bd87df9": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x17E3CD-1.8.0-2.txt"
+      ],
+      "8d3381889e9a7d8a9497ed382e0fdf2995fe26a53d5b08dad5f20f2823a65959": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x164984-1.8.0-1.txt"
+      ],
+      "f66d38180260fbc9e2f5320ee9e64579bf5715328c89812e93af48778ba1d85f": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14A782-1.8.0-4.txt"
+      ],
+      "6cfadcfe7dc97f9dd2b7cc80923f633b41bea148e7fdfc5c7d8e81fddbc815d5": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x1659A4-1.8.0-19.txt"
+      ],
+      "365bc95c9d394275b11a5d6e49cff73bf57e69d4534dcb783bfe0da8243fecdd": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x17E3CD-1.8.0-1.txt"
+      ],
+      "38f48fdf1ec60f8d9aa38c0361c14c8bd1f03c5cd78c4cfda5f98a50731174ac": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x163184-1.8.0-9.txt"
+      ],
+      "3172b9eb1c0e361ba407f638b9e87bf2aac33743625f3c80106dd048babe7f4b": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14D802-1.8.0-1.txt"
+      ],
+      "898f96ad8cb8101cb206392b792ad89440fc637906db4e3e5914f244d7353021": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x163184-1.8.0-29.txt"
+      ],
+      "bf7b422e5e6069969df6c6fe4d8331e578fbcd9392838b8eb26e67ee1ccf2c2c": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x16A394-1.8.0-7.txt"
+      ],
+      "b39541f71ad813e0e669fd0395a27af62494a8343239c83967a73ea028434bef": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x16A394-1.8.0-4.txt"
+      ],
+      "f203e43637ab7004f2a04b64f1142dee9f5e1bcbccb101490d8f6824c1dc0317": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x163184-1.8.0-3.txt"
+      ],
+      "abe8d35e2b33c6017c0f7ceb5bce09b542d5d3e120e9a4ea3c20d8af0b829d92": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x16A394-1.8.0-2.txt"
+      ],
+      "4cea8a43db4e35a7404599d1a17d2fd61d3eba3709d50dbedb2f6249da3c7450": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x163184-1.8.0-4.txt"
+      ],
+      "0d79b085784bcccf5ad9586e1d0314114ed37929cb6f8c3ff6b98e0fd4db93af": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x163184-1.8.0-23.txt"
+      ],
+      "bbf290871118430edf9da71b15a38a022e02bcd21fe2b803b46de135deedfb3c": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x16A394-1.8.0-3.txt"
+      ],
+      "c840c11e5c2a5cccd1647002272e01a731b6929651c11d0146aa28dd115edf08": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14A782-1.8.0-8.txt"
+      ],
+      "4194407efbd82b27d0487dd7e01b4cda43d192da17af8b1acb7be6c654156215": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14A782-1.8.0-10.txt"
+      ],
+      "d01f773e41b078d72685d37fed7fae6277bb010b99f9645c4c701dcaee3c1178": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14A782-1.8.0-11.txt"
+      ],
+      "a7574acf8df641ce402c3e080774b27be9c12666c73a6479fe78f2bd39c98f11": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14A782-1.8.0-9.txt"
+      ],
+      "b0b35232c7b0b10cca37acb407ae3562b63934b404f905857f317fd2bc194ff0": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14A782-1.8.0-13.txt"
+      ],
+      "1127aa63ee2ff2df16308376444c21932865062ca746b6c424ce1102e7b2d3ce": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x164644-1.8.0-10.txt"
+      ],
+      "abf48e2d894aaa7801a44d1d3862408276768be2c268788f017ac51d25075157": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14A782-1.8.0-15.txt"
+      ],
+      "285479e75bc306b001452c75daa5339267cdcc3e6e4797eb3ff168c36576142d": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x162404-1.8.0-5.txt"
+      ],
+      "3153afeba828bcd3b33733d7a308a5a6f65e218f23b03d729eabf0d4f53b800b": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x163184-1.8.0-40.txt"
+      ],
+      "2c86ff49cd291d0819993d06d2707ac32d70160dbcf425a81befda5a2bfb9646": [
+        "mail-dumps/KERNELBASE.dll+0x16A2B4/KERNELBASE.dll+0x16A2B4-5.7-R39-180-2.txt"
+      ],
+      "e10413a5983a6a57015b94e7ee5301d5d8a67178d1df5b195d896020c31cb40d": [
+        "mail-dumps/KERNELBASE.dll+0x16A2B4/KERNELBASE.dll+0x16A2B4-5.7-R40-180.txt"
+      ],
+      "a7928732ed6334ab3e3713b073aceaf6451dea981d56687042ed7da82fa9a865": [
+        "mail-dumps/KERNELBASE.dll+0x16A2B4/KERNELBASE.dll+0x16A2B4-5.7-R40-180-3.txt"
+      ],
+      "69074b7714a02b1175d6118cb638ff7f11ddf0d28229e4427ef01f14de3efc5b": [
+        "mail-dumps/KERNELBASE.dll+0x16A2B4/KERNELBASE.dll+0x16A2B4-5.7-R40-180-2.txt"
+      ],
+      "d67bd74d50aba5deeed434b4dbf96908aad7b5794f62670afb0ae65173593998": [
+        "mail-dumps/KERNELBASE.dll+0x16A2B4/KERNELBASE.dll+0x16A2B4-5.7-R39-180.txt"
+      ]
+    }
+  },
+  "out_of_range_caller": {
+    "raw_files": 17,
+    "unique_sha256": 12,
+    "duplicate_groups": 5,
+    "call_groups_unique": {
+      "caller_50573B": 12
+    },
+    "versions_unique": {
+      "unknown": 12
+    },
+    "system_sites_unique": {
+      "[ KERNELBASE.dll+0x1659A4 ]": 2,
+      "[ KERNELBASE.dll+0x14B282 ]": 5,
+      "[ KERNELBASE.dll+0x164984 ]": 4,
+      "[ KERNELBASE.dll+0x13B702 ]": 1
+    },
+    "sha_groups": {
+      "0c5586260238e41bfdb153d813d3bf6c02bbedbaa1583a92528f7af7cbcef4d6": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x1659A4-1.8.0-20.txt"
+      ],
+      "7b10d8aed8a31c9bcffd65a6d2b816084a4295a454aa3134e2f8e4a76f7fbf66": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14B282-1.8.0-8.txt",
+        "mail-dumps/KERNELBASE.dll-R31-R33/KERNELBASE.dll+0x14B282-1.8.0-8.txt"
+      ],
+      "9f5cfe9b59de49989a2922a7a269c489297948448d57493054c6f812d0d5fae0": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14B282-1.8.0-6.txt",
+        "mail-dumps/KERNELBASE.dll-R31-R33/KERNELBASE.dll+0x14B282-1.8.0-6.txt"
+      ],
+      "dcb56cea4f791005cfd765eb026afdc0e66963af305866b2f68696d8a9fb0c40": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14B282-1.8.0-7.txt",
+        "mail-dumps/KERNELBASE.dll-R31-R33/KERNELBASE.dll+0x14B282-1.8.0-7.txt"
+      ],
+      "0913722dc036ddf7a07a2d4311d71650442c3a9e77fe6ea391411f501c55136b": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14B282-1.8.0-5.txt",
+        "mail-dumps/KERNELBASE.dll-R31-R33/KERNELBASE.dll+0x14B282-1.8.0-5.txt"
+      ],
+      "05cfe24f7a94fdb0717a63b20add368a5751583ffd7cf1b4285ac105cd5cb0e9": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x164984-1.8.0-21.txt"
+      ],
+      "20638eb846e9ad0635b96f4d65337809bf78835c2c1af47389858ddead9bd618": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x164984-1.8.0-20.txt"
+      ],
+      "fd94b92376a3eadecfd3874a8ac8523be981a00544441b98720dcae9b4a2e719": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x14B282-1.8.0-4.txt",
+        "mail-dumps/KERNELBASE.dll-R31-R33/KERNELBASE.dll+0x14B282-1.8.0-4.txt"
+      ],
+      "62ad9630aebc051ae3c7e8e41876d938304ef04646b5bdfc263b9d8dfb14a820": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x164984-1.8.0-18.txt"
+      ],
+      "28b753ef7dc79d8ec3bf391cd6369928140f3f679a84cd6ac68d68e545c90a5a": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x164984-1.8.0-19.txt"
+      ],
+      "50be5c4262652350e19bcbf9febe3692c027609b3fc855c05c7a8f88da0843a8": [
+        "mail-dumps/KERNELBASE.dll/KERNELBASE.dll+0x1659A4-1.8.0-7.txt"
+      ],
+      "7ea42c22bccecfeb612f96af244a77902864c7f4c33564af0db578115399376c": [
+        "mail-dumps/KERNELBASE.dll+0x16A2B4/KERNELBASE.dll+0x13B702-5.7-R39-180.txt"
+      ]
+    }
+  }
+}

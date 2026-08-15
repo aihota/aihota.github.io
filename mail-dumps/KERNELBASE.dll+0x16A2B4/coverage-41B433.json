@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-15T11:27:50.760846+00:00",
+  "source": "mail-dumps/KERNELBASE.dll+0x16A2B4/claims-41B433.json",
+  "axes": [
+    "instruction",
+    "mechanism",
+    "state_origin",
+    "family_coverage"
+  ],
+  "levels": [
+    "confirmed",
+    "probable",
+    "unknown",
+    "not_applicable"
+  ],
+  "claims": [
+    {
+      "id": "crash-site",
+      "type": "crash_site",
+      "statement": "Information[2] в DMP равен 0x00647FD0 - адресу ThrowInfo\n    std::out_of_range в том же листинге.",
+      "evidence": [
+        "fact:throw_site",
+        "fact:throw_info",
+        "fact:local_incidents"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "local-mechanism",
+      "type": "local_mechanism",
+      "statement": "Формула: 47 - 48 - 0 = -1 = 0xFFFFFFFF",
+      "evidence": [
+        "fact:row",
+        "fact:column",
+        "fact:edi",
+        "fact:bit_index"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "state-origin",
+      "type": "state_origin",
+      "statement": "Object ID, TemplateNum, координаты и исходный ресурс\n  остались вне снимка.",
+      "evidence": [
+        "fact:state_origin",
+        "fact:heap_captured",
+        "fact:same_stem_save"
+      ],
+      "confidence": "не проверено",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "family-coverage",
+      "type": "family_coverage",
+      "statement": "Семейная перепись в обозначенных границах даёт 12 уникальных SHA-256\n  среди 17 физических TXT, отобранных из 5266 сырых журналов.",
+      "evidence": [
+        "fact:corpus_scanned",
+        "fact:corpus_physical",
+        "fact:corpus_unique_sha256",
+        "fact:caller"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "confirmed",
+        "state_origin": "not_applicable",
+        "family_coverage": "confirmed"
+      }
+    }
+  ],
+  "matrix": {
+    "instruction": {
+      "confirmed": 3,
+      "not_applicable": 1
+    },
+    "mechanism": {
+      "not_applicable": 1,
+      "confirmed": 3
+    },
+    "state_origin": {
+      "unknown": 2,
+      "probable": 1,
+      "not_applicable": 1
+    },
+    "family_coverage": {
+      "not_applicable": 3,
+      "confirmed": 1
+    }
+  },
+  "errors": [],
+  "ready": true
+}

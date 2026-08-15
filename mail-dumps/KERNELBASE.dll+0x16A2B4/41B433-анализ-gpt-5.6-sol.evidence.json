@@ -1,0 +1,187 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-15T11:28:20.340713+00:00",
+  "parser_revision": "fb85f73cdc5d0de42291ef6cc120bef116cd431c",
+  "report": {
+    "path": "41B433-анализ-gpt-5.6-sol.txt",
+    "size": 16541,
+    "sha256": "95c091670ce7d9d2496991d561de0bc6711c2cc8fc0aff23f6324f1567116600"
+  },
+  "inputs": [
+    {
+      "path": "KERNELBASE.dll+0x13B702-5.7-R39-180.txt",
+      "size": 8966,
+      "sha256": "7ea42c22bccecfeb612f96af244a77902864c7f4c33564af0db578115399376c",
+      "role": "runtime"
+    },
+    {
+      "path": "KERNELBASE.dll+0x13B702-5.7-R39-180.dmp",
+      "size": 117734,
+      "sha256": "3db3020ba0ba8daac35b5ef31736342332e9df371792f1b881bb81e0d22fb000",
+      "role": "runtime"
+    },
+    {
+      "path": "../../180/h3hota.exe",
+      "size": 2932736,
+      "sha256": "b5f2f793af0986050fb41df7209c25d861ae0f837af52bb3bd6864ba4de84f41",
+      "role": "source"
+    },
+    {
+      "path": "capabilities-out-of-range.json",
+      "size": 878,
+      "sha256": "3e05cd61096f3810f60a28d474ae4518b1546fcc9d206af8b4f8113efd5cfe8f",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-corpus-dedup.json",
+      "size": 10276,
+      "sha256": "3f9dbde753226a37e7c48af00dc6728e48f7e830f3a33d2389e64911c9164dca",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "static-exhaustion-41B433.json",
+      "size": 1501780,
+      "sha256": "d06dc0e1d17c951d48a6ae1df51c708b0f4e24e172438fca119ba80671ec0d71",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "claims-41B433.json",
+      "size": 2451,
+      "sha256": "a7166dc62dcdcd6342f9f9e2ecf6a3107b3286a4e449ac820b14a81651175810",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "coverage-41B433.json",
+      "size": 3149,
+      "sha256": "e9f33acde01cd76b76315b3b0526ccd128ccfefdb7793f7b8dade4af2dfc29a9",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-membership-41B433.json",
+      "size": 2985,
+      "sha256": "9afa094d55ba05d767ff0078be3982b01b7f6a26ad021339b7cd0d11fafafb6c",
+      "role": "derived-evidence"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/address-mapping/dump_profile.py",
+      "size": 29297,
+      "sha256": "071daf1f070b0d464af4ae2974ca926936895e895c00f07906e0c879c20e8aba"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+      "size": 27698,
+      "sha256": "f91bec5910a8eee83e2634f7fa48ee0f66840b66826abe0f30445f30bc3c2ebc"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+      "size": 5118,
+      "sha256": "b422c4666be47287bcb90b5a030cea2ecf0b54d0cb8fc8f6faa4a3d094f3d087"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/family_membership.py",
+      "size": 7769,
+      "sha256": "6371edf24f998f14322ba238ff84b7712da4b3d6948d97f5843b65f3eca356a2"
+    }
+  ],
+  "commands": [
+    "MCP dump_query: exception, modules, threads, ranges and stack bytes",
+    "static_exhaustion_check.py: 0x0041B433, caller census and field offsets",
+    "raw crash-log census over 5266 files with SHA-256 dedup",
+    "coverage_contract.py and family_membership.py checks"
+  ],
+  "facts": {
+    "throw_site": "0x0041B433",
+    "throw_info": "0x00647FD0",
+    "local_incidents": "1",
+    "caller": "0x0050573B",
+    "row": "6",
+    "column": "0",
+    "edi": "48",
+    "bit_index": "-1",
+    "state_origin": "partial",
+    "heap_captured": "false",
+    "same_stem_save": "none",
+    "corpus_scanned": "5266",
+    "corpus_physical": "17",
+    "corpus_unique_sha256": "12"
+  },
+  "claims": [
+    {
+      "confidence": "видно непосредственно в DMP",
+      "id": "crash-site",
+      "type": "crash_site",
+      "statement": "Information[2] в DMP равен 0x00647FD0 - адресу ThrowInfo\n    std::out_of_range в том же листинге.",
+      "evidence": [
+        "fact:throw_site",
+        "fact:throw_info",
+        "fact:local_incidents"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "видно непосредственно в DMP",
+      "id": "local-mechanism",
+      "type": "local_mechanism",
+      "statement": "Формула: 47 - 48 - 0 = -1 = 0xFFFFFFFF",
+      "evidence": [
+        "fact:row",
+        "fact:column",
+        "fact:edi",
+        "fact:bit_index"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "id": "state-origin",
+      "type": "state_origin",
+      "statement": "Object ID, TemplateNum, координаты и исходный ресурс\n  остались вне снимка.",
+      "evidence": [
+        "fact:state_origin",
+        "fact:heap_captured",
+        "fact:same_stem_save"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "family-coverage",
+      "type": "family_coverage",
+      "statement": "Семейная перепись в обозначенных границах даёт 12 уникальных SHA-256\n  среди 17 физических TXT, отобранных из 5266 сырых журналов.",
+      "evidence": [
+        "fact:corpus_scanned",
+        "fact:corpus_physical",
+        "fact:corpus_unique_sha256",
+        "fact:caller"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "confirmed",
+        "state_origin": "not_applicable",
+        "family_coverage": "confirmed"
+      }
+    }
+  ],
+  "code_evidence": {
+    "level": "instruction-boundary",
+    "note": "граница инструкции подтверждена листингом"
+  },
+  "machine_results": []
+}
