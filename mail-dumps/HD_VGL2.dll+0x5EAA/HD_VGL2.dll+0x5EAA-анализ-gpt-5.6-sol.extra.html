@@ -1,0 +1,43 @@
+<section id="viz-mechanism" data-toc="Визуализация вылета">
+  <h2><span class="htext">Визуализация вылета</span>
+      <a class="anchor" href="#viz-mechanism">#</a></h2>
+  <p>Короткий боевой полёт даёт нулевое число кадров. Деление на этот ноль
+     оставляет ZE, а позднее снятие ZM доставляет накопленное исключение уже
+     внутри HD_VGL2.dll.</p>
+  <div class="viz">
+    <div class="viz-strip">
+      <div class="viz-box accent">
+        <span class="viz-badge accent">A</span>Distance=47
+        <span class="lbl">FlightAnim_FrameDistance &gt;= 95</span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">B</span>FramesCount=0
+        <span class="lbl">нижняя граница отсутствует</span>
+      </div>
+      <div class="viz-box bad">
+        <span class="viz-badge bad">C</span>fdiv
+        <span class="lbl">-22.0 / 0.0; ZE=1</span>
+      </div>
+      <div class="viz-box bad dashed">
+        <span class="viz-badge bad">D</span>HD_VGL2.dll+0x5EAA
+        <span class="lbl">CW=0x1372; ZM=0; доставка</span>
+      </div>
+    </div>
+    <p class="viz-cap">Причина возникает в h3hota HD.exe+0xB4912;
+       HD_VGL2.dll сообщает о ней позже.</p>
+  </div>
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge accent">A</span>
+      <span class="txt">При Distance=47 положительное поле не меньше 95
+      обнуляет результат целочисленной формулы.</span></div>
+    <div class="item"><span class="viz-badge bad">B</span>
+      <span class="txt">FramesCount преобразуется в 0.0 без проверки
+      FramesCount&gt;=1.</span></div>
+    <div class="item"><span class="viz-badge bad">C</span>
+      <span class="txt">fdiv по 0x004B4912 делит -22.0 на 0.0 и оставляет
+      липкий флаг ZE.</span></div>
+    <div class="item"><span class="viz-badge bad">D</span>
+      <span class="txt">После снятия ZM команда fild по HD_VGL2.dll+0x5EAA
+      становится точкой доставки, а не исходной арифметикой.</span></div>
+  </div>
+</section>
