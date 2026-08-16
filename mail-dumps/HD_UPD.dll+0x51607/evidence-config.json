@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "manifest_schema": 3,
+  "report": "HD_UPD.dll+0x51607-анализ-gpt-5.6-sol.txt",
+  "inputs": [
+    {
+      "role": "source",
+      "path": "HD_UPD.dll+0x51607-5.7-R40-180.txt"
+    },
+    {
+      "role": "runtime",
+      "path": "HD_UPD.dll+0x51607-5.7-R40-180.dmp"
+    },
+    {
+      "role": "source",
+      "path": "../../180/HD_UPD.dll"
+    },
+    {
+      "role": "source",
+      "path": "../../modules/HD_UPD.dll-5.7 R40.txt"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "capabilities.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "pair-audit.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "static-analysis.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "static-exhaustion.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "thread-provenance-main.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "corpus-census.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "family-membership-input.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "family-membership.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "coverage.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "evidence-config.json"
+    }
+  ],
+  "claim_json": [
+    "claims.json"
+  ],
+  "tools": [
+    "../../.agents/skills/address-mapping/read_dump.py",
+    "../../.agents/skills/address-mapping/dump_profile.py",
+    "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+    "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+    "../../.agents/skills/hota-crash-triage/family_membership.py",
+    "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+    "../../.agents/skills/hota-crash-triage/case_quality_gate.py"
+  ],
+  "commands": [
+    "read_dump.py HD_UPD.dll+0x51607-5.7-R40-180.dmp --read 0x705615E0 0x80",
+    "dump_profile.py HD_UPD.dll+0x51607-5.7-R40-180.dmp --esp 0x00199F48 --json-out capabilities.json --capabilities-only",
+    "static_exhaustion_check.py \"modules/HD_UPD.dll-5.7 R40.txt\" --crash 0x10051607 --func 0x100047E0 --module HD_UPD.dll --module-kind hd_mod --binary 180/HD_UPD.dll --versions R40 --version-axis hd --json-out mail-dumps/HD_UPD.dll+0x51607/static-exhaustion.json",
+    "coverage_contract.py create claims.json --out coverage.json",
+    "family_membership.py create family-membership-input.json --family-id HD_UPD-bad-eip-rt-icon-51607 --out family-membership.json",
+    "evidence_manifest.py create --config evidence-config.json"
+  ],
+  "facts": {
+    "case": "HD_UPD.dll+0x51607",
+    "incident_count": 1,
+    "confirmed_members": 1,
+    "runtime_eip": "0x70561607",
+    "rva": "0x51607",
+    "section": ".rsrc",
+    "resource": "RT_ICON/2/1049",
+    "resource_offset": "0x2CAF",
+    "target_bytes": "FF 1A",
+    "thread_provenance": "CONTEXT_THREAD_MISMATCH",
+    "source_of_transfer": "unknown",
+    "corpus_txt_read": 5496
+  },
+  "parser_revision": "5ed18070980155e337cf0631badd1bebb0f9f07e",
+  "code_evidence": "dmp-window"
+}

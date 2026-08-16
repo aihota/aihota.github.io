@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "thread_provenance": {
+    "exception_tid": 15456,
+    "esp_tid": 16724,
+    "status": "CONTEXT_THREAD_MISMATCH",
+    "esp": "0x00199F48",
+    "register_sets_may_be_combined": false,
+    "selected_stack_thread_id": 16724,
+    "policy": "use one context only; candidate stack is context-only and not a proven crash chain"
+  },
+  "exception_context": {
+    "EAX": "0x08A66620",
+    "ECX": "0x08A66B47",
+    "EDX": "0x08831984",
+    "EBX": "0x00000001",
+    "ESP": "0x00199F48",
+    "EBP": "0x0019A023",
+    "ESI": "0x08831984",
+    "EDI": "0x0019FAFC",
+    "EIP": "0x70561607"
+  },
+  "threadlist_contexts": {
+    "15456": {
+      "EIP": "0x777F411C",
+      "ESP": "0x02CDEE50",
+      "stack": "0x02CDEE4C..0x02CE0000",
+      "equal_gp_registers": "0/9"
+    },
+    "16724": {
+      "EIP": "0x75EB101C",
+      "ESP": "0x001997F4",
+      "stack": "0x001997F0..0x001A0000",
+      "equal_gp_registers": "0/9"
+    }
+  },
+  "all_threadlist_context_count": 25,
+  "any_exact_context_match": false
+}

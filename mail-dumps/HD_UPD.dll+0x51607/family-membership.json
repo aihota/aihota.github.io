@@ -1,0 +1,53 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-16T10:14:39.087541+00:00",
+  "family_id": "HD_UPD-bad-eip-rt-icon-51607",
+  "source": "mail-dumps/HD_UPD.dll+0x51607/family-membership-input.json",
+  "scope": {
+    "root": "mail-dumps",
+    "module": "HD_UPD.dll",
+    "rvas": [
+      "0x51607"
+    ],
+    "nearby_window": "0x51507..0x51707",
+    "kind": "corpus"
+  },
+  "memberships": [
+    {
+      "incident_id": "sha256:ab0efe29569d7fe8c46f01338a397f56a76b6821ac8b23ce51b75ec4f35130df",
+      "membership": "confirmed",
+      "basis": "точный адрес, версия, DMP-окно и RT_ICON mapping совпадают",
+      "evidence": [
+        "log:HD_UPD.dll+0x51607-5.7-R40-180.txt",
+        "input:static-analysis.json",
+        "input:corpus-census.json"
+      ],
+      "observed_rva": "0x51607",
+      "path": "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180.txt",
+      "fingerprint": {
+        "kind": "bad_eip_data_execution",
+        "section": ".rsrc",
+        "resource": "RT_ICON/2/1049",
+        "target_bytes": "FF 1A",
+        "actual_caller": "unknown",
+        "structure_role": "ошибочная цель косвенной передачи управления",
+        "field": "EIP -> RT_ICON pixel offset 0x2CAF",
+        "call_tail": [
+          "неизвестный runtime trampoline/callback",
+          "HD_UPD .rsrc RT_ICON data"
+        ],
+        "frame_depth": 0
+      }
+    }
+  ],
+  "counts": {
+    "confirmed": 1
+  },
+  "errors": [],
+  "registry_valid": true,
+  "enumeration_complete": true,
+  "classification_complete": true,
+  "unknown_count": 0,
+  "blocked_by_listing_count": 0,
+  "complete": true
+}

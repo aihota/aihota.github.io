@@ -1,0 +1,278 @@
+{
+  "schema": 3,
+  "generated_at": "2026-08-16T10:43:36.071103+00:00",
+  "parser_revision": "5ed18070980155e337cf0631badd1bebb0f9f07e",
+  "report": {
+    "path": "HD_UPD.dll+0x51607-анализ-gpt-5.6-sol.txt",
+    "size": 20505,
+    "sha256": "2825531f2532e7de08fefd07a3214c2f8a85fbdac40ccf526344103bcda863e9"
+  },
+  "inputs": [
+    {
+      "path": "HD_UPD.dll+0x51607-5.7-R40-180.txt",
+      "size": 6722,
+      "sha256": "ab0efe29569d7fe8c46f01338a397f56a76b6821ac8b23ce51b75ec4f35130df",
+      "role": "source"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-5.7-R40-180.dmp",
+      "size": 94352,
+      "sha256": "ecabf4e88e0c7fee6b312c2e40eb775554ea7003bcaab843b30644c6ba2857b0",
+      "role": "runtime"
+    },
+    {
+      "path": "../../180/HD_UPD.dll",
+      "size": 392704,
+      "sha256": "c04f80ffd94f6c8244d2fd95fad4cf23d7910199b1fe2b5e804be7967d53b9fa",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_UPD.dll-5.7 R40.txt",
+      "size": 7761267,
+      "sha256": "10c6c8bdb1aa5f795efe09a674a7faf072400b0ceed7e861b6a5e929f9bed202",
+      "role": "source"
+    },
+    {
+      "path": "capabilities.json",
+      "size": 2296,
+      "sha256": "aac0d8292594845b72e7a8856b2a9cf272d9b711955a3f83240dfc83d6416d3a",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "pair-audit.json",
+      "size": 1389,
+      "sha256": "16967dbef554ecae351cbbc2c0527e17b1d871a82df7826ec41310c8dcccfe64",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "static-analysis.json",
+      "size": 6108,
+      "sha256": "ce39d1261d97628148b650ae7b416c9fd6445eec83f3afb44a0f986682817444",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "static-exhaustion.json",
+      "size": 2509,
+      "sha256": "262ede4b9e7ef2ae365f092758114284094b14eaa89dee0012f972991abca33d",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "thread-provenance-main.json",
+      "size": 1007,
+      "sha256": "a65bbdfa904c835c8d6f334b20ccb04653ce63389b0c82e14d3922b5967ca6e6",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "corpus-census.json",
+      "size": 522,
+      "sha256": "420222c50c23b4d15439b82faf34b0f737f3476f83054b779975b9b9d1234ea3",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-membership-input.json",
+      "size": 1367,
+      "sha256": "3dbb2eb3a6aeb018f775922bf858b9694d583ea145b25692a820ff9ca39695bc",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-membership.json",
+      "size": 1664,
+      "sha256": "f23aef01084d299da9212e3b57fd34b3c1353a0c0c01e8fd34a8b1a489215a6e",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "coverage.json",
+      "size": 4275,
+      "sha256": "2464e725717507039cf92eeeb00c20b9f0b32889d7c42280db841d5a08ab77e7",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "evidence-config.json",
+      "size": 3073,
+      "sha256": "479793a47726fadaf663ea25e00dd622ad7c5dc669252c7debcef1ff14eda3a1",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "claims.json",
+      "size": 3733,
+      "sha256": "22e8c7093fb3a87395970cfcc12c8e397be457c2e4b19032dbeedc7f16f97af4",
+      "role": "derived-evidence"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/address-mapping/read_dump.py",
+      "size": 17384,
+      "sha256": "a8761136e7e279cbf15ce1d61870b1c5037c2b4d2804915733a7a559e8e7865e"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/dump_profile.py",
+      "size": 31189,
+      "sha256": "b15ea8289f3577ff0836efe2faf00b5371c1013c00ad38ed028615deb9f405a8"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+      "size": 53337,
+      "sha256": "ed0f4e095c4168315041674745af01be014525794c8292c2069f2c9b2102b5e6"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+      "size": 5175,
+      "sha256": "3bf507bb95908fe3aaaba4c423fe263aedc0d6fe93402db5e44d4ef98bf5f9e8"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/family_membership.py",
+      "size": 7966,
+      "sha256": "d5ee82612fe40c2f95af2775c3337dbac03acd3f7a20a6c630b41ac363d6a4cd"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 29023,
+      "sha256": "edb9161f7e2953b9e73deffb12d00f4134a8b79496764710eab2b938ec2e2e8f"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/case_quality_gate.py",
+      "size": 17247,
+      "sha256": "c0485ed0e2fc38f51b8475e6a3b8147aeea7f2a8f04b741f21feaed3151c0d00"
+    }
+  ],
+  "commands": [
+    "read_dump.py HD_UPD.dll+0x51607-5.7-R40-180.dmp --read 0x705615E0 0x80",
+    "dump_profile.py HD_UPD.dll+0x51607-5.7-R40-180.dmp --esp 0x00199F48 --json-out capabilities.json --capabilities-only",
+    "static_exhaustion_check.py \"modules/HD_UPD.dll-5.7 R40.txt\" --crash 0x10051607 --func 0x100047E0 --module HD_UPD.dll --module-kind hd_mod --binary 180/HD_UPD.dll --versions R40 --version-axis hd --json-out mail-dumps/HD_UPD.dll+0x51607/static-exhaustion.json",
+    "coverage_contract.py create claims.json --out coverage.json",
+    "family_membership.py create family-membership-input.json --family-id HD_UPD-bad-eip-rt-icon-51607 --out family-membership.json",
+    "evidence_manifest.py create --config evidence-config.json"
+  ],
+  "facts": {
+    "case": "HD_UPD.dll+0x51607",
+    "incident_count": "1",
+    "confirmed_members": "1",
+    "runtime_eip": "0x70561607",
+    "rva": "0x51607",
+    "section": ".rsrc",
+    "resource": "RT_ICON/2/1049",
+    "resource_offset": "0x2CAF",
+    "target_bytes": "FF 1A",
+    "thread_provenance": "CONTEXT_THREAD_MISMATCH",
+    "source_of_transfer": "unknown",
+    "corpus_txt_read": "5496"
+  },
+  "claims": [
+    {
+      "confidence": "видно непосредственно в DMP",
+      "id": "crash-site-51607",
+      "type": "crash_site",
+      "statement": "DMP сохранил страницу EIP.",
+      "evidence": [
+        "input:static-analysis.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "видно непосредственно в DMP",
+      "id": "local-bad-eip",
+      "type": "local_mechanism",
+      "statement": "Байты с EIP равны FF 1A.",
+      "evidence": [
+        "input:static-analysis.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "id": "tryupdate-false-symbol",
+      "type": "observation",
+      "statement": "В 160220 строках точного листинга нет инструкции с адресом 0x10051607.",
+      "evidence": [
+        "input:static-analysis.json",
+        "input:static-exhaustion.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "id": "transfer-origin-unknown",
+      "type": "state_origin",
+      "statement": "Не установлен источник управляющего адреса.",
+      "evidence": [
+        "input:capabilities.json",
+        "input:static-analysis.json",
+        "input:thread-provenance-main.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "видно непосредственно в DMP",
+      "id": "thread-mismatch",
+      "type": "limitation",
+      "statement": "ExceptionStream указывает номер потока 15456.",
+      "evidence": [
+        "input:capabilities.json",
+        "input:thread-provenance-main.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "family-census-51607",
+      "type": "family_coverage",
+      "statement": "Всего в подтверждённой семье: 1 уникальный случай",
+      "evidence": [
+        "input:corpus-census.json",
+        "input:family-membership.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "fix-target-validation",
+      "type": "fix",
+      "statement": "HD-моду следует отклонять косвенные адреса вне исполняемых PE-секций.",
+      "evidence": [
+        "input:static-analysis.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    }
+  ],
+  "code_evidence": {
+    "level": "dmp-window",
+    "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
+  },
+  "machine_results": []
+}

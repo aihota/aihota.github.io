@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "root": "mail-dumps",
+  "filter": "structured crash Address field; exact HD_UPD.dll+0x51607 and RVA ±0x100",
+  "dedup": "byte-identical/SHA-256",
+  "boundary": {
+    "txt_candidates": 5496,
+    "txt_read": 5496,
+    "scan_complete": true
+  },
+  "counts": {
+    "physical_crash_logs": 5411,
+    "duplicate_instances": 1262,
+    "unique_crash_logs": 4149,
+    "exact_site_unique": 1,
+    "nearby_unique": 1
+  },
+  "members": [
+    "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180.txt"
+  ]
+}

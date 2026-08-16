@@ -1,0 +1,184 @@
+{
+  "schema": 3,
+  "case": "HD_UPD.dll+0x51607",
+  "diagnosis_scope": "bad-eip execution in non-code PE resource data",
+  "code_identity": {
+    "runtime_module": "HD_UPD.dll",
+    "runtime_base": "0x70510000",
+    "size_of_image": "0x76000",
+    "timestamp": "0x6A7C2A5A",
+    "entry_rva": "0x7F82",
+    "local_binary": "180/HD_UPD.dll",
+    "binary_size": 392704,
+    "binary_sha256": "c04f80ffd94f6c8244d2fd95fad4cf23d7910199b1fe2b5e804be7967d53b9fa",
+    "listing": "modules/HD_UPD.dll-5.7 R40.txt",
+    "listing_lines": 160220,
+    "listing_sha256": "10c6c8bdb1aa5f795efe09a674a7faf072400b0ceed7e861b6a5e929f9bed202",
+    "listing_input_sha256": "c04f80ffd94f6c8244d2fd95fad4cf23d7910199b1fe2b5e804be7967d53b9fa",
+    "identity_status": "version-match; listing Input SHA-256 equals local binary SHA-256; DMP code window equals binary"
+  },
+  "address_mapping": {
+    "runtime_eip": "0x70561607",
+    "formula": "0x70561607 - 0x70510000 = 0x51607",
+    "rva": "0x51607",
+    "ida_va": "0x10051607",
+    "file_offset": "0x3BA07",
+    "section": ".rsrc",
+    "section_rva": "0x3B000",
+    "section_virtual_size": "0x38DA8",
+    "section_characteristics": "0x40000040",
+    "section_read": true,
+    "section_write": false,
+    "section_execute": false,
+    "exact_listing_instruction": false,
+    "runtime_page_permissions": "unknown (MemoryInfoList absent)"
+  },
+  "resource_mapping": {
+    "type": "RT_ICON",
+    "type_id": 3,
+    "resource_id": 2,
+    "language_id": 1049,
+    "data_rva": "0x4E958",
+    "size": "0x10828",
+    "end_rva": "0x5F180",
+    "target_offset": "0x2CAF",
+    "data_file_offset": "0x38D58",
+    "dib": {
+      "width": 128,
+      "stored_height": 256,
+      "visual_height": 128,
+      "bits_per_pixel": 32
+    },
+    "interpretation": "target lies in 32-bpp icon pixel data"
+  },
+  "dmp_window": {
+    "dump": "HD_UPD.dll+0x51607-5.7-R40-180.dmp",
+    "window_start": "0x705615E0",
+    "window_size": 128,
+    "target_bytes": "FF 1A",
+    "local_file_bytes_match": true,
+    "code_evidence": "dmp-window"
+  },
+  "mechanical_decode": {
+    "bytes": "FF 1A",
+    "x86_decode": "call far ptr [edx] (lcall *(%edx))",
+    "caveat": "pixel bytes, not an authored HD_UPD instruction",
+    "reported_access": "read 0xFFFFFFFF",
+    "edx": "0x08831984",
+    "edx_memory_captured": false,
+    "micro_arithmetic_status": "not reconstructable; reported read is a secondary effect of data execution"
+  },
+  "symbolization_audit": {
+    "reported_symbol": "TryUpdate",
+    "reported_symbol_is_crash_function": false,
+    "export_start": "0x100047E0",
+    "final_return": "0x10005509",
+    "function_end": "0x1000550C",
+    "target_after_function_start": "0x4CE27",
+    "reason": "range fallback crossed unlisted non-code sections; target has no listing row"
+  },
+  "try_update_census": {
+    "listing_lines": 1085,
+    "calls": 131,
+    "indirect_calls": 14,
+    "return_paths": 3,
+    "scan_complete": true,
+    "static_transfer_to_rsrc_found": false,
+    "interpretation": "TryUpdate is not the executed crash site and contains no static branch to the resource target"
+  },
+  "thread_provenance": {
+    "exception_stream_tid": 15456,
+    "exception_context_esp": "0x00199F48",
+    "esp_owner_tid": 16724,
+    "status": "CONTEXT_THREAD_MISMATCH",
+    "register_sets_may_be_combined": false,
+    "threadlist_tid_15456": {
+      "eip": "0x777F411C",
+      "esp": "0x02CDEE50",
+      "stack": "0x02CDEE4C..0x02CE0000",
+      "equal_exception_registers": "0/9"
+    },
+    "threadlist_tid_16724": {
+      "eip": "0x75EB101C",
+      "esp": "0x001997F4",
+      "stack": "0x001997F0..0x001A0000",
+      "equal_exception_registers": "0/9"
+    },
+    "all_threadlist_contexts_equal_exception_context": false,
+    "actual_caller_status": "not proven"
+  },
+  "independent_stack_candidate": {
+    "source": "memory near Exception CONTEXT ESP, physically inside tid 16724 stack range",
+    "confidence": "context only; not a proven crash call chain",
+    "top_value": "0x02CE01B9",
+    "top_page_captured": false,
+    "mapped_candidates": [
+      "h3hota HD.exe+0xFBC41",
+      "h3hota HD.exe+0xFBC57",
+      "h3hota HD.exe+0x1FF2A3",
+      "h3hota HD.exe+0x22E1AF",
+      "HD_HOTA.dll+0x3FF4E",
+      "HD_HOTA.dll+0x400A4"
+    ],
+    "context_hint": "pre-main-menu preparation and HD_HOTA UI/DEF handling",
+    "causal_use_allowed": false
+  },
+  "corpus_census": {
+    "root": "mail-dumps",
+    "txt_candidates": 5496,
+    "txt_read": 5496,
+    "physical_crash_logs": 5411,
+    "duplicate_instances": 1262,
+    "unique_crash_logs": 4149,
+    "exact_site_unique": 1,
+    "nearby_window": "RVA 0x51507..0x51707",
+    "nearby_unique": 1,
+    "scan_complete": true
+  },
+  "source_of_control_transfer": {
+    "status": "unknown",
+    "writer": "unknown",
+    "owner": "unknown",
+    "runtime_only": true
+  },
+  "negative_results": [
+    {
+      "category": "instruction boundary",
+      "result": "no row at 0x10051607 in complete 160220-line R40 listing"
+    },
+    {
+      "category": "reported symbol",
+      "result": "TryUpdate ends at 0x1000550C, far before 0x10051607"
+    },
+    {
+      "category": "TryUpdate scan",
+      "result": "0 static transfers to .rsrc among 1085 lines and 131 calls"
+    },
+    {
+      "category": "hook registration",
+      "result": "0 references to h3hota site 0x004FBC52 outside its own listing row"
+    },
+    {
+      "category": "runtime target page",
+      "result": "0 bytes captured for 0x02CE01B9 trampoline page"
+    },
+    {
+      "category": "pointer operands",
+      "result": "0 bytes captured at EDX 0x08831984, EAX 0x08A66620 or ECX 0x08A66B47"
+    },
+    {
+      "category": "thread context match",
+      "result": "0 of 25 ThreadList contexts match the Exception CONTEXT; both inspected candidate threads match 0/9 GP registers"
+    },
+    {
+      "category": "family",
+      "result": "0 additional exact or nearby unique sites in complete 5496/5496 TXT scan"
+    }
+  ],
+  "limitations": [
+    "MiniDumpNormal without heap/globals",
+    "MemoryInfoList absent",
+    "patcher_x86 dump.txt absent",
+    "actual indirect transfer source not captured"
+  ]
+}

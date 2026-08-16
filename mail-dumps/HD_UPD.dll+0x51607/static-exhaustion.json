@@ -1,0 +1,103 @@
+{
+  "schema": 3,
+  "listing": "/Users/Shared/ii/modules/HD_UPD.dll-5.7 R40.txt",
+  "module_kind": "hd_mod",
+  "version_axis": "hd",
+  "version_applicable": true,
+  "version_axis_status": {
+    "version_axis": "hd",
+    "expected_axis": "hd",
+    "version_applicable": true,
+    "status": "applicable",
+    "reason": "axis_matches_module_kind"
+  },
+  "code_identity": {
+    "status": "supplied",
+    "path": "/Users/Shared/ii/180/HD_UPD.dll",
+    "size": 392704,
+    "sha256": "c04f80ffd94f6c8244d2fd95fad4cf23d7910199b1fe2b5e804be7967d53b9fa",
+    "listing_link": "unverified_without_exported_listing_identity"
+  },
+  "actual_caller": null,
+  "coverage": {
+    "complete_listing_scan": true,
+    "listing_lines": 160220
+  },
+  "function": {
+    "name": "_TryUpdate@16",
+    "start": "0x100047E0",
+    "end": "0x1000550C"
+  },
+  "crash": {
+    "address": "0x10051607",
+    "instruction": null,
+    "exact_instruction_boundary": false
+  },
+  "categories": {
+    "callers": {
+      "found_count": 0,
+      "emitted_count": 0,
+      "truncated": false,
+      "xref": "",
+      "hits": [],
+      "details": [],
+      "hook_registrations": []
+    },
+    "allocations": {
+      "found_count": 0,
+      "unchecked_count": 0,
+      "rows": []
+    },
+    "allocation_flows": {
+      "found_count": 0,
+      "local_mechanism_confirmed_count": 0,
+      "rows": []
+    },
+    "sod_calls": {
+      "found_count": 0,
+      "interpretation": "no_engine_call_in_this_function",
+      "rows": []
+    },
+    "vtables": {
+      "found_count": 0,
+      "rows": []
+    },
+    "cross_version": {
+      "module": "HD_UPD.dll",
+      "requested_versions": [
+        "R40"
+      ],
+      "version_axis": "hd",
+      "version_applicable": true,
+      "status": "applicable",
+      "reason": "axis_matches_module_kind",
+      "available": [
+        "HD_UPD.dll-5.7 R37.txt",
+        "HD_UPD.dll-5.7 R40.txt"
+      ],
+      "matches": {
+        "R40": [
+          "HD_UPD.dll-5.7 R40.txt"
+        ]
+      },
+      "control_notes": []
+    }
+  },
+  "runtime_capture_requirements": [
+    "allocator_request_size_and_site",
+    "virtual_address_space_map",
+    "largest_free_region",
+    "heap_metadata_and_validation",
+    "process_private_bytes",
+    "module_timestamp_and_runtime_bytes"
+  ],
+  "judgment_categories": [
+    "effective_address_and_container_bounds",
+    "state_origin_and_lifecycle",
+    "activation_trigger"
+  ],
+  "integrity": {
+    "callers_found_equals_json_rows": true,
+    "human_rows_match_emitted_count": true
+  }
+}

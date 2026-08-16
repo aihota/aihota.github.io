@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-16T10:20:12.003078+00:00",
+  "source": "mail-dumps/HD_UPD.dll+0x51607/claims.json",
+  "axes": [
+    "instruction",
+    "mechanism",
+    "state_origin",
+    "family_coverage"
+  ],
+  "levels": [
+    "confirmed",
+    "probable",
+    "unknown",
+    "not_applicable"
+  ],
+  "claims": [
+    {
+      "id": "crash-site-51607",
+      "type": "crash_site",
+      "statement": "DMP сохранил страницу EIP.",
+      "evidence": [
+        "input:static-analysis.json"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "local-bad-eip",
+      "type": "local_mechanism",
+      "statement": "Байты с EIP равны FF 1A.",
+      "evidence": [
+        "input:static-analysis.json"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "tryupdate-false-symbol",
+      "type": "observation",
+      "statement": "В 160220 строках точного листинга нет инструкции с адресом 0x10051607.",
+      "evidence": [
+        "input:static-analysis.json",
+        "input:static-exhaustion.json"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "transfer-origin-unknown",
+      "type": "state_origin",
+      "statement": "Не установлен источник управляющего адреса.",
+      "evidence": [
+        "input:capabilities.json",
+        "input:static-analysis.json",
+        "input:thread-provenance-main.json"
+      ],
+      "confidence": "не проверено",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "thread-mismatch",
+      "type": "limitation",
+      "statement": "ExceptionStream указывает номер потока 15456.",
+      "evidence": [
+        "input:capabilities.json",
+        "input:thread-provenance-main.json"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "family-census-51607",
+      "type": "family_coverage",
+      "statement": "Всего в подтверждённой семье: 1 уникальный случай",
+      "evidence": [
+        "input:corpus-census.json",
+        "input:family-membership.json"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "fix-target-validation",
+      "type": "fix",
+      "statement": "HD-моду следует отклонять косвенные адреса вне исполняемых PE-секций.",
+      "evidence": [
+        "input:static-analysis.json"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    }
+  ],
+  "matrix": {
+    "instruction": {
+      "confirmed": 7
+    },
+    "mechanism": {
+      "confirmed": 7
+    },
+    "state_origin": {
+      "unknown": 7
+    },
+    "family_coverage": {
+      "confirmed": 7
+    }
+  },
+  "errors": [],
+  "ready": true
+}
