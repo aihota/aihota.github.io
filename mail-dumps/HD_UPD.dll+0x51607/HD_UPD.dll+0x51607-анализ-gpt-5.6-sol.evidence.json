@@ -1,7 +1,7 @@
 {
   "schema": 3,
-  "generated_at": "2026-08-16T10:43:36.071103+00:00",
-  "parser_revision": "5ed18070980155e337cf0631badd1bebb0f9f07e",
+  "generated_at": "2026-08-16T11:15:27.375484+00:00",
+  "parser_revision": "e4c4291664f03d56be6da053a2f55d6a662714b7",
   "report": {
     "path": "HD_UPD.dll+0x51607-анализ-gpt-5.6-sol.txt",
     "size": 20505,
@@ -89,7 +89,7 @@
     {
       "path": "evidence-config.json",
       "size": 3073,
-      "sha256": "479793a47726fadaf663ea25e00dd622ad7c5dc669252c7debcef1ff14eda3a1",
+      "sha256": "5228fcc2a8cbd1a8b923f6f62b5753df041ff567546a0d4ef98d8cb9b90535c8",
       "role": "derived-evidence"
     },
     {
@@ -112,8 +112,8 @@
     },
     {
       "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
-      "size": 53337,
-      "sha256": "ed0f4e095c4168315041674745af01be014525794c8292c2069f2c9b2102b5e6"
+      "size": 56930,
+      "sha256": "6264023ddb11ae86f15e4578fa9ae51bcd66b0a7422616e917bcceed6ecf6e1f"
     },
     {
       "path": "../../.agents/skills/hota-crash-triage/coverage_contract.py",
