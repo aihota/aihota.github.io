@@ -1,8 +1,5 @@
 {
-  "schema": 3,
-  "generated_at": "2026-08-17T12:19:48.482498+00:00",
   "family_id": "family-hd3-directdraw-setclipper-null",
-  "source": "family-membership-input.json",
   "scope_id": "hd3-setclipper-known-rva-series-2026-08-17",
   "scope_kind": "series",
   "scope": {
@@ -15,6 +12,7 @@
     "coverage": "known SetClipper-handler RVAs listed in the report",
     "corpus_completeness": "partial"
   },
+  "enumeration_complete": true,
   "memberships": [
     {
       "incident_id": "incident-97218eb50bd8e1c4",
@@ -415,15 +413,5 @@
         "frame_depth": 3
       }
     }
-  ],
-  "counts": {
-    "confirmed": 19
-  },
-  "errors": [],
-  "registry_valid": true,
-  "enumeration_complete": true,
-  "classification_complete": true,
-  "unknown_count": 0,
-  "blocked_by_listing_count": 0,
-  "complete": true
+  ]
 }

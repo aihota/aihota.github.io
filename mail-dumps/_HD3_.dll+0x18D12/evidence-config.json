@@ -13,6 +13,7 @@
     {"role": "source", "path": "../../modules/h3hota.exe.txt"},
     {"role": "derived-evidence", "path": "pair-audit.json"},
     {"role": "derived-evidence", "path": "series-parse.json"},
+    {"role": "derived-evidence", "path": "series-annotations.json"},
     {"role": "derived-evidence", "path": "series-groups.json"},
     {"role": "derived-evidence", "path": "capabilities.json"},
     {"role": "derived-evidence", "path": "static-exhaustion.json"},
@@ -22,7 +23,9 @@
     {"role": "derived-evidence", "path": "relocation-manifest-legacy-copies.json"},
     {"role": "derived-evidence", "path": "relocation-manifest-r40-duplicate-copies.json"},
     {"role": "derived-evidence", "path": "related-18C92.json"},
+    {"role": "derived-evidence", "path": "family-membership-input.json"},
     {"role": "derived-evidence", "path": "family-membership.json"},
+    {"role": "derived-evidence", "path": "archive-manifest.json"},
     {"role": "derived-evidence", "path": "coverage.json"}
   ],
   "tools": [

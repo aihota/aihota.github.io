@@ -1,0 +1,406 @@
+{
+  "schema": 3,
+  "mode": "complete",
+  "latest_hd_version": "5.7 R40",
+  "counts": {
+    "members": 49,
+    "txt": 32,
+    "dmp": 17,
+    "canonical": 30,
+    "physical_copies": 19
+  },
+  "members": [
+    {
+      "source": "_hd3_.dll+0x18D12-5.7-R40-180-1.dmp",
+      "archive": "_hd3_.dll+0x18D12-5.7-R40-180-1.dmp",
+      "hd_version": "5.7 R40",
+      "physical_copy": false,
+      "size": 95928,
+      "sha256": "0dc7d8aa7197610505d8eb381e3359018eac1d1f8a1ed31e1625b32cc9bfd5b9"
+    },
+    {
+      "source": "_hd3_.dll+0x18D12-5.7-R40-180-1.txt",
+      "archive": "_hd3_.dll+0x18D12-5.7-R40-180-1.txt",
+      "hd_version": "5.7 R40",
+      "physical_copy": false,
+      "size": 7230,
+      "sha256": "e31f0a164202d2e8208fe76b9680f406170182859b566064cdf71490740fe004"
+    },
+    {
+      "source": "_hd3_.dll+0x18D12-5.7-R40-180-2.dmp",
+      "archive": "_hd3_.dll+0x18D12-5.7-R40-180-2.dmp",
+      "hd_version": "5.7 R40",
+      "physical_copy": false,
+      "size": 64058,
+      "sha256": "95d156633876073f9e0dce7230af533489cc20b1de3db807a5f787f7e911a1da"
+    },
+    {
+      "source": "_hd3_.dll+0x18D12-5.7-R40-180-2.txt",
+      "archive": "_hd3_.dll+0x18D12-5.7-R40-180-2.txt",
+      "hd_version": "5.7 R40",
+      "physical_copy": false,
+      "size": 7186,
+      "sha256": "247c37d40ea7d2d43746b77369e9034020cc60a94b6da605abc9be56a3652a23"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-1.txt",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-1.txt",
+      "hd_version": "5.7 RC2",
+      "physical_copy": true,
+      "size": 7363,
+      "sha256": "822d97a3f2323004abef4000ae9b2db5f6402b06d3c736cd6874b7d654b2abf6"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-2.txt",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-2.txt",
+      "hd_version": "5.7 RC2",
+      "physical_copy": true,
+      "size": 7363,
+      "sha256": "aeb0141594ead8eeab8345de134cc1ef5797c455a162dbdd682d914ab655b646"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-3.txt",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-3.txt",
+      "hd_version": "5.7 RC9",
+      "physical_copy": true,
+      "size": 7179,
+      "sha256": "ccdeec8e9d7bae18369a19734aff17c56a470ae75e8592fcb4fef56295bed2bb"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-4.txt",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-4.txt",
+      "hd_version": "5.7 RC9",
+      "physical_copy": true,
+      "size": 7280,
+      "sha256": "310a15ee6a8b29a40ac77db010d4c8ceece0c973f2f3d6b0036bed48fb3b128b"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-5.txt",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-5.txt",
+      "hd_version": "5.7 RC12",
+      "physical_copy": true,
+      "size": 7152,
+      "sha256": "f327f80bb9e8a738694cebb51d4f9d19e8e9c6e1ede9a9be47e2bae9b4b05611"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-6.txt",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-6.txt",
+      "hd_version": "5.6 R37",
+      "physical_copy": true,
+      "size": 7157,
+      "sha256": "ca8afa19c029eb8e9fff9c1b4d551ff8f08387c7b9b604008405b6502d762343"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18982-1.8.0-1.dmp",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18982-1.8.0-1.dmp",
+      "hd_version": "5.7 R23",
+      "physical_copy": true,
+      "size": 89281,
+      "sha256": "4159b42aa1918eb3df73539d14e79e64aa973e8acc7a45fc0200f547a538349d"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18982-1.8.0-1.txt",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18982-1.8.0-1.txt",
+      "hd_version": "5.7 R23",
+      "physical_copy": true,
+      "size": 7144,
+      "sha256": "52cfda4b26279ebf516f9f249f2815de83759a73fed589c2867d6dac66618fbd"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_HD3_.dll+0x189B2-180.dmp",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_HD3_.dll+0x189B2-180.dmp",
+      "hd_version": "5.7 R33",
+      "physical_copy": true,
+      "size": 149982,
+      "sha256": "5da66ba007fd039399b0eb35ce217a298ffd8ee288c10b071975d7cf222f86d2"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_HD3_.dll+0x189B2-180.txt",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_HD3_.dll+0x189B2-180.txt",
+      "hd_version": "5.7 R33",
+      "physical_copy": true,
+      "size": 7363,
+      "sha256": "c2fbb70c69844a0187632ebe7e5979b63ebb1af3ab186ca06984869c57638ba6"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-1.dmp",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-1.dmp",
+      "hd_version": "5.7 R21",
+      "physical_copy": true,
+      "size": 752865,
+      "sha256": "283b22c3462cb5d8b760e7d8fe66bdeb914dd77002bb68be1893fb99518e75d7"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-1.txt",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-1.txt",
+      "hd_version": "5.7 R21",
+      "physical_copy": true,
+      "size": 7539,
+      "sha256": "21118100bd50153c6e159e083757e0c5fc0d1cd16de489918ca5df78902a2bab"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-2.dmp",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-2.dmp",
+      "hd_version": "5.7 R21",
+      "physical_copy": true,
+      "size": 752865,
+      "sha256": "283b22c3462cb5d8b760e7d8fe66bdeb914dd77002bb68be1893fb99518e75d7"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-2.txt",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-2.txt",
+      "hd_version": "5.7 R21",
+      "physical_copy": true,
+      "size": 7601,
+      "sha256": "4320f4d68423fcb49ca57154e8e7a268c4d6a78ae5478737fa50ceed70e739b2"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C72-1.8.0-1.txt",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C72-1.8.0-1.txt",
+      "hd_version": "5.7 R14",
+      "physical_copy": true,
+      "size": 7567,
+      "sha256": "17f184fdf5916a1f12319e7504e4f6754d248d151466eb0c4dda603a2a687d10"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18D12-5.7-R40-180-1.dmp",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18D12-5.7-R40-180-1.dmp",
+      "hd_version": "5.7 R40",
+      "physical_copy": true,
+      "size": 95928,
+      "sha256": "0dc7d8aa7197610505d8eb381e3359018eac1d1f8a1ed31e1625b32cc9bfd5b9"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18D12-5.7-R40-180-1.txt",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18D12-5.7-R40-180-1.txt",
+      "hd_version": "5.7 R40",
+      "physical_copy": true,
+      "size": 7230,
+      "sha256": "e31f0a164202d2e8208fe76b9680f406170182859b566064cdf71490740fe004"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18D12-5.7-R40-180-2.dmp",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18D12-5.7-R40-180-2.dmp",
+      "hd_version": "5.7 R40",
+      "physical_copy": true,
+      "size": 64058,
+      "sha256": "95d156633876073f9e0dce7230af533489cc20b1de3db807a5f787f7e911a1da"
+    },
+    {
+      "source": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18D12-5.7-R40-180-2.txt",
+      "archive": "Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18D12-5.7-R40-180-2.txt",
+      "hd_version": "5.7 R40",
+      "physical_copy": true,
+      "size": 7186,
+      "sha256": "247c37d40ea7d2d43746b77369e9034020cc60a94b6da605abc9be56a3652a23"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-1.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-1.txt",
+      "hd_version": "5.7 RC2",
+      "physical_copy": false,
+      "size": 7363,
+      "sha256": "822d97a3f2323004abef4000ae9b2db5f6402b06d3c736cd6874b7d654b2abf6"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-2.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-2.txt",
+      "hd_version": "5.7 RC2",
+      "physical_copy": false,
+      "size": 7363,
+      "sha256": "aeb0141594ead8eeab8345de134cc1ef5797c455a162dbdd682d914ab655b646"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-3.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-3.txt",
+      "hd_version": "5.7 RC9",
+      "physical_copy": false,
+      "size": 7179,
+      "sha256": "ccdeec8e9d7bae18369a19734aff17c56a470ae75e8592fcb4fef56295bed2bb"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-4.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-4.txt",
+      "hd_version": "5.7 RC9",
+      "physical_copy": false,
+      "size": 7280,
+      "sha256": "310a15ee6a8b29a40ac77db010d4c8ceece0c973f2f3d6b0036bed48fb3b128b"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-5.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-5.txt",
+      "hd_version": "5.7 RC12",
+      "physical_copy": false,
+      "size": 7152,
+      "sha256": "f327f80bb9e8a738694cebb51d4f9d19e8e9c6e1ede9a9be47e2bae9b4b05611"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-6.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-6.txt",
+      "hd_version": "5.6 R37",
+      "physical_copy": false,
+      "size": 7157,
+      "sha256": "ca8afa19c029eb8e9fff9c1b4d551ff8f08387c7b9b604008405b6502d762343"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-5.7-RC2-180-1.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-5.7-RC2-180-1.txt",
+      "hd_version": "5.7 RC2",
+      "physical_copy": false,
+      "size": 519742,
+      "sha256": "6730da8cbcf2f9e87246d99479187fbba2e6efbde368a392d807fc0ef38d12d4"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18982-1.8.0-1.dmp",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18982-1.8.0-1.dmp",
+      "hd_version": "5.7 R23",
+      "physical_copy": false,
+      "size": 89281,
+      "sha256": "4159b42aa1918eb3df73539d14e79e64aa973e8acc7a45fc0200f547a538349d"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18982-1.8.0-1.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18982-1.8.0-1.txt",
+      "hd_version": "5.7 R23",
+      "physical_copy": false,
+      "size": 7144,
+      "sha256": "52cfda4b26279ebf516f9f249f2815de83759a73fed589c2867d6dac66618fbd"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_HD3_.dll+0x189B2-1.8.0-1.dmp",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_HD3_.dll+0x189B2-1.8.0-1.dmp",
+      "hd_version": "5.7 R33",
+      "physical_copy": false,
+      "size": 149982,
+      "sha256": "5da66ba007fd039399b0eb35ce217a298ffd8ee288c10b071975d7cf222f86d2"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_HD3_.dll+0x189B2-1.8.0-1.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_HD3_.dll+0x189B2-1.8.0-1.txt",
+      "hd_version": "5.7 R33",
+      "physical_copy": false,
+      "size": 6943,
+      "sha256": "97218eb50bd8e1c449353eb13a7069d42bad747f219c195465835cdaadfd43e1"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x189B2-5.7-R31-180-1.dmp",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x189B2-5.7-R31-180-1.dmp",
+      "hd_version": "5.7 R31",
+      "physical_copy": false,
+      "size": 102276,
+      "sha256": "3050b97435073673f541cff30f7692fc6714d589c597c5c30ba8f61413f3662e"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x189B2-5.7-R31-180-1.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x189B2-5.7-R31-180-1.txt",
+      "hd_version": "5.7 R31",
+      "physical_copy": false,
+      "size": 7063,
+      "sha256": "34b6d225a92e018312410577c1975a09aaf52bcfda9357f47d3847be24624543"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-1.dmp",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-1.dmp",
+      "hd_version": "5.7 R21",
+      "physical_copy": false,
+      "size": 752865,
+      "sha256": "283b22c3462cb5d8b760e7d8fe66bdeb914dd77002bb68be1893fb99518e75d7"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-1.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-1.txt",
+      "hd_version": "5.7 R21",
+      "physical_copy": false,
+      "size": 7539,
+      "sha256": "21118100bd50153c6e159e083757e0c5fc0d1cd16de489918ca5df78902a2bab"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-2.dmp",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-2.dmp",
+      "hd_version": "5.7 R21",
+      "physical_copy": false,
+      "size": 752865,
+      "sha256": "283b22c3462cb5d8b760e7d8fe66bdeb914dd77002bb68be1893fb99518e75d7"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-2.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-2.txt",
+      "hd_version": "5.7 R21",
+      "physical_copy": false,
+      "size": 7601,
+      "sha256": "4320f4d68423fcb49ca57154e8e7a268c4d6a78ae5478737fa50ceed70e739b2"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C72-1.8.0-1.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C72-1.8.0-1.txt",
+      "hd_version": "5.7 R14",
+      "physical_copy": false,
+      "size": 7567,
+      "sha256": "17f184fdf5916a1f12319e7504e4f6754d248d151466eb0c4dda603a2a687d10"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C92-5.7-R35-180-1.dmp",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C92-5.7-R35-180-1.dmp",
+      "hd_version": "5.7 R35",
+      "physical_copy": false,
+      "size": 63118,
+      "sha256": "c99c12c2f1bf27c1985ce09abbf1e6cc57cb228cf37570fab90322fdccf6e776"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C92-5.7-R35-180-1.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C92-5.7-R35-180-1.txt",
+      "hd_version": "5.7 R35",
+      "physical_copy": false,
+      "size": 7365,
+      "sha256": "807fce101d460fab185619279dae23c81f3777167409327c0c83d2aaf82a904c"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C92-5.7-R36-180-1.dmp",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C92-5.7-R36-180-1.dmp",
+      "hd_version": "5.7 R36",
+      "physical_copy": false,
+      "size": 64961,
+      "sha256": "bab5ed005dddd5782c9903434a55ac588192f43de3d314ba687f95812bab4bf7"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C92-5.7-R36-180-1.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C92-5.7-R36-180-1.txt",
+      "hd_version": "5.7 R36",
+      "physical_copy": false,
+      "size": 7347,
+      "sha256": "f991001cc25882d98492f988ecf0345bda9af649e81b9499edac18b96bf027f3"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C92-5.7-R36-180-2.dmp",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C92-5.7-R36-180-2.dmp",
+      "hd_version": "5.7 R36",
+      "physical_copy": false,
+      "size": 75045,
+      "sha256": "e06058705e9d70bccb163fd5af0c7575fe4a60fa19f7327983dc90af1c2d6a9d"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C92-5.7-R36-180-2.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C92-5.7-R36-180-2.txt",
+      "hd_version": "5.7 R36",
+      "physical_copy": false,
+      "size": 7283,
+      "sha256": "70377d83821f9205f9c57f4ff3907d7c0122848aaf8c210a395a5734d8200c6c"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C92-5.7-R36-180-3.dmp",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C92-5.7-R36-180-3.dmp",
+      "hd_version": "5.7 R36",
+      "physical_copy": false,
+      "size": 73521,
+      "sha256": "afac7011927103f830d4586f41355ff794280916b7fd786e91e45b0ad97e3e9c"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C92-5.7-R36-180-3.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C92-5.7-R36-180-3.txt",
+      "hd_version": "5.7 R36",
+      "physical_copy": false,
+      "size": 7351,
+      "sha256": "e11589bb58515a1b34abc7c05bf728528de284e67d62e8221d78f8678363e1ee"
+    }
+  ]
+}

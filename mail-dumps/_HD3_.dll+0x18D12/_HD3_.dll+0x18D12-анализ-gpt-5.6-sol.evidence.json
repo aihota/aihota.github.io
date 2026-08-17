@@ -1,11 +1,11 @@
 {
   "schema": 3,
-  "generated_at": "2026-08-17T11:41:30.172866+00:00",
+  "generated_at": "2026-08-17T12:21:52.596793+00:00",
   "parser_revision": "static audit 2026-08-17",
   "report": {
     "path": "_HD3_.dll+0x18D12-анализ-gpt-5.6-sol.txt",
-    "size": 31388,
-    "sha256": "06b5b0b1beef315b511620de06000b2b82a7ab57357ff4b184d218f6d90e3afb"
+    "size": 31426,
+    "sha256": "c55cfeabc304aedbf7c795c25ace86ebddbd70b13c569ec465723fb623ba7aa3"
   },
   "inputs": [
     {
@@ -69,9 +69,15 @@
       "role": "derived-evidence"
     },
     {
+      "path": "series-annotations.json",
+      "size": 931,
+      "sha256": "ccd23ed218e0584e7a554feb223f20cdd7acc2b3350f9feb75a1ec554b4678c5",
+      "role": "derived-evidence"
+    },
+    {
       "path": "series-groups.json",
-      "size": 61086,
-      "sha256": "f0cd9b72af4d04e584efec82f0b8c1d7f2ae436c6de5524ea042a9853f6febff",
+      "size": 53582,
+      "sha256": "16ec16b9eacc4dd3b6a863e82f146eeb634be471650b12962cfb8920afd59265",
       "role": "derived-evidence"
     },
     {
@@ -123,9 +129,21 @@
       "role": "derived-evidence"
     },
     {
+      "path": "family-membership-input.json",
+      "size": 18020,
+      "sha256": "baa1c42417468a05d7969c6b5889f2970110f8490092bc4036682173f2a1a857",
+      "role": "derived-evidence"
+    },
+    {
       "path": "family-membership.json",
-      "size": 1939,
-      "sha256": "dbcbc04d0136083cc5450d2d4d7212d18779bc6c33578451a3f171e85ed294ce",
+      "size": 18324,
+      "sha256": "578be2d8c4c7dc1d02ae190936bd8e2f4f733d5680eef23c927f877d48be5742",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "archive-manifest.json",
+      "size": 22571,
+      "sha256": "95e9494702e9b24d245eead04594ea095db12bbb7512d61aec2be75f3084335c",
       "role": "derived-evidence"
     },
     {
@@ -136,8 +154,8 @@
     },
     {
       "path": "evidence-config.json",
-      "size": 3592,
-      "sha256": "4346b9a750b06fcc8aca001872fd9c7d4496eb255f27986b066c748f6bb5d192",
+      "size": 3802,
+      "sha256": "33e948044994ee9baa668f73e3def130f30f1cd49b8be56f35dfb99943acf999",
       "role": "derived-evidence"
     },
     {
@@ -180,8 +198,8 @@
     },
     {
       "path": "../../.agents/skills/hota-crash-triage/family_membership.py",
-      "size": 7966,
-      "sha256": "d5ee82612fe40c2f95af2775c3337dbac03acd3f7a20a6c630b41ac363d6a4cd"
+      "size": 9261,
+      "sha256": "ab903a9697d273b2fd220bbe8bb46827c2b0d76e418247415e43a7c415c96677"
     }
   ],
   "commands": [

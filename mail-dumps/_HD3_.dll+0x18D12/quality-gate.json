@@ -17,7 +17,7 @@
   "artifact_quality": {
     "status": "passed",
     "passed": true,
-    "step_count": 9,
+    "step_count": 10,
     "blocked_count": 0
   },
   "diagnostic_completeness": {
@@ -41,7 +41,7 @@
   },
   "root_cause_ready": false,
   "causality_level": "L1",
-  "step_count": 9,
+  "step_count": 10,
   "blocked_count": 0,
   "steps": [
     {
@@ -68,16 +68,27 @@
       "name": "family:family-membership.json",
       "status": "passed",
       "returncode": 0,
-      "stdout": "FAMILY: OK; incidents=2; enumeration=true; classification=true; unknown=0; listing_blockers=0; errors=none\n",
+      "stdout": "FAMILY: OK; incidents=19; enumeration=true; classification=true; unknown=0; listing_blockers=0; errors=none\n",
       "stderr": ""
     },
     {
       "name": "relocation_family_contract",
+      "manifest_count": 3,
+      "active_manifests": [
+        "relocation-manifest-legacy-copies.json",
+        "relocation-manifest-mail-folder.json",
+        "relocation-manifest-r40-duplicate-copies.json"
+      ],
       "status": "passed",
       "errors": [],
-      "limitations": [
-        "relocation_not_applicable"
-      ]
+      "manifest_errors": []
+    },
+    {
+      "name": "report_consistency",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "СОГЛАСОВАННОСТЬ ОТЧЁТОВ\nОтчётов проверено: 1\nOK: 1 | mismatch: 0 | ambiguous: 0\n",
+      "stderr": ""
     },
     {
       "name": "lint:_HD3_.dll+0x18D12-анализ-gpt-5.6-sol.txt",
@@ -90,7 +101,7 @@
       "name": "evidence:_HD3_.dll+0x18D12-анализ-gpt-5.6-sol.txt",
       "status": "passed",
       "returncode": 0,
-      "stdout": "EVIDENCE: FRESH; проверено 31\n",
+      "stdout": "EVIDENCE: FRESH; проверено 34\n",
       "stderr": ""
     },
     {

@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "scope_id": "hd3-setclipper-known-rva-series-2026-08-17",
+  "scope_kind": "series",
+  "defaults": {
+    "helper_family": "IDirectDrawSurface::SetClipper hook",
+    "instruction": "mov ecx, [eax]",
+    "effective_access": "read",
+    "operand_address": "0x00000000",
+    "register_invariants": [
+      "EAX=0",
+      "fault_address=0",
+      "return_address=0x00601C60"
+    ],
+    "caller": "h3hota.exe:0x00601C5D SetClipper",
+    "destination_origin": "internal_surface_global_pointer",
+    "size_origin": "not_applicable",
+    "size_formula": "vtable_dereference_offset_0",
+    "subsystem": "DirectDraw primary-surface SetClipper",
+    "state_origin": "probable"
+  },
+  "basis": "Кандидат причинной классификации: локальный sink и семейство обработчика подтверждены; происхождение NULL остаётся вероятным."
+}
