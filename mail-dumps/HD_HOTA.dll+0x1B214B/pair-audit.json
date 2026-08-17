@@ -1,0 +1,118 @@
+{
+  "schema": 3,
+  "root": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B214B",
+  "rows": [
+    {
+      "stem": "HD_HOTA.dll+0x1B214B-5.7-R40-180",
+      "txt": "HD_HOTA.dll+0x1B214B-5.7-R40-180.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1618EB-1.8.0-1",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1618EB-1.8.0-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1618EB-1.8.0-1-97CAD",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1618EB-1.8.0-1-97CAD.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x16323B-1.8.0-1",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x16323B-1.8.0-1.txt",
+      "dmp": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x16323B-1.8.0-1.dmp",
+      "context_eip": "0x038B323B",
+      "module": "HD_HOTA.dll",
+      "rva": "0x16323B",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "identity": {
+        "txt_module_size": 18485248,
+        "dmp_module_size": 18485248,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.txt",
+      "dmp": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.dmp",
+      "context_eip": "0x0485107B",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1B107B",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "identity": {
+        "txt_module_size": 18837504,
+        "dmp_module_size": 18837504,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.txt",
+      "dmp": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.dmp",
+      "context_eip": "0x0485107B",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1B107B",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "identity": {
+        "txt_module_size": 18837504,
+        "dmp_module_size": 18837504,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B1D7B-5.7-R39-180",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B1D7B-5.7-R39-180.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    }
+  ],
+  "counts": {
+    "exact_pair": 3,
+    "unverifiable_missing_txt_identity": 0,
+    "unverifiable_missing_dmp_identity": 0,
+    "same_site_different_exception": 0,
+    "build_mismatch": 0,
+    "empty_dump": 0,
+    "unknown_exception_class": 0,
+    "txt_parse_error": 0,
+    "dmp_parse_error": 0,
+    "unpaired_txt": 4,
+    "unpaired_dmp": 0,
+    "parse_error": 0
+  },
+  "legacy_count_aliases": {
+    "parse_error": [
+      "unknown_exception_class",
+      "txt_parse_error",
+      "dmp_parse_error"
+    ]
+  },
+  "complete": false,
+  "analysis_ready": false,
+  "quality_complete": false,
+  "hard_blockers": 0,
+  "identity_gaps": 0,
+  "blockers": 4
+}

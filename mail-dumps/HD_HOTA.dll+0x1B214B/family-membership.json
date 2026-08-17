@@ -1,0 +1,135 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-17T10:01:28.591589+00:00",
+  "family_id": "HD_HOTA.dll-normalized-null-result-plus-0x1C",
+  "source": "mail-dumps/HD_HOTA.dll+0x1B214B/family-membership-input.json",
+  "scope": {
+    "source": "series-groups.json",
+    "unique_incidents": 6,
+    "rule": "all relocated and primary incidents reviewed against version-specific exact listings"
+  },
+  "memberships": [
+    {
+      "incident_id": "incident-6357311aab670e0f",
+      "membership": "confirmed",
+      "basis": "R40: normalized function +0x2B dereferences [ESI+0x1C] after nullable helper returned EAX=0 and ESI=0",
+      "evidence": [
+        "series-groups.json#incident-6357311aab670e0f",
+        "nullable-helper-census.json#0x011B2138",
+        "relocation-manifest.json"
+      ],
+      "fingerprint": {
+        "structure_role": "nullable lookup result",
+        "field": "+0x1C",
+        "call_tail": [
+          "sub_11B7F90",
+          "sub_11B2120+0x2B"
+        ],
+        "frame_depth": 2
+      }
+    },
+    {
+      "incident_id": "incident-d9ab88eb0d336d91",
+      "membership": "confirmed",
+      "basis": "R3 exact listing maps the same normalized function +0x2B, NULL helper result and field read +0x1C",
+      "evidence": [
+        "series-groups.json#incident-d9ab88eb0d336d91",
+        "relocation-manifest.json"
+      ],
+      "fingerprint": {
+        "structure_role": "nullable lookup result",
+        "field": "+0x1C",
+        "call_tail": [
+          "version-mapped lookup helper",
+          "normalized consumer +0x2B"
+        ],
+        "frame_depth": 2
+      }
+    },
+    {
+      "incident_id": "incident-0f19f8268f5d7050",
+      "membership": "confirmed",
+      "basis": "R23 exact listing maps the same normalized function +0x2B, NULL helper result and field read +0x1C",
+      "evidence": [
+        "series-groups.json#incident-0f19f8268f5d7050",
+        "pair-audit.json",
+        "relocation-manifest.json"
+      ],
+      "fingerprint": {
+        "structure_role": "nullable lookup result",
+        "field": "+0x1C",
+        "call_tail": [
+          "version-mapped lookup helper",
+          "normalized consumer +0x2B"
+        ],
+        "frame_depth": 2
+      }
+    },
+    {
+      "incident_id": "incident-3fb74d5e4371bdd8",
+      "membership": "confirmed",
+      "basis": "R33 exact listing and paired DMP map the same normalized function +0x2B, NULL helper result and field read +0x1C",
+      "evidence": [
+        "series-groups.json#incident-3fb74d5e4371bdd8",
+        "pair-audit.json",
+        "relocation-manifest.json"
+      ],
+      "fingerprint": {
+        "structure_role": "nullable lookup result",
+        "field": "+0x1C",
+        "call_tail": [
+          "version-mapped lookup helper",
+          "normalized consumer +0x2B"
+        ],
+        "frame_depth": 2
+      }
+    },
+    {
+      "incident_id": "incident-db80ea2fda333075",
+      "membership": "confirmed",
+      "basis": "second R33 physical event has the same exact-listing normalized function +0x2B and NULL field-read mechanism",
+      "evidence": [
+        "series-groups.json#incident-db80ea2fda333075",
+        "pair-audit.json",
+        "relocation-manifest.json"
+      ],
+      "fingerprint": {
+        "structure_role": "nullable lookup result",
+        "field": "+0x1C",
+        "call_tail": [
+          "version-mapped lookup helper",
+          "normalized consumer +0x2B"
+        ],
+        "frame_depth": 2
+      }
+    },
+    {
+      "incident_id": "incident-29b64f6d73e56fff",
+      "membership": "confirmed",
+      "basis": "R39 exact listing maps the same normalized function +0x2B, NULL helper result and field read +0x1C",
+      "evidence": [
+        "series-groups.json#incident-29b64f6d73e56fff",
+        "relocation-manifest.json"
+      ],
+      "fingerprint": {
+        "structure_role": "nullable lookup result",
+        "field": "+0x1C",
+        "call_tail": [
+          "version-mapped lookup helper",
+          "normalized consumer +0x2B"
+        ],
+        "frame_depth": 2
+      }
+    }
+  ],
+  "counts": {
+    "confirmed": 6
+  },
+  "errors": [],
+  "registry_valid": true,
+  "enumeration_complete": true,
+  "classification_complete": true,
+  "unknown_count": 0,
+  "blocked_by_listing_count": 0,
+  "complete": true
+}

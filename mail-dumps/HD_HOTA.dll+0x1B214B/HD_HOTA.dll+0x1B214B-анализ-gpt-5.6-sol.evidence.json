@@ -1,0 +1,264 @@
+{
+  "schema": 3,
+  "generated_at": "2026-08-17T10:12:29.005660+00:00",
+  "parser_revision": "e89cca7806fbb5a23bdcbc8b87c8dcf7b2f4363d",
+  "report": {
+    "path": "HD_HOTA.dll+0x1B214B-анализ-gpt-5.6-sol.txt",
+    "size": 22029,
+    "sha256": "a8eefcd9d60f43fab8db586b804888af83423bd2bef0c25552ccc56c5d7b4171"
+  },
+  "inputs": [
+    {
+      "path": "HD_HOTA.dll+0x1B214B-5.7-R40-180.txt",
+      "size": 9694,
+      "sha256": "6357311aab670e0fdb03f140045ed9ead2eae723dc3fe2c879b08b0c5f7c880b",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.7 R40.txt",
+      "size": 50700332,
+      "sha256": "1e982b9b517af1f3f1744ff1e87f0941609af2bf08c7b8d6867d2ead92903054",
+      "role": "source"
+    },
+    {
+      "path": "nullable-helper-census.json",
+      "size": 67054,
+      "sha256": "70eb5453ed26c50e3d8c488f9d91e5284c66b6e29f1c08ad22b49e666e83ec1b",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-groups.json",
+      "size": 24372,
+      "sha256": "215a4ff2eeb1bd3ce188e4398fea98db8f5630398cc5ea5be17d28c11e56f6b8",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-annotations.json",
+      "size": 921,
+      "sha256": "e609e68faae14dae607ea51daceca0e0744ddf55ed4cb1e62d0175426eefaa60",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-membership.json",
+      "size": 4253,
+      "sha256": "eb4ac778e235bfeb8687b35a7c625261645d107c0cc3a8fef499dee58bb26352",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-membership-input.json",
+      "size": 3322,
+      "sha256": "f9d922dd182e8657ade251cb7c5bf0bbc62c955eb000e26c7436667ea4093fbb",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "relocation-manifest.json",
+      "size": 7109,
+      "sha256": "432850ce2a646f631f7830ab9798720b9630c47c37239a162acda97ab156543b",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "pair-audit.json",
+      "size": 4662,
+      "sha256": "bd7db2ea7bc90000d73fc9b4826f5ecfe4adac905cb1053180d519872446f9f5",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "capabilities.json",
+      "size": 9080,
+      "sha256": "c9e24d612b28db252fe9bfa39384b8b47fd47c0dbc0d39b1f280a3f7e6d408f6",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "coverage.json",
+      "size": 5408,
+      "sha256": "4aefc6193580690ecae4f3df1449d220bf050fe74757017367bb743475dd1424",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "evidence-config.json",
+      "size": 2446,
+      "sha256": "631c540aeab5f745b963bd706f767b03c4b56d989cd00797e7bca82e6e212323",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "coverage-claims.json",
+      "size": 3894,
+      "sha256": "139b07a05ddb03fbf21e9764cad43210557882d9f43472f5629e82d636a11b03",
+      "role": "derived-evidence"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/multi-dump-diff/helper_callsite_census.py",
+      "size": 17905,
+      "sha256": "2b0e817f129b56fa7d18ab77f22cdc3a9243f60e5074c625f9d90d267a746d0b"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/series_registry.py",
+      "size": 21472,
+      "sha256": "7631d00f7b7d9aaf88840324fd06f274e0a4caf63d07043ad0ee46ed556e0947"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/family_membership.py",
+      "size": 7966,
+      "sha256": "d5ee82612fe40c2f95af2775c3337dbac03acd3f7a20a6c630b41ac363d6a4cd"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+      "size": 8573,
+      "sha256": "adde7c9f84d42b2dd0e66977024cbee743836d03a798c9cb43a2298dd31f47c1"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/case_quality_gate.py",
+      "size": 33645,
+      "sha256": "4dfb3b9ea5e955120d0957dbb3a4b7960c115f32a553571795800ecafd860fad"
+    }
+  ],
+  "commands": [
+    "python3 helper_callsite_census.py modules/HD_HOTA.dll-5.7\\ R40.txt --helper sub_11B7F90 --kind generic --nullable-result --forward-window 48 --json-out nullable-helper-census.json",
+    "python3 series_registry.py series-parse.json --annotations series-annotations.json --output series-groups.json",
+    "python3 family_membership.py create family-membership-input.json --out family-membership.json",
+    "python3 coverage_contract.py create coverage-claims.json --out coverage.json"
+  ],
+  "facts": {
+    "r40_ida_address": "0x011B214B",
+    "normalized_function_offset": "+0x2B",
+    "fault_instruction": "push dword ptr [esi+1Ch]",
+    "fault_address": "0x0000001C",
+    "nullable_helper_calls": "19",
+    "nullable_guarded": "3",
+    "nullable_unguarded": "10",
+    "nullable_no_use": "6",
+    "listing_sha256": "1e982b9b517af1f3f1744ff1e87f0941609af2bf08c7b8d6867d2ead92903054",
+    "family_confirmed": "6/6",
+    "diagnostic_causality_level": "L1",
+    "binary_identity": "instruction-boundary only; full-binary identity unavailable"
+  },
+  "claims": [
+    {
+      "confidence": "однозначно следует из листинга",
+      "id": "r40-crash-site",
+      "type": "crash_site",
+      "statement": "Адрес R40 переведён в 0x011B214B, sub_11B2120+0x2B",
+      "evidence": [
+        "input:HD_HOTA.dll+0x1B214B-5.7-R40-180.txt",
+        "input:nullable-helper-census.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "probable",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "null-dereference-mechanism",
+      "type": "local_mechanism",
+      "statement": "В основном инциденте EAX=0 и ESI=0; первое чтение [ESI+0x1C] даёт адрес 0x0000001C.",
+      "evidence": [
+        "input:HD_HOTA.dll+0x1B214B-5.7-R40-180.txt",
+        "input:nullable-helper-census.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "id": "nullable-helper-census",
+      "type": "observation",
+      "statement": "Машинная перепись полного R40-листинга нашла 19/19 инструкций call",
+      "evidence": [
+        "input:nullable-helper-census.json"
+      ],
+      "sample": {
+        "numerator": 19,
+        "denominator": 19,
+        "population": "all call instructions to sub_11B7F90 in the complete R40 listing"
+      },
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "family-reviewed",
+      "type": "family_coverage",
+      "statement": "Семейная классификация завершена: 6/6 уникальных записей подтверждены как",
+      "evidence": [
+        "input:series-groups.json",
+        "input:family-membership.json",
+        "input:relocation-manifest.json"
+      ],
+      "sample": {
+        "numerator": 6,
+        "denominator": 6,
+        "population": "byte-unique crash TXT records in series-groups.json"
+      },
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "id": "null-branch-unknown",
+      "type": "state_origin",
+      "statement": "Точная внутренняя ветвь sub_11B7F90, вернувшая NULL, не установлена.",
+      "evidence": [
+        "input:capabilities.json",
+        "input:pair-audit.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "id": "runtime-reproduction-unknown",
+      "type": "reproduction",
+      "statement": "Воспроизведение на реальном запуске не подтверждено; описан только статический",
+      "evidence": [
+        "input:capabilities.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "binary-identity-limit",
+      "type": "limitation",
+      "statement": "Секция Modules пуста: тождество фактической DLL по хешу не проверено.",
+      "evidence": [
+        "input:HD_HOTA.dll+0x1B214B-5.7-R40-180.txt"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    }
+  ],
+  "code_evidence": {
+    "level": "instruction-boundary",
+    "note": "граница инструкции подтверждена листингом"
+  },
+  "machine_results": []
+}

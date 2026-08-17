@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "report": "HD_HOTA.dll+0x1B214B-анализ-gpt-5.6-sol.txt",
+  "inputs": [
+    {"role": "source", "path": "HD_HOTA.dll+0x1B214B-5.7-R40-180.txt"},
+    {"role": "source", "path": "../../modules/HD_HOTA.dll-5.7 R40.txt"},
+    {"role": "derived-evidence", "path": "nullable-helper-census.json"},
+    {"role": "derived-evidence", "path": "series-groups.json"},
+    {"role": "derived-evidence", "path": "series-annotations.json"},
+    {"role": "derived-evidence", "path": "family-membership.json"},
+    {"role": "derived-evidence", "path": "family-membership-input.json"},
+    {"role": "derived-evidence", "path": "relocation-manifest.json"},
+    {"role": "derived-evidence", "path": "pair-audit.json"},
+    {"role": "derived-evidence", "path": "capabilities.json"},
+    {"role": "derived-evidence", "path": "coverage.json"}
+  ],
+  "tools": [
+    "../../.agents/skills/multi-dump-diff/helper_callsite_census.py",
+    "../../.agents/skills/multi-dump-diff/series_registry.py",
+    "../../.agents/skills/hota-crash-triage/family_membership.py",
+    "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+    "../../.agents/skills/hota-crash-triage/case_quality_gate.py"
+  ],
+  "commands": [
+    "python3 helper_callsite_census.py modules/HD_HOTA.dll-5.7\\ R40.txt --helper sub_11B7F90 --kind generic --nullable-result --forward-window 48 --json-out nullable-helper-census.json",
+    "python3 series_registry.py series-parse.json --annotations series-annotations.json --output series-groups.json",
+    "python3 family_membership.py create family-membership-input.json --out family-membership.json",
+    "python3 coverage_contract.py create coverage-claims.json --out coverage.json"
+  ],
+  "facts": {
+    "r40_ida_address": "0x011B214B",
+    "normalized_function_offset": "+0x2B",
+    "fault_instruction": "push dword ptr [esi+1Ch]",
+    "fault_address": "0x0000001C",
+    "nullable_helper_calls": "19",
+    "nullable_guarded": "3",
+    "nullable_unguarded": "10",
+    "nullable_no_use": "6",
+    "listing_sha256": "1e982b9b517af1f3f1744ff1e87f0941609af2bf08c7b8d6867d2ead92903054",
+    "family_confirmed": "6/6",
+    "diagnostic_causality_level": "L1",
+    "binary_identity": "instruction-boundary only; full-binary identity unavailable"
+  },
+  "claim_json": ["coverage-claims.json"],
+  "code_evidence": "instruction-boundary",
+  "manifest_schema": 3,
+  "out": "HD_HOTA.dll+0x1B214B-анализ-gpt-5.6-sol.evidence.json"
+}

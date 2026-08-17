@@ -1,0 +1,170 @@
+{
+  "version": 3,
+  "created": "2026-08-17",
+  "target": "mail-dumps/HD_HOTA.dll+0x1B214B",
+  "source_root": "",
+  "relation": "confirmed_same_defect",
+  "reason": "Во всех версиях совпадают нормализованная функция, смещение +0x2B, чтение [ESI+0x1C], EAX=ESI=0 и адрес чтения 0x1C; соответствие подтверждено точными листингами версий.",
+  "count_in_family": true,
+  "publish_with_primary": true,
+  "family_contract": {
+    "event_role": "crash",
+    "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+    "operation": "read",
+    "mechanism_side": "source",
+    "events": 6
+  },
+  "state": "applied",
+  "items": [
+    {
+      "source": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-180.dmp",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1B214B/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.dmp",
+      "kind": "dmp",
+      "size": 125759,
+      "sha256": "737eaae081d8a037e547c9f61fac08f7aa2475feae34688fa47f6971cf13e9a5",
+      "pair_check": {
+        "context_eip": "0x0485107B",
+        "module": "HD_HOTA.dll",
+        "rva": "0x1B107B",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_HOTA.dll+0x1B107B-180"
+      },
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing"
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-180.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1B214B/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.txt",
+      "kind": "txt",
+      "size": 9305,
+      "sha256": "5b69fd6e2c084d247772c6888a05e81937e152cce040ce8c4c86d7102dc3fc22",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing",
+      "pair_check": {
+        "context_eip": "0x0485107B",
+        "module": "HD_HOTA.dll",
+        "rva": "0x1B107B",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_HOTA.dll+0x1B107B-180"
+      }
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll+0x1B1D7B/HD_HOTA.dll+0x1B1D7B-5.7-R39-180.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1B214B/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B1D7B-5.7-R39-180.txt",
+      "kind": "txt",
+      "size": 8235,
+      "sha256": "823231145aec1e1d482ba3f8bcb56b1cbe03067978fe5a331cb99cff9f5d3c85",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing"
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x1618EB-1.8.0-1-97CAD.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1B214B/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1618EB-1.8.0-1-97CAD.txt",
+      "kind": "txt",
+      "size": 10457,
+      "sha256": "ff1465a48e5d4ff8e160744d247d1927a2d205cb4f3831324b5daa1004d66732",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing"
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x1618EB-1.8.0-1.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1B214B/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1618EB-1.8.0-1.txt",
+      "kind": "txt",
+      "size": 10457,
+      "sha256": "ff1465a48e5d4ff8e160744d247d1927a2d205cb4f3831324b5daa1004d66732",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing"
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x16323B-1.8.0-1.dmp",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1B214B/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x16323B-1.8.0-1.dmp",
+      "kind": "dmp",
+      "size": 92749,
+      "sha256": "be51041f6e1b4bd59a18b396e014ec01988a183e44b4a8decb50bbc8d530fa57",
+      "pair_check": {
+        "context_eip": "0x038B323B",
+        "module": "HD_HOTA.dll",
+        "rva": "0x16323B",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_HOTA.dll+0x16323B-1.8.0-1"
+      },
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing"
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x16323B-1.8.0-1.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1B214B/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x16323B-1.8.0-1.txt",
+      "kind": "txt",
+      "size": 8451,
+      "sha256": "153b4ead9f5df345c8164b60b17ad8c6d55bdc44050e9576aea9423075409619",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing",
+      "pair_check": {
+        "context_eip": "0x038B323B",
+        "module": "HD_HOTA.dll",
+        "rva": "0x16323B",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_HOTA.dll+0x16323B-1.8.0-1"
+      }
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x1B107B-1.8.0-1.dmp",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1B214B/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.dmp",
+      "kind": "dmp",
+      "size": 125759,
+      "sha256": "737eaae081d8a037e547c9f61fac08f7aa2475feae34688fa47f6971cf13e9a5",
+      "pair_check": {
+        "context_eip": "0x0485107B",
+        "module": "HD_HOTA.dll",
+        "rva": "0x1B107B",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_HOTA.dll+0x1B107B-1.8.0-1"
+      },
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing"
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x1B107B-1.8.0-1.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1B214B/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.txt",
+      "kind": "txt",
+      "size": 8407,
+      "sha256": "d72f174ee9603b62a2f32dc27f0cbe79bfb8b1f144384c8a5e4bb86885bb0a02",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing",
+      "pair_check": {
+        "context_eip": "0x0485107B",
+        "module": "HD_HOTA.dll",
+        "rva": "0x1B107B",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_HOTA.dll+0x1B107B-1.8.0-1"
+      }
+    }
+  ]
+}

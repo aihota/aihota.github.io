@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "reviewed": true,
+  "review_basis": "version-specific exact listings and relocation-manifest v3",
+  "defaults": {
+    "helper_family": "version-mapped nullable lookup helper",
+    "instruction": "push dword ptr [ESI+1Ch]",
+    "effective_access": "read",
+    "operand_address": "0x0000001C",
+    "caller": "version-mapped consumer at normalized offset +0x2B",
+    "destination_origin": "nullable helper return in EAX copied to ESI",
+    "size_origin": "not_applicable_non_bulk_access",
+    "size_formula": "not_applicable_field_read_plus_0x1C",
+    "subsystem": "HD_HOTA object lookup and field +0x1C",
+    "state_origin": "unknown"
+  },
+  "incidents": {},
+  "limitations": [
+    "The local NULL-result mechanism is confirmed, but the internal helper branch that returned NULL is unknown.",
+    "Candidate classification must not be promoted to root cause without runtime state-origin evidence."
+  ]
+}

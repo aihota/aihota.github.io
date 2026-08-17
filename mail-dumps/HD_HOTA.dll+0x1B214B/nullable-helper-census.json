@@ -1,0 +1,1465 @@
+{
+  "schema": 2,
+  "listing": "/Users/Shared/ii/modules/HD_HOTA.dll-5.7 R40.txt",
+  "listing_size": 50700332,
+  "listing_sha256": "1e982b9b517af1f3f1744ff1e87f0941609af2bf08c7b8d6867d2ead92903054",
+  "parsed_instruction_rows": 850083,
+  "helper": "sub_11B7F90",
+  "helper_kind": "generic",
+  "requested_kind": "generic",
+  "window_size": 16,
+  "forward_window": 48,
+  "found_count": 19,
+  "emitted_count": 19,
+  "callers": {
+    "sub_1005580": 2,
+    "sub_10057A0": 2,
+    "sub_10094A0": 2,
+    "sub_100CC60": 1,
+    "sub_1017010": 2,
+    "sub_101F580": 1,
+    "sub_1034DB0": 1,
+    "sub_11B2060": 1,
+    "sub_11B2120": 1,
+    "sub_11B2D40": 1,
+    "sub_11B30C0": 1,
+    "sub_11B3220": 1,
+    "sub_11B8070": 1,
+    "sub_11B8750": 1,
+    "sub_11BA2E0": 1
+  },
+  "destination_origin_candidates": {
+    "not_applicable": 19
+  },
+  "size_origin_candidates": {
+    "not_applicable": 19
+  },
+  "nullable_result_contract": {
+    "enabled": true,
+    "population": "all helper call instructions",
+    "denominator": 19,
+    "counts": {
+      "guarded": 3,
+      "unguarded": 10,
+      "no_use": 6
+    },
+    "complete": true
+  },
+  "callsites": [
+    {
+      "callsite": "0x01005666",
+      "listing_line": 9029,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_1005580",
+      "caller_address": "0x01005580",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "unguarded",
+        "guard_before_first_use": false,
+        "guard": null,
+        "first_use": {
+          "address": "0x01005688",
+          "line": 9042,
+          "instruction": "push    dword ptr [ebx+2Ch]",
+          "aliases": [
+            "ebx"
+          ]
+        },
+        "aliases_at_stop": [
+          "ebx"
+        ],
+        "forward_slice": [
+          ".text:0100566B                 mov     ecx, [esi+1Ch]",
+          ".text:0100566E                 xor     edx, edx",
+          ".text:01005670                 mov     ebx, eax",
+          ".text:01005672                 mov     [ebp+var_4], edx",
+          ".text:01005675                 mov     ecx, [ecx]",
+          ".text:01005677                 cmp     [ecx], edx",
+          ".text:01005679                 jbe     loc_1005713",
+          ".text:0100567F                 mov     eax, 47B610h",
+          ".text:01005684 loc_1005684:                            ; CODE XREF: sub_1005580+18D↓j",
+          ".text:01005684                 push    1",
+          ".text:01005686                 push    0",
+          ".text:01005688                 push    dword ptr [ebx+2Ch]"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:0100563A                 mov     eax, [edi+28h]",
+        ".text:0100563D                 shl     eax, 2",
+        ".text:01005640                 push    eax",
+        ".text:01005641                 call    ebx",
+        ".text:01005643                 mov     [edi+2Ch], eax",
+        ".text:01005646                 add     esp, 4",
+        ".text:01005649                 mov     eax, [esi+1Ch]",
+        ".text:0100564C                 mov     ecx, edi",
+        ".text:0100564E                 mov     eax, [eax]",
+        ".text:01005650                 push    dword ptr [eax]",
+        ".text:01005652                 mov     eax, 47B410h",
+        ".text:01005657                 push    0",
+        ".text:01005659                 call    eax",
+        ".text:0100565B                 push    dword ptr [esi+34h]",
+        ".text:0100565E                 mov     edx, [esi+30h]",
+        ".text:01005661                 mov     ecx, offset Locale"
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x010056B5",
+      "listing_line": 9059,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_1005580",
+      "caller_address": "0x01005580",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "unguarded",
+        "guard_before_first_use": false,
+        "guard": null,
+        "first_use": {
+          "address": "0x010056E9",
+          "line": 9078,
+          "instruction": "mov     dword ptr [esi+14h], 12h",
+          "aliases": [
+            "esi"
+          ]
+        },
+        "aliases_at_stop": [
+          "esi"
+        ],
+        "forward_slice": [
+          ".text:010056BA                 push    27h ; '''",
+          ".text:010056BC                 push    25h ; '%'",
+          ".text:010056BE                 push    0",
+          ".text:010056C0                 push    ecx",
+          ".text:010056C1                 push    dword ptr [ebx+28h]",
+          ".text:010056C4                 mov     esi, eax",
+          ".text:010056C6                 push    dword ptr [ebx+24h]",
+          ".text:010056C9                 mov     ecx, esi",
+          ".text:010056CB                 push    ebx",
+          ".text:010056CC                 call    sub_11B8C80",
+          ".text:010056D1                 fld     ds:dbl_1205830",
+          ".text:010056D7                 sub     esp, 8",
+          ".text:010056DA                 mov     ecx, esi",
+          ".text:010056DC                 fstp    [esp+20h+var_20] ; double",
+          ".text:010056DF                 call    sub_11B8750",
+          ".text:010056E4                 push    esi",
+          ".text:010056E5                 push    0",
+          ".text:010056E7                 mov     ecx, edi",
+          ".text:010056E9                 mov     dword ptr [esi+14h], 12h"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:0100568B                 mov     ecx, esi",
+        ".text:0100568D                 push    dword ptr [ebx+28h]",
+        ".text:01005690                 push    dword ptr [ebx+24h]",
+        ".text:01005693                 push    0",
+        ".text:01005695                 push    0",
+        ".text:01005697                 push    dword ptr [ebx+30h]",
+        ".text:0100569A                 push    dword ptr [esi+34h]",
+        ".text:0100569D                 push    dword ptr [esi+30h]",
+        ".text:010056A0                 push    0",
+        ".text:010056A2                 push    0",
+        ".text:010056A4                 push    edx",
+        ".text:010056A5                 push    0",
+        ".text:010056A7                 call    eax",
+        ".text:010056A9                 push    27h ; '''",
+        ".text:010056AB                 mov     edx, 25h ; '%'",
+        ".text:010056B0                 mov     ecx, offset Locale"
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x01005888",
+      "listing_line": 9217,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_10057A0",
+      "caller_address": "0x010057A0",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "unguarded",
+        "guard_before_first_use": false,
+        "guard": null,
+        "first_use": {
+          "address": "0x010058AA",
+          "line": 9230,
+          "instruction": "push    dword ptr [ebx+2Ch]",
+          "aliases": [
+            "ebx"
+          ]
+        },
+        "aliases_at_stop": [
+          "ebx"
+        ],
+        "forward_slice": [
+          ".text:0100588D                 mov     ecx, [esi+1Ch]",
+          ".text:01005890                 xor     edx, edx",
+          ".text:01005892                 mov     ebx, eax",
+          ".text:01005894                 mov     [ebp+var_4], edx",
+          ".text:01005897                 mov     ecx, [ecx]",
+          ".text:01005899                 cmp     [ecx], edx",
+          ".text:0100589B                 jbe     loc_1005935",
+          ".text:010058A1                 mov     eax, 47B610h",
+          ".text:010058A6 loc_10058A6:                            ; CODE XREF: sub_10057A0+18F↓j",
+          ".text:010058A6                 push    1",
+          ".text:010058A8                 push    0",
+          ".text:010058AA                 push    dword ptr [ebx+2Ch]"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:0100585C                 mov     eax, [edi+28h]",
+        ".text:0100585F                 shl     eax, 2",
+        ".text:01005862                 push    eax",
+        ".text:01005863                 call    ebx",
+        ".text:01005865                 mov     [edi+2Ch], eax",
+        ".text:01005868                 add     esp, 4",
+        ".text:0100586B                 mov     eax, [esi+1Ch]",
+        ".text:0100586E                 mov     ecx, edi",
+        ".text:01005870                 mov     eax, [eax]",
+        ".text:01005872                 push    dword ptr [eax]",
+        ".text:01005874                 mov     eax, 47B410h",
+        ".text:01005879                 push    0",
+        ".text:0100587B                 call    eax",
+        ".text:0100587D                 push    dword ptr [esi+34h]",
+        ".text:01005880                 mov     edx, [esi+30h]",
+        ".text:01005883                 mov     ecx, offset Locale"
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x010058D7",
+      "listing_line": 9247,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_10057A0",
+      "caller_address": "0x010057A0",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "unguarded",
+        "guard_before_first_use": false,
+        "guard": null,
+        "first_use": {
+          "address": "0x0100590B",
+          "line": 9266,
+          "instruction": "mov     dword ptr [esi+14h], 12h",
+          "aliases": [
+            "esi"
+          ]
+        },
+        "aliases_at_stop": [
+          "esi"
+        ],
+        "forward_slice": [
+          ".text:010058DC                 push    27h ; '''",
+          ".text:010058DE                 push    25h ; '%'",
+          ".text:010058E0                 push    0",
+          ".text:010058E2                 push    ecx",
+          ".text:010058E3                 push    dword ptr [ebx+28h]",
+          ".text:010058E6                 mov     esi, eax",
+          ".text:010058E8                 push    dword ptr [ebx+24h]",
+          ".text:010058EB                 mov     ecx, esi",
+          ".text:010058ED                 push    ebx",
+          ".text:010058EE                 call    sub_11B8C80",
+          ".text:010058F3                 fld     ds:dbl_1205830",
+          ".text:010058F9                 sub     esp, 8",
+          ".text:010058FC                 mov     ecx, esi",
+          ".text:010058FE                 fstp    [esp+20h+var_20] ; double",
+          ".text:01005901                 call    sub_11B8750",
+          ".text:01005906                 push    esi",
+          ".text:01005907                 push    0",
+          ".text:01005909                 mov     ecx, edi",
+          ".text:0100590B                 mov     dword ptr [esi+14h], 12h"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:010058AD                 mov     ecx, esi",
+        ".text:010058AF                 push    dword ptr [ebx+28h]",
+        ".text:010058B2                 push    dword ptr [ebx+24h]",
+        ".text:010058B5                 push    0",
+        ".text:010058B7                 push    0",
+        ".text:010058B9                 push    dword ptr [ebx+30h]",
+        ".text:010058BC                 push    dword ptr [esi+34h]",
+        ".text:010058BF                 push    dword ptr [esi+30h]",
+        ".text:010058C2                 push    0",
+        ".text:010058C4                 push    0",
+        ".text:010058C6                 push    edx",
+        ".text:010058C7                 push    0",
+        ".text:010058C9                 call    eax",
+        ".text:010058CB                 push    27h ; '''",
+        ".text:010058CD                 mov     edx, 25h ; '%'",
+        ".text:010058D2                 mov     ecx, offset Locale"
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x01009516",
+      "listing_line": 15780,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_10094A0",
+      "caller_address": "0x010094A0",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "guarded",
+        "guard_before_first_use": true,
+        "guard": {
+          "register": "ecx",
+          "compare_address": "0x01009520",
+          "compare_line": 15783,
+          "branch_address": "0x01009522",
+          "branch_line": 15784,
+          "branch": "jz      short loc_100957C"
+        },
+        "first_use": {
+          "address": "0x0100952B",
+          "line": 15788,
+          "instruction": "push    dword ptr [ecx+28h]",
+          "aliases": [
+            "ecx"
+          ]
+        },
+        "aliases_at_stop": [
+          "ecx"
+        ],
+        "forward_slice": [
+          ".text:0100951B                 mov     ecx, eax",
+          ".text:0100951D                 mov     [edi+44h], ecx",
+          ".text:01009520                 test    ecx, ecx",
+          ".text:01009522                 jz      short loc_100957C",
+          ".text:01009524                 mov     eax, [edi+1Ch]",
+          ".text:01009527                 push    0",
+          ".text:01009529                 push    0",
+          ".text:0100952B                 push    dword ptr [ecx+28h]"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:010094DF                 mov     eax, [ebp+arg_8]",
+        ".text:010094E2                 mov     [edi+4], eax",
+        ".text:010094E5                 test    ecx, 200h",
+        ".text:010094EB                 jnz     loc_1009707",
+        ".text:010094F1                 test    cl, 2",
+        ".text:010094F4                 jz      loc_100957C",
+        ".text:010094FA                 test    cl, 60h",
+        ".text:010094FD                 jnz     short loc_100954B",
+        ".text:010094FF                 test    cl, 8",
+        ".text:01009502                 jz      short loc_100957C",
+        ".text:01009504                 mov     eax, [edi+24h]",
+        ".text:01009507                 mov     ecx, offset Locale",
+        ".text:0100950C                 mov     edx, [edi+20h]",
+        ".text:0100950F                 add     eax, 10h",
+        ".text:01009512                 push    eax",
+        ".text:01009513                 add     edx, 10h"
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x0100955C",
+      "listing_line": 15805,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_10094A0",
+      "caller_address": "0x010094A0",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "no_use",
+        "guard_before_first_use": false,
+        "guard": {
+          "register": "eax",
+          "compare_address": "0x01009564",
+          "compare_line": 15807,
+          "branch_address": "0x01009566",
+          "branch_line": 15808,
+          "branch": "jz      short loc_100957C"
+        },
+        "first_use": null,
+        "aliases_at_stop": [],
+        "forward_slice": [
+          ".text:01009561                 mov     [edi+44h], eax",
+          ".text:01009564                 test    eax, eax",
+          ".text:01009566                 jz      short loc_100957C",
+          ".text:01009568                 mov     ecx, ds:6992D0h",
+          ".text:0100956E                 push    0",
+          ".text:01009570                 push    0",
+          ".text:01009572                 push    dword ptr [ecx+40h]",
+          ".text:01009575                 mov     ecx, eax",
+          ".text:01009577                 call    sub_11B8480",
+          ".text:0100957C loc_100957C:                            ; CODE XREF: sub_10094A0+54↑j",
+          ".text:0100957C                                         ; sub_10094A0+62↑j ...",
+          ".text:0100957C                 mov     eax, [edi+10h]",
+          ".text:0100957F                 push    ebx",
+          ".text:01009580                 mov     ebx, 44FA80h",
+          ".text:01009585                 test    al, 20h",
+          ".text:01009587                 jz      short loc_10095AC",
+          ".text:01009589                 mov     eax, ds:6992D0h",
+          ".text:0100958E                 mov     ecx, dword_12110E4",
+          ".text:01009594                 push    1",
+          ".text:01009596                 push    0",
+          ".text:01009598                 push    0",
+          ".text:0100959A                 push    dword ptr [eax+40h]",
+          ".text:0100959D                 push    dword ptr [ecx+28h]",
+          ".text:010095A0                 push    dword ptr [ecx+24h]",
+          ".text:010095A3                 push    0",
+          ".text:010095A5                 push    0",
+          ".text:010095A7                 call    ebx",
+          ".text:010095A9                 mov     eax, [edi+10h]",
+          ".text:010095AC loc_10095AC:                            ; CODE XREF: sub_10094A0+E7↑j",
+          ".text:010095AC                 test    al, 40h",
+          ".text:010095AE                 jz      short loc_10095D3",
+          ".text:010095B0                 push    dword_1210EEC",
+          ".text:010095B6                 mov     ecx, ds:6992D0h",
+          ".text:010095BC                 mov     eax, 44E2C0h",
+          ".text:010095C1                 push    ArgList",
+          ".text:010095C7                 push    0",
+          ".text:010095C9                 mov     ecx, [ecx+40h]",
+          ".text:010095CC                 push    0",
+          ".text:010095CE                 call    eax",
+          ".text:010095D0                 mov     eax, [edi+10h]",
+          ".text:010095D3 loc_10095D3:                            ; CODE XREF: sub_10094A0+10E↑j",
+          ".text:010095D3                 push    esi",
+          ".text:010095D4                 test    al, 8",
+          ".text:010095D6                 jz      short loc_1009624",
+          ".text:010095D8                 mov     edx, [edi+24h]",
+          ".text:010095DB                 mov     ecx, [edi+20h]",
+          ".text:010095DE                 add     edx, 8",
+          ".text:010095E1                 add     ecx, 8"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:0100952B                 push    dword ptr [ecx+28h]",
+        ".text:0100952E                 sub     eax, 4",
+        ".text:01009531                 push    dword ptr [ecx+24h]",
+        ".text:01009534                 push    eax",
+        ".text:01009535                 mov     eax, [edi+18h]",
+        ".text:01009538                 sub     eax, 4",
+        ".text:0100953B                 push    eax",
+        ".text:0100953C                 mov     eax, ds:6992D0h",
+        ".text:01009541                 push    dword ptr [eax+40h]",
+        ".text:01009544                 call    sub_11B85C0",
+        ".text:01009549                 jmp     short loc_100957C",
+        ".text:0100954B ; ---------------------------------------------------------------------------",
+        ".text:0100954B loc_100954B:                            ; CODE XREF: sub_10094A0+5D↑j",
+        ".text:0100954B                 push    dword_1210EEC",
+        ".text:01009551                 mov     edx, ArgList",
+        ".text:01009557                 mov     ecx, offset Locale"
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x0100CC77",
+      "listing_line": 22557,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_100CC60",
+      "caller_address": "0x0100CC60",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "no_use",
+        "guard_before_first_use": false,
+        "guard": null,
+        "first_use": null,
+        "aliases_at_stop": [
+          "edi"
+        ],
+        "forward_slice": [
+          ".text:0100CC7C                 mov     ecx, ds:6992D0h",
+          ".text:0100CC82                 mov     edi, eax",
+          ".text:0100CC84                 push    0",
+          ".text:0100CC86                 push    0",
+          ".text:0100CC88                 push    dword ptr [ecx+40h]",
+          ".text:0100CC8B                 mov     ecx, edi",
+          ".text:0100CC8D                 call    sub_11B8480",
+          ".text:0100CC92                 push    [ebp+arg_18]",
+          ".text:0100CC95                 mov     eax, [ebp+arg_0]",
+          ".text:0100CC98                 push    [ebp+arg_14]",
+          ".text:0100CC9B                 push    [ebp+arg_10]",
+          ".text:0100CC9E                 mov     ecx, [eax]",
+          ".text:0100CCA0                 push    [ebp+arg_C]",
+          ".text:0100CCA3                 push    [ebp+arg_8]",
+          ".text:0100CCA6                 push    eax",
+          ".text:0100CCA7                 call    dword ptr [ecx+2Ch]",
+          ".text:0100CCAA                 mov     ecx, [ebp+arg_4]",
+          ".text:0100CCAD                 call    eax",
+          ".text:0100CCAF                 mov     esi, dword_1210E80",
+          ".text:0100CCB5                 push    offset aHdPuzzdlgY ; \"HD.PuzzDlg.Y\"",
+          ".text:0100CCBA                 push    esi",
+          ".text:0100CCBB                 mov     eax, [esi]",
+          ".text:0100CCBD                 call    dword ptr [eax+34h]",
+          ".text:0100CCC0                 mov     ecx, eax",
+          ".text:0100CCC2                 test    ecx, ecx",
+          ".text:0100CCC4                 jnz     short loc_100CCD9",
+          ".text:0100CCC6                 mov     eax, [esi]",
+          ".text:0100CCC8                 push    ecx",
+          ".text:0100CCC9                 push    offset aHdPuzzdlgY ; \"HD.PuzzDlg.Y\"",
+          ".text:0100CCCE                 push    esi",
+          ".text:0100CCCF                 call    dword ptr [eax+30h]",
+          ".text:0100CCD2                 mov     ecx, eax",
+          ".text:0100CCD4                 test    ecx, ecx",
+          ".text:0100CCD6                 jnz     short loc_100CCD9",
+          ".text:0100CCD8                 int     3               ; Trap to Debugger",
+          ".text:0100CCD9 loc_100CCD9:                            ; CODE XREF: sub_100CC60+64↑j",
+          ".text:0100CCD9                                         ; sub_100CC60+76↑j",
+          ".text:0100CCD9                 mov     eax, [ecx]",
+          ".text:0100CCDB                 push    ecx",
+          ".text:0100CCDC                 call    dword ptr [eax+8]",
+          ".text:0100CCDF                 mov     esi, dword_1210E80",
+          ".text:0100CCE5                 push    offset aHdPuzzdlgX ; \"HD.PuzzDlg.X\"",
+          ".text:0100CCEA                 push    esi",
+          ".text:0100CCEB                 mov     [ebp+arg_18], eax",
+          ".text:0100CCEE                 mov     ecx, [esi]",
+          ".text:0100CCF0                 call    dword ptr [ecx+34h]",
+          ".text:0100CCF3                 mov     ecx, eax",
+          ".text:0100CCF5                 test    ecx, ecx"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:0100CC60 sub_100CC60     proc near               ; DATA XREF: sub_1035490+66DE↓o",
+        ".text:0100CC60 arg_0           = dword ptr  8",
+        ".text:0100CC60 arg_4           = dword ptr  0Ch",
+        ".text:0100CC60 arg_8           = dword ptr  10h",
+        ".text:0100CC60 arg_C           = dword ptr  14h",
+        ".text:0100CC60 arg_10          = dword ptr  18h",
+        ".text:0100CC60 arg_14          = dword ptr  1Ch",
+        ".text:0100CC60 arg_18          = dword ptr  20h",
+        ".text:0100CC60                 push    ebp",
+        ".text:0100CC61                 mov     ebp, esp",
+        ".text:0100CC63                 mov     edx, ArgList",
+        ".text:0100CC69                 mov     ecx, offset Locale",
+        ".text:0100CC6E                 push    ebx",
+        ".text:0100CC6F                 push    esi",
+        ".text:0100CC70                 push    edi",
+        ".text:0100CC71                 push    dword_1210EEC"
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x0101713F",
+      "listing_line": 39876,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_1017010",
+      "caller_address": "0x01017010",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "unguarded",
+        "guard_before_first_use": false,
+        "guard": null,
+        "first_use": {
+          "address": "0x01017160",
+          "line": 39886,
+          "instruction": "push    dword ptr [ebx+28h]",
+          "aliases": [
+            "ebx"
+          ]
+        },
+        "aliases_at_stop": [
+          "eax",
+          "ebx"
+        ],
+        "forward_slice": [
+          ".text:01017144                 mov     ecx, [esi+1Ch]",
+          ".text:01017147                 mov     ebx, eax",
+          ".text:01017149                 mov     [ebp+var_4], 0",
+          ".text:01017150                 mov     ecx, [ecx]",
+          ".text:01017152                 cmp     dword ptr [ecx], 0",
+          ".text:01017155                 jbe     loc_1017270",
+          ".text:0101715B                 mov     ecx, 5FA22Bh",
+          ".text:01017160 loc_1017160:                            ; CODE XREF: sub_1017010+25A↓j",
+          ".text:01017160                 push    dword ptr [ebx+28h]"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:01017113                 mov     eax, [edi+28h]",
+        ".text:01017116                 shl     eax, 2",
+        ".text:01017119                 push    eax",
+        ".text:0101711A                 call    ebx",
+        ".text:0101711C                 mov     [edi+2Ch], eax",
+        ".text:0101711F                 add     esp, 4",
+        ".text:01017122                 mov     eax, [esi+1Ch]",
+        ".text:01017125                 mov     ecx, edi",
+        ".text:01017127                 mov     eax, [eax]",
+        ".text:01017129                 push    dword ptr [eax]",
+        ".text:0101712B                 mov     eax, 47B410h",
+        ".text:01017130                 push    0",
+        ".text:01017132                 call    eax",
+        ".text:01017134                 push    dword ptr [esi+34h]",
+        ".text:01017137                 mov     edx, [esi+30h]",
+        ".text:0101713A                 mov     ecx, offset Locale"
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x010171BD",
+      "listing_line": 39919,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_1017010",
+      "caller_address": "0x01017010",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "unguarded",
+        "guard_before_first_use": false,
+        "guard": null,
+        "first_use": {
+          "address": "0x010171C6",
+          "line": 39922,
+          "instruction": "push    dword ptr [esi+28h]",
+          "aliases": [
+            "esi"
+          ]
+        },
+        "aliases_at_stop": [
+          "eax",
+          "ecx",
+          "esi"
+        ],
+        "forward_slice": [
+          ".text:010171C2                 mov     esi, eax",
+          ".text:010171C4                 mov     ecx, esi",
+          ".text:010171C6                 push    dword ptr [esi+28h]"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:0101718E                 mov     eax, 47B610h",
+        ".text:01017193                 push    dword ptr [ebx+28h]",
+        ".text:01017196                 push    dword ptr [ebx+24h]",
+        ".text:01017199                 push    0",
+        ".text:0101719B                 push    0",
+        ".text:0101719D                 push    dword ptr [ebx+30h]",
+        ".text:010171A0                 push    dword ptr [esi+34h]",
+        ".text:010171A3                 push    dword ptr [esi+30h]",
+        ".text:010171A6                 push    0",
+        ".text:010171A8                 push    0",
+        ".text:010171AA                 push    [ebp+var_4]",
+        ".text:010171AD                 push    0",
+        ".text:010171AF                 call    eax",
+        ".text:010171B1                 push    2Ch ; ','",
+        ".text:010171B3                 mov     edx, 2Dh ; '-'",
+        ".text:010171B8                 mov     ecx, offset Locale"
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x0101F5E4",
+      "listing_line": 53904,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_101F580",
+      "caller_address": "0x0101F580",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "no_use",
+        "guard_before_first_use": false,
+        "guard": null,
+        "first_use": null,
+        "aliases_at_stop": [
+          "eax"
+        ],
+        "forward_slice": [
+          ".text:0101F5E9                 mov     dword_12111AC, eax"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:0101F596                 call    sub_101F540",
+        ".text:0101F59B                 mov     ecx, offset aRadarVBmp ; \"radar_v.bmp\"",
+        ".text:0101F5A0                 mov     dword_12110F0, eax",
+        ".text:0101F5A5                 call    sub_101F540",
+        ".text:0101F5AA                 push    120h",
+        ".text:0101F5AF                 mov     edx, 120h",
+        ".text:0101F5B4                 mov     dword_12110E8, eax",
+        ".text:0101F5B9                 mov     ecx, offset Locale",
+        ".text:0101F5BE                 call    sub_11B9B60",
+        ".text:0101F5C3                 push    dword_12110F0",
+        ".text:0101F5C9                 mov     ecx, eax",
+        ".text:0101F5CB                 mov     dword_1210ED0, eax",
+        ".text:0101F5D0                 call    sub_11B9E30",
+        ".text:0101F5D5                 push    0FFh",
+        ".text:0101F5DA                 mov     edx, 0FFh",
+        ".text:0101F5DF                 mov     ecx, offset Locale"
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x01034E2D",
+      "listing_line": 90688,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_1034DB0",
+      "caller_address": "0x01034DB0",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "unguarded",
+        "guard_before_first_use": false,
+        "guard": null,
+        "first_use": {
+          "address": "0x01034E3C",
+          "line": 90691,
+          "instruction": "mov     ecx, [eax+4]",
+          "aliases": [
+            "eax"
+          ]
+        },
+        "aliases_at_stop": [
+          "eax"
+        ],
+        "forward_slice": [
+          ".text:01034E32                 mov     edx, 5596F0h",
+          ".text:01034E37                 mov     dword_21C03E4, eax",
+          ".text:01034E3C                 mov     ecx, [eax+4]"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:01034DFB                 call    eax",
+        ".text:01034DFD                 mov     esi, eax",
+        ".text:01034DFF                 lea     ecx, [edi+50h]",
+        ".text:01034E02                 mov     eax, 6003E0h",
+        ".text:01034E07                 mov     edx, esi",
+        ".text:01034E09                 call    eax",
+        ".text:01034E0B                 lea     ecx, [edi+250h]",
+        ".text:01034E11                 mov     eax, 600400h",
+        ".text:01034E16                 mov     edx, esi",
+        ".text:01034E18                 call    eax",
+        ".text:01034E1A                 mov     eax, dword_21C03E4",
+        ".text:01034E1F                 test    eax, eax",
+        ".text:01034E21                 jnz     short loc_1034E62",
+        ".text:01034E23                 push    12h",
+        ".text:01034E25                 lea     edx, [eax+59h]",
+        ".text:01034E28                 mov     ecx, offset aArtsellGold ; \"artsell.gold\""
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x011B2084",
+      "listing_line": 732262,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_11B2060",
+      "caller_address": "0x011B2060",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "no_use",
+        "guard_before_first_use": false,
+        "guard": null,
+        "first_use": null,
+        "aliases_at_stop": [],
+        "forward_slice": [
+          ".text:011B2089                 mov     esi, eax",
+          ".text:011B208B                 mov     dword_21CCCA8, esi",
+          ".text:011B2091 loc_11B2091:                            ; CODE XREF: sub_11B2060+F↑j",
+          ".text:011B2091                 test    edi, edi",
+          ".text:011B2093                 jz      short loc_11B20BD",
+          ".text:011B2095                 mov     ecx, ds:6992D0h",
+          ".text:011B209B                 mov     eax, 44E0C0h",
+          ".text:011B20A0                 mov     ecx, [ecx+40h]",
+          ".text:011B20A3                 push    dword ptr [ecx+2Ch]",
+          ".text:011B20A6                 push    dword ptr [ecx+28h]",
+          ".text:011B20A9                 push    dword ptr [ecx+24h]",
+          ".text:011B20AC                 push    0",
+          ".text:011B20AE                 push    0",
+          ".text:011B20B0                 push    dword ptr [ecx+30h]",
+          ".text:011B20B3                 mov     ecx, esi",
+          ".text:011B20B5                 call    eax",
+          ".text:011B20B7                 mov     esi, dword_21CCCA8",
+          ".text:011B20BD loc_11B20BD:                            ; CODE XREF: sub_11B2060+33↑j",
+          ".text:011B20BD                 test    ebx, ebx",
+          ".text:011B20BF                 jz      short loc_11B20D7",
+          ".text:011B20C1                 mov     eax, dword_12175E8",
+          ".text:011B20C6                 inc     eax",
+          ".text:011B20C7                 mov     dword_12175E8, eax",
+          ".text:011B20CC                 cmp     eax, 1",
+          ".text:011B20CF                 jnz     short loc_11B2111",
+          ".text:011B20D1                 test    esi, esi",
+          ".text:011B20D3                 jz      short loc_11B2111",
+          ".text:011B20D5                 jmp     short loc_11B20ED",
+          ".text:011B20D7 ; ---------------------------------------------------------------------------",
+          ".text:011B20D7 loc_11B20D7:                            ; CODE XREF: sub_11B2060+5F↑j",
+          ".text:011B20D7                 mov     ecx, dword_12175E8",
+          ".text:011B20DD                 sub     ecx, 1",
+          ".text:011B20E0                 mov     dword_12175E8, ecx",
+          ".text:011B20E6                 jnz     short loc_11B2102",
+          ".text:011B20E8                 test    esi, esi",
+          ".text:011B20EA                 jnz     short loc_11B20ED",
+          ".text:011B20EC                 int     3               ; Trap to Debugger",
+          ".text:011B20ED loc_11B20ED:                            ; CODE XREF: sub_11B2060+75↑j",
+          ".text:011B20ED                                         ; sub_11B2060+8A↑j",
+          ".text:011B20ED                 mov     ecx, ds:6992D0h",
+          ".text:011B20F3                 pop     edi",
+          ".text:011B20F4                 mov     eax, [ecx+40h]",
+          ".text:011B20F7                 mov     [ecx+40h], esi",
+          ".text:011B20FA                 pop     esi",
+          ".text:011B20FB                 mov     dword_21CCCA8, eax",
+          ".text:011B2100                 pop     ebx"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:011B2060 ; =============== S U B R O U T I N E =======================================",
+        ".text:011B2060 sub_11B2060     proc near               ; CODE XREF: sub_100B810+A↑p",
+        ".text:011B2060                                         ; sub_100B810+C2↑p ...",
+        ".text:011B2060                 push    ebx",
+        ".text:011B2061                 push    esi",
+        ".text:011B2062                 mov     esi, dword_21CCCA8",
+        ".text:011B2068                 mov     ebx, ecx",
+        ".text:011B206A                 push    edi",
+        ".text:011B206B                 mov     edi, edx",
+        ".text:011B206D                 test    esi, esi",
+        ".text:011B206F                 jnz     short loc_11B2091",
+        ".text:011B2071                 mov     eax, ds:6992D0h",
+        ".text:011B2076                 mov     ecx, offset unk_11FB47F",
+        ".text:011B207B                 mov     edx, [eax+40h]",
+        ".text:011B207E                 push    dword ptr [edx+28h]",
+        ".text:011B2081                 mov     edx, [edx+24h]"
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x011B2138",
+      "listing_line": 732353,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_11B2120",
+      "caller_address": "0x011B2120",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "unguarded",
+        "guard_before_first_use": false,
+        "guard": null,
+        "first_use": {
+          "address": "0x011B214B",
+          "line": 732358,
+          "instruction": "push    dword ptr [esi+1Ch] ; Size",
+          "aliases": [
+            "esi"
+          ]
+        },
+        "aliases_at_stop": [
+          "eax",
+          "esi"
+        ],
+        "forward_slice": [
+          ".text:011B213D                 mov     ecx, ds:6992D0h",
+          ".text:011B2143                 mov     esi, eax",
+          ".text:011B2145                 mov     [ebp+var_4], esi",
+          ".text:011B2148                 mov     ecx, [ecx+40h]",
+          ".text:011B214B                 push    dword ptr [esi+1Ch] ; Size"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:011B2114 ; ---------------------------------------------------------------------------",
+        ".text:011B2115                 align 10h",
+        ".text:011B2120 ; =============== S U B R O U T I N E =======================================",
+        ".text:011B2120 ; Attributes: bp-based frame",
+        ".text:011B2120 sub_11B2120     proc near               ; CODE XREF: sub_100EF00+3↑p",
+        ".text:011B2120                                         ; sub_10148F0+F3↑p ...",
+        ".text:011B2120 var_4           = dword ptr -4",
+        ".text:011B2120                 push    ebp",
+        ".text:011B2121                 mov     ebp, esp",
+        ".text:011B2123                 push    ecx",
+        ".text:011B2124                 mov     eax, ds:6992D0h",
+        ".text:011B2129                 mov     ecx, offset unk_11FB48E",
+        ".text:011B212E                 push    esi",
+        ".text:011B212F                 mov     edx, [eax+40h]",
+        ".text:011B2132                 push    dword ptr [edx+28h]",
+        ".text:011B2135                 mov     edx, [edx+24h]"
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x011B2DCC",
+      "listing_line": 733645,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_11B2D40",
+      "caller_address": "0x011B2D40",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "guarded",
+        "guard_before_first_use": true,
+        "guard": {
+          "register": "esi",
+          "compare_address": "0x011B2DD3",
+          "compare_line": 733647,
+          "branch_address": "0x011B2DD5",
+          "branch_line": 733648,
+          "branch": "jz      loc_11B30A5"
+        },
+        "first_use": {
+          "address": "0x011B2E3F",
+          "line": 733695,
+          "instruction": "cmp     edi, [esi+24h]",
+          "aliases": [
+            "esi"
+          ]
+        },
+        "aliases_at_stop": [
+          "esi"
+        ],
+        "forward_slice": [
+          ".text:011B2DD1                 mov     esi, eax",
+          ".text:011B2DD3                 test    esi, esi",
+          ".text:011B2DD5                 jz      loc_11B30A5",
+          ".text:011B2DDB                 mov     eax, 55AA10h",
+          ".text:011B2DE0                 mov     ecx, offset aDlgblubkPcx ; \"DlgBluBk.PCX\"",
+          ".text:011B2DE5                 call    eax",
+          ".text:011B2DE7                 mov     ebx, eax",
+          ".text:011B2DE9                 mov     [ebp+var_20], ebx",
+          ".text:011B2DEC                 test    ebx, ebx",
+          ".text:011B2DEE                 jz      loc_11B30A5",
+          ".text:011B2DF4                 mov     ecx, [ebx+24h]",
+          ".text:011B2DF7                 xor     edx, edx",
+          ".text:011B2DF9                 mov     [ebp+var_18], edx",
+          ".text:011B2DFC                 lea     esp, [esp+0]",
+          ".text:011B2E00 loc_11B2E00:                            ; CODE XREF: sub_11B2D40+115↓j",
+          ".text:011B2E00                 mov     eax, [ebp+var_28]",
+          ".text:011B2E03                 xor     edi, edi",
+          ".text:011B2E05                 sub     eax, edx",
+          ".text:011B2E07                 mov     [ebp+var_1C], eax",
+          ".text:011B2E0A                 lea     ebx, [ebx+0]",
+          ".text:011B2E10 loc_11B2E10:                            ; CODE XREF: sub_11B2D40+107↓j",
+          ".text:011B2E10                 mov     edx, [ebx+28h]",
+          ".text:011B2E13                 cmp     edx, eax",
+          ".text:011B2E15                 jl      short loc_11B2E19",
+          ".text:011B2E17                 mov     edx, eax",
+          ".text:011B2E19 loc_11B2E19:                            ; CODE XREF: sub_11B2D40+D5↑j",
+          ".text:011B2E19                 mov     eax, [ebp+var_24]",
+          ".text:011B2E1C                 sub     eax, edi",
+          ".text:011B2E1E                 cmp     ecx, eax",
+          ".text:011B2E20                 jl      short loc_11B2E24",
+          ".text:011B2E22                 mov     ecx, eax",
+          ".text:011B2E24 loc_11B2E24:                            ; CODE XREF: sub_11B2D40+E0↑j",
+          ".text:011B2E24                 push    0",
+          ".text:011B2E26                 push    [ebp+var_18]",
+          ".text:011B2E29                 mov     eax, 44FA80h",
+          ".text:011B2E2E                 push    edi",
+          ".text:011B2E2F                 push    esi",
+          ".text:011B2E30                 push    edx",
+          ".text:011B2E31                 push    ecx",
+          ".text:011B2E32                 push    0",
+          ".text:011B2E34                 push    0",
+          ".text:011B2E36                 mov     ecx, ebx",
+          ".text:011B2E38                 call    eax",
+          ".text:011B2E3A                 mov     ecx, [ebx+24h]",
+          ".text:011B2E3D                 add     edi, ecx",
+          ".text:011B2E3F                 cmp     edi, [esi+24h]"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:011B2D9F                 push    edi",
+        ".text:011B2DA0                 push    ebx             ; ArgList",
+        ".text:011B2DA1                 push    offset aBb4u4u1u ; \"bb%.4u%.4u%.1u\"",
+        ".text:011B2DA6                 lea     eax, [ebp+Buffer]",
+        ".text:011B2DA9                 push    0FFFFFFFFh      ; MaxCount",
+        ".text:011B2DAB                 push    eax             ; Buffer",
+        ".text:011B2DAC                 call    sub_11B74A0",
+        ".text:011B2DB1                 add     esp, 18h",
+        ".text:011B2DB4                 lea     ecx, [ebp+Buffer]",
+        ".text:011B2DB7                 call    sub_11B7580",
+        ".text:011B2DBC                 mov     esi, eax",
+        ".text:011B2DBE                 test    esi, esi",
+        ".text:011B2DC0                 jnz     loc_11B3069",
+        ".text:011B2DC6                 push    edi",
+        ".text:011B2DC7                 mov     edx, ebx",
+        ".text:011B2DC9                 lea     ecx, [ebp+Buffer]"
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x011B3120",
+      "listing_line": 734036,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_11B30C0",
+      "caller_address": "0x011B30C0",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "no_use",
+        "guard_before_first_use": false,
+        "guard": {
+          "register": "eax",
+          "compare_address": "0x011B3128",
+          "compare_line": 734038,
+          "branch_address": "0x011B312A",
+          "branch_line": 734039,
+          "branch": "jz      loc_11B320A"
+        },
+        "first_use": null,
+        "aliases_at_stop": [],
+        "forward_slice": [
+          ".text:011B3125                 mov     [ebp+var_1C], eax",
+          ".text:011B3128                 test    eax, eax",
+          ".text:011B312A                 jz      loc_11B320A",
+          ".text:011B3130                 mov     eax, 55AA10h",
+          ".text:011B3135                 mov     ecx, offset aDiboxbckPcx_0 ; \"DiBoxBck.PCX\"",
+          ".text:011B313A                 call    eax",
+          ".text:011B313C                 mov     edi, eax",
+          ".text:011B313E                 test    edi, edi",
+          ".text:011B3140                 jz      loc_11B320A",
+          ".text:011B3146                 mov     edx, [edi+24h]",
+          ".text:011B3149                 xor     ecx, ecx",
+          ".text:011B314B                 mov     [ebp+var_18], ecx",
+          ".text:011B314E                 mov     edi, edi",
+          ".text:011B3150 loc_11B3150:                            ; CODE XREF: sub_11B30C0+E0↓j",
+          ".text:011B3150                 xor     esi, esi",
+          ".text:011B3152                 sub     ebx, ecx",
+          ".text:011B3154 loc_11B3154:                            ; CODE XREF: sub_11B30C0+CB↓j",
+          ".text:011B3154                 mov     ecx, [edi+28h]",
+          ".text:011B3157                 cmp     ecx, ebx",
+          ".text:011B3159                 jl      short loc_11B315D",
+          ".text:011B315B                 mov     ecx, ebx",
+          ".text:011B315D loc_11B315D:                            ; CODE XREF: sub_11B30C0+99↑j",
+          ".text:011B315D                 mov     eax, [ebp+var_24]",
+          ".text:011B3160                 sub     eax, esi",
+          ".text:011B3162                 cmp     edx, eax",
+          ".text:011B3164                 jl      short loc_11B3168",
+          ".text:011B3166                 mov     edx, eax",
+          ".text:011B3168 loc_11B3168:                            ; CODE XREF: sub_11B30C0+A4↑j",
+          ".text:011B3168                 push    0",
+          ".text:011B316A                 push    [ebp+var_18]",
+          ".text:011B316D                 mov     eax, 44FA80h",
+          ".text:011B3172                 push    esi",
+          ".text:011B3173                 push    [ebp+var_1C]",
+          ".text:011B3176                 push    ecx",
+          ".text:011B3177                 push    edx",
+          ".text:011B3178                 push    0",
+          ".text:011B317A                 push    0",
+          ".text:011B317C                 mov     ecx, edi",
+          ".text:011B317E                 call    eax",
+          ".text:011B3180                 mov     eax, [ebp+var_1C]",
+          ".text:011B3183                 mov     edx, [edi+24h]",
+          ".text:011B3186                 add     esi, edx",
+          ".text:011B3188                 cmp     esi, [eax+24h]",
+          ".text:011B318B                 jl      short loc_11B3154",
+          ".text:011B318D                 mov     ecx, [ebp+var_18]",
+          ".text:011B3190                 mov     ebx, eax",
+          ".text:011B3192                 add     ecx, [edi+28h]",
+          ".text:011B3195                 mov     [ebp+var_18], ecx"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:011B30F2                 push    esi             ; ArgList",
+        ".text:011B30F3                 push    offset aSb4u4u  ; \"sb%.4u%.4u\"",
+        ".text:011B30F8                 lea     eax, [ebp+Buffer]",
+        ".text:011B30FB                 push    0FFFFFFFFh      ; MaxCount",
+        ".text:011B30FD                 push    eax             ; Buffer",
+        ".text:011B30FE                 call    sub_11B74A0",
+        ".text:011B3103                 add     esp, 14h",
+        ".text:011B3106                 lea     ecx, [ebp+Buffer]",
+        ".text:011B3109                 call    sub_11B7580",
+        ".text:011B310E                 mov     ebx, eax",
+        ".text:011B3110                 test    ebx, ebx",
+        ".text:011B3112                 jnz     loc_11B31D0",
+        ".text:011B3118                 mov     ebx, edi",
+        ".text:011B311A                 lea     ecx, [ebp+Buffer]",
+        ".text:011B311D                 push    ebx",
+        ".text:011B311E                 mov     edx, esi"
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x011B32C5",
+      "listing_line": 734251,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_11B3220",
+      "caller_address": "0x011B3220",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "no_use",
+        "guard_before_first_use": false,
+        "guard": {
+          "register": "edi",
+          "compare_address": "0x011B32CC",
+          "compare_line": 734253,
+          "branch_address": "0x011B32CE",
+          "branch_line": 734254,
+          "branch": "jz      loc_11B35E4"
+        },
+        "first_use": null,
+        "aliases_at_stop": [
+          "edi"
+        ],
+        "forward_slice": [
+          ".text:011B32CA                 mov     edi, eax",
+          ".text:011B32CC                 test    edi, edi",
+          ".text:011B32CE                 jz      loc_11B35E4",
+          ".text:011B32D4                 mov     eax, 55AA10h",
+          ".text:011B32D9                 mov     ecx, offset aDiboxbckPcx_1 ; \"DiBoxBck.PCX\"",
+          ".text:011B32DE                 call    eax",
+          ".text:011B32E0                 mov     ebx, eax",
+          ".text:011B32E2                 mov     [ebp+var_24], ebx",
+          ".text:011B32E5                 test    ebx, ebx",
+          ".text:011B32E7                 jz      loc_11B35E4",
+          ".text:011B32ED                 mov     eax, 55C9C0h",
+          ".text:011B32F2                 mov     ecx, offset aDialgboxDef ; \"dialgbox.def\"",
+          ".text:011B32F7                 call    eax",
+          ".text:011B32F9                 mov     esi, eax",
+          ".text:011B32FB                 mov     [ebp+var_28], esi",
+          ".text:011B32FE                 test    esi, esi",
+          ".text:011B3300                 jz      loc_11B35E4",
+          ".text:011B3306                 mov     ecx, [esi+20h]",
+          ".text:011B3309                 mov     eax, 6003E0h",
+          ".text:011B330E                 mov     edx, [ebp+arg_10]",
+          ".text:011B3311                 add     ecx, 1Ch",
+          ".text:011B3314                 call    eax",
+          ".text:011B3316                 mov     ecx, [ebp+arg_C]",
+          ".text:011B3319                 mov     eax, ecx",
+          ".text:011B331B                 neg     eax",
+          ".text:011B331D                 mov     [ebp+var_18], 0",
+          ".text:011B3324                 sbb     eax, eax",
+          ".text:011B3326                 and     eax, 3",
+          ".text:011B3329                 add     eax, 7",
+          ".text:011B332C                 mov     [ebp+var_20], eax",
+          ".text:011B332F                 mov     eax, ecx",
+          ".text:011B3331                 neg     eax",
+          ".text:011B3333                 sbb     eax, eax",
+          ".text:011B3335                 and     eax, 6",
+          ".text:011B3338                 add     eax, 3",
+          ".text:011B333B                 neg     ecx",
+          ".text:011B333D                 mov     [ebp+var_3C], eax",
+          ".text:011B3340                 mov     eax, [ebx+24h]",
+          ".text:011B3343                 sbb     ecx, ecx",
+          ".text:011B3345                 and     ecx, 6",
+          ".text:011B3348                 add     ecx, 2",
+          ".text:011B334B                 mov     [ebp+arg_C], ecx",
+          ".text:011B334E                 mov     edi, edi",
+          ".text:011B3350 loc_11B3350:                            ; CODE XREF: sub_11B3220+187↓j",
+          ".text:011B3350                 mov     ecx, [ebp+var_30]",
+          ".text:011B3353                 xor     esi, esi",
+          ".text:011B3355                 sub     ecx, [ebp+var_18]",
+          ".text:011B3358                 mov     [ebp+var_1C], ecx"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:011B3298                 push    esi",
+        ".text:011B3299                 push    ebx             ; ArgList",
+        ".text:011B329A                 push    offset aSb4u4u1u1u ; \"sb%.4u%.4u%.1u%.1u\"",
+        ".text:011B329F                 lea     eax, [ebp+Buffer]",
+        ".text:011B32A2                 push    0FFFFFFFFh      ; MaxCount",
+        ".text:011B32A4                 push    eax             ; Buffer",
+        ".text:011B32A5                 call    sub_11B74A0",
+        ".text:011B32AA                 add     esp, 1Ch",
+        ".text:011B32AD                 lea     ecx, [ebp+Buffer]",
+        ".text:011B32B0                 call    sub_11B7580",
+        ".text:011B32B5                 mov     edi, eax",
+        ".text:011B32B7                 test    edi, edi",
+        ".text:011B32B9                 jnz     loc_11B35A5",
+        ".text:011B32BF                 push    esi",
+        ".text:011B32C0                 mov     edx, ebx",
+        ".text:011B32C2                 lea     ecx, [ebp+Buffer]"
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x011B811A",
+      "listing_line": 743556,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_11B8070",
+      "caller_address": "0x011B8070",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "guarded",
+        "guard_before_first_use": true,
+        "guard": {
+          "register": "edi",
+          "compare_address": "0x011B8121",
+          "compare_line": 743558,
+          "branch_address": "0x011B8123",
+          "branch_line": 743559,
+          "branch": "jz      loc_11B8304"
+        },
+        "first_use": {
+          "address": "0x011B8137",
+          "line": 743565,
+          "instruction": "mov     eax, [edi+24h]",
+          "aliases": [
+            "edi"
+          ]
+        },
+        "aliases_at_stop": [
+          "edi"
+        ],
+        "forward_slice": [
+          ".text:011B811F                 mov     edi, eax",
+          ".text:011B8121                 test    edi, edi",
+          ".text:011B8123                 jz      loc_11B8304",
+          ".text:011B8129                 push    0               ; dwMoveMethod",
+          ".text:011B812B                 push    0               ; lpDistanceToMoveHigh",
+          ".text:011B812D                 push    [ebp+lDistanceToMove] ; lDistanceToMove",
+          ".text:011B8130                 push    ebx             ; hFile",
+          ".text:011B8131                 call    ds:SetFilePointer ; KERNEL32",
+          ".text:011B8137                 mov     eax, [edi+24h]"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:011B80E8                 lea     eax, [ebp+NumberOfBytesRead]",
+        ".text:011B80EB                 push    eax             ; lpNumberOfBytesRead",
+        ".text:011B80EC                 push    2Ch ; ','       ; nNumberOfBytesToRead",
+        ".text:011B80EE                 lea     eax, [ebp+var_40]",
+        ".text:011B80F1                 push    eax             ; lpBuffer",
+        ".text:011B80F2                 push    ebx             ; hFile",
+        ".text:011B80F3                 call    esi ; ReadFile  ; KERNEL32",
+        ".text:011B80F5                 test    eax, eax",
+        ".text:011B80F7                 jz      loc_11B8304",
+        ".text:011B80FD                 cmp     [ebp+var_30], 0",
+        ".text:011B8101                 jnz     loc_11B8304",
+        ".text:011B8107                 cmp     [ebp+var_32], 18h",
+        ".text:011B810C                 jnz     loc_11B8304",
+        ".text:011B8112                 push    [ebp+var_38]",
+        ".text:011B8115                 mov     edx, [ebp+var_3C]",
+        ".text:011B8118                 mov     ecx, edi"
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x011B87A9",
+      "listing_line": 744408,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_11B8750",
+      "caller_address": "0x011B8750",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "unguarded",
+        "guard_before_first_use": false,
+        "guard": null,
+        "first_use": {
+          "address": "0x011B87B7",
+          "line": 744412,
+          "instruction": "push    dword ptr [eax+30h] ; void *",
+          "aliases": [
+            "eax"
+          ]
+        },
+        "aliases_at_stop": [
+          "eax"
+        ],
+        "forward_slice": [
+          ".text:011B87AE                 push    dword ptr [ebx+1Ch] ; Size",
+          ".text:011B87B1                 mov     [ebp+var_6C], eax",
+          ".text:011B87B4                 push    dword ptr [ebx+30h] ; Src",
+          ".text:011B87B7                 push    dword ptr [eax+30h] ; void *"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:011B8779                 fmul    ds:dbl_1205860",
+        ".text:011B877F                 push    ebx",
+        ".text:011B8780                 mov     ebx, ecx",
+        ".text:011B8782                 mov     ecx, offset unk_11FB517",
+        ".text:011B8787                 push    esi",
+        ".text:011B8788                 push    edi",
+        ".text:011B8789                 fadd    ds:dbl_1205850",
+        ".text:011B878F                 mov     edx, [ebx+24h]",
+        ".text:011B8792                 mov     [ebp+var_64], ebx",
+        ".text:011B8795                 push    dword ptr [ebx+28h]",
+        ".text:011B8798                 fstp    [ebp+var_30]",
+        ".text:011B879B                 fxch    st(1)",
+        ".text:011B879D                 fst     [ebp+var_28]",
+        ".text:011B87A0                 fstp    [ebp+var_18]",
+        ".text:011B87A3                 fst     [ebp+var_20]",
+        ".text:011B87A6                 fstp    [ebp+var_10]"
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    },
+    {
+      "callsite": "0x011BA2E8",
+      "listing_line": 747632,
+      "helper_operand": "sub_11B7F90",
+      "helper_kind": "generic",
+      "caller": "sub_11BA2E0",
+      "caller_address": "0x011BA2E0",
+      "arguments": {},
+      "destination_origin_candidate": "not_applicable",
+      "size_origin_candidate": "not_applicable",
+      "memset_null_matrix": null,
+      "nullable_result_contract": {
+        "classification": "unguarded",
+        "guard_before_first_use": false,
+        "guard": null,
+        "first_use": {
+          "address": "0x011BA2ED",
+          "line": 747633,
+          "instruction": "mov     dword ptr [eax], offset off_120DD7C",
+          "aliases": [
+            "eax"
+          ]
+        },
+        "aliases_at_stop": [
+          "eax"
+        ],
+        "forward_slice": [
+          ".text:011BA2ED                 mov     dword ptr [eax], offset off_120DD7C"
+        ],
+        "forward_window": 48
+      },
+      "bounded_slice": [
+        ".text:011BA2C7                 call    edi",
+        ".text:011BA2C9                 add     esp, 4",
+        ".text:011BA2CC loc_11BA2CC:                            ; CODE XREF: sub_11BA2A0+24↑j",
+        ".text:011BA2CC                 pop     edi",
+        ".text:011BA2CD                 pop     esi",
+        ".text:011BA2CE                 pop     ebp",
+        ".text:011BA2CF                 retn    4",
+        ".text:011BA2CF sub_11BA2A0     endp",
+        ".text:011BA2CF ; ---------------------------------------------------------------------------",
+        ".text:011BA2D2                 align 10h",
+        ".text:011BA2E0 ; =============== S U B R O U T I N E =======================================",
+        ".text:011BA2E0 sub_11BA2E0     proc near               ; CODE XREF: sub_11B4100+71↑p",
+        ".text:011BA2E0                                         ; sub_11B4100+89↑p ...",
+        ".text:011BA2E0                 push    edx",
+        ".text:011BA2E1                 mov     edx, ecx",
+        ".text:011BA2E3                 mov     ecx, offset asc_11FCD84 ; \"*\""
+      ],
+      "diagnosis": "not_assigned",
+      "limitations": [
+        "bounded backward slice only",
+        "candidate provenance is not a root-cause diagnosis"
+      ]
+    }
+  ],
+  "diagnostic_policy": "enumerate candidates; never assign diagnosis",
+  "valid": true
+}

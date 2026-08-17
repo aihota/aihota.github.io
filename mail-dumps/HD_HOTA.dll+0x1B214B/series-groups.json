@@ -1,0 +1,772 @@
+{
+  "schema": 1,
+  "source": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B214B",
+  "count_contract": "physical_txt = unique_incidents + duplicate_instances",
+  "counts": {
+    "physical_txt": 7,
+    "unique_incidents": 6,
+    "duplicate_instances": 1,
+    "signature_groups": 5,
+    "cause_groups": 5,
+    "unresolved_incidents": 0
+  },
+  "counters": {
+    "physical_txt": {
+      "numerator": 7,
+      "denominator": 7,
+      "population": "physical crash TXT"
+    },
+    "unique_incidents": {
+      "numerator": 6,
+      "denominator": 7,
+      "population": "physical crash TXT after exact deduplication"
+    },
+    "duplicate_instances": {
+      "numerator": 1,
+      "denominator": 7,
+      "population": "physical crash TXT removed by exact deduplication"
+    },
+    "classified_incidents": {
+      "numerator": 6,
+      "denominator": 6,
+      "population": "unique incidents"
+    },
+    "unresolved_incidents": {
+      "numerator": 0,
+      "denominator": 6,
+      "population": "unique incidents"
+    }
+  },
+  "incidents": [
+    {
+      "incident_id": "incident-6357311aab670e0f",
+      "sha256_txt": "6357311aab670e0fdb03f140045ed9ead2eae723dc3fe2c879b08b0c5f7c880b",
+      "physical_copies": [
+        "HD_HOTA.dll+0x1B214B-5.7-R40-180.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_HOTA.dll+0x1B214B-5.7-R40-180.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R40"
+      },
+      "eip_or_rva": "HD_HOTA.dll+0x1B214B",
+      "effective_access": "read",
+      "operand_address": "0x0000001C",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x33075460",
+        "EDX": "0x00000000",
+        "EBX": "0x00000016",
+        "ESP": "0x001A95CC",
+        "EBP": "0x001A95D4",
+        "ESI": "0x00000000",
+        "EDI": "0x00000007"
+      },
+      "caller": "version-mapped consumer at normalized offset +0x2B",
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x1B214B",
+        "instruction": "push dword ptr [ESI+1Ch]",
+        "effective_access": "read",
+        "operand_address": "0x0000001C",
+        "register_invariants": {
+          "zero": [
+            "EAX",
+            "EDX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI"
+          ],
+          "equal": [
+            "EAX=EDX"
+          ]
+        },
+        "helper_family": "version-mapped nullable lookup helper"
+      },
+      "cause": {
+        "caller": "version-mapped consumer at normalized offset +0x2B",
+        "destination_origin": "nullable helper return in EAX copied to ESI",
+        "size_origin": "not_applicable_non_bulk_access",
+        "size_formula": "not_applicable_field_read_plus_0x1C",
+        "subsystem": "HD_HOTA object lookup and field +0x1C"
+      },
+      "signature_group": "sig-91fdf5aed91d",
+      "cause_group": "cause-446d3e0fb7d0",
+      "destination_provenance": "nullable helper return in EAX copied to ESI",
+      "size_provenance": "not_applicable_non_bulk_access",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "candidate",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-d9ab88eb0d336d91",
+      "sha256_txt": "d9ab88eb0d336d91a1e4d76fd4f5767d5cf8f6d5e2c089e2b9e0a2a82487756a",
+      "physical_copies": [
+        "HD_HOTA.dll+0x1618EB-1.8.0-1-97CAD.txt",
+        "HD_HOTA.dll+0x1618EB-1.8.0-1.txt"
+      ],
+      "physical_copy_count": 2,
+      "txt": "HD_HOTA.dll+0x1618EB-1.8.0-1-97CAD.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R3"
+      },
+      "eip_or_rva": "HD_HOTA.dll+0x1618EB",
+      "effective_access": "read",
+      "operand_address": "0x0000001C",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x0560E030",
+        "EDX": "0x08EC212C",
+        "EBX": "0x00000016",
+        "ESP": "0x00199A30",
+        "EBP": "0x00199A38",
+        "ESI": "0x00000000",
+        "EDI": "0x00000007"
+      },
+      "caller": "version-mapped consumer at normalized offset +0x2B",
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x1618EB",
+        "instruction": "push dword ptr [ESI+1Ch]",
+        "effective_access": "read",
+        "operand_address": "0x0000001C",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "version-mapped nullable lookup helper"
+      },
+      "cause": {
+        "caller": "version-mapped consumer at normalized offset +0x2B",
+        "destination_origin": "nullable helper return in EAX copied to ESI",
+        "size_origin": "not_applicable_non_bulk_access",
+        "size_formula": "not_applicable_field_read_plus_0x1C",
+        "subsystem": "HD_HOTA object lookup and field +0x1C"
+      },
+      "signature_group": "sig-d14cf5f8460b",
+      "cause_group": "cause-2a2dfc40e673",
+      "destination_provenance": "nullable helper return in EAX copied to ESI",
+      "size_provenance": "not_applicable_non_bulk_access",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "candidate",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-0f19f8268f5d7050",
+      "sha256_txt": "0f19f8268f5d7050bb1fc09cddd8195c32a270c3a3e9dcd459bd99a5e21ad652",
+      "physical_copies": [
+        "HD_HOTA.dll+0x16323B-1.8.0-1.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_HOTA.dll+0x16323B-1.8.0-1.txt",
+      "dmp": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x16323B-1.8.0-1.dmp",
+      "pair_quality": "exact_pair",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R23"
+      },
+      "eip_or_rva": "HD_HOTA.dll+0x16323B",
+      "effective_access": "read",
+      "operand_address": "0x0000001C",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x0F1139A0",
+        "EDX": "0x05C30000",
+        "EBX": "0x00199F2C",
+        "ESP": "0x00199D58",
+        "EBP": "0x00199D60",
+        "ESI": "0x00000000",
+        "EDI": "0x00000065"
+      },
+      "caller": "version-mapped consumer at normalized offset +0x2B",
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x16323B",
+        "instruction": "push dword ptr [ESI+1Ch]",
+        "effective_access": "read",
+        "operand_address": "0x0000001C",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "version-mapped nullable lookup helper"
+      },
+      "cause": {
+        "caller": "version-mapped consumer at normalized offset +0x2B",
+        "destination_origin": "nullable helper return in EAX copied to ESI",
+        "size_origin": "not_applicable_non_bulk_access",
+        "size_formula": "not_applicable_field_read_plus_0x1C",
+        "subsystem": "HD_HOTA object lookup and field +0x1C"
+      },
+      "signature_group": "sig-50c7a07f63d8",
+      "cause_group": "cause-2c3c2a1cda14",
+      "destination_provenance": "nullable helper return in EAX copied to ESI",
+      "size_provenance": "not_applicable_non_bulk_access",
+      "capabilities": [
+        "captured_memory",
+        "code_window",
+        "exception_context",
+        "module_identity",
+        "thread_provenance",
+        "thread_stacks"
+      ],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "candidate",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-3fb74d5e4371bdd8",
+      "sha256_txt": "3fb74d5e4371bdd80efe3be17288a7d1be4c3c295162c86a2956c0fccd280fcb",
+      "physical_copies": [
+        "HD_HOTA.dll+0x1B107B-1.8.0-1.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_HOTA.dll+0x1B107B-1.8.0-1.txt",
+      "dmp": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.dmp",
+      "pair_quality": "exact_pair",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R33"
+      },
+      "eip_or_rva": "HD_HOTA.dll+0x1B107B",
+      "effective_access": "read",
+      "operand_address": "0x0000001C",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x21985088",
+        "EDX": "0x00000000",
+        "EBX": "0x001A9F2C",
+        "ESP": "0x001A9D68",
+        "EBP": "0x001A9D70",
+        "ESI": "0x00000000",
+        "EDI": "0x00000065"
+      },
+      "caller": "version-mapped consumer at normalized offset +0x2B",
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x1B107B",
+        "instruction": "push dword ptr [ESI+1Ch]",
+        "effective_access": "read",
+        "operand_address": "0x0000001C",
+        "register_invariants": {
+          "zero": [
+            "EAX",
+            "EDX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI"
+          ],
+          "equal": [
+            "EAX=EDX"
+          ]
+        },
+        "helper_family": "version-mapped nullable lookup helper"
+      },
+      "cause": {
+        "caller": "version-mapped consumer at normalized offset +0x2B",
+        "destination_origin": "nullable helper return in EAX copied to ESI",
+        "size_origin": "not_applicable_non_bulk_access",
+        "size_formula": "not_applicable_field_read_plus_0x1C",
+        "subsystem": "HD_HOTA object lookup and field +0x1C"
+      },
+      "signature_group": "sig-cf2d3a7e1d08",
+      "cause_group": "cause-124b815be914",
+      "destination_provenance": "nullable helper return in EAX copied to ESI",
+      "size_provenance": "not_applicable_non_bulk_access",
+      "capabilities": [
+        "captured_memory",
+        "code_window",
+        "exception_context",
+        "module_identity",
+        "thread_provenance",
+        "thread_stacks"
+      ],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "candidate",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-db80ea2fda333075",
+      "sha256_txt": "db80ea2fda333075436ce78df25b4ae0e1b522403731288370d1b6709ce1156b",
+      "physical_copies": [
+        "HD_HOTA.dll+0x1B107B-180.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_HOTA.dll+0x1B107B-180.txt",
+      "dmp": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.dmp",
+      "pair_quality": "exact_pair",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R33"
+      },
+      "eip_or_rva": "HD_HOTA.dll+0x1B107B",
+      "effective_access": "read",
+      "operand_address": "0x0000001C",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x21985088",
+        "EDX": "0x00000000",
+        "EBX": "0x001A9F2C",
+        "ESP": "0x001A9D68",
+        "EBP": "0x001A9D70",
+        "ESI": "0x00000000",
+        "EDI": "0x00000065"
+      },
+      "caller": "version-mapped consumer at normalized offset +0x2B",
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x1B107B",
+        "instruction": "push dword ptr [ESI+1Ch]",
+        "effective_access": "read",
+        "operand_address": "0x0000001C",
+        "register_invariants": {
+          "zero": [
+            "EAX",
+            "EDX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI"
+          ],
+          "equal": [
+            "EAX=EDX"
+          ]
+        },
+        "helper_family": "version-mapped nullable lookup helper"
+      },
+      "cause": {
+        "caller": "version-mapped consumer at normalized offset +0x2B",
+        "destination_origin": "nullable helper return in EAX copied to ESI",
+        "size_origin": "not_applicable_non_bulk_access",
+        "size_formula": "not_applicable_field_read_plus_0x1C",
+        "subsystem": "HD_HOTA object lookup and field +0x1C"
+      },
+      "signature_group": "sig-cf2d3a7e1d08",
+      "cause_group": "cause-124b815be914",
+      "destination_provenance": "nullable helper return in EAX copied to ESI",
+      "size_provenance": "not_applicable_non_bulk_access",
+      "capabilities": [
+        "captured_memory",
+        "code_window",
+        "exception_context",
+        "module_identity",
+        "thread_provenance",
+        "thread_stacks"
+      ],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "candidate",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-29b64f6d73e56fff",
+      "sha256_txt": "29b64f6d73e56fff3541d17dd9654bae2cd70cd180c07769e972efc6d8070d12",
+      "physical_copies": [
+        "HD_HOTA.dll+0x1B1D7B-5.7-R39-180.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_HOTA.dll+0x1B1D7B-5.7-R39-180.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R39"
+      },
+      "eip_or_rva": "HD_HOTA.dll+0x1B1D7B",
+      "effective_access": "read",
+      "operand_address": "0x0000001C",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x1C6FC9E0",
+        "EDX": "0x00000000",
+        "EBX": "0x00000016",
+        "ESP": "0x001A9AE4",
+        "EBP": "0x001A9AEC",
+        "ESI": "0x00000000",
+        "EDI": "0x00000007"
+      },
+      "caller": "version-mapped consumer at normalized offset +0x2B",
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x1B1D7B",
+        "instruction": "push dword ptr [ESI+1Ch]",
+        "effective_access": "read",
+        "operand_address": "0x0000001C",
+        "register_invariants": {
+          "zero": [
+            "EAX",
+            "EDX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI"
+          ],
+          "equal": [
+            "EAX=EDX"
+          ]
+        },
+        "helper_family": "version-mapped nullable lookup helper"
+      },
+      "cause": {
+        "caller": "version-mapped consumer at normalized offset +0x2B",
+        "destination_origin": "nullable helper return in EAX copied to ESI",
+        "size_origin": "not_applicable_non_bulk_access",
+        "size_formula": "not_applicable_field_read_plus_0x1C",
+        "subsystem": "HD_HOTA object lookup and field +0x1C"
+      },
+      "signature_group": "sig-6550744adc3b",
+      "cause_group": "cause-d0e9303a02e2",
+      "destination_provenance": "nullable helper return in EAX copied to ESI",
+      "size_provenance": "not_applicable_non_bulk_access",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "candidate",
+      "root_cause_allowed": false,
+      "outlier": false
+    }
+  ],
+  "signature_groups": [
+    {
+      "id": "sig-50c7a07f63d8",
+      "count": 1,
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x16323B",
+        "instruction": "push dword ptr [ESI+1Ch]",
+        "effective_access": "read",
+        "operand_address": "0x0000001C",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "version-mapped nullable lookup helper"
+      },
+      "cause_groups": [
+        "cause-2c3c2a1cda14"
+      ],
+      "representative": "incident-0f19f8268f5d7050"
+    },
+    {
+      "id": "sig-6550744adc3b",
+      "count": 1,
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x1B1D7B",
+        "instruction": "push dword ptr [ESI+1Ch]",
+        "effective_access": "read",
+        "operand_address": "0x0000001C",
+        "register_invariants": {
+          "zero": [
+            "EAX",
+            "EDX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI"
+          ],
+          "equal": [
+            "EAX=EDX"
+          ]
+        },
+        "helper_family": "version-mapped nullable lookup helper"
+      },
+      "cause_groups": [
+        "cause-d0e9303a02e2"
+      ],
+      "representative": "incident-29b64f6d73e56fff"
+    },
+    {
+      "id": "sig-91fdf5aed91d",
+      "count": 1,
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x1B214B",
+        "instruction": "push dword ptr [ESI+1Ch]",
+        "effective_access": "read",
+        "operand_address": "0x0000001C",
+        "register_invariants": {
+          "zero": [
+            "EAX",
+            "EDX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI"
+          ],
+          "equal": [
+            "EAX=EDX"
+          ]
+        },
+        "helper_family": "version-mapped nullable lookup helper"
+      },
+      "cause_groups": [
+        "cause-446d3e0fb7d0"
+      ],
+      "representative": "incident-6357311aab670e0f"
+    },
+    {
+      "id": "sig-cf2d3a7e1d08",
+      "count": 2,
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x1B107B",
+        "instruction": "push dword ptr [ESI+1Ch]",
+        "effective_access": "read",
+        "operand_address": "0x0000001C",
+        "register_invariants": {
+          "zero": [
+            "EAX",
+            "EDX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI"
+          ],
+          "equal": [
+            "EAX=EDX"
+          ]
+        },
+        "helper_family": "version-mapped nullable lookup helper"
+      },
+      "cause_groups": [
+        "cause-124b815be914"
+      ],
+      "representative": "incident-3fb74d5e4371bdd8"
+    },
+    {
+      "id": "sig-d14cf5f8460b",
+      "count": 1,
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x1618EB",
+        "instruction": "push dword ptr [ESI+1Ch]",
+        "effective_access": "read",
+        "operand_address": "0x0000001C",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "version-mapped nullable lookup helper"
+      },
+      "cause_groups": [
+        "cause-2a2dfc40e673"
+      ],
+      "representative": "incident-d9ab88eb0d336d91"
+    }
+  ],
+  "cause_groups": [
+    {
+      "id": "cause-124b815be914",
+      "count": 2,
+      "cause": {
+        "caller": "version-mapped consumer at normalized offset +0x2B",
+        "destination_origin": "nullable helper return in EAX copied to ESI",
+        "size_origin": "not_applicable_non_bulk_access",
+        "size_formula": "not_applicable_field_read_plus_0x1C",
+        "subsystem": "HD_HOTA object lookup and field +0x1C"
+      },
+      "signature_group": "sig-cf2d3a7e1d08",
+      "representative": "incident-3fb74d5e4371bdd8",
+      "unresolved": false
+    },
+    {
+      "id": "cause-2a2dfc40e673",
+      "count": 1,
+      "cause": {
+        "caller": "version-mapped consumer at normalized offset +0x2B",
+        "destination_origin": "nullable helper return in EAX copied to ESI",
+        "size_origin": "not_applicable_non_bulk_access",
+        "size_formula": "not_applicable_field_read_plus_0x1C",
+        "subsystem": "HD_HOTA object lookup and field +0x1C"
+      },
+      "signature_group": "sig-d14cf5f8460b",
+      "representative": "incident-d9ab88eb0d336d91",
+      "unresolved": false
+    },
+    {
+      "id": "cause-2c3c2a1cda14",
+      "count": 1,
+      "cause": {
+        "caller": "version-mapped consumer at normalized offset +0x2B",
+        "destination_origin": "nullable helper return in EAX copied to ESI",
+        "size_origin": "not_applicable_non_bulk_access",
+        "size_formula": "not_applicable_field_read_plus_0x1C",
+        "subsystem": "HD_HOTA object lookup and field +0x1C"
+      },
+      "signature_group": "sig-50c7a07f63d8",
+      "representative": "incident-0f19f8268f5d7050",
+      "unresolved": false
+    },
+    {
+      "id": "cause-446d3e0fb7d0",
+      "count": 1,
+      "cause": {
+        "caller": "version-mapped consumer at normalized offset +0x2B",
+        "destination_origin": "nullable helper return in EAX copied to ESI",
+        "size_origin": "not_applicable_non_bulk_access",
+        "size_formula": "not_applicable_field_read_plus_0x1C",
+        "subsystem": "HD_HOTA object lookup and field +0x1C"
+      },
+      "signature_group": "sig-91fdf5aed91d",
+      "representative": "incident-6357311aab670e0f",
+      "unresolved": false
+    },
+    {
+      "id": "cause-d0e9303a02e2",
+      "count": 1,
+      "cause": {
+        "caller": "version-mapped consumer at normalized offset +0x2B",
+        "destination_origin": "nullable helper return in EAX copied to ESI",
+        "size_origin": "not_applicable_non_bulk_access",
+        "size_formula": "not_applicable_field_read_plus_0x1C",
+        "subsystem": "HD_HOTA object lookup and field +0x1C"
+      },
+      "signature_group": "sig-6550744adc3b",
+      "representative": "incident-29b64f6d73e56fff",
+      "unresolved": false
+    }
+  ],
+  "signature_only_separations": [],
+  "related_cases": [],
+  "representatives": {
+    "algorithm": "deterministic_greedy_set_cover",
+    "selected": [
+      {
+        "incident_id": "incident-0f19f8268f5d7050",
+        "txt": "HD_HOTA.dll+0x16323B-1.8.0-1.txt",
+        "newly_covered": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-2c3c2a1cda14",
+          "formula:not_applicable_field_read_plus_0x1C",
+          "hd:5.7 R23",
+          "hota:1.8.0",
+          "subsystem:HD_HOTA object lookup and field +0x1C"
+        ],
+        "all_features": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-2c3c2a1cda14",
+          "formula:not_applicable_field_read_plus_0x1C",
+          "hd:5.7 R23",
+          "hota:1.8.0",
+          "subsystem:HD_HOTA object lookup and field +0x1C"
+        ]
+      },
+      {
+        "incident_id": "incident-d9ab88eb0d336d91",
+        "txt": "HD_HOTA.dll+0x1618EB-1.8.0-1-97CAD.txt",
+        "newly_covered": [
+          "cause:cause-2a2dfc40e673",
+          "hd:5.7 R3"
+        ],
+        "all_features": [
+          "cause:cause-2a2dfc40e673",
+          "formula:not_applicable_field_read_plus_0x1C",
+          "hd:5.7 R3",
+          "hota:1.8.0",
+          "subsystem:HD_HOTA object lookup and field +0x1C"
+        ]
+      },
+      {
+        "incident_id": "incident-3fb74d5e4371bdd8",
+        "txt": "HD_HOTA.dll+0x1B107B-1.8.0-1.txt",
+        "newly_covered": [
+          "cause:cause-124b815be914",
+          "hd:5.7 R33"
+        ],
+        "all_features": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-124b815be914",
+          "formula:not_applicable_field_read_plus_0x1C",
+          "hd:5.7 R33",
+          "hota:1.8.0",
+          "subsystem:HD_HOTA object lookup and field +0x1C"
+        ]
+      },
+      {
+        "incident_id": "incident-29b64f6d73e56fff",
+        "txt": "HD_HOTA.dll+0x1B1D7B-5.7-R39-180.txt",
+        "newly_covered": [
+          "cause:cause-d0e9303a02e2",
+          "hd:5.7 R39"
+        ],
+        "all_features": [
+          "cause:cause-d0e9303a02e2",
+          "formula:not_applicable_field_read_plus_0x1C",
+          "hd:5.7 R39",
+          "hota:1.8.0",
+          "subsystem:HD_HOTA object lookup and field +0x1C"
+        ]
+      },
+      {
+        "incident_id": "incident-6357311aab670e0f",
+        "txt": "HD_HOTA.dll+0x1B214B-5.7-R40-180.txt",
+        "newly_covered": [
+          "cause:cause-446d3e0fb7d0",
+          "hd:5.7 R40"
+        ],
+        "all_features": [
+          "cause:cause-446d3e0fb7d0",
+          "formula:not_applicable_field_read_plus_0x1C",
+          "hd:5.7 R40",
+          "hota:1.8.0",
+          "subsystem:HD_HOTA object lookup and field +0x1C"
+        ]
+      }
+    ],
+    "uncovered": []
+  },
+  "validation_errors": [],
+  "valid": true
+}
