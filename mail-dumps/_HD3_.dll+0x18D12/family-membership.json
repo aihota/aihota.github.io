@@ -1,0 +1,59 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-17T10:52:44.743543+00:00",
+  "family_id": "family-hd3-directdraw-setclipper-null",
+  "source": "mail-dumps/_HD3_.dll+0x18D12/family-membership-input.json",
+  "scope": {
+    "source": "локальная целевая серия R40",
+    "incidents": 2,
+    "classification": "две точные пары TXT/DMP одного R40-механизма"
+  },
+  "memberships": [
+    {
+      "incident_id": "incident-e31f0a164202d2e8",
+      "membership": "confirmed",
+      "basis": "тот же RVA 0x18D12, точные R40-байты, EAX=0 и caller 0x00601C60",
+      "evidence": [
+        "series_registry:incident-e31f0a164202d2e8",
+        "dmp:_hd3_.dll+0x18D12-5.7-R40-180-1.dmp"
+      ],
+      "fingerprint": {
+        "structure_role": "глобальная поверхность DirectDraw в SetClipper",
+        "field": "vtable +0x0 из dword_1004C9F4",
+        "call_tail": [
+          "h3hota.exe:0x00601C5D",
+          "_HD3_.dll:sub_10018D00+0x12"
+        ],
+        "frame_depth": "0x8"
+      }
+    },
+    {
+      "incident_id": "incident-247c37d40ea7d2d4",
+      "membership": "confirmed",
+      "basis": "тот же RVA 0x18D12, точные R40-байты, EAX=0 и caller 0x00601C60",
+      "evidence": [
+        "series_registry:incident-247c37d40ea7d2d4",
+        "dmp:_hd3_.dll+0x18D12-5.7-R40-180-2.dmp"
+      ],
+      "fingerprint": {
+        "structure_role": "глобальная поверхность DirectDraw в SetClipper",
+        "field": "vtable +0x0 из dword_1004C9F4",
+        "call_tail": [
+          "h3hota.exe:0x00601C5D",
+          "_HD3_.dll:sub_10018D00+0x12"
+        ],
+        "frame_depth": "0x8"
+      }
+    }
+  ],
+  "counts": {
+    "confirmed": 2
+  },
+  "errors": [],
+  "registry_valid": true,
+  "enumeration_complete": true,
+  "classification_complete": true,
+  "unknown_count": 0,
+  "blocked_by_listing_count": 0,
+  "complete": true
+}

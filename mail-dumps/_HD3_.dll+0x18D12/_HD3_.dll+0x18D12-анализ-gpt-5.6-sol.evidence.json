@@ -1,0 +1,337 @@
+{
+  "schema": 3,
+  "generated_at": "2026-08-17T11:41:30.172866+00:00",
+  "parser_revision": "static audit 2026-08-17",
+  "report": {
+    "path": "_HD3_.dll+0x18D12-анализ-gpt-5.6-sol.txt",
+    "size": 31388,
+    "sha256": "06b5b0b1beef315b511620de06000b2b82a7ab57357ff4b184d218f6d90e3afb"
+  },
+  "inputs": [
+    {
+      "path": "_hd3_.dll+0x18D12-5.7-R40-180-1.txt",
+      "size": 7230,
+      "sha256": "e31f0a164202d2e8208fe76b9680f406170182859b566064cdf71490740fe004",
+      "role": "source"
+    },
+    {
+      "path": "_hd3_.dll+0x18D12-5.7-R40-180-1.dmp",
+      "size": 95928,
+      "sha256": "0dc7d8aa7197610505d8eb381e3359018eac1d1f8a1ed31e1625b32cc9bfd5b9",
+      "role": "runtime"
+    },
+    {
+      "path": "_hd3_.dll+0x18D12-5.7-R40-180-2.txt",
+      "size": 7186,
+      "sha256": "247c37d40ea7d2d43746b77369e9034020cc60a94b6da605abc9be56a3652a23",
+      "role": "source"
+    },
+    {
+      "path": "_hd3_.dll+0x18D12-5.7-R40-180-2.dmp",
+      "size": 64058,
+      "sha256": "95d156633876073f9e0dce7230af533489cc20b1de3db807a5f787f7e911a1da",
+      "role": "runtime"
+    },
+    {
+      "path": "../../180/_HD3_.dll",
+      "size": 272896,
+      "sha256": "37b1a61271b92a0eb2885ad022751bd3d8e142b26615ef6a1eefe83fd9c9c319",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/_HD3_.dll-5.7 R40.txt",
+      "size": 9013254,
+      "sha256": "668fb93a0df063a7a91ac00937132264c210f4b7e63cb5490d2bf4810af197ff",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/_HD3_.dll-5.7 R36.txt",
+      "size": 9009343,
+      "sha256": "7b83760bafd2e592052e2ba1b57b0b1696a1311ae405215b08878a53c09e89df",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/h3hota.exe.txt",
+      "size": 79196875,
+      "sha256": "a659b437fa53df6e65a763481c03538a79b0899130ea4b9dfeba1dd9b5e0ddd6",
+      "role": "source"
+    },
+    {
+      "path": "pair-audit.json",
+      "size": 2043,
+      "sha256": "87f27d61641f456a1793a3c205fa9cc1895b034c8eda149bf6711d631329f65c",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-parse.json",
+      "size": 9846,
+      "sha256": "9179aa2bc10315633e7f9739d2bed75d9eb8ec663b5177bda4f09f68e59a3f32",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-groups.json",
+      "size": 61086,
+      "sha256": "f0cd9b72af4d04e584efec82f0b8c1d7f2ae436c6de5524ea042a9853f6febff",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "capabilities.json",
+      "size": 5744,
+      "sha256": "c204743db30cd5c9fb9c62ad9428a070ae0aac411003a06e98596cf28c4ffb9d",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "static-exhaustion.json",
+      "size": 6303,
+      "sha256": "2cf6ba0c128bfe63d0bd34e6520496ace76aa1ab15b7279a4f7afd577b362e96",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "full-family-series.json",
+      "size": 85262,
+      "sha256": "cf345a195a70e520ec344bb82e2821c801662ca793a3e9662d58bfcbae618cd6",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-folder-inventory.json",
+      "size": 14723,
+      "sha256": "690ea19bf15c1d08f4e39ca961454b4a3280b835e1de0556be776c736c58f468",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "relocation-manifest-mail-folder.json",
+      "size": 22378,
+      "sha256": "83b871d7983b647c7f8a1a5092c08a1237557c635a93f633994b8d410d4f260c",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "relocation-manifest-legacy-copies.json",
+      "size": 11691,
+      "sha256": "234ff5fbeee639f57cd4721c5cf7ee9c48ac66ec78023e3525f16715e5aa279e",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "relocation-manifest-r40-duplicate-copies.json",
+      "size": 4363,
+      "sha256": "fcc306580faa474a37ae4266882c7c9793ecb88635dee2daa3089cff44af3942",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "related-18C92.json",
+      "size": 18392,
+      "sha256": "1c0aad89c62ee8e16212b5fc7a2afd53bce0856370111435c6e93b91f991b264",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-membership.json",
+      "size": 1939,
+      "sha256": "dbcbc04d0136083cc5450d2d4d7212d18779bc6c33578451a3f171e85ed294ce",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "coverage.json",
+      "size": 5168,
+      "sha256": "9f449c9a001bfd0653d2ed8315670de1615892ec80f882bf3bc1ca290a401cf8",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "evidence-config.json",
+      "size": 3592,
+      "sha256": "4346b9a750b06fcc8aca001872fd9c7d4496eb255f27986b066c748f6bb5d192",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "coverage-claims.json",
+      "size": 4173,
+      "sha256": "f8a40b7cbcc0c2866dca3a35bebf86512103bdbfacc717e200aa0049a2da3114",
+      "role": "derived-evidence"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/multi-dump-diff/relocate_crash_family.py",
+      "size": 37831,
+      "sha256": "24ed349a271c6dea5e23f7e94aec3be00bfe9e298f26470c51b20d6e33a27ece"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/parse_dumps.py",
+      "size": 25100,
+      "sha256": "777d3ab3b772c95935d650dbd648aa114143a5364861ae9683f3565fd996c89e"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/pair_audit.py",
+      "size": 22396,
+      "sha256": "b6eb024f6b1481fd0ca2ab72bae59f886d307d130ae36dfda4d3b6e006352b37"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/series_registry.py",
+      "size": 21472,
+      "sha256": "7631d00f7b7d9aaf88840324fd06f274e0a4caf63d07043ad0ee46ed556e0947"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+      "size": 56930,
+      "sha256": "6264023ddb11ae86f15e4578fa9ae51bcd66b0a7422616e917bcceed6ecf6e1f"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+      "size": 8573,
+      "sha256": "adde7c9f84d42b2dd0e66977024cbee743836d03a798c9cb43a2298dd31f47c1"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/family_membership.py",
+      "size": 7966,
+      "sha256": "d5ee82612fe40c2f95af2775c3337dbac03acd3f7a20a6c630b41ac363d6a4cd"
+    }
+  ],
+  "commands": [
+    "parse_dumps.py mcp/.tmp-tools/hd3-full-family-20260817 --instruction-access read",
+    "relocate_crash_family.py verify --manifest relocation-manifest-mail-folder.json",
+    "relocate_crash_family.py verify --manifest relocation-manifest-legacy-copies.json",
+    "relocate_crash_family.py verify --manifest relocation-manifest-r40-duplicate-copies.json",
+    "pair_audit.py mail-dumps/_HD3_.dll+0x18D12 --allow-unpaired",
+    "static_exhaustion_check.py modules/_HD3_.dll-5.7 R40.txt sub_10018D00",
+    "dump_query: exception, threads and code windows for both R40 DMP"
+  ],
+  "facts": {
+    "target_events": "2",
+    "pair_quality": "2 exact_pair",
+    "crash_rva": "0x18D12",
+    "crash_instruction": "mov ecx,[eax]",
+    "fault_address": "0x00000000",
+    "global_pointer": "dword_1004C9F4",
+    "create_surface_check": "HRESULT and output pointer check absent",
+    "create_surface_hresult": "not captured",
+    "family_unique_events": "19",
+    "family_physical_txt": "32",
+    "family_unique_txt_sha256": "20",
+    "family_duplicates": "13",
+    "family_byte_duplicates": "12",
+    "family_physical_dmp": "17",
+    "family_unique_dmp_sha256": "10",
+    "all_family_files_inside_case": "True",
+    "thread_provenance": "CONTEXT_THREAD_MISMATCH in both DMP",
+    "recommended_fix": "check HRESULT and pointer before publishing wrapper"
+  },
+  "claims": [
+    {
+      "confidence": "видно непосредственно в DMP",
+      "id": "crash-site-r40",
+      "type": "crash_site",
+      "statement": "Падает инструкция 0x10018D12: mov ecx, [eax].",
+      "evidence": [
+        "fact:crash_rva",
+        "fact:crash_instruction",
+        "input:_hd3_.dll+0x18D12-5.7-R40-180-1.dmp",
+        "input:_hd3_.dll+0x18D12-5.7-R40-180-2.dmp",
+        "input:pair-audit.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "id": "null-global-mechanism",
+      "type": "local_mechanism",
+      "statement": "Непосредственно перед ней EAX загружается из dword_1004C9F4.",
+      "evidence": [
+        "fact:global_pointer",
+        "fact:fault_address",
+        "input:static-exhaustion.json",
+        "input:series-parse.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "create-surface-origin",
+      "type": "state_origin",
+      "statement": "При отказе CreateSurface выходной указатель остаётся равным начальному",
+      "evidence": [
+        "fact:create_surface_check",
+        "fact:global_pointer",
+        "input:static-exhaustion.json",
+        "input:capabilities.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "known-family-census",
+      "type": "family_coverage",
+      "statement": "Полный локальный проход известных адресов дал 19 уникальных инцидентов.",
+      "evidence": [
+        "fact:family_unique_events",
+        "fact:family_physical_txt",
+        "fact:family_unique_txt_sha256",
+        "fact:family_duplicates",
+        "fact:family_byte_duplicates",
+        "fact:family_physical_dmp",
+        "fact:all_family_files_inside_case",
+        "input:full-family-series.json",
+        "input:family-folder-inventory.json",
+        "input:relocation-manifest-mail-folder.json",
+        "input:relocation-manifest-legacy-copies.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "missing-create-surface-hresult",
+      "type": "limitation",
+      "statement": "HRESULT CreateSurface не сохранён.",
+      "evidence": [
+        "fact:create_surface_hresult",
+        "input:capabilities.json",
+        "input:_hd3_.dll+0x18D12-5.7-R40-180-1.dmp",
+        "input:_hd3_.dll+0x18D12-5.7-R40-180-2.dmp"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "id": "hdmod-readiness-fix",
+      "type": "fix",
+      "statement": "Перед CreateSurface обнулить выходной указатель dword_1004C9F4.",
+      "evidence": [
+        "fact:recommended_fix",
+        "input:static-exhaustion.json"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "probable"
+      }
+    }
+  ],
+  "code_evidence": {
+    "level": "dmp-window",
+    "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
+  },
+  "machine_results": []
+}

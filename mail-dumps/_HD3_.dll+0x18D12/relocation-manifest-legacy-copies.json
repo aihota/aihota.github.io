@@ -1,0 +1,256 @@
+{
+  "version": 3,
+  "created": "2026-08-17",
+  "target": "mail-dumps/_HD3_.dll+0x18D12/Дополнительные физические копии",
+  "source_root": "",
+  "relation": "confirmed_same_defect",
+  "reason": "Одинаковый SetClipper-перехватчик: чтение [NULL] из глобальной DirectDraw-поверхности, EAX=0, caller 0x00601C60; сохранены все физические копии, включая точные дубли.",
+  "count_in_family": true,
+  "publish_with_primary": true,
+  "family_contract": {
+    "event_role": "crash",
+    "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+    "operation": "read",
+    "mechanism_side": "source",
+    "events": 11
+  },
+  "state": "applied",
+  "items": [
+    {
+      "source": "mail-dumps/_HD3_.dll+0x189B2/_HD3_.dll+0x189B2-180.dmp",
+      "destination": "mail-dumps/_HD3_.dll+0x18D12/Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_HD3_.dll+0x189B2-180.dmp",
+      "kind": "dmp",
+      "size": 149982,
+      "sha256": "5da66ba007fd039399b0eb35ce217a298ffd8ee288c10b071975d7cf222f86d2",
+      "pair_check": {
+        "context_eip": "0x100189B2",
+        "module": "_HD3_.dll",
+        "rva": "0x189B2",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "_HD3_.dll+0x189B2-180"
+      },
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "dump_invariant"
+    },
+    {
+      "source": "mail-dumps/_HD3_.dll+0x189B2/_HD3_.dll+0x189B2-180.txt",
+      "destination": "mail-dumps/_HD3_.dll+0x18D12/Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_HD3_.dll+0x189B2-180.txt",
+      "kind": "txt",
+      "size": 7363,
+      "sha256": "c2fbb70c69844a0187632ebe7e5979b63ebb1af3ab186ca06984869c57638ba6",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "dump_invariant",
+      "pair_check": {
+        "context_eip": "0x100189B2",
+        "module": "_HD3_.dll",
+        "rva": "0x189B2",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "_HD3_.dll+0x189B2-180"
+      }
+    },
+    {
+      "source": "mail-dumps/_HD3_.dll+0x189B2/_hd3_.dll+0x184C2-1.8.0-1.txt",
+      "destination": "mail-dumps/_HD3_.dll+0x18D12/Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-1.txt",
+      "kind": "txt",
+      "size": 7363,
+      "sha256": "822d97a3f2323004abef4000ae9b2db5f6402b06d3c736cd6874b7d654b2abf6",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "structural"
+    },
+    {
+      "source": "mail-dumps/_HD3_.dll+0x189B2/_hd3_.dll+0x184C2-1.8.0-2.txt",
+      "destination": "mail-dumps/_HD3_.dll+0x18D12/Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-2.txt",
+      "kind": "txt",
+      "size": 7363,
+      "sha256": "aeb0141594ead8eeab8345de134cc1ef5797c455a162dbdd682d914ab655b646",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "structural"
+    },
+    {
+      "source": "mail-dumps/_HD3_.dll+0x189B2/_hd3_.dll+0x184C2-1.8.0-3.txt",
+      "destination": "mail-dumps/_HD3_.dll+0x18D12/Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-3.txt",
+      "kind": "txt",
+      "size": 7179,
+      "sha256": "ccdeec8e9d7bae18369a19734aff17c56a470ae75e8592fcb4fef56295bed2bb",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "structural"
+    },
+    {
+      "source": "mail-dumps/_HD3_.dll+0x189B2/_hd3_.dll+0x184C2-1.8.0-4.txt",
+      "destination": "mail-dumps/_HD3_.dll+0x18D12/Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-4.txt",
+      "kind": "txt",
+      "size": 7280,
+      "sha256": "310a15ee6a8b29a40ac77db010d4c8ceece0c973f2f3d6b0036bed48fb3b128b",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "structural"
+    },
+    {
+      "source": "mail-dumps/_HD3_.dll+0x189B2/_hd3_.dll+0x184C2-1.8.0-5.txt",
+      "destination": "mail-dumps/_HD3_.dll+0x18D12/Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-5.txt",
+      "kind": "txt",
+      "size": 7152,
+      "sha256": "f327f80bb9e8a738694cebb51d4f9d19e8e9c6e1ede9a9be47e2bae9b4b05611",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "structural"
+    },
+    {
+      "source": "mail-dumps/_HD3_.dll+0x189B2/_hd3_.dll+0x184C2-1.8.0-6.txt",
+      "destination": "mail-dumps/_HD3_.dll+0x18D12/Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x184C2-1.8.0-6.txt",
+      "kind": "txt",
+      "size": 7157,
+      "sha256": "ca8afa19c029eb8e9fff9c1b4d551ff8f08387c7b9b604008405b6502d762343",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "structural"
+    },
+    {
+      "source": "mail-dumps/_HD3_.dll+0x189B2/_hd3_.dll+0x18982-1.8.0-1.dmp",
+      "destination": "mail-dumps/_HD3_.dll+0x18D12/Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18982-1.8.0-1.dmp",
+      "kind": "dmp",
+      "size": 89281,
+      "sha256": "4159b42aa1918eb3df73539d14e79e64aa973e8acc7a45fc0200f547a538349d",
+      "pair_check": {
+        "context_eip": "0x10018982",
+        "module": "_HD3_.dll",
+        "rva": "0x18982",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "_hd3_.dll+0x18982-1.8.0-1"
+      },
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "dump_invariant"
+    },
+    {
+      "source": "mail-dumps/_HD3_.dll+0x189B2/_hd3_.dll+0x18982-1.8.0-1.txt",
+      "destination": "mail-dumps/_HD3_.dll+0x18D12/Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18982-1.8.0-1.txt",
+      "kind": "txt",
+      "size": 7144,
+      "sha256": "52cfda4b26279ebf516f9f249f2815de83759a73fed589c2867d6dac66618fbd",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "dump_invariant",
+      "pair_check": {
+        "context_eip": "0x10018982",
+        "module": "_HD3_.dll",
+        "rva": "0x18982",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "_hd3_.dll+0x18982-1.8.0-1"
+      }
+    },
+    {
+      "source": "mail-dumps/_HD3_.dll+0x189B2/_hd3_.dll+0x18B72-1.8.0-1.dmp",
+      "destination": "mail-dumps/_HD3_.dll+0x18D12/Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-1.dmp",
+      "kind": "dmp",
+      "size": 752865,
+      "sha256": "283b22c3462cb5d8b760e7d8fe66bdeb914dd77002bb68be1893fb99518e75d7",
+      "pair_check": {
+        "context_eip": "0x10018B72",
+        "module": "_HD3_.dll",
+        "rva": "0x18B72",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "_hd3_.dll+0x18B72-1.8.0-1"
+      },
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "dump_invariant"
+    },
+    {
+      "source": "mail-dumps/_HD3_.dll+0x189B2/_hd3_.dll+0x18B72-1.8.0-1.txt",
+      "destination": "mail-dumps/_HD3_.dll+0x18D12/Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-1.txt",
+      "kind": "txt",
+      "size": 7539,
+      "sha256": "21118100bd50153c6e159e083757e0c5fc0d1cd16de489918ca5df78902a2bab",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "dump_invariant",
+      "pair_check": {
+        "context_eip": "0x10018B72",
+        "module": "_HD3_.dll",
+        "rva": "0x18B72",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "_hd3_.dll+0x18B72-1.8.0-1"
+      }
+    },
+    {
+      "source": "mail-dumps/_HD3_.dll+0x189B2/_hd3_.dll+0x18B72-1.8.0-2.dmp",
+      "destination": "mail-dumps/_HD3_.dll+0x18D12/Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-2.dmp",
+      "kind": "dmp",
+      "size": 752865,
+      "sha256": "283b22c3462cb5d8b760e7d8fe66bdeb914dd77002bb68be1893fb99518e75d7",
+      "pair_check": {
+        "context_eip": "0x10018B72",
+        "module": "_HD3_.dll",
+        "rva": "0x18B72",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "_hd3_.dll+0x18B72-1.8.0-2"
+      },
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "dump_invariant"
+    },
+    {
+      "source": "mail-dumps/_HD3_.dll+0x189B2/_hd3_.dll+0x18B72-1.8.0-2.txt",
+      "destination": "mail-dumps/_HD3_.dll+0x18D12/Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18B72-1.8.0-2.txt",
+      "kind": "txt",
+      "size": 7601,
+      "sha256": "4320f4d68423fcb49ca57154e8e7a268c4d6a78ae5478737fa50ceed70e739b2",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "dump_invariant",
+      "pair_check": {
+        "context_eip": "0x10018B72",
+        "module": "_HD3_.dll",
+        "rva": "0x18B72",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "_hd3_.dll+0x18B72-1.8.0-2"
+      }
+    },
+    {
+      "source": "mail-dumps/_HD3_.dll+0x189B2/_hd3_.dll+0x18C72-1.8.0-1.txt",
+      "destination": "mail-dumps/_HD3_.dll+0x18D12/Дополнительные физические копии/Краш-логи и дампы старых версий HD-мода/_hd3_.dll+0x18C72-1.8.0-1.txt",
+      "kind": "txt",
+      "size": 7567,
+      "sha256": "17f184fdf5916a1f12319e7504e4f6754d248d151466eb0c4dda603a2a687d10",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "structural"
+    }
+  ]
+}

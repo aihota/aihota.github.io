@@ -1,0 +1,251 @@
+{
+  "schema": 3,
+  "listing": "/Users/Shared/ii/modules/_HD3_.dll-5.7 R40.txt",
+  "module_kind": "hd_mod",
+  "version_axis": "hd",
+  "version_applicable": true,
+  "version_axis_status": {
+    "version_axis": "hd",
+    "expected_axis": "hd",
+    "version_applicable": true,
+    "status": "applicable",
+    "reason": "axis_matches_module_kind"
+  },
+  "code_identity": {
+    "status": "supplied",
+    "path": "/Users/Shared/ii/180/_HD3_.dll",
+    "size": 272896,
+    "sha256": "37b1a61271b92a0eb2885ad022751bd3d8e142b26615ef6a1eefe83fd9c9c319",
+    "listing_link": "unverified_without_exported_listing_identity"
+  },
+  "actual_caller": {
+    "address": "0x601C60",
+    "function": null,
+    "resolved": false
+  },
+  "coverage": {
+    "complete_listing_scan": true,
+    "listing_lines": 179220
+  },
+  "function": {
+    "name": "sub_10018D00",
+    "start": "0x10018D00",
+    "end": "0x10018D1A"
+  },
+  "crash": {
+    "address": "0x10018D12",
+    "instruction": "mov     ecx, [eax]",
+    "exact_instruction_boundary": true
+  },
+  "categories": {
+    "callers": {
+      "found_count": 0,
+      "emitted_count": 0,
+      "truncated": false,
+      "xref": "",
+      "hits": [],
+      "details": [],
+      "hook_registrations": []
+    },
+    "allocations": {
+      "found_count": 0,
+      "unchecked_count": 0,
+      "rows": []
+    },
+    "allocation_flows": {
+      "found_count": 0,
+      "local_mechanism_confirmed_count": 0,
+      "rows": []
+    },
+    "sod_calls": {
+      "found_count": 0,
+      "interpretation": "no_engine_call_in_this_function",
+      "rows": []
+    },
+    "global_lifecycle": {
+      "address": "0x1004C9F4",
+      "symbol": "dword_1004C9F4",
+      "status": "observed",
+      "direct_references_only": true,
+      "one_hop_register_tracking": true,
+      "limitations": [
+        "aliases_not_followed",
+        "computed_addresses_not_followed",
+        "bulk_copy_not_resolved",
+        "cross_block_def_use_not_followed"
+      ],
+      "references_count": 13,
+      "reads_count": 11,
+      "writes_count": 1,
+      "null_guards_count": 0,
+      "publications_count": 1,
+      "clears_count": 0,
+      "rows": [
+        {
+          "address": "0x100187B9",
+          "instruction": "push    offset dword_1004C9F4",
+          "kinds": [
+            "read"
+          ],
+          "paired_jump": null,
+          "via": "direct"
+        },
+        {
+          "address": "0x100189A7",
+          "instruction": "mov     eax, dword_1004C9F4",
+          "kinds": [
+            "read"
+          ],
+          "paired_jump": null,
+          "via": "direct"
+        },
+        {
+          "address": "0x100189D5",
+          "instruction": "mov     eax, dword_1004C9F4",
+          "kinds": [
+            "read"
+          ],
+          "paired_jump": null,
+          "via": "direct"
+        },
+        {
+          "address": "0x100189E7",
+          "instruction": "mov     eax, dword_1004C9F4",
+          "kinds": [
+            "read"
+          ],
+          "paired_jump": null,
+          "via": "direct"
+        },
+        {
+          "address": "0x10018A05",
+          "instruction": "mov     eax, dword_1004C9F4",
+          "kinds": [
+            "read"
+          ],
+          "paired_jump": null,
+          "via": "direct"
+        },
+        {
+          "address": "0x10018B1F",
+          "instruction": "mov     ecx, dword_1004C9F4",
+          "kinds": [
+            "read"
+          ],
+          "paired_jump": null,
+          "via": "direct"
+        },
+        {
+          "address": "0x10018B50",
+          "instruction": "mov     eax, dword_1004C9F4",
+          "kinds": [
+            "read"
+          ],
+          "paired_jump": null,
+          "via": "direct"
+        },
+        {
+          "address": "0x10018B62",
+          "instruction": "mov     eax, dword_1004C9F4",
+          "kinds": [
+            "read"
+          ],
+          "paired_jump": null,
+          "via": "direct"
+        },
+        {
+          "address": "0x10018B80",
+          "instruction": "mov     eax, dword_1004C9F4",
+          "kinds": [
+            "read"
+          ],
+          "paired_jump": null,
+          "via": "direct"
+        },
+        {
+          "address": "0x10018CD9",
+          "instruction": "mov     eax, dword_1004C9F4",
+          "kinds": [
+            "read"
+          ],
+          "paired_jump": null,
+          "via": "direct"
+        },
+        {
+          "address": "0x10018CEA",
+          "instruction": "mov     dword_1004C9F4, edi",
+          "kinds": [
+            "write",
+            "publication"
+          ],
+          "paired_jump": null,
+          "via": "direct"
+        },
+        {
+          "address": "0x10018D09",
+          "instruction": "mov     eax, dword_1004C9F4",
+          "kinds": [
+            "read"
+          ],
+          "paired_jump": null,
+          "via": "direct"
+        },
+        {
+          "address": "0x1004C9F4",
+          "instruction": "dword_1004C9F4  dd ?                    ; DATA XREF: sub_10018620+199↑o",
+          "kinds": [
+            "definition"
+          ],
+          "paired_jump": null,
+          "via": "direct"
+        }
+      ]
+    },
+    "vtables": {
+      "found_count": 0,
+      "rows": []
+    },
+    "cross_version": {
+      "module": "_HD3_.dll",
+      "requested_versions": [
+        "5.7 R40"
+      ],
+      "version_axis": "hd",
+      "version_applicable": true,
+      "status": "applicable",
+      "reason": "axis_matches_module_kind",
+      "available": [
+        "_HD3_.dll-5.7 R23.txt",
+        "_HD3_.dll-5.7 R29.txt",
+        "_HD3_.dll-5.7 R36.txt",
+        "_HD3_.dll-5.7 R37.txt",
+        "_HD3_.dll-5.7 R40.txt",
+        "_HD3_.dll-5.7 R9.txt",
+        "_HD3_.dll-old.txt"
+      ],
+      "matches": {
+        "5.7 R40": [
+          "_HD3_.dll-5.7 R40.txt"
+        ]
+      },
+      "control_notes": []
+    }
+  },
+  "runtime_capture_requirements": [
+    "allocator_request_size_and_site",
+    "virtual_address_space_map",
+    "largest_free_region",
+    "heap_metadata_and_validation",
+    "process_private_bytes",
+    "module_timestamp_and_runtime_bytes"
+  ],
+  "judgment_categories": [
+    "effective_address_and_container_bounds",
+    "state_origin_and_lifecycle",
+    "activation_trigger"
+  ],
+  "integrity": {
+    "callers_found_equals_json_rows": true,
+    "human_rows_match_emitted_count": true
+  }
+}

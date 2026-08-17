@@ -1,0 +1,71 @@
+{
+  "schema": 3,
+  "root": "/Users/Shared/ii/mail-dumps/_HD3_.dll+0x18D12",
+  "rows": [
+    {
+      "stem": "_hd3_.dll+0x18D12-5.7-R40-180-1",
+      "txt": "_hd3_.dll+0x18D12-5.7-R40-180-1.txt",
+      "dmp": "_hd3_.dll+0x18D12-5.7-R40-180-1.dmp",
+      "context_eip": "0x10018D12",
+      "module": "_HD3_.dll",
+      "rva": "0x18D12",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "identity": {
+        "txt_module_size": 344064,
+        "dmp_module_size": 344064,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "_hd3_.dll+0x18D12-5.7-R40-180-2",
+      "txt": "_hd3_.dll+0x18D12-5.7-R40-180-2.txt",
+      "dmp": "_hd3_.dll+0x18D12-5.7-R40-180-2.dmp",
+      "context_eip": "0x024F8D12",
+      "module": "_HD3_.dll",
+      "rva": "0x18D12",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "identity": {
+        "txt_module_size": 344064,
+        "dmp_module_size": 344064,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    }
+  ],
+  "counts": {
+    "exact_pair": 2,
+    "unverifiable_missing_txt_identity": 0,
+    "unverifiable_missing_dmp_identity": 0,
+    "same_site_different_exception": 0,
+    "build_mismatch": 0,
+    "empty_dump": 0,
+    "unknown_exception_class": 0,
+    "txt_parse_error": 0,
+    "dmp_parse_error": 0,
+    "unpaired_txt": 0,
+    "unpaired_dmp": 0,
+    "parse_error": 0
+  },
+  "legacy_count_aliases": {
+    "parse_error": [
+      "unknown_exception_class",
+      "txt_parse_error",
+      "dmp_parse_error"
+    ]
+  },
+  "complete": true,
+  "analysis_ready": true,
+  "quality_complete": true,
+  "hard_blockers": 0,
+  "identity_gaps": 0,
+  "blockers": 0
+}

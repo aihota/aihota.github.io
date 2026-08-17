@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-17T11:13:58.828621+00:00",
+  "source": "mail-dumps/_HD3_.dll+0x18D12/coverage-claims.json",
+  "axes": [
+    "instruction",
+    "mechanism",
+    "state_origin",
+    "family_coverage"
+  ],
+  "levels": [
+    "confirmed",
+    "probable",
+    "unknown",
+    "not_applicable"
+  ],
+  "claims": [
+    {
+      "id": "crash-site-r40",
+      "type": "crash_site",
+      "statement": "Падает инструкция 0x10018D12: mov ecx, [eax].",
+      "evidence": [
+        "fact:crash_rva",
+        "fact:crash_instruction",
+        "input:_hd3_.dll+0x18D12-5.7-R40-180-1.dmp",
+        "input:_hd3_.dll+0x18D12-5.7-R40-180-2.dmp",
+        "input:pair-audit.json"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "id": "null-global-mechanism",
+      "type": "local_mechanism",
+      "statement": "Непосредственно перед ней EAX загружается из dword_1004C9F4.",
+      "evidence": [
+        "fact:global_pointer",
+        "fact:fault_address",
+        "input:static-exhaustion.json",
+        "input:series-parse.json"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "id": "create-surface-origin",
+      "type": "state_origin",
+      "statement": "При отказе CreateSurface выходной указатель остаётся равным начальному",
+      "evidence": [
+        "fact:create_surface_check",
+        "fact:global_pointer",
+        "input:static-exhaustion.json",
+        "input:capabilities.json"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "id": "known-family-census",
+      "type": "family_coverage",
+      "statement": "Полный локальный проход известных адресов дал 19 уникальных инцидентов.",
+      "evidence": [
+        "fact:family_unique_events",
+        "fact:family_physical_txt",
+        "fact:family_unique_txt_sha256",
+        "fact:family_duplicates",
+        "fact:family_byte_duplicates",
+        "fact:family_physical_dmp",
+        "fact:all_family_files_inside_case",
+        "input:full-family-series.json",
+        "input:family-folder-inventory.json",
+        "input:relocation-manifest-mail-folder.json",
+        "input:relocation-manifest-legacy-copies.json"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "id": "missing-create-surface-hresult",
+      "type": "limitation",
+      "statement": "HRESULT CreateSurface не сохранён.",
+      "evidence": [
+        "fact:create_surface_hresult",
+        "input:capabilities.json",
+        "input:_hd3_.dll+0x18D12-5.7-R40-180-1.dmp",
+        "input:_hd3_.dll+0x18D12-5.7-R40-180-2.dmp"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "id": "hdmod-readiness-fix",
+      "type": "fix",
+      "statement": "Перед CreateSurface обнулить выходной указатель dword_1004C9F4.",
+      "evidence": [
+        "fact:recommended_fix",
+        "input:static-exhaustion.json"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "probable"
+      }
+    }
+  ],
+  "matrix": {
+    "instruction": {
+      "confirmed": 6
+    },
+    "mechanism": {
+      "confirmed": 6
+    },
+    "state_origin": {
+      "probable": 6
+    },
+    "family_coverage": {
+      "probable": 6
+    }
+  },
+  "diagnostic_completeness": {
+    "status": "incomplete",
+    "complete": false,
+    "causality_level": "L1",
+    "axis_summary": {
+      "instruction": "confirmed",
+      "mechanism": "confirmed",
+      "state_origin": "probable",
+      "family_coverage": "probable",
+      "reproduction": "unknown"
+    },
+    "root_cause_ready": false,
+    "next_required": [
+      "capture_state_origin_and_writer",
+      "confirm_reproduction",
+      "complete_family_coverage"
+    ]
+  },
+  "errors": [],
+  "ready": true
+}
