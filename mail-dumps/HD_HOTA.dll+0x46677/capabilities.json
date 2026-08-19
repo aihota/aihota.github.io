@@ -1,0 +1,26 @@
+{
+  "schema": 3,
+  "source": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x46677/HD_HOTA.dll+0x46677-5.7-R40-180.dmp",
+  "source_identity": {"path": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x46677/HD_HOTA.dll+0x46677-5.7-R40-180.dmp", "size": 135437, "sha256": "b5923ad9c3ec9cc75273a4825127f501244e5641e85e8c5f514b12a6cb1ea701"},
+  "dump_level": "минимальный",
+  "flags": ["прочие биты 0x200000"],
+  "stream_names": ["ExceptionList", "MemoryList", "MiscInfo", "ModuleList", "SystemInfo", "ThreadList", "тип 0", "тип 21", "тип 22"],
+  "captured_bytes": 54492,
+  "thread_provenance": {
+    "exception_tid": 14344,
+    "esp_tid": 16140,
+    "status": "CONTEXT_THREAD_MISMATCH",
+    "esp": "0x001A90F4",
+    "register_sets_may_be_combined": false,
+    "selected_stack_thread_id": 16140,
+    "policy": "use_one_context_only; never combine ExceptionStream registers with ThreadList registers when thread ids differ"
+  },
+  "counts": {"minidump_streams": 12, "process_threads_in_thread_list": 42, "exception_thread_id": 14344, "esp_stack_thread_id": 16140},
+  "capabilities": {"exception_context": true, "thread_stacks": true, "module_identity": true, "captured_memory": true, "code_window": true, "globals_and_heap": false, "memory_permissions": false, "thread_provenance": true},
+  "available_now": ["captured_memory", "code_window", "exception_context", "module_identity", "thread_provenance", "thread_stacks"],
+  "requires_full_dump": ["global_state_snapshot", "heap_object_lifetime", "heap_neighbour_overwrite", "whole_container_traversal"],
+  "requires_runtime_capture": ["first_corrupting_write", "writer_identity", "race_ordering", "object_lifetime_transition"],
+  "strong_claim_gates": {"race": "requires_runtime_capture", "use_after_free": "requires_full_dump_or_runtime_capture", "heap_overwrite": "requires_full_dump_or_runtime_capture"},
+  "limitations": [".data модулей: глобалы, карты, реестр-контейнер", "куча целиком: обход списков объектов и поиск блобов", "права и тип страниц (нет MemoryInfoList)"],
+  "audit_selection": {"selected": "HD_HOTA.dll+0x46677-5.7-R40-180.dmp", "dmp_count": 1, "rule": "single DMP profiled without silent selection"}
+}

@@ -1,0 +1,49 @@
+{
+  "schema": 3,
+  "generated_at": "2026-08-19T16:47:54.049452+00:00",
+  "parser_revision": "e03c0f14635afb3a52a9b0037589a830c2bf92b6",
+  "report": {"path": "HD_HOTA.dll+0x46677-анализ-gpt-5.6-sol.txt", "size": 14099, "sha256": "03cb02fd045c41b1fe75b673cfc4a2197904c835539cd9fdf0c6c98895de039e"},
+  "inputs": [
+    {"path": "HD_HOTA.dll+0x46677-5.7-R40-180.txt", "size": 11911, "sha256": "d7282affe3594d7af22ab1ca85f505fe0b2a032a40304536cb90bb5325b84dd5", "role": "source"},
+    {"path": "HD_HOTA.dll+0x46677-5.7-R40-180.dmp", "size": 135437, "sha256": "b5923ad9c3ec9cc75273a4825127f501244e5641e85e8c5f514b12a6cb1ea701", "role": "runtime"},
+    {"path": "HD_HOTA.dll+0x46677-5.7-R40-180-BATTLE.GM1", "size": 388194, "sha256": "5c6f4435009a97c940ae09eda8b48c5e2dcb2fdfba6e0a244691b822c3d2b12a", "role": "source"},
+    {"path": "../../modules/HD_HOTA.dll-5.7 R40.txt", "size": 50700332, "sha256": "1e982b9b517af1f3f1744ff1e87f0941609af2bf08c7b8d6867d2ead92903054", "role": "source"},
+    {"path": "coverage.json", "size": 4489, "sha256": "6975078fb023ddcd831616f0d6aae0133a525b057bdd141c86f4837187a9ca09", "role": "derived-evidence"},
+    {"path": "family-membership.json", "size": 6918, "sha256": "fa2f6ef015799e505c609decd252f358acfa5746b57c02033633f6957cfae416", "role": "derived-evidence"},
+    {"path": "pair-audit.json", "size": 1299, "sha256": "d40e8ce1277438b7901c0f794ff76cf260aa72c919cfce851b7986a6ff260469", "role": "derived-evidence"},
+    {"path": "capabilities.json", "size": 2284, "sha256": "3465274bbf6b237163c32af4484dc8c7c87638eeee56f1d3192cd8e4a7be181c", "role": "derived-evidence"},
+    {"path": "thread-provenance-46677.json", "size": 610, "sha256": "5803da99b4ceb1c30d798dc7444c71829d89fe59556bb742fd53a6ea598c8eed", "role": "derived-evidence"}
+  ],
+  "tools": [
+    {"path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py", "size": 29023, "sha256": "edb9161f7e2953b9e73deffb12d00f4134a8b79496764710eab2b938ec2e2e8f"},
+    {"path": "../../.agents/skills/hota-crash-triage/coverage_contract.py", "size": 8573, "sha256": "adde7c9f84d42b2dd0e66977024cbee743836d03a798c9cb43a2298dd31f47c1"},
+    {"path": "../../.agents/skills/hota-crash-triage/family_membership.py", "size": 9261, "sha256": "ab903a9697d273b2fd220bbe8bb46827c2b0d76e418247415e43a7c415c96677"},
+    {"path": "../../.agents/skills/address-mapping/dump_profile.py", "size": 31189, "sha256": "b15ea8289f3577ff0836efe2faf00b5371c1013c00ad38ed028615deb9f405a8"}
+  ],
+  "commands": [
+    "dump_query: exception, modules, threads, read code/stack windows",
+    "corpus_query: exact HD_HOTA.dll+0x46677 over mail-dumps",
+    "corpus_query: savegame caller candidates; raw TXT -> SHA-256"
+  ],
+  "facts": {
+    "code_window_match": "0x046F6670..0x046F668F matches R40 listing; 0x046F6677=pop esi",
+    "reported_effective_conflict": "reported write 0x00011487; saved EIP pop esi reads [ESP]=0x001A90F4",
+    "thread_provenance": "CONTEXT_THREAD_MISMATCH: ExceptionStream TID 14344; ESP belongs to TID 16140",
+    "dump_limit": "MiniDumpNormal; 135437 bytes; no full memory, heap, or MemoryInfoList",
+    "corpus_exact_rva": "1/5430 recognized crash TXT; 5523 physical TXT fully traversed",
+    "save_candidate_census": "33 physical raw TXT; 18 unique SHA-256; target + 17 probable same subsystem",
+    "reproduction_status": "not reproduced; one internally inconsistent package",
+    "family_key": "savegame-buffer-writer::sub_1046580::context-mismatch"
+  },
+  "claims": [
+    {"confidence": "видно непосредственно в DMP", "id": "saved-eip-site", "type": "crash_site", "statement": "- Точка сохранённого EIP: 100% - метка времени и байты DMP совпали.", "evidence": ["input:HD_HOTA.dll+0x46677-5.7-R40-180.dmp", "input:../../modules/HD_HOTA.dll-5.7 R40.txt", "fact:code_window_match"], "confidence_vector": {"instruction": "confirmed", "mechanism": "unknown", "state_origin": "unknown", "family_coverage": "probable"}},
+    {"confidence": "выведено из совокупности признаков", "id": "local-mechanism-blocked", "type": "local_mechanism", "statement": "- Локальный механизм AV: не установлен из-за несовместимых источников.", "evidence": ["input:HD_HOTA.dll+0x46677-5.7-R40-180.dmp", "fact:reported_effective_conflict", "fact:thread_provenance"], "confidence_vector": {"instruction": "confirmed", "mechanism": "unknown", "state_origin": "unknown", "family_coverage": "probable"}},
+    {"confidence": "выведено из совокупности признаков", "id": "state-origin-unknown", "type": "state_origin", "statement": "- Первый источник ошибочного состояния: не установлен.", "evidence": ["fact:dump_limit", "fact:thread_provenance"], "confidence_vector": {"instruction": "confirmed", "mechanism": "unknown", "state_origin": "unknown", "family_coverage": "probable"}},
+    {"confidence": "выведено из совокупности признаков", "id": "exact-rva-census", "type": "family_coverage", "statement": "- Точный RVA уникален: 1/5430 распознанных crash TXT во всём mail-dumps.", "evidence": ["fact:corpus_exact_rva", "command:2"], "confidence_vector": {"instruction": "confirmed", "mechanism": "unknown", "state_origin": "unknown", "family_coverage": "probable"}, "sample": {"numerator": 1, "denominator": 5430, "population": "распознанные crash TXT во всём mail-dumps"}},
+    {"confidence": "выведено из совокупности признаков", "id": "save-subsystem-candidates", "type": "family_coverage", "statement": "- 17 других уникальных случаев имеют общий savegame-caller, но иные RVA,\n  операции доступа и непосредственные возвраты. Это только общая подсистема.", "evidence": ["fact:save_candidate_census", "command:3"], "confidence_vector": {"instruction": "confirmed", "mechanism": "unknown", "state_origin": "unknown", "family_coverage": "probable"}},
+    {"confidence": "видно непосредственно в DMP", "id": "dump-memory-limit", "type": "limitation", "statement": "- DMP имеет размер 135437 байт и не содержит полной памяти или кучи.", "evidence": ["input:HD_HOTA.dll+0x46677-5.7-R40-180.dmp", "fact:dump_limit"], "confidence_vector": {"instruction": "confirmed", "mechanism": "unknown", "state_origin": "unknown", "family_coverage": "probable"}},
+    {"confidence": "не проверено", "id": "reproduction-not-captured", "type": "reproduction", "statement": "    Детерминированный сценарий по одному несогласованному пакету не получен.", "evidence": ["fact:reproduction_status"], "confidence_vector": {"instruction": "confirmed", "mechanism": "unknown", "state_origin": "unknown", "family_coverage": "probable"}}
+  ],
+  "code_evidence": {"level": "dmp-window", "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"},
+  "machine_results": []
+}

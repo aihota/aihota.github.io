@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "source": "HD_HOTA.dll+0x46677-5.7-R40-180.dmp",
+  "status": "CONTEXT_THREAD_MISMATCH",
+  "thread_provenance_status": "CONTEXT_THREAD_MISMATCH",
+  "exception_tid": 14344,
+  "exception_eip": "0x046F6677",
+  "exception_esp": "0x001A90F4",
+  "esp_stack_tid": 16140,
+  "esp_stack_range": "0x001A8A0C..0x001B0000",
+  "threadlist_exception_tid_eip": "0x7792AA8C",
+  "threadlist_exception_tid_esp": "0x02D5EDFC",
+  "threadlist_stack_tid_eip": "0x764511AC",
+  "threadlist_stack_tid_esp": "0x001A8A10",
+  "register_sets_may_be_combined": false,
+  "generated_at": "2026-08-19T16:47:54.049047+00:00"
+}

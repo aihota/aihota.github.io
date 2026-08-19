@@ -1,0 +1,38 @@
+{
+  "schema": 2,
+  "case": "mail-dumps/HD_HOTA.dll+0x46677",
+  "gate_scope": "full_quality_gate",
+  "static_only": true,
+  "audit_stages_complete": null,
+  "publication_ready": true,
+  "prohibited_actions": ["Wine", "game launch", "git commit", "git push", "publication"],
+  "status": "passed",
+  "passed": true,
+  "artifact_quality": {"status": "passed", "passed": true, "step_count": 11, "blocked_count": 0},
+  "diagnostic_completeness": {
+    "status": "incomplete",
+    "complete": false,
+    "causality_level": "L0",
+    "axis_summary": {"instruction": "confirmed", "mechanism": "unknown", "state_origin": "unknown", "family_coverage": "probable", "reproduction": "unknown"},
+    "root_cause_ready": false,
+    "next_required": ["confirm_local_mechanism", "capture_state_origin_and_writer", "confirm_reproduction", "complete_family_coverage"],
+    "source": "mail-dumps/HD_HOTA.dll+0x46677/coverage.json"
+  },
+  "root_cause_ready": false,
+  "causality_level": "L0",
+  "step_count": 11,
+  "blocked_count": 0,
+  "steps": [
+    {"name": "pair_contract", "status": "passed", "errors": [], "identity_gaps": 0, "limitations": []},
+    {"kind": "thread_provenance", "path": "mail-dumps/HD_HOTA.dll+0x46677/thread-provenance-46677.json", "status": "passed", "errors": []},
+    {"kind": "capabilities", "path": "mail-dumps/HD_HOTA.dll+0x46677/capabilities.json", "status": "passed", "errors": []},
+    {"name": "coverage:coverage.json", "status": "passed", "returncode": 0, "stdout": "COVERAGE: OK; claims=7; errors=none\n", "stderr": ""},
+    {"name": "family:family-membership.json", "status": "passed", "returncode": 0, "stdout": "FAMILY: OK; incidents=18; enumeration=true; classification=true; unknown=0; listing_blockers=0; errors=none\n", "stderr": ""},
+    {"name": "relocation_family_contract", "status": "passed", "errors": [], "limitations": ["relocation_not_applicable"], "manifest_count": 0, "active_manifests": []},
+    {"name": "report_consistency", "status": "passed", "returncode": 0, "stdout": "Отчётов проверено: 1; OK: 1; mismatch: 0; ambiguous: 0\n", "stderr": ""},
+    {"name": "lint:HD_HOTA.dll+0x46677-анализ-gpt-5.6-sol.txt", "status": "passed", "returncode": 0, "stdout": "FAIL=0, WARN=0, BLOCKING_WARN=0\n", "stderr": ""},
+    {"name": "evidence:HD_HOTA.dll+0x46677-анализ-gpt-5.6-sol.txt", "status": "passed", "returncode": 0, "stdout": "EVIDENCE: FRESH; проверено 14\n", "stderr": ""},
+    {"name": "schema3_contract:HD_HOTA.dll+0x46677-анализ-gpt-5.6-sol.evidence.json", "status": "passed", "errors": []},
+    {"name": "render:HD_HOTA.dll+0x46677-анализ-gpt-5.6-sol.txt", "status": "passed", "returncode": 0, "stdout": "strict render passed; sections=10/10; section tags=10/10; key fields present\n", "stderr": ""}
+  ]
+}

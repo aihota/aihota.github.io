@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-19T16:47:54.085502+00:00",
+  "source": "HD_HOTA.dll+0x46677-анализ-gpt-5.6-sol.evidence.json",
+  "axes": ["instruction", "mechanism", "state_origin", "family_coverage"],
+  "levels": ["confirmed", "probable", "unknown", "not_applicable"],
+  "claims": [
+    {"id": "saved-eip-site", "type": "crash_site", "statement": "- Точка сохранённого EIP: 100% - метка времени и байты DMP совпали.", "evidence": ["input:HD_HOTA.dll+0x46677-5.7-R40-180.dmp", "input:../../modules/HD_HOTA.dll-5.7 R40.txt", "fact:code_window_match"], "confidence": "видно непосредственно в DMP", "confidence_vector": {"instruction": "confirmed", "mechanism": "unknown", "state_origin": "unknown", "family_coverage": "probable"}},
+    {"id": "local-mechanism-blocked", "type": "local_mechanism", "statement": "- Локальный механизм AV: не установлен из-за несовместимых источников.", "evidence": ["input:HD_HOTA.dll+0x46677-5.7-R40-180.dmp", "fact:reported_effective_conflict", "fact:thread_provenance"], "confidence": "выведено из совокупности признаков", "confidence_vector": {"instruction": "confirmed", "mechanism": "unknown", "state_origin": "unknown", "family_coverage": "probable"}},
+    {"id": "state-origin-unknown", "type": "state_origin", "statement": "- Первый источник ошибочного состояния: не установлен.", "evidence": ["fact:dump_limit", "fact:thread_provenance"], "confidence": "выведено из совокупности признаков", "confidence_vector": {"instruction": "confirmed", "mechanism": "unknown", "state_origin": "unknown", "family_coverage": "probable"}},
+    {"id": "exact-rva-census", "type": "family_coverage", "statement": "- Точный RVA уникален: 1/5430 распознанных crash TXT во всём mail-dumps.", "evidence": ["fact:corpus_exact_rva", "command:2"], "confidence": "выведено из совокупности признаков", "confidence_vector": {"instruction": "confirmed", "mechanism": "unknown", "state_origin": "unknown", "family_coverage": "probable"}, "sample": {"numerator": 1, "denominator": 5430, "population": "распознанные crash TXT во всём mail-dumps"}},
+    {"id": "save-subsystem-candidates", "type": "family_coverage", "statement": "- 17 других уникальных случаев имеют общий savegame-caller, но иные RVA,\n  операции доступа и непосредственные возвраты. Это только общая подсистема.", "evidence": ["fact:save_candidate_census", "command:3"], "confidence": "выведено из совокупности признаков", "confidence_vector": {"instruction": "confirmed", "mechanism": "unknown", "state_origin": "unknown", "family_coverage": "probable"}},
+    {"id": "dump-memory-limit", "type": "limitation", "statement": "- DMP имеет размер 135437 байт и не содержит полной памяти или кучи.", "evidence": ["input:HD_HOTA.dll+0x46677-5.7-R40-180.dmp", "fact:dump_limit"], "confidence": "видно непосредственно в DMP", "confidence_vector": {"instruction": "confirmed", "mechanism": "unknown", "state_origin": "unknown", "family_coverage": "probable"}},
+    {"id": "reproduction-not-captured", "type": "reproduction", "statement": "    Детерминированный сценарий по одному несогласованному пакету не получен.", "evidence": ["fact:reproduction_status"], "confidence": "не проверено", "confidence_vector": {"instruction": "confirmed", "mechanism": "unknown", "state_origin": "unknown", "family_coverage": "probable"}}
+  ],
+  "matrix": {"instruction": {"confirmed": 7}, "mechanism": {"unknown": 7}, "state_origin": {"unknown": 7}, "family_coverage": {"probable": 7}},
+  "diagnostic_completeness": {"status": "incomplete", "complete": false, "causality_level": "L0", "axis_summary": {"instruction": "confirmed", "mechanism": "unknown", "state_origin": "unknown", "family_coverage": "probable", "reproduction": "unknown"}, "root_cause_ready": false, "next_required": ["confirm_local_mechanism", "capture_state_origin_and_writer", "confirm_reproduction", "complete_family_coverage"]},
+  "errors": [],
+  "ready": true
+}
