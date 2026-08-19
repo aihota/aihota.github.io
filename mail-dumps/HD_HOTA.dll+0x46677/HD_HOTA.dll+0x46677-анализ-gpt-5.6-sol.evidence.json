@@ -2,7 +2,7 @@
   "schema": 3,
   "generated_at": "2026-08-19T16:47:54.049452+00:00",
   "parser_revision": "e03c0f14635afb3a52a9b0037589a830c2bf92b6",
-  "report": {"path": "HD_HOTA.dll+0x46677-анализ-gpt-5.6-sol.txt", "size": 14099, "sha256": "03cb02fd045c41b1fe75b673cfc4a2197904c835539cd9fdf0c6c98895de039e"},
+  "report": {"path": "HD_HOTA.dll+0x46677-анализ-gpt-5.6-sol.txt", "size": 15372, "sha256": "a953550e8539aa250f72ee85c84279bdd69c53394102d8fa6839180d6151196b"},
   "inputs": [
     {"path": "HD_HOTA.dll+0x46677-5.7-R40-180.txt", "size": 11911, "sha256": "d7282affe3594d7af22ab1ca85f505fe0b2a032a40304536cb90bb5325b84dd5", "role": "source"},
     {"path": "HD_HOTA.dll+0x46677-5.7-R40-180.dmp", "size": 135437, "sha256": "b5923ad9c3ec9cc75273a4825127f501244e5641e85e8c5f514b12a6cb1ea701", "role": "runtime"},
