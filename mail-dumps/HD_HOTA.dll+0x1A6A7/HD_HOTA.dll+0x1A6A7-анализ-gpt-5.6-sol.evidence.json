@@ -1,0 +1,390 @@
+{
+  "schema": 3,
+  "generated_at": "2026-08-19T11:01:18.210661+00:00",
+  "parser_revision": 3,
+  "report": {
+    "path": "HD_HOTA.dll+0x1A6A7-анализ-gpt-5.6-sol.txt",
+    "size": 30703,
+    "sha256": "26ef905ce8d54a3163c398e58e99e21fd1cda7ab66e006b6fc140a685cd56903"
+  },
+  "inputs": [
+    {
+      "path": "HD_HOTA.dll+0x1A6A7-5.7-R40-180.txt",
+      "size": 10186,
+      "sha256": "427f8c49652c37747ee90d1253a621fc7423af203bf213b1842f146f87eceb8e",
+      "role": "source"
+    },
+    {
+      "path": "HD_HOTA.dll+0x1A6A7-5.7-R40-180.dmp",
+      "size": 123303,
+      "sha256": "88c97907d591f2c68988ce247e57c1a6979047c7aee6831ccc062ca78a171a53",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.7 R40.txt",
+      "size": 50700332,
+      "sha256": "1e982b9b517af1f3f1744ff1e87f0941609af2bf08c7b8d6867d2ead92903054",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.7 R10.txt",
+      "size": 42037531,
+      "sha256": "84e44283e20dadafc015aa1af358b64adcd5b6b923419410902cdfb7bba54b0f",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/h3hota.exe.txt",
+      "size": 79196875,
+      "sha256": "a659b437fa53df6e65a763481c03538a79b0899130ea4b9dfeba1dd9b5e0ddd6",
+      "role": "source"
+    },
+    {
+      "path": "pair-audit.json",
+      "size": 3659,
+      "sha256": "30c5ff2ae86418fde829e408c2aad284b46f048c893a88cb81e9b8ab36a83485",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "capabilities.json",
+      "size": 2509,
+      "sha256": "e4dbfcb7b8b78734a045390118ead0181cb12461f91e56e21583d087ea0393ab",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-parse.json",
+      "size": 31041,
+      "sha256": "83eb96e158e9431f4c5b8b09d4f98698af339fdbcfb3050b0a5f0b5ed59e177c",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-annotations.json",
+      "size": 632,
+      "sha256": "56468993ca580fb3d4498f59287623407b26750c0c2fe69e11da7fdc3402369e",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-groups.json",
+      "size": 15894,
+      "sha256": "a3255c78bc04ecac3ce5568a49fc88a182bf346cd27b9869cef6f3cb46c9d7fa",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-membership.json",
+      "size": 4998,
+      "sha256": "4d9a40a44b7474e47300732fc231fd4f78201ef1851258fef87be699347bba21",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "cross-version-evidence.json",
+      "size": 7223,
+      "sha256": "3a151494127bd8e53d682c1ab4c06e60dce395dc0885a46536baf2f79515940f",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "cross-version-matrix.json",
+      "size": 5544,
+      "sha256": "b347d9db85a92390ca8ad259f4f7225394e4deeb38a0a49eb207fb35c76acdfc",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "relocation-manifest.json",
+      "size": 4252,
+      "sha256": "86dd73b7ec7d77a4820fb125bcb1b846c3b6f60cdcd49755ba7568edc8407f9d",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "def-field-1c-writers-h3hota.json",
+      "size": 3408623,
+      "sha256": "60755de92d85de8decdc263357cb70514c2ec75767a0b13b3b42d477d80fdce6",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "dlgstaticdef-field-30-writers-h3hota.json",
+      "size": 1637445,
+      "sha256": "dfcebdb42cc8bf2b9117700e6fa9913ab0a1ab1e93ec822f8b743c3bcf3f4a48",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "hdhota-def-field-1c-hook-accesses.json",
+      "size": 1967269,
+      "sha256": "99312ac2c74f2e3a5b546a7c4fc050ccb11d13c0376098dd1b38d0f899906e8f",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "static-exhaustion.json",
+      "size": 412556,
+      "sha256": "0a5da730e9114834a8ab8154b21e129530934f055caac7ab6ca55ef455b67964",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "static-exhaustion-checklist.json",
+      "size": 2750,
+      "sha256": "91c1ce1c573d1fcfc320b555089e93bb70337c8a7ce7a0b10ccbd964c568e3ad",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "coverage.json",
+      "size": 6696,
+      "sha256": "c5fc88cc2029bbc3e092e8b79b6b3e4957e21c49e88f3f52c694ff15126243d1",
+      "role": "derived-evidence"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/address-mapping/field_writer_census.py",
+      "size": 16154,
+      "sha256": "a76cf57d54445f12450a74cb2ff6c78337c5b8baed79731467158bd1e1be4266"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+      "size": 56930,
+      "sha256": "6264023ddb11ae86f15e4578fa9ae51bcd66b0a7422616e917bcceed6ecf6e1f"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/cross_version_matrix.py",
+      "size": 7490,
+      "sha256": "41e1c187792bcd58c5671535850634837a4b96b34a6c60d4da8a5bbbcddacea1"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/series_registry.py",
+      "size": 21472,
+      "sha256": "7631d00f7b7d9aaf88840324fd06f274e0a4caf63d07043ad0ee46ed556e0947"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/family_membership.py",
+      "size": 9261,
+      "sha256": "ab903a9697d273b2fd220bbe8bb46827c2b0d76e418247415e43a7c415c96677"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+      "size": 8573,
+      "sha256": "adde7c9f84d42b2dd0e66977024cbee743836d03a798c9cb43a2298dd31f47c1"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/lint_report.py",
+      "size": 85472,
+      "sha256": "92fde068c65d5ebc9d8bb25a50d0c7ff209642d171c2f786f1c80d349778d9a5"
+    },
+    {
+      "path": "../../.agents/skills/html-report/render_report.py",
+      "size": 969,
+      "sha256": "ede2dd05af3e754cf2c1004ae1d0b1e83277617dc8da912e7308fc4f74e03cb2"
+    }
+  ],
+  "commands": [
+    "field_writer_census.py: complete h3hota/HD_HOTA scans",
+    "series_registry.py with series-annotations.json",
+    "cross_version_matrix.py --require-all",
+    "family_membership.py build/check",
+    "coverage_contract.py build/check",
+    "lint_report.py --publish",
+    "render_report.py with strict validation"
+  ],
+  "facts": {
+    "runtime_eip": "0x03EBA6A7",
+    "r40_rva": "0x1A6A7",
+    "r40_ida_address": "0x0101A6A7",
+    "fault_instruction": "mov eax,[ecx+edi*4]",
+    "def_pointer": "0x15079490",
+    "groups_field_offset": "+0x1C",
+    "groups_value": "0x1CC",
+    "group_index": 0,
+    "fault_address": "0x1CC",
+    "engine_call_site": "0x004EADCF",
+    "engine_return": "0x004EADD4",
+    "ui_return": "0x005FEAFC",
+    "physical_txt": 7,
+    "unique_incidents": 4,
+    "duplicate_instances": 3,
+    "corpus_txt_checked": "5520/5520",
+    "dmp_object_status": "not_captured",
+    "causality_level": "L1"
+  },
+  "claims": [
+    {
+      "id": "crash-site-r40",
+      "type": "crash_site",
+      "statement": "Точка сбоя подтверждена: 0x0101A6A7 выполняет mov eax,[ecx+edi*4].",
+      "evidence": [
+        "input:HD_HOTA.dll+0x1A6A7-5.7-R40-180.txt",
+        "input:HD_HOTA.dll+0x1A6A7-5.7-R40-180.dmp",
+        "input:../../modules/HD_HOTA.dll-5.7 R40.txt"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "def-groups-low-pointer",
+      "type": "local_mechanism",
+      "statement": "Поле таблицы групп _Def_+0x1C содержало 0x1CC.",
+      "evidence": [
+        "input:HD_HOTA.dll+0x1A6A7-5.7-R40-180.dmp",
+        "input:def-field-1c-writers-h3hota.json",
+        "input:hdhota-def-field-1c-hook-accesses.json"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "ui-mousebutton-context",
+      "type": "observation",
+      "statement": "Контекст интерфейса: ветвь 2 события MT_MOUSEBUTTON вызвала отрисовку A0_DlgStaticDef.",
+      "evidence": [
+        "input:cross-version-evidence.json",
+        "input:../../modules/h3hota.exe.txt"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "dlg-def-writers",
+      "type": "observation",
+      "statement": "Найдены три записи _DlgStaticDef_+0x30; все сохраняют результат A0_Load_Def.",
+      "evidence": [
+        "input:dlgstaticdef-field-30-writers-h3hota.json",
+        "input:../../modules/h3hota.exe.txt"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "state-origin-runtime-only",
+      "type": "state_origin",
+      "statement": "Нельзя честно назвать ни одну из этих гипотез установленной первопричиной.",
+      "evidence": [
+        "input:capabilities.json",
+        "input:def-field-1c-writers-h3hota.json",
+        "input:dlgstaticdef-field-30-writers-h3hota.json"
+      ],
+      "confidence": "не проверено",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "family-complete",
+      "type": "family_coverage",
+      "statement": "Корпусная перепись: проверено 5520/5520 TXT.",
+      "evidence": [
+        "input:series-parse.json",
+        "input:series-groups.json",
+        "input:family-membership.json",
+        "input:cross-version-matrix.json",
+        "input:relocation-manifest.json"
+      ],
+      "sample": {
+        "numerator": 5520,
+        "denominator": 5520,
+        "population": "все TXT в mail-dumps, перечисленные полным корпусным сканером"
+      },
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "runtime-reproduction-unknown",
+      "type": "reproduction",
+      "statement": "Гарантированный пользовательский сценарий по имеющимся данным не получен.",
+      "evidence": [
+        "input:capabilities.json"
+      ],
+      "confidence": "не проверено",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "object-memory-not-captured",
+      "type": "limitation",
+      "statement": "Состояние объекта 0x15079490 не сохранено в DMP.",
+      "evidence": [
+        "input:capabilities.json",
+        "input:HD_HOTA.dll+0x1A6A7-5.7-R40-180.dmp"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "defensive-fix",
+      "type": "fix",
+      "statement": "Защитная мера: при нарушении контракта пропускать отрисовку и писать журнал.",
+      "evidence": [
+        "input:static-exhaustion.json",
+        "input:capabilities.json"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    }
+  ],
+  "code_evidence": {
+    "level": "instruction-boundary",
+    "note": "R40 и R10 подтверждены точными листингами; RC7/RC12 — формулой, регистрами и стеком"
+  },
+  "machine_results": [
+    {
+      "path": "series-groups.json",
+      "valid": true,
+      "summary": "4 incidents; unresolved=0; state_origin remains unknown/candidate"
+    },
+    {
+      "path": "family-membership.json",
+      "valid": true,
+      "summary": "4 confirmed, complete"
+    },
+    {
+      "path": "coverage.json",
+      "valid": true,
+      "summary": "ready; diagnostic L1"
+    },
+    {
+      "path": "lint_report",
+      "valid": true,
+      "summary": "publish lint"
+    },
+    {
+      "path": "HD_HOTA.dll+0x1A6A7-анализ-gpt-5.6-sol.html",
+      "valid": true,
+      "summary": "strict render"
+    }
+  ]
+}

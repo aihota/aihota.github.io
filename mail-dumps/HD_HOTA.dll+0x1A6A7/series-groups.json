@@ -1,0 +1,521 @@
+{
+  "schema": 1,
+  "source": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A6A7",
+  "count_contract": "physical_txt = unique_incidents + duplicate_instances",
+  "counts": {
+    "physical_txt": 7,
+    "unique_incidents": 4,
+    "duplicate_instances": 3,
+    "signature_groups": 4,
+    "cause_groups": 4,
+    "unresolved_incidents": 0
+  },
+  "counters": {
+    "physical_txt": {
+      "numerator": 7,
+      "denominator": 7,
+      "population": "physical crash TXT"
+    },
+    "unique_incidents": {
+      "numerator": 4,
+      "denominator": 7,
+      "population": "physical crash TXT after exact deduplication"
+    },
+    "duplicate_instances": {
+      "numerator": 3,
+      "denominator": 7,
+      "population": "physical crash TXT removed by exact deduplication"
+    },
+    "classified_incidents": {
+      "numerator": 4,
+      "denominator": 4,
+      "population": "unique incidents"
+    },
+    "unresolved_incidents": {
+      "numerator": 0,
+      "denominator": 4,
+      "population": "unique incidents"
+    }
+  },
+  "incidents": [
+    {
+      "incident_id": "incident-427f8c49652c3774",
+      "sha256_txt": "427f8c49652c37747ee90d1253a621fc7423af203bf213b1842f146f87eceb8e",
+      "physical_copies": [
+        "HD_HOTA.dll+0x1A6A7-5.7-R40-180.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_HOTA.dll+0x1A6A7-5.7-R40-180.txt",
+      "dmp": "HD_HOTA.dll+0x1A6A7-5.7-R40-180.dmp",
+      "pair_quality": "exact_pair",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R40"
+      },
+      "eip_or_rva": "HD_HOTA.dll+0x1A6A7",
+      "effective_access": "read",
+      "operand_address": "0x000001CC",
+      "registers": {
+        "EAX": "0x004EADD4",
+        "ECX": "0x000001CC",
+        "EDX": "0x00000001",
+        "EBX": "0x004EADCF",
+        "ESP": "0x00199B9C",
+        "EBP": "0x00199BAC",
+        "ESI": "0x15079490",
+        "EDI": "0x00000000"
+      },
+      "caller": "A0_DlgStaticDef_DrawToPcx16@0x004EADCF",
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x1A6A7",
+        "instruction": "read groups[group_index]",
+        "effective_access": "read",
+        "operand_address": "0x000001CC",
+        "register_invariants": [
+          "EDI=0",
+          "EAX=0x004EADD4",
+          "EBX=0x004EADCF",
+          "EDX=1",
+          "ECX=fault_address",
+          "ESP-EBP=-0x10"
+        ],
+        "helper_family": "_Def_groups_table_lookup"
+      },
+      "cause": {
+        "caller": "A0_DlgStaticDef_DrawToPcx16@0x004EADCF",
+        "destination_origin": "_Def_->groups(+0x1C)",
+        "size_origin": "group_index(EDI=0)",
+        "size_formula": "groups+4*group_index",
+        "subsystem": "UI/static_DEF_draw"
+      },
+      "signature_group": "sig-172ce30fe9bf",
+      "cause_group": "cause-5b1f6a8bf368",
+      "destination_provenance": "_Def_->groups(+0x1C)",
+      "size_provenance": "group_index(EDI=0)",
+      "capabilities": [],
+      "saves": [
+        {
+          "path": "HD_HOTA.dll+0x1A6A7-5.7-R40-180-BATTLE.GM1",
+          "sha256": "7bcf44e47b0a5c7ecb1b033bb701557b1ba0127e3061176d1fe688c77837f45e",
+          "role": "derived",
+          "representative": true
+        }
+      ],
+      "state_origin": "unknown",
+      "classification_status": "candidate",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-ffdb387c2010f012",
+      "sha256_txt": "ffdb387c2010f012de14ce327a7cbdcac3ccc1969b8d4ec93ce5e37a57e1825d",
+      "physical_copies": [
+        "HD_HOTA.dll+0x19167-1.8.0-1-97CAD.txt",
+        "HD_HOTA.dll+0x19167-1.8.0-1.txt"
+      ],
+      "physical_copy_count": 2,
+      "txt": "HD_HOTA.dll+0x19167-1.8.0-1-97CAD.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC7"
+      },
+      "eip_or_rva": "HD_HOTA.dll+0x19167",
+      "effective_access": "read",
+      "operand_address": "0x000004C0",
+      "registers": {
+        "EAX": "0x004EADD4",
+        "ECX": "0x000004C0",
+        "EDX": "0x00000001",
+        "EBX": "0x004EADCF",
+        "ESP": "0x00199C34",
+        "EBP": "0x00199C44",
+        "ESI": "0x0576A570",
+        "EDI": "0x00000000"
+      },
+      "caller": "A0_DlgStaticDef_DrawToPcx16@0x004EADCF",
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x19167",
+        "instruction": "read groups[group_index]",
+        "effective_access": "read",
+        "operand_address": "0x000004C0",
+        "register_invariants": [
+          "EDI=0",
+          "EAX=0x004EADD4",
+          "EBX=0x004EADCF",
+          "EDX=1",
+          "ECX=fault_address",
+          "ESP-EBP=-0x10"
+        ],
+        "helper_family": "_Def_groups_table_lookup"
+      },
+      "cause": {
+        "caller": "A0_DlgStaticDef_DrawToPcx16@0x004EADCF",
+        "destination_origin": "_Def_->groups(+0x1C)",
+        "size_origin": "group_index(EDI=0)",
+        "size_formula": "groups+4*group_index",
+        "subsystem": "UI/static_DEF_draw"
+      },
+      "signature_group": "sig-ece27e4f7eb2",
+      "cause_group": "cause-63d3eda539fd",
+      "destination_provenance": "_Def_->groups(+0x1C)",
+      "size_provenance": "group_index(EDI=0)",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "candidate",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-87a21a32aada0fd2",
+      "sha256_txt": "87a21a32aada0fd29fde83e6ce4289e4fa63b3dd92e5be042ed489a22e420c18",
+      "physical_copies": [
+        "HD_HOTA.dll+0x19167-1.8.0-2-97CAD.txt",
+        "HD_HOTA.dll+0x19167-1.8.0-2.txt"
+      ],
+      "physical_copy_count": 2,
+      "txt": "HD_HOTA.dll+0x19167-1.8.0-2-97CAD.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC12"
+      },
+      "eip_or_rva": "HD_HOTA.dll+0x19167",
+      "effective_access": "read",
+      "operand_address": "0x00000400",
+      "registers": {
+        "EAX": "0x004EADD4",
+        "ECX": "0x00000400",
+        "EDX": "0x00000001",
+        "EBX": "0x004EADCF",
+        "ESP": "0x001A9A1C",
+        "EBP": "0x001A9A2C",
+        "ESI": "0x095D7BE0",
+        "EDI": "0x00000000"
+      },
+      "caller": "A0_DlgStaticDef_DrawToPcx16@0x004EADCF",
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x19167",
+        "instruction": "read groups[group_index]",
+        "effective_access": "read",
+        "operand_address": "0x00000400",
+        "register_invariants": [
+          "EDI=0",
+          "EAX=0x004EADD4",
+          "EBX=0x004EADCF",
+          "EDX=1",
+          "ECX=fault_address",
+          "ESP-EBP=-0x10"
+        ],
+        "helper_family": "_Def_groups_table_lookup"
+      },
+      "cause": {
+        "caller": "A0_DlgStaticDef_DrawToPcx16@0x004EADCF",
+        "destination_origin": "_Def_->groups(+0x1C)",
+        "size_origin": "group_index(EDI=0)",
+        "size_formula": "groups+4*group_index",
+        "subsystem": "UI/static_DEF_draw"
+      },
+      "signature_group": "sig-4ac582707f1b",
+      "cause_group": "cause-1ae2d7a53a53",
+      "destination_provenance": "_Def_->groups(+0x1C)",
+      "size_provenance": "group_index(EDI=0)",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "candidate",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-7fb44a02013ecb11",
+      "sha256_txt": "7fb44a02013ecb115066d02ca3a35a1f14aa183c5d7e8a0db593a2a121ea583c",
+      "physical_copies": [
+        "HD_HOTA.dll+0x19327-1.8.0Time14.06.2-1-97CAD.txt",
+        "HD_HOTA.dll+0x19327-1.8.0Time14.06.2-1.txt"
+      ],
+      "physical_copy_count": 2,
+      "txt": "HD_HOTA.dll+0x19327-1.8.0Time14.06.2-1-97CAD.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R10"
+      },
+      "eip_or_rva": "HD_HOTA.dll+0x19327",
+      "effective_access": "read",
+      "operand_address": "0x00000168",
+      "registers": {
+        "EAX": "0x004EADD4",
+        "ECX": "0x00000168",
+        "EDX": "0x00000001",
+        "EBX": "0x004EADCF",
+        "ESP": "0x001A9A24",
+        "EBP": "0x001A9A34",
+        "ESI": "0x060AA050",
+        "EDI": "0x00000000"
+      },
+      "caller": "A0_DlgStaticDef_DrawToPcx16@0x004EADCF",
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x19327",
+        "instruction": "read groups[group_index]",
+        "effective_access": "read",
+        "operand_address": "0x00000168",
+        "register_invariants": [
+          "EDI=0",
+          "EAX=0x004EADD4",
+          "EBX=0x004EADCF",
+          "EDX=1",
+          "ECX=fault_address",
+          "ESP-EBP=-0x10"
+        ],
+        "helper_family": "_Def_groups_table_lookup"
+      },
+      "cause": {
+        "caller": "A0_DlgStaticDef_DrawToPcx16@0x004EADCF",
+        "destination_origin": "_Def_->groups(+0x1C)",
+        "size_origin": "group_index(EDI=0)",
+        "size_formula": "groups+4*group_index",
+        "subsystem": "UI/static_DEF_draw"
+      },
+      "signature_group": "sig-cf8adc2f32fb",
+      "cause_group": "cause-f73e45163c61",
+      "destination_provenance": "_Def_->groups(+0x1C)",
+      "size_provenance": "group_index(EDI=0)",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "candidate",
+      "root_cause_allowed": false,
+      "outlier": false
+    }
+  ],
+  "signature_groups": [
+    {
+      "id": "sig-172ce30fe9bf",
+      "count": 1,
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x1A6A7",
+        "instruction": "read groups[group_index]",
+        "effective_access": "read",
+        "operand_address": "0x000001CC",
+        "register_invariants": [
+          "EDI=0",
+          "EAX=0x004EADD4",
+          "EBX=0x004EADCF",
+          "EDX=1",
+          "ECX=fault_address",
+          "ESP-EBP=-0x10"
+        ],
+        "helper_family": "_Def_groups_table_lookup"
+      },
+      "cause_groups": [
+        "cause-5b1f6a8bf368"
+      ],
+      "representative": "incident-427f8c49652c3774"
+    },
+    {
+      "id": "sig-4ac582707f1b",
+      "count": 1,
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x19167",
+        "instruction": "read groups[group_index]",
+        "effective_access": "read",
+        "operand_address": "0x00000400",
+        "register_invariants": [
+          "EDI=0",
+          "EAX=0x004EADD4",
+          "EBX=0x004EADCF",
+          "EDX=1",
+          "ECX=fault_address",
+          "ESP-EBP=-0x10"
+        ],
+        "helper_family": "_Def_groups_table_lookup"
+      },
+      "cause_groups": [
+        "cause-1ae2d7a53a53"
+      ],
+      "representative": "incident-87a21a32aada0fd2"
+    },
+    {
+      "id": "sig-cf8adc2f32fb",
+      "count": 1,
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x19327",
+        "instruction": "read groups[group_index]",
+        "effective_access": "read",
+        "operand_address": "0x00000168",
+        "register_invariants": [
+          "EDI=0",
+          "EAX=0x004EADD4",
+          "EBX=0x004EADCF",
+          "EDX=1",
+          "ECX=fault_address",
+          "ESP-EBP=-0x10"
+        ],
+        "helper_family": "_Def_groups_table_lookup"
+      },
+      "cause_groups": [
+        "cause-f73e45163c61"
+      ],
+      "representative": "incident-7fb44a02013ecb11"
+    },
+    {
+      "id": "sig-ece27e4f7eb2",
+      "count": 1,
+      "signature": {
+        "crash_site": "HD_HOTA.dll+0x19167",
+        "instruction": "read groups[group_index]",
+        "effective_access": "read",
+        "operand_address": "0x000004C0",
+        "register_invariants": [
+          "EDI=0",
+          "EAX=0x004EADD4",
+          "EBX=0x004EADCF",
+          "EDX=1",
+          "ECX=fault_address",
+          "ESP-EBP=-0x10"
+        ],
+        "helper_family": "_Def_groups_table_lookup"
+      },
+      "cause_groups": [
+        "cause-63d3eda539fd"
+      ],
+      "representative": "incident-ffdb387c2010f012"
+    }
+  ],
+  "cause_groups": [
+    {
+      "id": "cause-1ae2d7a53a53",
+      "count": 1,
+      "cause": {
+        "caller": "A0_DlgStaticDef_DrawToPcx16@0x004EADCF",
+        "destination_origin": "_Def_->groups(+0x1C)",
+        "size_origin": "group_index(EDI=0)",
+        "size_formula": "groups+4*group_index",
+        "subsystem": "UI/static_DEF_draw"
+      },
+      "signature_group": "sig-4ac582707f1b",
+      "representative": "incident-87a21a32aada0fd2",
+      "unresolved": false
+    },
+    {
+      "id": "cause-5b1f6a8bf368",
+      "count": 1,
+      "cause": {
+        "caller": "A0_DlgStaticDef_DrawToPcx16@0x004EADCF",
+        "destination_origin": "_Def_->groups(+0x1C)",
+        "size_origin": "group_index(EDI=0)",
+        "size_formula": "groups+4*group_index",
+        "subsystem": "UI/static_DEF_draw"
+      },
+      "signature_group": "sig-172ce30fe9bf",
+      "representative": "incident-427f8c49652c3774",
+      "unresolved": false
+    },
+    {
+      "id": "cause-63d3eda539fd",
+      "count": 1,
+      "cause": {
+        "caller": "A0_DlgStaticDef_DrawToPcx16@0x004EADCF",
+        "destination_origin": "_Def_->groups(+0x1C)",
+        "size_origin": "group_index(EDI=0)",
+        "size_formula": "groups+4*group_index",
+        "subsystem": "UI/static_DEF_draw"
+      },
+      "signature_group": "sig-ece27e4f7eb2",
+      "representative": "incident-ffdb387c2010f012",
+      "unresolved": false
+    },
+    {
+      "id": "cause-f73e45163c61",
+      "count": 1,
+      "cause": {
+        "caller": "A0_DlgStaticDef_DrawToPcx16@0x004EADCF",
+        "destination_origin": "_Def_->groups(+0x1C)",
+        "size_origin": "group_index(EDI=0)",
+        "size_formula": "groups+4*group_index",
+        "subsystem": "UI/static_DEF_draw"
+      },
+      "signature_group": "sig-cf8adc2f32fb",
+      "representative": "incident-7fb44a02013ecb11",
+      "unresolved": false
+    }
+  ],
+  "signature_only_separations": [],
+  "related_cases": [],
+  "representatives": {
+    "algorithm": "deterministic_greedy_set_cover",
+    "selected": [
+      {
+        "incident_id": "incident-ffdb387c2010f012",
+        "txt": "HD_HOTA.dll+0x19167-1.8.0-1-97CAD.txt",
+        "newly_covered": [
+          "cause:cause-63d3eda539fd",
+          "formula:groups+4*group_index",
+          "hd:5.7 RC7",
+          "hota:1.8.0",
+          "subsystem:UI/static_DEF_draw"
+        ],
+        "all_features": [
+          "cause:cause-63d3eda539fd",
+          "formula:groups+4*group_index",
+          "hd:5.7 RC7",
+          "hota:1.8.0",
+          "subsystem:UI/static_DEF_draw"
+        ]
+      },
+      {
+        "incident_id": "incident-87a21a32aada0fd2",
+        "txt": "HD_HOTA.dll+0x19167-1.8.0-2-97CAD.txt",
+        "newly_covered": [
+          "cause:cause-1ae2d7a53a53",
+          "hd:5.7 RC12"
+        ],
+        "all_features": [
+          "cause:cause-1ae2d7a53a53",
+          "formula:groups+4*group_index",
+          "hd:5.7 RC12",
+          "hota:1.8.0",
+          "subsystem:UI/static_DEF_draw"
+        ]
+      },
+      {
+        "incident_id": "incident-7fb44a02013ecb11",
+        "txt": "HD_HOTA.dll+0x19327-1.8.0Time14.06.2-1-97CAD.txt",
+        "newly_covered": [
+          "cause:cause-f73e45163c61",
+          "hd:5.7 R10"
+        ],
+        "all_features": [
+          "cause:cause-f73e45163c61",
+          "formula:groups+4*group_index",
+          "hd:5.7 R10",
+          "hota:1.8.0",
+          "subsystem:UI/static_DEF_draw"
+        ]
+      },
+      {
+        "incident_id": "incident-427f8c49652c3774",
+        "txt": "HD_HOTA.dll+0x1A6A7-5.7-R40-180.txt",
+        "newly_covered": [
+          "cause:cause-5b1f6a8bf368",
+          "hd:5.7 R40"
+        ],
+        "all_features": [
+          "cause:cause-5b1f6a8bf368",
+          "formula:groups+4*group_index",
+          "hd:5.7 R40",
+          "hota:1.8.0",
+          "subsystem:UI/static_DEF_draw"
+        ]
+      }
+    ],
+    "uncovered": []
+  },
+  "validation_errors": [],
+  "valid": true
+}

@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-19T08:57:52.411994+00:00",
+  "family_id": "family-HD_HOTA.dll+0x1A6A7",
+  "unique_incidents": 4,
+  "physical_txt_files": 7,
+  "members": [
+    {
+      "incident_id": "incident-427f8c49652c3774",
+      "hd_version": "5.7 R40",
+      "hota_version": "1.8.0",
+      "log": "HD_HOTA.dll+0x1A6A7-5.7-R40-180.txt",
+      "duplicate_logs": [],
+      "sha256": "427f8c49652c37747ee90d1253a621fc7423af203bf213b1842f146f87eceb8e",
+      "crash_rva": "0x1A6A7",
+      "function_rva": "0x1A470",
+      "function_offset": "0x237",
+      "wrapper_rva": "0x1ACE0",
+      "callsite_rva": "0x1ACFB",
+      "wrapper_call_offset": "0x1B",
+      "faulting_address": "0x000001CC",
+      "registers": {
+        "EAX": "0x004EADD4",
+        "ECX": "0x000001CC",
+        "EDX": "0x00000001",
+        "EBX": "0x004EADCF",
+        "ESP": "0x00199B9C",
+        "EBP": "0x00199BAC",
+        "ESI": "0x15079490",
+        "EDI": "0x00000000"
+      },
+      "esp_minus_ebp": -16,
+      "first_two_frame_pairs": [
+        [
+          "HD_HOTA.dll+0x1A470",
+          "HD_HOTA.dll+0x1ACFB"
+        ],
+        [
+          "HD_HOTA.dll+0x1ACE0",
+          "0x02C61D2C"
+        ]
+      ],
+      "formula": {
+        "expression": "faulting = ECX + EDI*4",
+        "computed": "0x000001CC",
+        "matches": true
+      },
+      "listing_path": "modules/HD_HOTA.dll-5.7 R40.txt",
+      "exact_listing_available": true,
+      "evidence_level": "exact_listing+minidump+registers+stack",
+      "dmp": "HD_HOTA.dll+0x1A6A7-5.7-R40-180.dmp"
+    },
+    {
+      "incident_id": "incident-48ac5428fc974837",
+      "hd_version": "5.7 RC7",
+      "hota_version": "1.8.0",
+      "log": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-1.txt",
+      "duplicate_logs": [
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-1-97CAD.txt"
+      ],
+      "sha256": "48ac5428fc974837e097be4ff8d439b68ec185a3d61c855c9451f5990dd2d684",
+      "crash_rva": "0x19167",
+      "function_rva": "0x18F30",
+      "function_offset": "0x237",
+      "wrapper_rva": "0x197A0",
+      "callsite_rva": "0x197BB",
+      "wrapper_call_offset": "0x1B",
+      "faulting_address": "0x000004C0",
+      "registers": {
+        "EAX": "0x004EADD4",
+        "ECX": "0x000004C0",
+        "EDX": "0x00000001",
+        "EBX": "0x004EADCF",
+        "ESP": "0x00199C34",
+        "EBP": "0x00199C44",
+        "ESI": "0x0576A570",
+        "EDI": "0x00000000"
+      },
+      "esp_minus_ebp": -16,
+      "first_two_frame_pairs": [
+        [
+          "HD_HOTA.dll+0x18F30",
+          "HD_HOTA.dll+0x197BB"
+        ],
+        [
+          "HD_HOTA.dll+0x197A0",
+          "0x02C61A10"
+        ]
+      ],
+      "formula": {
+        "expression": "faulting = ECX + EDI*4",
+        "computed": "0x000004C0",
+        "matches": true
+      },
+      "listing_path": null,
+      "exact_listing_available": false,
+      "evidence_level": "registers+stack+offset"
+    },
+    {
+      "incident_id": "incident-929df3da9bcbe539",
+      "hd_version": "5.7 RC12",
+      "hota_version": "1.8.0",
+      "log": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-2.txt",
+      "duplicate_logs": [
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-2-97CAD.txt"
+      ],
+      "sha256": "929df3da9bcbe53952a1bd27cf45c66e253db79f6a8f784f1f0541b50c511499",
+      "crash_rva": "0x19167",
+      "function_rva": "0x18F30",
+      "function_offset": "0x237",
+      "wrapper_rva": "0x197A0",
+      "callsite_rva": "0x197BB",
+      "wrapper_call_offset": "0x1B",
+      "faulting_address": "0x00000400",
+      "registers": {
+        "EAX": "0x004EADD4",
+        "ECX": "0x00000400",
+        "EDX": "0x00000001",
+        "EBX": "0x004EADCF",
+        "ESP": "0x001A9A1C",
+        "EBP": "0x001A9A2C",
+        "ESI": "0x095D7BE0",
+        "EDI": "0x00000000"
+      },
+      "esp_minus_ebp": -16,
+      "first_two_frame_pairs": [
+        [
+          "HD_HOTA.dll+0x18F30",
+          "HD_HOTA.dll+0x197BB"
+        ],
+        [
+          "HD_HOTA.dll+0x197A0",
+          "0x02D11A80"
+        ]
+      ],
+      "formula": {
+        "expression": "faulting = ECX + EDI*4",
+        "computed": "0x00000400",
+        "matches": true
+      },
+      "listing_path": null,
+      "exact_listing_available": false,
+      "evidence_level": "registers+stack+offset"
+    },
+    {
+      "incident_id": "incident-74f3ca5c6aa1189f",
+      "hd_version": "5.7 R10",
+      "hota_version": "1.8.0",
+      "log": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19327-1.8.0Time14.06.2-1.txt",
+      "duplicate_logs": [
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19327-1.8.0Time14.06.2-1-97CAD.txt"
+      ],
+      "sha256": "74f3ca5c6aa1189f9bf26fba543313f3bf83a58fc3956e119edc534032ac94e8",
+      "crash_rva": "0x19327",
+      "function_rva": "0x190F0",
+      "function_offset": "0x237",
+      "wrapper_rva": "0x19960",
+      "callsite_rva": "0x1997B",
+      "wrapper_call_offset": "0x1B",
+      "faulting_address": "0x00000168",
+      "registers": {
+        "EAX": "0x004EADD4",
+        "ECX": "0x00000168",
+        "EDX": "0x00000001",
+        "EBX": "0x004EADCF",
+        "ESP": "0x001A9A24",
+        "EBP": "0x001A9A34",
+        "ESI": "0x060AA050",
+        "EDI": "0x00000000"
+      },
+      "esp_minus_ebp": -16,
+      "first_two_frame_pairs": [
+        [
+          "HD_HOTA.dll+0x190F0",
+          "HD_HOTA.dll+0x1997B"
+        ],
+        [
+          "HD_HOTA.dll+0x19960",
+          "0x02D21AF4"
+        ]
+      ],
+      "formula": {
+        "expression": "faulting = ECX + EDI*4",
+        "computed": "0x00000168",
+        "matches": true
+      },
+      "listing_path": "modules/HD_HOTA.dll-5.7 R10.txt",
+      "exact_listing_available": true,
+      "evidence_level": "exact_listing+registers+stack"
+    }
+  ],
+  "family_invariant": {
+    "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+    "operation": "read",
+    "instruction": "mov eax, [ecx+edi*4]",
+    "source_load": "mov ecx, [esi+1Ch]",
+    "semantic": "read Def->groups[group_index]",
+    "function_relative_offset": "0x237",
+    "wrapper_call_offset": "0x1B",
+    "constant_registers": {
+      "EAX": "0x004EADD4",
+      "EBX": "0x004EADCF",
+      "EDX": "0x00000001",
+      "EDI": "0x00000000"
+    },
+    "stack_frame_delta": "ESP-EBP=-0x10"
+  },
+  "checks": {
+    "same_exception_and_operation": true,
+    "same_function_relative_offset_0x237": true,
+    "same_wrapper_call_offset_0x1B": true,
+    "fault_formula_matches_all": true,
+    "constant_EAX_EBX_EDX_EDI": true,
+    "constant_ESP_minus_EBP_minus_0x10": true
+  },
+  "limitations": [
+    "Exact RC7 and RC12 listings are unavailable; those rows are established by the log register invariant, stack shape, function/wrapper relative offsets, and cross-version code continuity.",
+    "Only the R40 incident has a DMP; its MiniDumpNormal does not capture the Def object at ESI.",
+    "No binary instruction-byte images are available, so the family is not claimed as byte-for-byte proven across all versions."
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-19T09:41:19.218310+00:00",
+  "case": "HD_HOTA.dll+0x1A6A7",
+  "status": "static_exhausted_with_runtime_residual",
+  "items": [
+    {
+      "id": 1,
+      "category": "падающая инструкция и адресная арифметика",
+      "status": "closed",
+      "evidence": [
+        "HD_HOTA.dll+0x1A6A7-5.7-R40-180.dmp",
+        "modules/HD_HOTA.dll-5.7 R40.txt"
+      ]
+    },
+    {
+      "id": 2,
+      "category": "фактический caller",
+      "status": "closed",
+      "evidence": [
+        "0x004EADCF",
+        "0x004EADD4"
+      ]
+    },
+    {
+      "id": 3,
+      "category": "поставщики и записи полей",
+      "status": "closed_in_proven_scope",
+      "evidence": [
+        "def-field-1c-writers-h3hota.json",
+        "dlgstaticdef-field-30-writers-h3hota.json"
+      ]
+    },
+    {
+      "id": 4,
+      "category": "все caller-ы helper",
+      "status": "closed",
+      "evidence": [
+        "static-exhaustion.json",
+        "5/5 без усечения"
+      ]
+    },
+    {
+      "id": 5,
+      "category": "siblings",
+      "status": "closed",
+      "evidence": [
+        "family-membership.json",
+        "4/4"
+      ]
+    },
+    {
+      "id": 6,
+      "category": "vtable, тип и конструктор",
+      "status": "closed",
+      "evidence": [
+        "A0_Def_V_Table_off_63D6B0",
+        "A0_DlgStaticDef_V_Table_off_63EC48"
+      ]
+    },
+    {
+      "id": 7,
+      "category": "оригинальный SoD-путь",
+      "status": "closed",
+      "evidence": [
+        "A0_Def_Sprite_Draw_sub_47B610"
+      ]
+    },
+    {
+      "id": 8,
+      "category": "lifecycle и refcount",
+      "status": "closed",
+      "evidence": [
+        "A0_Load_Def_sub_55C9C0",
+        "A0_Def_DerefOrDestruct_sub_55D3B0"
+      ]
+    },
+    {
+      "id": 9,
+      "category": "cross-version",
+      "status": "closed",
+      "evidence": [
+        "cross-version-matrix.json",
+        "4/4 formula+stack"
+      ]
+    },
+    {
+      "id": 10,
+      "category": "последний наблюдаемый контекст",
+      "status": "closed",
+      "evidence": [
+        "MT_MOUSEBUTTON case 2",
+        "0x005FEAFC"
+      ]
+    },
+    {
+      "id": 11,
+      "category": "арифметика выделения",
+      "status": "closed",
+      "evidence": [
+        "sizeof(_Def_)=0x38",
+        "groups_count*4"
+      ]
+    }
+  ],
+  "residual": {
+    "classification": "runtime_only",
+    "state_origin": "unknown",
+    "required": [
+      "FullDump",
+      "watchpoint Def+0x1C",
+      "refcount/thread tracing"
+    ]
+  },
+  "limitations": [
+    "RC7/RC12 exact listings unavailable",
+    "object 0x15079490 not captured"
+  ]
+}

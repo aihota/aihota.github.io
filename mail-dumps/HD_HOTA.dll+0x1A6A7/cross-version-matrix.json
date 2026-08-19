@@ -1,0 +1,181 @@
+{
+  "schema": 1,
+  "root": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A6A7",
+  "rows": [
+    {
+      "version": "HD 5.7 R10 / HotA 1.8.0",
+      "hd_version": "5.7 R10",
+      "hota_version": "1.8.0",
+      "proof": {
+        "log": [
+          "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19327-1.8.0Time14.06.2-1-97CAD.txt",
+          "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19327-1.8.0Time14.06.2-1.txt"
+        ],
+        "dmp": [],
+        "listing": [
+          "modules/HD_HOTA.dll-5.7 R10.txt"
+        ],
+        "formula": [
+          "mail-dumps/HD_HOTA.dll+0x1A6A7/cross-version-evidence.json#members[3].formula"
+        ],
+        "stack": [
+          "mail-dumps/HD_HOTA.dll+0x1A6A7/cross-version-evidence.json#members[3].first_two_frame_pairs"
+        ],
+        "bytes": []
+      },
+      "log": true,
+      "dmp": false,
+      "listing": true,
+      "formula": true,
+      "stack": true,
+      "bytes": false
+    },
+    {
+      "version": "HD 5.7 R40 / HotA 1.8.0",
+      "hd_version": "5.7 R40",
+      "hota_version": "1.8.0",
+      "proof": {
+        "log": [
+          "HD_HOTA.dll+0x1A6A7-5.7-R40-180.txt"
+        ],
+        "dmp": [
+          "HD_HOTA.dll+0x1A6A7-5.7-R40-180.dmp"
+        ],
+        "listing": [
+          "modules/HD_HOTA.dll-5.7 R40.txt",
+          "modules/HD_MCR.dll-5.7 R40.txt",
+          "modules/HD_SCX2.dll-5.7 R40.txt",
+          "modules/HD_UPD.dll-5.7 R40.txt",
+          "modules/HD_VGL2.dll-5.7 R40.txt",
+          "modules/HW_HOTA.dll-5.7 R40.txt",
+          "modules/_HD3_.dll-5.7 R40.txt"
+        ],
+        "formula": [
+          "mail-dumps/HD_HOTA.dll+0x1A6A7/cross-version-evidence.json#members[0].formula"
+        ],
+        "stack": [
+          "HD_HOTA.dll+0x1A6A7-5.7-R40-180.txt:stack-section",
+          "mail-dumps/HD_HOTA.dll+0x1A6A7/cross-version-evidence.json#members[0].first_two_frame_pairs"
+        ],
+        "bytes": []
+      },
+      "log": true,
+      "dmp": true,
+      "listing": true,
+      "formula": true,
+      "stack": true,
+      "bytes": false
+    },
+    {
+      "version": "HD 5.7 RC12 / HotA 1.8.0",
+      "hd_version": "5.7 RC12",
+      "hota_version": "1.8.0",
+      "proof": {
+        "log": [
+          "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-2-97CAD.txt",
+          "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-2.txt"
+        ],
+        "dmp": [],
+        "listing": [],
+        "formula": [
+          "mail-dumps/HD_HOTA.dll+0x1A6A7/cross-version-evidence.json#members[2].formula"
+        ],
+        "stack": [
+          "mail-dumps/HD_HOTA.dll+0x1A6A7/cross-version-evidence.json#members[2].first_two_frame_pairs",
+          "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-2-97CAD.txt:stack-section",
+          "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-2.txt:stack-section"
+        ],
+        "bytes": []
+      },
+      "log": true,
+      "dmp": false,
+      "listing": false,
+      "formula": true,
+      "stack": true,
+      "bytes": false
+    },
+    {
+      "version": "HD 5.7 RC7 / HotA 1.8.0",
+      "hd_version": "5.7 RC7",
+      "hota_version": "1.8.0",
+      "proof": {
+        "log": [
+          "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-1-97CAD.txt",
+          "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-1.txt"
+        ],
+        "dmp": [],
+        "listing": [],
+        "formula": [
+          "mail-dumps/HD_HOTA.dll+0x1A6A7/cross-version-evidence.json#members[1].formula"
+        ],
+        "stack": [
+          "mail-dumps/HD_HOTA.dll+0x1A6A7/cross-version-evidence.json#members[1].first_two_frame_pairs",
+          "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-1-97CAD.txt:stack-section",
+          "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-1.txt:stack-section"
+        ],
+        "bytes": []
+      },
+      "log": true,
+      "dmp": false,
+      "listing": false,
+      "formula": true,
+      "stack": true,
+      "bytes": false
+    }
+  ],
+  "matrix": {
+    "columns": [
+      "log",
+      "dmp",
+      "listing",
+      "formula",
+      "stack",
+      "bytes"
+    ],
+    "rows": [
+      {
+        "version": "HD 5.7 R10 / HotA 1.8.0",
+        "log": true,
+        "dmp": false,
+        "listing": true,
+        "formula": true,
+        "stack": true,
+        "bytes": false,
+        "supported": true
+      },
+      {
+        "version": "HD 5.7 R40 / HotA 1.8.0",
+        "log": true,
+        "dmp": true,
+        "listing": true,
+        "formula": true,
+        "stack": true,
+        "bytes": false,
+        "supported": true
+      },
+      {
+        "version": "HD 5.7 RC12 / HotA 1.8.0",
+        "log": true,
+        "dmp": false,
+        "listing": false,
+        "formula": true,
+        "stack": true,
+        "bytes": false,
+        "supported": true
+      },
+      {
+        "version": "HD 5.7 RC7 / HotA 1.8.0",
+        "log": true,
+        "dmp": false,
+        "listing": false,
+        "formula": true,
+        "stack": true,
+        "bytes": false,
+        "supported": true
+      }
+    ],
+    "supported": 4,
+    "total": 4,
+    "level": "подтверждена формулой и стеком"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "version": 3,
+  "created": "2026-08-19",
+  "target": "mail-dumps/HD_HOTA.dll+0x1A6A7",
+  "source_root": "",
+  "relation": "confirmed_same_defect",
+  "reason": "Во всех трёх старых уникальных инцидентах тот же AV-read в валидаторе DEF на смещении +0x237: EDI=0, ECX равен малому ненулевому faulting address, EAX/EBX/EDX совпадают, фактический wrapper-caller расположен на +0x1B; RVA функции закономерно смещён версией HD-мода.",
+  "count_in_family": true,
+  "publish_with_primary": true,
+  "family_contract": {
+    "event_role": "crash",
+    "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+    "operation": "read",
+    "mechanism_side": "source",
+    "events": 6
+  },
+  "state": "applied",
+  "items": [
+    {
+      "source": "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x19167-1.8.0-1-97CAD.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1A6A7/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-1-97CAD.txt",
+      "kind": "txt",
+      "size": 9232,
+      "sha256": "48ac5428fc974837e097be4ff8d439b68ec185a3d61c855c9451f5990dd2d684",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "structural"
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x19167-1.8.0-1.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1A6A7/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-1.txt",
+      "kind": "txt",
+      "size": 9232,
+      "sha256": "48ac5428fc974837e097be4ff8d439b68ec185a3d61c855c9451f5990dd2d684",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "structural"
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x19167-1.8.0-2-97CAD.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1A6A7/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-2-97CAD.txt",
+      "kind": "txt",
+      "size": 10223,
+      "sha256": "929df3da9bcbe53952a1bd27cf45c66e253db79f6a8f784f1f0541b50c511499",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "structural"
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x19167-1.8.0-2.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1A6A7/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-2.txt",
+      "kind": "txt",
+      "size": 10223,
+      "sha256": "929df3da9bcbe53952a1bd27cf45c66e253db79f6a8f784f1f0541b50c511499",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "structural"
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x19327-1.8.0Time14.06.2-1-97CAD.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1A6A7/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19327-1.8.0Time14.06.2-1-97CAD.txt",
+      "kind": "txt",
+      "size": 62351,
+      "sha256": "74f3ca5c6aa1189f9bf26fba543313f3bf83a58fc3956e119edc534032ac94e8",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "structural"
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x19327-1.8.0Time14.06.2-1.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1A6A7/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19327-1.8.0Time14.06.2-1.txt",
+      "kind": "txt",
+      "size": 62351,
+      "sha256": "74f3ca5c6aa1189f9bf26fba543313f3bf83a58fc3956e119edc534032ac94e8",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "structural"
+    }
+  ]
+}

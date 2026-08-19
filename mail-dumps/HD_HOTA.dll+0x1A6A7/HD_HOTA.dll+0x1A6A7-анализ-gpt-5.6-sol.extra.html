@@ -1,0 +1,45 @@
+<section id="viz-mechanism" data-toc="Визуализация сбоя">
+  <h2><span class="htext">Визуализация сбоя</span>
+      <a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Схема отделяет неизвестное происхождение повреждения от подтверждённой локальной цепочки чтения.</p>
+  <div class="viz" role="img" aria-label="Граница доказанности: происхождение состояния не установлено, локальная цепочка до чтения по адресу 0x1CC подтверждена">
+    <div class="viz-proof-map">
+      <div class="viz-unknown">
+        <span class="viz-badge neutral">?</span>
+        <strong>Происхождение состояния</strong>
+        <span class="lbl">автор записи в <code>_Def_+0x1C</code> не установлен по сокращённому дампу (DMP)</span>
+      </div>
+      <div class="viz-proof-divider"><span>Граница доказанности</span></div>
+      <div class="viz-known">
+        <span class="viz-proof-label">Подтверждённая локальная цепочка</span>
+        <div class="viz-strip badge-tl">
+          <div class="viz-box accent">
+            <span class="viz-badge accent">1</span>
+            <strong>Источник указателя</strong>
+            <span class="lbl">_DlgStaticDef_+0x30</span>
+          </div>
+          <div class="viz-box accent">
+            <span class="viz-badge accent">2</span>
+            <strong>Объект DEF</strong>
+            <span class="lbl">Def* = 0x15079490</span>
+          </div>
+          <div class="viz-box bad">
+            <span class="viz-badge bad">3</span>
+            <strong>Испорченное поле</strong>
+            <span class="lbl">_Def_+0x1C = 0x1CC</span>
+          </div>
+          <div class="viz-box bad">
+            <span class="viz-badge bad">4</span>
+            <strong>Адрес чтения</strong>
+            <span class="lbl">0x1CC + 0 × 4 = 0x1CC · СБОЙ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="viz-legend" aria-label="Легенда доказанности">
+      <div class="item"><span class="viz-key"></span><span><strong>Сплошная рамка</strong> <span class="txt">— подтверждено дампом, контекстом и листингом</span></span></div>
+      <div class="item"><span class="viz-key dashed"></span><span><strong>Пунктир</strong> <span class="txt">— происхождение состояния не установлено</span></span></div>
+    </div>
+    <p class="viz-cap">При <code>EDI=0</code> малое ненулевое значение стало базой таблицы групп и фактическим адресом чтения.</p>
+  </div>
+</section>

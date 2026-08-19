@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "defaults": {
+    "helper_family": "_Def_groups_table_lookup",
+    "instruction": "read groups[group_index]",
+    "effective_access": "read",
+    "register_invariants": [
+      "EDI=0",
+      "EAX=0x004EADD4",
+      "EBX=0x004EADCF",
+      "EDX=1",
+      "ECX=fault_address",
+      "ESP-EBP=-0x10"
+    ],
+    "caller": "A0_DlgStaticDef_DrawToPcx16@0x004EADCF",
+    "destination_origin": "_Def_->groups(+0x1C)",
+    "size_origin": "group_index(EDI=0)",
+    "size_formula": "groups+4*group_index",
+    "subsystem": "UI/static_DEF_draw",
+    "state_origin": "unknown"
+  },
+  "incidents": {},
+  "related_cases": []
+}

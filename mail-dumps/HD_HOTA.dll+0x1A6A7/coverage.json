@@ -1,0 +1,206 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-19T09:52:40.920681+00:00",
+  "source": "coverage-claims.json",
+  "axes": [
+    "instruction",
+    "mechanism",
+    "state_origin",
+    "family_coverage"
+  ],
+  "levels": [
+    "confirmed",
+    "probable",
+    "unknown",
+    "not_applicable"
+  ],
+  "claims": [
+    {
+      "id": "crash-site-r40",
+      "type": "crash_site",
+      "statement": "Точка сбоя подтверждена: 0x0101A6A7 выполняет mov eax,[ecx+edi*4].",
+      "evidence": [
+        "input:HD_HOTA.dll+0x1A6A7-5.7-R40-180.txt",
+        "input:HD_HOTA.dll+0x1A6A7-5.7-R40-180.dmp",
+        "input:../../modules/HD_HOTA.dll-5.7 R40.txt"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "def-groups-low-pointer",
+      "type": "local_mechanism",
+      "statement": "Поле таблицы групп _Def_+0x1C содержало 0x1CC.",
+      "evidence": [
+        "input:HD_HOTA.dll+0x1A6A7-5.7-R40-180.dmp",
+        "input:def-field-1c-writers-h3hota.json",
+        "input:hdhota-def-field-1c-hook-accesses.json"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "ui-mousebutton-context",
+      "type": "observation",
+      "statement": "Контекст интерфейса: ветвь 2 события MT_MOUSEBUTTON вызвала отрисовку A0_DlgStaticDef.",
+      "evidence": [
+        "input:cross-version-evidence.json",
+        "input:../../modules/h3hota.exe.txt"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "dlg-def-writers",
+      "type": "observation",
+      "statement": "Найдены три записи _DlgStaticDef_+0x30; все сохраняют результат A0_Load_Def.",
+      "evidence": [
+        "input:dlgstaticdef-field-30-writers-h3hota.json",
+        "input:../../modules/h3hota.exe.txt"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "state-origin-runtime-only",
+      "type": "state_origin",
+      "statement": "Нельзя честно назвать ни одну из этих гипотез установленной первопричиной.",
+      "evidence": [
+        "input:capabilities.json",
+        "input:def-field-1c-writers-h3hota.json",
+        "input:dlgstaticdef-field-30-writers-h3hota.json"
+      ],
+      "confidence": "не проверено",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "family-complete",
+      "type": "family_coverage",
+      "statement": "Корпусная перепись: проверено 5520/5520 TXT.",
+      "evidence": [
+        "input:series-parse.json",
+        "input:series-groups.json",
+        "input:family-membership.json",
+        "input:cross-version-matrix.json",
+        "input:relocation-manifest.json"
+      ],
+      "sample": {
+        "numerator": 5520,
+        "denominator": 5520,
+        "population": "все TXT в mail-dumps, перечисленные полным корпусным сканером"
+      },
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "runtime-reproduction-unknown",
+      "type": "reproduction",
+      "statement": "Гарантированный пользовательский сценарий по имеющимся данным не получен.",
+      "evidence": [
+        "input:capabilities.json"
+      ],
+      "confidence": "не проверено",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "object-memory-not-captured",
+      "type": "limitation",
+      "statement": "Состояние объекта 0x15079490 не сохранено в DMP.",
+      "evidence": [
+        "input:capabilities.json",
+        "input:HD_HOTA.dll+0x1A6A7-5.7-R40-180.dmp"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "defensive-fix",
+      "type": "fix",
+      "statement": "Защитная мера: при нарушении контракта пропускать отрисовку и писать журнал.",
+      "evidence": [
+        "input:static-exhaustion.json",
+        "input:capabilities.json"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "confirmed"
+      }
+    }
+  ],
+  "matrix": {
+    "instruction": {
+      "confirmed": 9
+    },
+    "mechanism": {
+      "confirmed": 9
+    },
+    "state_origin": {
+      "unknown": 9
+    },
+    "family_coverage": {
+      "confirmed": 9
+    }
+  },
+  "diagnostic_completeness": {
+    "status": "incomplete",
+    "complete": false,
+    "causality_level": "L1",
+    "axis_summary": {
+      "instruction": "confirmed",
+      "mechanism": "confirmed",
+      "state_origin": "unknown",
+      "family_coverage": "confirmed",
+      "reproduction": "unknown"
+    },
+    "root_cause_ready": false,
+    "next_required": [
+      "capture_state_origin_and_writer",
+      "confirm_reproduction"
+    ]
+  },
+  "errors": [],
+  "ready": true
+}

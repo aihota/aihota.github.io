@@ -1,0 +1,138 @@
+{
+  "schema": 3,
+  "generated_at": "2026-08-19T09:44:43.479476+00:00",
+  "family_id": "family-HD_HOTA.dll+0x1A6A7",
+  "source": "family-membership-input.scaffold.json",
+  "scope_id": "family-HD_HOTA.dll+0x1A6A7",
+  "scope_kind": "family",
+  "scope": {
+    "id": "family-HD_HOTA.dll+0x1A6A7",
+    "kind": "family",
+    "source": "series-groups.json + cross-version-matrix.json",
+    "unique_incidents": 4,
+    "physical_txt": 7,
+    "duplicate_instances": 3,
+    "corpus_coverage": "5520/5520 TXT",
+    "classification": "confirmed_same_defect"
+  },
+  "memberships": [
+    {
+      "incident_id": "incident-427f8c49652c3774",
+      "membership": "confirmed",
+      "version": "5.7 R40",
+      "basis": "R40: точная TXT/DMP-пара и точный листинг подтверждают чтение _Def_->groups при одном UI-call-tail.",
+      "evidence": [
+        "series-groups.json#incident-427f8c49652c3774",
+        "cross-version-matrix.json",
+        "pair-audit.json"
+      ],
+      "fingerprint": {
+        "structure_role": "_Def_ groups table",
+        "field": "+0x1C",
+        "call_tail": [
+          "A0_DlgStaticDef_DrawToPcx16_sub_4EAC20",
+          "A0_Def_Sprite_Draw_sub_47B610",
+          "HD_HOTA wrapper",
+          "sub_101A470+0x237"
+        ],
+        "frame_depth": "ESP-EBP=-0x10"
+      }
+    },
+    {
+      "incident_id": "incident-7fb44a02013ecb11",
+      "membership": "confirmed",
+      "version": "5.7 R10",
+      "basis": "R10: точный листинг, регистры и стек подтверждают тот же нормализованный механизм и UI-call-tail.",
+      "evidence": [
+        "series-groups.json#incident-7fb44a02013ecb11",
+        "cross-version-matrix.json"
+      ],
+      "fingerprint": {
+        "structure_role": "_Def_ groups table",
+        "field": "+0x1C",
+        "call_tail": [
+          "A0_DlgStaticDef_DrawToPcx16_sub_4EAC20",
+          "A0_Def_Sprite_Draw_sub_47B610",
+          "HD_HOTA wrapper",
+          "sub_101A470+0x237"
+        ],
+        "frame_depth": "ESP-EBP=-0x10"
+      }
+    },
+    {
+      "incident_id": "incident-ffdb387c2010f012",
+      "membership": "confirmed",
+      "version": "5.7 RC7",
+      "basis": "RC7: регистры, стек, относительные смещения +0x237/+0x1B и тот же engine call-tail подтверждают семью; точного листинга версии нет.",
+      "evidence": [
+        "series-groups.json#incident-ffdb387c2010f012",
+        "cross-version-matrix.json",
+        "cross-version-evidence.json",
+        "relocation-manifest.json"
+      ],
+      "fingerprint": {
+        "structure_role": "_Def_ groups table",
+        "field": "+0x1C",
+        "call_tail": [
+          "A0_DlgStaticDef_DrawToPcx16_sub_4EAC20",
+          "A0_Def_Sprite_Draw_sub_47B610",
+          "HD_HOTA wrapper",
+          "sub_101A470+0x237"
+        ],
+        "frame_depth": "ESP-EBP=-0x10"
+      },
+      "listing_status": "not_available",
+      "evidence_level": "registers_stack_relative_offsets"
+    },
+    {
+      "incident_id": "incident-87a21a32aada0fd2",
+      "membership": "confirmed",
+      "version": "5.7 RC12",
+      "basis": "RC12: регистры, стек, относительные смещения +0x237/+0x1B и тот же engine call-tail подтверждают семью; точного листинга версии нет.",
+      "evidence": [
+        "series-groups.json#incident-87a21a32aada0fd2",
+        "cross-version-matrix.json",
+        "cross-version-evidence.json",
+        "relocation-manifest.json"
+      ],
+      "fingerprint": {
+        "structure_role": "_Def_ groups table",
+        "field": "+0x1C",
+        "call_tail": [
+          "A0_DlgStaticDef_DrawToPcx16_sub_4EAC20",
+          "A0_Def_Sprite_Draw_sub_47B610",
+          "HD_HOTA wrapper",
+          "sub_101A470+0x237"
+        ],
+        "frame_depth": "ESP-EBP=-0x10"
+      },
+      "listing_status": "not_available",
+      "evidence_level": "registers_stack_relative_offsets"
+    }
+  ],
+  "counts": {
+    "confirmed": 4
+  },
+  "errors": [],
+  "registry_valid": true,
+  "enumeration_complete": true,
+  "classification_complete": true,
+  "unknown_count": 0,
+  "blocked_by_listing_count": 0,
+  "complete": true,
+  "duplicate_files": [
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-1-97CAD.txt",
+      "duplicate_of": "incident-ffdb387c2010f012"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19167-1.8.0-2-97CAD.txt",
+      "duplicate_of": "incident-87a21a32aada0fd2"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19327-1.8.0Time14.06.2-1-97CAD.txt",
+      "duplicate_of": "incident-7fb44a02013ecb11"
+    }
+  ],
+  "semantic_fingerprint_sha256": "265f1eead5664af2e9c0e3f447ef3a476fae942221f173215a4a6bac47823761"
+}
