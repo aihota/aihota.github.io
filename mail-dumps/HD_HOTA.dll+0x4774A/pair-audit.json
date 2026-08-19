@@ -1,0 +1,52 @@
+{
+  "schema": 3,
+  "root": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x4774A",
+  "rows": [
+    {
+      "stem": "HD_HOTA.dll+0x4774A-5.7-R40-180",
+      "txt": "HD_HOTA.dll+0x4774A-5.7-R40-180.txt",
+      "dmp": "HD_HOTA.dll+0x4774A-5.7-R40-180.dmp",
+      "context_eip": "0x03D6774A",
+      "module": "HD_HOTA.dll",
+      "rva": "0x4774A",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "write",
+      "identity": {
+        "txt_module_size": 18845696,
+        "dmp_module_size": 18845696,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    }
+  ],
+  "counts": {
+    "exact_pair": 1,
+    "unverifiable_missing_txt_identity": 0,
+    "unverifiable_missing_dmp_identity": 0,
+    "same_site_different_exception": 0,
+    "build_mismatch": 0,
+    "empty_dump": 0,
+    "unknown_exception_class": 0,
+    "txt_parse_error": 0,
+    "dmp_parse_error": 0,
+    "unpaired_txt": 0,
+    "unpaired_dmp": 0,
+    "parse_error": 0
+  },
+  "legacy_count_aliases": {
+    "parse_error": [
+      "unknown_exception_class",
+      "txt_parse_error",
+      "dmp_parse_error"
+    ]
+  },
+  "complete": true,
+  "analysis_ready": true,
+  "quality_complete": true,
+  "hard_blockers": 0,
+  "identity_gaps": 0,
+  "blockers": 0
+}

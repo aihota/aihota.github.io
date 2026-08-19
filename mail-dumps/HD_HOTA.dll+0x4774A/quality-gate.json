@@ -1,0 +1,127 @@
+{
+  "schema": 2,
+  "case": "mail-dumps/HD_HOTA.dll+0x4774A",
+  "gate_scope": "full_quality_gate",
+  "static_only": true,
+  "audit_stages_complete": null,
+  "publication_ready": true,
+  "prohibited_actions": [
+    "Wine",
+    "game launch",
+    "git commit",
+    "git push",
+    "publication"
+  ],
+  "status": "passed",
+  "passed": true,
+  "artifact_quality": {
+    "status": "passed",
+    "passed": true,
+    "step_count": 11,
+    "blocked_count": 0
+  },
+  "diagnostic_completeness": {
+    "status": "incomplete",
+    "complete": false,
+    "causality_level": "L1",
+    "axis_summary": {
+      "instruction": "confirmed",
+      "mechanism": "confirmed",
+      "state_origin": "unknown",
+      "family_coverage": "probable",
+      "reproduction": "unknown"
+    },
+    "root_cause_ready": false,
+    "next_required": [
+      "capture_state_origin_and_writer",
+      "confirm_reproduction",
+      "complete_family_coverage"
+    ],
+    "source": "mail-dumps/HD_HOTA.dll+0x4774A/coverage.json"
+  },
+  "root_cause_ready": false,
+  "causality_level": "L1",
+  "step_count": 11,
+  "blocked_count": 0,
+  "steps": [
+    {
+      "name": "pair_contract",
+      "status": "passed",
+      "errors": [],
+      "identity_gaps": 0,
+      "limitations": []
+    },
+    {
+      "kind": "thread_provenance",
+      "path": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x4774A/thread-provenance-4774A.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "kind": "capabilities",
+      "path": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x4774A/capabilities.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "name": "coverage:coverage.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "COVERAGE: OK; claims=7; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "family:family-membership.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "FAMILY: OK; incidents=1; enumeration=true; classification=true; unknown=0; listing_blockers=0; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "relocation_family_contract",
+      "status": "passed",
+      "errors": [],
+      "limitations": [
+        "relocation_not_applicable"
+      ],
+      "manifest_count": 0,
+      "active_manifests": []
+    },
+    {
+      "name": "report_consistency",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "СОГЛАСОВАННОСТЬ ОТЧЁТОВ (scope=all)\nОтчётов проверено: 1\nOK: 1 | mismatch: 0 | ambiguous: 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "lint:HD_HOTA.dll+0x4774A-анализ-gpt-5.6-sol.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "формате -> шаг (отрендерится цепочкой)\n[OK]   Имена канонических секций совпадают со схемой\n[OK]   Поле раздела 1 найдено: Класс сбоя:\n[OK]   Поле раздела 1 найдено: Полезность лога для исправления:\n[OK]   Поле раздела 1 найдено: Версия HotA:\n[OK]   Поле раздела 1 найдено: Версии HD-мода:\n[OK]   Поле раздела 1 найдено: Уникальных вылетов:\n[OK]   Поле «Версия HotA:» содержит только версии\n[OK]   Поле «Версии HD-мода:» содержит только версии\n[OK]   Обязательное поле найдено: Происхождение стека: CONTEXT_THREAD_MISMATCH — поток ExceptionStream 5248, диапазон текстового ESP относится к потоку 8176\n[OK]   Версия схемы отчёта: 2\n[OK]   Поле схемы v2 найдено: Ключ семейства:\n[OK]   Поле схемы v2 найдено: Уровень идентификации кода:\n[OK]   Поле схемы v2 найдено: Поток ExceptionStream:\n[OK]   Поле схемы v2 найдено: Поток игрового контекста:\n[OK]   Поле схемы v2 найдено: Первичный источник данных:\n[OK]   Поле схемы v2 найдено: Статус первичного источника:\n[OK]   Поле схемы v2 найдено: Основание локального счёта:\n[OK]   Поле схемы v2 найдено: Граница корпусного поиска:\n[OK]   Поле схемы v2 найдено: Метод дедупликации:\n[OK]   Доказанность точки сбоя: подтверждена\n[OK]   Доказанность локального механизма: выведено из листинга\n[OK]   Происхождение повреждённого состояния: частично установлено — страница штатного адреса недоступна для записи; кто изменил защиту или отображение, не пойман\n[OK]   Полнота семейной переписи: частичная — 572 из 775 уникальных журналов локального корпуса без точного листинга сборки\n[OK]   Уровень связи дополнительных инцидентов: 5 — связь не установлена; дополнительные случаи не выявлены среди сопоставимых сборок\n[OK]   Статус визуализации указан: выполнена — ниже приведены формула эффективного адреса и границы четырёх массивов\n[OK]   'Класс сбоя' — русский ярлык из словаря\n[OK]   Нет markdown-заголовков '#'\n[OK]   Нет fenced-блоков ```\n[OK]   Нет markdown-таблиц с '|'\n[OK]   Декоративного Unicode нет (ASCII-эквиваленты)\n[OK]   Нет ссылок на внутренние правила/скиллы\n[OK]   Баг HD-мода: техническая рекомендация присутствует\n[OK]   Нет признаков отозванной атрибуции\n[OK]   Нет методического жаргона (V1/V2)\n[OK]   Нет английских терминов в русском тексте\n[OK]   Известных грамматических регрессий нет\n[WARN] Строк длиннее 100 символов: 40\n[OK]   HTML-теги отсутствуют (чистый plain-text)\n[OK]   Декоративные линии не превышают число секций (0/14)\n[OK]   Блоки дизассемблера с префиксом .text:\n[OK]   Отрицательные результаты зафиксированы\n[OK]   Отрицательный результат с покрытием/контролем\n[OK]   Неподтверждённых отрицательных выводов стенда нет\n[OK]   Модель совпадает со slug в имени файла\n[OK]   Незаполненных мест заготовки не осталось\n[OK]   Абзацы в пределах 1200 символов\n[OK]   Счётные числа помечены или получены разбором формата\n[OK]   Вероятностные условия помечены или отсутствуют\n[OK]   У каждой дроби «X из Y» рядом указано основание счёта\n[OK]   Дата шапки согласована со временем правки файла\n\nИтог: FAIL=0, WARN=1, BLOCKING_WARN=0\n",
+      "stderr": ""
+    },
+    {
+      "name": "evidence:HD_HOTA.dll+0x4774A-анализ-gpt-5.6-sol.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "EVIDENCE: FRESH; проверено 20\n",
+      "stderr": ""
+    },
+    {
+      "name": "schema3_contract:HD_HOTA.dll+0x4774A-анализ-gpt-5.6-sol.evidence.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "name": "render:HD_HOTA.dll+0x4774A-анализ-gpt-5.6-sol.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "   шрифты встроены (офлайн): 5 начертаний\n   врезка визуализаций: 1 секц., 1 пункт(ов) оглавления\nOK -> mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x4774A/rendered/HD_HOTA.dll+0x4774A-анализ-gpt-5.6-sol.html\n   секций размещено: 10 / 10\n   <section> open=11 close=11\n   ✓ валидация: ключевые поля txt присутствуют в html\n",
+      "stderr": "",
+      "verified_existing_html": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x4774A/HD_HOTA.dll+0x4774A-анализ-gpt-5.6-sol.html",
+      "normalized_generated_at": true,
+      "render_output": "mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x4774A/rendered/HD_HOTA.dll+0x4774A-анализ-gpt-5.6-sol.html"
+    }
+  ]
+}

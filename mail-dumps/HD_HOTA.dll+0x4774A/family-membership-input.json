@@ -1,0 +1,42 @@
+{
+  "family_id": "hd-hota-cache-sync-write-protection::sub_10476C0+0x8A",
+  "source": "целевая серия и границы корпусного поиска из отчёта",
+  "enumeration_complete": true,
+  "scope_id": "series-HD_HOTA.dll+0x4774A",
+  "scope_kind": "series",
+  "scope": {
+    "id": "series-HD_HOTA.dll+0x4774A",
+    "kind": "series",
+    "root": "mail-dumps/HD_HOTA.dll+0x4774A",
+    "physical_txt": 1,
+    "unique_sha256": 1,
+    "broader_local_corpus_unique": 775,
+    "broader_local_without_exact_listing": 572,
+    "broader_corpus_unique": 4166,
+    "classification": "целевая серия подтверждена; более широкий поиск частичен"
+  },
+  "memberships": [
+    {
+      "incident_id": "incident-55e62826996360ae",
+      "membership": "confirmed",
+      "version": "5.7 R40",
+      "basis": "точная TXT/DMP-пара и листинг 5.7 R40 подтверждают запись sub_10476C0+0x8A в допустимый элемент кэша при недоступной для записи странице",
+      "evidence": [
+        "pair-audit.json",
+        "HD_HOTA.dll+0x4774A-5.7-R40-180.txt",
+        "HD_HOTA.dll+0x4774A-5.7-R40-180.dmp",
+        "../../modules/HD_HOTA.dll-5.7 R40.txt"
+      ],
+      "fingerprint": {
+        "structure_role": "писатель элемента отображённого кэша HD_HOTA",
+        "field": "base+0xE0+4*i",
+        "call_tail": [
+          "sub_1047560",
+          "sub_1047610",
+          "sub_10476C0+0x8A"
+        ],
+        "frame_depth": 3
+      }
+    }
+  ]
+}

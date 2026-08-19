@@ -1,0 +1,94 @@
+<section id="viz-mechanism" data-toc="Визуализация механизма вылета">
+  <h2><span class="htext">Визуализация механизма вылета</span>
+      <a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Схема разделяет подтверждённую геометрию кэша, локальный протокол смены защиты и неизвестный конкретный триггер. Адрес записи находится внутри выделенного диапазона: обычный выход за границы здесь исключён.</p>
+  <div class="viz" role="img" aria-label="Адрес 0x02B80120 находится внутри кэша; запись отклонена при выполнении небезопасного протокола смены защиты; конкретный триггер не установлен">
+    <div class="viz-proof-map">
+      <div class="viz-stage">
+        <div class="viz-stage-title"><span class="viz-stage-index">1</span><span>Адрес находится внутри выделенного диапазона</span></div>
+        <div class="viz-strip">
+          <div class="viz-box">
+            <strong>Служебная область</strong>
+            <span class="lbl">base+0x000…base+0x0DF</span>
+            <span class="lbl">0xE0 байт</span>
+          </div>
+          <div class="viz-box ok">
+            <span class="viz-badge ok">F</span>
+            <strong>Сегмент A</strong>
+            <span class="lbl">base+0x0E0…base+0x43B</span>
+            <span class="lbl emph">запись: base+0x120</span>
+          </div>
+          <div class="viz-box accent">
+            <strong>Сегмент B</strong>
+            <span class="lbl">base+0x43C…base+0x3343</span>
+            <span class="lbl">56 × 215 байт</span>
+          </div>
+          <div class="viz-box accent">
+            <strong>Сегмент C</strong>
+            <span class="lbl">base+0x3344…base+0x369F</span>
+            <span class="lbl">4 × 215 байт</span>
+          </div>
+          <div class="viz-box">
+            <strong>Сегмент D</strong>
+            <span class="lbl">base+0x36A0…base+0x384D</span>
+            <span class="lbl">2 × 215 байт</span>
+          </div>
+        </div>
+        <p class="viz-cap"><code>0x02B80120 = 0x02B80000 + 0x120</code>; индекс <code>16 &lt; 215</code>, весь кэш занимает <code>0x384E</code> байт.</p>
+      </div>
+
+      <div class="viz-proof-divider"><span>выход за границы исключён</span></div>
+
+      <div class="viz-stage">
+        <div class="viz-stage-title"><span class="viz-stage-index">2</span><span>Протокол защиты допускает окно сбоя</span></div>
+        <div class="viz-strip badge-tl">
+          <div class="viz-box accent">
+            <span class="viz-badge accent">1</span>
+            <strong>Запросить запись</strong>
+            <span class="lbl">VirtualProtect</span>
+            <span class="lbl">PAGE_READWRITE</span>
+            <span class="lbl emph">возврат не проверяется</span>
+          </div>
+          <div class="viz-box accent">
+            <span class="viz-badge accent">2</span>
+            <strong>Первая синхронизация</strong>
+            <span class="lbl">sub_1047610</span>
+          </div>
+          <div class="viz-box bad">
+            <span class="viz-badge bad">3</span>
+            <strong>Запись отклонена</strong>
+            <span class="lbl">sub_10476C0+0x8A</span>
+            <span class="lbl">mov [edi+eax], edx</span>
+            <span class="lbl emph">СБОЙ</span>
+          </div>
+          <div class="viz-box dashed">
+            <span class="viz-badge neutral">4</span>
+            <strong>Жёстко задать чтение</strong>
+            <span class="lbl">PAGE_READONLY</span>
+            <span class="lbl">flOldProtect не восстанавливается</span>
+            <span class="lbl emph">текущий вызов не достиг шага</span>
+          </div>
+        </div>
+        <p class="viz-cap">Оба результата <code>VirtualProtect</code> игнорируются, а фактическая прежняя защита не восстанавливается.</p>
+      </div>
+
+      <div class="viz-proof-divider"><span>граница доказанности</span></div>
+
+      <div class="viz-unknown">
+        <span class="viz-badge neutral">?</span>
+        <strong>Конкретный триггер не установлен</strong>
+        <span class="lbl">Вероятен повторный или конкурентный вход; также остаются отказ VirtualProtect, повреждение полей объекта и освобождение отображения.</span>
+      </div>
+    </div>
+
+    <div class="viz-legend" aria-label="Легенда схемы">
+      <div class="item"><span class="viz-badge symbol ok">F</span><span><strong>Адрес сбоя</strong> <span class="txt">— внутри сегмента A и всего выделения.</span></span></div>
+      <div class="item"><span class="viz-badge symbol accent">1</span><span><strong>Смена защиты</strong> <span class="txt">— запрос записи без проверки результата.</span></span></div>
+      <div class="item"><span class="viz-badge symbol accent">2</span><span><strong>Подготовка данных</strong> <span class="txt">— первая функция синхронизации.</span></span></div>
+      <div class="item"><span class="viz-badge symbol bad">3</span><span><strong>Точка сбоя</strong> <span class="txt">— запись по корректному адресу отклонена.</span></span></div>
+      <div class="item"><span class="viz-badge symbol neutral">4</span><span><strong>Следующий шаг кода</strong> <span class="txt">— безусловный PAGE_READONLY; текущий вызов до него не дошёл.</span></span></div>
+      <div class="item"><span class="viz-badge symbol neutral">?</span><span><strong>Неизвестное</strong> <span class="txt">— событие, сделавшее отображение недоступным для записи.</span></span></div>
+    </div>
+    <p class="viz-cap">Подтверждены точка, адресная арифметика и дефект протокола защиты; конкретная причина состояния страницы остаётся неизвестной.</p>
+  </div>
+</section>
