@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "kind": "x86_call_argument_observation",
+  "architecture": "x86",
+  "calling_convention": "cdecl",
+  "builds": ["5.7 R40"],
+  "callee": "_malloc",
+  "observation_point": "after_caller_cleanup",
+  "cleanup_bytes": 4,
+  "arguments": [
+    {
+      "index": 0,
+      "value": "0x0D680004",
+      "source_kind": "stack_slot",
+      "relative_to_observed_esp": -4,
+      "provenance": "R40 caller pushed requested capacity plus allocator header before _malloc; recovered from ESP-4"
+    }
+  ],
+  "rejected_sources": [
+    {"source": "ECX", "observed_value": "0xB155DBB9", "reason": "volatile post-call counterexample; cannot be the malloc argument"}
+  ]
+}

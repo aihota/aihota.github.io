@@ -29,6 +29,11 @@
     {"role": "derived-evidence", "path": "family-membership.json"},
     {"role": "derived-evidence", "path": "coverage.json"},
     {"role": "derived-evidence", "path": "ingest-manifest.json"},
+    {"role": "derived-evidence", "path": "repro-plan.json"},
+    {"role": "derived-evidence", "path": "call-arguments-r35-r39.json"},
+    {"role": "derived-evidence", "path": "call-arguments-r40-0d680004.json"},
+    {"role": "derived-evidence", "path": "call-arguments-r40-0d880004.json"},
+    {"role": "derived-evidence", "path": "memory-pressure-r40.json"},
     {"role": "derived", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1-AUTOSAVE.GM2"},
     {"role": "derived", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3-AUTOSAVE.GM2"},
     {"role": "derived", "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1-AUTOSAVE.GM2"},
@@ -36,12 +41,21 @@
   ],
   "tools": [
     "../../.agents/skills/multi-dump-diff/parse_dumps.py",
+    "../../.agents/skills/multi-dump-diff/pair_audit.py",
+    "../../.agents/skills/multi-dump-diff/relocate_crash_family.py",
     "../../.agents/skills/multi-dump-diff/series_registry.py",
+    "../../.agents/skills/address-mapping/dumplib.py",
+    "../../.agents/skills/address-mapping/dump_profile.py",
+    "../../.agents/skills/hota-crash-triage/crash_audit.py",
     "../../.agents/skills/save-map-analysis/save_inventory.py",
     "../../.agents/skills/hota-crash-triage/family_membership.py",
     "../../.agents/skills/hota-crash-triage/coverage_contract.py",
     "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
     "../../.agents/skills/hota-crash-triage/lint_report.py",
+    "../../.agents/skills/hota-crash-triage/semantic_contract.py",
+    "../../.agents/skills/hota-crash-triage/repro_plan.py",
+    "../../.agents/skills/address-mapping/call_argument_audit.py",
+    "../../.agents/skills/memory-pressure/memory_pressure_contract.py",
     "../../.agents/skills/hota-crash-triage/case_quality_gate.py"
   ],
   "commands": [
@@ -49,12 +63,13 @@
     "series_registry.py series-parse.json --annotations series-annotations.json --pair-audit pair-audit.json --capabilities capabilities.json --save-inventory save-inventory.json",
     "family_membership.py create family-membership-input.json",
     "coverage_contract.py create coverage-claims.json",
+    "repro_plan.py create . --out repro-plan.json",
     "evidence_manifest.py create --config evidence-config.json"
   ],
   "facts": {
     "physical_txt": "7",
     "unique_dmp_sha256": "5",
-    "confirmed_family_dmp_states": "5",
+    "analyzed_unique_dmp_states": "5",
     "classified_registry_incidents": "7",
     "root_cause_status": "not confirmed",
     "reproduction_status": "not confirmed"

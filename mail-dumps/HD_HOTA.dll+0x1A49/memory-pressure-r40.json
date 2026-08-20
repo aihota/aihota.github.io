@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "kind": "allocator_growth_observations",
+  "allocator": {
+    "name": "_malloc",
+    "returned": "NULL",
+    "postcondition": "caller reaches sub_1001A30+0x19 int 3"
+  },
+  "growth_events": [
+    {
+      "id": "r40-0d680000",
+      "old_size": 224395264,
+      "new_size": 224919552,
+      "request_bytes": 224919556,
+      "old_block_live_until_success": true
+    },
+    {
+      "id": "r40-0d880000",
+      "old_size": 226492416,
+      "new_size": 227016704,
+      "request_bytes": 227016708,
+      "old_block_live_until_success": true
+    }
+  ],
+  "address_space_evidence": {
+    "capture_complete": false,
+    "largest_free_region": null,
+    "heap_metadata_status": "unknown",
+    "limitation": "all available DMPs are minimal and have no MemoryInfoList or complete heap"
+  }
+}

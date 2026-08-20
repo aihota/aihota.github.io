@@ -17,7 +17,7 @@
   "artifact_quality": {
     "status": "passed",
     "passed": true,
-    "step_count": 14,
+    "step_count": 21,
     "blocked_count": 0
   },
   "diagnostic_completeness": {
@@ -40,19 +40,30 @@
   },
   "root_cause_ready": false,
   "causality_level": "L1",
-  "step_count": 14,
+  "step_count": 21,
   "blocked_count": 0,
   "steps": [
     {
       "name": "pair_contract",
       "status": "passed",
       "errors": [],
-      "identity_gaps": 1,
-      "limitations": []
+      "identity_gaps": 0,
+      "limitations": [
+        "legacy_rows_outside_series:59"
+      ],
+      "scope": {
+        "kind": "series_parse",
+        "source": "series-parse.json",
+        "txt_count": 7,
+        "row_count": 7,
+        "outside_row_count": 59
+      }
     },
     {
       "kind": "capabilities",
-      "path": "/Users/Shared/ii/mcp/.tmp-tools/publish-repo-1a49/mail-dumps/HD_HOTA.dll+0x1A49/capabilities.json",
+      "path": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A49/capabilities.json",
+      "series": true,
+      "item_count": 7,
       "status": "passed",
       "errors": []
     },
@@ -68,6 +79,41 @@
       "status": "passed",
       "returncode": 0,
       "stdout": "FAMILY: OK; incidents=7; enumeration=true; classification=true; unknown=0; listing_blockers=0; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "repro_plan",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "REPRO PLAN: OK; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "call_arguments:call-arguments-r35-r39.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\n  \"schema\": 1,\n  \"kind\": \"x86_call_argument_provenance\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"argument_count\": 1,\n  \"rule\": \"recover at call boundary; volatile post-call registers are not arguments\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "call_arguments:call-arguments-r40-0d680004.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\n  \"schema\": 1,\n  \"kind\": \"x86_call_argument_provenance\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"argument_count\": 1,\n  \"rule\": \"recover at call boundary; volatile post-call registers are not arguments\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "call_arguments:call-arguments-r40-0d880004.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\n  \"schema\": 1,\n  \"kind\": \"x86_call_argument_provenance\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"argument_count\": 1,\n  \"rule\": \"recover at call boundary; volatile post-call registers are not arguments\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "memory_pressure:memory-pressure-r40.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\n  \"schema\": 1,\n  \"kind\": \"allocator_growth_contract\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"events\": [\n    {\n      \"id\": \"r40-0d680000\",\n      \"old_size\": 224395264,\n      \"new_size\": 224919552,\n      \"request_bytes\": 224919556,\n      \"old_block_live_until_success\": true,\n      \"simultaneous_required_bytes\": 449314820\n    },\n    {\n      \"id\": \"r40-0d880000\",\n      \"old_size\": 226492416,\n      \"new_size\": 227016704,\n      \"request_bytes\": 227016708,\n      \"old_block_live_until_success\": true,\n      \"simultaneous_required_bytes\": 453509124\n    }\n  ],\n  \"local_mechanism\": \"confirmed\",\n  \"address_space_exhaustion\": \"probable\",\n  \"root_cause_allowed\": false,\n  \"alternatives\": [\n    \"fragmentation\",\n    \"heap_metadata_corruption\"\n  ],\n  \"rule\": \"NULL plus a plausible request proves local failure, not its upstream cause\"\n}\n",
       "stderr": ""
     },
     {
@@ -95,10 +141,17 @@
       "stderr": ""
     },
     {
+      "name": "semantic:HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "SEMANTIC: PASSED; errors=none; warnings=none\n",
+      "stderr": ""
+    },
+    {
       "name": "evidence:HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.txt",
       "status": "passed",
       "returncode": 0,
-      "stdout": "EVIDENCE: FRESH; проверено 42\n",
+      "stdout": "EVIDENCE: FRESH; проверено 56\n",
       "stderr": ""
     },
     {
@@ -114,10 +167,17 @@
       "stderr": ""
     },
     {
+      "name": "semantic:HD_HOTA.dll+0x1A49-анализ-qwen-3.8.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "SEMANTIC: PASSED; errors=none; warnings=none\n",
+      "stderr": ""
+    },
+    {
       "name": "evidence:HD_HOTA.dll+0x1A49-анализ-qwen-3.8.txt",
       "status": "passed",
       "returncode": 0,
-      "stdout": "EVIDENCE: FRESH; проверено 28\n",
+      "stdout": "EVIDENCE: FRESH; проверено 51\n",
       "stderr": ""
     },
     {
@@ -129,17 +189,21 @@
       "name": "render:HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.txt",
       "status": "passed",
       "returncode": 0,
-      "stdout": "   шрифты встроены (офлайн): 5 начертаний\n   врезка визуализаций: 1 секц., 1 пункт(ов) оглавления\nOK -> /Users/Shared/ii/mcp/.tmp-tools/publish-repo-1a49/mail-dumps/HD_HOTA.dll+0x1A49/HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.html\n   секций размещено: 10 / 10\n   <section> open=11 close=11\n   ✓ валидация: ключевые поля txt присутствуют в html\n",
+      "stdout": "   шрифты встроены (офлайн): 5 начертаний\n   врезка визуализаций: 1 секц., 1 пункт(ов) оглавления\nOK -> mcp/.tmp-tools/final-verify-1A49/rendered/HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.html\n   секций размещено: 10 / 10\n   <section> open=11 close=11\n   ✓ валидация: ключевые поля txt присутствуют в html\n",
       "stderr": "",
-      "render_output": "/Users/Shared/ii/mcp/.tmp-tools/publish-repo-1a49/mail-dumps/HD_HOTA.dll+0x1A49/HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.html"
+      "verified_existing_html": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A49/HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.html",
+      "normalized_generated_at": true,
+      "render_output": "mcp/.tmp-tools/final-verify-1A49/rendered/HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.html"
     },
     {
       "name": "render:HD_HOTA.dll+0x1A49-анализ-qwen-3.8.txt",
       "status": "passed",
       "returncode": 0,
-      "stdout": "   шрифты встроены (офлайн): 5 начертаний\nOK -> /Users/Shared/ii/mcp/.tmp-tools/publish-repo-1a49/mail-dumps/HD_HOTA.dll+0x1A49/HD_HOTA.dll+0x1A49-анализ-qwen-3.8.html\n   секций размещено: 10 / 10\n   <section> open=10 close=10\n   ✓ валидация: ключевые поля txt присутствуют в html\n",
+      "stdout": "   шрифты встроены (офлайн): 5 начертаний\nOK -> mcp/.tmp-tools/final-verify-1A49/rendered/HD_HOTA.dll+0x1A49-анализ-qwen-3.8.html\n   секций размещено: 10 / 10\n   <section> open=10 close=10\n   ✓ валидация: ключевые поля txt присутствуют в html\n",
       "stderr": "",
-      "render_output": "/Users/Shared/ii/mcp/.tmp-tools/publish-repo-1a49/mail-dumps/HD_HOTA.dll+0x1A49/HD_HOTA.dll+0x1A49-анализ-qwen-3.8.html"
+      "verified_existing_html": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A49/HD_HOTA.dll+0x1A49-анализ-qwen-3.8.html",
+      "normalized_generated_at": true,
+      "render_output": "mcp/.tmp-tools/final-verify-1A49/rendered/HD_HOTA.dll+0x1A49-анализ-qwen-3.8.html"
     }
   ]
 }

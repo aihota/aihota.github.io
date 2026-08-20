@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "kind": "x86_call_argument_observation",
+  "architecture": "x86",
+  "calling_convention": "cdecl",
+  "builds": ["5.7 R35", "5.7 R39"],
+  "callee": "_malloc",
+  "observation_point": "after_caller_cleanup",
+  "cleanup_bytes": 4,
+  "arguments": [
+    {
+      "index": 0,
+      "value": "0x00100004",
+      "source_kind": "stack_slot",
+      "relative_to_observed_esp": -4,
+      "provenance": "caller pushed size before _malloc; after add esp,4 the original argument is at ESP-4"
+    }
+  ],
+  "rejected_sources": [
+    {"source": "ECX", "observed_value": "0x00000008", "reason": "volatile post-call register, not the cdecl argument"}
+  ]
+}
