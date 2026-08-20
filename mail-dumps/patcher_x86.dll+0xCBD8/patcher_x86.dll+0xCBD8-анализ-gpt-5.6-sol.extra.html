@@ -1,0 +1,43 @@
+<section id="viz-mechanism" data-toc="Визуализация сбоя">
+  <h2><span class="htext">Визуализация сбоя</span>
+      <a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Схема отделяет неизвестное происхождение состояния от подтверждённого локального пути чтения.</p>
+  <div class="viz" role="img" aria-label="Происхождение непригодного узла не установлено; ключ 0x005FF3A0, поиск в дереве и аварийное чтение 0xF07B408E подтверждены">
+    <div class="viz-proof-map">
+      <div class="viz-unknown">
+        <span class="viz-badge neutral">?</span>
+        <strong>Происхождение состояния</strong>
+        <span class="lbl">Первая запись, освобождение либо конкурентное изменение узла не попали в MiniDumpNormal.</span>
+      </div>
+      <div class="viz-proof-divider"><span>Граница доказанности</span></div>
+      <div class="viz-known">
+        <span class="viz-proof-label">Подтверждённая локальная цепочка</span>
+        <div class="viz-strip badge-tl">
+          <div class="viz-box accent">
+            <span class="viz-badge accent">1</span>
+            Запрос HD_HOTA
+            <span class="lbl"><code>EDX=0x005FF3A0</code></span>
+            <span class="lbl">зарегистрированный обработчик диалога</span>
+          </div>
+          <div class="viz-box accent">
+            <span class="viz-badge accent">2</span>
+            Поиск PatcherX86
+            <span class="lbl"><code>sub_1000CBA0</code></span>
+            <span class="lbl">кандидат узла в <code>EAX</code></span>
+          </div>
+          <div class="viz-box bad">
+            <span class="viz-badge bad">3</span>
+            Аварийное чтение
+            <span class="lbl"><code>cmp edx,[eax+0x10]</code></span>
+            <span class="lbl"><code>0xF07B407E + 0x10 = 0xF07B408E</code></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="viz-legend" aria-label="Легенда схемы">
+      <div class="item"><span class="viz-badge symbol neutral">?</span><span><strong>Не установлено</strong> <span class="txt">— первый код, создавший непригодное состояние.</span></span></div>
+      <div class="item"><span class="viz-badge symbol accent">1</span><span><strong>Подтверждено</strong> <span class="txt">— корректный ключ и путь поиска по листингу.</span></span></div>
+      <div class="item"><span class="viz-badge symbol bad">3</span><span><strong>Точка сбоя</strong> <span class="txt">— чтение по вычисленному адресу совпадает с журналом.</span></span></div>
+    </div>
+  </div>
+</section>

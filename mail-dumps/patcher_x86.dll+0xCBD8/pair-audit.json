@@ -1,0 +1,62 @@
+{
+  "schema": 3,
+  "root": "/Users/Shared/ii/mail-dumps/patcher_x86.dll+0xCBD8",
+  "rows": [
+    {
+      "stem": "patcher_x86.dll+0xCBD8-5.7-R40-180",
+      "txt": "patcher_x86.dll+0xCBD8-5.7-R40-180.txt",
+      "dmp": "patcher_x86.dll+0xCBD8-5.7-R40-180.dmp",
+      "sha256_txt": "dae4c1ef87f5bf4f17fe0d3d4393a08112b62d51a9e83496b4359b220adce16f",
+      "sha256_dmp": "2c690fe54365eb33eebc5f2f4eac0f1882005e73d3e1bfefceb8093326ce476e",
+      "context_eip": "0x71D9CBD8",
+      "module": "patcher_x86.dll",
+      "rva": "0xCBD8",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "identity": {
+        "txt_module_size": 774144,
+        "dmp_module_size": 774144,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    }
+  ],
+  "counts": {
+    "exact_pair": 1,
+    "unverifiable_missing_txt_identity": 0,
+    "unverifiable_missing_dmp_identity": 0,
+    "same_site_different_exception": 0,
+    "build_mismatch": 0,
+    "empty_dump": 0,
+    "unknown_exception_class": 0,
+    "txt_parse_error": 0,
+    "dmp_parse_error": 0,
+    "unpaired_txt": 0,
+    "unpaired_dmp": 0,
+    "parse_error": 0
+  },
+  "legacy_count_aliases": {
+    "parse_error": [
+      "unknown_exception_class",
+      "txt_parse_error",
+      "dmp_parse_error"
+    ]
+  },
+  "complete": true,
+  "analysis_ready": true,
+  "quality_complete": true,
+  "hard_blockers": 0,
+  "identity_gaps": 0,
+  "blockers": 0
+}

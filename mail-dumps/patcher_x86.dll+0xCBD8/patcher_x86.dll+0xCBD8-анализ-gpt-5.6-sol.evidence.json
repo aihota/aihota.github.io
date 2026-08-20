@@ -1,0 +1,204 @@
+{
+  "schema": 3,
+  "generated_at": "2026-08-20T19:56:10.420490+00:00",
+  "parser_revision": "66e7378c9cf56d033b719d7b363f1e5780bc7bd3",
+  "report": {
+    "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/patcher_x86.dll+0xCBD8-анализ-gpt-5.6-sol.txt",
+    "size": 32700,
+    "sha256": "1bad5cd94b5ff8423481ed64d72b20e11d76dc78b13bc2132e481c6e6ad1d5e5"
+  },
+  "inputs": [
+    {
+      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/patcher_x86.dll+0xCBD8-5.7-R40-180.txt",
+      "size": 8561,
+      "sha256": "dae4c1ef87f5bf4f17fe0d3d4393a08112b62d51a9e83496b4359b220adce16f",
+      "role": "source"
+    },
+    {
+      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/patcher_x86.dll+0xCBD8-5.7-R40-180.dmp",
+      "size": 109905,
+      "sha256": "2c690fe54365eb33eebc5f2f4eac0f1882005e73d3e1bfefceb8093326ce476e",
+      "role": "runtime"
+    },
+    {
+      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/patcher_x86.dll+0xCBD8-5.7-R40-180-BATTLE_non_continuable.GM2",
+      "size": 240754,
+      "sha256": "a215287dac8fbaa15d8f0a1d2caabfb219d0dc2eedabe8d54699fc977dae57f5",
+      "role": "derived"
+    },
+    {
+      "path": "../../180/patcher_x86.dll",
+      "size": 483328,
+      "sha256": "8c10bae88bf42d30157b66611b045e5e904e14b2dda66988e90163bc0d3626bf",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/patcher_x86.dll.txt",
+      "size": 14353484,
+      "sha256": "f511c8c3aebdaa4eced46551e106b7208a7ce6b7f9e7a2db8fe2ee47da5b2435",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.7 R40.txt",
+      "size": 50700332,
+      "sha256": "1e982b9b517af1f3f1744ff1e87f0941609af2bf08c7b8d6867d2ead92903054",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/h3hota.exe.txt",
+      "size": 79196875,
+      "sha256": "a659b437fa53df6e65a763481c03538a79b0899130ea4b9dfeba1dd9b5e0ddd6",
+      "role": "source"
+    },
+    {
+      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/pair-audit.json",
+      "size": 1818,
+      "sha256": "9e3531559b1c5814efe0bb8c0fcde859631fa3cf504628162c98d8afbb50f009",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/capabilities.json",
+      "size": 2307,
+      "sha256": "ff3b107a4c27c5d9ac85b2da4c9394a6614c007be59019cec37269d5ed2a5792",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/static-exhaustion.json",
+      "size": 323934,
+      "sha256": "bb661b280d473446fe166a01d1038354362cd54452f3a8d1883522b3bf7b188b",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/save-inventory.json",
+      "size": 1644,
+      "sha256": "aeddf57793b3f7dd688616c6475805bb329ea3f76e513bdaa06da4910c6d81f0",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "evidence-config-patcher-cbd8.json",
+      "size": 5852,
+      "sha256": "ef21c12704160e0a7a452364107831ef0c954cf811bd77b334d8abd4bf49b29c",
+      "role": "derived-evidence"
+    }
+  ],
+  "tools": [],
+  "commands": [
+    "read_dump.py: полный разбор ExceptionStream, регистров, модулей и памяти",
+    "dump_profile.py: паспорт MiniDumpNormal и потоковая атрибуция",
+    "static_exhaustion_check.py: механическая перепись статических категорий",
+    "corpus_query: полный обход 5695 файлов по маске *.txt"
+  ],
+  "facts": {
+    "crash_eip": "0x71D9CBD8",
+    "module_rva": "patcher_x86.dll+0xCBD8",
+    "ida_site": "0x1000CBD8",
+    "fault_instruction": "cmp edx, [eax+10h]",
+    "eax": "0xF07B407E",
+    "effective_address": "0xF07B408E",
+    "lookup_key": "0x005FF3A0",
+    "lookup_target": "A0_Dlg_Items_ProcMsg_sub_5FF3A0",
+    "binary_sha256": "8c10bae88bf42d30157b66611b045e5e904e14b2dda66988e90163bc0d3626bf",
+    "dmp_window_match": "96/96",
+    "dump_kind": "MiniDumpNormal",
+    "globals_and_heap": "not_captured",
+    "exception_thread": "5136",
+    "stack_thread": "1636_or_unresolved",
+    "corpus_files": "5695/5695",
+    "parsed_crash_logs": "5500",
+    "sibling_sites": "C8C8,C98A,CBD8,CC48",
+    "family_unique": "1",
+    "family_coverage": "partial"
+  },
+  "claims": [
+    {
+      "confidence": "видно непосредственно в DMP",
+      "id": "crash-site",
+      "type": "crash_site",
+      "statement": "0xF07B407E + 0x10 = 0xF07B408E",
+      "evidence": [
+        "fact:crash_eip",
+        "fact:fault_instruction",
+        "fact:effective_address"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "id": "tree-lookup-mechanism",
+      "type": "local_mechanism",
+      "statement": "sub_1000CBA0 получает внутреннее дерево из dword_100B5E6C->[+0x10], берёт служебную голову из [+0x0C] и обходит узлы по ссылкам [+0x00] и [+0x08].",
+      "evidence": [
+        "fact:ida_site",
+        "fact:lookup_key",
+        "fact:lookup_target",
+        "fact:dmp_window_match"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "origin-not-captured",
+      "type": "state_origin",
+      "statement": "Ни одна из этих версий не повышена до первопричины: MiniDumpNormal не содержит голову дерева, узлы кучи, карту выделений, права страниц и историю записи.",
+      "evidence": [
+        "fact:dump_kind",
+        "fact:globals_and_heap"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "family-partial",
+      "type": "family_coverage",
+      "statement": "Для точных точек +0xC8C8, +0xC98A, +0xCBD8 и +0xCC48 найден только один уникальный случай +0xCBD8.",
+      "evidence": [
+        "fact:corpus_files",
+        "fact:parsed_crash_logs",
+        "fact:sibling_sites",
+        "fact:family_unique"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "confidence": "видно непосредственно в DMP",
+      "id": "thread-provenance-limit",
+      "type": "limitation",
+      "statement": "ExceptionStream указывает номер потока 5136.",
+      "evidence": [
+        "fact:exception_thread",
+        "fact:stack_thread"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "unknown",
+        "family_coverage": "probable"
+      }
+    }
+  ],
+  "code_evidence": {
+    "level": "dmp-window",
+    "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
+  },
+  "machine_results": []
+}

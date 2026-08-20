@@ -1,0 +1,49 @@
+{
+  "schema": 3,
+  "root": "/Users/Shared/ii/mail-dumps/patcher_x86.dll+0xCBD8",
+  "count_contract": "physical_files = unique_sha256 + duplicate_instances",
+  "summary": {
+    "physical_files": 1,
+    "unique_sha256": 1,
+    "duplicate_instances": 0,
+    "roles": {
+      "derived": 1
+    },
+    "extensions": {
+      ".GM2": 1
+    },
+    "phase": "gameplay",
+    "phase_relevance": {
+      "not_causal_for_phase": 1
+    },
+    "unknown_blocks_only_its_file": 0
+  },
+  "items": [
+    {
+      "path": "patcher_x86.dll+0xCBD8-5.7-R40-180-BATTLE_non_continuable.GM2",
+      "size": 240754,
+      "sha256": "a215287dac8fbaa15d8f0a1d2caabfb219d0dc2eedabe8d54699fc977dae57f5",
+      "extension": ".GM2",
+      "role": "derived",
+      "artifact_role": "derived_battle_save",
+      "role_basis": "имя указывает на автоматический/боевой выход игры; роль source без отдельного доказательства запрещена",
+      "phase": "gameplay",
+      "phase_relevance": "not_causal_for_phase",
+      "phase_relevance_basis": "выход игры не назначается причиной без трассировки",
+      "corresponding_logs": [
+        "patcher_x86.dll+0xCBD8-5.7-R40-180.txt"
+      ],
+      "corresponding_dumps": [
+        "patcher_x86.dll+0xCBD8-5.7-R40-180.dmp"
+      ],
+      "attachment_names": [],
+      "origin_inference_allowed": true,
+      "can_support_source_origin": false,
+      "duplicate_group": "save-sha-a215287dac8f",
+      "duplicate_physical_count": 1,
+      "representative": true
+    }
+  ],
+  "validation_errors": [],
+  "valid": true
+}
