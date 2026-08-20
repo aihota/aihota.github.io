@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "report": "HD_HOTA.dll+0x1A49-анализ-qwen-3.8.txt",
+  "inputs": [
+    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180.txt"},
+    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180.dmp"},
+    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1.txt"},
+    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1.dmp"},
+    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-2.txt"},
+    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-2.dmp"},
+    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3.txt"},
+    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3.dmp"},
+    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1.txt"},
+    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1.dmp"},
+    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-1.txt"},
+    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-1.dmp"},
+    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-2.txt"},
+    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-2.dmp"},
+    {"role": "source", "path": "../../modules/HD_HOTA.dll-5.7 R35.txt"},
+    {"role": "source", "path": "../../modules/HD_HOTA.dll-5.7 R39.txt"},
+    {"role": "source", "path": "../../modules/HD_HOTA.dll-5.7 R40.txt"},
+    {"role": "derived-evidence", "path": "pair-audit.json"},
+    {"role": "derived-evidence", "path": "capabilities.json"},
+    {"role": "derived-evidence", "path": "series-groups.json"},
+    {"role": "derived-evidence", "path": "save-inventory.json"},
+    {"role": "derived-evidence", "path": "family-membership.json"},
+    {"role": "derived-evidence", "path": "coverage.json"}
+  ],
+  "tools": [
+    "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+    "../../.agents/skills/hota-crash-triage/lint_report.py",
+    "../../.agents/skills/hota-crash-triage/case_quality_gate.py"
+  ],
+  "commands": [
+    "evidence_manifest.py create --config evidence-config-qwen.json",
+    "lint_report.py HD_HOTA.dll+0x1A49-анализ-qwen-3.8.txt --publish"
+  ],
+  "facts": {
+    "physical_txt": "7",
+    "unique_dmp_sha256": "5",
+    "confirmed_family_dmp_states": "5",
+    "reproduction_status": "not confirmed"
+  },
+  "claims": [
+    {
+      "id": "claim-crash-site",
+      "type": "crash_site",
+      "statement": "Адрес сбоя: HD_HOTA.dll+0x1A49.",
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "confidence": "видно непосредственно в DMP",
+      "evidence": ["input:series-groups.json", "input:../../modules/HD_HOTA.dll-5.7 R35.txt"],
+      "confidence_vector": {"instruction": "confirmed", "mechanism": "confirmed", "state_origin": "probable", "family_coverage": "confirmed"}
+    },
+    {
+      "id": "claim-local-mechanism",
+      "type": "local_mechanism",
+      "statement": "Локальный механизм: int 3 выполняется после возврата NULL из _malloc.",
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "confidence": "однозначно следует из листинга",
+      "evidence": ["input:../../modules/HD_HOTA.dll-5.7 R35.txt", "input:series-groups.json"],
+      "confidence_vector": {"instruction": "confirmed", "mechanism": "confirmed", "state_origin": "probable", "family_coverage": "confirmed"}
+    },
+    {
+      "id": "claim-state-origin",
+      "type": "state_origin",
+      "statement": "Причина возврата NULL по сокращённым DMP не установлена.",
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "confidence": "выведено из совокупности признаков",
+      "evidence": ["input:capabilities.json"],
+      "confidence_vector": {"instruction": "confirmed", "mechanism": "confirmed", "state_origin": "probable", "family_coverage": "confirmed"}
+    },
+    {
+      "id": "claim-family-coverage",
+      "type": "family_coverage",
+      "statement": "Проверены все семь TXT и пять уникальных DMP текущей серии.",
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "sample": {"numerator": 5, "denominator": 5, "population": "unique DMP states after SHA-256 deduplication"},
+      "confidence": "выведено из совокупности признаков",
+      "evidence": ["input:series-groups.json", "input:family-membership.json", "input:pair-audit.json"],
+      "confidence_vector": {"instruction": "confirmed", "mechanism": "confirmed", "state_origin": "probable", "family_coverage": "confirmed"}
+    },
+    {
+      "id": "claim-reproduction",
+      "type": "reproduction",
+      "statement": "Подтверждённого воспроизведения на стенде нет.",
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "confidence": "не проверено",
+      "evidence": ["input:save-inventory.json"],
+      "confidence_vector": {"instruction": "confirmed", "mechanism": "confirmed", "state_origin": "unknown", "family_coverage": "confirmed"}
+    }
+  ],
+  "claim_json": [],
+  "machine_json": [],
+  "code_evidence": "dmp-window",
+  "manifest_schema": 3,
+  "out": "HD_HOTA.dll+0x1A49-анализ-qwen-3.8.evidence.json"
+}

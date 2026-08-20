@@ -1,0 +1,61 @@
+{
+  "schema": 3,
+  "scope": {
+    "id": "family-HD_HOTA-null-malloc-breakpoint",
+    "kind": "family",
+    "population": "five unique DMP states represented by seven target TXT incidents"
+  },
+  "claims": [
+    {
+      "id": "claim-crash-site",
+      "type": "crash_site",
+      "statement": "Все 5 уникальных DMP: EXCEPTION_BREAKPOINT, EIP по +0x1A49, EAX=0.",
+      "confidence": "видно непосредственно в DMP",
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "evidence": ["input:series-groups.json", "input:../../modules/HD_HOTA.dll-5.7 R35.txt", "input:../../modules/HD_HOTA.dll-5.7 R39.txt", "input:../../modules/HD_HOTA.dll-5.7 R40.txt"],
+      "confidence_vector": {"instruction": "confirmed", "mechanism": "confirmed", "state_origin": "probable", "family_coverage": "confirmed"}
+    },
+    {
+      "id": "claim-local-mechanism",
+      "type": "local_mechanism",
+      "statement": "Во всех 5 DMP аргумент _malloc прочитан по ESP-4, возврат — по ESP.",
+      "confidence": "однозначно следует из листинга",
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "evidence": ["input:series-groups.json", "input:../../modules/HD_HOTA.dll-5.7 R35.txt", "input:../../modules/HD_HOTA.dll-5.7 R39.txt", "input:../../modules/HD_HOTA.dll-5.7 R40.txt"],
+      "confidence_vector": {"instruction": "confirmed", "mechanism": "confirmed", "state_origin": "probable", "family_coverage": "confirmed"}
+    },
+    {
+      "id": "claim-state-origin",
+      "type": "state_origin",
+      "statement": "Причина возврата NULL не доказана окончательно.",
+      "confidence": "выведено из совокупности признаков",
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "evidence": ["input:capabilities.json", "input:save-inventory.json"],
+      "confidence_vector": {"instruction": "confirmed", "mechanism": "confirmed", "state_origin": "probable", "family_coverage": "confirmed"}
+    },
+    {
+      "id": "claim-family-coverage",
+      "type": "family_coverage",
+      "statement": "Покрытие: просмотрены все 5 уникальных DMP; полной памяти нет ни в одном.",
+      "confidence": "выведено из совокупности признаков",
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "sample": {"numerator": 5, "denominator": 5, "population": "unique DMP states after SHA-256 deduplication"},
+      "evidence": ["input:series-groups.json", "input:family-membership.json", "input:pair-audit.json"],
+      "confidence_vector": {"instruction": "confirmed", "mechanism": "confirmed", "state_origin": "probable", "family_coverage": "confirmed"}
+    },
+    {
+      "id": "claim-reproduction",
+      "type": "reproduction",
+      "statement": "Приложены четыре сейва для попытки воспроизведения.",
+      "confidence": "не проверено",
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "evidence": ["input:save-inventory.json"],
+      "confidence_vector": {"instruction": "confirmed", "mechanism": "confirmed", "state_origin": "unknown", "family_coverage": "confirmed"}
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "defaults": {
+    "helper_family": "HD_HOTA_malloc_null_breakpoint",
+    "instruction": "int 3 after _malloc returned NULL",
+    "effective_access": "execute",
+    "register_invariants": [
+      "EAX=0",
+      "EIP=HD_HOTA.dll+0x1A49",
+      "fault_instruction=int 3"
+    ],
+    "caller": "sub_1001A30+0x19",
+    "destination_origin": "allocator_result_EAX",
+    "size_origin": "_malloc_argument_at_ESP_minus_4",
+    "size_formula": "payload_size+4",
+    "subsystem": "HD_HOTA_memory_allocation",
+    "state_origin": "candidate"
+  },
+  "incidents": {
+    "HD_HOTA.dll+0x1A49-5.7-R35-180.txt": {
+      "caller": "initial_buffer_path_R35"
+    },
+    "HD_HOTA.dll+0x1A49-5.7-R35-180-1.txt": {
+      "caller": "initial_buffer_path_R35"
+    },
+    "HD_HOTA.dll+0x1A49-5.7-R35-180-2.txt": {
+      "caller": "initial_buffer_path_R35"
+    },
+    "HD_HOTA.dll+0x1A49-5.7-R35-180-3.txt": {
+      "caller": "initial_buffer_path_R35"
+    },
+    "HD_HOTA.dll+0x1A49-5.7-R39-180-1.txt": {
+      "caller": "initial_buffer_path_R39"
+    },
+    "HD_HOTA.dll+0x1A49-5.7-R40-180-1.txt": {
+      "caller": "network_dynamic_buffer_growth_R40"
+    },
+    "HD_HOTA.dll+0x1A49-5.7-R40-180-2.txt": {
+      "caller": "network_dynamic_buffer_growth_R40"
+    }
+  },
+  "related_cases": []
+}

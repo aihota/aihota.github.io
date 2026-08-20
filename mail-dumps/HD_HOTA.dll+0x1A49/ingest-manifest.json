@@ -1,0 +1,1081 @@
+{
+  "schema": 3,
+  "generated_at": "2026-08-20T10:30:13.927479+00:00",
+  "mode": "crash_case",
+  "intake_policy": "strict",
+  "mail_folder": "HD_HOTA.dll+0x1A49",
+  "output": "mail-dumps/HD_HOTA.dll+0x1A49",
+  "counts": {
+    "matched": 5,
+    "txt_saved": 5,
+    "txt_reused": 0,
+    "unresolved": 0,
+    "duplicates_skipped": 0,
+    "attachments_declared": 9,
+    "attachments_nonempty": 9,
+    "attachments_accounted": 9
+  },
+  "messages": [
+    {
+      "message_id": "<6a7f5844.a3d0fb18.2552f0.7d1d@mx.google.com>",
+      "body_hash": "0ebca6c9",
+      "body_sha256": "0d0b67b2f576b9373c1792ae9cc11b030eabfa571a3581bf2ba77336cb03d97f",
+      "status": "saved",
+      "txt": "HD_HOTA.dll+0x1A49-5.7-R40-180-1.txt",
+      "attachments": [
+        {
+          "name": "BATTLE_non_continuable.GM2",
+          "size": 347588,
+          "empty": false,
+          "kind": "сейв",
+          "sha256": "4061b285a4ee4ac085ebb4d5234c6709121abc972a6868310033ada9430da3b4"
+        },
+        {
+          "name": "hd_crash.dmp",
+          "size": 130828,
+          "empty": false,
+          "kind": "дамп",
+          "sha256": "a50ea6390aef11d9adf123165d6ff72f6c0dd238bddfeb7ae3a181d4b983065a"
+        }
+      ],
+      "attachments_saved": 2,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    },
+    {
+      "message_id": "<6a86c6de.0542135a.1e0c97.a003@mx.google.com>",
+      "body_hash": "bcc21bfb",
+      "body_sha256": "d8dc2a9b2357e80fc18e3f022a4a473ccdc2c9d12ea230662254d70a5e62af69",
+      "status": "saved",
+      "txt": "HD_HOTA.dll+0x1A49-5.7-R40-180-2.txt",
+      "attachments": [
+        {
+          "name": "hd_crash.dmp",
+          "size": 170477,
+          "empty": false,
+          "kind": "дамп",
+          "sha256": "fa545a0b9a2fbf420a3c512ea13fa44d0de2743ca4e98b9a7e0e750ada4e2abb"
+        }
+      ],
+      "attachments_saved": 1,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    },
+    {
+      "message_id": "<6a6e4512.9325fd96.1aea41.ee21@mx.google.com>",
+      "body_hash": "b20ae8ab",
+      "body_sha256": "ac3b9898131bab5989e6dff916941bc8a355eb33495817f0ada5d1de12ef7fd0",
+      "status": "saved",
+      "txt": "HD_HOTA.dll+0x1A49-5.7-R35-180-1.txt",
+      "attachments": [
+        {
+          "name": "AUTOSAVE.GM2",
+          "size": 50655,
+          "empty": false,
+          "kind": "сейв",
+          "sha256": "b553a8cd3bb8178f3715eefe6eca5bb6fee3b390e6584679d43c9e68745cb457"
+        },
+        {
+          "name": "hd_crash.dmp",
+          "size": 126100,
+          "empty": false,
+          "kind": "дамп",
+          "sha256": "08a9178c878accc992b3311dc4556063c24051fee6f94874f0246d66908b4f85"
+        }
+      ],
+      "attachments_saved": 2,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    },
+    {
+      "message_id": "<6a6e4658.af19844c.166381.632e@mx.google.com>",
+      "body_hash": "c7de3330",
+      "body_sha256": "7de8c6bc94aa192aee21d66223da5b4b6851f2ec86eb4bc3a4f0be0a8be2cd93",
+      "status": "saved",
+      "txt": "HD_HOTA.dll+0x1A49-5.7-R35-180-3.txt",
+      "attachments": [
+        {
+          "name": "AUTOSAVE.GM2",
+          "size": 50880,
+          "empty": false,
+          "kind": "сейв",
+          "sha256": "ae456b52958fe431f354b01dc2bb94c6881bb06ae29f6193f8044a7e4f61b77f"
+        },
+        {
+          "name": "hd_crash.dmp",
+          "size": 125496,
+          "empty": false,
+          "kind": "дамп",
+          "sha256": "a06ad2e9736181088411b2c732906b893ff5179c692b644d07afebc651fabdf7"
+        }
+      ],
+      "attachments_saved": 2,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    },
+    {
+      "message_id": "<6a79ed7e.3527643f.33880a.5c71@mx.google.com>",
+      "body_hash": "980ac488",
+      "body_sha256": "21fbf78651021da71922a6cec512db264cd51ecbc62d281e746d86ccab16c4bc",
+      "status": "saved",
+      "txt": "HD_HOTA.dll+0x1A49-5.7-R39-180-1.txt",
+      "attachments": [
+        {
+          "name": "AUTOSAVE.GM2",
+          "size": 267570,
+          "empty": false,
+          "kind": "сейв",
+          "sha256": "218d8955f3cdbbfa272c495a9ca68d8fc7246cf051e76bc2ad24f0af94e0d125"
+        },
+        {
+          "name": "hd_crash.dmp",
+          "size": 124184,
+          "empty": false,
+          "kind": "дамп",
+          "sha256": "703412811a8e7a0f9d2c6ce3d2b30eb15a0d5253149e8427c8b84267fa1e2ed3"
+        }
+      ],
+      "attachments_saved": 2,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    }
+  ],
+  "pair_audit": {
+    "path": "pair-audit.json",
+    "counts": {
+      "exact_pair": 13,
+      "unverifiable_missing_txt_identity": 1,
+      "unverifiable_missing_dmp_identity": 0,
+      "same_site_different_exception": 0,
+      "build_mismatch": 0,
+      "empty_dump": 0,
+      "unknown_exception_class": 0,
+      "txt_parse_error": 0,
+      "dmp_parse_error": 0,
+      "unpaired_txt": 52,
+      "unpaired_dmp": 0,
+      "parse_error": 0
+    },
+    "quality_complete": false,
+    "complete": false
+  },
+  "context_quality": {
+    "analysis_ready_independent": true,
+    "followup_required": true,
+    "total": 66,
+    "returned": 66,
+    "truncated": false,
+    "cases": [
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-1.txt",
+        "priority": 5,
+        "missing": [
+          "пустой Modules",
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Пришлите лог с заполненным разделом Modules.",
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.6 R37"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-6.txt",
+        "priority": 5,
+        "missing": [
+          "пустой Modules",
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Пришлите лог с заполненным разделом Modules.",
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R20"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0Time0526202-1.txt",
+        "priority": 5,
+        "missing": [
+          "пустой Modules",
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Пришлите лог с заполненным разделом Modules.",
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC11"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1ABE-1.8.0-1.txt",
+        "priority": 5,
+        "missing": [
+          "пустой Modules",
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Пришлите лог с заполненным разделом Modules.",
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R14"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R35"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-2.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R35"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R35"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R35"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R39"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-1.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R40"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-2.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R40"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-2.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.6 R37"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-3.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.6 R37"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-1.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.6 R19"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-10.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-11.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-12.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-13.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-14.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.6 R30"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-15.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.6 R30"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-16.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.6 R31"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-17.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-18.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-19.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-2.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.6 R35"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-20.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-21.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-22.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-23.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-24.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-25.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-26.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-27.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-28.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-29.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-3.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-30.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-31.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-32.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-33.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-34.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-35.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-36.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-37.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC2"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-38.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC2"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-39.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC2"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-4.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-40.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC2"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-41.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC2"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-5.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-6.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-7.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-8.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-9.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0Time13.04.2-1.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-1.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC6"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-10.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R33"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-11.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R33"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-12.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R33"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-2.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC7"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-3.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC9"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-4.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC11"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-5.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R10"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-7.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R23"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-8.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R26"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-9.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_HOTA.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R28"
+      }
+    ]
+  },
+  "readiness": {
+    "mail_download_complete": true,
+    "attachment_inventory_complete": true,
+    "pair_audit_complete": true,
+    "pair_audit_partial": false,
+    "pair_quality_complete": false,
+    "technical_ready": true,
+    "analysis_ready": true,
+    "analysis_ready_independent_of_context": true,
+    "strict_ready": false,
+    "release_ready": false,
+    "strict_blockers": [
+      "pair_quality_incomplete",
+      "context_followup_required"
+    ],
+    "context_quality_present": true,
+    "context_followup_required": true,
+    "unresolved_attachments": {
+      "count": 0,
+      "message_ids": []
+    },
+    "pair_audit_coverage": {
+      "manifest_txt": 5,
+      "classified_txt": 5,
+      "missing_txt": [],
+      "unknown_status_rows": 0
+    },
+    "pair_quality_counts": {
+      "exact_pair": 13,
+      "unverifiable_missing_txt_identity": 1,
+      "unverifiable_missing_dmp_identity": 0,
+      "same_site_different_exception": 0,
+      "build_mismatch": 0,
+      "empty_dump": 0,
+      "unknown_exception_class": 0,
+      "txt_parse_error": 0,
+      "dmp_parse_error": 0,
+      "unpaired_txt": 52,
+      "unpaired_dmp": 0,
+      "parse_error": 0
+    },
+    "note": "unpaired TXT is a pair-quality fact, not an incomplete mail download"
+  },
+  "complete": false
+}

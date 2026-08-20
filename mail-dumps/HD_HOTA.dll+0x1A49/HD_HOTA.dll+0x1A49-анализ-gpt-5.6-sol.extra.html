@@ -1,0 +1,100 @@
+<section id="viz-mechanism" data-toc="Визуализация сбоя">
+  <h2><span class="htext">Визуализация сбоя</span>
+      <a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Пять уникальных инцидентов сходятся в sub_1001A30+0x19,
+     но приходят туда из двух разных сценариев выделения памяти.</p>
+  <div class="viz">
+    <div class="viz-stage">
+      <div class="viz-stage-title">
+        <span class="viz-stage-index">1</span>
+        <span>Два вызывающих пути</span>
+      </div>
+      <div class="viz-strip badge-tl">
+        <div class="viz-box accent">
+          <span class="viz-badge accent">A</span>
+          <span>R35 и R39: создание исходного буфера</span>
+          <span class="lbl">1 МиБ → 0x00100004</span>
+        </div>
+        <div class="viz-box accent">
+          <span class="viz-badge accent">B</span>
+          <span>R40: рост dword_21B7CA0 после добавления 5 байт</span>
+          <span class="lbl">0x0D680004 или 0x0D880004</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="viz-stage">
+      <div class="viz-stage-title">
+        <span class="viz-stage-index">2</span>
+        <span>Общий доказанный механизм</span>
+      </div>
+      <div class="viz-strip badge-tl">
+        <div class="viz-box ok">
+          <span class="viz-badge ok">1</span>
+          <span>sub_1001A30 добавляет заголовок 4 байта</span>
+          <span class="lbl">точный листинг R35, R39 и R40</span>
+        </div>
+        <div class="viz-box accent">
+          <span class="viz-badge accent">2</span>
+          <span>Вызов _malloc</span>
+          <span class="lbl">аргумент сохранён по ESP-4</span>
+        </div>
+        <div class="viz-box bad">
+          <span class="viz-badge bad">3</span>
+          <span>_malloc возвращает NULL</span>
+          <span class="lbl">EAX=0 во всех пяти DMP</span>
+        </div>
+        <div class="viz-box bad">
+          <span class="viz-badge bad">4</span>
+          <span>int 3</span>
+          <span class="lbl">HD_HOTA.dll+0x1A49</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="viz-stage">
+      <div class="viz-stage-title">
+        <span class="viz-stage-index">3</span>
+        <span>Почему R40 особенно чувствителен к адресному пространству</span>
+      </div>
+      <div class="viz-strip badge-tl">
+        <div class="viz-box dashed">
+          <span class="viz-badge neutral">С</span>
+          <span>Старый блок остаётся жив</span>
+          <span class="lbl">214 либо 216 МиБ</span>
+        </div>
+        <div class="viz-box accent">
+          <span class="viz-badge accent">Н</span>
+          <span>Нужен новый непрерывный блок</span>
+          <span class="lbl">214,5 либо 216,5 МиБ</span>
+        </div>
+        <div class="viz-box bad">
+          <span class="viz-badge bad">Σ</span>
+          <span>Одновременно занято двумя блоками</span>
+          <span class="lbl">около 428,5 либо 432,5 МиБ</span>
+        </div>
+      </div>
+      <p class="viz-cap">Полная куча не сохранена: фрагментация вероятна,
+         но повреждение кучи окончательно не исключено.</p>
+    </div>
+
+    <div class="viz-legend">
+      <div class="item">
+        <span class="viz-badge accent"></span>
+        <span class="txt">Синим показаны вычисленные или вызывающие этапы.</span>
+      </div>
+      <div class="item">
+        <span class="viz-badge bad"></span>
+        <span class="txt">Красным показаны NULL и конечная ловушка int 3.</span>
+      </div>
+      <div class="item">
+        <span class="viz-badge ok"></span>
+        <span class="txt">Зелёным показан код, подтверждённый листингами.</span>
+      </div>
+      <div class="item">
+        <span class="viz-badge neutral"></span>
+        <span class="txt">Пунктиром показано состояние старого блока R40.</span>
+      </div>
+    </div>
+  </div>
+</section>
