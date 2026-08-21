@@ -1,0 +1,40 @@
+{
+  "module": "patcher_x86.dll",
+  "module_source": "../../180/patcher_x86.dll",
+  "addresses": {
+    "runtime": 1910098904,
+    "load_base": 1910046720,
+    "imagebase": 268435456,
+    "size_of_image": 774144,
+    "file_offset": 49112,
+    "rva": 52184,
+    "module_offset": 52184,
+    "ida": 268487640
+  },
+  "sources": {
+    "fault_address": "patcher_x86.dll+0xCBD8-5.7-R40-180.dmp:ExceptionStream",
+    "load_base": "patcher_x86.dll+0xCBD8-5.7-R40-180.dmp:ModuleList",
+    "imagebase": "180/patcher_x86.dll:OptionalHeader.ImageBase",
+    "file_offset": "180/patcher_x86.dll:.text raw mapping"
+  },
+  "identity": {
+    "level": "dmp-window",
+    "full_binary_match": false,
+    "binary_sha256": "8c10bae88bf42d30157b66611b045e5e904e14b2dda66988e90163bc0d3626bf",
+    "window": {
+      "runtime": "0x71D9CBC0",
+      "file_offset": "0xBFC0",
+      "size": 96,
+      "matched": 96
+    },
+    "limitation": "96-byte DMP window match does not prove a full runtime image"
+  },
+  "instruction": "cmp edx, [eax+10h]",
+  "effective_address": "0xF07B408E",
+  "schema": 1,
+  "kind": "address_proof",
+  "validation": {
+    "status": "passed",
+    "errors": []
+  }
+}

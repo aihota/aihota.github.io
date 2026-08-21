@@ -17,7 +17,7 @@
   "artifact_quality": {
     "status": "passed",
     "passed": true,
-    "step_count": 12,
+    "step_count": 14,
     "blocked_count": 0
   },
   "diagnostic_completeness": {
@@ -41,7 +41,7 @@
   },
   "root_cause_ready": false,
   "causality_level": "L1",
-  "step_count": 12,
+  "step_count": 14,
   "blocked_count": 0,
   "steps": [
     {
@@ -64,6 +64,20 @@
       "item_count": 1,
       "status": "passed",
       "errors": []
+    },
+    {
+      "name": "address_proof:address-proof.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "ADDRESS PROOF: PASSED; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "analysis_contract:analysis-contract.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "ANALYSIS CONTRACT: PASSED; errors=none\n",
+      "stderr": ""
     },
     {
       "name": "coverage:coverage.json",
@@ -121,7 +135,7 @@
       "name": "evidence:patcher_x86.dll+0xCBD8-анализ-gpt-5.6-sol.txt",
       "status": "passed",
       "returncode": 0,
-      "stdout": "EVIDENCE: FRESH; проверено 13\n",
+      "stdout": "EVIDENCE: FRESH; проверено 16\n",
       "stderr": ""
     },
     {
@@ -130,14 +144,13 @@
       "errors": []
     },
     {
-      "name": "render:patcher_x86.dll+0xCBD8-анализ-gpt-5.6-sol.txt",
+      "name": "render-attestation:patcher_x86.dll+0xCBD8-анализ-gpt-5.6-sol.txt",
       "status": "passed",
       "returncode": 0,
-      "stdout": "   шрифты встроены (офлайн): 5 начертаний\n   врезка визуализаций: 1 секц., 1 пункт(ов) оглавления\nOK -> /Users/Shared/ii/mcp/.tmp-tools/publication-stage/patcher_x86.dll+0xCBD8/rendered/patcher_x86.dll+0xCBD8-анализ-gpt-5.6-sol.html\n   секций размещено: 10 / 10\n   <section> open=11 close=11\n   ✓ валидация: ключевые поля txt присутствуют в html\n",
+      "stdout": "RENDER ATTESTATION: PASSED; errors=none\n",
       "stderr": "",
-      "verified_existing_html": "/Users/Shared/ii/mail-dumps/patcher_x86.dll+0xCBD8/patcher_x86.dll+0xCBD8-анализ-gpt-5.6-sol.html",
-      "normalized_generated_at": true,
-      "render_output": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/patcher_x86.dll+0xCBD8/rendered/patcher_x86.dll+0xCBD8-анализ-gpt-5.6-sol.html"
+      "render_mode": "reused_attestation",
+      "render_output": "/Users/Shared/ii/mail-dumps/patcher_x86.dll+0xCBD8/patcher_x86.dll+0xCBD8-анализ-gpt-5.6-sol.html"
     }
   ]
 }

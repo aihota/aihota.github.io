@@ -1,0 +1,190 @@
+{
+  "schema": 1,
+  "kind": "crash_analysis_contract",
+  "thread_contexts": [
+    {
+      "source": "exception_stream",
+      "tid": 5136,
+      "registers": {
+        "EIP": "0x71D9CBD8",
+        "EAX": "0xF07B407E",
+        "ECX": "0x00857A80",
+        "EDX": "0x005FF3A0",
+        "EBX": "0x07934400",
+        "ESP": "0x00199F84",
+        "EBP": "0x00199F88",
+        "ESI": "0x00857A80",
+        "EDI": "0x056C58A8"
+      }
+    },
+    {
+      "source": "text_context",
+      "tid": null,
+      "stack": [
+        "HD_HOTA.dll!sub_10178E0+0x1B",
+        "patcher_x86.dll!sub_1000CBA0+0x38"
+      ]
+    },
+    {
+      "source": "thread_list",
+      "tid": 1636,
+      "stack": [
+        "ESP candidate only; not selected as crash context"
+      ]
+    }
+  ],
+  "thread_policy": {
+    "status": "CONTEXT_THREAD_UNRESOLVED",
+    "exception_tid": 5136,
+    "selected_context_tid": null,
+    "candidate_esp_tid": 1636,
+    "register_sets_may_be_combined": false,
+    "combination_rule": "same_tid_only"
+  },
+  "consumer_boundary": {
+    "caller": "HD_HOTA.dll!sub_10178E0+0x1B",
+    "callee": "patcher_x86.dll!sub_1000CBA0+0x38",
+    "input": "lookup key 0x005FF3A0",
+    "input_validity": "confirmed",
+    "candidate": "interval-tree node in EAX",
+    "candidate_validity": "invalid",
+    "fault": "read [EAX+0x10] at 0xF07B408E"
+  },
+  "state_origin_candidates": [
+    {
+      "id": "race",
+      "status": "not_established",
+      "next_evidence": [
+        "conflicting writer TID, stack and happens-before ordering"
+      ]
+    },
+    {
+      "id": "use_after_free",
+      "status": "not_established",
+      "next_evidence": [
+        "allocator free stack, allocation generation and reuse history"
+      ]
+    },
+    {
+      "id": "heap_overwrite",
+      "status": "not_established",
+      "next_evidence": [
+        "first out-of-bounds writer address, owner bounds and stack"
+      ]
+    },
+    {
+      "id": "third_party_write",
+      "status": "not_established",
+      "next_evidence": [
+        "watchpoint writer module, EIP, TID and stack"
+      ]
+    }
+  ],
+  "root_cause_declared": false,
+  "structure": {
+    "kind": "interval_tree",
+    "container": "[dword_100B5E6C+0x10]",
+    "head": "[container+0x0C]",
+    "fields": {
+      "left": 0,
+      "right": 8,
+      "nil": 13,
+      "interval_start": 16,
+      "interval_end": 20,
+      "value_chain": 24
+    },
+    "invariants": [
+      "candidate node is readable",
+      "nil marker and child links belong to one live tree generation",
+      "interval_start <= interval_end"
+    ],
+    "sibling_coverage": {
+      "sites": [
+        "0x1000C8C8",
+        "0x1000C98A",
+        "0x1000CBD8",
+        "0x1000CC48"
+      ],
+      "scanned": 4,
+      "total": 4,
+      "complete": true
+    }
+  },
+  "lifecycle": {
+    "global": "dword_100B5E6C",
+    "constructor": "sub_1000A270",
+    "publisher": "GetPatcherX86 at 0x10012116",
+    "counts": {
+      "references": 37,
+      "reads": 34,
+      "writes": 1,
+      "checks": 1,
+      "publishes": 1,
+      "clears": 0
+    },
+    "enumeration_complete": true,
+    "absence_claims": [
+      "no explicit clear in the complete static reference census"
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "patcher_x86.dll+0xCBD8-5.7-R40-180.txt",
+      "artifact_role": "source_crash_log",
+      "phase_role": "contextual"
+    },
+    {
+      "path": "patcher_x86.dll+0xCBD8-5.7-R40-180.dmp",
+      "artifact_role": "runtime_minidump",
+      "phase_role": "contextual"
+    },
+    {
+      "path": "patcher_x86.dll+0xCBD8-5.7-R40-180-BATTLE_non_continuable.GM2",
+      "artifact_role": "derived_battle_save",
+      "phase_role": "not_causal_for_phase"
+    }
+  ],
+  "family": {
+    "semantic_fingerprint": {
+      "structure_role": "interval-tree candidate node",
+      "field_offset": "+0x10",
+      "access": "read",
+      "call_tail": [
+        "HD_HOTA.dll!sub_10178E0",
+        "patcher_x86.dll!sub_1000CBA0"
+      ]
+    },
+    "denominator": {
+      "scanned": 5695,
+      "total": 5695,
+      "parsed_crash_logs": 5500,
+      "exact_matches": 1
+    }
+  },
+  "call_chain": [
+    {
+      "type": "dynamic_bridge",
+      "address": "0x02AFCCF5"
+    },
+    {
+      "type": "dynamic_bridge",
+      "address": "0x02AF0E3D"
+    },
+    {
+      "type": "module_function",
+      "address": "0x010178FB",
+      "function": "HD_HOTA.dll!sub_10178E0+0x1B"
+    },
+    {
+      "type": "module_function",
+      "address": "0x1000CBD8",
+      "function": "patcher_x86.dll!sub_1000CBA0+0x38"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "errors": [],
+    "root_cause_allowed": false
+  },
+  "status": "passed"
+}

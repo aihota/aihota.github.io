@@ -45,13 +45,28 @@
     {
       "role": "derived-evidence",
       "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/save-inventory.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/address-proof.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/analysis-contract.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/repro-plan.json"
     }
   ],
   "commands": [
     "read_dump.py: полный разбор ExceptionStream, регистров, модулей и памяти",
     "dump_profile.py: паспорт MiniDumpNormal и потоковая атрибуция",
     "static_exhaustion_check.py: механическая перепись статических категорий",
-    "corpus_query: полный обход 5695 файлов по маске *.txt"
+    "corpus_query: полный обход 5695 файлов по маске *.txt",
+    "address_proof.py: единый паспорт runtime/RVA/IDA/file offset",
+    "analysis_contract.py: границы потоков, структуры и происхождения состояния",
+    "repro_plan.py: отдельные дискриминаторы race/UAF/heap overwrite/third-party write"
   ],
   "facts": {
     "crash_eip": "0x71D9CBD8",

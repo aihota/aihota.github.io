@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "kind": "crash_reproduction_plan",
+  "status": "ready",
+  "case": "patcher_x86.dll+0xCBD8",
+  "diagnostic_source": "coverage.json",
+  "causality_level": "L1",
+  "next_required": [
+    "capture_state_origin_and_writer",
+    "confirm_reproduction",
+    "complete_family_coverage"
+  ],
+  "steps": [
+    {
+      "id": "discriminate-origin-race",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "race",
+      "success_evidence": [
+        "conflicting writer TID, stack and happens-before ordering"
+      ]
+    },
+    {
+      "id": "discriminate-origin-use_after_free",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "use_after_free",
+      "success_evidence": [
+        "allocator free stack, allocation generation and reuse history"
+      ]
+    },
+    {
+      "id": "discriminate-origin-heap_overwrite",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "heap_overwrite",
+      "success_evidence": [
+        "first out-of-bounds writer address, owner bounds and stack"
+      ]
+    },
+    {
+      "id": "discriminate-origin-third_party_write",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "third_party_write",
+      "success_evidence": [
+        "watchpoint writer module, EIP, TID and stack"
+      ]
+    },
+    {
+      "id": "capture-origin",
+      "action": "capture full dump and allocator/write telemetry before NULL",
+      "success_evidence": [
+        "full_dump",
+        "writer_identity",
+        "largest_free_region",
+        "heap_health"
+      ]
+    },
+    {
+      "id": "controlled-repro",
+      "action": "run failing input and positive control on matched binaries",
+      "success_evidence": [
+        "binary_sha256",
+        "failing_run",
+        "positive_control",
+        "result.json"
+      ]
+    },
+    {
+      "id": "family-coverage",
+      "action": "repeat one representative from every cause group",
+      "success_evidence": [
+        "representative_ids",
+        "group_results"
+      ]
+    }
+  ],
+  "inputs": {
+    "save_count": 1,
+    "full_dump_available": false,
+    "representatives": [],
+    "analysis_contract_present": true,
+    "artifact_phase_roles": [
+      "not_causal_for_phase"
+    ]
+  },
+  "populations": {},
+  "attestation": {
+    "status": "blocked_by_environment",
+    "reason": "plan generated; controlled runtime has not run"
+  },
+  "completion_rule": "passed requires failing run, positive control, matched SHA-256 and captured result.json"
+}

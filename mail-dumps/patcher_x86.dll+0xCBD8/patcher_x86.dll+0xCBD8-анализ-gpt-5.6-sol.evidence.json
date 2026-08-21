@@ -1,7 +1,7 @@
 {
   "schema": 3,
-  "generated_at": "2026-08-20T19:56:10.420490+00:00",
-  "parser_revision": "66e7378c9cf56d033b719d7b363f1e5780bc7bd3",
+  "generated_at": "2026-08-21T08:51:10.231702+00:00",
+  "parser_revision": "d70d1905121f63c3808407b7a8128197c6de11ff",
   "report": {
     "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/patcher_x86.dll+0xCBD8-анализ-gpt-5.6-sol.txt",
     "size": 32700,
@@ -75,9 +75,27 @@
       "role": "derived-evidence"
     },
     {
-      "path": "evidence-config-patcher-cbd8.json",
-      "size": 5852,
-      "sha256": "ef21c12704160e0a7a452364107831ef0c954cf811bd77b334d8abd4bf49b29c",
+      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/address-proof.json",
+      "size": 1158,
+      "sha256": "cc25b99085209e60908f777fce46906a1aaaf45054932b25c8c73c93f5a3cad9",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/analysis-contract.json",
+      "size": 4608,
+      "sha256": "3bfd8f542a97e19b47cd981b964285d9a2fa63c61083126bd6f2f65efded4795",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/repro-plan.json",
+      "size": 2569,
+      "sha256": "7e1ed43f72fb1bfc87cba6d2d07d47267eceb963f81b1514a272919f99e14d50",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/evidence-config-patcher-cbd8.json",
+      "size": 6540,
+      "sha256": "49957f425a0fd96ebc0a2db8dcb516d871a86106f079e25de1f551bb1afdaa63",
       "role": "derived-evidence"
     }
   ],
@@ -86,7 +104,10 @@
     "read_dump.py: полный разбор ExceptionStream, регистров, модулей и памяти",
     "dump_profile.py: паспорт MiniDumpNormal и потоковая атрибуция",
     "static_exhaustion_check.py: механическая перепись статических категорий",
-    "corpus_query: полный обход 5695 файлов по маске *.txt"
+    "corpus_query: полный обход 5695 файлов по маске *.txt",
+    "address_proof.py: единый паспорт runtime/RVA/IDA/file offset",
+    "analysis_contract.py: границы потоков, структуры и происхождения состояния",
+    "repro_plan.py: отдельные дискриминаторы race/UAF/heap overwrite/third-party write"
   ],
   "facts": {
     "crash_eip": "0x71D9CBD8",
