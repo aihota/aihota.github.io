@@ -1,0 +1,73 @@
+{
+  "schema": 3,
+  "root": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x46677",
+  "count_contract": "physical_files = unique_sha256 + duplicate_instances",
+  "summary": {
+    "physical_files": 2,
+    "unique_sha256": 2,
+    "duplicate_instances": 0,
+    "roles": {
+      "derived": 2
+    },
+    "extensions": {
+      ".GM1": 2
+    },
+    "phase": "save_write",
+    "phase_relevance": {
+      "phase_relevant_output": 2
+    },
+    "unknown_blocks_only_its_file": 0
+  },
+  "items": [
+    {
+      "path": "HD_HOTA.dll+0x46677-5.7-R40-180-2-AUTOSAVE.GM1",
+      "size": 600876,
+      "sha256": "fd955825f47985717341a5ed92504d4ff7dc01b9257ab3318a90eb4344ea7f41",
+      "extension": ".GM1",
+      "role": "derived",
+      "artifact_role": "derived_autosave",
+      "role_basis": "имя указывает на автоматический/боевой выход игры; роль source без отдельного доказательства запрещена",
+      "phase": "save_write",
+      "phase_relevance": "phase_relevant_output",
+      "phase_relevance_basis": "артефакт относится к записи состояния",
+      "corresponding_logs": [
+        "HD_HOTA.dll+0x46677-5.7-R40-180-2.txt"
+      ],
+      "corresponding_dumps": [
+        "HD_HOTA.dll+0x46677-5.7-R40-180-2.dmp"
+      ],
+      "attachment_names": [],
+      "origin_inference_allowed": true,
+      "can_support_source_origin": false,
+      "duplicate_group": "save-sha-fd955825f479",
+      "duplicate_physical_count": 1,
+      "representative": true
+    },
+    {
+      "path": "HD_HOTA.dll+0x46677-5.7-R40-180-BATTLE.GM1",
+      "size": 388194,
+      "sha256": "5c6f4435009a97c940ae09eda8b48c5e2dcb2fdfba6e0a244691b822c3d2b12a",
+      "extension": ".GM1",
+      "role": "derived",
+      "artifact_role": "derived_battle_save",
+      "role_basis": "имя указывает на автоматический/боевой выход игры; роль source без отдельного доказательства запрещена",
+      "phase": "save_write",
+      "phase_relevance": "phase_relevant_output",
+      "phase_relevance_basis": "артефакт относится к записи состояния",
+      "corresponding_logs": [
+        "HD_HOTA.dll+0x46677-5.7-R40-180.txt"
+      ],
+      "corresponding_dumps": [
+        "HD_HOTA.dll+0x46677-5.7-R40-180.dmp"
+      ],
+      "attachment_names": [],
+      "origin_inference_allowed": true,
+      "can_support_source_origin": false,
+      "duplicate_group": "save-sha-5c6f4435009a",
+      "duplicate_physical_count": 1,
+      "representative": true
+    }
+  ],
+  "validation_errors": [],
+  "valid": true
+}

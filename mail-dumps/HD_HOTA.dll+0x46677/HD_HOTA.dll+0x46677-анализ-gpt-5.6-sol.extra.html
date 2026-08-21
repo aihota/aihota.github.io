@@ -1,15 +1,37 @@
-<!-- РУЧНЫЕ ВИЗУАЛИЗАЦИИ к отчёту "HD_HOTA.dll+0x46677-анализ-gpt-5.6-sol.html".
-     Этот файл НЕ перезаписывается генератором — пишите сюда свободно
-     (SVG-схемы, диаграммы, доп. секции) и заново запускайте render_report.py.
-
-     Каждый верхнеуровневый блок-секцию оформляйте так, чтобы он попал
-     и в оглавление (по id + необязательному data-toc для подписи):
-
-     <section id="viz-mechanism" data-toc="Визуализация вылета">
-       <h2><span class="htext">Визуализация вылета</span>
-           <a class="anchor" href="#viz-mechanism">#</a></h2>
-       <svg ...>...</svg>
-     </section>
-
-     Если data-toc не задан — в оглавление пойдёт текст из <h2 .htext>.
-     Удалите этот комментарий, когда добавите своё содержимое. -->
+<section id="viz-mechanism" data-toc="Визуализация сбоя">
+  <h2><span class="htext">Визуализация сбоя</span>
+      <a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Два независимых случая одной сборки повторяют одинаковое противоречие между сохранённой точкой выполнения и описанной операцией доступа.</p>
+  <div class="viz">
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">1</span> Случай от 19.08.2026</div>
+      <div class="viz-strip">
+        <div class="viz-box accent"><span class="viz-badge accent">E</span><span class="lbl">EIP 0x046F6677</span></div>
+        <div class="viz-box ok"><code>pop esi</code><span class="lbl">чтение [ESP] = 0x001A90F4</span></div>
+        <div class="viz-box bad"><span class="viz-badge bad">W</span><span class="lbl">заявлена запись 0x00011487</span></div>
+      </div>
+    </div>
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">2</span> Случай от 21.08.2026</div>
+      <div class="viz-strip">
+        <div class="viz-box accent"><span class="viz-badge accent">E</span><span class="lbl">EIP 0x08ED6677</span></div>
+        <div class="viz-box ok"><code>pop esi</code><span class="lbl">чтение [ESP] = 0x001A90F4</span></div>
+        <div class="viz-box bad"><span class="viz-badge bad">W</span><span class="lbl">заявлена запись 0x00011487</span></div>
+      </div>
+    </div>
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">3</span> Общая граница доказанности</div>
+      <div class="viz-strip">
+        <div class="viz-box ok">2 из 2 DMP<span class="lbl">один RVA и одинаковые байты кода</span></div>
+        <div class="viz-box bad dashed">2 из 2 DMP<span class="lbl">поток ExceptionStream не равен потоку стека</span></div>
+        <div class="viz-box dim">L0<span class="lbl">первопричина игровых AV не установлена</span></div>
+      </div>
+      <p class="viz-cap">Повторяемость подтверждает дефект согласованности диагностического пакета, но не дефект <code>sub_1046580</code>.</p>
+    </div>
+  </div>
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge accent">E</span><span class="txt">Обе точки после учёта разных баз модулей отображаются в <code>HD_HOTA.dll+0x46677</code>.</span></div>
+    <div class="item"><span class="viz-badge bad">W</span><span class="txt">Описанная запись по <code>0x00011487</code> невозможна для инструкции <code>pop esi</code>.</span></div>
+    <div class="item"><span class="viz-badge ok">S</span><span class="txt">AUTOSAVE второго случая прошёл структурный контроль и подтверждает карту, но остаётся производным выходом.</span></div>
+  </div>
+</section>
