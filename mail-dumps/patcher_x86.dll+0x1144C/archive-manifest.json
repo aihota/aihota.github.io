@@ -1,0 +1,30 @@
+{
+  "schema": 3,
+  "mode": "canonical",
+  "latest_hd_version": "5.7 R40",
+  "counts": {
+    "members": 2,
+    "txt": 1,
+    "dmp": 1,
+    "canonical": 2,
+    "physical_copies": 0
+  },
+  "members": [
+    {
+      "source": "patcher_x86.dll+0x1144C-5.7-R40-180.dmp",
+      "archive": "patcher_x86.dll+0x1144C-5.7-R40-180.dmp",
+      "hd_version": "5.7 R40",
+      "physical_copy": false,
+      "size": 144542,
+      "sha256": "65b551cf69414e4c0241a2ecfa2088af41bc2061955f502fdd96bd4ec62448ef"
+    },
+    {
+      "source": "patcher_x86.dll+0x1144C-5.7-R40-180.txt",
+      "archive": "patcher_x86.dll+0x1144C-5.7-R40-180.txt",
+      "hd_version": "5.7 R40",
+      "physical_copy": false,
+      "size": 8750,
+      "sha256": "53df17b90303ee0d76f39592195c432144841b8aa31368ee1f836cb591ac5ac7"
+    }
+  ]
+}

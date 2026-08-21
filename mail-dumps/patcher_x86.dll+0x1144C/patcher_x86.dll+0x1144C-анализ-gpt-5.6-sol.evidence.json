@@ -1,0 +1,206 @@
+{
+  "schema": 3,
+  "generated_at": "2026-08-21T12:49:19.884145+00:00",
+  "parser_revision": "b69c3e0c556b1489270db812195e49756d024a96",
+  "report": {
+    "path": "patcher_x86.dll+0x1144C-анализ-gpt-5.6-sol.txt",
+    "size": 27667,
+    "sha256": "27127128cf72ec4bc7bc99efe15cc2eb7c9f8c7bbb9480b98a85783c582568b0"
+  },
+  "inputs": [
+    {
+      "path": "patcher_x86.dll+0x1144C-5.7-R40-180.txt",
+      "size": 8750,
+      "sha256": "53df17b90303ee0d76f39592195c432144841b8aa31368ee1f836cb591ac5ac7",
+      "role": "source"
+    },
+    {
+      "path": "patcher_x86.dll+0x1144C-5.7-R40-180.dmp",
+      "size": 144542,
+      "sha256": "65b551cf69414e4c0241a2ecfa2088af41bc2061955f502fdd96bd4ec62448ef",
+      "role": "runtime"
+    },
+    {
+      "path": "../../180/patcher_x86.dll",
+      "size": 483328,
+      "sha256": "8c10bae88bf42d30157b66611b045e5e904e14b2dda66988e90163bc0d3626bf",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/patcher_x86.dll.txt",
+      "size": 14353484,
+      "sha256": "f511c8c3aebdaa4eced46551e106b7208a7ce6b7f9e7a2db8fe2ee47da5b2435",
+      "role": "derived"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 29023,
+      "sha256": "edb9161f7e2953b9e73deffb12d00f4134a8b79496764710eab2b938ec2e2e8f"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+      "size": 8573,
+      "sha256": "adde7c9f84d42b2dd0e66977024cbee743836d03a798c9cb43a2298dd31f47c1"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/family_membership.py",
+      "size": 9261,
+      "sha256": "ab903a9697d273b2fd220bbe8bb46827c2b0d76e418247415e43a7c415c96677"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/lint_report.py",
+      "size": 95361,
+      "sha256": "04cdf4cdf2ceaa99ed06d0d04e8bd9b148742630b6105dee960a2c21d766fd34"
+    },
+    {
+      "path": "../../.agents/skills/html-report/render_report.py",
+      "size": 969,
+      "sha256": "ede2dd05af3e754cf2c1004ae1d0b1e83277617dc8da912e7308fc4f74e03cb2"
+    }
+  ],
+  "commands": [
+    "MCP dump_query: streams/modules/threads/memory for patcher_x86.dll+0x1144C-5.7-R40-180.dmp",
+    "MCP pe_info: 180/patcher_x86.dll at 0x1001144C with checksum",
+    "MCP listing_lookup: modules/patcher_x86.dll.txt at 0x1001144C and sibling functions",
+    "MCP corpus_query: mail-dumps/*.txt exact patcher_x86.dll+0x1144C and 0x114xx-0x1153x, SHA-256 dedup",
+    "python3 .agents/skills/hota-crash-triage/lint_report.py 'mail-dumps/patcher_x86.dll+0x1144C/patcher_x86.dll+0x1144C-анализ-gpt-5.6-sol.txt'",
+    "python3 .agents/skills/html-report/render_report.py --strict 'mail-dumps/patcher_x86.dll+0x1144C/patcher_x86.dll+0x1144C-анализ-gpt-5.6-sol.txt'"
+  ],
+  "facts": {
+    "exception_code": "0xC0000005",
+    "runtime_eip": "0x6A06144C",
+    "module_base": "0x6A050000",
+    "rva": "0x1144C",
+    "ida_address": "0x1001144C",
+    "fault_instruction": "mov esi, [esi+28h]",
+    "esi_after_callback": "0x00000000",
+    "edi_after_callback": "0x65A085DE",
+    "arg_4": "0x0CAB0000",
+    "arg_8": "0x001A6D9C",
+    "effective_address": "0x00000028",
+    "runtime_bytes": "8B 7D 10 8B 75 0C 57 56 FF 55 08 8B 76 28",
+    "time_date_stamp": "0x68674D2E",
+    "size_of_image": "0x000BD000",
+    "pe_sha256": "8c10bae88bf42d30157b66611b045e5e904e14b2dda66988e90163bc0d3626bf",
+    "listing_sha256": "f511c8c3aebdaa4eced46551e106b7208a7ce6b7f9e7a2db8fe2ee47da5b2435",
+    "source_txt_sha256": "53df17b90303ee0d76f39592195c432144841b8aa31368ee1f836cb591ac5ac7",
+    "source_dmp_sha256": "65b551cf69414e4c0241a2ecfa2088af41bc2061955f502fdd96bd4ec62448ef",
+    "context_thread": "27516",
+    "esp_resolved_thread": "9916",
+    "stack_provenance": "CONTEXT_THREAD_MISMATCH",
+    "dynamic_bridge": "0x11F10000",
+    "dynamic_bridge_status": "not_captured",
+    "corpus_physical_txt": "5451",
+    "corpus_crash_logs": "5438",
+    "corpus_byte_duplicates_skipped": "1264",
+    "exact_address_matches": "1",
+    "sibling_range_matches": "1",
+    "listing_lines": "265171"
+  },
+  "claims": [
+    {
+      "confidence": "видно непосредственно в DMP",
+      "id": "C1-crash-site",
+      "type": "crash_site",
+      "statement": "C1: DMP ExceptionCode=0xC0000005, EIP=0x6A06144C, операция — чтение 0x00000028.",
+      "evidence": [
+        "input:patcher_x86.dll+0x1144C-5.7-R40-180.dmp",
+        "input:patcher_x86.dll+0x1144C-5.7-R40-180.txt",
+        "fact:exception_code",
+        "fact:runtime_eip",
+        "fact:effective_address"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "C2-local-mechanism",
+      "type": "local_mechanism",
+      "statement": "C2: runtime-байты FF 55 08 8B 76 28 соответствуют call [ebp+arg_0]; mov esi,[esi+28h].",
+      "evidence": [
+        "input:patcher_x86.dll+0x1144C-5.7-R40-180.dmp",
+        "input:../../180/patcher_x86.dll",
+        "input:../../modules/patcher_x86.dll.txt",
+        "fact:runtime_bytes",
+        "fact:fault_instruction",
+        "fact:esi_after_callback"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "C3-build-identity",
+      "type": "observation",
+      "statement": "C3: TimeDateStamp=0x68674D2E и SizeOfImage=0xBD000 совпадают у DMP-модуля и локального PE.",
+      "evidence": [
+        "input:patcher_x86.dll+0x1144C-5.7-R40-180.dmp",
+        "input:../../180/patcher_x86.dll",
+        "fact:time_date_stamp",
+        "fact:size_of_image",
+        "fact:pe_sha256"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "C4-family-coverage",
+      "type": "family_coverage",
+      "statement": "C4: полный corpus_query прочитал 5451 физических TXT и нашёл один уникальный crash address в точном и родственном диапазонах.",
+      "evidence": [
+        "fact:corpus_physical_txt",
+        "fact:corpus_crash_logs",
+        "fact:corpus_byte_duplicates_skipped",
+        "fact:exact_address_matches",
+        "fact:sibling_range_matches",
+        "command:4"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "id": "C5-state-origin-boundary",
+      "type": "state_origin",
+      "statement": "Сохранённый кадр содержит ненулевые arg_4=0x0CAB0000 и arg_8=0x001A6D9C, тогда как после callback регистры равны ESI=0 и EDI=0x65A085DE.",
+      "evidence": [
+        "input:patcher_x86.dll+0x1144C-5.7-R40-180.dmp",
+        "fact:arg_4",
+        "fact:arg_8",
+        "fact:esi_after_callback",
+        "fact:edi_after_callback",
+        "fact:dynamic_bridge_status"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "confirmed",
+        "state_origin": "probable",
+        "family_coverage": "confirmed"
+      }
+    }
+  ],
+  "code_evidence": {
+    "level": "dmp-window",
+    "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
+  }
+}

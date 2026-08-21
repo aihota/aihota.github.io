@@ -1,0 +1,34 @@
+<section id="viz-mechanism" data-toc="Визуализация сбоя">
+  <h2><span class="htext">Визуализация сбоя</span><a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Схема отделяет доказанный локальный путь чтения от неизвестного происхождения callback.</p>
+  <div class="viz">
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">1</span><span>Граница callback и аварийное чтение</span></div>
+      <div class="viz-proof-map">
+        <div class="viz-unknown">
+          <strong>Неизвестный hook callback</strong>
+          <span class="lbl">arg_0=1 некогерентен; код 0x11F10000 не захвачен</span>
+        </div>
+        <div class="viz-proof-divider">граница доказанности</div>
+        <div class="viz-known">
+          <span class="viz-proof-label">подтверждено DMP и машинным кодом</span>
+          <div class="viz-strip badge-tl">
+            <div class="viz-box accent"><span class="viz-badge">1</span><span>Сохранённый hook</span><span class="lbl">arg_4=0x0CAB0000</span></div>
+            <div class="viz-box accent"><span class="viz-badge">2</span><span>После callback</span><span class="lbl">ESI=0</span></div>
+            <div class="viz-box bad"><span class="viz-badge">3</span><span>Чтение поля</span><span class="lbl">mov esi,[esi+0x28]</span></div>
+            <div class="viz-box bad"><span class="viz-badge">4</span><span>Адрес сбоя</span><span class="lbl">0+0x28=0x28</span></div>
+          </div>
+          <div class="viz-strip">
+            <div class="viz-box accent"><span>Сохранённый контекст</span><span class="lbl">arg_8=0x001A6D9C</span></div>
+            <div class="viz-box dashed"><span>После callback</span><span class="lbl">EDI=0x65A085DE</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="viz-cap">Между возвратом callback и mov esi,[esi+0x28] нет инструкции, изменяющей ESI.</p>
+      <div class="viz-legend">
+        <div class="item"><span class="viz-key"></span><span class="txt">Сплошная часть подтверждена контекстом, стеком и байтами.</span></div>
+        <div class="item"><span class="viz-key dashed"></span><span class="txt">Пунктиром отмечена неизвестная или некогерентная граница.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
