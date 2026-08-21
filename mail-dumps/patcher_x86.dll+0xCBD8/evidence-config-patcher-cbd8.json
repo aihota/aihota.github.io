@@ -102,10 +102,13 @@
       "confidence": "видно непосредственно в DMP",
       "confidence_vector": {
         "instruction": "confirmed",
-        "mechanism": "confirmed",
-        "state_origin": "unknown",
-        "family_coverage": "probable"
-      }
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      },
+      "applicable_axes": [
+        "instruction"
+      ]
     },
     {
       "id": "tree-lookup-mechanism",
@@ -119,11 +122,14 @@
       ],
       "confidence": "однозначно следует из листинга",
       "confidence_vector": {
-        "instruction": "confirmed",
+        "instruction": "not_applicable",
         "mechanism": "confirmed",
-        "state_origin": "unknown",
-        "family_coverage": "probable"
-      }
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      },
+      "applicable_axes": [
+        "mechanism"
+      ]
     },
     {
       "id": "origin-not-captured",
@@ -135,11 +141,14 @@
       ],
       "confidence": "выведено из совокупности признаков",
       "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "confirmed",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
         "state_origin": "unknown",
-        "family_coverage": "probable"
-      }
+        "family_coverage": "not_applicable"
+      },
+      "applicable_axes": [
+        "state_origin"
+      ]
     },
     {
       "id": "family-partial",
@@ -153,11 +162,14 @@
       ],
       "confidence": "выведено из совокупности признаков",
       "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "confirmed",
-        "state_origin": "unknown",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
         "family_coverage": "probable"
-      }
+      },
+      "applicable_axes": [
+        "family_coverage"
+      ]
     },
     {
       "id": "thread-provenance-limit",
@@ -169,11 +181,12 @@
       ],
       "confidence": "видно непосредственно в DMP",
       "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "confirmed",
-        "state_origin": "unknown",
-        "family_coverage": "probable"
-      }
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      },
+      "applicable_axes": []
     }
   ],
   "code_evidence": "dmp-window",

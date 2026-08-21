@@ -1,27 +1,27 @@
 {
   "schema": 3,
-  "generated_at": "2026-08-21T08:51:10.231702+00:00",
-  "parser_revision": "d70d1905121f63c3808407b7a8128197c6de11ff",
+  "generated_at": "2026-08-21T20:35:48.244130+00:00",
+  "parser_revision": "3442bb16b63bcc48f67789721601d5077d65d99b",
   "report": {
-    "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/patcher_x86.dll+0xCBD8-анализ-gpt-5.6-sol.txt",
+    "path": "patcher_x86.dll+0xCBD8-анализ-gpt-5.6-sol.txt",
     "size": 32700,
     "sha256": "1bad5cd94b5ff8423481ed64d72b20e11d76dc78b13bc2132e481c6e6ad1d5e5"
   },
   "inputs": [
     {
-      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/patcher_x86.dll+0xCBD8-5.7-R40-180.txt",
+      "path": "patcher_x86.dll+0xCBD8-5.7-R40-180.txt",
       "size": 8561,
       "sha256": "dae4c1ef87f5bf4f17fe0d3d4393a08112b62d51a9e83496b4359b220adce16f",
       "role": "source"
     },
     {
-      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/patcher_x86.dll+0xCBD8-5.7-R40-180.dmp",
+      "path": "patcher_x86.dll+0xCBD8-5.7-R40-180.dmp",
       "size": 109905,
       "sha256": "2c690fe54365eb33eebc5f2f4eac0f1882005e73d3e1bfefceb8093326ce476e",
       "role": "runtime"
     },
     {
-      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/patcher_x86.dll+0xCBD8-5.7-R40-180-BATTLE_non_continuable.GM2",
+      "path": "patcher_x86.dll+0xCBD8-5.7-R40-180-BATTLE_non_continuable.GM2",
       "size": 240754,
       "sha256": "a215287dac8fbaa15d8f0a1d2caabfb219d0dc2eedabe8d54699fc977dae57f5",
       "role": "derived"
@@ -51,51 +51,51 @@
       "role": "source"
     },
     {
-      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/pair-audit.json",
-      "size": 1818,
-      "sha256": "9e3531559b1c5814efe0bb8c0fcde859631fa3cf504628162c98d8afbb50f009",
+      "path": "pair-audit.json",
+      "size": 2560,
+      "sha256": "b7edec8512aefa3a2941e3584721f7d8d4857e96e82abfefa04ea7f1fa72a5af",
       "role": "derived-evidence"
     },
     {
-      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/capabilities.json",
+      "path": "capabilities.json",
       "size": 2307,
       "sha256": "ff3b107a4c27c5d9ac85b2da4c9394a6614c007be59019cec37269d5ed2a5792",
       "role": "derived-evidence"
     },
     {
-      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/static-exhaustion.json",
+      "path": "static-exhaustion.json",
       "size": 323934,
       "sha256": "bb661b280d473446fe166a01d1038354362cd54452f3a8d1883522b3bf7b188b",
       "role": "derived-evidence"
     },
     {
-      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/save-inventory.json",
+      "path": "save-inventory.json",
       "size": 1644,
       "sha256": "aeddf57793b3f7dd688616c6475805bb329ea3f76e513bdaa06da4910c6d81f0",
       "role": "derived-evidence"
     },
     {
-      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/address-proof.json",
+      "path": "address-proof.json",
       "size": 1158,
       "sha256": "cc25b99085209e60908f777fce46906a1aaaf45054932b25c8c73c93f5a3cad9",
       "role": "derived-evidence"
     },
     {
-      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/analysis-contract.json",
-      "size": 4608,
-      "sha256": "3bfd8f542a97e19b47cd981b964285d9a2fa63c61083126bd6f2f65efded4795",
+      "path": "analysis-contract.json",
+      "size": 6610,
+      "sha256": "4002b07ddc811ce788879910ab50a162184a59eb69632a9f5148086fbe9357ea",
       "role": "derived-evidence"
     },
     {
-      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/repro-plan.json",
-      "size": 2569,
-      "sha256": "7e1ed43f72fb1bfc87cba6d2d07d47267eceb963f81b1514a272919f99e14d50",
+      "path": "repro-plan.json",
+      "size": 2636,
+      "sha256": "ef80c0483915052116ffade4f0c5d2d8b555f38b0d8a3a9348dfcfbfec76dd8b",
       "role": "derived-evidence"
     },
     {
-      "path": "../../mail-dumps/patcher_x86.dll+0xCBD8/evidence-config-patcher-cbd8.json",
-      "size": 6540,
-      "sha256": "49957f425a0fd96ebc0a2db8dcb516d871a86106f079e25de1f551bb1afdaa63",
+      "path": "evidence-config-patcher-cbd8.json",
+      "size": 6896,
+      "sha256": "a4a3324e413f58e2d4ca0b094c01e4824f0fd475ebf1eab27d7076d40f027217",
       "role": "derived-evidence"
     }
   ],
@@ -143,10 +143,13 @@
       ],
       "confidence_vector": {
         "instruction": "confirmed",
-        "mechanism": "confirmed",
-        "state_origin": "unknown",
-        "family_coverage": "probable"
-      }
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      },
+      "applicable_axes": [
+        "instruction"
+      ]
     },
     {
       "confidence": "однозначно следует из листинга",
@@ -160,11 +163,14 @@
         "fact:dmp_window_match"
       ],
       "confidence_vector": {
-        "instruction": "confirmed",
+        "instruction": "not_applicable",
         "mechanism": "confirmed",
-        "state_origin": "unknown",
-        "family_coverage": "probable"
-      }
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      },
+      "applicable_axes": [
+        "mechanism"
+      ]
     },
     {
       "confidence": "выведено из совокупности признаков",
@@ -176,11 +182,14 @@
         "fact:globals_and_heap"
       ],
       "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "confirmed",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
         "state_origin": "unknown",
-        "family_coverage": "probable"
-      }
+        "family_coverage": "not_applicable"
+      },
+      "applicable_axes": [
+        "state_origin"
+      ]
     },
     {
       "confidence": "выведено из совокупности признаков",
@@ -194,11 +203,14 @@
         "fact:family_unique"
       ],
       "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "confirmed",
-        "state_origin": "unknown",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
         "family_coverage": "probable"
-      }
+      },
+      "applicable_axes": [
+        "family_coverage"
+      ]
     },
     {
       "confidence": "видно непосредственно в DMP",
@@ -210,11 +222,12 @@
         "fact:stack_thread"
       ],
       "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "confirmed",
-        "state_origin": "unknown",
-        "family_coverage": "probable"
-      }
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      },
+      "applicable_axes": []
     }
   ],
   "code_evidence": {

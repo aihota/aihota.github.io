@@ -1,7 +1,8 @@
 {
-  "schema": 1,
+  "schema": 2,
   "kind": "crash_reproduction_plan",
   "status": "ready",
+  "mechanism_kind": "container_traversal",
   "case": "patcher_x86.dll+0xCBD8",
   "diagnostic_source": "coverage.json",
   "causality_level": "L1",
@@ -45,7 +46,7 @@
     },
     {
       "id": "capture-origin",
-      "action": "capture full dump and allocator/write telemetry before NULL",
+      "action": "capture full dump and allocator/write telemetry before failure",
       "success_evidence": [
         "full_dump",
         "writer_identity",
@@ -55,7 +56,7 @@
     },
     {
       "id": "controlled-repro",
-      "action": "run failing input and positive control on matched binaries",
+      "action": "run original, causal fix, containment, and positive control on matched binaries",
       "success_evidence": [
         "binary_sha256",
         "failing_run",

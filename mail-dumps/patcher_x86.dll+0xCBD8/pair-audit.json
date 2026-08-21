@@ -1,5 +1,5 @@
 {
-  "schema": 3,
+  "schema": 4,
   "root": "/Users/Shared/ii/mail-dumps/patcher_x86.dll+0xCBD8",
   "rows": [
     {
@@ -19,10 +19,37 @@
       "effective_access": "read",
       "access_sources": {
         "reporter_text": "read",
-        "exception_parameters": null,
+        "exception_parameters": "read",
         "instruction": null
       },
       "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            18446744073449193614
+          ],
+          "access": "read",
+          "fault_address": "0xFFFFFFFFF07B408E"
+        },
+        "instruction": {
+          "available": false,
+          "bytes": "3B 50 10 73 02 8B C6 3B C6 5E 74 25 8B 40 18",
+          "reason": "opcode_not_in_conservative_subset",
+          "runtime": "0x71D9CBD8"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
       "identity": {
         "txt_module_size": 774144,
         "dmp_module_size": 774144,

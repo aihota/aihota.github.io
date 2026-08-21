@@ -472,8 +472,8 @@ pre .fault{background:var(--redBg);display:block;border-left:3px solid var(--bad
 .formula .eq{color:var(--ok);font-weight:700;font-size:var(--fs-xl)}
 caption{text-align:left;color:var(--muted);font-size:var(--fs-xs);font-weight:600;
   padding:9px 12px;border-bottom:1px solid var(--line);background:var(--panel2)}
-.tablewrap{position:relative;overflow-x:auto;border:1px solid var(--line);border-radius:12px;
-  scrollbar-gutter:stable;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain}
+.tablewrap{position:relative;overflow-x:auto;overflow-y:hidden;border:1px solid var(--line);
+  border-radius:12px;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain}
 table{border-collapse:collapse;width:100%;font-size:var(--fs-xs);min-width:780px;
   font-variant-numeric:slashed-zero tabular-nums}
 th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
@@ -563,9 +563,12 @@ td.flag{color:var(--bad);font-weight:700;
 .confidence-axis.is-level{background:var(--blBg);border-color:var(--blLn)}
 .confidence-axis.is-level .axis-value{color:var(--blInk);font-family:var(--font-mono)}
 .family-list{list-style:none;padding-left:0}
-.family-list li{display:grid;grid-template-columns:minmax(190px,max-content) 1fr;
+.family-list li{display:grid;grid-template-columns:minmax(170px,220px) minmax(0,1fr);
   align-items:start;gap:10px;border-top:1px dashed var(--line);padding:8px 0;margin:0}
 .family-list li:first-child{border-top:0}
+.family-kind{min-width:0;color:var(--muted);font-weight:700;font-size:var(--fs-xs)}
+.family-value{min-width:0;text-align:left;overflow-wrap:normal;word-break:normal}
+.family-value-wide{grid-column:1/-1}
 /* Единственный сворачиваемый блок: очень длинный список связанных краш-логов. */
 details.note.crash-log-list{padding:0;overflow:hidden}
 .crash-log-list>summary{cursor:pointer;list-style:none;user-select:none;padding:13px 17px;
@@ -971,7 +974,7 @@ details.note.crash-log-list{padding:0;overflow:hidden}
       <div><dt>SHA-256</dt><dd><code id="reportSourceSha" class="passport-sha" title="1bad5cd94b5ff8423481ed64d72b20e11d76dc78b13bc2132e481c6e6ad1d5e5">1bad5cd94b5ff8423481ed64d72b20e11d76dc78b13bc2132e481c6e6ad1d5e5</code></dd></div>
       <div><dt>Схема</dt><dd>2</dd></div>
       <div><dt>Рендерер</dt><dd>2.22</dd></div>
-      <div><dt>Создан</dt><dd><time datetime="2026-08-20T22:56:30+03:00">2026-08-20T22:56:30+03:00</time></dd></div>
+      <div><dt>Создан</dt><dd><time datetime="2026-08-21T23:36:23+03:00">2026-08-21T23:36:23+03:00</time></dd></div>
     </dl>
     <span class="sr-only">HTML визуализирует исходный TXT и не добавляет к нему диагностических выводов.</span>
   </footer>

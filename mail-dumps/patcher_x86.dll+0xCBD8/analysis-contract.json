@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "kind": "crash_analysis_contract",
   "thread_contexts": [
     {
@@ -179,6 +179,49 @@
       "type": "module_function",
       "address": "0x1000CBD8",
       "function": "patcher_x86.dll!sub_1000CBA0+0x38"
+    }
+  ],
+  "mechanism": {
+    "kind": "container_traversal"
+  },
+  "fixes": [
+    {
+      "fix_role": "diagnostic",
+      "description": "Instrument sub_1000CBA0 and every tree insert, delete and teardown path to capture the first invalidating write or free before selecting a causal patch.",
+      "supported_builds": [
+        "patcher_x86.dll 5.7 R40 / HotA 1.8.0"
+      ],
+      "expected_evidence": [
+        "first invalidating writer or free instruction with module, EIP, TID and stack",
+        "tree state transition from valid to invalid with node lifetime metadata"
+      ]
+    },
+    {
+      "fix_role": "containment",
+      "description": "Validate candidate readability, alignment and tree invariants in production lookup; on violation return hook-not-found and emit telemetry instead of dereferencing the candidate.",
+      "supported_builds": [
+        "patcher_x86.dll 5.7 R40 / HotA 1.8.0"
+      ],
+      "expected_evidence": [
+        "no access violation at patcher_x86.dll+0xCBD8 on the matched path",
+        "telemetry records the rejected node and traversal path"
+      ],
+      "differential_test": {
+        "baseline": "matched network/UI path on the original build with the 0x005FF3A0 positive control",
+        "candidate": "the same path on the containment build",
+        "acceptance": "20 of 20 predefined positive-controlled passes without AV; continued corruption telemetry is classified as masking, not causal repair"
+      }
+    },
+    {
+      "fix_role": "adjacent_hardening",
+      "description": "Close wrapper dispatch before registry teardown and serialize reads, inserts, deletes and destruction, or publish immutable snapshots with guaranteed lifetime.",
+      "supported_builds": [
+        "patcher_x86.dll 5.7 R40 / HotA 1.8.0"
+      ],
+      "expected_evidence": [
+        "teardown trace shows adapters closed before node release",
+        "concurrent-operation audit shows one lifetime and synchronization policy for all four lookup consumers"
+      ]
     }
   ],
   "validation": {
