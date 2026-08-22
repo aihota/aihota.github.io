@@ -1,0 +1,95 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-22T00:00:00+03:00",
+  "parser_revision": "manual-mcp-evidence-2026-08-22",
+  "report": {
+    "path": "HD_HOTA.dll+0x9ABC8-анализ-gpt-5.6-sol.txt",
+    "size": 31704,
+    "sha256": "0035fa4128246fbb2c0575d07a1a1b67a652f9d90161a35a27be49cefe4ba694"
+  },
+  "inputs": [
+    {
+      "path": "HD_HOTA.dll+0x9ABC8-5.7-R40-180.txt",
+      "size": 8830,
+      "sha256": "9149e95c106ef11412dc9ec4f1fd9390bfc13384dc06805f70057d20f94094bb",
+      "role": "source"
+    },
+    {
+      "path": "HD_HOTA.dll+0x9ABC8-5.7-R40-180.dmp",
+      "size": 96678,
+      "sha256": "df3a6035a76eb1a315147bc30c4867ddd01ba089dcdfdf973f70ac5e79ffd1c2",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_HOTA.dll+0x9ABC8-5.7-R40-180-AUTOSAVE.GM1",
+      "size": 335344,
+      "sha256": "f9a3ea88be314d04a91dfb9733cc9fc3ce66f2d79144e2345fff58b9db0d544f",
+      "role": "derived"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.7 R40.txt",
+      "size": 50700332,
+      "sha256": "1e982b9b517af1f3f1744ff1e87f0941609af2bf08c7b8d6867d2ead92903054",
+      "role": "source"
+    },
+    {
+      "path": "../../180/HD_HOTA.dll",
+      "size": 2299392,
+      "sha256": "b2e45e452c6f96ee1272d571bc663c76fd2beaa936790becfc999e5424033138",
+      "role": "source"
+    }
+  ],
+  "tools": [],
+  "commands": [
+    "crash_triage",
+    "crash_case as_json=true",
+    "read_dump.py --json",
+    "static_exhaustion_check.py --json"
+  ],
+  "facts": {
+    "claim_site": "EIP/RVA/инструкция и адрес чтения согласованы",
+    "claim_mechanism": "индекс 41498 при допустимом максимуме 41471",
+    "claim_origin": "первый источник записи не сохранён",
+    "claim_family": "точный RVA найден один раз среди 5537 физических TXT",
+    "claim_reproduction": "управляемый повтор заблокирован отсутствием исходной карты",
+    "root_cause_status": "not_established",
+    "reproduction_status": "not_checked"
+  },
+  "claims": [
+    {
+      "id": "site",
+      "statement": "Точка сбоя: подтверждена",
+      "evidence": ["fact:claim_site"],
+      "confidence": "видно непосредственно в DMP"
+    },
+    {
+      "id": "mechanism",
+      "statement": "Локальный механизм: доказан на уровне листинга",
+      "evidence": ["fact:claim_mechanism"],
+      "confidence": "однозначно следует из листинга"
+    },
+    {
+      "id": "origin",
+      "statement": "Происхождение состояния: не установлено",
+      "evidence": ["fact:claim_origin"],
+      "confidence": "выведено из совокупности признаков"
+    },
+    {
+      "id": "family",
+      "statement": "Охват семейства: частичный",
+      "evidence": ["fact:claim_family"],
+      "confidence": "выведено из совокупности признаков"
+    },
+    {
+      "id": "reproduction",
+      "statement": "Контрольный повтор: не проверен управляемым запуском",
+      "evidence": ["fact:claim_reproduction"],
+      "confidence": "не проверено"
+    }
+  ],
+  "code_evidence": {
+    "level": "dmp-window",
+    "note": "локальное окно DMP совпало; полный образ процесса этим не доказан"
+  },
+  "machine_results": []
+}
