@@ -83,22 +83,25 @@
       "R40 target bytes are FF 1A"
     ],
     "sibling_coverage": {
-      "scanned": 4,
-      "total": 15,
-      "complete": false
+      "scanned": 3,
+      "total": 14,
+      "complete": false,
+      "unit": "unique_event",
+      "physical_dmp_observations": 4
     }
   },
   "lifecycle": {
     "counts": {
-      "references": 15,
-      "reads": 15,
+      "references": 14,
+      "reads": 14,
       "writes": 0,
       "checks": 0,
       "publishes": 0,
       "clears": 0
     },
     "enumeration_complete": false,
-    "absence_claims": []
+    "absence_claims": [],
+    "counts_unit": "unique_event"
   },
   "fixes": [
     {
@@ -144,8 +147,12 @@
       ]
     },
     "denominator": {
-      "scanned": 15,
-      "total": 15
+      "scanned": 14,
+      "total": 14,
+      "unit": "unique_event",
+      "physical_txt": 15,
+      "duplicate_event_representations": 1,
+      "dedup_basis": "normalized_time_tag_exception_context"
     }
   },
   "call_chain": [

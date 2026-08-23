@@ -1,7 +1,7 @@
 {
   "schema": 2,
-  "generated_at": "2026-08-23T10:42:04.017990+00:00",
-  "source": "mail-dumps/HD_UPD.dll+0x51607/claims.json",
+  "generated_at": "2026-08-23T12:06:37.068411+00:00",
+  "source": "mcp/.tmp-tools/event-dedup-fix/HD_UPD.dll+0x51607/case/claims.json",
   "axes": [
     "instruction",
     "mechanism",
@@ -18,7 +18,7 @@
     {
       "id": "crash-site-51607",
       "type": "crash_site",
-      "statement": "Четыре точные пары TXT/DMP 5.7 R40 подтверждают RVA 0x51607.",
+      "statement": "Три уникальных события 5.7 R40 подтверждают RVA 0x51607.",
       "confidence": "видно непосредственно в DMP",
       "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
       "scope_kind": "series",
@@ -27,7 +27,8 @@
       ],
       "evidence": [
         "input:pair-audit.json",
-        "input:address-proof.json"
+        "input:address-proof.json",
+        "input:series-groups.json"
       ],
       "confidence_vector": {
         "instruction": "confirmed",
@@ -119,7 +120,7 @@
     {
       "id": "family-census-51607",
       "type": "family_coverage",
-      "statement": "Полный поиск прочитал 5554 из 5554 TXT и нашёл 15 точных совпадений.",
+      "statement": "15 физических совпадений точного адреса представляют 14 уникальных событий.",
       "confidence": "выведено из совокупности признаков",
       "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
       "scope_kind": "corpus",

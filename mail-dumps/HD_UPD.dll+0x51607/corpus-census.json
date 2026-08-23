@@ -2,7 +2,7 @@
   "schema": 2,
   "root": "mail-dumps",
   "filter": "parsed crash Address field; exact HD_UPD.dll+0x51607",
-  "dedup": "SHA-256 of full TXT bytes",
+  "dedup": "byte-copy SHA-256 for file inventory; normalized event identity for incident count",
   "boundary": {
     "txt_candidates": 5554,
     "txt_read": 5554,
@@ -17,7 +17,11 @@
     "non_crash_txt": 99,
     "duplicate_instances": 1264,
     "unique_crash_logs": 4191,
-    "exact_site_unique": 15
+    "exact_site_unique": 14,
+    "exact_site_physical_txt": 15,
+    "exact_site_unique_txt_sha256": 15,
+    "exact_site_unique_events": 14,
+    "exact_site_duplicate_event_representations": 1
   },
   "nearby_window": {
     "range": "RVA 0x51507..0x51707",
@@ -44,5 +48,6 @@
   "historical": {
     "txt_read_before_mail_ingest": 5496,
     "exact_site_unique_before_mail_ingest": 1
-  }
+  },
+  "event_dedup_basis": "normalized_time_tag_exception_context"
 }

@@ -171,7 +171,10 @@
     "../../.agents/skills/hota-crash-triage/coverage_contract.py",
     "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
     "../../.agents/skills/hota-crash-triage/case_quality_gate.py",
-    "../../.agents/skills/hota-crash-triage/repro_plan.py"
+    "../../.agents/skills/hota-crash-triage/repro_plan.py",
+    "../../.agents/skills/address-mapping/dumplib.py",
+    "../../.agents/skills/multi-dump-diff/parse_dumps.py",
+    "../../.agents/skills/multi-dump-diff/series_registry.py"
   ],
   "commands": [
     "corpus_query exact HD_UPD.dll+0x51607 over mail-dumps/**/*.txt",
@@ -181,19 +184,26 @@
     "family_membership.py create family-membership-input.json --out family-membership.json",
     "coverage_contract.py create claims.json --out coverage.json --schema 2",
     "evidence_manifest.py create --config evidence-config.json",
-    "repro_plan.py create . --out repro-plan.json"
+    "repro_plan.py create . --out repro-plan.json",
+    "parse_dumps.py case --json series-parse.json (event-level dedup)",
+    "series_registry.py series-parse.json --output series-groups.json"
   ],
   "facts": {
     "physical_txt": "15",
     "unique_txt_sha256": "15",
     "physical_dmp": "4",
     "unique_dmp_sha256": "3",
-    "confirmed_local_mechanism_r40": "4",
+    "confirmed_local_mechanism_r40": "3",
     "context_only": "11",
-    "exact_corpus_hits": "15",
+    "exact_corpus_hits": "15 physical TXT",
     "corpus_txt_read": "5554",
     "root_cause_status": "not confirmed",
-    "reproduction_status": "not confirmed"
+    "reproduction_status": "not confirmed",
+    "unique_events": "14",
+    "duplicate_event_representations": "1",
+    "physical_r40_pairs": "4",
+    "exact_corpus_unique_events": "14",
+    "event_dedup_basis": "normalized_time_tag_exception_context"
   },
   "code_evidence": "dmp-window",
   "out": "HD_UPD.dll+0x51607-анализ-gpt-5.6-sol.evidence.json"

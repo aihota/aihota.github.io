@@ -1,8 +1,8 @@
 {
   "schema": 4,
-  "generated_at": "2026-08-23T10:39:44.030821+00:00",
+  "generated_at": "2026-08-23T12:06:37.004830+00:00",
   "family_id": "HD_UPD-bad-eip-rt-icon-51607",
-  "source": "mail-dumps/HD_UPD.dll+0x51607/family-membership-input.json",
+  "source": "mcp/.tmp-tools/event-dedup-fix/HD_UPD.dll+0x51607/case/family-membership-input.json",
   "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
   "scope_kind": "corpus",
   "scope": {
@@ -24,12 +24,15 @@
       "human_label": "HD_UPD.dll+0x51607",
       "basis": "exact parsed Address field; no refreshed nearby-range claim"
     },
-    "scan_attestation": "scan-attestation.json"
+    "scan_attestation": "scan-attestation.json",
+    "physical_exact_site_txt": 15,
+    "unique_events": 14,
+    "event_dedup_basis": "normalized_time_tag_exception_context"
   },
   "candidate_census": {
-    "total": 15,
-    "classified": 15,
-    "confirmed": 4,
+    "total": 14,
+    "classified": 14,
+    "confirmed": 3,
     "probable": 0,
     "context_only": 11,
     "excluded": 0,
@@ -38,7 +41,7 @@
   },
   "memberships": [
     {
-      "incident_id": "sha256:db89c2c6c31132dee856546fe709f81578637a649a6882af78c41ce31ed13588",
+      "incident_id": "incident-a47d52770bdb9c23",
       "membership": "context_only",
       "basis": "Совпадают sink, чтение 0xFFFFFFFF и инварианты кадра; без парного DMP и точного бинарника локальный механизм не переносится.",
       "evidence": [
@@ -56,10 +59,15 @@
         "same_local_mechanism": "unknown",
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
-      }
+      },
+      "event_fingerprint": "a47d52770bdb9c233a604ee86429d45a9ce51187f7b01ab955d80f5571bbd6f4",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.6-R10-180-1.txt"
+      ],
+      "physical_copy_count": 1
     },
     {
-      "incident_id": "sha256:522603b9cfde5b677995d0521d36d2c66c3e9a7488b12c8ddf3aa426eec2a5a2",
+      "incident_id": "incident-b538c6fa6b2b276a",
       "membership": "context_only",
       "basis": "Совпадают sink, чтение 0xFFFFFFFF и инварианты кадра; без парного DMP и точного бинарника локальный механизм не переносится.",
       "evidence": [
@@ -77,10 +85,15 @@
         "same_local_mechanism": "unknown",
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
-      }
+      },
+      "event_fingerprint": "b538c6fa6b2b276a68c5635f87430ee8be5690bc1961cbac4b36468288c4de16",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.6-R15-180-1.txt"
+      ],
+      "physical_copy_count": 1
     },
     {
-      "incident_id": "sha256:704faa8d85e71fb6aa1de68ac5a18c120d31d12afebbcb11a3f48652062bd878",
+      "incident_id": "incident-8f27b9f3d7e678dd",
       "membership": "context_only",
       "basis": "Совпадают sink, чтение 0xFFFFFFFF и инварианты кадра; без парного DMP и точного бинарника локальный механизм не переносится.",
       "evidence": [
@@ -98,10 +111,15 @@
         "same_local_mechanism": "unknown",
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
-      }
+      },
+      "event_fingerprint": "8f27b9f3d7e678dd1c979771b4647b61d6d9ae6236716ecb9a0dfe09457d361c",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.6-R19-180-1.txt"
+      ],
+      "physical_copy_count": 1
     },
     {
-      "incident_id": "sha256:956550130003ab9c0f3b5be41ab0472cf8342157705eee8355256854425985de",
+      "incident_id": "incident-2b4e2deee49f12f3",
       "membership": "context_only",
       "basis": "Совпадают sink, чтение 0xFFFFFFFF и инварианты кадра; без парного DMP и точного бинарника локальный механизм не переносится.",
       "evidence": [
@@ -119,10 +137,15 @@
         "same_local_mechanism": "unknown",
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
-      }
+      },
+      "event_fingerprint": "2b4e2deee49f12f3a7a53d04f7a450da8249d382a55b3977bb715020e5c2e402",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.6-R19-180-2.txt"
+      ],
+      "physical_copy_count": 1
     },
     {
-      "incident_id": "sha256:76bee8c3bee2cb5b9eddc3c5c996e50baee63bfde6303dd4cf69c8a5b8eadaa6",
+      "incident_id": "incident-c4f9c305577785cc",
       "membership": "context_only",
       "basis": "Совпадают sink, чтение 0xFFFFFFFF и инварианты кадра; без парного DMP и точного бинарника локальный механизм не переносится.",
       "evidence": [
@@ -140,10 +163,15 @@
         "same_local_mechanism": "unknown",
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
-      }
+      },
+      "event_fingerprint": "c4f9c305577785ccb3659a5d6464889cc3f1dcd74992137ebc8d3d5941a53375",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.6-R27-180-1.txt"
+      ],
+      "physical_copy_count": 1
     },
     {
-      "incident_id": "sha256:66327143695135624699a5d52f810228f8024c0721cb3cf659e3f14ab12c0e11",
+      "incident_id": "incident-cc0f9a1fdaff965d",
       "membership": "context_only",
       "basis": "Совпадают sink, чтение 0xFFFFFFFF и инварианты кадра; без парного DMP и точного бинарника локальный механизм не переносится.",
       "evidence": [
@@ -161,10 +189,15 @@
         "same_local_mechanism": "unknown",
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
-      }
+      },
+      "event_fingerprint": "cc0f9a1fdaff965d456562527c93824792b94301ae79e3ea2d53c35990684223",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.6-R31-180-1.txt"
+      ],
+      "physical_copy_count": 1
     },
     {
-      "incident_id": "sha256:0c3f4d780571333faf05026aa8e9a9a0a422fd6b22f004e2e1cdc79a188a4f0c",
+      "incident_id": "incident-4caa5d0d459f6ecd",
       "membership": "context_only",
       "basis": "Совпадают sink, чтение 0xFFFFFFFF и инварианты кадра; без парного DMP и точного бинарника локальный механизм не переносится.",
       "evidence": [
@@ -182,10 +215,15 @@
         "same_local_mechanism": "unknown",
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
-      }
+      },
+      "event_fingerprint": "4caa5d0d459f6ecdbd2fa27bdeb9178e32f23082734dea2535ad3e6576c1e050",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.7-R3-180-1.txt"
+      ],
+      "physical_copy_count": 1
     },
     {
-      "incident_id": "sha256:43de6b4feec886fe26cd29d481b360b8e0e072db4f17996d605ff965095a73a4",
+      "incident_id": "incident-5d887605382306d4",
       "membership": "context_only",
       "basis": "Совпадают sink, чтение 0xFFFFFFFF и инварианты кадра; без парного DMP и точного бинарника локальный механизм не переносится.",
       "evidence": [
@@ -203,10 +241,15 @@
         "same_local_mechanism": "unknown",
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
-      }
+      },
+      "event_fingerprint": "5d887605382306d4ff02f12ba4883e16c2f429969e393e04568913017aed64c3",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.7-R3-180-2.txt"
+      ],
+      "physical_copy_count": 1
     },
     {
-      "incident_id": "sha256:986b5609dcd6d4631827841712d06ac4234a8156d0c219bd3611b9358b3288c6",
+      "incident_id": "incident-2e181f685a7715bb",
       "membership": "context_only",
       "basis": "Совпадают sink, чтение 0xFFFFFFFF и инварианты кадра; без парного DMP и точного бинарника локальный механизм не переносится.",
       "evidence": [
@@ -224,14 +267,20 @@
         "same_local_mechanism": "unknown",
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
-      }
+      },
+      "event_fingerprint": "2e181f685a7715bbb8960130373291d3ac00a397a3c9eb7114b61caf4ab55929",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.7-R3-180-3.txt"
+      ],
+      "physical_copy_count": 1
     },
     {
-      "incident_id": "sha256:4bcb98804de4620e3b40619fef6a9b10808af77bf710027282f02da1f403de68",
+      "incident_id": "incident-ae2be0d482afa979",
       "membership": "confirmed",
       "basis": "Точная пара TXT/DMP 5.7 R40 подтверждает один sink, байты FF 1A и локальный путь в RT_ICON.",
       "evidence": [
         "log:HD_UPD.dll+0x51607-5.7-R40-180-1.txt",
+        "log:HD_UPD.dll+0x51607-5.7-R40-180.txt",
         "input:series-groups.json",
         "input:pair-audit.json",
         "input:address-proof.json"
@@ -254,10 +303,16 @@
           "HD_UPD.dll .rsrc data"
         ],
         "frame_depth": 0
-      }
+      },
+      "event_fingerprint": "ae2be0d482afa979bf0352d311f7a0da6cf7266d73d85bfc663f98b9874304a4",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.7-R40-180-1.txt",
+        "HD_UPD.dll+0x51607-5.7-R40-180.txt"
+      ],
+      "physical_copy_count": 2
     },
     {
-      "incident_id": "sha256:0e10f8bf2f322ce7e460440e14398e37b42909bd585f21a5db6bf213e2f55852",
+      "incident_id": "incident-66e513b4fe5034eb",
       "membership": "confirmed",
       "basis": "Точная пара TXT/DMP 5.7 R40 подтверждает один sink, байты FF 1A и локальный путь в RT_ICON.",
       "evidence": [
@@ -284,10 +339,15 @@
           "HD_UPD.dll .rsrc data"
         ],
         "frame_depth": 0
-      }
+      },
+      "event_fingerprint": "66e513b4fe5034eb4c13196c257843fc7230aa2ceb0631727ab8d85447da726f",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.7-R40-180-2.txt"
+      ],
+      "physical_copy_count": 1
     },
     {
-      "incident_id": "sha256:aba18f29f5cfd6ee72f3c8b98989dfe37cfbe726ddc52c5cad895c84779cf9ef",
+      "incident_id": "incident-026ed9bdcd2152c7",
       "membership": "confirmed",
       "basis": "Точная пара TXT/DMP 5.7 R40 подтверждает один sink, байты FF 1A и локальный путь в RT_ICON.",
       "evidence": [
@@ -314,40 +374,15 @@
           "HD_UPD.dll .rsrc data"
         ],
         "frame_depth": 0
-      }
-    },
-    {
-      "incident_id": "sha256:ab0efe29569d7fe8c46f01338a397f56a76b6821ac8b23ce51b75ec4f35130df",
-      "membership": "confirmed",
-      "basis": "Точная пара TXT/DMP 5.7 R40 подтверждает один sink, байты FF 1A и локальный путь в RT_ICON.",
-      "evidence": [
-        "log:HD_UPD.dll+0x51607-5.7-R40-180.txt",
-        "input:series-groups.json",
-        "input:pair-audit.json",
-        "input:address-proof.json"
-      ],
-      "observed_rva": "0x51607",
-      "path": "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180.txt",
-      "module": "HD_UPD.dll",
-      "version": "5.7 R40",
-      "relationship_ladder": {
-        "same_sink": true,
-        "same_local_mechanism": true,
-        "same_state_origin": "unknown",
-        "same_root_cause": "unknown"
       },
-      "fingerprint": {
-        "structure_role": "execution target in HD_UPD RT_ICON data",
-        "field": "EIP -> RT_ICON 2/1049 pixel offset 0x2CAF",
-        "call_tail": [
-          "unknown indirect transfer",
-          "HD_UPD.dll .rsrc data"
-        ],
-        "frame_depth": 0
-      }
+      "event_fingerprint": "026ed9bdcd2152c71fb0e25be949c2faca68a6b8f448387d7ec5403a45b1adcf",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.7-R40-180-3.txt"
+      ],
+      "physical_copy_count": 1
     },
     {
-      "incident_id": "sha256:cb6d8ee3901d920e37ea32641ba2282322993377018d7ef9f34b43b20c2deae1",
+      "incident_id": "incident-d04259249b84dcc3",
       "membership": "context_only",
       "basis": "Совпадают sink, чтение 0xFFFFFFFF и инварианты кадра; без парного DMP и точного бинарника локальный механизм не переносится.",
       "evidence": [
@@ -365,10 +400,15 @@
         "same_local_mechanism": "unknown",
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
-      }
+      },
+      "event_fingerprint": "d04259249b84dcc3c536a0d0f61934a7ce4e2f52e43705eae1cd11c3d2403773",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.7-RC7-180-1.txt"
+      ],
+      "physical_copy_count": 1
     },
     {
-      "incident_id": "sha256:0de8ff48c5efa4482129b34469172a10f1aaf2c3749c5d14d24727e9452e6583",
+      "incident_id": "incident-951d67260f2e31a4",
       "membership": "context_only",
       "basis": "Совпадают sink, чтение 0xFFFFFFFF и инварианты кадра; без парного DMP и точного бинарника локальный механизм не переносится.",
       "evidence": [
@@ -386,12 +426,17 @@
         "same_local_mechanism": "unknown",
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
-      }
+      },
+      "event_fingerprint": "951d67260f2e31a49d4156c7efd8bd431e91587624f9f8633ea43188f797b62b",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.7-RC9-180-1.txt"
+      ],
+      "physical_copy_count": 1
     }
   ],
   "counts": {
     "context_only": 11,
-    "confirmed": 4
+    "confirmed": 3
   },
   "errors": [],
   "registry_valid": true,

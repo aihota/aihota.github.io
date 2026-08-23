@@ -1,11 +1,11 @@
 {
   "schema": 3,
-  "generated_at": "2026-08-23T10:48:09.166045+00:00",
-  "parser_revision": "e26a22618ffe1ae292f85faefef87dc0a71f963d",
+  "generated_at": "2026-08-23T12:09:49.521319+00:00",
+  "parser_revision": "6c5ab0febe60301d28370abcc7886dd6c51994f1",
   "report": {
     "path": "HD_UPD.dll+0x51607-анализ-gpt-5.6-sol.txt",
-    "size": 28233,
-    "sha256": "303a667a8460eb885ed7eb9cbd0bf91bf1185c7d062b8a1594b343afc515f472"
+    "size": 29891,
+    "sha256": "5b48189b5f4c137c51faa47593d0c5c5871f687ad0ac04ccff14e6c7e7f15c91"
   },
   "inputs": [
     {
@@ -166,8 +166,8 @@
     },
     {
       "path": "corpus-census.json",
-      "size": 1904,
-      "sha256": "56c0ca85251530e01fe280c4b911f3b3e9f2a279e1187d1346a543d84cd1600f",
+      "size": 2189,
+      "sha256": "f9ec357948602a5d6a8383c351aa7ce4f831e764e0f5ab92b7ece145db07f19c",
       "role": "derived-evidence"
     },
     {
@@ -184,20 +184,20 @@
     },
     {
       "path": "analysis-contract.json",
-      "size": 3647,
-      "sha256": "44bbddbdae06388ada7b55e8fa674d95276e4c3338c1aff118ae57d701771caa",
+      "size": 3912,
+      "sha256": "940f97b6d9e0cd088da972406df63ff45c9f4489d86288bdd6f3bc7929c3c967",
       "role": "derived-evidence"
     },
     {
       "path": "series-parse.json",
-      "size": 54343,
-      "sha256": "02046e17aeb782e0487493481c51af7905a53923901eab584006c0ffef56b10d",
+      "size": 51072,
+      "sha256": "ed197f57978eb5999be176151c9be404a943b3be16b4e08270f1719a31f0acdb",
       "role": "derived-evidence"
     },
     {
       "path": "series-groups.json",
-      "size": 44995,
-      "sha256": "c828817e23fefc37e97a4de98fdb83aa261220e9fb8c9ac1e6c39509351c1e92",
+      "size": 43578,
+      "sha256": "19483be75a7574c85ae777928e1b829eb4864fe0cd2543fd895287edf4b58527",
       "role": "derived-evidence"
     },
     {
@@ -214,20 +214,20 @@
     },
     {
       "path": "family-membership-input.json",
-      "size": 15564,
-      "sha256": "60a7dd670c2fa65ec2396934e0e1ae5903b930df0cb281864a505a3cd08ddc1c",
+      "size": 16949,
+      "sha256": "c4769f993ab77f7a903a62f4475074739e4b0635240c0fd586fbf76bdf36fe27",
       "role": "derived-evidence"
     },
     {
       "path": "family-membership.json",
-      "size": 16091,
-      "sha256": "2160424245c6ae88d888ff2d47c8e7e5a044865e2d65bf97a77bb84a3d8f485f",
+      "size": 17501,
+      "sha256": "06cf96889ae27c995d4ed30b48c6f0a6e11dc2478a907d64bfcb5129106b3786",
       "role": "derived-evidence"
     },
     {
       "path": "coverage.json",
-      "size": 6841,
-      "sha256": "942cea45d7cd312c6fd404c6fba2b70e1a00c10dc4a9f8e15b885e73c017fe8e",
+      "size": 6928,
+      "sha256": "ce47ca37a260232e28c49621a736d3641288bc92b8bea2eeb70f9d86d95af8e3",
       "role": "derived-evidence"
     },
     {
@@ -244,14 +244,14 @@
     },
     {
       "path": "evidence-config.json",
-      "size": 5202,
-      "sha256": "ff39b0db412a1b0ae25ac0807d3dea18199ba275b9186f3cba01b275f43ec915",
+      "size": 5744,
+      "sha256": "d5cf2c08f21547bdf4176bcff78e4dd4892b0341319ef8fa9ca79f4c965ba750",
       "role": "derived-evidence"
     },
     {
       "path": "claims.json",
-      "size": 5873,
-      "sha256": "b59589bef2633557cad1fe0301cb65e5de8980099f9508eb5a5ee72aa9aab4e0",
+      "size": 5971,
+      "sha256": "4fa438d14306f3f9215eb9d5818d438d09e4057b714f74f68c81e72de7dd5690",
       "role": "derived-evidence"
     }
   ],
@@ -295,6 +295,21 @@
       "path": "../../.agents/skills/hota-crash-triage/repro_plan.py",
       "size": 9601,
       "sha256": "09b6e530070bc88ce743c14af512c659c5a7fb64065a22efdbf520c38594dc7c"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/dumplib.py",
+      "size": 33743,
+      "sha256": "53fb1d6a9e1a329ae94e1a00a0e3fa36d1ff36b38f30f53199f8538b221dcb5b"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/parse_dumps.py",
+      "size": 25318,
+      "sha256": "35e6d7ed23b808756a3599b983ac1022fdc78ecdbc1957fa37e770aeba21cf32"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/series_registry.py",
+      "size": 28178,
+      "sha256": "eb2051232a2e19c795d061c9852c6a30e81ccc245ce25fd6f2ceaec4e091ee84"
     }
   ],
   "commands": [
@@ -305,19 +320,26 @@
     "family_membership.py create family-membership-input.json --out family-membership.json",
     "coverage_contract.py create claims.json --out coverage.json --schema 2",
     "evidence_manifest.py create --config evidence-config.json",
-    "repro_plan.py create . --out repro-plan.json"
+    "repro_plan.py create . --out repro-plan.json",
+    "parse_dumps.py case --json series-parse.json (event-level dedup)",
+    "series_registry.py series-parse.json --output series-groups.json"
   ],
   "facts": {
     "physical_txt": "15",
     "unique_txt_sha256": "15",
     "physical_dmp": "4",
     "unique_dmp_sha256": "3",
-    "confirmed_local_mechanism_r40": "4",
+    "confirmed_local_mechanism_r40": "3",
     "context_only": "11",
-    "exact_corpus_hits": "15",
+    "exact_corpus_hits": "15 physical TXT",
     "corpus_txt_read": "5554",
     "root_cause_status": "not confirmed",
-    "reproduction_status": "not confirmed"
+    "reproduction_status": "not confirmed",
+    "unique_events": "14",
+    "duplicate_event_representations": "1",
+    "physical_r40_pairs": "4",
+    "exact_corpus_unique_events": "14",
+    "event_dedup_basis": "normalized_time_tag_exception_context"
   },
   "claims": [
     {
@@ -325,7 +347,7 @@
       "marker": "<!-- claim:crash-site-51607 -->",
       "id": "crash-site-51607",
       "type": "crash_site",
-      "statement": "Четыре точные пары TXT/DMP 5.7 R40 подтверждают RVA 0x51607.",
+      "statement": "Три уникальных события 5.7 R40 подтверждают RVA 0x51607.",
       "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
       "scope_kind": "series",
       "applicable_axes": [
@@ -333,7 +355,8 @@
       ],
       "evidence": [
         "input:pair-audit.json",
-        "input:address-proof.json"
+        "input:address-proof.json",
+        "input:series-groups.json"
       ],
       "confidence_vector": {
         "instruction": "confirmed",
@@ -431,7 +454,7 @@
       "marker": "<!-- claim:family-census-51607 -->",
       "id": "family-census-51607",
       "type": "family_coverage",
-      "statement": "Полный поиск прочитал 5554 из 5554 TXT и нашёл 15 точных совпадений.",
+      "statement": "15 физических совпадений точного адреса представляют 14 уникальных событий.",
       "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
       "scope_kind": "corpus",
       "applicable_axes": [
