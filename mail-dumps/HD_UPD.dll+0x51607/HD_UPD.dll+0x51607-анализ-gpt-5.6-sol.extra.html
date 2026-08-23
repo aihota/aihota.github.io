@@ -1,15 +1,39 @@
-<!-- РУЧНЫЕ ВИЗУАЛИЗАЦИИ к отчёту "HD_UPD.dll+0x51607-анализ-gpt-5.6-sol.html".
-     Этот файл НЕ перезаписывается генератором — пишите сюда свободно
-     (SVG-схемы, диаграммы, доп. секции) и заново запускайте render_report.py.
-
-     Каждый верхнеуровневый блок-секцию оформляйте так, чтобы он попал
-     и в оглавление (по id + необязательному data-toc для подписи):
-
-     <section id="viz-mechanism" data-toc="Визуализация вылета">
-       <h2><span class="htext">Визуализация вылета</span>
-           <a class="anchor" href="#viz-mechanism">#</a></h2>
-       <svg ...>...</svg>
-     </section>
-
-     Если data-toc не задан — в оглавление пойдёт текст из <h2 .htext>.
-     Удалите этот комментарий, когда добавите своё содержимое. -->
+<section id="viz-mechanism" data-toc="Визуализация сбоя">
+  <h2><span class="htext">Визуализация сбоя</span>
+      <a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Сплошная цепочка подтверждена только для 5.7 R40. Пунктирный блок
+  показывает границу: источник ошибочной цели в дампах не сохранён.</p>
+  <div class="viz">
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">1</span>
+        Подтверждённая локальная цепочка 5.7 R40</div>
+      <div class="viz-strip">
+        <div class="viz-box ok"><span class="viz-badge ok">B</span>
+          <span class="lbl">base + 0x51607</span></div>
+        <div class="viz-box accent"><span class="viz-badge accent">R</span>
+          <span class="lbl">.rsrc · RT_ICON 2/1049</span></div>
+        <div class="viz-box bad"><span class="viz-badge bad">E</span>
+          <span class="lbl">EIP · FF 1A</span></div>
+      </div>
+      <p class="viz-cap">0x4E958 + 0x2CAF = 0x51607</p>
+    </div>
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">2</span>
+        Неизвестное происхождение цели</div>
+      <div class="viz-strip">
+        <div class="viz-box dashed dim"><span class="viz-badge">U</span>
+          <span class="lbl">писатель и ячейка не захвачены</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge ok">B</span>
+      <span class="txt">База R40-модуля плюс RVA даёт аварийный EIP.</span></div>
+    <div class="item"><span class="viz-badge accent">R</span>
+      <span class="txt">В точной R40-DLL адрес входит в пиксели ресурса.</span></div>
+    <div class="item"><span class="viz-badge bad">E</span>
+      <span class="txt">DMP хранит с EIP байты FF 1A и последующее чтение.</span></div>
+    <div class="item"><span class="viz-badge">U</span>
+      <span class="txt">Источник цели и общий механизм других сборок неизвестны.</span></div>
+  </div>
+</section>

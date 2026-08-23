@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "kind": "scan_attestation",
+  "scans": [
+    {
+      "id": "HD-UPD-exact-site-51607",
+      "tool": {
+        "name": "MCP corpus_query",
+        "version": "tools_triage.py sha256:74d1a21e3f92f6b04b3c9fef7f6b7408189140b82a2af2a0f283cf2f05307b5e"
+      },
+      "scope": {
+        "root": "mail-dumps",
+        "glob": "*.txt",
+        "excludes": []
+      },
+      "query": {
+        "exact": "HD_UPD\\.dll\\+0x51607",
+        "parameters": {
+          "subdir": "mail-dumps",
+          "group": 0,
+          "top": 30,
+          "file_glob": "*.txt",
+          "max_files": 20000,
+          "exclude": "",
+          "encoding": "auto",
+          "mode": "crash_address",
+          "dedup": true,
+          "as_json": true,
+          "basis": "parsed_exception_address"
+        }
+      },
+      "denominator": {
+        "total": 5554,
+        "scanned": 5554,
+        "skipped": 0,
+        "basis": "all physical mail-dumps/**/*.txt files matched and read"
+      },
+      "dedup": {
+        "mode": "full_file_sha256",
+        "basis": "SHA-256 of full crash TXT bytes",
+        "duplicates": 1264
+      },
+      "positive_control": {
+        "query": "HD_UPD\\.dll\\+0x51607",
+        "observed": 15,
+        "expected": "at least one exact parsed incident",
+        "passed": true
+      },
+      "limits": {
+        "truncated": false,
+        "basis": "max_files=20000 > files_matched=5554; files_truncated=0"
+      },
+      "results": {
+        "kind": "corpus_query",
+        "mode": "crash_address",
+        "basis": "parsed_exception_address",
+        "dedup": true,
+        "pattern": "HD_UPD\\.dll\\+0x51607",
+        "folder": "mail-dumps",
+        "file_glob": "*.txt",
+        "files_matched": 5554,
+        "files_read": 5554,
+        "files_truncated": 0,
+        "unreadable": 0,
+        "crash_logs": 5455,
+        "duplicates_skipped": 1264,
+        "non_crash_files": 99,
+        "missing_address": 0,
+        "hits": 15,
+        "files_with_hits": 15,
+        "distinct": 1,
+        "rows_shown": 1,
+        "rows": [
+          {
+            "value": "HD_UPD.dll+0x51607",
+            "count": 15,
+            "share_pct": 100.0
+          }
+        ]
+      },
+      "result_sha256": "077fa54894339dfd421346fd52d173d077a537ce3ddb381856e91edb7024df89"
+    }
+  ],
+  "errors": [],
+  "complete": true
+}

@@ -1,80 +1,487 @@
 {
   "schema": 3,
-  "source": "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180.dmp",
-  "source_identity": {
-    "path": "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180.dmp",
-    "size": 94352,
-    "sha256": "ecabf4e88e0c7fee6b312c2e40eb775554ea7003bcaab843b30644c6ba2857b0"
-  },
-  "dump_level": "минимальный",
-  "flags": [
-    "MiniDumpNormal"
+  "kind": "series_dump_capabilities",
+  "dmp_count": 4,
+  "profiled_count": 4,
+  "items": [
+    {
+      "schema": 3,
+      "source": "/Users/Shared/ii/mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180-1.dmp",
+      "source_identity": {
+        "path": "/Users/Shared/ii/mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180-1.dmp",
+        "size": 94352,
+        "sha256": "ecabf4e88e0c7fee6b312c2e40eb775554ea7003bcaab843b30644c6ba2857b0"
+      },
+      "dump_level": "минимальный",
+      "flags": [
+        "MiniDumpNormal"
+      ],
+      "stream_names": [
+        "ExceptionList",
+        "MemoryList",
+        "MiscInfo",
+        "ModuleList",
+        "SystemInfo",
+        "ThreadList",
+        "тип 0",
+        "тип 21",
+        "тип 22"
+      ],
+      "captured_bytes": 44740,
+      "exception_record": {
+        "tid": 15456,
+        "code": 3221225477,
+        "flags": 0,
+        "exception_record": 0,
+        "address": 1884689927,
+        "number_parameters": 2,
+        "parameters_valid": true,
+        "exception_information": [
+          0,
+          18446744073709551615
+        ],
+        "access": "read",
+        "fault_address": 18446744073709551615,
+        "context_size": 716,
+        "context_rva": 25600
+      },
+      "thread_provenance": {
+        "exception_tid": 15456,
+        "esp_tid": 16724,
+        "status": "CONTEXT_THREAD_MISMATCH",
+        "esp": 1679176,
+        "contexts": [
+          {
+            "source": "exception_stream",
+            "tid": 15456,
+            "role": "register_context",
+            "available": true
+          },
+          {
+            "source": "text_context",
+            "tid": 16724,
+            "role": "stack_context",
+            "esp": 1679176,
+            "available": true
+          }
+        ],
+        "register_sets_may_be_combined": false,
+        "selected_stack_thread_id": 16724,
+        "selected_register_context": "keep_sources_separate",
+        "combination_rule": "same_tid_only",
+        "policy": "use_one_context_only; never combine ExceptionStream registers with the text/ESP stack when thread ids differ"
+      },
+      "counts": {
+        "minidump_streams": 12,
+        "process_threads_in_thread_list": 25,
+        "exception_thread_id": 15456,
+        "esp_stack_thread_id": 16724
+      },
+      "capabilities": {
+        "exception_context": true,
+        "thread_stacks": true,
+        "module_identity": true,
+        "captured_memory": true,
+        "code_window": true,
+        "globals_and_heap": false,
+        "memory_permissions": false,
+        "thread_provenance": true
+      },
+      "available_now": [
+        "captured_memory",
+        "code_window",
+        "exception_context",
+        "module_identity",
+        "thread_provenance",
+        "thread_stacks"
+      ],
+      "requires_full_dump": [
+        "global_state_snapshot",
+        "heap_object_lifetime",
+        "heap_neighbour_overwrite",
+        "whole_container_traversal"
+      ],
+      "requires_runtime_capture": [
+        "first_corrupting_write",
+        "writer_identity",
+        "race_ordering",
+        "object_lifetime_transition"
+      ],
+      "strong_claim_gates": {
+        "race": "requires_runtime_capture",
+        "use_after_free": "requires_full_dump_or_runtime_capture",
+        "heap_overwrite": "requires_full_dump_or_runtime_capture",
+        "callback_register_clobber": "requires_same_thread_pre_post_capture"
+      },
+      "limitations": [
+        ".data модулей: глобалы, карты, реестр-контейнер",
+        "куча целиком: обход списков объектов и поиск блобов",
+        "права и тип страниц (нет MemoryInfoList)"
+      ],
+      "relative_path": "HD_UPD.dll+0x51607-5.7-R40-180-1.dmp",
+      "text_esp": 1679176,
+      "esp_source": "HD_UPD.dll+0x51607-5.7-R40-180-1.txt"
+    },
+    {
+      "schema": 3,
+      "source": "/Users/Shared/ii/mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180-2.dmp",
+      "source_identity": {
+        "path": "/Users/Shared/ii/mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180-2.dmp",
+        "size": 95640,
+        "sha256": "b27ba6ce2ae1205ba485b659c4ba468f11dcebbc699aeb1655a4b2f836f6d180"
+      },
+      "dump_level": "минимальный",
+      "flags": [
+        "MiniDumpNormal"
+      ],
+      "stream_names": [
+        "ExceptionList",
+        "MemoryList",
+        "MiscInfo",
+        "ModuleList",
+        "SystemInfo",
+        "ThreadList",
+        "тип 0",
+        "тип 21",
+        "тип 22"
+      ],
+      "captured_bytes": 44884,
+      "exception_record": {
+        "tid": 11448,
+        "code": 3221225477,
+        "flags": 0,
+        "exception_record": 0,
+        "address": 1637881351,
+        "number_parameters": 2,
+        "parameters_valid": true,
+        "exception_information": [
+          0,
+          18446744073709551615
+        ],
+        "access": "read",
+        "fault_address": 18446744073709551615,
+        "context_size": 716,
+        "context_rva": 27458
+      },
+      "thread_provenance": {
+        "exception_tid": 11448,
+        "esp_tid": 7928,
+        "status": "CONTEXT_THREAD_MISMATCH",
+        "esp": 1679176,
+        "contexts": [
+          {
+            "source": "exception_stream",
+            "tid": 11448,
+            "role": "register_context",
+            "available": true
+          },
+          {
+            "source": "text_context",
+            "tid": 7928,
+            "role": "stack_context",
+            "esp": 1679176,
+            "available": true
+          }
+        ],
+        "register_sets_may_be_combined": false,
+        "selected_stack_thread_id": 7928,
+        "selected_register_context": "keep_sources_separate",
+        "combination_rule": "same_tid_only",
+        "policy": "use_one_context_only; never combine ExceptionStream registers with the text/ESP stack when thread ids differ"
+      },
+      "counts": {
+        "minidump_streams": 12,
+        "process_threads_in_thread_list": 23,
+        "exception_thread_id": 11448,
+        "esp_stack_thread_id": 7928
+      },
+      "capabilities": {
+        "exception_context": true,
+        "thread_stacks": true,
+        "module_identity": true,
+        "captured_memory": true,
+        "code_window": true,
+        "globals_and_heap": false,
+        "memory_permissions": false,
+        "thread_provenance": true
+      },
+      "available_now": [
+        "captured_memory",
+        "code_window",
+        "exception_context",
+        "module_identity",
+        "thread_provenance",
+        "thread_stacks"
+      ],
+      "requires_full_dump": [
+        "global_state_snapshot",
+        "heap_object_lifetime",
+        "heap_neighbour_overwrite",
+        "whole_container_traversal"
+      ],
+      "requires_runtime_capture": [
+        "first_corrupting_write",
+        "writer_identity",
+        "race_ordering",
+        "object_lifetime_transition"
+      ],
+      "strong_claim_gates": {
+        "race": "requires_runtime_capture",
+        "use_after_free": "requires_full_dump_or_runtime_capture",
+        "heap_overwrite": "requires_full_dump_or_runtime_capture",
+        "callback_register_clobber": "requires_same_thread_pre_post_capture"
+      },
+      "limitations": [
+        ".data модулей: глобалы, карты, реестр-контейнер",
+        "куча целиком: обход списков объектов и поиск блобов",
+        "права и тип страниц (нет MemoryInfoList)"
+      ],
+      "relative_path": "HD_UPD.dll+0x51607-5.7-R40-180-2.dmp",
+      "text_esp": 1679176,
+      "esp_source": "HD_UPD.dll+0x51607-5.7-R40-180-2.txt"
+    },
+    {
+      "schema": 3,
+      "source": "/Users/Shared/ii/mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180-3.dmp",
+      "source_identity": {
+        "path": "/Users/Shared/ii/mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180-3.dmp",
+        "size": 96119,
+        "sha256": "423eb3fc55d039d7275c36de62c9a1c475dcf1f97662877fbec96cfa7ce8c287"
+      },
+      "dump_level": "минимальный",
+      "flags": [
+        "MiniDumpNormal"
+      ],
+      "stream_names": [
+        "ExceptionList",
+        "MemoryList",
+        "MiscInfo",
+        "ModuleList",
+        "SystemInfo",
+        "ThreadList",
+        "тип 0",
+        "тип 21",
+        "тип 22"
+      ],
+      "captured_bytes": 45172,
+      "exception_record": {
+        "tid": 532,
+        "code": 3221225477,
+        "flags": 0,
+        "exception_record": 0,
+        "address": 1914443271,
+        "number_parameters": 2,
+        "parameters_valid": true,
+        "exception_information": [
+          0,
+          18446744073709551615
+        ],
+        "access": "read",
+        "fault_address": 18446744073709551615,
+        "context_size": 716,
+        "context_rva": 26166
+      },
+      "thread_provenance": {
+        "exception_tid": 532,
+        "esp_tid": 6600,
+        "status": "CONTEXT_THREAD_MISMATCH",
+        "esp": 1679176,
+        "contexts": [
+          {
+            "source": "exception_stream",
+            "tid": 532,
+            "role": "register_context",
+            "available": true
+          },
+          {
+            "source": "text_context",
+            "tid": 6600,
+            "role": "stack_context",
+            "esp": 1679176,
+            "available": true
+          }
+        ],
+        "register_sets_may_be_combined": false,
+        "selected_stack_thread_id": 6600,
+        "selected_register_context": "keep_sources_separate",
+        "combination_rule": "same_tid_only",
+        "policy": "use_one_context_only; never combine ExceptionStream registers with the text/ESP stack when thread ids differ"
+      },
+      "counts": {
+        "minidump_streams": 12,
+        "process_threads_in_thread_list": 26,
+        "exception_thread_id": 532,
+        "esp_stack_thread_id": 6600
+      },
+      "capabilities": {
+        "exception_context": true,
+        "thread_stacks": true,
+        "module_identity": true,
+        "captured_memory": true,
+        "code_window": true,
+        "globals_and_heap": false,
+        "memory_permissions": false,
+        "thread_provenance": true
+      },
+      "available_now": [
+        "captured_memory",
+        "code_window",
+        "exception_context",
+        "module_identity",
+        "thread_provenance",
+        "thread_stacks"
+      ],
+      "requires_full_dump": [
+        "global_state_snapshot",
+        "heap_object_lifetime",
+        "heap_neighbour_overwrite",
+        "whole_container_traversal"
+      ],
+      "requires_runtime_capture": [
+        "first_corrupting_write",
+        "writer_identity",
+        "race_ordering",
+        "object_lifetime_transition"
+      ],
+      "strong_claim_gates": {
+        "race": "requires_runtime_capture",
+        "use_after_free": "requires_full_dump_or_runtime_capture",
+        "heap_overwrite": "requires_full_dump_or_runtime_capture",
+        "callback_register_clobber": "requires_same_thread_pre_post_capture"
+      },
+      "limitations": [
+        ".data модулей: глобалы, карты, реестр-контейнер",
+        "куча целиком: обход списков объектов и поиск блобов",
+        "права и тип страниц (нет MemoryInfoList)"
+      ],
+      "relative_path": "HD_UPD.dll+0x51607-5.7-R40-180-3.dmp",
+      "text_esp": 1679176,
+      "esp_source": "HD_UPD.dll+0x51607-5.7-R40-180-3.txt"
+    },
+    {
+      "schema": 3,
+      "source": "/Users/Shared/ii/mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180.dmp",
+      "source_identity": {
+        "path": "/Users/Shared/ii/mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180.dmp",
+        "size": 94352,
+        "sha256": "ecabf4e88e0c7fee6b312c2e40eb775554ea7003bcaab843b30644c6ba2857b0"
+      },
+      "dump_level": "минимальный",
+      "flags": [
+        "MiniDumpNormal"
+      ],
+      "stream_names": [
+        "ExceptionList",
+        "MemoryList",
+        "MiscInfo",
+        "ModuleList",
+        "SystemInfo",
+        "ThreadList",
+        "тип 0",
+        "тип 21",
+        "тип 22"
+      ],
+      "captured_bytes": 44740,
+      "exception_record": {
+        "tid": 15456,
+        "code": 3221225477,
+        "flags": 0,
+        "exception_record": 0,
+        "address": 1884689927,
+        "number_parameters": 2,
+        "parameters_valid": true,
+        "exception_information": [
+          0,
+          18446744073709551615
+        ],
+        "access": "read",
+        "fault_address": 18446744073709551615,
+        "context_size": 716,
+        "context_rva": 25600
+      },
+      "thread_provenance": {
+        "exception_tid": 15456,
+        "esp_tid": 16724,
+        "status": "CONTEXT_THREAD_MISMATCH",
+        "esp": 1679176,
+        "contexts": [
+          {
+            "source": "exception_stream",
+            "tid": 15456,
+            "role": "register_context",
+            "available": true
+          },
+          {
+            "source": "text_context",
+            "tid": 16724,
+            "role": "stack_context",
+            "esp": 1679176,
+            "available": true
+          }
+        ],
+        "register_sets_may_be_combined": false,
+        "selected_stack_thread_id": 16724,
+        "selected_register_context": "keep_sources_separate",
+        "combination_rule": "same_tid_only",
+        "policy": "use_one_context_only; never combine ExceptionStream registers with the text/ESP stack when thread ids differ"
+      },
+      "counts": {
+        "minidump_streams": 12,
+        "process_threads_in_thread_list": 25,
+        "exception_thread_id": 15456,
+        "esp_stack_thread_id": 16724
+      },
+      "capabilities": {
+        "exception_context": true,
+        "thread_stacks": true,
+        "module_identity": true,
+        "captured_memory": true,
+        "code_window": true,
+        "globals_and_heap": false,
+        "memory_permissions": false,
+        "thread_provenance": true
+      },
+      "available_now": [
+        "captured_memory",
+        "code_window",
+        "exception_context",
+        "module_identity",
+        "thread_provenance",
+        "thread_stacks"
+      ],
+      "requires_full_dump": [
+        "global_state_snapshot",
+        "heap_object_lifetime",
+        "heap_neighbour_overwrite",
+        "whole_container_traversal"
+      ],
+      "requires_runtime_capture": [
+        "first_corrupting_write",
+        "writer_identity",
+        "race_ordering",
+        "object_lifetime_transition"
+      ],
+      "strong_claim_gates": {
+        "race": "requires_runtime_capture",
+        "use_after_free": "requires_full_dump_or_runtime_capture",
+        "heap_overwrite": "requires_full_dump_or_runtime_capture",
+        "callback_register_clobber": "requires_same_thread_pre_post_capture"
+      },
+      "limitations": [
+        ".data модулей: глобалы, карты, реестр-контейнер",
+        "куча целиком: обход списков объектов и поиск блобов",
+        "права и тип страниц (нет MemoryInfoList)"
+      ],
+      "relative_path": "HD_UPD.dll+0x51607-5.7-R40-180.dmp",
+      "text_esp": 1679176,
+      "esp_source": "HD_UPD.dll+0x51607-5.7-R40-180.txt"
+    }
   ],
-  "stream_names": [
-    "ExceptionList",
-    "MemoryList",
-    "MiscInfo",
-    "ModuleList",
-    "SystemInfo",
-    "ThreadList",
-    "тип 0",
-    "тип 21",
-    "тип 22"
-  ],
-  "captured_bytes": 44740,
-  "thread_provenance": {
-    "exception_tid": 15456,
-    "esp_tid": 16724,
-    "status": "CONTEXT_THREAD_MISMATCH",
-    "esp": 1679176,
-    "register_sets_may_be_combined": false,
-    "selected_stack_thread_id": 16724,
-    "policy": "use_one_context_only; never combine ExceptionStream registers with the text/ESP stack when thread ids differ"
-  },
-  "counts": {
-    "minidump_streams": 12,
-    "process_threads_in_thread_list": 25,
-    "exception_thread_id": 15456,
-    "esp_stack_thread_id": 16724
-  },
-  "capabilities": {
-    "exception_context": true,
-    "thread_stacks": true,
-    "module_identity": true,
-    "captured_memory": true,
-    "code_window": true,
-    "globals_and_heap": false,
-    "memory_permissions": false,
-    "thread_provenance": true
-  },
-  "available_now": [
-    "captured_memory",
-    "code_window",
-    "exception_context",
-    "module_identity",
-    "thread_provenance",
-    "thread_stacks"
-  ],
-  "requires_full_dump": [
-    "global_state_snapshot",
-    "heap_object_lifetime",
-    "heap_neighbour_overwrite",
-    "whole_container_traversal"
-  ],
-  "requires_runtime_capture": [
-    "first_corrupting_write",
-    "writer_identity",
-    "race_ordering",
-    "object_lifetime_transition"
-  ],
-  "strong_claim_gates": {
-    "race": "requires_runtime_capture",
-    "use_after_free": "requires_full_dump_or_runtime_capture",
-    "heap_overwrite": "requires_full_dump_or_runtime_capture"
-  },
-  "limitations": [
-    ".data модулей: глобалы, карты, реестр-контейнер",
-    "куча целиком: обход списков объектов и поиск блобов",
-    "права и тип страниц (нет MemoryInfoList)"
-  ]
+  "errors": [],
+  "complete": true,
+  "audit_selection": {
+    "selected": null,
+    "rule": "profile every DMP independently; never choose one silently",
+    "no_dmp_is_analysis_ready": false
+  }
 }

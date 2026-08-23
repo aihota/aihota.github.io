@@ -1,0 +1,167 @@
+{
+  "schema": 2,
+  "kind": "crash_analysis_contract",
+  "mechanism": {
+    "kind": "execution_target"
+  },
+  "thread_contexts": [
+    {
+      "source": "exception_stream",
+      "tid": 15456,
+      "registers": {
+        "EAX": "0x08A66620",
+        "ECX": "0x08A66B47",
+        "EDX": "0x08831984",
+        "EBX": "0x00000001",
+        "ESP": "0x00199F48",
+        "EBP": "0x0019A023",
+        "ESI": "0x08831984",
+        "EDI": "0x0019FAFC",
+        "EIP": "0x70561607"
+      }
+    },
+    {
+      "source": "thread_list",
+      "tid": 16724,
+      "registers": {
+        "EIP": "0x75EB101C",
+        "ESP": "0x001997F4"
+      },
+      "stack": [
+        "0x001997F0..0x001A0000",
+        "range owner only"
+      ]
+    }
+  ],
+  "thread_policy": {
+    "register_sets_may_be_combined": false,
+    "reason": "CONTEXT_THREAD_MISMATCH"
+  },
+  "consumer_boundary": {
+    "input_validity": "unknown",
+    "candidate_validity": "invalid"
+  },
+  "state_origin_candidates": [
+    {
+      "id": "race",
+      "status": "not_established",
+      "next_evidence": [
+        "writer tid and ordering"
+      ]
+    },
+    {
+      "id": "use_after_free",
+      "status": "not_established",
+      "next_evidence": [
+        "free stack and generation"
+      ]
+    },
+    {
+      "id": "heap_overwrite",
+      "status": "not_established",
+      "next_evidence": [
+        "first out-of-bounds writer"
+      ]
+    },
+    {
+      "id": "third_party_write",
+      "status": "not_established",
+      "next_evidence": [
+        "writer module and watchpoint stack"
+      ]
+    }
+  ],
+  "root_cause_declared": false,
+  "structure": {
+    "fields": {
+      "target_rva": "0x51607",
+      "resource_offset": "0x2CAF",
+      "target_bytes": "FF 1A"
+    },
+    "invariants": [
+      "EIP equals module base plus 0x51607 in addressed cases",
+      "R40 target bytes are FF 1A"
+    ],
+    "sibling_coverage": {
+      "scanned": 4,
+      "total": 15,
+      "complete": false
+    }
+  },
+  "lifecycle": {
+    "counts": {
+      "references": 15,
+      "reads": 15,
+      "writes": 0,
+      "checks": 0,
+      "publishes": 0,
+      "clears": 0
+    },
+    "enumeration_complete": false,
+    "absence_claims": []
+  },
+  "fixes": [
+    {
+      "fix_role": "containment",
+      "supported_builds": [
+        "5.7 R40 exact",
+        "other builds after binary verification"
+      ],
+      "expected_evidence": [
+        "rejected .rsrc target with storage address and writer log"
+      ],
+      "differential_test": "reject .rsrc target while accepting normal .text targets"
+    },
+    {
+      "fix_role": "diagnostic",
+      "supported_builds": [
+        "5.7 R40",
+        "5.6 R10 through 5.7 RC9"
+      ],
+      "expected_evidence": [
+        "writer EIP, tid, stack, old and new target values"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_role": "source_dmp",
+      "phase_role": "causal_input"
+    },
+    {
+      "artifact_role": "derived_ingest_manifest",
+      "phase_role": "contextual"
+    }
+  ],
+  "family": {
+    "semantic_fingerprint": {
+      "structure_role": "execution target in module data",
+      "field_offset": "+0x51607",
+      "access": "execute then reported read",
+      "call_tail": [
+        "unknown indirect transfer",
+        "HD_UPD.dll data"
+      ]
+    },
+    "denominator": {
+      "scanned": 15,
+      "total": 15
+    }
+  },
+  "call_chain": [
+    {
+      "type": "unknown_executable",
+      "address": "unknown transfer source"
+    },
+    {
+      "type": "data",
+      "address": "HD_UPD.dll base+0x51607"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "errors": [],
+    "root_cause_allowed": false
+  },
+  "status": "passed"
+}

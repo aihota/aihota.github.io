@@ -1,0 +1,18 @@
+{
+  "schema": 3,
+  "root": "/Users/Shared/ii/mail-dumps/HD_UPD.dll+0x51607",
+  "count_contract": "physical_files = unique_sha256 + duplicate_instances",
+  "summary": {
+    "physical_files": 0,
+    "unique_sha256": 0,
+    "duplicate_instances": 0,
+    "roles": {},
+    "extensions": {},
+    "phase": "unknown",
+    "phase_relevance": {},
+    "unknown_blocks_only_its_file": 0
+  },
+  "items": [],
+  "validation_errors": [],
+  "valid": true
+}

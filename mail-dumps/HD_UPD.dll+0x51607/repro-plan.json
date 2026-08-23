@@ -1,0 +1,435 @@
+{
+  "schema": 2,
+  "kind": "crash_reproduction_plan",
+  "status": "ready",
+  "mechanism_kind": "execution_target",
+  "case": "HD_UPD.dll+0x51607",
+  "diagnostic_source": "coverage.json",
+  "causality_level": "L1",
+  "next_required": [
+    "capture_state_origin_and_writer",
+    "confirm_reproduction",
+    "complete_family_coverage"
+  ],
+  "steps": [
+    {
+      "id": "discriminate-origin-race",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "race",
+      "success_evidence": [
+        "writer tid and ordering"
+      ]
+    },
+    {
+      "id": "discriminate-origin-use_after_free",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "use_after_free",
+      "success_evidence": [
+        "free stack and generation"
+      ]
+    },
+    {
+      "id": "discriminate-origin-heap_overwrite",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "heap_overwrite",
+      "success_evidence": [
+        "first out-of-bounds writer"
+      ]
+    },
+    {
+      "id": "discriminate-origin-third_party_write",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "third_party_write",
+      "success_evidence": [
+        "writer module and watchpoint stack"
+      ]
+    },
+    {
+      "id": "complete-structure-lifecycle",
+      "action": "complete sibling and lifecycle census",
+      "success_evidence": [
+        "all_sibling_sites",
+        "reference_denominator",
+        "publish_and_clear_roles"
+      ]
+    },
+    {
+      "id": "capture-origin",
+      "action": "capture full dump and allocator/write telemetry before failure",
+      "success_evidence": [
+        "full_dump",
+        "writer_identity",
+        "largest_free_region",
+        "heap_health"
+      ]
+    },
+    {
+      "id": "controlled-repro",
+      "action": "run original, causal fix, containment, and positive control on matched binaries",
+      "success_evidence": [
+        "binary_sha256",
+        "failing_run",
+        "positive_control",
+        "result.json"
+      ]
+    },
+    {
+      "id": "family-coverage",
+      "action": "repeat one representative from every cause group",
+      "success_evidence": [
+        "representative_ids",
+        "group_results"
+      ]
+    }
+  ],
+  "inputs": {
+    "save_count": 0,
+    "full_dump_available": false,
+    "representatives": [
+      {
+        "incident_id": "incident-4bcb98804de4620e",
+        "txt": "HD_UPD.dll+0x51607-5.7-R40-180-1.txt",
+        "newly_covered": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.7 R40",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-R40-180-1.txt",
+          "subsystem:unknown"
+        ],
+        "all_features": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.7 R40",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-R40-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-76bee8c3bee2cb5b",
+        "txt": "HD_UPD.dll+0x51607-5.6-R27-180-1.txt",
+        "newly_covered": [
+          "cause:cause-ab681f1b24af",
+          "hd:5.6 R27",
+          "outlier:HD_UPD.dll+0x51607-5.6-R27-180-1.txt"
+        ],
+        "all_features": [
+          "cause:cause-ab681f1b24af",
+          "formula:unknown",
+          "hd:5.6 R27",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.6-R27-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-6632714369513562",
+        "txt": "HD_UPD.dll+0x51607-5.6-R31-180-1.txt",
+        "newly_covered": [
+          "cause:cause-aab1de2d8ee7",
+          "hd:5.6 R31",
+          "outlier:HD_UPD.dll+0x51607-5.6-R31-180-1.txt"
+        ],
+        "all_features": [
+          "cause:cause-aab1de2d8ee7",
+          "formula:unknown",
+          "hd:5.6 R31",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.6-R31-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-0c3f4d780571333f",
+        "txt": "HD_UPD.dll+0x51607-5.7-R3-180-1.txt",
+        "newly_covered": [
+          "cause:cause-75fb6d053200",
+          "hd:5.7 R3",
+          "outlier:HD_UPD.dll+0x51607-5.7-R3-180-1.txt"
+        ],
+        "all_features": [
+          "cause:cause-75fb6d053200",
+          "formula:unknown",
+          "hd:5.7 R3",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-R3-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-db89c2c6c31132de",
+        "txt": "HD_UPD.dll+0x51607-5.6-R10-180-1.txt",
+        "newly_covered": [
+          "hd:5.6 R10",
+          "outlier:HD_UPD.dll+0x51607-5.6-R10-180-1.txt"
+        ],
+        "all_features": [
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.6 R10",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.6-R10-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-522603b9cfde5b67",
+        "txt": "HD_UPD.dll+0x51607-5.6-R15-180-1.txt",
+        "newly_covered": [
+          "hd:5.6 R15",
+          "outlier:HD_UPD.dll+0x51607-5.6-R15-180-1.txt"
+        ],
+        "all_features": [
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.6 R15",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.6-R15-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-704faa8d85e71fb6",
+        "txt": "HD_UPD.dll+0x51607-5.6-R19-180-1.txt",
+        "newly_covered": [
+          "hd:5.6 R19",
+          "outlier:HD_UPD.dll+0x51607-5.6-R19-180-1.txt"
+        ],
+        "all_features": [
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.6 R19",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.6-R19-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-cb6d8ee3901d920e",
+        "txt": "HD_UPD.dll+0x51607-5.7-RC7-180-1.txt",
+        "newly_covered": [
+          "hd:5.7 RC7",
+          "outlier:HD_UPD.dll+0x51607-5.7-RC7-180-1.txt"
+        ],
+        "all_features": [
+          "cause:cause-aab1de2d8ee7",
+          "formula:unknown",
+          "hd:5.7 RC7",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-RC7-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-0de8ff48c5efa448",
+        "txt": "HD_UPD.dll+0x51607-5.7-RC9-180-1.txt",
+        "newly_covered": [
+          "hd:5.7 RC9",
+          "outlier:HD_UPD.dll+0x51607-5.7-RC9-180-1.txt"
+        ],
+        "all_features": [
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.7 RC9",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-RC9-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-956550130003ab9c",
+        "txt": "HD_UPD.dll+0x51607-5.6-R19-180-2.txt",
+        "newly_covered": [
+          "outlier:HD_UPD.dll+0x51607-5.6-R19-180-2.txt"
+        ],
+        "all_features": [
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.6 R19",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.6-R19-180-2.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-43de6b4feec886fe",
+        "txt": "HD_UPD.dll+0x51607-5.7-R3-180-2.txt",
+        "newly_covered": [
+          "outlier:HD_UPD.dll+0x51607-5.7-R3-180-2.txt"
+        ],
+        "all_features": [
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.7 R3",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-R3-180-2.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-986b5609dcd6d463",
+        "txt": "HD_UPD.dll+0x51607-5.7-R3-180-3.txt",
+        "newly_covered": [
+          "outlier:HD_UPD.dll+0x51607-5.7-R3-180-3.txt"
+        ],
+        "all_features": [
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.7 R3",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-R3-180-3.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-0e10f8bf2f322ce7",
+        "txt": "HD_UPD.dll+0x51607-5.7-R40-180-2.txt",
+        "newly_covered": [
+          "outlier:HD_UPD.dll+0x51607-5.7-R40-180-2.txt"
+        ],
+        "all_features": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.7 R40",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-R40-180-2.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-aba18f29f5cfd6ee",
+        "txt": "HD_UPD.dll+0x51607-5.7-R40-180-3.txt",
+        "newly_covered": [
+          "outlier:HD_UPD.dll+0x51607-5.7-R40-180-3.txt"
+        ],
+        "all_features": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.7 R40",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-R40-180-3.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-ab0efe29569d7fe8",
+        "txt": "HD_UPD.dll+0x51607-5.7-R40-180.txt",
+        "newly_covered": [
+          "outlier:HD_UPD.dll+0x51607-5.7-R40-180.txt"
+        ],
+        "all_features": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.7 R40",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-R40-180.txt",
+          "subsystem:unknown"
+        ]
+      }
+    ],
+    "analysis_contract_present": true,
+    "artifact_phase_roles": []
+  },
+  "populations": {
+    "physical_txt": {
+      "numerator": 15,
+      "denominator": 15,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "none"
+    },
+    "unique_incidents": {
+      "numerator": 15,
+      "denominator": 15,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "sha256_txt"
+    },
+    "duplicate_instances": {
+      "numerator": 0,
+      "denominator": 15,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "sha256_txt"
+    },
+    "physical_dmp": {
+      "numerator": 4,
+      "denominator": 4,
+      "population": "paired DMP in current series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "none"
+    },
+    "unique_dmp": {
+      "numerator": 3,
+      "denominator": 4,
+      "population": "paired DMP in current series",
+      "scope": "current_series",
+      "unit": "dump",
+      "dedup_basis": "sha256_dmp"
+    },
+    "classified_incidents": {
+      "numerator": 0,
+      "denominator": 15,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "sha256_txt"
+    },
+    "unresolved_incidents": {
+      "numerator": 15,
+      "denominator": 15,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "sha256_txt"
+    },
+    "confirmed_family_incidents": {
+      "numerator": 0,
+      "denominator": 15,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "confirmed state origin and causal tuple"
+    }
+  },
+  "attestation": {
+    "status": "blocked_by_environment",
+    "reason": "plan generated; controlled runtime has not run"
+  },
+  "completion_rule": "passed requires failing run, positive control, matched SHA-256 and captured result.json"
+}

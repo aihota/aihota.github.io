@@ -1,0 +1,487 @@
+{
+  "schema": 3,
+  "generated_at": "2026-08-23T09:57:36.279491+00:00",
+  "mode": "crash_case",
+  "intake_policy": "strict",
+  "mail_folder": "HD_UPD.dll+0x51607",
+  "output": "mail-dumps/HD_UPD.dll+0x51607",
+  "counts": {
+    "matched": 14,
+    "txt_saved": 14,
+    "txt_reused": 0,
+    "unresolved": 0,
+    "duplicates_skipped": 0,
+    "attachments_declared": 3,
+    "attachments_nonempty": 3,
+    "attachments_accounted": 3
+  },
+  "messages": [
+    {
+      "message_id": "<6959c2bd.630a0220.8ffe5.ddf9@mx.google.com>",
+      "body_hash": "e0ab05ed",
+      "body_sha256": "db89c2c6c31132dee856546fe709f81578637a649a6882af78c41ce31ed13588",
+      "status": "saved",
+      "txt": "HD_UPD.dll+0x51607-5.6-R10-180-1.txt",
+      "attachments": [],
+      "attachments_saved": 0,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    },
+    {
+      "message_id": "<6963f5eb.630a0220.3658c2.48eb@mx.google.com>",
+      "body_hash": "79584986",
+      "body_sha256": "522603b9cfde5b677995d0521d36d2c66c3e9a7488b12c8ddf3aa426eec2a5a2",
+      "status": "saved",
+      "txt": "HD_UPD.dll+0x51607-5.6-R15-180-1.txt",
+      "attachments": [],
+      "attachments_saved": 0,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    },
+    {
+      "message_id": "<696ed3f9.050a0220.170608.3a3e@mx.google.com>",
+      "body_hash": "4006e390",
+      "body_sha256": "704faa8d85e71fb6aa1de68ac5a18c120d31d12afebbcb11a3f48652062bd878",
+      "status": "saved",
+      "txt": "HD_UPD.dll+0x51607-5.6-R19-180-1.txt",
+      "attachments": [],
+      "attachments_saved": 0,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    },
+    {
+      "message_id": "<E1viu5F-00000000Wrg-3h18.h3hd-reporter-mail-ru@exim-smtp-74c8589469-7z9v2>",
+      "body_hash": "190b61ba",
+      "body_sha256": "956550130003ab9c0f3b5be41ab0472cf8342157705eee8355256854425985de",
+      "status": "saved",
+      "txt": "HD_UPD.dll+0x51607-5.6-R19-180-2.txt",
+      "attachments": [],
+      "attachments_saved": 0,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    },
+    {
+      "message_id": "<69a02126.050a0220.201a77.abbe@mx.google.com>",
+      "body_hash": "516f25c0",
+      "body_sha256": "76bee8c3bee2cb5b9eddc3c5c996e50baee63bfde6303dd4cf69c8a5b8eadaa6",
+      "status": "saved",
+      "txt": "HD_UPD.dll+0x51607-5.6-R27-180-1.txt",
+      "attachments": [],
+      "attachments_saved": 0,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    },
+    {
+      "message_id": "<E1w5OVC-000000003oB-0hpW.h3hd-reporter-mail-ru@exim-smtp-6c5f8764ff-jqvpt>",
+      "body_hash": "9de1437a",
+      "body_sha256": "66327143695135624699a5d52f810228f8024c0721cb3cf659e3f14ab12c0e11",
+      "status": "saved",
+      "txt": "HD_UPD.dll+0x51607-5.6-R31-180-1.txt",
+      "attachments": [],
+      "attachments_saved": 0,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    },
+    {
+      "message_id": "<69f99300.050a0220.38b989.67f0@mx.google.com>",
+      "body_hash": "fef8220f",
+      "body_sha256": "0de8ff48c5efa4482129b34469172a10f1aaf2c3749c5d14d24727e9452e6583",
+      "status": "saved",
+      "txt": "HD_UPD.dll+0x51607-5.7-RC9-180-1.txt",
+      "attachments": [],
+      "attachments_saved": 0,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    },
+    {
+      "message_id": "<6a1c03e6.1c226c2f.15ab46.55f6@mx.google.com>",
+      "body_hash": "1b33395f",
+      "body_sha256": "0c3f4d780571333faf05026aa8e9a9a0a422fd6b22f004e2e1cdc79a188a4f0c",
+      "status": "saved",
+      "txt": "HD_UPD.dll+0x51607-5.7-R3-180-1.txt",
+      "attachments": [],
+      "attachments_saved": 0,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    },
+    {
+      "message_id": "<6a1f78d2.c3143275.327bd8.a619@mx.google.com>",
+      "body_hash": "9d56107f",
+      "body_sha256": "cb6d8ee3901d920e37ea32641ba2282322993377018d7ef9f34b43b20c2deae1",
+      "status": "saved",
+      "txt": "HD_UPD.dll+0x51607-5.7-RC7-180-1.txt",
+      "attachments": [],
+      "attachments_saved": 0,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    },
+    {
+      "message_id": "<6a815bbf.6984a0f0.13e20d.8f53@mx.google.com>",
+      "body_hash": "adfbf76c",
+      "body_sha256": "4bcb98804de4620e3b40619fef6a9b10808af77bf710027282f02da1f403de68",
+      "status": "saved",
+      "txt": "HD_UPD.dll+0x51607-5.7-R40-180-1.txt",
+      "attachments": [
+        {
+          "name": "hd_crash.dmp",
+          "size": 94352,
+          "empty": false,
+          "kind": "дамп",
+          "sha256": "ecabf4e88e0c7fee6b312c2e40eb775554ea7003bcaab843b30644c6ba2857b0"
+        }
+      ],
+      "attachments_saved": 1,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    },
+    {
+      "message_id": "<6a867202.9eb9e405.85c00.8daa@mx.google.com>",
+      "body_hash": "53c78067",
+      "body_sha256": "0e10f8bf2f322ce7e460440e14398e37b42909bd585f21a5db6bf213e2f55852",
+      "status": "saved",
+      "txt": "HD_UPD.dll+0x51607-5.7-R40-180-2.txt",
+      "attachments": [
+        {
+          "name": "hd_crash.dmp",
+          "size": 95640,
+          "empty": false,
+          "kind": "дамп",
+          "sha256": "b27ba6ce2ae1205ba485b659c4ba468f11dcebbc699aeb1655a4b2f836f6d180"
+        }
+      ],
+      "attachments_saved": 1,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    },
+    {
+      "message_id": "<6a8a9e46.49a3bc26.2331ce.6182@mx.google.com>",
+      "body_hash": "4ffcd0cf",
+      "body_sha256": "aba18f29f5cfd6ee72f3c8b98989dfe37cfbe726ddc52c5cad895c84779cf9ef",
+      "status": "saved",
+      "txt": "HD_UPD.dll+0x51607-5.7-R40-180-3.txt",
+      "attachments": [
+        {
+          "name": "hd_crash.dmp",
+          "size": 96119,
+          "empty": false,
+          "kind": "дамп",
+          "sha256": "423eb3fc55d039d7275c36de62c9a1c475dcf1f97662877fbec96cfa7ce8c287"
+        }
+      ],
+      "attachments_saved": 1,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    },
+    {
+      "message_id": "<E1wTf0g-00000000LgF-0Edp.h3hd-reporter-mail-ru@exim-smtp-5b85998476-nq85t>",
+      "body_hash": "2221b8f3",
+      "body_sha256": "43de6b4feec886fe26cd29d481b360b8e0e072db4f17996d605ff965095a73a4",
+      "status": "saved",
+      "txt": "HD_UPD.dll+0x51607-5.7-R3-180-2.txt",
+      "attachments": [],
+      "attachments_saved": 0,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    },
+    {
+      "message_id": "<E1wTf1p-000000007LX-0KN9.h3hd-reporter-mail-ru@exim-smtp-5b85998476-lxxsz>",
+      "body_hash": "7f4086b2",
+      "body_sha256": "986b5609dcd6d4631827841712d06ac4234a8156d0c219bd3611b9358b3288c6",
+      "status": "saved",
+      "txt": "HD_UPD.dll+0x51607-5.7-R3-180-3.txt",
+      "attachments": [],
+      "attachments_saved": 0,
+      "attachments_reused": 0,
+      "attachments_empty": 0
+    }
+  ],
+  "pair_audit": {
+    "path": "pair-audit.json",
+    "counts": {
+      "exact_pair": 4,
+      "unverifiable_missing_txt_identity": 0,
+      "unverifiable_missing_dmp_identity": 0,
+      "same_site_different_exception": 0,
+      "build_mismatch": 0,
+      "empty_dump": 0,
+      "unknown_exception_class": 0,
+      "txt_parse_error": 0,
+      "dmp_parse_error": 0,
+      "unpaired_txt": 11,
+      "unpaired_dmp": 0,
+      "parse_error": 0
+    },
+    "quality_complete": false,
+    "complete": false
+  },
+  "context_quality": {
+    "analysis_ready_independent": true,
+    "followup_required": true,
+    "total": 15,
+    "returned": 15,
+    "truncated": false,
+    "cases": [
+      {
+        "path": "HD_UPD.dll+0x51607-5.6-R10-180-1.txt",
+        "priority": 6,
+        "missing": [
+          "без показаний игрока",
+          "слабый стек"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно.",
+          "Пришлите парный minidump и более полный лог со стеком."
+        ],
+        "exception_module": "HD_UPD.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.6 R10"
+      },
+      {
+        "path": "HD_UPD.dll+0x51607-5.6-R15-180-1.txt",
+        "priority": 6,
+        "missing": [
+          "без показаний игрока",
+          "слабый стек"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно.",
+          "Пришлите парный minidump и более полный лог со стеком."
+        ],
+        "exception_module": "HD_UPD.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.6 R15"
+      },
+      {
+        "path": "HD_UPD.dll+0x51607-5.6-R19-180-1.txt",
+        "priority": 6,
+        "missing": [
+          "без показаний игрока",
+          "слабый стек"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно.",
+          "Пришлите парный minidump и более полный лог со стеком."
+        ],
+        "exception_module": "HD_UPD.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.6 R19"
+      },
+      {
+        "path": "HD_UPD.dll+0x51607-5.6-R19-180-2.txt",
+        "priority": 6,
+        "missing": [
+          "без показаний игрока",
+          "слабый стек"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно.",
+          "Пришлите парный minidump и более полный лог со стеком."
+        ],
+        "exception_module": "HD_UPD.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.6 R19"
+      },
+      {
+        "path": "HD_UPD.dll+0x51607-5.7-R3-180-2.txt",
+        "priority": 6,
+        "missing": [
+          "без показаний игрока",
+          "слабый стек"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно.",
+          "Пришлите парный minidump и более полный лог со стеком."
+        ],
+        "exception_module": "HD_UPD.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R3"
+      },
+      {
+        "path": "HD_UPD.dll+0x51607-5.7-R3-180-3.txt",
+        "priority": 6,
+        "missing": [
+          "без показаний игрока",
+          "слабый стек"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно.",
+          "Пришлите парный minidump и более полный лог со стеком."
+        ],
+        "exception_module": "HD_UPD.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R3"
+      },
+      {
+        "path": "HD_UPD.dll+0x51607-5.7-R40-180-1.txt",
+        "priority": 6,
+        "missing": [
+          "без показаний игрока",
+          "слабый стек"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно.",
+          "Пришлите парный minidump и более полный лог со стеком."
+        ],
+        "exception_module": "HD_UPD.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R40"
+      },
+      {
+        "path": "HD_UPD.dll+0x51607-5.7-R40-180-2.txt",
+        "priority": 6,
+        "missing": [
+          "без показаний игрока",
+          "слабый стек"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно.",
+          "Пришлите парный minidump и более полный лог со стеком."
+        ],
+        "exception_module": "HD_UPD.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R40"
+      },
+      {
+        "path": "HD_UPD.dll+0x51607-5.7-R40-180-3.txt",
+        "priority": 6,
+        "missing": [
+          "без показаний игрока",
+          "слабый стек"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно.",
+          "Пришлите парный minidump и более полный лог со стеком."
+        ],
+        "exception_module": "HD_UPD.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R40"
+      },
+      {
+        "path": "HD_UPD.dll+0x51607-5.7-R40-180.txt",
+        "priority": 6,
+        "missing": [
+          "без показаний игрока",
+          "слабый стек"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно.",
+          "Пришлите парный minidump и более полный лог со стеком."
+        ],
+        "exception_module": "HD_UPD.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R40"
+      },
+      {
+        "path": "HD_UPD.dll+0x51607-5.7-RC9-180-1.txt",
+        "priority": 6,
+        "missing": [
+          "без показаний игрока",
+          "слабый стек"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно.",
+          "Пришлите парный minidump и более полный лог со стеком."
+        ],
+        "exception_module": "HD_UPD.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC9"
+      },
+      {
+        "path": "HD_UPD.dll+0x51607-5.6-R27-180-1.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_UPD.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.6 R27"
+      },
+      {
+        "path": "HD_UPD.dll+0x51607-5.6-R31-180-1.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_UPD.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.6 R31"
+      },
+      {
+        "path": "HD_UPD.dll+0x51607-5.7-R3-180-1.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_UPD.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 R3"
+      },
+      {
+        "path": "HD_UPD.dll+0x51607-5.7-RC7-180-1.txt",
+        "priority": 2,
+        "missing": [
+          "без показаний игрока"
+        ],
+        "questions": [
+          "Опишите, что происходило перед вылетом, последний игровой шаг и воспроизводится ли сбой повторно."
+        ],
+        "exception_module": "HD_UPD.dll",
+        "hota_version": "1.8.0",
+        "hd_version": "5.7 RC7"
+      }
+    ]
+  },
+  "readiness": {
+    "mail_download_complete": true,
+    "attachment_inventory_complete": true,
+    "pair_audit_complete": true,
+    "pair_audit_partial": false,
+    "pair_quality_complete": false,
+    "technical_ready": true,
+    "analysis_ready": true,
+    "analysis_ready_independent_of_context": true,
+    "strict_ready": false,
+    "release_ready": false,
+    "strict_blockers": [
+      "pair_quality_incomplete",
+      "context_followup_required"
+    ],
+    "context_quality_present": true,
+    "context_followup_required": true,
+    "unresolved_attachments": {
+      "count": 0,
+      "message_ids": []
+    },
+    "pair_audit_coverage": {
+      "manifest_txt": 14,
+      "classified_txt": 14,
+      "missing_txt": [],
+      "unknown_status_rows": 0
+    },
+    "pair_quality_counts": {
+      "exact_pair": 4,
+      "unverifiable_missing_txt_identity": 0,
+      "unverifiable_missing_dmp_identity": 0,
+      "same_site_different_exception": 0,
+      "build_mismatch": 0,
+      "empty_dump": 0,
+      "unknown_exception_class": 0,
+      "txt_parse_error": 0,
+      "dmp_parse_error": 0,
+      "unpaired_txt": 11,
+      "unpaired_dmp": 0,
+      "parse_error": 0
+    },
+    "note": "unpaired TXT is a pair-quality fact, not an incomplete mail download"
+  },
+  "complete": false
+}

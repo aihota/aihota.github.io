@@ -1,0 +1,35 @@
+{
+  "module": "HD_UPD.dll",
+  "addresses": {
+    "runtime": 1884689927,
+    "load_base": 1884356608,
+    "imagebase": 268435456,
+    "size_of_image": 483328,
+    "file_offset": 244231,
+    "rva": 333319,
+    "module_offset": 333319,
+    "ida": 268768775
+  },
+  "sources": {
+    "fault_address": "pair-audit.json exact TXT/DMP pair",
+    "load_base": "DMP ModuleList",
+    "imagebase": "HD_UPD.dll PE and R40 listing",
+    "file_offset": "PE section mapping for 180/HD_UPD.dll"
+  },
+  "identity": {
+    "level": "dmp-window",
+    "full_binary_match": false,
+    "window": {
+      "runtime": "0x705615E0",
+      "file_offset": "0x3B9E0",
+      "size": 128,
+      "matched": 128
+    }
+  },
+  "schema": 1,
+  "kind": "address_proof",
+  "validation": {
+    "status": "passed",
+    "errors": []
+  }
+}

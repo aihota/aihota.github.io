@@ -1,0 +1,2539 @@
+{
+  "source_dir": "/Users/Shared/ii/mail-dumps/HD_UPD.dll+0x51607",
+  "files_total": 15,
+  "uniques_count": 15,
+  "duplicate_groups": [],
+  "family_fingerprint": {
+    "schema": 2,
+    "unique_incidents": 15,
+    "modules": {
+      "hd_upd.dll": 15
+    },
+    "header_modules": {
+      "hd_upd.dll": 15
+    },
+    "fault_sites": {
+      "hd_upd.dll+0x51607": 15
+    },
+    "fault_site_precedence": "range_resolved_absolute_address_before_header_name",
+    "structure_role": "не задана",
+    "field_offset": "не задано",
+    "faulting_equals_register": {
+      "нет равного регистра": 15
+    },
+    "pointer_classes": {
+      "повторяющийся байт": 15
+    },
+    "frame_depths": {
+      "0xDB": 15
+    },
+    "subtypes": {
+      "прочее": 15
+    },
+    "call_tail_shapes": {
+      "0x3154f200": 1,
+      "0x46554200": 1,
+      "0x6c554200": 1,
+      "0x6c554200 -> 0x0079583a": 1,
+      "0x6d554200": 1,
+      "0x72554200": 1,
+      "0x82554200 -> 0x00000000": 1,
+      "0xb8554200 -> 0x00000000": 1,
+      "0xcf554200": 2,
+      "0xe8554200 -> 0x00000003": 1,
+      "0xea554200": 1,
+      "0xf6554200": 1,
+      "0xfc554200": 1,
+      "igd9dxva32.dll+<смещение>": 1
+    },
+    "evidence": "не задано",
+    "cross_version_matrix": null,
+    "cross_version_level": "не задано",
+    "reentrant_features": {
+      "available": false,
+      "population": 15,
+      "counts": {},
+      "all_incidents": []
+    },
+    "sha256": "58065e3e3e55fa8b309fb1a3ea82c8920fa67b9efd28ec7be89e4ae7d78ff852"
+  },
+  "uniques": [
+    {
+      "file": "HD_UPD.dll+0x51607-5.6-R10-180-1.txt",
+      "hd_version": "5.6 R10",
+      "hota_version": "1.8.0",
+      "time": "01/04/2026\t09:32:41",
+      "tag": "A3V7I2XBHG499WN997-8YW857",
+      "exc_module": "HD_UPD.dll",
+      "exc_module_raw": "HD_UPD.dll",
+      "exc_module_canonical": "HD_UPD.dll",
+      "context_eip": null,
+      "context_eip_module_raw": null,
+      "context_eip_module_canonical": "",
+      "context_eip_offset": null,
+      "exc_address": "HD_UPD.dll+0x51607",
+      "exc_code": "EXCEPTION_ACCESS_VIOLATION",
+      "op": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "faulting": "0xFFFFFFFF",
+      "exc_params": [],
+      "regs": {
+        "EAX": "0x08CAA3A0",
+        "ECX": "0x08CAD48F",
+        "EDX": "0x08CAB164",
+        "EBX": "0x00000001",
+        "ESP": "0x00129F04",
+        "EBP": "0x00129FDF",
+        "ESI": "0x08CAB164",
+        "EDI": "0x0012FAB8"
+      },
+      "deltas": {
+        "EBP-EDI": -23257,
+        "EDI-ESP": 23476,
+        "ESP-EBP": -219,
+        "EBX-EBP": -1220574,
+        "EBX-ESP": -1220355
+      },
+      "frame_pairs": [],
+      "frame_tokens": [
+        "0x3154F200"
+      ],
+      "frames_v2_map": {
+        "1847137799": [
+          "HD_UPD",
+          1846804480
+        ]
+      },
+      "modules": [
+        [
+          4194304,
+          "h3hota HD.exe",
+          3043328
+        ],
+        [
+          268435456,
+          "_hd3_.dll",
+          385024
+        ],
+        [
+          1378418688,
+          "patcher_x86.dll",
+          774144
+        ],
+        [
+          3080192,
+          "smackw32.dll",
+          110592
+        ],
+        [
+          3211264,
+          "binkw32.dll",
+          176128
+        ],
+        [
+          3407872,
+          "IFC20.dll",
+          143360
+        ],
+        [
+          34799616,
+          "hota.dll",
+          73998336
+        ],
+        [
+          28508160,
+          "Wogcn.dll",
+          471040
+        ],
+        [
+          1846804480,
+          "HD_UPD.dll",
+          483328
+        ],
+        [
+          11075584,
+          "HD_SCX2.dll",
+          114688
+        ],
+        [
+          123994112,
+          "HD_HOTA.dll",
+          19447808
+        ],
+        [
+          30539776,
+          "HW_HOTA.dll",
+          262144
+        ],
+        [
+          1833631744,
+          "cursors.dll",
+          303104
+        ],
+        [
+          554696704,
+          "mss32.dll",
+          389120
+        ],
+        [
+          805306368,
+          "binkw32new.dll",
+          450560
+        ],
+        [
+          653262848,
+          "mp3dec.asi",
+          172032
+        ]
+      ],
+      "ingame": {
+        "Me": "0",
+        "Active Player": "0",
+        "Day": "0 00",
+        "Map file": "test.h3m",
+        "Last RMG Seed": "0",
+        "Network Game": "0"
+      },
+      "comment": "",
+      "ini": {
+        "Graphics.Threads": "4",
+        "Graphics.AdvMap.Threads": "-1",
+        "Graphics.Mode": "0",
+        "Memory.Mod": "0",
+        "Quick Combat": "1",
+        "OpenGL.Upscaling": "2",
+        "Misc.BattleSaver": "0",
+        "Misc.TournamentSaver": "0"
+      }
+    },
+    {
+      "file": "HD_UPD.dll+0x51607-5.6-R15-180-1.txt",
+      "hd_version": "5.6 R15",
+      "hota_version": "1.8.0",
+      "time": "01/12/2026\t04:11:34",
+      "tag": "9999_9999_9999_9997.SH-HHW-UFGFIV 7951T",
+      "exc_module": "HD_UPD.dll",
+      "exc_module_raw": "HD_UPD.dll",
+      "exc_module_canonical": "HD_UPD.dll",
+      "context_eip": null,
+      "context_eip_module_raw": null,
+      "context_eip_module_canonical": "",
+      "context_eip_offset": null,
+      "exc_address": "HD_UPD.dll+0x51607",
+      "exc_code": "EXCEPTION_ACCESS_VIOLATION",
+      "op": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "faulting": "0xFFFFFFFF",
+      "exc_params": [],
+      "regs": {
+        "EAX": "0x0A43A390",
+        "ECX": "0x0A43EF82",
+        "EDX": "0x0A43B674",
+        "EBX": "0x00000001",
+        "ESP": "0x00199EEC",
+        "EBP": "0x00199FC7",
+        "ESI": "0x0A43B674",
+        "EDI": "0x0019FAA0"
+      },
+      "deltas": {
+        "EBP-EDI": -23257,
+        "EDI-ESP": 23476,
+        "ESP-EBP": -219,
+        "EBX-EBP": -1679302,
+        "EBX-ESP": -1679083
+      },
+      "frame_pairs": [],
+      "frame_tokens": [
+        "0xEA554200"
+      ],
+      "frames_v2_map": {
+        "1554847239": [
+          "HD_UPD",
+          1554513920
+        ],
+        "112676865": [
+          "hota",
+          63700992
+        ]
+      },
+      "modules": [
+        [
+          4194304,
+          "h3hota HD.exe",
+          3043328
+        ],
+        [
+          268435456,
+          "_hd3_.dll",
+          385024
+        ],
+        [
+          1552941056,
+          "patcher_x86.dll",
+          774144
+        ],
+        [
+          16384000,
+          "smackw32.dll",
+          151552
+        ],
+        [
+          16580608,
+          "binkw32.dll",
+          176128
+        ],
+        [
+          16777216,
+          "IFC20.dll",
+          143360
+        ],
+        [
+          18022400,
+          "Wogcn.dll",
+          471040
+        ],
+        [
+          63700992,
+          "hota.dll",
+          73998336
+        ],
+        [
+          1554513920,
+          "HD_UPD.dll",
+          483328
+        ],
+        [
+          49086464,
+          "HD_SCX2.dll",
+          114688
+        ],
+        [
+          146407424,
+          "HD_HOTA.dll",
+          19456000
+        ],
+        [
+          139395072,
+          "HW_HOTA.dll",
+          262144
+        ],
+        [
+          1554186240,
+          "cursors.dll",
+          303104
+        ],
+        [
+          554696704,
+          "mss32.dll",
+          389120
+        ],
+        [
+          805306368,
+          "binkw32new.dll",
+          450560
+        ],
+        [
+          1518534656,
+          "discord.dll",
+          2936832
+        ],
+        [
+          653262848,
+          "mp3dec.asi",
+          172032
+        ]
+      ],
+      "ingame": {
+        "Me": "0",
+        "Active Player": "0",
+        "Day": "0 00",
+        "Map file": "test.h3m",
+        "Last RMG Seed": "0",
+        "Network Game": "0"
+      },
+      "comment": "",
+      "ini": {
+        "Graphics.Threads": "4",
+        "Graphics.AdvMap.Threads": "-1",
+        "Graphics.Mode": "2",
+        "Memory.Mod": "0",
+        "Quick Combat": "1",
+        "OpenGL.Upscaling": "2",
+        "Misc.BattleSaver": "0",
+        "Misc.TournamentSaver": "0"
+      }
+    },
+    {
+      "file": "HD_UPD.dll+0x51607-5.6-R19-180-1.txt",
+      "hd_version": "5.6 R19",
+      "hota_version": "1.8.0",
+      "time": "01/19/2026\t17:01:39",
+      "tag": "9974_614X_8859_8Z2Y.HZNHFMT HHW 029 KIL 8GY",
+      "exc_module": "HD_UPD.dll",
+      "exc_module_raw": "HD_UPD.dll",
+      "exc_module_canonical": "HD_UPD.dll",
+      "context_eip": null,
+      "context_eip_module_raw": null,
+      "context_eip_module_canonical": "",
+      "context_eip_offset": null,
+      "exc_address": "HD_UPD.dll+0x51607",
+      "exc_code": "EXCEPTION_ACCESS_VIOLATION",
+      "op": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "faulting": "0xFFFFFFFF",
+      "exc_params": [],
+      "regs": {
+        "EAX": "0x0A9148F0",
+        "ECX": "0x0A9144FF",
+        "EDX": "0x0A9170B4",
+        "EBX": "0x00000001",
+        "ESP": "0x00199F08",
+        "EBP": "0x00199FE3",
+        "ESI": "0x0A9170B4",
+        "EDI": "0x0019FABC"
+      },
+      "deltas": {
+        "EBP-EDI": -23257,
+        "EDI-ESP": 23476,
+        "ESP-EBP": -219,
+        "EBX-EBP": -1679330,
+        "EBX-ESP": -1679111
+      },
+      "frame_pairs": [],
+      "frame_tokens": [
+        "0x46554200"
+      ],
+      "frames_v2_map": {
+        "1805129223": [
+          "HD_UPD",
+          1804795904
+        ]
+      },
+      "modules": [
+        [
+          4194304,
+          "h3hota HD.exe",
+          3043328
+        ],
+        [
+          268435456,
+          "_hd3_.dll",
+          385024
+        ],
+        [
+          1798242304,
+          "patcher_x86.dll",
+          774144
+        ],
+        [
+          16121856,
+          "smackw32.dll",
+          151552
+        ],
+        [
+          16318464,
+          "binkw32.dll",
+          176128
+        ],
+        [
+          16515072,
+          "IFC20.dll",
+          143360
+        ],
+        [
+          52953088,
+          "hota.dll",
+          73998336
+        ],
+        [
+          47841280,
+          "Wogcn.dll",
+          471040
+        ],
+        [
+          1804795904,
+          "HD_UPD.dll",
+          483328
+        ],
+        [
+          51970048,
+          "HD_MCR.dll",
+          151552
+        ],
+        [
+          146145280,
+          "HD_TC2.dll",
+          3993600
+        ],
+        [
+          50659328,
+          "HD_SCX2.dll",
+          114688
+        ],
+        [
+          150142976,
+          "HD_HOTA.dll",
+          18333696
+        ],
+        [
+          169607168,
+          "HW_HOTA.dll",
+          221184
+        ],
+        [
+          1804468224,
+          "cursors.dll",
+          303104
+        ],
+        [
+          554696704,
+          "mss32.dll",
+          389120
+        ],
+        [
+          805306368,
+          "binkw32new.dll",
+          450560
+        ],
+        [
+          1574305792,
+          "discord.dll",
+          2936832
+        ],
+        [
+          653262848,
+          "mp3dec.asi",
+          172032
+        ]
+      ],
+      "ingame": {
+        "Me": "0",
+        "Active Player": "0",
+        "Day": "0 00",
+        "Map file": "test.h3m",
+        "Last RMG Seed": "0",
+        "Network Game": "0"
+      },
+      "comment": "",
+      "ini": {
+        "Graphics.Threads": "16",
+        "Graphics.AdvMap.Threads": "-1",
+        "Graphics.Mode": "5",
+        "Memory.Mod": "0",
+        "Quick Combat": "1",
+        "OpenGL.Upscaling": "2",
+        "Misc.BattleSaver": "1",
+        "Misc.TournamentSaver": "1"
+      }
+    },
+    {
+      "file": "HD_UPD.dll+0x51607-5.6-R19-180-2.txt",
+      "hd_version": "5.6 R19",
+      "hota_version": "1.8.0",
+      "time": "01/22/2026\t20:45:41",
+      "tag": null,
+      "exc_module": "HD_UPD.dll",
+      "exc_module_raw": "HD_UPD.dll",
+      "exc_module_canonical": "HD_UPD.dll",
+      "context_eip": null,
+      "context_eip_module_raw": null,
+      "context_eip_module_canonical": "",
+      "context_eip_offset": null,
+      "exc_address": "HD_UPD.dll+0x51607",
+      "exc_code": "EXCEPTION_ACCESS_VIOLATION",
+      "op": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "faulting": "0xFFFFFFFF",
+      "exc_params": [],
+      "regs": {
+        "EAX": "0x05EAA3A0",
+        "ECX": "0x05EAED02",
+        "EDX": "0x05EAB834",
+        "EBX": "0x00000001",
+        "ESP": "0x00189F20",
+        "EBP": "0x00189FFB",
+        "ESI": "0x05EAB834",
+        "EDI": "0x0018FAD4"
+      },
+      "deltas": {
+        "EBP-EDI": -23257,
+        "EDI-ESP": 23476,
+        "ESP-EBP": -219,
+        "EBX-EBP": -1613818,
+        "EBX-ESP": -1613599
+      },
+      "frame_pairs": [],
+      "frame_tokens": [
+        "0x72554200"
+      ],
+      "frames_v2_map": {
+        "1952257543": [
+          "HD_UPD",
+          1951924224
+        ]
+      },
+      "modules": [
+        [
+          4194304,
+          "h3hota HD.exe",
+          3043328
+        ],
+        [
+          268435456,
+          "_hd3_.dll",
+          385024
+        ],
+        [
+          1950941184,
+          "patcher_x86.dll",
+          774144
+        ],
+        [
+          2424832,
+          "smackw32.dll",
+          151552
+        ],
+        [
+          3670016,
+          "binkw32.dll",
+          176128
+        ],
+        [
+          3866624,
+          "IFC20.dll",
+          143360
+        ],
+        [
+          1465122816,
+          "hota.dll",
+          73998336
+        ],
+        [
+          57737216,
+          "Wogcn.dll",
+          471040
+        ],
+        [
+          53870592,
+          "HD_SCX2.dll",
+          114688
+        ],
+        [
+          69664768,
+          "HD_HOTA.dll",
+          18333696
+        ],
+        [
+          88604672,
+          "HW_HOTA.dll",
+          221184
+        ],
+        [
+          1949564928,
+          "cursors.dll",
+          303104
+        ],
+        [
+          554696704,
+          "mss32.dll",
+          389120
+        ],
+        [
+          805306368,
+          "binkw32new.dll",
+          450560
+        ],
+        [
+          653262848,
+          "mp3dec.asi",
+          172032
+        ]
+      ],
+      "ingame": {
+        "Me": "0",
+        "Active Player": "0",
+        "Day": "0 00",
+        "Map file": "test.h3m",
+        "Last RMG Seed": "0",
+        "Network Game": "0"
+      },
+      "comment": "",
+      "ini": {
+        "Graphics.Threads": "4",
+        "Graphics.AdvMap.Threads": "-1",
+        "Graphics.Mode": "0",
+        "Memory.Mod": "0",
+        "Quick Combat": "0",
+        "OpenGL.Upscaling": "2",
+        "Misc.BattleSaver": "1",
+        "Misc.TournamentSaver": "1"
+      }
+    },
+    {
+      "file": "HD_UPD.dll+0x51607-5.6-R27-180-1.txt",
+      "hd_version": "5.6 R27",
+      "hota_version": "1.8.0",
+      "time": "02/26/2026\t18:31:25",
+      "tag": "DW-DXX6U2CZ6P8ZDWX DW89VAVC-39N7MZ9",
+      "exc_module": "HD_UPD.dll",
+      "exc_module_raw": "HD_UPD.dll",
+      "exc_module_canonical": "HD_UPD.dll",
+      "context_eip": null,
+      "context_eip_module_raw": null,
+      "context_eip_module_canonical": "",
+      "context_eip_offset": null,
+      "exc_address": "HD_UPD.dll+0x51607",
+      "exc_code": "EXCEPTION_ACCESS_VIOLATION",
+      "op": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "faulting": "0xFFFFFFFF",
+      "exc_params": [],
+      "regs": {
+        "EAX": "0x0B8BA740",
+        "ECX": "0x0B8BA3DA",
+        "EDX": "0x0B8BB644",
+        "EBX": "0x00000001",
+        "ESP": "0x00199F08",
+        "EBP": "0x00199FE3",
+        "ESI": "0x0B8BB644",
+        "EDI": "0x0019FABC"
+      },
+      "deltas": {
+        "EBP-EDI": -23257,
+        "EDI-ESP": 23476,
+        "ESP-EBP": -219,
+        "EBX-EBP": -1679330,
+        "EBX-ESP": -1679111
+      },
+      "frame_pairs": [],
+      "frame_tokens": [
+        "0xE8554200",
+        "0x00000003"
+      ],
+      "frames_v2_map": {
+        "1961825799": [
+          "HD_UPD",
+          1961492480
+        ]
+      },
+      "modules": [
+        [
+          4194304,
+          "h3hota HD.exe",
+          3043328
+        ],
+        [
+          2042167296,
+          "VERSION.dll",
+          2826240
+        ],
+        [
+          268435456,
+          "_hd3_.dll",
+          393216
+        ],
+        [
+          2082668544,
+          "patcher_x86.dll",
+          774144
+        ],
+        [
+          15990784,
+          "smackw32.dll",
+          110592
+        ],
+        [
+          16121856,
+          "binkw32.dll",
+          176128
+        ],
+        [
+          16318464,
+          "IFC20.dll",
+          143360
+        ],
+        [
+          49086464,
+          "Wogcn.dll",
+          471040
+        ],
+        [
+          63569920,
+          "hota.dll",
+          73998336
+        ],
+        [
+          2046492672,
+          "H3CN.asi",
+          18022400
+        ],
+        [
+          1961492480,
+          "HD_UPD.dll",
+          483328
+        ],
+        [
+          1859518464,
+          "HD_VGL2.dll",
+          389120
+        ],
+        [
+          205455360,
+          "HD_TC2.dll",
+          3993600
+        ],
+        [
+          209453056,
+          "HD_HOTA.dll",
+          18472960
+        ],
+        [
+          194445312,
+          "HW_HOTA.dll",
+          221184
+        ],
+        [
+          2089615360,
+          "cursors.dll",
+          303104
+        ],
+        [
+          554696704,
+          "mss32.dll",
+          389120
+        ],
+        [
+          805306368,
+          "binkw32new.dll",
+          450560
+        ],
+        [
+          2065104896,
+          "discord.dll",
+          2936832
+        ],
+        [
+          653262848,
+          "mp3dec.asi",
+          172032
+        ]
+      ],
+      "ingame": {
+        "Me": "0",
+        "Active Player": "0",
+        "Day": "0 00",
+        "Map file": "test.h3m",
+        "Last RMG Seed": "0",
+        "Network Game": "0"
+      },
+      "comment": "",
+      "ini": {
+        "Graphics.Threads": "2",
+        "Graphics.AdvMap.Threads": "-1",
+        "Graphics.Mode": "7",
+        "Memory.Mod": "0",
+        "Quick Combat": "0",
+        "OpenGL.Upscaling": "0",
+        "Misc.BattleSaver": "0",
+        "Misc.TournamentSaver": "0"
+      }
+    },
+    {
+      "file": "HD_UPD.dll+0x51607-5.6-R31-180-1.txt",
+      "hd_version": "5.6 R31",
+      "hota_version": "1.8.0",
+      "time": "03/25/2026\t21:41:52",
+      "tag": null,
+      "exc_module": "HD_UPD.dll",
+      "exc_module_raw": "HD_UPD.dll",
+      "exc_module_canonical": "HD_UPD.dll",
+      "context_eip": null,
+      "context_eip_module_raw": null,
+      "context_eip_module_canonical": "",
+      "context_eip_offset": null,
+      "exc_address": "HD_UPD.dll+0x51607",
+      "exc_code": "EXCEPTION_ACCESS_VIOLATION",
+      "op": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "faulting": "0xFFFFFFFF",
+      "exc_params": [],
+      "regs": {
+        "EAX": "0x0DDD6850",
+        "ECX": "0x0DDD602F",
+        "EDX": "0x0DDD3644",
+        "EBX": "0x00000001",
+        "ESP": "0x001A9F08",
+        "EBP": "0x001A9FE3",
+        "ESI": "0x0DDD3644",
+        "EDI": "0x001AFABC"
+      },
+      "deltas": {
+        "EBP-EDI": -23257,
+        "EDI-ESP": 23476,
+        "ESP-EBP": -219,
+        "EBX-EBP": -1744866,
+        "EBX-ESP": -1744647
+      },
+      "frame_pairs": [],
+      "frame_tokens": [
+        "0x82554200",
+        "0x00000000"
+      ],
+      "frames_v2_map": {
+        "1426200071": [
+          "HD_UPD",
+          1425866752
+        ]
+      },
+      "modules": [
+        [
+          4194304,
+          "h3hota HD.exe",
+          3043328
+        ],
+        [
+          268435456,
+          "_hd3_.dll",
+          393216
+        ],
+        [
+          1427243008,
+          "binkw32.dll",
+          204800
+        ],
+        [
+          1426456576,
+          "patcher_x86.dll",
+          774144
+        ],
+        [
+          17629184,
+          "smackw32.dll",
+          110592
+        ],
+        [
+          17760256,
+          "IFC20.dll",
+          143360
+        ],
+        [
+          19202048,
+          "binkw32_o.dll",
+          176128
+        ],
+        [
+          23134208,
+          "Wogcn.dll",
+          471040
+        ],
+        [
+          1425866752,
+          "HD_UPD.dll",
+          483328
+        ],
+        [
+          1425473536,
+          "HD_VGL2.dll",
+          389120
+        ],
+        [
+          201129984,
+          "HD_TC2.dll",
+          3993600
+        ],
+        [
+          8912896,
+          "HD_SCX2.dll",
+          114688
+        ],
+        [
+          205127680,
+          "HD_HOTA.dll",
+          18472960
+        ],
+        [
+          186187776,
+          "HW_HOTA.dll",
+          221184
+        ],
+        [
+          1425145856,
+          "cursors.dll",
+          303104
+        ],
+        [
+          554696704,
+          "mss32.dll",
+          389120
+        ],
+        [
+          805306368,
+          "binkw32new.dll",
+          450560
+        ],
+        [
+          1413021696,
+          "discord.dll",
+          2936832
+        ],
+        [
+          653262848,
+          "mp3dec.asi",
+          172032
+        ]
+      ],
+      "ingame": {
+        "Me": "0",
+        "Active Player": "0",
+        "Day": "0 00",
+        "Map file": "test.h3m",
+        "Last RMG Seed": "0",
+        "Network Game": "0"
+      },
+      "comment": "",
+      "ini": {
+        "Graphics.Threads": "4",
+        "Graphics.AdvMap.Threads": "-1",
+        "Graphics.Mode": "7",
+        "Memory.Mod": "0",
+        "Quick Combat": "1",
+        "OpenGL.Upscaling": "5",
+        "Misc.BattleSaver": "1",
+        "Misc.TournamentSaver": "0"
+      }
+    },
+    {
+      "file": "HD_UPD.dll+0x51607-5.7-R3-180-1.txt",
+      "hd_version": "5.7 R3",
+      "hota_version": "1.8.0",
+      "time": "05/31/2026\t17:48:04",
+      "tag": "V176_1UZ3_YU46_9998_998Y_551Y_5Z8U_8YYU.MENVDW KX HM259 HWWKGJW-8G99-8997",
+      "exc_module": "HD_UPD.dll",
+      "exc_module_raw": "HD_UPD.dll",
+      "exc_module_canonical": "HD_UPD.dll",
+      "context_eip": null,
+      "context_eip_module_raw": null,
+      "context_eip_module_canonical": "",
+      "context_eip_offset": null,
+      "exc_address": "HD_UPD.dll+0x51607",
+      "exc_code": "EXCEPTION_ACCESS_VIOLATION",
+      "op": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "faulting": "0xFFFFFFFF",
+      "exc_params": [],
+      "regs": {
+        "EAX": "0x0A95A370",
+        "ECX": "0x0A95EC02",
+        "EDX": "0x0A95C074",
+        "EBX": "0x00000001",
+        "ESP": "0x001A9F48",
+        "EBP": "0x001AA023",
+        "ESI": "0x0A95C074",
+        "EDI": "0x001AFAFC"
+      },
+      "deltas": {
+        "EBP-EDI": -23257,
+        "EDI-ESP": 23476,
+        "ESP-EBP": -219,
+        "EBX-EBP": -1744930,
+        "EBX-ESP": -1744711
+      },
+      "frame_pairs": [],
+      "frame_tokens": [
+        "0x6C554200",
+        "0x0079583A"
+      ],
+      "frames_v2_map": {
+        "1416369671": [
+          "HD_UPD",
+          1416036352
+        ]
+      },
+      "modules": [
+        [
+          4194304,
+          "h3hota HD.exe",
+          3043328
+        ],
+        [
+          268435456,
+          "_hd3_.dll",
+          335872
+        ],
+        [
+          1409875968,
+          "patcher_x86.dll",
+          774144
+        ],
+        [
+          18677760,
+          "smackw32.dll",
+          151552
+        ],
+        [
+          18874368,
+          "IFC20.dll",
+          143360
+        ],
+        [
+          19070976,
+          "binkw32.dll",
+          176128
+        ],
+        [
+          55443456,
+          "hota.dll",
+          73998336
+        ],
+        [
+          53018624,
+          "Wogcn.dll",
+          471040
+        ],
+        [
+          1416036352,
+          "HD_UPD.dll",
+          483328
+        ],
+        [
+          10027008,
+          "HD_MCR.dll",
+          151552
+        ],
+        [
+          145489920,
+          "HD_TC2.dll",
+          3993600
+        ],
+        [
+          13172736,
+          "HD_SCX2.dll",
+          110592
+        ],
+        [
+          149487616,
+          "HD_HOTA.dll",
+          18460672
+        ],
+        [
+          130023424,
+          "HW_HOTA.dll",
+          221184
+        ],
+        [
+          1413283840,
+          "cursors.dll",
+          303104
+        ],
+        [
+          554696704,
+          "mss32.dll",
+          389120
+        ],
+        [
+          805306368,
+          "binkw32new.dll",
+          450560
+        ],
+        [
+          1406926848,
+          "discord.dll",
+          2936832
+        ],
+        [
+          653262848,
+          "mp3dec.asi",
+          172032
+        ]
+      ],
+      "ingame": {
+        "Me": "0",
+        "Active Player": "0",
+        "Day": "0 00",
+        "Map file": "test.h3m",
+        "Last RMG Seed": "0",
+        "Network Game": "0"
+      },
+      "comment": "",
+      "ini": {
+        "Graphics.Threads": "16",
+        "Graphics.AdvMap.Threads": "-1",
+        "Graphics.Mode": "5",
+        "Memory.Mod": "0",
+        "Quick Combat": "0",
+        "OpenGL.Upscaling": "2",
+        "Misc.BattleSaver": "1",
+        "Misc.TournamentSaver": "1"
+      }
+    },
+    {
+      "file": "HD_UPD.dll+0x51607-5.7-R3-180-2.txt",
+      "hd_version": "5.7 R3",
+      "hota_version": "1.8.0",
+      "time": "05/31/2026\t20:10:49",
+      "tag": null,
+      "exc_module": "HD_UPD.dll",
+      "exc_module_raw": "HD_UPD.dll",
+      "exc_module_canonical": "HD_UPD.dll",
+      "context_eip": null,
+      "context_eip_module_raw": null,
+      "context_eip_module_canonical": "",
+      "context_eip_offset": null,
+      "exc_address": "HD_UPD.dll+0x51607",
+      "exc_code": "EXCEPTION_ACCESS_VIOLATION",
+      "op": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "faulting": "0xFFFFFFFF",
+      "exc_params": [],
+      "regs": {
+        "EAX": "0x0A95A370",
+        "ECX": "0x0A95EC02",
+        "EDX": "0x0A95C074",
+        "EBX": "0x00000001",
+        "ESP": "0x001A9F48",
+        "EBP": "0x001AA023",
+        "ESI": "0x0A95C074",
+        "EDI": "0x001AFAFC"
+      },
+      "deltas": {
+        "EBP-EDI": -23257,
+        "EDI-ESP": 23476,
+        "ESP-EBP": -219,
+        "EBX-EBP": -1744930,
+        "EBX-ESP": -1744711
+      },
+      "frame_pairs": [],
+      "frame_tokens": [
+        "0x6D554200"
+      ],
+      "frames_v2_map": {
+        "1416369671": [
+          "HD_UPD",
+          1416036352
+        ]
+      },
+      "modules": [
+        [
+          4194304,
+          "h3hota HD.exe",
+          3043328
+        ],
+        [
+          268435456,
+          "_hd3_.dll",
+          335872
+        ],
+        [
+          1411842048,
+          "patcher_x86.dll",
+          774144
+        ],
+        [
+          18743296,
+          "smackw32.dll",
+          151552
+        ],
+        [
+          18939904,
+          "binkw32.dll",
+          176128
+        ],
+        [
+          19136512,
+          "IFC20.dll",
+          143360
+        ],
+        [
+          55508992,
+          "hota.dll",
+          73998336
+        ],
+        [
+          52887552,
+          "Wogcn.dll",
+          471040
+        ],
+        [
+          1416036352,
+          "HD_UPD.dll",
+          483328
+        ],
+        [
+          129826816,
+          "HD_MCR.dll",
+          151552
+        ],
+        [
+          144441344,
+          "HD_TC2.dll",
+          3993600
+        ],
+        [
+          148439040,
+          "HD_SCX2.dll",
+          110592
+        ],
+        [
+          149880832,
+          "HD_HOTA.dll",
+          18460672
+        ],
+        [
+          171376640,
+          "HW_HOTA.dll",
+          221184
+        ],
+        [
+          1415708672,
+          "cursors.dll",
+          303104
+        ],
+        [
+          554696704,
+          "mss32.dll",
+          389120
+        ],
+        [
+          805306368,
+          "binkw32new.dll",
+          450560
+        ],
+        [
+          1406664704,
+          "discord.dll",
+          2936832
+        ],
+        [
+          653262848,
+          "mp3dec.asi",
+          172032
+        ]
+      ],
+      "ingame": {
+        "Me": "0",
+        "Active Player": "0",
+        "Day": "0 00",
+        "Map file": "test.h3m",
+        "Last RMG Seed": "0",
+        "Network Game": "0"
+      },
+      "comment": "",
+      "ini": {
+        "Graphics.Threads": "16",
+        "Graphics.AdvMap.Threads": "-1",
+        "Graphics.Mode": "5",
+        "Memory.Mod": "0",
+        "Quick Combat": "0",
+        "OpenGL.Upscaling": "2",
+        "Misc.BattleSaver": "1",
+        "Misc.TournamentSaver": "1"
+      }
+    },
+    {
+      "file": "HD_UPD.dll+0x51607-5.7-R3-180-3.txt",
+      "hd_version": "5.7 R3",
+      "hota_version": "1.8.0",
+      "time": "05/31/2026\t20:12:00",
+      "tag": null,
+      "exc_module": "HD_UPD.dll",
+      "exc_module_raw": "HD_UPD.dll",
+      "exc_module_canonical": "HD_UPD.dll",
+      "context_eip": null,
+      "context_eip_module_raw": null,
+      "context_eip_module_canonical": "",
+      "context_eip_offset": null,
+      "exc_address": "HD_UPD.dll+0x51607",
+      "exc_code": "EXCEPTION_ACCESS_VIOLATION",
+      "op": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "faulting": "0xFFFFFFFF",
+      "exc_params": [],
+      "regs": {
+        "EAX": "0x0A8FA370",
+        "ECX": "0x0A8FEC02",
+        "EDX": "0x0A8FC074",
+        "EBX": "0x00000001",
+        "ESP": "0x001A9F48",
+        "EBP": "0x001AA023",
+        "ESI": "0x0A8FC074",
+        "EDI": "0x001AFAFC"
+      },
+      "deltas": {
+        "EBP-EDI": -23257,
+        "EDI-ESP": 23476,
+        "ESP-EBP": -219,
+        "EBX-EBP": -1744930,
+        "EBX-ESP": -1744711
+      },
+      "frame_pairs": [],
+      "frame_tokens": [
+        "0x6C554200"
+      ],
+      "frames_v2_map": {
+        "1416369671": [
+          "HD_UPD",
+          1416036352
+        ]
+      },
+      "modules": [
+        [
+          4194304,
+          "h3hota HD.exe",
+          3043328
+        ],
+        [
+          268435456,
+          "_hd3_.dll",
+          335872
+        ],
+        [
+          1413087232,
+          "patcher_x86.dll",
+          774144
+        ],
+        [
+          18677760,
+          "smackw32.dll",
+          151552
+        ],
+        [
+          18874368,
+          "binkw32.dll",
+          176128
+        ],
+        [
+          19070976,
+          "IFC20.dll",
+          143360
+        ],
+        [
+          55443456,
+          "hota.dll",
+          73998336
+        ],
+        [
+          50724864,
+          "Wogcn.dll",
+          471040
+        ],
+        [
+          1416036352,
+          "HD_UPD.dll",
+          483328
+        ],
+        [
+          141426688,
+          "HD_MCR.dll",
+          151552
+        ],
+        [
+          141623296,
+          "HD_TC2.dll",
+          3993600
+        ],
+        [
+          145620992,
+          "HD_SCX2.dll",
+          110592
+        ],
+        [
+          145817600,
+          "HD_HOTA.dll",
+          18460672
+        ],
+        [
+          166199296,
+          "HW_HOTA.dll",
+          221184
+        ],
+        [
+          1415708672,
+          "cursors.dll",
+          303104
+        ],
+        [
+          554696704,
+          "mss32.dll",
+          389120
+        ],
+        [
+          805306368,
+          "binkw32new.dll",
+          450560
+        ],
+        [
+          1408696320,
+          "discord.dll",
+          2936832
+        ],
+        [
+          653262848,
+          "mp3dec.asi",
+          172032
+        ]
+      ],
+      "ingame": {
+        "Me": "0",
+        "Active Player": "0",
+        "Day": "0 00",
+        "Map file": "test.h3m",
+        "Last RMG Seed": "0",
+        "Network Game": "0"
+      },
+      "comment": "",
+      "ini": {
+        "Graphics.Threads": "16",
+        "Graphics.AdvMap.Threads": "-1",
+        "Graphics.Mode": "5",
+        "Memory.Mod": "0",
+        "Quick Combat": "0",
+        "OpenGL.Upscaling": "2",
+        "Misc.BattleSaver": "1",
+        "Misc.TournamentSaver": "1"
+      }
+    },
+    {
+      "file": "HD_UPD.dll+0x51607-5.7-R40-180-1.txt",
+      "hd_version": "5.7 R40",
+      "hota_version": "1.8.0",
+      "time": "08/16/2026\t14:41:44",
+      "tag": "VH14M393588294U8UHP SBMRC HX688 HZGZ 871TY",
+      "exc_module": "HD_UPD.dll",
+      "exc_module_raw": "HD_UPD.dll",
+      "exc_module_canonical": "HD_UPD.dll",
+      "context_eip": null,
+      "context_eip_module_raw": null,
+      "context_eip_module_canonical": "",
+      "context_eip_offset": null,
+      "exc_address": "HD_UPD.dll+0x51607",
+      "exc_code": "EXCEPTION_ACCESS_VIOLATION",
+      "op": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "faulting": "0xFFFFFFFF",
+      "exc_params": [],
+      "regs": {
+        "EAX": "0x08A66620",
+        "ECX": "0x08A66B47",
+        "EDX": "0x08831984",
+        "EBX": "0x00000001",
+        "ESP": "0x00199F48",
+        "EBP": "0x0019A023",
+        "ESI": "0x08831984",
+        "EDI": "0x0019FAFC"
+      },
+      "deltas": {
+        "EBP-EDI": -23257,
+        "EDI-ESP": 23476,
+        "ESP-EBP": -219,
+        "EBX-EBP": -1679394,
+        "EBX-ESP": -1679175
+      },
+      "frame_pairs": [],
+      "frame_tokens": [
+        "0xCF554200"
+      ],
+      "frames_v2_map": {
+        "1884689927": [
+          "HD_UPD",
+          1884356608
+        ]
+      },
+      "modules": [
+        [
+          4194304,
+          "h3hota HD.exe",
+          3043328
+        ],
+        [
+          268435456,
+          "_hd3_.dll",
+          344064
+        ],
+        [
+          1690042368,
+          "patcher_x86.dll",
+          774144
+        ],
+        [
+          11010048,
+          "smackw32.dll",
+          151552
+        ],
+        [
+          11206656,
+          "binkw32.dll",
+          176128
+        ],
+        [
+          16580608,
+          "IFC20.dll",
+          143360
+        ],
+        [
+          49020928,
+          "Wogcn.dll",
+          471040
+        ],
+        [
+          1487994880,
+          "hota.dll",
+          73998336
+        ],
+        [
+          1884356608,
+          "HD_UPD.dll",
+          483328
+        ],
+        [
+          9240576,
+          "HD_SCX2.dll",
+          159744
+        ],
+        [
+          87162880,
+          "HD_HOTA.dll",
+          18845696
+        ],
+        [
+          9502720,
+          "HW_HOTA.dll",
+          208896
+        ],
+        [
+          1776484352,
+          "cursors.dll",
+          303104
+        ],
+        [
+          554696704,
+          "mss32.dll",
+          389120
+        ],
+        [
+          805306368,
+          "binkw32new.dll",
+          450560
+        ],
+        [
+          1687093248,
+          "discord.dll",
+          2936832
+        ],
+        [
+          653262848,
+          "mp3dec.asi",
+          172032
+        ]
+      ],
+      "ingame": {
+        "Me": "0",
+        "Active Player": "0",
+        "Day": "0 00",
+        "Map file": "test.h3m",
+        "Last RMG Seed": "0",
+        "Network Game": "0"
+      },
+      "comment": "",
+      "ini": {
+        "Graphics.Threads": "4",
+        "Graphics.AdvMap.Threads": "-1",
+        "Graphics.Mode": "2",
+        "Memory.Mod": "0",
+        "Quick Combat": "0",
+        "OpenGL.Upscaling": "2",
+        "Misc.BattleSaver": "0",
+        "Misc.TournamentSaver": "0"
+      }
+    },
+    {
+      "file": "HD_UPD.dll+0x51607-5.7-R40-180-2.txt",
+      "hd_version": "5.7 R40",
+      "hota_version": "1.8.0",
+      "time": "08/20/2026\t11:16:53",
+      "tag": "H77HMCZS869484GHZNHFMT HHW 149 VEL 749TY",
+      "exc_module": "HD_UPD.dll",
+      "exc_module_raw": "HD_UPD.dll",
+      "exc_module_canonical": "HD_UPD.dll",
+      "context_eip": null,
+      "context_eip_module_raw": null,
+      "context_eip_module_canonical": "",
+      "context_eip_offset": null,
+      "exc_address": "HD_UPD.dll+0x51607",
+      "exc_code": "EXCEPTION_ACCESS_VIOLATION",
+      "op": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "faulting": "0xFFFFFFFF",
+      "exc_params": [],
+      "regs": {
+        "EAX": "0x0C0D8118",
+        "ECX": "0x0C0D7EB4",
+        "EDX": "0x0BEA1FA4",
+        "EBX": "0x00000001",
+        "ESP": "0x00199F48",
+        "EBP": "0x0019A023",
+        "ESI": "0x0BEA1FA4",
+        "EDI": "0x0019FAFC"
+      },
+      "deltas": {
+        "EBP-EDI": -23257,
+        "EDI-ESP": 23476,
+        "ESP-EBP": -219,
+        "EBX-EBP": -1679394,
+        "EBX-ESP": -1679175
+      },
+      "frame_pairs": [],
+      "frame_tokens": [
+        "0xFC554200"
+      ],
+      "frames_v2_map": {
+        "1637881351": [
+          "HD_UPD",
+          1637548032
+        ]
+      },
+      "modules": [
+        [
+          4194304,
+          "h3hota HD.exe",
+          3043328
+        ],
+        [
+          268435456,
+          "_hd3_.dll",
+          344064
+        ],
+        [
+          1441398784,
+          "patcher_x86.dll",
+          774144
+        ],
+        [
+          15859712,
+          "binkw32.dll",
+          176128
+        ],
+        [
+          16056320,
+          "smackw32.dll",
+          151552
+        ],
+        [
+          16252928,
+          "IFC20.dll",
+          143360
+        ],
+        [
+          47513600,
+          "Wogcn.dll",
+          471040
+        ],
+        [
+          64880640,
+          "hota.dll",
+          73998336
+        ],
+        [
+          1637548032,
+          "HD_UPD.dll",
+          483328
+        ],
+        [
+          52232192,
+          "HD_SCX2.dll",
+          159744
+        ],
+        [
+          139984896,
+          "HD_HOTA.dll",
+          18845696
+        ],
+        [
+          159973376,
+          "HW_HOTA.dll",
+          208896
+        ],
+        [
+          1629618176,
+          "cursors.dll",
+          303104
+        ],
+        [
+          554696704,
+          "mss32.dll",
+          389120
+        ],
+        [
+          805306368,
+          "binkw32new.dll",
+          450560
+        ],
+        [
+          2058813440,
+          "discord.dll",
+          2936832
+        ],
+        [
+          653262848,
+          "mp3dec.asi",
+          172032
+        ]
+      ],
+      "ingame": {
+        "Me": "0",
+        "Active Player": "0",
+        "Day": "0 00",
+        "Map file": "test.h3m",
+        "Last RMG Seed": "0",
+        "Network Game": "0"
+      },
+      "comment": "",
+      "ini": {
+        "Graphics.Threads": "4",
+        "Graphics.AdvMap.Threads": "-1",
+        "Graphics.Mode": "2",
+        "Memory.Mod": "0",
+        "Quick Combat": "0",
+        "OpenGL.Upscaling": "2",
+        "Misc.BattleSaver": "1",
+        "Misc.TournamentSaver": "1"
+      }
+    },
+    {
+      "file": "HD_UPD.dll+0x51607-5.7-R40-180-3.txt",
+      "hd_version": "5.7 R40",
+      "hota_version": "1.8.0",
+      "time": "08/23/2026\t15:15:21",
+      "tag": "9974_6118_08YY_XWZ0.HZNHFMT NAEOY487SZQJ-99999",
+      "exc_module": "HD_UPD.dll",
+      "exc_module_raw": "HD_UPD.dll",
+      "exc_module_canonical": "HD_UPD.dll",
+      "context_eip": null,
+      "context_eip_module_raw": null,
+      "context_eip_module_canonical": "",
+      "context_eip_offset": null,
+      "exc_address": "HD_UPD.dll+0x51607",
+      "exc_code": "EXCEPTION_ACCESS_VIOLATION",
+      "op": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "faulting": "0xFFFFFFFF",
+      "exc_params": [],
+      "regs": {
+        "EAX": "0x07A062F0",
+        "ECX": "0x07A05EB7",
+        "EDX": "0x079B8DE4",
+        "EBX": "0x00000001",
+        "ESP": "0x00199F48",
+        "EBP": "0x0019A023",
+        "ESI": "0x079B8DE4",
+        "EDI": "0x0019FAFC"
+      },
+      "deltas": {
+        "EBP-EDI": -23257,
+        "EDI-ESP": 23476,
+        "ESP-EBP": -219,
+        "EBX-EBP": -1679394,
+        "EBX-ESP": -1679175
+      },
+      "frame_pairs": [],
+      "frame_tokens": [
+        "igd9dxva32.dll+0x3784200"
+      ],
+      "frames_v2_map": {
+        "1914443271": [
+          "HD_UPD",
+          1914109952
+        ],
+        "1616200192": [
+          "igd9dxva32",
+          1557987328
+        ]
+      },
+      "modules": [
+        [
+          4194304,
+          "h3hota HD.exe",
+          3043328
+        ],
+        [
+          268435456,
+          "_hd3_.dll",
+          344064
+        ],
+        [
+          1911619584,
+          "patcher_x86.dll",
+          774144
+        ],
+        [
+          11403264,
+          "binkw32.dll",
+          176128
+        ],
+        [
+          14876672,
+          "smackw32.dll",
+          151552
+        ],
+        [
+          15073280,
+          "IFC20.dll",
+          143360
+        ],
+        [
+          47579136,
+          "Wogcn.dll",
+          471040
+        ],
+        [
+          1631715328,
+          "hota.dll",
+          73998336
+        ],
+        [
+          1914109952,
+          "HD_UPD.dll",
+          483328
+        ],
+        [
+          9043968,
+          "HD_SCX2.dll",
+          159744
+        ],
+        [
+          68747264,
+          "HD_HOTA.dll",
+          18845696
+        ],
+        [
+          9633792,
+          "HW_HOTA.dll",
+          208896
+        ],
+        [
+          1913782272,
+          "cursors.dll",
+          303104
+        ],
+        [
+          554696704,
+          "mss32.dll",
+          389120
+        ],
+        [
+          805306368,
+          "binkw32new.dll",
+          450560
+        ],
+        [
+          1857748992,
+          "discord.dll",
+          2936832
+        ],
+        [
+          653262848,
+          "mp3dec.asi",
+          172032
+        ]
+      ],
+      "ingame": {
+        "Me": "0",
+        "Active Player": "0",
+        "Day": "0 00",
+        "Map file": "test.h3m",
+        "Last RMG Seed": "0",
+        "Network Game": "0"
+      },
+      "comment": "",
+      "ini": {
+        "Graphics.Threads": "4",
+        "Graphics.AdvMap.Threads": "-1",
+        "Graphics.Mode": "2",
+        "Memory.Mod": "0",
+        "Quick Combat": "0",
+        "OpenGL.Upscaling": "2",
+        "Misc.BattleSaver": "1",
+        "Misc.TournamentSaver": "1"
+      }
+    },
+    {
+      "file": "HD_UPD.dll+0x51607-5.7-R40-180.txt",
+      "hd_version": "5.7 R40",
+      "hota_version": "1.8.0",
+      "time": "08/16/2026 14:41:44",
+      "tag": "VH14M393588294U8UHP SBMRC HX688 HZGZ 871TY",
+      "exc_module": "HD_UPD.dll",
+      "exc_module_raw": "HD_UPD.dll",
+      "exc_module_canonical": "HD_UPD.dll",
+      "context_eip": null,
+      "context_eip_module_raw": null,
+      "context_eip_module_canonical": "",
+      "context_eip_offset": null,
+      "exc_address": "HD_UPD.dll+0x51607",
+      "exc_code": "EXCEPTION_ACCESS_VIOLATION",
+      "op": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "faulting": "0xFFFFFFFF",
+      "exc_params": [],
+      "regs": {
+        "EAX": "0x08A66620",
+        "ECX": "0x08A66B47",
+        "EDX": "0x08831984",
+        "EBX": "0x00000001",
+        "ESP": "0x00199F48",
+        "EBP": "0x0019A023",
+        "ESI": "0x08831984",
+        "EDI": "0x0019FAFC"
+      },
+      "deltas": {
+        "EBP-EDI": -23257,
+        "EDI-ESP": 23476,
+        "ESP-EBP": -219,
+        "EBX-EBP": -1679394,
+        "EBX-ESP": -1679175
+      },
+      "frame_pairs": [],
+      "frame_tokens": [
+        "0xCF554200"
+      ],
+      "frames_v2_map": {
+        "1884689927": [
+          "HD_UPD",
+          1884356608
+        ]
+      },
+      "modules": [
+        [
+          4194304,
+          "h3hota HD.exe",
+          3043328
+        ],
+        [
+          268435456,
+          "_hd3_.dll",
+          344064
+        ],
+        [
+          1690042368,
+          "patcher_x86.dll",
+          774144
+        ],
+        [
+          11010048,
+          "smackw32.dll",
+          151552
+        ],
+        [
+          11206656,
+          "binkw32.dll",
+          176128
+        ],
+        [
+          16580608,
+          "IFC20.dll",
+          143360
+        ],
+        [
+          49020928,
+          "Wogcn.dll",
+          471040
+        ],
+        [
+          1487994880,
+          "hota.dll",
+          73998336
+        ],
+        [
+          1884356608,
+          "HD_UPD.dll",
+          483328
+        ],
+        [
+          9240576,
+          "HD_SCX2.dll",
+          159744
+        ],
+        [
+          87162880,
+          "HD_HOTA.dll",
+          18845696
+        ],
+        [
+          9502720,
+          "HW_HOTA.dll",
+          208896
+        ],
+        [
+          1776484352,
+          "cursors.dll",
+          303104
+        ],
+        [
+          554696704,
+          "mss32.dll",
+          389120
+        ],
+        [
+          805306368,
+          "binkw32new.dll",
+          450560
+        ],
+        [
+          1687093248,
+          "discord.dll",
+          2936832
+        ],
+        [
+          653262848,
+          "mp3dec.asi",
+          172032
+        ]
+      ],
+      "ingame": {
+        "Me": "0",
+        "Active Player": "0",
+        "Day": "0 00",
+        "Map file": "test.h3m",
+        "Last RMG Seed": "0",
+        "Network Game": "0"
+      },
+      "comment": "",
+      "ini": {
+        "Graphics.Threads": "4",
+        "Graphics.AdvMap.Threads": "-1",
+        "Graphics.Mode": "2",
+        "Memory.Mod": "0",
+        "Quick Combat": "0",
+        "OpenGL.Upscaling": "2",
+        "Misc.BattleSaver": "0",
+        "Misc.TournamentSaver": "0"
+      }
+    },
+    {
+      "file": "HD_UPD.dll+0x51607-5.7-RC7-180-1.txt",
+      "hd_version": "5.7 RC7",
+      "hota_version": "1.8.0",
+      "time": "06/03/2026\t08:43:54",
+      "tag": "9974_6118_78X2_0Z50.HZNHFMT NAEOY487SYQJ-999O2",
+      "exc_module": "HD_UPD.dll",
+      "exc_module_raw": "HD_UPD.dll",
+      "exc_module_canonical": "HD_UPD.dll",
+      "context_eip": null,
+      "context_eip_module_raw": null,
+      "context_eip_module_canonical": "",
+      "context_eip_offset": null,
+      "exc_address": "HD_UPD.dll+0x51607",
+      "exc_code": "EXCEPTION_ACCESS_VIOLATION",
+      "op": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "faulting": "0xFFFFFFFF",
+      "exc_params": [],
+      "regs": {
+        "EAX": "0x096F5190",
+        "ECX": "0x096F69C2",
+        "EDX": "0x096F2F64",
+        "EBX": "0x00000001",
+        "ESP": "0x001A9F48",
+        "EBP": "0x001AA023",
+        "ESI": "0x096F2F64",
+        "EDI": "0x001AFAFC"
+      },
+      "deltas": {
+        "EBP-EDI": -23257,
+        "EDI-ESP": 23476,
+        "ESP-EBP": -219,
+        "EBX-EBP": -1744930,
+        "EBX-ESP": -1744711
+      },
+      "frame_pairs": [],
+      "frame_tokens": [
+        "0xB8554200",
+        "0x00000000"
+      ],
+      "frames_v2_map": {
+        "1815090695": [
+          "HD_UPD",
+          1814757376
+        ]
+      },
+      "modules": [
+        [
+          4194304,
+          "h3hota HD.exe",
+          3043328
+        ],
+        [
+          268435456,
+          "_hd3_.dll",
+          335872
+        ],
+        [
+          1813970944,
+          "binkw32.dll",
+          204800
+        ],
+        [
+          1815281664,
+          "patcher_x86.dll",
+          774144
+        ],
+        [
+          17825792,
+          "smackw32.dll",
+          110592
+        ],
+        [
+          17956864,
+          "IFC20.dll",
+          143360
+        ],
+        [
+          22413312,
+          "binkw32_o.dll",
+          176128
+        ],
+        [
+          49479680,
+          "Wogcn.dll",
+          471040
+        ],
+        [
+          1620705280,
+          "hota.dll",
+          73998336
+        ],
+        [
+          1814757376,
+          "HD_UPD.dll",
+          483328
+        ],
+        [
+          1814364160,
+          "HD_VGL2.dll",
+          389120
+        ],
+        [
+          120389632,
+          "HD_TC2.dll",
+          3993600
+        ],
+        [
+          9306112,
+          "HD_SCX2.dll",
+          110592
+        ],
+        [
+          126746624,
+          "HD_HOTA.dll",
+          18460672
+        ],
+        [
+          146931712,
+          "HW_HOTA.dll",
+          221184
+        ],
+        [
+          1812332544,
+          "cursors.dll",
+          303104
+        ],
+        [
+          554696704,
+          "mss32.dll",
+          389120
+        ],
+        [
+          805306368,
+          "binkw32new.dll",
+          450560
+        ],
+        [
+          1806106624,
+          "discord.dll",
+          2936832
+        ],
+        [
+          653262848,
+          "mp3dec.asi",
+          172032
+        ]
+      ],
+      "ingame": {
+        "Me": "0",
+        "Active Player": "0",
+        "Day": "0 00",
+        "Map file": "test.h3m",
+        "Last RMG Seed": "0",
+        "Network Game": "0"
+      },
+      "comment": "",
+      "ini": {
+        "Graphics.Threads": "4",
+        "Graphics.AdvMap.Threads": "-1",
+        "Graphics.Mode": "7",
+        "Memory.Mod": "0",
+        "Quick Combat": "1",
+        "OpenGL.Upscaling": "2",
+        "Misc.BattleSaver": "1",
+        "Misc.TournamentSaver": "1"
+      }
+    },
+    {
+      "file": "HD_UPD.dll+0x51607-5.7-RC9-180-1.txt",
+      "hd_version": "5.7 RC9",
+      "hota_version": "1.8.0",
+      "time": "05/04/2026\t23:49:32",
+      "tag": "9974_6148_4Y83_6265.MENVHZNHFMT HHW 049",
+      "exc_module": "HD_UPD.dll",
+      "exc_module_raw": "HD_UPD.dll",
+      "exc_module_canonical": "HD_UPD.dll",
+      "context_eip": null,
+      "context_eip_module_raw": null,
+      "context_eip_module_canonical": "",
+      "context_eip_offset": null,
+      "exc_address": "HD_UPD.dll+0x51607",
+      "exc_code": "EXCEPTION_ACCESS_VIOLATION",
+      "op": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "faulting": "0xFFFFFFFF",
+      "exc_params": [],
+      "regs": {
+        "EAX": "0x05F0A440",
+        "ECX": "0x05F0A032",
+        "EDX": "0x05F0B644",
+        "EBX": "0x00000001",
+        "ESP": "0x00199F48",
+        "EBP": "0x0019A023",
+        "ESI": "0x05F0B644",
+        "EDI": "0x0019FAFC"
+      },
+      "deltas": {
+        "EBP-EDI": -23257,
+        "EDI-ESP": 23476,
+        "ESP-EBP": -219,
+        "EBX-EBP": -1679394,
+        "EBX-ESP": -1679175
+      },
+      "frame_pairs": [],
+      "frame_tokens": [
+        "0xF6554200"
+      ],
+      "frames_v2_map": {
+        "1877939719": [
+          "HD_UPD",
+          1877606400
+        ]
+      },
+      "modules": [
+        [
+          4194304,
+          "h3hota HD.exe",
+          3043328
+        ],
+        [
+          268435456,
+          "IFC20.dll",
+          143360
+        ],
+        [
+          15925248,
+          "binkw32.dll",
+          176128
+        ],
+        [
+          16121856,
+          "smackw32.dll",
+          151552
+        ],
+        [
+          16318464,
+          "_hd3_.dll",
+          335872
+        ],
+        [
+          1899036672,
+          "patcher_x86.dll",
+          774144
+        ],
+        [
+          49020928,
+          "Wogcn.dll",
+          471040
+        ],
+        [
+          1406664704,
+          "hota.dll",
+          73998336
+        ],
+        [
+          1877606400,
+          "HD_UPD.dll",
+          483328
+        ],
+        [
+          53149696,
+          "HD_SCX2.dll",
+          110592
+        ],
+        [
+          74121216,
+          "HD_HOTA.dll",
+          18460672
+        ],
+        [
+          55640064,
+          "HW_HOTA.dll",
+          221184
+        ],
+        [
+          1877278720,
+          "cursors.dll",
+          303104
+        ],
+        [
+          554696704,
+          "mss32.dll",
+          389120
+        ],
+        [
+          805306368,
+          "binkw32new.dll",
+          450560
+        ],
+        [
+          1869348864,
+          "discord.dll",
+          2936832
+        ],
+        [
+          653262848,
+          "mp3dec.asi",
+          172032
+        ]
+      ],
+      "ingame": {
+        "Me": "0",
+        "Active Player": "0",
+        "Day": "0 00",
+        "Map file": "test.h3m",
+        "Last RMG Seed": "0",
+        "Network Game": "0"
+      },
+      "comment": "",
+      "ini": {
+        "Graphics.Threads": "4",
+        "Graphics.AdvMap.Threads": "-1",
+        "Graphics.Mode": "2",
+        "Memory.Mod": "0",
+        "Quick Combat": "0",
+        "OpenGL.Upscaling": "2",
+        "Misc.BattleSaver": "1",
+        "Misc.TournamentSaver": "1"
+      }
+    }
+  ]
+}

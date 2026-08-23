@@ -1,6 +1,6 @@
 {
-  "schema": 1,
-  "generated_at": "2026-08-16T10:20:12.003078+00:00",
+  "schema": 2,
+  "generated_at": "2026-08-23T10:42:04.017990+00:00",
   "source": "mail-dumps/HD_UPD.dll+0x51607/claims.json",
   "axes": [
     "instruction",
@@ -18,127 +18,202 @@
     {
       "id": "crash-site-51607",
       "type": "crash_site",
-      "statement": "DMP сохранил страницу EIP.",
-      "evidence": [
-        "input:static-analysis.json"
-      ],
+      "statement": "Четыре точные пары TXT/DMP 5.7 R40 подтверждают RVA 0x51607.",
       "confidence": "видно непосредственно в DMP",
+      "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
+      "scope_kind": "series",
+      "applicable_axes": [
+        "instruction"
+      ],
+      "evidence": [
+        "input:pair-audit.json",
+        "input:address-proof.json"
+      ],
       "confidence_vector": {
         "instruction": "confirmed",
-        "mechanism": "confirmed",
-        "state_origin": "unknown",
-        "family_coverage": "confirmed"
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
       }
     },
     {
       "id": "local-bad-eip",
       "type": "local_mechanism",
-      "statement": "Байты с EIP равны FF 1A.",
-      "evidence": [
-        "input:static-analysis.json"
-      ],
+      "statement": "В четырёх DMP 5.7 R40 по аварийному EIP лежат одинаковые байты FF 1A.",
       "confidence": "видно непосредственно в DMP",
+      "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
+      "scope_kind": "series",
+      "applicable_axes": [
+        "mechanism"
+      ],
+      "evidence": [
+        "input:static-analysis.json",
+        "input:address-proof.json"
+      ],
       "confidence_vector": {
-        "instruction": "confirmed",
+        "instruction": "not_applicable",
         "mechanism": "confirmed",
-        "state_origin": "unknown",
-        "family_coverage": "confirmed"
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
       }
     },
     {
       "id": "tryupdate-false-symbol",
       "type": "observation",
       "statement": "В 160220 строках точного листинга нет инструкции с адресом 0x10051607.",
+      "confidence": "выведено из совокупности признаков",
+      "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
+      "scope_kind": "series",
+      "applicable_axes": [],
       "evidence": [
         "input:static-analysis.json",
         "input:static-exhaustion.json"
       ],
-      "confidence": "однозначно следует из листинга",
       "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "confirmed",
-        "state_origin": "unknown",
-        "family_coverage": "confirmed"
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
       }
     },
     {
       "id": "transfer-origin-unknown",
       "type": "state_origin",
       "statement": "Не установлен источник управляющего адреса.",
+      "confidence": "не проверено",
+      "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
+      "scope_kind": "series",
+      "applicable_axes": [
+        "state_origin"
+      ],
       "evidence": [
-        "input:capabilities.json",
-        "input:static-analysis.json",
+        "input:analysis-contract.json",
         "input:thread-provenance-main.json"
       ],
-      "confidence": "не проверено",
       "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "confirmed",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
         "state_origin": "unknown",
-        "family_coverage": "confirmed"
+        "family_coverage": "not_applicable"
       }
     },
     {
       "id": "thread-mismatch",
       "type": "limitation",
       "statement": "ExceptionStream указывает номер потока 15456.",
+      "confidence": "видно непосредственно в DMP",
+      "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
+      "scope_kind": "series",
+      "applicable_axes": [],
       "evidence": [
         "input:capabilities.json",
         "input:thread-provenance-main.json"
       ],
-      "confidence": "видно непосредственно в DMP",
       "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "confirmed",
-        "state_origin": "unknown",
-        "family_coverage": "confirmed"
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
       }
     },
     {
       "id": "family-census-51607",
       "type": "family_coverage",
-      "statement": "Всего в подтверждённой семье: 1 уникальный случай",
-      "evidence": [
-        "input:corpus-census.json",
-        "input:family-membership.json"
-      ],
+      "statement": "Полный поиск прочитал 5554 из 5554 TXT и нашёл 15 точных совпадений.",
       "confidence": "выведено из совокупности признаков",
+      "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
+      "scope_kind": "corpus",
+      "applicable_axes": [
+        "family_coverage"
+      ],
+      "evidence": [
+        "input:scan-attestation.json",
+        "input:family-membership.json",
+        "input:series-groups.json"
+      ],
       "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "confirmed",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "id": "reproduction-open",
+      "type": "reproduction",
+      "statement": "Воспроизведение не подтверждено.",
+      "confidence": "не проверено",
+      "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
+      "scope_kind": "series",
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "evidence": [
+        "input:save-inventory.json",
+        "input:series-groups.json"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
         "state_origin": "unknown",
-        "family_coverage": "confirmed"
+        "family_coverage": "not_applicable"
       }
     },
     {
       "id": "fix-target-validation",
       "type": "fix",
       "statement": "HD-моду следует отклонять косвенные адреса вне исполняемых PE-секций.",
+      "confidence": "выведено из совокупности признаков",
+      "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
+      "scope_kind": "series",
+      "applicable_axes": [],
       "evidence": [
+        "input:analysis-contract.json",
         "input:static-analysis.json"
       ],
-      "confidence": "выведено из совокупности признаков",
       "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "confirmed",
-        "state_origin": "unknown",
-        "family_coverage": "confirmed"
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
       }
     }
   ],
   "matrix": {
     "instruction": {
-      "confirmed": 7
+      "confirmed": 1,
+      "not_applicable": 7
     },
     "mechanism": {
-      "confirmed": 7
+      "not_applicable": 7,
+      "confirmed": 1
     },
     "state_origin": {
-      "unknown": 7
+      "not_applicable": 6,
+      "unknown": 2
     },
     "family_coverage": {
-      "confirmed": 7
+      "not_applicable": 7,
+      "probable": 1
     }
+  },
+  "diagnostic_completeness": {
+    "status": "incomplete",
+    "complete": false,
+    "causality_level": "L1",
+    "axis_summary": {
+      "instruction": "confirmed",
+      "mechanism": "confirmed",
+      "state_origin": "unknown",
+      "family_coverage": "probable",
+      "reproduction": "unknown"
+    },
+    "root_cause_ready": false,
+    "next_required": [
+      "capture_state_origin_and_writer",
+      "confirm_reproduction",
+      "complete_family_coverage"
+    ]
   },
   "errors": [],
   "ready": true

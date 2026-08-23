@@ -1,18 +1,120 @@
 {
   "schema": 3,
-  "generated_at": "2026-08-16T11:15:27.375484+00:00",
-  "parser_revision": "e4c4291664f03d56be6da053a2f55d6a662714b7",
+  "generated_at": "2026-08-23T10:48:09.166045+00:00",
+  "parser_revision": "e26a22618ffe1ae292f85faefef87dc0a71f963d",
   "report": {
     "path": "HD_UPD.dll+0x51607-анализ-gpt-5.6-sol.txt",
-    "size": 20505,
-    "sha256": "2825531f2532e7de08fefd07a3214c2f8a85fbdac40ccf526344103bcda863e9"
+    "size": 28233,
+    "sha256": "303a667a8460eb885ed7eb9cbd0bf91bf1185c7d062b8a1594b343afc515f472"
   },
   "inputs": [
+    {
+      "path": "HD_UPD.dll+0x51607-5.6-R10-180-1.txt",
+      "size": 7512,
+      "sha256": "db89c2c6c31132dee856546fe709f81578637a649a6882af78c41ce31ed13588",
+      "role": "source"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-5.6-R15-180-1.txt",
+      "size": 6762,
+      "sha256": "522603b9cfde5b677995d0521d36d2c66c3e9a7488b12c8ddf3aa426eec2a5a2",
+      "role": "source"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-5.6-R19-180-1.txt",
+      "size": 7011,
+      "sha256": "704faa8d85e71fb6aa1de68ac5a18c120d31d12afebbcb11a3f48652062bd878",
+      "role": "source"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-5.6-R19-180-2.txt",
+      "size": 342007,
+      "sha256": "956550130003ab9c0f3b5be41ab0472cf8342157705eee8355256854425985de",
+      "role": "source"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-5.6-R27-180-1.txt",
+      "size": 7894,
+      "sha256": "76bee8c3bee2cb5b9eddc3c5c996e50baee63bfde6303dd4cf69c8a5b8eadaa6",
+      "role": "source"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-5.6-R31-180-1.txt",
+      "size": 7059,
+      "sha256": "66327143695135624699a5d52f810228f8024c0721cb3cf659e3f14ab12c0e11",
+      "role": "source"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-5.7-R3-180-1.txt",
+      "size": 7134,
+      "sha256": "0c3f4d780571333faf05026aa8e9a9a0a422fd6b22f004e2e1cdc79a188a4f0c",
+      "role": "source"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-5.7-R3-180-2.txt",
+      "size": 7045,
+      "sha256": "43de6b4feec886fe26cd29d481b360b8e0e072db4f17996d605ff965095a73a4",
+      "role": "source"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-5.7-R3-180-3.txt",
+      "size": 7045,
+      "sha256": "986b5609dcd6d4631827841712d06ac4234a8156d0c219bd3611b9358b3288c6",
+      "role": "source"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-5.7-R40-180-1.txt",
+      "size": 6757,
+      "sha256": "4bcb98804de4620e3b40619fef6a9b10808af77bf710027282f02da1f403de68",
+      "role": "source"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-5.7-R40-180-2.txt",
+      "size": 6897,
+      "sha256": "0e10f8bf2f322ce7e460440e14398e37b42909bd585f21a5db6bf213e2f55852",
+      "role": "source"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-5.7-R40-180-3.txt",
+      "size": 7042,
+      "sha256": "aba18f29f5cfd6ee72f3c8b98989dfe37cfbe726ddc52c5cad895c84779cf9ef",
+      "role": "source"
+    },
     {
       "path": "HD_UPD.dll+0x51607-5.7-R40-180.txt",
       "size": 6722,
       "sha256": "ab0efe29569d7fe8c46f01338a397f56a76b6821ac8b23ce51b75ec4f35130df",
       "role": "source"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-5.7-RC7-180-1.txt",
+      "size": 7427,
+      "sha256": "cb6d8ee3901d920e37ea32641ba2282322993377018d7ef9f34b43b20c2deae1",
+      "role": "source"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-5.7-RC9-180-1.txt",
+      "size": 6833,
+      "sha256": "0de8ff48c5efa4482129b34469172a10f1aaf2c3749c5d14d24727e9452e6583",
+      "role": "source"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-5.7-R40-180-1.dmp",
+      "size": 94352,
+      "sha256": "ecabf4e88e0c7fee6b312c2e40eb775554ea7003bcaab843b30644c6ba2857b0",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-5.7-R40-180-2.dmp",
+      "size": 95640,
+      "sha256": "b27ba6ce2ae1205ba485b659c4ba468f11dcebbc699aeb1655a4b2f836f6d180",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-5.7-R40-180-3.dmp",
+      "size": 96119,
+      "sha256": "423eb3fc55d039d7275c36de62c9a1c475dcf1f97662877fbec96cfa7ce8c287",
+      "role": "runtime"
     },
     {
       "path": "HD_UPD.dll+0x51607-5.7-R40-180.dmp",
@@ -34,20 +136,20 @@
     },
     {
       "path": "capabilities.json",
-      "size": 2296,
-      "sha256": "aac0d8292594845b72e7a8856b2a9cf272d9b711955a3f83240dfc83d6416d3a",
+      "size": 15588,
+      "sha256": "3e6af8152fc511b21bca6b2beb68b9420a6c5ca7d13a93d9997f9c749b5e41b2",
       "role": "derived-evidence"
     },
     {
       "path": "pair-audit.json",
-      "size": 1389,
-      "sha256": "16967dbef554ecae351cbbc2c0527e17b1d871a82df7826ec41310c8dcccfe64",
+      "size": 10525,
+      "sha256": "94ecc59d7d3c89399207f7aa1388de59fc28215e10c417f44c51dc0b4d38e264",
       "role": "derived-evidence"
     },
     {
       "path": "static-analysis.json",
-      "size": 6108,
-      "sha256": "ce39d1261d97628148b650ae7b416c9fd6445eec83f3afb44a0f986682817444",
+      "size": 6405,
+      "sha256": "786e7aabe906dc9030442916b453ef7c7ccb48cd855812c6b90c128c06ef58f2",
       "role": "derived-evidence"
     },
     {
@@ -64,209 +166,329 @@
     },
     {
       "path": "corpus-census.json",
-      "size": 522,
-      "sha256": "420222c50c23b4d15439b82faf34b0f737f3476f83054b779975b9b9d1234ea3",
+      "size": 1904,
+      "sha256": "56c0ca85251530e01fe280c4b911f3b3e9f2a279e1187d1346a543d84cd1600f",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "scan-attestation.json",
+      "size": 2337,
+      "sha256": "ca4507a0b22a1c16657efc10bf28ed7d1cfd204c6fab5f60b80f733d43fbe1ee",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "address-proof.json",
+      "size": 794,
+      "sha256": "20a454be17198c7d0b8f3c278ecf727ba671980a1ff6939c534bbf7018cb52f3",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "analysis-contract.json",
+      "size": 3647,
+      "sha256": "44bbddbdae06388ada7b55e8fa674d95276e4c3338c1aff118ae57d701771caa",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-parse.json",
+      "size": 54343,
+      "sha256": "02046e17aeb782e0487493481c51af7905a53923901eab584006c0ffef56b10d",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-groups.json",
+      "size": 44995,
+      "sha256": "c828817e23fefc37e97a4de98fdb83aa261220e9fb8c9ac1e6c39509351c1e92",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "save-inventory.json",
+      "size": 440,
+      "sha256": "a5cb0c44df177cb993990fafe0fde4d974455d3c4c3b440e2f80f94eceeaf892",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "ingest-manifest.json",
+      "size": 17960,
+      "sha256": "1be5f688fa1db22c37581d9f5db64cc9b0e62483af61a860af935f839ee5d129",
       "role": "derived-evidence"
     },
     {
       "path": "family-membership-input.json",
-      "size": 1367,
-      "sha256": "3dbb2eb3a6aeb018f775922bf858b9694d583ea145b25692a820ff9ca39695bc",
+      "size": 15564,
+      "sha256": "60a7dd670c2fa65ec2396934e0e1ae5903b930df0cb281864a505a3cd08ddc1c",
       "role": "derived-evidence"
     },
     {
       "path": "family-membership.json",
-      "size": 1664,
-      "sha256": "f23aef01084d299da9212e3b57fd34b3c1353a0c0c01e8fd34a8b1a489215a6e",
+      "size": 16091,
+      "sha256": "2160424245c6ae88d888ff2d47c8e7e5a044865e2d65bf97a77bb84a3d8f485f",
       "role": "derived-evidence"
     },
     {
       "path": "coverage.json",
-      "size": 4275,
-      "sha256": "2464e725717507039cf92eeeb00c20b9f0b32889d7c42280db841d5a08ab77e7",
+      "size": 6841,
+      "sha256": "942cea45d7cd312c6fd404c6fba2b70e1a00c10dc4a9f8e15b885e73c017fe8e",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "HD_UPD.dll+0x51607-анализ-gpt-5.6-sol.extra.html",
+      "size": 2331,
+      "sha256": "f897d2e244d82c3e6e92ce823efdec86bfbda2eb6fe5050ab9bf6c44539b3da0",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "repro-plan.json",
+      "size": 12974,
+      "sha256": "3c1246e99c20feb05a085fe63ca60af0afc6c422c539e03fa994f60837d76da1",
       "role": "derived-evidence"
     },
     {
       "path": "evidence-config.json",
-      "size": 3073,
-      "sha256": "5228fcc2a8cbd1a8b923f6f62b5753df041ff567546a0d4ef98d8cb9b90535c8",
+      "size": 5202,
+      "sha256": "ff39b0db412a1b0ae25ac0807d3dea18199ba275b9186f3cba01b275f43ec915",
       "role": "derived-evidence"
     },
     {
       "path": "claims.json",
-      "size": 3733,
-      "sha256": "22e8c7093fb3a87395970cfcc12c8e397be457c2e4b19032dbeedc7f16f97af4",
+      "size": 5873,
+      "sha256": "b59589bef2633557cad1fe0301cb65e5de8980099f9508eb5a5ee72aa9aab4e0",
       "role": "derived-evidence"
     }
   ],
   "tools": [
     {
-      "path": "../../.agents/skills/address-mapping/read_dump.py",
-      "size": 17384,
-      "sha256": "a8761136e7e279cbf15ce1d61870b1c5037c2b4d2804915733a7a559e8e7865e"
+      "path": "../../.agents/skills/address-mapping/address_proof.py",
+      "size": 6624,
+      "sha256": "1fce2fe7c0077b89ad68455b67305a8d86f3fe0bf1ea5244d4b3244db9c7ba51"
     },
     {
-      "path": "../../.agents/skills/address-mapping/dump_profile.py",
-      "size": 31189,
-      "sha256": "b15ea8289f3577ff0836efe2faf00b5371c1013c00ad38ed028615deb9f405a8"
+      "path": "../../.agents/skills/hota-crash-triage/analysis_contract.py",
+      "size": 12086,
+      "sha256": "03d51c9a2347f741e926029b8b3fc87343157dd8a37c290c5851b9c5f189e2e9"
     },
     {
-      "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
-      "size": 56930,
-      "sha256": "6264023ddb11ae86f15e4578fa9ae51bcd66b0a7422616e917bcceed6ecf6e1f"
-    },
-    {
-      "path": "../../.agents/skills/hota-crash-triage/coverage_contract.py",
-      "size": 5175,
-      "sha256": "3bf507bb95908fe3aaaba4c423fe263aedc0d6fe93402db5e44d4ef98bf5f9e8"
+      "path": "../../.agents/skills/hota-crash-triage/scan_attestation.py",
+      "size": 5275,
+      "sha256": "06cf8b0423aa1187cc33bab3b5eb7c01bd72f24a948f8c00f0b0c245c149607f"
     },
     {
       "path": "../../.agents/skills/hota-crash-triage/family_membership.py",
-      "size": 7966,
-      "sha256": "d5ee82612fe40c2f95af2775c3337dbac03acd3f7a20a6c630b41ac363d6a4cd"
+      "size": 11485,
+      "sha256": "5d8c64a539b34351a98771fddd456a65aa73bc0383aadb4dc38c2de0f4ab5d5b"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+      "size": 9295,
+      "sha256": "c1b63505878825761295769ae58240f1f231ab7b5745943a9d52d4e93f3f1d21"
     },
     {
       "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
-      "size": 29023,
-      "sha256": "edb9161f7e2953b9e73deffb12d00f4134a8b79496764710eab2b938ec2e2e8f"
+      "size": 28926,
+      "sha256": "7ea0fb7dee59490791f9d5319547668bb5e2627a01e62456b40de097fc827552"
     },
     {
       "path": "../../.agents/skills/hota-crash-triage/case_quality_gate.py",
-      "size": 17247,
-      "sha256": "c0485ed0e2fc38f51b8475e6a3b8147aeea7f2a8f04b741f21feaed3151c0d00"
+      "size": 58221,
+      "sha256": "1c66a079098561c9301672402ba23dde765807afde82cd77285c9a5170351b6f"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/repro_plan.py",
+      "size": 9601,
+      "sha256": "09b6e530070bc88ce743c14af512c659c5a7fb64065a22efdbf520c38594dc7c"
     }
   ],
   "commands": [
-    "read_dump.py HD_UPD.dll+0x51607-5.7-R40-180.dmp --read 0x705615E0 0x80",
-    "dump_profile.py HD_UPD.dll+0x51607-5.7-R40-180.dmp --esp 0x00199F48 --json-out capabilities.json --capabilities-only",
-    "static_exhaustion_check.py \"modules/HD_UPD.dll-5.7 R40.txt\" --crash 0x10051607 --func 0x100047E0 --module HD_UPD.dll --module-kind hd_mod --binary 180/HD_UPD.dll --versions R40 --version-axis hd --json-out mail-dumps/HD_UPD.dll+0x51607/static-exhaustion.json",
-    "coverage_contract.py create claims.json --out coverage.json",
-    "family_membership.py create family-membership-input.json --family-id HD_UPD-bad-eip-rt-icon-51607 --out family-membership.json",
-    "evidence_manifest.py create --config evidence-config.json"
+    "corpus_query exact HD_UPD.dll+0x51607 over mail-dumps/**/*.txt",
+    "scan_attestation.py create scan-attestation-input.json --out scan-attestation.json",
+    "address_proof.py create address-proof-input.json --out address-proof.json",
+    "analysis_contract.py create analysis-contract-input.json --out analysis-contract.json",
+    "family_membership.py create family-membership-input.json --out family-membership.json",
+    "coverage_contract.py create claims.json --out coverage.json --schema 2",
+    "evidence_manifest.py create --config evidence-config.json",
+    "repro_plan.py create . --out repro-plan.json"
   ],
   "facts": {
-    "case": "HD_UPD.dll+0x51607",
-    "incident_count": "1",
-    "confirmed_members": "1",
-    "runtime_eip": "0x70561607",
-    "rva": "0x51607",
-    "section": ".rsrc",
-    "resource": "RT_ICON/2/1049",
-    "resource_offset": "0x2CAF",
-    "target_bytes": "FF 1A",
-    "thread_provenance": "CONTEXT_THREAD_MISMATCH",
-    "source_of_transfer": "unknown",
-    "corpus_txt_read": "5496"
+    "physical_txt": "15",
+    "unique_txt_sha256": "15",
+    "physical_dmp": "4",
+    "unique_dmp_sha256": "3",
+    "confirmed_local_mechanism_r40": "4",
+    "context_only": "11",
+    "exact_corpus_hits": "15",
+    "corpus_txt_read": "5554",
+    "root_cause_status": "not confirmed",
+    "reproduction_status": "not confirmed"
   },
   "claims": [
     {
       "confidence": "видно непосредственно в DMP",
+      "marker": "<!-- claim:crash-site-51607 -->",
       "id": "crash-site-51607",
       "type": "crash_site",
-      "statement": "DMP сохранил страницу EIP.",
+      "statement": "Четыре точные пары TXT/DMP 5.7 R40 подтверждают RVA 0x51607.",
+      "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
+      "scope_kind": "series",
+      "applicable_axes": [
+        "instruction"
+      ],
       "evidence": [
-        "input:static-analysis.json"
+        "input:pair-audit.json",
+        "input:address-proof.json"
       ],
       "confidence_vector": {
         "instruction": "confirmed",
-        "mechanism": "confirmed",
-        "state_origin": "unknown",
-        "family_coverage": "confirmed"
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
       }
     },
     {
       "confidence": "видно непосредственно в DMP",
+      "marker": "<!-- claim:local-bad-eip -->",
       "id": "local-bad-eip",
       "type": "local_mechanism",
-      "statement": "Байты с EIP равны FF 1A.",
+      "statement": "В четырёх DMP 5.7 R40 по аварийному EIP лежат одинаковые байты FF 1A.",
+      "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
+      "scope_kind": "series",
+      "applicable_axes": [
+        "mechanism"
+      ],
       "evidence": [
-        "input:static-analysis.json"
+        "input:static-analysis.json",
+        "input:address-proof.json"
       ],
       "confidence_vector": {
-        "instruction": "confirmed",
+        "instruction": "not_applicable",
         "mechanism": "confirmed",
-        "state_origin": "unknown",
-        "family_coverage": "confirmed"
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
       }
     },
     {
-      "confidence": "однозначно следует из листинга",
+      "confidence": "выведено из совокупности признаков",
+      "marker": "<!-- claim:tryupdate-false-symbol -->",
       "id": "tryupdate-false-symbol",
       "type": "observation",
       "statement": "В 160220 строках точного листинга нет инструкции с адресом 0x10051607.",
+      "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
+      "scope_kind": "series",
+      "applicable_axes": [],
       "evidence": [
         "input:static-analysis.json",
         "input:static-exhaustion.json"
       ],
       "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "confirmed",
-        "state_origin": "unknown",
-        "family_coverage": "confirmed"
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
       }
     },
     {
       "confidence": "не проверено",
+      "marker": "<!-- claim:transfer-origin-unknown -->",
       "id": "transfer-origin-unknown",
       "type": "state_origin",
       "statement": "Не установлен источник управляющего адреса.",
+      "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
+      "scope_kind": "series",
+      "applicable_axes": [
+        "state_origin"
+      ],
       "evidence": [
-        "input:capabilities.json",
-        "input:static-analysis.json",
+        "input:analysis-contract.json",
         "input:thread-provenance-main.json"
       ],
       "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "confirmed",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
         "state_origin": "unknown",
-        "family_coverage": "confirmed"
+        "family_coverage": "not_applicable"
       }
     },
     {
       "confidence": "видно непосредственно в DMP",
+      "marker": "<!-- claim:thread-mismatch -->",
       "id": "thread-mismatch",
       "type": "limitation",
       "statement": "ExceptionStream указывает номер потока 15456.",
+      "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
+      "scope_kind": "series",
+      "applicable_axes": [],
       "evidence": [
         "input:capabilities.json",
         "input:thread-provenance-main.json"
       ],
       "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "confirmed",
-        "state_origin": "unknown",
-        "family_coverage": "confirmed"
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
       }
     },
     {
       "confidence": "выведено из совокупности признаков",
+      "marker": "<!-- claim:family-census-51607 -->",
       "id": "family-census-51607",
       "type": "family_coverage",
-      "statement": "Всего в подтверждённой семье: 1 уникальный случай",
+      "statement": "Полный поиск прочитал 5554 из 5554 TXT и нашёл 15 точных совпадений.",
+      "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
+      "scope_kind": "corpus",
+      "applicable_axes": [
+        "family_coverage"
+      ],
       "evidence": [
-        "input:corpus-census.json",
-        "input:family-membership.json"
+        "input:scan-attestation.json",
+        "input:family-membership.json",
+        "input:series-groups.json"
       ],
       "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "confirmed",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "marker": "<!-- claim:reproduction-open -->",
+      "id": "reproduction-open",
+      "type": "reproduction",
+      "statement": "Воспроизведение не подтверждено.",
+      "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
+      "scope_kind": "series",
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "evidence": [
+        "input:save-inventory.json",
+        "input:series-groups.json"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
         "state_origin": "unknown",
-        "family_coverage": "confirmed"
+        "family_coverage": "not_applicable"
       }
     },
     {
       "confidence": "выведено из совокупности признаков",
+      "marker": "<!-- claim:fix-target-validation -->",
       "id": "fix-target-validation",
       "type": "fix",
       "statement": "HD-моду следует отклонять косвенные адреса вне исполняемых PE-секций.",
+      "scope_id": "HD_UPD.dll+0x51607-exact-site-corpus",
+      "scope_kind": "series",
+      "applicable_axes": [],
       "evidence": [
+        "input:analysis-contract.json",
         "input:static-analysis.json"
       ],
       "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "confirmed",
-        "state_origin": "unknown",
-        "family_coverage": "confirmed"
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
       }
     }
   ],

@@ -1,0 +1,1552 @@
+{
+  "schema": 1,
+  "source": "/Users/Shared/ii/mail-dumps/HD_UPD.dll+0x51607",
+  "count_contract": "physical_txt = unique_incidents + duplicate_instances",
+  "counts": {
+    "physical_txt": 15,
+    "unique_incidents": 15,
+    "duplicate_instances": 0,
+    "physical_dmp": 4,
+    "unique_dmp": 3,
+    "confirmed_family_incidents": 0,
+    "signature_groups": 1,
+    "cause_groups": 4,
+    "unresolved_incidents": 15
+  },
+  "counters": {
+    "physical_txt": {
+      "numerator": 15,
+      "denominator": 15,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "none"
+    },
+    "unique_incidents": {
+      "numerator": 15,
+      "denominator": 15,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "sha256_txt"
+    },
+    "duplicate_instances": {
+      "numerator": 0,
+      "denominator": 15,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "sha256_txt"
+    },
+    "physical_dmp": {
+      "numerator": 4,
+      "denominator": 4,
+      "population": "paired DMP in current series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "none"
+    },
+    "unique_dmp": {
+      "numerator": 3,
+      "denominator": 4,
+      "population": "paired DMP in current series",
+      "scope": "current_series",
+      "unit": "dump",
+      "dedup_basis": "sha256_dmp"
+    },
+    "classified_incidents": {
+      "numerator": 0,
+      "denominator": 15,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "sha256_txt"
+    },
+    "unresolved_incidents": {
+      "numerator": 15,
+      "denominator": 15,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "sha256_txt"
+    },
+    "confirmed_family_incidents": {
+      "numerator": 0,
+      "denominator": 15,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "confirmed state origin and causal tuple"
+    }
+  },
+  "incidents": [
+    {
+      "incident_id": "incident-db89c2c6c31132de",
+      "sha256_txt": "db89c2c6c31132dee856546fe709f81578637a649a6882af78c41ce31ed13588",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.6-R10-180-1.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_UPD.dll+0x51607-5.6-R10-180-1.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.6 R10"
+      },
+      "eip_or_rva": "HD_UPD.dll+0x51607",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0xFFFFFFFF",
+      "registers": {
+        "EAX": "0x08CAA3A0",
+        "ECX": "0x08CAD48F",
+        "EDX": "0x08CAB164",
+        "EBX": "0x00000001",
+        "ESP": "0x00129F04",
+        "EBP": "0x00129FDF",
+        "ESI": "0x08CAB164",
+        "EDI": "0x0012FAB8"
+      },
+      "caller": "unknown",
+      "signature": {
+        "crash_site": "HD_UPD.dll+0x51607",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0xFFFFFFFF",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "unknown",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "cause_group": "cause-43864f123000",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-522603b9cfde5b67",
+      "sha256_txt": "522603b9cfde5b677995d0521d36d2c66c3e9a7488b12c8ddf3aa426eec2a5a2",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.6-R15-180-1.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_UPD.dll+0x51607-5.6-R15-180-1.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.6 R15"
+      },
+      "eip_or_rva": "HD_UPD.dll+0x51607",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0xFFFFFFFF",
+      "registers": {
+        "EAX": "0x0A43A390",
+        "ECX": "0x0A43EF82",
+        "EDX": "0x0A43B674",
+        "EBX": "0x00000001",
+        "ESP": "0x00199EEC",
+        "EBP": "0x00199FC7",
+        "ESI": "0x0A43B674",
+        "EDI": "0x0019FAA0"
+      },
+      "caller": "unknown",
+      "signature": {
+        "crash_site": "HD_UPD.dll+0x51607",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0xFFFFFFFF",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "unknown",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "cause_group": "cause-43864f123000",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-704faa8d85e71fb6",
+      "sha256_txt": "704faa8d85e71fb6aa1de68ac5a18c120d31d12afebbcb11a3f48652062bd878",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.6-R19-180-1.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_UPD.dll+0x51607-5.6-R19-180-1.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.6 R19"
+      },
+      "eip_or_rva": "HD_UPD.dll+0x51607",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0xFFFFFFFF",
+      "registers": {
+        "EAX": "0x0A9148F0",
+        "ECX": "0x0A9144FF",
+        "EDX": "0x0A9170B4",
+        "EBX": "0x00000001",
+        "ESP": "0x00199F08",
+        "EBP": "0x00199FE3",
+        "ESI": "0x0A9170B4",
+        "EDI": "0x0019FABC"
+      },
+      "caller": "unknown",
+      "signature": {
+        "crash_site": "HD_UPD.dll+0x51607",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0xFFFFFFFF",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "unknown",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "cause_group": "cause-43864f123000",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-956550130003ab9c",
+      "sha256_txt": "956550130003ab9c0f3b5be41ab0472cf8342157705eee8355256854425985de",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.6-R19-180-2.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_UPD.dll+0x51607-5.6-R19-180-2.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.6 R19"
+      },
+      "eip_or_rva": "HD_UPD.dll+0x51607",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0xFFFFFFFF",
+      "registers": {
+        "EAX": "0x05EAA3A0",
+        "ECX": "0x05EAED02",
+        "EDX": "0x05EAB834",
+        "EBX": "0x00000001",
+        "ESP": "0x00189F20",
+        "EBP": "0x00189FFB",
+        "ESI": "0x05EAB834",
+        "EDI": "0x0018FAD4"
+      },
+      "caller": "unknown",
+      "signature": {
+        "crash_site": "HD_UPD.dll+0x51607",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0xFFFFFFFF",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "unknown",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "cause_group": "cause-43864f123000",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-76bee8c3bee2cb5b",
+      "sha256_txt": "76bee8c3bee2cb5b9eddc3c5c996e50baee63bfde6303dd4cf69c8a5b8eadaa6",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.6-R27-180-1.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_UPD.dll+0x51607-5.6-R27-180-1.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.6 R27"
+      },
+      "eip_or_rva": "HD_UPD.dll+0x51607",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0xFFFFFFFF",
+      "registers": {
+        "EAX": "0x0B8BA740",
+        "ECX": "0x0B8BA3DA",
+        "EDX": "0x0B8BB644",
+        "EBX": "0x00000001",
+        "ESP": "0x00199F08",
+        "EBP": "0x00199FE3",
+        "ESI": "0x0B8BB644",
+        "EDI": "0x0019FABC"
+      },
+      "caller": "0x00000003",
+      "signature": {
+        "crash_site": "HD_UPD.dll+0x51607",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0xFFFFFFFF",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0x00000003",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "cause_group": "cause-ab681f1b24af",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-6632714369513562",
+      "sha256_txt": "66327143695135624699a5d52f810228f8024c0721cb3cf659e3f14ab12c0e11",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.6-R31-180-1.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_UPD.dll+0x51607-5.6-R31-180-1.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.6 R31"
+      },
+      "eip_or_rva": "HD_UPD.dll+0x51607",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0xFFFFFFFF",
+      "registers": {
+        "EAX": "0x0DDD6850",
+        "ECX": "0x0DDD602F",
+        "EDX": "0x0DDD3644",
+        "EBX": "0x00000001",
+        "ESP": "0x001A9F08",
+        "EBP": "0x001A9FE3",
+        "ESI": "0x0DDD3644",
+        "EDI": "0x001AFABC"
+      },
+      "caller": "0x00000000",
+      "signature": {
+        "crash_site": "HD_UPD.dll+0x51607",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0xFFFFFFFF",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0x00000000",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "cause_group": "cause-aab1de2d8ee7",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-0c3f4d780571333f",
+      "sha256_txt": "0c3f4d780571333faf05026aa8e9a9a0a422fd6b22f004e2e1cdc79a188a4f0c",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.7-R3-180-1.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_UPD.dll+0x51607-5.7-R3-180-1.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R3"
+      },
+      "eip_or_rva": "HD_UPD.dll+0x51607",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0xFFFFFFFF",
+      "registers": {
+        "EAX": "0x0A95A370",
+        "ECX": "0x0A95EC02",
+        "EDX": "0x0A95C074",
+        "EBX": "0x00000001",
+        "ESP": "0x001A9F48",
+        "EBP": "0x001AA023",
+        "ESI": "0x0A95C074",
+        "EDI": "0x001AFAFC"
+      },
+      "caller": "0x0079583A",
+      "signature": {
+        "crash_site": "HD_UPD.dll+0x51607",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0xFFFFFFFF",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0x0079583A",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "cause_group": "cause-75fb6d053200",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-43de6b4feec886fe",
+      "sha256_txt": "43de6b4feec886fe26cd29d481b360b8e0e072db4f17996d605ff965095a73a4",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.7-R3-180-2.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_UPD.dll+0x51607-5.7-R3-180-2.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R3"
+      },
+      "eip_or_rva": "HD_UPD.dll+0x51607",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0xFFFFFFFF",
+      "registers": {
+        "EAX": "0x0A95A370",
+        "ECX": "0x0A95EC02",
+        "EDX": "0x0A95C074",
+        "EBX": "0x00000001",
+        "ESP": "0x001A9F48",
+        "EBP": "0x001AA023",
+        "ESI": "0x0A95C074",
+        "EDI": "0x001AFAFC"
+      },
+      "caller": "unknown",
+      "signature": {
+        "crash_site": "HD_UPD.dll+0x51607",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0xFFFFFFFF",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "unknown",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "cause_group": "cause-43864f123000",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-986b5609dcd6d463",
+      "sha256_txt": "986b5609dcd6d4631827841712d06ac4234a8156d0c219bd3611b9358b3288c6",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.7-R3-180-3.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_UPD.dll+0x51607-5.7-R3-180-3.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R3"
+      },
+      "eip_or_rva": "HD_UPD.dll+0x51607",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0xFFFFFFFF",
+      "registers": {
+        "EAX": "0x0A8FA370",
+        "ECX": "0x0A8FEC02",
+        "EDX": "0x0A8FC074",
+        "EBX": "0x00000001",
+        "ESP": "0x001A9F48",
+        "EBP": "0x001AA023",
+        "ESI": "0x0A8FC074",
+        "EDI": "0x001AFAFC"
+      },
+      "caller": "unknown",
+      "signature": {
+        "crash_site": "HD_UPD.dll+0x51607",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0xFFFFFFFF",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "unknown",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "cause_group": "cause-43864f123000",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-4bcb98804de4620e",
+      "sha256_txt": "4bcb98804de4620e3b40619fef6a9b10808af77bf710027282f02da1f403de68",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.7-R40-180-1.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_UPD.dll+0x51607-5.7-R40-180-1.txt",
+      "dmp": "HD_UPD.dll+0x51607-5.7-R40-180-1.dmp",
+      "pair_quality": "exact_pair",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R40"
+      },
+      "eip_or_rva": "HD_UPD.dll+0x51607",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0xFFFFFFFF",
+      "registers": {
+        "EAX": "0x08A66620",
+        "ECX": "0x08A66B47",
+        "EDX": "0x08831984",
+        "EBX": "0x00000001",
+        "ESP": "0x00199F48",
+        "EBP": "0x0019A023",
+        "ESI": "0x08831984",
+        "EDI": "0x0019FAFC"
+      },
+      "caller": "unknown",
+      "signature": {
+        "crash_site": "HD_UPD.dll+0x51607",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0xFFFFFFFF",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "unknown",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "cause_group": "cause-43864f123000",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [
+        "captured_memory",
+        "code_window",
+        "exception_context",
+        "module_identity",
+        "thread_provenance",
+        "thread_stacks"
+      ],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-0e10f8bf2f322ce7",
+      "sha256_txt": "0e10f8bf2f322ce7e460440e14398e37b42909bd585f21a5db6bf213e2f55852",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.7-R40-180-2.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_UPD.dll+0x51607-5.7-R40-180-2.txt",
+      "dmp": "HD_UPD.dll+0x51607-5.7-R40-180-2.dmp",
+      "pair_quality": "exact_pair",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R40"
+      },
+      "eip_or_rva": "HD_UPD.dll+0x51607",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0xFFFFFFFF",
+      "registers": {
+        "EAX": "0x0C0D8118",
+        "ECX": "0x0C0D7EB4",
+        "EDX": "0x0BEA1FA4",
+        "EBX": "0x00000001",
+        "ESP": "0x00199F48",
+        "EBP": "0x0019A023",
+        "ESI": "0x0BEA1FA4",
+        "EDI": "0x0019FAFC"
+      },
+      "caller": "unknown",
+      "signature": {
+        "crash_site": "HD_UPD.dll+0x51607",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0xFFFFFFFF",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "unknown",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "cause_group": "cause-43864f123000",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [
+        "captured_memory",
+        "code_window",
+        "exception_context",
+        "module_identity",
+        "thread_provenance",
+        "thread_stacks"
+      ],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-aba18f29f5cfd6ee",
+      "sha256_txt": "aba18f29f5cfd6ee72f3c8b98989dfe37cfbe726ddc52c5cad895c84779cf9ef",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.7-R40-180-3.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_UPD.dll+0x51607-5.7-R40-180-3.txt",
+      "dmp": "HD_UPD.dll+0x51607-5.7-R40-180-3.dmp",
+      "pair_quality": "exact_pair",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R40"
+      },
+      "eip_or_rva": "HD_UPD.dll+0x51607",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0xFFFFFFFF",
+      "registers": {
+        "EAX": "0x07A062F0",
+        "ECX": "0x07A05EB7",
+        "EDX": "0x079B8DE4",
+        "EBX": "0x00000001",
+        "ESP": "0x00199F48",
+        "EBP": "0x0019A023",
+        "ESI": "0x079B8DE4",
+        "EDI": "0x0019FAFC"
+      },
+      "caller": "unknown",
+      "signature": {
+        "crash_site": "HD_UPD.dll+0x51607",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0xFFFFFFFF",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "unknown",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "cause_group": "cause-43864f123000",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [
+        "captured_memory",
+        "code_window",
+        "exception_context",
+        "module_identity",
+        "thread_provenance",
+        "thread_stacks"
+      ],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-ab0efe29569d7fe8",
+      "sha256_txt": "ab0efe29569d7fe8c46f01338a397f56a76b6821ac8b23ce51b75ec4f35130df",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.7-R40-180.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_UPD.dll+0x51607-5.7-R40-180.txt",
+      "dmp": "HD_UPD.dll+0x51607-5.7-R40-180.dmp",
+      "pair_quality": "exact_pair",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R40"
+      },
+      "eip_or_rva": "HD_UPD.dll+0x51607",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0xFFFFFFFF",
+      "registers": {
+        "EAX": "0x08A66620",
+        "ECX": "0x08A66B47",
+        "EDX": "0x08831984",
+        "EBX": "0x00000001",
+        "ESP": "0x00199F48",
+        "EBP": "0x0019A023",
+        "ESI": "0x08831984",
+        "EDI": "0x0019FAFC"
+      },
+      "caller": "unknown",
+      "signature": {
+        "crash_site": "HD_UPD.dll+0x51607",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0xFFFFFFFF",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "unknown",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "cause_group": "cause-43864f123000",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [
+        "captured_memory",
+        "code_window",
+        "exception_context",
+        "module_identity",
+        "thread_provenance",
+        "thread_stacks"
+      ],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-cb6d8ee3901d920e",
+      "sha256_txt": "cb6d8ee3901d920e37ea32641ba2282322993377018d7ef9f34b43b20c2deae1",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.7-RC7-180-1.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_UPD.dll+0x51607-5.7-RC7-180-1.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC7"
+      },
+      "eip_or_rva": "HD_UPD.dll+0x51607",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0xFFFFFFFF",
+      "registers": {
+        "EAX": "0x096F5190",
+        "ECX": "0x096F69C2",
+        "EDX": "0x096F2F64",
+        "EBX": "0x00000001",
+        "ESP": "0x001A9F48",
+        "EBP": "0x001AA023",
+        "ESI": "0x096F2F64",
+        "EDI": "0x001AFAFC"
+      },
+      "caller": "0x00000000",
+      "signature": {
+        "crash_site": "HD_UPD.dll+0x51607",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0xFFFFFFFF",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0x00000000",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "cause_group": "cause-aab1de2d8ee7",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-0de8ff48c5efa448",
+      "sha256_txt": "0de8ff48c5efa4482129b34469172a10f1aaf2c3749c5d14d24727e9452e6583",
+      "physical_copies": [
+        "HD_UPD.dll+0x51607-5.7-RC9-180-1.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "HD_UPD.dll+0x51607-5.7-RC9-180-1.txt",
+      "dmp": null,
+      "pair_quality": "unpaired_txt",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC9"
+      },
+      "eip_or_rva": "HD_UPD.dll+0x51607",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0xFFFFFFFF",
+      "registers": {
+        "EAX": "0x05F0A440",
+        "ECX": "0x05F0A032",
+        "EDX": "0x05F0B644",
+        "EBX": "0x00000001",
+        "ESP": "0x00199F48",
+        "EBP": "0x0019A023",
+        "ESI": "0x05F0B644",
+        "EDI": "0x0019FAFC"
+      },
+      "caller": "unknown",
+      "signature": {
+        "crash_site": "HD_UPD.dll+0x51607",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0xFFFFFFFF",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "unknown",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "cause_group": "cause-43864f123000",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    }
+  ],
+  "signature_groups": [
+    {
+      "id": "sig-9b37388cade5",
+      "count": 15,
+      "signature": {
+        "crash_site": "HD_UPD.dll+0x51607",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0xFFFFFFFF",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause_groups": [
+        "cause-43864f123000",
+        "cause-75fb6d053200",
+        "cause-aab1de2d8ee7",
+        "cause-ab681f1b24af"
+      ],
+      "representative": "incident-db89c2c6c31132de"
+    }
+  ],
+  "cause_groups": [
+    {
+      "id": "cause-43864f123000",
+      "count": 11,
+      "cause": {
+        "caller": "unknown",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "representative": "incident-db89c2c6c31132de",
+      "unresolved": true
+    },
+    {
+      "id": "cause-75fb6d053200",
+      "count": 1,
+      "cause": {
+        "caller": "0x0079583A",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "representative": "incident-0c3f4d780571333f",
+      "unresolved": true
+    },
+    {
+      "id": "cause-aab1de2d8ee7",
+      "count": 2,
+      "cause": {
+        "caller": "0x00000000",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "representative": "incident-6632714369513562",
+      "unresolved": true
+    },
+    {
+      "id": "cause-ab681f1b24af",
+      "count": 1,
+      "cause": {
+        "caller": "0x00000003",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-9b37388cade5",
+      "representative": "incident-76bee8c3bee2cb5b",
+      "unresolved": true
+    }
+  ],
+  "signature_only_separations": [
+    {
+      "signature_group": "sig-9b37388cade5",
+      "cause_groups": [
+        "cause-43864f123000",
+        "cause-75fb6d053200",
+        "cause-aab1de2d8ee7",
+        "cause-ab681f1b24af"
+      ],
+      "relation_status": "same_sink_only",
+      "relation_levels": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": false,
+        "same_root_cause": false,
+        "highest_confirmed": "same_local_mechanism"
+      },
+      "highest_relation_level": "same_local_mechanism",
+      "family_counter_increment": false,
+      "basis": "совпала сигнатура sink; уровни механизма, origin и root cause проверены отдельно"
+    }
+  ],
+  "related_cases": [],
+  "representatives": {
+    "algorithm": "deterministic_greedy_set_cover",
+    "selected": [
+      {
+        "incident_id": "incident-4bcb98804de4620e",
+        "txt": "HD_UPD.dll+0x51607-5.7-R40-180-1.txt",
+        "newly_covered": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.7 R40",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-R40-180-1.txt",
+          "subsystem:unknown"
+        ],
+        "all_features": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.7 R40",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-R40-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-76bee8c3bee2cb5b",
+        "txt": "HD_UPD.dll+0x51607-5.6-R27-180-1.txt",
+        "newly_covered": [
+          "cause:cause-ab681f1b24af",
+          "hd:5.6 R27",
+          "outlier:HD_UPD.dll+0x51607-5.6-R27-180-1.txt"
+        ],
+        "all_features": [
+          "cause:cause-ab681f1b24af",
+          "formula:unknown",
+          "hd:5.6 R27",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.6-R27-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-6632714369513562",
+        "txt": "HD_UPD.dll+0x51607-5.6-R31-180-1.txt",
+        "newly_covered": [
+          "cause:cause-aab1de2d8ee7",
+          "hd:5.6 R31",
+          "outlier:HD_UPD.dll+0x51607-5.6-R31-180-1.txt"
+        ],
+        "all_features": [
+          "cause:cause-aab1de2d8ee7",
+          "formula:unknown",
+          "hd:5.6 R31",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.6-R31-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-0c3f4d780571333f",
+        "txt": "HD_UPD.dll+0x51607-5.7-R3-180-1.txt",
+        "newly_covered": [
+          "cause:cause-75fb6d053200",
+          "hd:5.7 R3",
+          "outlier:HD_UPD.dll+0x51607-5.7-R3-180-1.txt"
+        ],
+        "all_features": [
+          "cause:cause-75fb6d053200",
+          "formula:unknown",
+          "hd:5.7 R3",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-R3-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-db89c2c6c31132de",
+        "txt": "HD_UPD.dll+0x51607-5.6-R10-180-1.txt",
+        "newly_covered": [
+          "hd:5.6 R10",
+          "outlier:HD_UPD.dll+0x51607-5.6-R10-180-1.txt"
+        ],
+        "all_features": [
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.6 R10",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.6-R10-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-522603b9cfde5b67",
+        "txt": "HD_UPD.dll+0x51607-5.6-R15-180-1.txt",
+        "newly_covered": [
+          "hd:5.6 R15",
+          "outlier:HD_UPD.dll+0x51607-5.6-R15-180-1.txt"
+        ],
+        "all_features": [
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.6 R15",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.6-R15-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-704faa8d85e71fb6",
+        "txt": "HD_UPD.dll+0x51607-5.6-R19-180-1.txt",
+        "newly_covered": [
+          "hd:5.6 R19",
+          "outlier:HD_UPD.dll+0x51607-5.6-R19-180-1.txt"
+        ],
+        "all_features": [
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.6 R19",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.6-R19-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-cb6d8ee3901d920e",
+        "txt": "HD_UPD.dll+0x51607-5.7-RC7-180-1.txt",
+        "newly_covered": [
+          "hd:5.7 RC7",
+          "outlier:HD_UPD.dll+0x51607-5.7-RC7-180-1.txt"
+        ],
+        "all_features": [
+          "cause:cause-aab1de2d8ee7",
+          "formula:unknown",
+          "hd:5.7 RC7",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-RC7-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-0de8ff48c5efa448",
+        "txt": "HD_UPD.dll+0x51607-5.7-RC9-180-1.txt",
+        "newly_covered": [
+          "hd:5.7 RC9",
+          "outlier:HD_UPD.dll+0x51607-5.7-RC9-180-1.txt"
+        ],
+        "all_features": [
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.7 RC9",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-RC9-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-956550130003ab9c",
+        "txt": "HD_UPD.dll+0x51607-5.6-R19-180-2.txt",
+        "newly_covered": [
+          "outlier:HD_UPD.dll+0x51607-5.6-R19-180-2.txt"
+        ],
+        "all_features": [
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.6 R19",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.6-R19-180-2.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-43de6b4feec886fe",
+        "txt": "HD_UPD.dll+0x51607-5.7-R3-180-2.txt",
+        "newly_covered": [
+          "outlier:HD_UPD.dll+0x51607-5.7-R3-180-2.txt"
+        ],
+        "all_features": [
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.7 R3",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-R3-180-2.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-986b5609dcd6d463",
+        "txt": "HD_UPD.dll+0x51607-5.7-R3-180-3.txt",
+        "newly_covered": [
+          "outlier:HD_UPD.dll+0x51607-5.7-R3-180-3.txt"
+        ],
+        "all_features": [
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.7 R3",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-R3-180-3.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-0e10f8bf2f322ce7",
+        "txt": "HD_UPD.dll+0x51607-5.7-R40-180-2.txt",
+        "newly_covered": [
+          "outlier:HD_UPD.dll+0x51607-5.7-R40-180-2.txt"
+        ],
+        "all_features": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.7 R40",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-R40-180-2.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-aba18f29f5cfd6ee",
+        "txt": "HD_UPD.dll+0x51607-5.7-R40-180-3.txt",
+        "newly_covered": [
+          "outlier:HD_UPD.dll+0x51607-5.7-R40-180-3.txt"
+        ],
+        "all_features": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.7 R40",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-R40-180-3.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-ab0efe29569d7fe8",
+        "txt": "HD_UPD.dll+0x51607-5.7-R40-180.txt",
+        "newly_covered": [
+          "outlier:HD_UPD.dll+0x51607-5.7-R40-180.txt"
+        ],
+        "all_features": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-43864f123000",
+          "formula:unknown",
+          "hd:5.7 R40",
+          "hota:1.8.0",
+          "outlier:HD_UPD.dll+0x51607-5.7-R40-180.txt",
+          "subsystem:unknown"
+        ]
+      }
+    ],
+    "uncovered": []
+  },
+  "validation_errors": [],
+  "valid": true
+}

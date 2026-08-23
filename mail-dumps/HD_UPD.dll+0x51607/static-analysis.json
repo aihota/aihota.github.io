@@ -125,15 +125,15 @@
   },
   "corpus_census": {
     "root": "mail-dumps",
-    "txt_candidates": 5496,
-    "txt_read": 5496,
-    "physical_crash_logs": 5411,
-    "duplicate_instances": 1262,
-    "unique_crash_logs": 4149,
-    "exact_site_unique": 1,
-    "nearby_window": "RVA 0x51507..0x51707",
-    "nearby_unique": 1,
-    "scan_complete": true
+    "txt_candidates": 5554,
+    "txt_read": 5554,
+    "physical_crash_logs": 5455,
+    "duplicate_instances": 1264,
+    "unique_crash_logs": 4191,
+    "exact_site_unique": 15,
+    "scan_complete": true,
+    "scan_attestation": "scan-attestation.json",
+    "nearby_refresh_status": "not rerun; no current nearby absence claim"
   },
   "source_of_control_transfer": {
     "status": "unknown",
@@ -172,7 +172,7 @@
     },
     {
       "category": "family",
-      "result": "0 additional exact or nearby unique sites in complete 5496/5496 TXT scan"
+      "result": "current exact-site scan found 15 SHA-unique TXT in 5554/5554 files; nearby-range absence was not reused after mail ingest"
     }
   ],
   "limitations": [
@@ -180,5 +180,13 @@
     "MemoryInfoList absent",
     "patcher_x86 dump.txt absent",
     "actual indirect transfer source not captured"
-  ]
+  ],
+  "series_scope": {
+    "physical_txt": 15,
+    "unique_txt_sha256": 15,
+    "physical_dmp": 4,
+    "unique_dmp_sha256": 3,
+    "confirmed_local_mechanism_r40": 4,
+    "context_only": 11
+  }
 }

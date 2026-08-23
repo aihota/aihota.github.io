@@ -1,21 +1,48 @@
 {
-  "schema": 1,
+  "schema": 2,
   "root": "mail-dumps",
-  "filter": "structured crash Address field; exact HD_UPD.dll+0x51607 and RVA ±0x100",
-  "dedup": "byte-identical/SHA-256",
+  "filter": "parsed crash Address field; exact HD_UPD.dll+0x51607",
+  "dedup": "SHA-256 of full TXT bytes",
   "boundary": {
-    "txt_candidates": 5496,
-    "txt_read": 5496,
-    "scan_complete": true
+    "txt_candidates": 5554,
+    "txt_read": 5554,
+    "scan_complete": true,
+    "files_truncated": 0,
+    "unreadable": 0,
+    "scan_attestation": "scan-attestation.json"
   },
   "counts": {
-    "physical_crash_logs": 5411,
-    "duplicate_instances": 1262,
-    "unique_crash_logs": 4149,
-    "exact_site_unique": 1,
-    "nearby_unique": 1
+    "physical_txt": 5554,
+    "physical_crash_logs": 5455,
+    "non_crash_txt": 99,
+    "duplicate_instances": 1264,
+    "unique_crash_logs": 4191,
+    "exact_site_unique": 15
+  },
+  "nearby_window": {
+    "range": "RVA 0x51507..0x51707",
+    "refreshed_after_mail_ingest": false,
+    "claim_allowed": false
   },
   "members": [
-    "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180.txt"
-  ]
+    "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.6-R10-180-1.txt",
+    "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.6-R15-180-1.txt",
+    "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.6-R19-180-1.txt",
+    "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.6-R19-180-2.txt",
+    "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.6-R27-180-1.txt",
+    "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.6-R31-180-1.txt",
+    "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R3-180-1.txt",
+    "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R3-180-2.txt",
+    "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R3-180-3.txt",
+    "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180-1.txt",
+    "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180-2.txt",
+    "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180-3.txt",
+    "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-R40-180.txt",
+    "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-RC7-180-1.txt",
+    "mail-dumps/HD_UPD.dll+0x51607/HD_UPD.dll+0x51607-5.7-RC9-180-1.txt"
+  ],
+  "historical": {
+    "txt_read_before_mail_ingest": 5496,
+    "exact_site_unique_before_mail_ingest": 1
+  }
 }

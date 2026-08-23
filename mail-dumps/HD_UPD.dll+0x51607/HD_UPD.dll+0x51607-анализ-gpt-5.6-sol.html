@@ -81,6 +81,9 @@ html.theme-light{
   clip:rect(0,0,0,0);white-space:nowrap;border:0}
 /* skip-link: первый по Tab элемент — прыжок к содержимому в обход большого оглавления.
    По умолчанию спрятан (sr-only), при фокусе с клавиатуры всплывает в левом верхнем углу */
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;
+  margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;border:0!important}
 .skip{position:fixed;top:12px;left:12px;z-index:90;background:var(--accent2);color:var(--bg);
   padding:9px 16px;border-radius:9px;font-weight:600;box-shadow:var(--shadow);
   transform:translateY(-160%);transition:transform .18s}
@@ -115,7 +118,7 @@ body{margin:0;background:var(--bg);color:var(--ink);
    font-feature-settings:normal сбрасывает наследуемые от body kern/liga (иначе liga
    остаётся включён) и убирает конфликт с font-variant-ligatures;
    font-size-adjust держит высоту строчных при подмене моно-шрифта на др. ОС */
-code,pre,.mono,td.mono,th.mono,.kv .v,.formula,.chain .ttl{font-family:var(--font-mono);
+code,pre,.mono,td.mono,th.mono,.formula,.chain .ttl{font-family:var(--font-mono);
   font-size-adjust:var(--fsa-mono);
   font-feature-settings:normal;
   font-variant-ligatures:none;
@@ -125,8 +128,8 @@ a{color:var(--accent2);text-decoration:none}
    ссылки, оглавление, якоря ¶, кнопки копирования, раскрытие аппендиксов.
    :focus-visible срабатывает только при навигации с клавиатуры, не при клике мышью */
 a:focus-visible,nav.toc a:focus-visible,h2 .anchor:focus-visible,
-.codewrap .copy:focus-visible,.appendix>summary:focus-visible,
-[data-copy]:focus-visible{outline:2px solid var(--accent2);outline-offset:2px;border-radius:4px}
+.codewrap .copy:focus-visible,.crash-log-list>summary:focus-visible,
+[data-copy]:focus-visible,#themeToggle:focus-visible{outline:2px solid var(--accent2);outline-offset:2px;border-radius:4px}
 /* скрытые по умолчанию якорь ¶ и кнопка «Копировать» — показать при фокусе с клавиатуры */
 h2 .anchor:focus-visible{opacity:.9}
 .codewrap:focus-within .copy{opacity:1}
@@ -137,7 +140,9 @@ h2 .anchor:focus-visible{opacity:.9}
 /* якорь ¶ наследует встроенный --font-sans (¶ есть в сабсете Inter) — идентичен на всех ОС;
    font-variant-emoji:text — текстовая (не emoji) презентация знака */
 h2 .anchor{font-variant-emoji:text}
-.theme-fab{position:absolute;top:18px;right:22px;z-index:5}
+.theme-fab{position:absolute;top:18px;right:22px;z-index:5;min-width:112px;
+  justify-content:center;white-space:nowrap}
+.theme-fab .tic{width:16px;height:16px}
 .btn{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:9px;
   padding:7px 12px;font-size:var(--fs-xs);font-weight:600;cursor:pointer;display:inline-flex;
   align-items:center;gap:7px;transition:border-color .2s,transform .08s,background .2s}
@@ -158,7 +163,30 @@ nav.toc a:hover{color:var(--ink);background:var(--br)}
 nav.toc a.active{color:var(--ink);border-left-color:var(--accent2);
   background:linear-gradient(90deg,var(--blBg),transparent);font-weight:600}
 main{padding-bottom:90px;min-width:0}
-@media(max-width:900px){.shell{grid-template-columns:1fr}nav.toc{display:none}}
+@media(max-width:900px){
+  .shell{grid-template-columns:minmax(0,1fr) auto;gap:0;padding:0 16px}
+  nav.toc{position:sticky;top:0;z-index:35;grid-column:1;grid-row:1;
+    height:auto;align-self:start;display:flex;gap:4px;margin:0 0 0 -16px;
+    padding:8px 8px 8px 16px;overflow-x:auto;overflow-y:hidden;
+    white-space:nowrap;scrollbar-width:thin;
+    background:color-mix(in srgb,var(--bg) 90%,transparent);
+    border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+  nav.toc .lbl{display:none}
+  nav.toc a{flex:0 0 auto;border-left:0;border-bottom:2px solid transparent;
+    border-radius:8px;padding:6px 10px}
+  nav.toc a.active{border-left-color:transparent;border-bottom-color:var(--accent2);
+    background:var(--blBg)}
+  .theme-fab{position:static;grid-column:2;grid-row:1;align-self:start;justify-self:end;
+    z-index:40;margin:4px -12px 0 4px}
+  #doc{grid-column:1/-1;grid-row:2}
+  #doc>section{scroll-margin-top:70px}
+}
+@media(max-width:520px){
+  .theme-fab{min-width:44px;width:44px;height:44px;padding:0}
+  .theme-fab #themeLabel{display:none}
+  .ribbon .vlabel{flex-wrap:wrap}
+  .ribbon .vconf{margin:2px 0 0 31px;white-space:normal}
+}
 .hero{padding:40px 0 14px}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-2xs);letter-spacing:var(--ls-caps-wide);
   text-transform:uppercase;color:var(--accent);font-weight:700}
@@ -264,6 +292,7 @@ section#verdict h2{border-bottom:0}
 #doc>section:not(#verdict) .card+.card{border-top:1px dashed var(--line);
   margin-top:14px;padding-top:14px}
 h3{font-size:var(--fs-base);margin:20px 0 8px}
+h3.subhead{color:var(--ink);font-weight:700;letter-spacing:-.01em}
 p{margin:10px 0}.lead{color:var(--muted)}
 /* рваный правый край на ВСЮ ширину секции (не justify):
    текст доходит до правого края (без пустот max-width), но строки обрываются
@@ -276,6 +305,13 @@ ul{margin:10px 0;padding-left:20px}li{margin:6px 0}
    «уменьшается», сохраняет регистр КАПСа из txt и читается как сильное
    логическое ударение, а не блёклая мелкая капитель) */
 b.hi{color:var(--hi);font-weight:700;letter-spacing:.01em}
+/* Полные имена файлов остаются обычным шрифтом и одним визуальным токеном.
+   Диапазон памяти допускает перенос только между границами: ни одна скобка
+   не отделяется от своего адреса, а длинный токен не выходит из карточки. */
+.filename-token{font:inherit;white-space:nowrap;overflow-wrap:normal;word-break:normal}
+code.memory-range{white-space:normal!important;overflow-wrap:normal!important;
+  word-break:normal!important;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+code.memory-range .range-bound{white-space:nowrap;overflow-wrap:normal;word-break:normal}
 
 p code,li code,.kv .v code,.chain .ttl code,.chain .desc code,.note code{
   font-family:var(--font-mono);background:var(--code);
@@ -286,6 +322,9 @@ p code,li code,.kv .v code,.chain .ttl code,.chain .desc code,.note code{
   border-color:color-mix(in srgb,var(--ink) 14%,transparent)}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
 .card.summary{border-left:4px solid var(--accent)}
+.card>:first-child,.note>:first-child{margin-top:0}
+.card>:last-child,.note>:last-child,.note-body>:last-child{margin-bottom:0}
+.subhead+*,.note .t+*{margin-top:8px}
 /* «Вывод» — фон по ДОКАЗАННОСТИ вывода (conf-*), согласован с лентой
    «Заключение» вверху: обе зоны красит ОДИН источник — conf_class().
    База без класса — нейтральная панель (розового verdictGrad больше
@@ -311,11 +350,107 @@ p code,li code,.kv .v code,.chain .ttl code,.chain .desc code,.note code{
    чтобы не было пустоты рядом с коротким блоком.
    margin у .note гасим: иначе он складывается с gap грида (14+15+14)
    и даёт слишком большой отступ между блоками */
-#s9 .grid2{grid-template-columns:1fr}
-#s9 .grid2 .note{margin:0}
-.kv{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:var(--fs-sm)}
+#s8 .grid2{grid-template-columns:1fr}
+#s8 .grid2 .note{margin:0}
+.kv-list{margin:0;padding:0}
+.kv{display:grid;grid-template-columns:minmax(150px,220px) minmax(0,1fr);gap:12px;
+  align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--line);
+  font-size:var(--fs-sm);line-height:1.45}
 .kv:last-child{border-bottom:0}
-.kv .k{color:var(--muted);min-width:118px}.kv .v{font-family:var(--font-mono)}
+.kv .k,.kv .v{margin:0;min-width:0;line-height:inherit}
+.kv .k{color:var(--muted)}
+.kv .v{font-family:inherit;overflow-wrap:normal;word-break:normal;
+  hyphens:none;-webkit-hyphens:none;text-wrap:wrap}
+@media(max-width:680px){
+  .kv{grid-template-columns:1fr;gap:2px;align-items:start}
+  .kv .v{overflow-wrap:anywhere;word-break:break-word}
+  #doc>section p code,#doc>section li code{white-space:normal;overflow-wrap:anywhere}
+}
+/* Внутренняя иерархия длинных секций без добавления новых top-level разделов. */
+.section-group{margin:0 0 22px}
+.section-group:last-child{margin-bottom:0}
+.section-group-title{display:flex;align-items:center;gap:12px;margin:18px 0 10px;
+  color:var(--ink);font-size:var(--fs-sm);letter-spacing:.02em}
+.section-group-title::after{content:"";height:1px;flex:1;background:var(--line)}
+.section-group-note{margin:9px 0 0;color:var(--muted);font-size:var(--fs-xs)}
+/* Трассировка: источник всегда написан словами и ведёт к конкретной оси матрицы. */
+.evidence-sources{display:inline-flex;align-items:center;justify-content:flex-end;
+  flex-wrap:wrap;gap:4px;margin-left:auto}
+.evidence-source{display:inline-flex;align-items:center;border:1px solid var(--line);
+  border-radius:999px;padding:1px 7px;background:var(--panel);color:var(--muted);
+  font-size:var(--fs-3xs);font-weight:700;letter-spacing:.03em;white-space:nowrap}
+.evidence-source:hover{color:var(--ink);border-color:var(--accent2)}
+.evidence-source.src-dmp{border-color:var(--redLn);color:var(--redInk)}
+.evidence-source.src-context{border-color:var(--blLn);color:var(--blInk)}
+.evidence-source.src-listing{border-color:var(--okLn);color:var(--ok)}
+.evidence-source.src-corpus{border-color:var(--gyLn);color:var(--gyInk)}
+.summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.diagnosis-boundary{grid-column:1/-1;display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.diagnosis-state{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:10px 13px;color:var(--ink);min-width:0;border:1px solid var(--line);
+  border-radius:9px;background:var(--panel)}
+.diagnosis-key{color:var(--muted);font-size:var(--fs-xs)}
+.diagnosis-state strong{font-size:var(--fs-sm);white-space:nowrap}
+.diagnosis-state.is-confirmed{background:var(--okBg);border-color:var(--okLn)}
+.diagnosis-state.is-confirmed strong{color:var(--ok)}
+.diagnosis-state.is-unknown{background:var(--yelBg);border-color:var(--yelLn)}
+.diagnosis-state.is-unknown strong{color:var(--warn)}
+.summary-item{border:1px solid var(--line);border-radius:10px;background:var(--panel2);
+  padding:12px 14px;min-width:0}
+.summary-item.summary-wide{grid-column:1/-1}
+.summary-item-head,.verdict-segment-head{display:flex;align-items:flex-start;
+  justify-content:space-between;gap:10px;margin:0 0 7px}
+.summary-item-head h3{margin:0;color:var(--ink);font-size:var(--fs-sm)}
+.summary-item p{margin:7px 0}
+.summary-item .codewrap{margin:9px 0 0}
+.verdict-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.verdict-segment{border:1px solid var(--line);border-radius:10px;background:var(--panel);
+  padding:12px 14px;min-width:0}
+.verdict-segment-head{margin-bottom:8px}
+.verdict-segment-head .subhead{margin:0}
+.verdict-actions,.verdict-criterion{grid-column:1/-1}
+.verdict-owner{display:inline-flex;margin:0 0 8px;padding:3px 8px;border-radius:999px;
+  background:var(--blBg);color:var(--blInk);font-size:var(--fs-xs);font-weight:700}
+.verdict-actions ol{margin-top:6px}
+.verdict-criterion{background:var(--gyBg);border-color:var(--gyLn)}
+.fault-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fault-segment{border:1px solid var(--line);border-radius:10px;background:var(--panel2);
+  padding:12px 14px;min-width:0}
+.fault-segment>.subhead{margin:0 0 9px;color:var(--ink)}
+.fault-segment .tech-grid{margin:0}
+.fault-segment .tech-item{background:var(--panel)}
+.fault-segment .steps{margin:4px 0 0}
+.fault-conclusion{background:var(--gyBg);border-color:var(--gyLn)}
+@media(max-width:780px){
+  .summary-grid,.verdict-layout,.fault-layout,.diagnosis-boundary{grid-template-columns:1fr}
+  .summary-item.summary-wide,.verdict-actions,.verdict-criterion{grid-column:auto}
+}
+.s1-status-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;
+  margin:0;padding:0}
+.s1-status{border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:10px;padding:9px 11px;background:var(--panel2);min-width:0}
+.s1-status dt,.s1-status dd{margin:0}
+.s1-status dt{color:var(--muted);font-size:var(--fs-2xs)}
+.s1-status dd{font-size:var(--fs-sm);font-weight:700;margin-top:2px}
+.s1-status .evidence-sources{justify-content:flex-start;margin:6px 0 0}
+.s1-status.is-ok{border-left-color:var(--ok)}
+.s1-status.is-ok dd{color:var(--ok)}
+.s1-status.is-derived{border-left-color:var(--accent2)}
+.s1-status.is-derived dd{color:var(--blInk)}
+.s1-status.is-unknown{border-left-color:var(--warn)}
+.s1-status.is-unknown dd{color:var(--warn)}
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;
+  margin:14px 0;padding:0}
+.tech-item{border:1px solid var(--line);border-radius:9px;padding:8px 10px;
+  background:var(--code);min-width:0}
+.tech-label,.tech-value{margin:0;min-width:0}
+.tech-label{color:var(--muted);font-size:var(--fs-2xs)}
+.tech-value{font-family:var(--font-mono);font-size:var(--fs-xs);margin-top:2px;
+  overflow-wrap:anywhere}
+.register-grid{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}
+.chain .chain-code{margin:7px 0 0;padding:8px 10px;border-radius:8px;font-size:var(--fs-2xs)}
+@media(max-width:680px){.s1-status-grid{grid-template-columns:1fr}}
 .codewrap{position:relative;margin:14px 0}
 .codewrap .copy{position:absolute;top:8px;right:8px;opacity:0;transition:.15s;
   background:var(--panel2);border:1px solid var(--line);border-radius:7px;color:var(--muted);
@@ -335,21 +470,10 @@ pre .fault{background:var(--redBg);display:block;border-left:3px solid var(--bad
 .formula .op{color:var(--muted)}
 .formula .res{color:var(--bad);font-weight:700}
 .formula .eq{color:var(--ok);font-weight:700;font-size:var(--fs-xl)}
-/* сворачиваемый форензик-аппендикс: большие доказательные таблицы по клику */
-.appendix{margin:14px 0;border:1px solid var(--line);border-radius:12px;
-  background:var(--panel2);overflow:hidden}
-.appendix>summary{cursor:pointer;padding:10px 14px;font-size:var(--fs-sm);
-  font-weight:600;color:var(--muted);list-style:none;user-select:none;
-  display:flex;align-items:center;gap:8px;transition:color .15s}
-.appendix>summary::-webkit-details-marker{display:none}
-.appendix>summary::before{content:"";width:0;height:0;
-  border-left:5px solid currentColor;border-top:4px solid transparent;
-  border-bottom:4px solid transparent;transition:transform .15s}
-.appendix[open]>summary::before{transform:rotate(90deg)}
-.appendix>summary:hover{color:var(--accent2)}
-h2.collapsed::after{content:" ▸";color:var(--muted);font-size:.7em}
-.appendix .tablewrap{border:0;border-top:1px solid var(--line);border-radius:0}
-.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+caption{text-align:left;color:var(--muted);font-size:var(--fs-xs);font-weight:600;
+  padding:9px 12px;border-bottom:1px solid var(--line);background:var(--panel2)}
+.tablewrap{position:relative;overflow-x:auto;overflow-y:hidden;border:1px solid var(--line);
+  border-radius:12px;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain}
 table{border-collapse:collapse;width:100%;font-size:var(--fs-xs);min-width:780px;
   font-variant-numeric:slashed-zero tabular-nums}
 th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
@@ -365,6 +489,35 @@ td.mono,th.mono{font-family:var(--font-mono)}
 td .ok{color:var(--ok)}
 td.flag{color:var(--bad);font-weight:700;
   background:linear-gradient(90deg,var(--redBg),transparent)}
+/* На телефоне двухколоночные таблицы становятся карточками; широкие сохраняют
+   таблицу, закрепляют первый столбец и показывают подсказку прокрутки. */
+@media(max-width:680px){
+  .tablewrap:not(.cols-2){box-shadow:inset -18px 0 18px -20px var(--accent2)}
+  .tablewrap:not(.cols-2) table{min-width:680px}
+  .tablewrap:not(.cols-2) thead th:first-child,
+  .tablewrap:not(.cols-2) tbody td:first-child{position:sticky;left:0}
+  .tablewrap:not(.cols-2) thead th:first-child{z-index:3;background:var(--panel2)}
+  .tablewrap:not(.cols-2) tbody td:first-child{z-index:2;background:var(--panel);
+    box-shadow:1px 0 0 var(--line)}
+  .tablewrap:not(.cols-2) tbody tr:nth-child(even) td:first-child{
+    background:color-mix(in srgb,var(--panel2) 50%,var(--panel))}
+  .tablewrap.cols-2{overflow:visible;border:0;border-radius:0;box-shadow:none}
+  .tablewrap.cols-2 table,.tablewrap.cols-2 tbody,.tablewrap.cols-2 tr,
+  .tablewrap.cols-2 td{display:block;width:100%;min-width:0}
+  .tablewrap.cols-2 table{border-collapse:separate}
+  .tablewrap.cols-2 thead{position:absolute!important;width:1px!important;height:1px!important;
+    margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important}
+  .tablewrap.cols-2 caption{display:block;width:100%;border:1px solid var(--line);
+    border-radius:9px 9px 0 0}
+  .tablewrap.cols-2 tbody{display:grid;gap:8px}
+  .tablewrap.cols-2 tr{border:1px solid var(--line);border-radius:9px;
+    background:var(--panel2);overflow:hidden}
+  .tablewrap.cols-2 td{display:grid;grid-template-columns:minmax(105px,38%) minmax(0,1fr);
+    gap:9px;padding:8px 10px;white-space:normal;overflow-wrap:anywhere}
+  .tablewrap.cols-2 td::before{content:attr(data-label);color:var(--muted);
+    font-family:var(--font-sans);font-size:var(--fs-2xs);font-weight:700}
+  .tablewrap.cols-2 td:last-child{border-bottom:0}
+}
 
 .note{border-radius:12px;padding:13px 17px;margin:14px 0;font-size:var(--fs-md)}
 .note.ok{background:var(--okBg);border:1px solid var(--okLn)}
@@ -384,43 +537,107 @@ td.flag{color:var(--bad);font-weight:700;
    («выведено из листинга», лента «Заключение», карточка «Вывод»):
    заметка о незнании не должна читаться частью вывода. */
 .note.limits{background:var(--yelBg);border:1px solid var(--yelLn)}
-.note .t{font-weight:700;margin-bottom:4px;display:block}
-.chain{margin:16px 0}
-.chain .step{display:flex;align-items:flex-start;gap:14px;padding:9px 0;position:relative}
-.chain .dot{flex:0 0 auto;width:13px;height:13px;border-radius:50%;margin-top:5px;
-  background:var(--panel);border:2px solid var(--accent2);z-index:1}
+/* Новые доказательные блоки раздела 8 не получают цвет «доказано»:
+   список утверждений и состав семьи сами по себе содержат смешанные статусы. */
+.note.evidence,.note.family{background:var(--panel2);border:1px solid var(--line)}
+.note.evidence>.t,.note.family>.t{color:var(--ink)}
+.note[id]:target{outline:2px solid var(--accent2);outline-offset:3px}
+.note .t{font-weight:700;margin:0 0 4px;display:block;font-size:var(--fs-base);
+  line-height:var(--lh-tight)}
+.confidence-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  grid-auto-rows:1fr;align-items:stretch;gap:8px;margin:10px 0 0;padding:0}
+.confidence-axis{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  min-height:60px;height:100%;border:1px solid var(--line);border-radius:9px;
+  padding:8px 10px;background:var(--panel);scroll-margin-top:96px}
+.confidence-axis:target{outline:3px solid var(--accent2);outline-offset:3px;
+  box-shadow:0 0 0 7px color-mix(in srgb,var(--accent2) 20%,transparent);
+  position:relative;z-index:1}
+.confidence-axis:target .axis-label{color:var(--ink);font-weight:700}
+.confidence-axis .axis-label{color:var(--muted);font-size:var(--fs-xs);margin:0}
+.confidence-axis .axis-value{font-weight:700;text-align:right;font-size:var(--fs-sm);margin:0}
+.confidence-axis.is-ok{background:var(--okBg);border-color:var(--okLn)}
+.confidence-axis.is-ok .axis-value{color:var(--ok)}
+.confidence-axis.is-unknown{background:var(--yelBg);border-color:var(--yelLn)}
+.confidence-axis.is-partial{background:var(--wnBg);border-color:var(--wnLn)}
+.confidence-axis.is-partial .axis-value{color:var(--warn)}
+.confidence-axis.is-level{background:var(--blBg);border-color:var(--blLn)}
+.confidence-axis.is-level .axis-value{color:var(--blInk);font-family:var(--font-mono)}
+.family-list{list-style:none;padding-left:0}
+.family-list li{display:grid;grid-template-columns:minmax(170px,220px) minmax(0,1fr);
+  align-items:start;gap:10px;border-top:1px dashed var(--line);padding:8px 0;margin:0}
+.family-list li:first-child{border-top:0}
+.family-kind{min-width:0;color:var(--muted);font-weight:700;font-size:var(--fs-xs)}
+.family-value{min-width:0;text-align:left;overflow-wrap:normal;word-break:normal}
+.family-value-wide{grid-column:1/-1}
+/* Единственный сворачиваемый блок: очень длинный список связанных краш-логов. */
+details.note.crash-log-list{padding:0;overflow:hidden}
+.crash-log-list>summary{cursor:pointer;list-style:none;user-select:none;padding:13px 17px;
+  display:flex;align-items:center;gap:9px}
+.crash-log-list>summary::-webkit-details-marker{display:none}
+.crash-log-list>summary::before{content:"";width:0;height:0;flex:0 0 auto;
+  border-left:6px solid var(--muted);border-top:5px solid transparent;
+  border-bottom:5px solid transparent;transition:transform .15s}
+.crash-log-list[open]>summary::before{transform:rotate(90deg)}
+.crash-log-list[open]>summary{border-bottom:1px solid var(--line)}
+.crash-log-list>summary .t{margin:0}
+.crash-log-list>.family-list{padding:0 17px 13px;margin:0}
+.static-check ol{margin:10px 0;padding-left:24px}
+@media(max-width:680px){
+  .confidence-grid{grid-template-columns:1fr}
+  .family-list li{grid-template-columns:1fr;gap:4px}
+}
+.chain{margin:16px 0;--chain-dot-size:14px;--chain-line-width:2px;
+  --chain-step-pad-y:9px;--chain-dot-margin-top:3px;--chain-line-gap:3px}
+.chain .step{display:flex;align-items:flex-start;gap:14px;
+  padding:var(--chain-step-pad-y) 0;position:relative}
+.chain .step>div{min-width:0;flex:1 1 auto}
+.chain .dot{flex:0 0 auto;width:var(--chain-dot-size);height:var(--chain-dot-size);
+  border-radius:50%;margin-top:var(--chain-dot-margin-top);background:var(--panel);
+  border:2px solid var(--accent2);position:relative;z-index:1}
 .chain .step.fault .dot{border-color:var(--bad);background:var(--redBg)}
-/* Связующая линия — СТРОГО в промежутке МЕЖДУ кружками. Геометрия
-   шага: padding-top 9px + margin-top кружка 5px — верх кружка на 14px;
-   сам кружок 13px + две рамки по 2px = 17px, значит его низ — на 31px.
-   Оттуда top:31px (нижний край своего кружка) и bottom:-14px — ровно
-   верхний край следующего.
-   Было top:20px/bottom:-9px: линия начиналась ВНУТРИ кружка и
-   нахлёстывалась на следующий, а у аварийного кружка фон
-   полупрозрачный (--redBg) — линия просвечивала СКВОЗЬ последний
-   кружок. Вторая половина беды: прежняя легенда лежала последним
-   ребёнком .chain, так что последний .step не был :last-child и тоже
-   рисовал линию — в пустоту. Легенду удалили, и :not(:last-child)
-   снова честный. */
-.chain .step:not(:last-child)::before{content:"";position:absolute;left:6px;top:31px;
-  bottom:-14px;width:2px;background:var(--line)}
-.chain .ttl{font-family:var(--font-mono);font-size:var(--fs-sm)}
+/* Размер кружка включает рамку из-за глобального border-box. Чётный размер
+   14px и линия 2px дают целочисленную общую ось без полупиксельного сдвига.
+   Линия центрируется формулой и оставляет по 3px воздуха до рамок обоих
+   кружков: так она не касается даже полупрозрачного аварийного маркера. */
+.chain .step:not(:last-child)::before{content:"";position:absolute;
+  left:calc((var(--chain-dot-size) - var(--chain-line-width))/2);
+  top:calc(var(--chain-step-pad-y) + var(--chain-dot-margin-top) +
+    var(--chain-dot-size) + var(--chain-line-gap));
+  bottom:calc(var(--chain-line-gap) - var(--chain-step-pad-y) -
+    var(--chain-dot-margin-top));
+  width:var(--chain-line-width);border-radius:999px;background:var(--line);
+  pointer-events:none}
+/* Кружок и чип модуля имеют общий центр первой строки: кружок 14px
+   с отступом 3px, чип 18px с отступом 1px — оба центра на отметке 10px. */
+.chain .ttl{display:flex;align-items:flex-start;gap:7px;min-width:0;
+  font-family:var(--font-mono);font-size:var(--fs-sm);line-height:1.5}
+.chain .ttl-text{min-width:0;overflow-wrap:anywhere;word-break:break-word}
 .chain .step.fault .ttl{color:var(--badText);font-weight:700}
 .chain .desc{color:var(--muted);font-size:var(--fs-xs)}
-.chain .modtag{font-size:var(--fs-3xs);font-weight:700;padding:1px 7px;border-radius:5px;margin-right:7px;
-  vertical-align:1px}
+.chain .modtag{display:inline-flex;align-items:center;justify-content:center;
+  flex:0 0 auto;height:18px;padding:0 7px;border-radius:5px;margin:1px 0 0;
+  font-size:var(--fs-3xs);font-weight:700;line-height:1}
 .m-exe{background:var(--gyBg);color:var(--gyInk)}
 .m-tc{background:var(--redBg);color:var(--redInk)}
 /* чужой код в цепочке: HD-мод — синим, системные DLL — жёлтым;
    красный остаётся за hota.dll, где ищут причину */
 .m-3rd{background:var(--blBg);color:var(--blInk)}
 .m-sys{background:var(--wnBg);color:var(--warn)}
-/* «#» — постоянная ссылка на шаг: не мешает чтению, появляется при наведении */
-.chain .step .lnk{opacity:0;margin-left:8px;color:var(--muted);
-  text-decoration:none;font-size:var(--fs-2xs)}
-.chain .step:hover .lnk,.chain .step .lnk:focus-visible{opacity:1}
-.chain .step:target{background:var(--hi);border-radius:8px}
 
+.report-passport{margin:24px 0 30px;padding:8px 0 0;border-top:1px solid var(--line);
+  color:var(--muted);display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;
+  font-size:var(--fs-3xs);line-height:1.35;opacity:.68}
+.report-passport:hover,.report-passport:focus-within{opacity:1}
+.passport-title{font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.passport-grid{display:flex;align-items:baseline;gap:5px 10px;flex-wrap:wrap;margin:0;padding:0}
+.passport-grid>div{display:inline-flex;align-items:baseline;gap:3px;min-width:0}
+.passport-grid dt,.passport-grid dd{margin:0;padding:0}
+.passport-grid dt{font-weight:600}
+.passport-grid dt::after{content:":"}
+.passport-grid code{background:transparent;border:0;padding:0;color:inherit;font-size:inherit;
+  white-space:nowrap;display:inline-block;overflow:hidden;text-overflow:ellipsis;vertical-align:bottom}
+.passport-source{max-width:28ch}
+.passport-sha{max-width:14ch}
 .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);
   background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:10px;font-size:var(--fs-sm);
   font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:80}
@@ -437,10 +654,38 @@ td.flag{color:var(--bad);font-weight:700;
    к ним выносить в .viz-legend под схемой, в графике — короткие
    .viz-badge. Подробности и шаблоны — в навыке html-report. */
 .viz{margin:16px 0}
+/* тематическая панель визуализации: заголовок и фон используют только токены
+   темы, поэтому в light-режиме остаются светлыми и контрастными */
+.viz-stage{min-width:0;border:1px solid var(--line);border-radius:11px;
+  background:var(--panel);padding:10px 11px 12px}
+.viz-stage-title{display:flex;align-items:center;gap:9px;margin:0 0 8px;
+  border:1px solid var(--line);border-radius:8px;background:var(--panel2);
+  padding:8px 10px;color:var(--ink);font-size:var(--fs-sm);font-weight:700;line-height:1.35}
+.viz-stage-title>span:last-child{min-width:0;overflow-wrap:anywhere}
+.viz-stage-index{display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:7px;border:1px solid var(--blLn);
+  background:var(--blBg);color:var(--blInk);font-family:var(--font-mono);
+  font-weight:700;flex:0 0 auto}
+.viz-proof-map{display:grid;gap:9px;min-width:0}
+.viz-unknown{width:100%;max-width:390px;min-width:0;margin:0 auto;border:2px dashed var(--gyLn);
+  border-radius:10px;background:var(--gyBg);padding:11px 14px;text-align:center;
+  display:grid;justify-items:center;gap:4px;color:var(--ink)}
+.viz-unknown .lbl{font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--muted);
+  overflow-wrap:anywhere}
+.viz-proof-divider{display:flex;align-items:center;gap:10px;color:var(--muted);
+  font-size:var(--fs-2xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.viz-proof-divider::before,.viz-proof-divider::after{content:"";flex:1;
+  border-top:2px dashed var(--gyLn)}
+.viz-known{min-width:0;border:1px solid var(--line);border-radius:11px;padding:9px 11px 11px}
+.viz-proof-label{display:block;color:var(--ok);font-size:var(--fs-2xs);font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;text-align:center;margin:0 0 2px}
+.viz-key{display:inline-block;width:24px;height:13px;border:2px solid var(--ok);
+  border-radius:4px;background:var(--okBg);flex:0 0 auto}
+.viz-key.dashed{border-style:dashed;border-color:var(--gyLn);background:var(--gyBg)}
 .viz-cap{font-size:var(--fs-xs);color:var(--muted);text-align:center;margin:8px 0 0}
 /* горизонтальная лента блоков (память/массив/диапазон) */
 .viz-strip{display:flex;align-items:stretch;gap:6px;flex-wrap:nowrap;
-  overflow-x:auto;padding:6px 0}
+  max-width:100%;overflow-x:auto;padding:6px 0}
 /* блок-ячейка ленты: бейдж прижат к верху (flex-start) — так все
    бейджи на ОДНОМ уровне при разной длине текста; перенос строк сам */
 .viz-box{flex:1 1 0;min-width:96px;border:2px solid var(--line);border-radius:10px;
@@ -450,6 +695,7 @@ td.flag{color:var(--bad);font-weight:700;
 .viz-box span:not(.viz-badge){display:block;white-space:normal;
   overflow-wrap:break-word;max-width:100%}
 .viz-box .lbl{font-family:var(--font-mono);font-size:var(--fs-2xs);color:var(--muted)}
+.viz-box .lbl.emph{color:var(--ink);font-weight:700}
 .viz-box.ok{border-color:var(--okLn);background:var(--okBg)}
 .viz-box.bad{border-color:var(--redLn);background:var(--redBg)}
 .viz-box.accent{border-color:var(--blLn);background:var(--blBg)}
@@ -469,12 +715,15 @@ td.flag{color:var(--bad);font-weight:700;
 .viz-badge.ok{border-color:var(--ok);color:var(--ok)}
 .viz-badge.bad{border-color:var(--bad);color:var(--badText)}
 .viz-badge.accent{border-color:var(--accent2);color:var(--accent2)}
+.viz-badge.neutral{border-color:var(--gyLn);color:var(--gyInk)}
 /* бейджи в легенде — залитые цветовые образцы (пустые, без буквы) */
 .viz-legend .viz-badge{width:14px;height:14px;border-width:0}
 .viz-legend .viz-badge.ok{background:var(--ok)}
 .viz-legend .viz-badge.bad{background:var(--bad)}
 .viz-legend .viz-badge.accent{background:var(--accent2)}
 .viz-legend .viz-badge.neutral{background:var(--line)}
+/* буквенно-цифровой ключ легенды не превращаем в безымянный цветовой образец */
+.viz-legend .viz-badge.symbol{width:24px;height:24px;border-width:2px;background:var(--panel)}
 /* координатный холст: ТОЛЬКО для геометрии, рисуем линии/стрелки */
 .viz-svg{display:block;max-width:100%;height:auto;margin:6px auto;
   font-family:inherit;font-size:var(--fs-xs)}
@@ -493,41 +742,61 @@ td.flag{color:var(--bad);font-weight:700;
 .viz-svg .ahead.accent{fill:var(--accent2)}
 /* легенда под схемой: бейдж + пояснение, в одну/две колонки, без наложений */
 .viz-legend{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin:12px 0 0}
-@media(max-width:680px){.viz-legend{grid-template-columns:1fr}}
+@media(max-width:680px){
+  .viz-legend{grid-template-columns:1fr}
+  .viz-strip{flex-wrap:wrap;overflow-x:visible}
+  .viz-box{flex:1 1 calc(50% - 6px);min-width:120px}
+}
 .viz-legend .item{display:flex;align-items:center;gap:9px;
   font-size:var(--fs-sm);color:var(--ink)}
 .viz-legend .item .txt{color:var(--muted)}
 @media print{.viz-strip{overflow-x:visible;flex-wrap:wrap}
-  .viz-box,.viz-badge,.viz-svg .area{break-inside:avoid}}
+  .viz-stage,.viz-stage-title,.viz-stage-index,.viz-box,.viz-badge,.viz-svg .area,.viz-unknown,.viz-key{break-inside:avoid}}
 
 @media print{
-  .theme-fab,nav.toc,.btn,.copy,.toast,h2 .anchor,
-  .chain .step .lnk{display:none!important}
+  .theme-fab,nav.toc,.btn,.copy,.toast,h2 .anchor{display:none!important}
   .shell{grid-template-columns:1fr;max-width:none}
   /* screen-сглаживание на бумаге делает текст слишком тонким; сбрасываем */
   body{background:#fff;color:#000;
     -webkit-font-smoothing:auto;-moz-osx-font-smoothing:auto;font-size-adjust:none}
-  pre,.card,.note,table,.chain .step,.stat{break-inside:avoid}
+  pre,.card,.note,table,.chain .step,.stat,.tech-item,.s1-status,
+  .summary-item,.verdict-segment,.fault-segment,.diagnosis-boundary,.diagnosis-state{break-inside:avoid}
   /* печатать семантические фоны: красная строка сбоя, флаги таблиц, плашки модулей,
      заметки, карточки визуализации — иначе браузер их «съест» (ключевая информация) */
   pre .fault,td.flag,.chain .modtag,.m-tc,.m-exe,.m-3rd,.m-sys,
-  .note.ok,.note.warn,.note.info,.note.limits,
-  .viz-box.ok,.viz-box.bad,.viz-box.accent,.viz-badge,.ribbon,.stat .ic-badge,.card.verdict{
+  .note.ok,.note.warn,.note.info,.note.limits,.note.negative,.note.evidence,.note.family,
+  .confidence-axis,.s1-status,.tech-item,.evidence-source,.summary-item,
+  .diagnosis-boundary,.diagnosis-state,.verdict-segment,.fault-segment,.viz-stage,.viz-stage-title,
+  .viz-stage-index,.viz-unknown,.viz-key,.viz-box.ok,.viz-box.bad,.viz-box.accent,
+  .viz-badge,.ribbon,.stat .ic-badge,.card.verdict{
     -webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .confidence-axis:target{outline:0;box-shadow:none}
   /* на бумаге нет горизонтального скролла — длинные asm-строки переносим, иначе хвост обрежется */
   pre{white-space:pre-wrap;word-break:break-word;overflow-x:visible}
   section{break-inside:avoid-page}
-  /* на печати раскрываем все аппендиксы: details без [open] иначе скроет содержимое */
-  .appendix>summary{display:none}
-  details.appendix>*{display:revert!important}
-  .appendix .tablewrap{border-top:0}
+  /* единственный details — длинная семья краш-логов; на бумаге список не теряется */
+  .crash-log-list>.family-list{display:block!important}
+  .crash-log-list>summary{cursor:default}
+  .crash-log-list>summary::before{display:none}
 }
 </style>
 <script>
-(function(){try{var t=localStorage.getItem("hota-theme-v6");
-var m=(t==="light"||t==="dark")?t
-  :((window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches)?"light":"dark");
-document.documentElement.classList.add("theme-"+m);}catch(e){}})();
+(function(){
+  var KEY="hota-theme-v7",mode="system";
+  try{
+    var saved=localStorage.getItem(KEY);
+    if(saved==="system"||saved==="light"||saved==="dark")mode=saved;
+    else{
+      var legacy=localStorage.getItem("hota-theme-v6");
+      if(legacy==="light"||legacy==="dark")mode=legacy;
+      localStorage.setItem(KEY,mode);
+    }
+  }catch(e){}
+  var light=mode==="light"||(mode==="system"&&window.matchMedia&&
+    matchMedia("(prefers-color-scheme: light)").matches);
+  document.documentElement.dataset.themeMode=mode;
+  document.documentElement.classList.add(light?"theme-light":"theme-dark");
+})();
 </script>
 </head>
 <body>
@@ -544,15 +813,20 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
   <symbol id="ic-shield" viewBox="0 0 24 24"><path d="M12 2 3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7l-9-5z"/></symbol>
   <symbol id="ic-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></symbol>
   <symbol id="ic-layers" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/></symbol>
+  <symbol id="ic-system" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
   <symbol id="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
   <symbol id="ic-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
 </defs></svg>
 <a class="skip" href="#doc">Перейти к отчёту</a>
 <div class="shell">
-<button class="btn theme-fab" id="themeToggle" type="button" aria-label="Переключить тему оформления"><svg class="tic" aria-hidden="true"><use id="themeUse" href="#ic-sun"/></svg><span id="themeLabel">Светлая</span></button>
+<button class="btn theme-fab" id="themeToggle" type="button"
+  aria-label="Тема оформления: системная" title="Тема оформления: системная">
+  <svg class="tic" aria-hidden="true"><use id="themeUse" href="#ic-system"/></svg>
+  <span id="themeLabel">Системная</span>
+</button>
   <nav class="toc" id="toc">
     <p class="lbl">Содержание</p>
-    
+    <a href="#viz-mechanism"><span class="n"><svg class="tic" aria-hidden="true"><use href="#ic-diamond"/></svg></span>Визуализация сбоя</a>
     <a href="#summary"><span class="n"><svg class="tic fill" aria-hidden="true"><use href="#ic-star"/></svg></span>Резюме</a>
     <a href="#s1"><span class="n">1</span>Исходные данные</a>
     <a href="#s2"><span class="n">2</span>Проверка листинга и адреса</a>
@@ -568,70 +842,122 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
   <div class="hero">
     <span class="eyebrow">Анализ вылета</span>
-    <h1 class="addr"><span class="mod">HD_UPD.dll</span>+0x51607</h1>
-    <p class="subtitle">обновление HD-мода / интерфейс</p>
-    <p class="byline">GPT-5.6 Sol · 16.08.2026</p>
-    <div class="ribbon conf-derived">
-      <div class="vlabel">Заключение<span class="vconf">Выведено из листинга</span></div>
-      <div class="vtxt">процесс передал управление в пиксельные данные значка внутри <code>HD_UPD.dll</code>; источник ошибочного адреса перехода в приложенном минидампе не сохранился.</div>
+    <div id="reportIdentity">
+      <h1 class="addr"><span class="mod">HD_UPD.dll</span>+0x51607</h1>
+      <p class="subtitle">обновление HD-мода / интерфейс</p>
+      <p class="byline">GPT-5.6 Sol · 23.08.2026 (ревизия по расширенному корпусу; первая редакция 16.08.2026)</p>
     </div>
-    <div class="statstrip"><div class="stat c-ver"><div class="ic-badge"><svg class="ic"><use href="#ic-package"/></svg></div><div class="st-body"><div class="big">1.8.0</div><div class="cap">Версия HotA</div></div></div><div class="stat c-cls"><div class="ic-badge"><svg class="ic"><use href="#ic-triangle"/></svg></div><div class="st-body"><div class="big">передача управления по битому адресу</div><div class="cap">Класс сбоя</div></div></div><div class="stat c-cnt"><div class="ic-badge"><svg class="ic"><use href="#ic-database"/></svg></div><div class="st-body"><div class="big">1</div><div class="cap">Количество журналов</div></div></div><div class="stat c-use use-bad"><div class="ic-badge"><svg class="ic"><use href="#ic-sig1"/></svg></div><div class="st-body"><div class="big">НИЗКАЯ</div><div class="cap">Полезность журнала</div></div></div></div>
+    <div class="ribbon conf-derived">
+      <div class="vlabel">Заключение<span class="vconf">Механизм выведен из листинга</span></div>
+      <div class="vtxt">для сборки 5.7 R40 подтверждена передача управления в пиксельные данные значка внутри <code>HD_UPD.dll</code>. В 15 TXT девяти сборок совпадает аварийная сигнатура <code>HD_UPD.dll+0x51607</code> и состояние кадра. Это подтверждает повторяемость конечной точки, но не общий источник ошибочного адреса и не единую первопричину всех 15 записей.</div>
+    </div>
+    <div class="statstrip"><div class="stat c-ver"><div class="ic-badge"><svg class="ic"><use href="#ic-package"/></svg></div><div class="st-body"><div class="big">1.8.0</div><div class="cap">Версия HotA</div></div></div><div class="stat c-cls"><div class="ic-badge"><svg class="ic"><use href="#ic-triangle"/></svg></div><div class="st-body"><div class="big">передача управления по битому адресу</div><div class="cap">Класс сбоя</div></div></div><div class="stat c-cnt"><div class="ic-badge"><svg class="ic"><use href="#ic-database"/></svg></div><div class="st-body"><div class="big">15</div><div class="cap">Количество журналов</div></div></div><div class="stat c-use use-mid"><div class="ic-badge"><svg class="ic"><use href="#ic-sig2"/></svg></div><div class="st-body"><div class="big">СРЕДНЯЯ</div><div class="cap">Полезность журнала</div></div></div></div>
   </div>
 
-  
+  <section id="viz-mechanism" data-toc="Визуализация сбоя">
+  <h2><span class="htext">Визуализация сбоя</span>
+      <a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Сплошная цепочка подтверждена только для 5.7 R40. Пунктирный блок
+  показывает границу: источник ошибочной цели в дампах не сохранён.</p>
+  <div class="viz">
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">1</span>
+        Подтверждённая локальная цепочка 5.7 R40</div>
+      <div class="viz-strip">
+        <div class="viz-box ok"><span class="viz-badge ok">B</span>
+          <span class="lbl">base + 0x51607</span></div>
+        <div class="viz-box accent"><span class="viz-badge accent">R</span>
+          <span class="lbl">.rsrc · RT_ICON 2/1049</span></div>
+        <div class="viz-box bad"><span class="viz-badge bad">E</span>
+          <span class="lbl">EIP · FF 1A</span></div>
+      </div>
+      <p class="viz-cap">0x4E958 + 0x2CAF = 0x51607</p>
+    </div>
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">2</span>
+        Неизвестное происхождение цели</div>
+      <div class="viz-strip">
+        <div class="viz-box dashed dim"><span class="viz-badge">U</span>
+          <span class="lbl">писатель и ячейка не захвачены</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge ok">B</span>
+      <span class="txt">База R40-модуля плюс RVA даёт аварийный EIP.</span></div>
+    <div class="item"><span class="viz-badge accent">R</span>
+      <span class="txt">В точной R40-DLL адрес входит в пиксели ресурса.</span></div>
+    <div class="item"><span class="viz-badge bad">E</span>
+      <span class="txt">DMP хранит с EIP байты FF 1A и последующее чтение.</span></div>
+    <div class="item"><span class="viz-badge">U</span>
+      <span class="txt">Источник цели и общий механизм других сборок неизвестны.</span></div>
+  </div>
+</section>
 
   <section id="summary">
     <h2><span class="htext">Краткое резюме</span><a class="anchor" href="#summary">¶</a></h2>
-    <div class="card summary"><p>Процесс начал исполнять не код, а пиксельные данные встроенного значка 128x128 из секции .<code>rsrc HD_UPD.dll</code>. Аварийный EIP <code>0x70561607</code>, окно памяти минидампа и точная локальная DLL совпадают. По этому адресу лежат байты FF 1A. Если механически трактовать их как x86, получается дальний косвенный вызов через <code>[EDX]</code>, после которого зарегистрировано чтение <code>0xFFFFFFFF</code>.</p><p>Имя TryUpdate в автоматическом стеке ошибочно. Настоящая функция TryUpdate заканчивается на <code>0x1000550C</code>, тогда как пересчитанный адрес аварии равен <code>0x10051607</code> и находится в .rsrc. Это подтверждает класс сбоя, но не показывает, какой callback, return address или иной указатель передал управление в данные.</p><p>Источник перехода восстановить нельзя: ExceptionStream называет поток 15456, а ESP аварийного CONTEXT попадает в стек потока 16724. Эти источники нельзя объединять в доказанную цепочку. Дополнительный полный проход корпуса нашёл только этот один уникальный случай.</p></div>
+    <div class="card summary"><div class="summary-grid"><div class="diagnosis-boundary" role="group" aria-label="Граница диагноза"><div class="diagnosis-state is-unknown"><span class="diagnosis-key">Локальный механизм</span><strong>Не установлен</strong></div><div class="diagnosis-state is-unknown"><span class="diagnosis-key">Происхождение состояния</span><strong>Не установлено</strong></div></div><article class="summary-item summary-wide"><div class="summary-item-head"><h3>Что произошло</h3><span class="evidence-sources" aria-label="Источники доказательства"><a class="evidence-source src-dmp" href="#confidence-axis-crash" title="Открыть в матрице · Точка сбоя · DMP: файл минидампа" aria-label="Дамп — открыть ось «Точка сбоя» в матрице уверенности">Дамп</a><a class="evidence-source src-context" href="#confidence-axis-crash" title="Открыть в матрице · Точка сбоя · CONTEXT: сохранённые регистры аварийного потока" aria-label="Регистры — открыть ось «Точка сбоя» в матрице уверенности">Регистры</a><a class="evidence-source src-listing" href="#confidence-axis-crash" title="Открыть в матрице · Точка сбоя · точный статический листинг" aria-label="Листинг — открыть ось «Точка сбоя» в матрице уверенности">Листинг</a></span></div><p>Четыре точные пары TXT/DMP 5.7 R40 подтверждают RVA <code>0x51607</code>. По аварийному EIP во всех четырёх DMP лежит одно окно байтов; один DMP побайтово повторён, поэтому уникальных состояний DMP три.</p></article><article class="summary-item"><div class="summary-item-head"><h3>Локальный механизм</h3><span class="evidence-sources" aria-label="Источники доказательства"><a class="evidence-source src-context" href="#confidence-axis-mechanism" title="Открыть в матрице · Локальный механизм · CONTEXT: сохранённые регистры аварийного потока" aria-label="Регистры — открыть ось «Локальный механизм» в матрице уверенности">Регистры</a><a class="evidence-source src-listing" href="#confidence-axis-mechanism" title="Открыть в матрице · Локальный механизм · точный статический листинг" aria-label="Листинг — открыть ось «Локальный механизм» в матрице уверенности">Листинг</a></span></div><p>Для 5.7 R40 точная DLL и DMP показывают переход в пиксели <code>RT_ICON</code> 2/1049 секции .rsrc. С EIP начинаются байты FF 1A; их механическое исполнение объясняет последующее чтение <code>0xFFFFFFFF</code>. Это доказательство локального механизма R40, а не автоматический вывод для других сборок.</p></article><article class="summary-item"><div class="summary-item-head"><h3>Охват семейства</h3><span class="evidence-sources" aria-label="Источники доказательства"><a class="evidence-source src-corpus" href="#confidence-axis-family" title="Открыть в матрице · Охват семейства · проверенный корпус отчётов" aria-label="Корпус — открыть ось «Охват семейства» в матрице уверенности">Корпус</a></span></div><p>В деле 15 разных по SHA-256 TXT одной сигнатурной группы, девять сборок HD-мода, 4 DMP и 3 уникальных DMP. Для четырёх R40-логов локальный механизм подтверждён; остальные 11 записей классифицированы только по контексту, поскольку для них нет парных DMP и точных бинарников.</p></article><article class="summary-item summary-wide"><div class="summary-item-head"><h3>Граница доказанности</h3><span class="evidence-sources" aria-label="Источники доказательства"><a class="evidence-source src-dmp" href="#confidence-axis-origin" title="Открыть в матрице · Происхождение состояния · DMP: файл минидампа" aria-label="Дамп — открыть ось «Происхождение состояния» в матрице уверенности">Дамп</a></span></div><p>Источник цели перехода не установлен. ExceptionStream называет поток 15456, а диапазоном аварийного ESP владеет поток 16724; регистры этих контекстов нельзя объединять. Один RVA при разных базах показывает повторяемую конечную цель, но не исключает детерминированную порчу, устаревший указатель или иной повторяемый дефект формирования адреса.</p></article></div></div>
   </section>
 
   <section id="s1">
     <h2><span class="htext">Исходные данные</span><a class="anchor" href="#s1">¶</a></h2>
-    <p>Класс сбоя: передача управления по битому адресу подтверждены, но источник управляющего указателя не установлен Версия HotA: 1.8.0 Версии HD-мода: 5.7 R40 Уникальных вылетов: 1 уникальный из 1 физического лога</p><p>Доказанность точки сбоя: подтверждена Доказанность локального механизма: выведено из листинга Происхождение повреждённого состояния: не установлено Полнота семейной переписи: подтверждена</p><p>Версия схемы отчёта: 2 Ключ семейства: <code>HD_UPD</code>::bad-eip::<code>RT_ICON</code>-2-1049::caller-unknown Уровень идентификации кода: точное совпадение Поток ExceptionStream: 15456 Поток игрового контекста: 16724 — только владелец диапазона ESP Первичный источник данных: Exception CONTEXT и DMP-окно аварийного EIP Статус первичного источника: <code>captured_not_traced</code></p><p>Основание локального счёта: 1 уникальный из 1 физического TXT серии Граница корпусного поиска: mail-dumps, 5496 из 5496 TXT, полный обход Метод дедупликации: raw-filter → SHA-256 → family fingerprint Уровень связи дополнительных инцидентов: 5 — текущий точный инцидент; дополнительных инцидентов нет Всего в подтверждённой семье: 1 уникальный случай Вероятно связанных случаев: 0</p><p>Происхождение стека: <code>CONTEXT_THREAD_MISMATCH</code>; наборы потоков не смешивались Модуль вылета: <code>HD_UPD.dll</code> Код: <code>0xC0000005</code>, чтение <code>0xFFFFFFFF</code> Подсистема: обновление HD-мода / интерфейс Визуализация: выполнена — адрес разложен до секции, ресурса и пикселя</p><p>Время события: 16.08.2026 14:41:44 ОС: Windows 10 build 19045, x86 Карта: test.h3m; день 0 00; игрок 0; активный игрок 0; сеть 0 Графика: 1024x768, Graphics.Mode=2, Graphics.Threads=4, OpenGL.Upscaling=2</p>
+    <div class="section-group"><h3 class="section-group-title">Сводка</h3><div class="card"><dl class="kv-list"><div class="kv"><dt class="k">Класс сбоя</dt><dd class="v">передача управления по битому адресу</dd></div><div class="kv"><dt class="k">Версия HotA</dt><dd class="v">1.8.0</dd></div><div class="kv"><dt class="k">Версии HD-мода</dt><dd class="v">5.6 R10 / 5.6 R15 / 5.6 R19 / 5.6 R27 / 5.6 R31 / 5.7 RC7 / 5.7 RC9 / 5.7 R3 / 5.7 R40</dd></div><div class="kv"><dt class="k">Распределение по сборкам</dt><dd class="v">5.7 R40 — 4 лога; 5.7 R3 — 3; 5.6 R19 — 2; 5.6 R10, 5.6 R15, 5.6 R27, 5.6 R31, 5.7 RC7, 5.7 RC9 — по одному логу</dd></div><div class="kv"><dt class="k">Уникальных вылетов</dt><dd class="v">15 по техническому ключу SHA-256 полного TXT; это 15 разных файлов, а не доказательство 15 независимых игровых событий</dd></div><div class="kv"><dt class="k">Минидампы</dt><dd class="v">4 физических файла, 3 уникальных по SHA-256; исходный DMP и DMP с суффиксом -1 совпадают побайтово</dd></div><div class="kv"><dt class="k">Граница локального механизма</dt><dd class="v"><code>RT_ICON</code> и .rsrc проверены только для 5.7 R40</dd></div><div class="kv"><dt class="k">Пересмотр переписи</dt><dd class="v">15 TXT одной сигнатурной группы; 4 R40-инцидента подтверждены по локальному механизму, 11 классифицированы по контексту</dd></div><div class="kv"><dt class="k">Версия схемы отчёта</dt><dd class="v">2</dd></div><div class="kv"><dt class="k">Ключ семейства</dt><dd class="v"><code>HD_UPD</code>::bad-eip::<code>RT_ICON</code>-2-1049::caller-unknown</dd></div><div class="kv"><dt class="k">Уровень идентификации кода</dt><dd class="v">точное совпадение</dd></div><div class="kv"><dt class="k">Поток ExceptionStream</dt><dd class="v">15456</dd></div><div class="kv"><dt class="k">Поток игрового контекста</dt><dd class="v">16724 — только владелец диапазона ESP</dd></div><div class="kv"><dt class="k">Основание локального счёта</dt><dd class="v">15 из 15 физических TXT серии; техническая дедупликация выполнена по SHA-256 полного файла</dd></div><div class="kv"><dt class="k">Граница корпусного поиска</dt><dd class="v">mail-dumps/**/*.txt; 5455 журналов вылета, 99 прочих TXT, 1264 побайтовых дубля; усечения и ошибок чтения нет</dd></div><div class="kv"><dt class="k">Историческая граница</dt><dd class="v">5496 из 5496 TXT относились к обходу до почтового добора и больше не используются как текущий знаменатель</dd></div><div class="kv"><dt class="k">Метод дедупликации</dt><dd class="v">полный файл TXT → SHA-256 → точный Address</dd></div><div class="kv"><dt class="k">Всего в подтверждённой семье</dt><dd class="v">4 лога 5.7 R40, 3 уникальных DMP из 4</dd></div><div class="kv"><dt class="k">Контекстно связанных случаев</dt><dd class="v">11 логов с тем же sink и инвариантами; общий локальный механизм и общая первопричина для них не подтверждены</dd></div><div class="kv"><dt class="k">Вероятно связанных случаев</dt><dd class="v">0 за пределами точного корпусного запроса</dd></div><div class="kv"><dt class="k">Классификация причинной семьи</dt><dd class="v">0 из 15 имеют подтверждённые источник состояния и причинный кортеж в series-groups.json</dd></div><div class="kv"><dt class="k">Качество контекста</dt><dd class="v">показаний игрока нет в 15 из 15 TXT; слабый стек у 11 из 15 TXT</dd></div><div class="kv"><dt class="k">Модуль вылета</dt><dd class="v"><code>HD_UPD.dll</code></dd></div><div class="kv"><dt class="k">Код</dt><dd class="v"><code>0xC0000005</code>, чтение <code>0xFFFFFFFF</code></dd></div><div class="kv"><dt class="k">Подсистема</dt><dd class="v">обновление HD-мода / интерфейс</dd></div><div class="kv"><dt class="k">Время события</dt><dd class="v">16.08.2026 14:41:44</dd></div><div class="kv"><dt class="k">ОС</dt><dd class="v">Windows 10 build 19045, x86</dd></div><div class="kv"><dt class="k">Карта</dt><dd class="v">test.h3m; день 0 0 0; игрок 0; активный игрок 0; сеть 0</dd></div><div class="kv"><dt class="k">Графика</dt><dd class="v">1024x768, Graphics.Mode=2, Graphics.Threads=4, OpenGL.Upscaling=2</dd></div><div class="kv"><dt class="k">Первичный источник данных</dt><dd class="v">Exception CONTEXT и DMP-окно аварийного EIP</dd></div><div class="kv"><dt class="k">Статус первичного источника</dt><dd class="v"><code>captured_not_traced</code></dd></div><div class="kv"><dt class="k">Уровень связи дополнительных инцидентов</dt><dd class="v">5 — четыре R40-инцидента с точным локальным механизмом; 3 — одиннадцать совпадений по контексту</dd></div><div class="kv"><dt class="k">Происхождение стека</dt><dd class="v"><code>CONTEXT_THREAD_MISMATCH</code>; наборы потоков не смешивались</dd></div><div class="kv"><dt class="k">Визуализация</dt><dd class="v">выполнена — адрес разложен до секции, ресурса и пикселя</dd></div></dl></div><p>Полный поиск прочитал 5554 из 5554 TXT и нашёл 15 точных совпадений.</p><div class="card"><dl class="kv-list"><div class="kv"><dt class="k">Единственное значение Address</dt><dd class="v"><code>HD_UPD.dll+0x51607</code>; дедупликация по SHA-256.</dd></div></dl></div></div><div class="section-group"><h3 class="section-group-title">Доказанность</h3><dl class="s1-status-grid"><div class="s1-status is-ok"><dt>Точка сбоя</dt><dd>Подтверждена</dd><span class="evidence-sources" aria-label="Источники доказательства"><a class="evidence-source src-dmp" href="#confidence-axis-crash" title="Открыть в матрице · Точка сбоя · DMP: файл минидампа" aria-label="Дамп — открыть ось «Точка сбоя» в матрице уверенности">Дамп</a><a class="evidence-source src-context" href="#confidence-axis-crash" title="Открыть в матрице · Точка сбоя · CONTEXT: сохранённые регистры аварийного потока" aria-label="Регистры — открыть ось «Точка сбоя» в матрице уверенности">Регистры</a><a class="evidence-source src-listing" href="#confidence-axis-crash" title="Открыть в матрице · Точка сбоя · точный статический листинг" aria-label="Листинг — открыть ось «Точка сбоя» в матрице уверенности">Листинг</a></span></div><div class="s1-status is-derived"><dt>Локальный механизм</dt><dd>Выведен из листинга</dd><span class="evidence-sources" aria-label="Источники доказательства"><a class="evidence-source src-context" href="#confidence-axis-mechanism" title="Открыть в матрице · Локальный механизм · CONTEXT: сохранённые регистры аварийного потока" aria-label="Регистры — открыть ось «Локальный механизм» в матрице уверенности">Регистры</a><a class="evidence-source src-listing" href="#confidence-axis-mechanism" title="Открыть в матрице · Локальный механизм · точный статический листинг" aria-label="Листинг — открыть ось «Локальный механизм» в матрице уверенности">Листинг</a></span></div><div class="s1-status is-unknown"><dt>Происхождение состояния</dt><dd>Не установлено</dd><span class="evidence-sources" aria-label="Источники доказательства"><a class="evidence-source src-dmp" href="#confidence-axis-origin" title="Открыть в матрице · Происхождение состояния · DMP: файл минидампа" aria-label="Дамп — открыть ось «Происхождение состояния» в матрице уверенности">Дамп</a></span></div><div class="s1-status is-neutral"><dt>Охват семейства</dt><dd>Частичная</dd><span class="evidence-sources" aria-label="Источники доказательства"><a class="evidence-source src-corpus" href="#confidence-axis-family" title="Открыть в матрице · Охват семейства · проверенный корпус отчётов" aria-label="Корпус — открыть ось «Охват семейства» в матрице уверенности">Корпус</a></span></div></dl><p class="section-group-note">Подробности — в <a href="#confidence-matrix">матрице уверенности</a>.</p></div>
   </section>
 
   <section id="s2">
     <h2><span class="htext">Проверка листинга и адреса</span><a class="anchor" href="#s2">¶</a></h2>
-    <p>Runtime-база <code>HD_UPD.dll</code> равна <code>0x70510000</code>. Адрес пересчитан без неопределённой дельты:</p><p><code>0x70561607</code> — <code>0x70510000</code> = RVA <code>0x51607</code> <code>0x10000000</code> + 0x51607 = IDA VA <code>0x10051607</code> RVA 0x51607 — <code>0x15C00</code> = файловое смещение <code>0x3BA07</code></p><p>RVA попадает в .rsrc: начало <code>0x3B000</code>, VirtualSize <code>0x38DA8</code>. Характеристики секции <code>0x40000040</code> означают читаемые данные без флага исполнения. Фактические права страницы во время сбоя неизвестны, потому что в DMP нет MemoryInfoList.</p><p>Точная DLL имеет TimeDateStamp <code>0x6A7C2A5A</code>, SizeOfImage <code>0x76000</code>, entry RVA <code>0x7F82</code> и SHA-256 c04f80ffd94f6c8244d2fd95fad4cf23d7910199b1fe2b5e804be7967d53b9fa. Поле Input SHA256 листинга R40 содержит тот же хэш. Сам файл листинга имеет SHA-256 10c6c8bdb1aa5f795efe09a674a7faf072400b0ceed7e861b6a5e929f9bed202.</p><p>В 160220 строках точного листинга нет инструкции с адресом <code>0x10051607</code>. Экспорт TryUpdate начинается на <code>0x100047E0</code>, последний retn <code>10h</code> находится на <code>0x10005509</code>, а endp — на <code>0x1000550C</code>. Следовательно, автоматическое имя TryUpdate возле EIP является протеканием диапазона через нелистингованные данные, а не настоящей функцией аварии.</p>
+    <p>Для сборки 5.7 R40 база <code>HD_UPD.dll</code> равна <code>0x70510000</code>. Адрес пересчитан без неопределённой дельты:</p><dl class="tech-grid mapping-grid"><div class="tech-item"><dt class="tech-label">0x70561607 - 0x70510000</dt><dd class="tech-value">RVA <code>0x51607</code></dd></div><div class="tech-item"><dt class="tech-label">0x10000000 + 0x51607</dt><dd class="tech-value">IDA VA <code>0x10051607</code></dd></div><div class="tech-item"><dt class="tech-label">RVA 0x51607 - 0x15C00</dt><dd class="tech-value">файловое смещение <code>0x3BA07</code></dd></div></dl><div class="card"><dl class="kv-list"><div class="kv"><dt class="k">RVA попадает в .rsrc</dt><dd class="v">начало <code>0x3B000</code>, VirtualSize <code>0x38DA8</code>. Характеристики секции <code>0x40000040</code> означают читаемые данные без флага исполнения. Фактические права страницы во время сбоя неизвестны, потому что в DMP нет MemoryInfoList.</dd></div></dl></div><p>Точная DLL имеет TimeDateStamp <code>0x6A7C2A5A</code>, SizeOfImage <code>0x76000</code>, entry RVA <code>0x7F82</code> и SHA-256 c04f80ffd94f6c8244d2fd95fad4cf23d7910199b1fe2b5e804be7967d53b9fa. Поле Input SHA256 листинга R40 содержит тот же хэш. Сам файл листинга имеет SHA-256 10c6c8bdb1aa5f795efe09a674a7faf072400b0ceed7e861b6a5e929f9bed202.</p><p>В 160220 строках точного листинга нет инструкции с адресом <code>0x10051607</code>. Экспорт TryUpdate начинается на <code>0x100047E0</code>, последний retn <code>10h</code> находится на <code>0x10005509</code>, а endp — на <code>0x1000550C</code>. Следовательно, автоматическое имя TryUpdate возле EIP является протеканием диапазона через нелистингованные данные, а не настоящей функцией аварии.</p>
   </section>
 
   <section id="s3">
     <h2><span class="htext">Точка сбоя</span><a class="anchor" href="#s3">¶</a></h2>
-    <p>DMP сохранил страницу EIP. Окно в DMP и локальной DLL совпадает:</p><p><code>0x70561600</code>: 00 16 4D FF 01 3E 92 FF 1A AE F1 FF 34 D0 F4 FF ^ EIP = <code>0x70561607</code></p><p>Байты с EIP равны FF 1A. Их механическая x86-декодировка:</p><p>FF 1A    <code>call far ptr [edx]</code></p><p>Это не штатная инструкция <code>HD_UPD.dll</code>, а два байта BGRA-пикселей, случайно интерпретированные процессором как команда. EDX равен <code>0x08831984</code>, а не <code>0xFFFFFFFF</code>. Память по EDX в MiniDumpNormal отсутствует, поэтому точная микроарифметика чтения 0xFFFFFFFF не восстанавливается. Это чтение является вторичным эффектом уже произошедшего перехода в данные.</p><p>Ресурсный путь: <code>RT_ICON</code>, type 3, id 2, language 1049. Данные начинаются на RVA <code>0x4E958</code>, имеют размер <code>0x10828</code> и заканчиваются на RVA <code>0x5F180</code>. Аварийная точка лежит на смещении <code>0x2CAF</code> внутри ресурса. DIB описывает 32-битный значок 128x128; поле высоты 256 включает XOR-и AND-маски.</p><p><code>HD_UPD</code> base + <code>0x4E958</code> = начало <code>RT_ICON</code> 2 начало RT_ICON 2 + <code>0x2CAF</code> = <code>0x70561607</code> [заголовок DIB][пиксели ... FF 1A ...][маска]</p>
+    <h3 class="subhead">Окно аварийного EIP</h3><p>Все четыре DMP 5.7 R40 сохранили одно окно по EIP; после SHA-256-дедупликации это три уникальных состояния. Окно основного DMP и локальной DLL совпадает:</p><p><code>0x70561600</code>: 00 16 4D FF 01 3E 92 FF 1A AE F1 FF 34 D0 F4 FF ^ EIP = <code>0x70561607</code></p><p>В четырёх DMP 5.7 R40 по аварийному EIP лежат одинаковые байты FF 1A. Их механическая x86-декодировка:</p><p>FF 1A    <code>call far ptr [edx]</code></p><p>Это не штатная инструкция <code>HD_UPD.dll</code>, а два байта BGRA-пикселей, случайно интерпретированные процессором как команда. EDX равен <code>0x08831984</code>, а не <code>0xFFFFFFFF</code>. Память по EDX в MiniDumpNormal отсутствует, поэтому точная микроарифметика чтения 0xFFFFFFFF не восстанавливается. Это чтение является вторичным эффектом уже произошедшего перехода в данные.</p><h3 class="subhead">Размещение в ресурсе</h3><p>Ресурсный путь: <code>RT_ICON</code>, type 3, id 2, language 1049. Данные начинаются на RVA <code>0x4E958</code>, имеют размер <code>0x10828</code> и заканчиваются на RVA <code>0x5F180</code>. Для точной DLL 5.7 R40 аварийная точка лежит на смещении <code>0x2CAF</code> внутри ресурса. DIB описывает 32-битный значок 128x128; поле высоты 256 включает XOR-и AND-маски. Для восьми других сборок этот ресурсный путь не проверен без соответствующих бинарников.</p><p><code>HD_UPD</code> base + <code>0x4E958</code> = начало <code>RT_ICON</code> 2 начало RT_ICON 2 + <code>0x2CAF</code> = <code>0x70561607</code> [заголовок DIB][пиксели ... FF 1A ...][маска]</p>
   </section>
 
   <section id="s4">
     <h2><span class="htext">Цепочка вызовов и контекст</span><a class="anchor" href="#s4">¶</a></h2>
-    <p>Доказанная цепочка начинается только с уже ошибочной цели перехода:</p><div class="chain"><div class="step" id="step-e15b76"><span class="dot"></span><div><div class="ttl">неизвестный источник косвенной передачи управления - не захвачен<a class="lnk" href="#step-e15b76" title="Ссылка на шаг">#</a></div></div></div><div class="step" id="step-91b9fd"><span class="dot"></span><div><div class="ttl">HD_UPD.dll .rsrc, RT_ICON 2, пиксельные данные<a class="lnk" href="#step-91b9fd" title="Ссылка на шаг">#</a></div></div></div><div class="step fault" id="step-1f1e14"><span class="dot"></span><div><div class="ttl">0x70561607, байты FF 1A - ВЫЛЕТ при исполнении данных<a class="lnk" href="#step-1f1e14" title="Ссылка на шаг">#</a></div></div></div></div><p>Exception CONTEXT содержит EIP <code>0x70561607</code> и ESP <code>0x00199F48</code>, но ExceptionStream указывает номер потока 15456. Этот ESP принадлежит диапазону стека номер потока 16724: <code>0x001997F0</code>..<code>0x001A0000</code>. ThreadList-контекст номер потока 15456 имеет EIP <code>0x777F411C</code> и ESP <code>0x02CDEE50</code>; контекст номер потока 16724 имеет EIP <code>0x75EB101C</code> и ESP <code>0x001997F4</code>. Ни один из них не совпадает с аварийным CONTEXT ни по одному из девяти основных регистров.</p><p>Содержимое памяти возле <code>0x00199F48</code> образует отдельный кандидат контекста. На вершине находится <code>0x02CE01B9</code> вне всех модулей; страница этого адреса в дампе отсутствует. Ниже встречаются адреса подготовки предглавного меню в <code>h3hota HD.exe</code> и UI/DEF-обработчиков <code>HD_HOTA.dll</code>. Из-за расхождения потоков этот набор нельзя использовать как фактического caller аварии. Стек номер потока 15456 относится к ntdll/dbgcore и записи минидампа, а не даёт цепочку до <code>0x70561607</code>.</p>
+    <h3 class="subhead">Доказанная цепочка начинается только с уже ошибочной цели перехода</h3><div class="chain"><div class="step" id="step-e15b76"><span class="dot"></span><div><div class="ttl"><span class="ttl-text">неизвестный источник косвенной передачи управления - не захвачен</span></div></div></div><div class="step" id="step-91b9fd"><span class="dot"></span><div><div class="ttl"><span class="ttl-text">HD_UPD.dll .rsrc, RT_ICON 2, пиксельные данные</span></div></div></div><div class="step fault" id="step-1f1e14"><span class="dot"></span><div><div class="ttl"><span class="ttl-text">0x70561607, байты FF 1A - ВЫЛЕТ при исполнении данных</span></div></div></div></div><p>Exception CONTEXT содержит EIP <code>0x70561607</code> и ESP <code>0x00199F48</code>, но ExceptionStream указывает номер потока 15456. Этот ESP принадлежит диапазону стека номер потока 16724: <code>0x001997F0</code>..<code>0x001A0000</code>. ThreadList-контекст номер потока 15456 имеет EIP <code>0x777F411C</code> и ESP <code>0x02CDEE50</code>; контекст номер потока 16724 имеет EIP <code>0x75EB101C</code> и ESP <code>0x001997F4</code>. Ни один из них не совпадает с аварийным CONTEXT ни по одному из девяти основных регистров.</p><p>Содержимое памяти возле <code>0x00199F48</code> образует отдельный кандидат контекста. На вершине находится <code>0x02CE01B9</code> вне всех модулей; страница этого адреса в дампе отсутствует. Ниже встречаются адреса подготовки предглавного меню в <code>h3hota HD.exe</code> и UI/DEF-обработчиков <code>HD_HOTA.dll</code>. Из-за расхождения потоков этот набор нельзя использовать как фактического caller аварии. Стек номер потока 15456 относится к ntdll/dbgcore и записи минидампа, а не даёт цепочку до <code>0x70561607</code>.</p>
   </section>
 
   <section id="s5">
     <h2><span class="htext">Первопричина</span><a class="anchor" href="#s5">¶</a></h2>
-    <p>Подтверждённая непосредственная причина — ошибочная передача управления на <code>0x70561607</code>, то есть внутрь пиксельных данных ресурса. Процессор затем исполнял произвольные байты изображения. Это полностью объясняет недостоверную инструкцию FF 1A и вторичный нарушение доступа.</p><p>Не установлен источник управляющего адреса. Дамп не содержит страницу предполагаемого runtime-трамплина <code>0x02CE01B9</code>, память по регистрам EAX, ECX и EDX, а также полную кучу и глобальное состояние. Поэтому нельзя различить повреждённый return address, неверно зарегистрированный callback, битый function pointer и иной косвенный переход.</p><p>TryUpdate проверен отдельно, чтобы исключить ложную символизацию. Полное тело <code>0x100047E0</code>..<code>0x1000550C</code> содержит 1085 строк, 131 call, 14 косвенных вызовов разрешённых API-указателей и три пути возврата. Статического перехода в .rsrc не найдено. Поиск сайта <code>0x004FBC52</code> во всех доступных R40-листингах нашёл только саму инструкцию h3hota, но не регистрацию перехвата. Эти отрицательные результаты не закрывают неизвестный виртуальный dispatch или runtime-запись указателя.</p><p>Таким образом, <code>HD_UPD.dll</code> однозначно владеет ошибочной целью в своём ресурсе, но модуль и инструкция, сформировавшие эту цель, не атрибутированы. Нельзя называть причиной загрузку значка, TryUpdate или конкретный UI-путь: для такой связи нет доказанной цепочки.</p>
+    <h3 class="subhead">Подтверждённый механизм для 5.7 R40</h3><p>Ошибочная передача управления на RVA <code>0x51607</code> ведёт внутрь пиксельных данных ресурса. По этому EIP во всех четырёх R40-DMP лежит одинаковое окно, начинающееся с FF 1A. Механическое исполнение этих байтов объясняет локальный сбой и последующее нарушение доступа.</p><h3 class="subhead">Граница межверсионного вывода</h3><p>Остальные 11 TXT подтверждают тот же sink <code>HD_UPD.dll+0x51607</code>, чтение <code>0xFFFFFFFF</code> и одинаковую геометрию кадра. Однако без парных DMP и точных бинарников нельзя переносить на восемь других сборок разложение .rsrc и <code>RT_ICON</code>. Эти записи подтверждают общую сигнатуру, но не общий локальный механизм или общую первопричину.</p><h3 class="subhead">Что не установлено</h3><p>Не установлен источник управляющего адреса. Дамп не содержит страницу предполагаемого переходного кода <code>0x02CE01B9</code>, память по EAX, ECX и EDX, полную кучу и глобальное состояние. Поэтому нельзя различить повреждённый адрес возврата, неверно зарегистрированный обработчик, устаревший указатель функции, детерминированную порчу памяти и иной косвенный переход.</p><h3 class="subhead">Проверка TryUpdate</h3><p>TryUpdate проверен отдельно, чтобы исключить ложную символизацию. Полное тело <code>0x100047E0</code>..<code>0x1000550C</code> содержит 1085 строк, 131 вызов, 14 косвенных вызовов разрешённых API-указателей и три пути возврата. Статического перехода в .rsrc не найдено. Поиск сайта <code>0x004FBC52</code> во всех доступных R40-листингах нашёл только саму инструкцию h3hota, но не регистрацию перехвата. Эти отрицательные результаты не закрывают неизвестную динамическую запись указателя.</p><h3 class="subhead">Итог по атрибуции</h3><p>Для 5.7 <code>R40 HD_UPD.dll</code> однозначно содержит ошибочную конечную цель в своём ресурсе. Модуль и инструкция, сформировавшие эту цель, не атрибутированы. Нельзя называть причиной загрузку значка, TryUpdate, конкретный UI-путь или случайную порчу: ни одна из этих первопричин не подтверждена трассой происхождения состояния.</p>
   </section>
 
   <section id="s6">
     <h2><span class="htext">Условия сбоя</span><a class="anchor" href="#s6">¶</a></h2>
-    <p>Наблюдаемая среда: HotA 1.8.0, HD-мод 5.7 R40, Windows 10 build 19045, одиночная игра, test.h3m, день 0 00, игрок 0. Разрешение 1024x768, Graphics.Mode=2, четыре графических потока, OpenGL.Upscaling=2. Update.CheckAtStart=0. Отчёт сформирован автоматически из побочного потока.</p><p>Отдельный стек-кандидат согласуется с подготовкой предглавного меню и UI/DEF-обёртками, но это лишь ориентир для трассировки. Ни карта, ни число потоков, ни режим обновления не доказаны как причина. Достаточное условие известно только на низком уровне: косвенный target должен стать равным <code>0x70561607</code> либо другому адресу неисполняемых данных.</p>
+    <h3 class="subhead">Сводка инцидентов</h3><div class="tablewrap cols-5"><table><caption class="sr-only">Таблица данных</caption><thead><tr><th class="mono" scope="col">Инцидент</th><th class="mono" scope="col">Сборка</th><th class="mono" scope="col">База HD_UPD</th><th class="mono" scope="col">Аварийный EIP</th><th class="mono" scope="col">Минидамп</th></tr></thead><tbody><tr><td class="mono" data-label="Инцидент">R40-180</td><td class="mono" data-label="Сборка">5.7 R40</td><td class="mono" data-label="База HD_UPD">0x70510000</td><td class="mono" data-label="Аварийный EIP">0x70561607</td><td class="mono" data-label="Минидамп">есть</td></tr><tr><td class="mono" data-label="Инцидент">R40-180-1</td><td class="mono" data-label="Сборка">5.7 R40</td><td class="mono" data-label="База HD_UPD">0x70510000</td><td class="mono" data-label="Аварийный EIP">0x70561607</td><td class="mono" data-label="Минидамп">есть, копия</td></tr><tr><td class="mono" data-label="Инцидент">R40-180-2</td><td class="mono" data-label="Сборка">5.7 R40</td><td class="mono" data-label="База HD_UPD">0x619B0000</td><td class="mono" data-label="Аварийный EIP">0x61A01607</td><td class="mono" data-label="Минидамп">есть</td></tr><tr><td class="mono" data-label="Инцидент">R40-180-3</td><td class="mono" data-label="Сборка">5.7 R40</td><td class="mono" data-label="База HD_UPD">0x72170000</td><td class="mono" data-label="Аварийный EIP">0x721C1607</td><td class="mono" data-label="Минидамп">есть</td></tr><tr><td class="mono" data-label="Инцидент">R10-180-1</td><td class="mono" data-label="Сборка">5.6 R10</td><td class="mono" data-label="База HD_UPD">0x6E140000</td><td class="mono" data-label="Аварийный EIP">0x6E191607</td><td class="mono" data-label="Минидамп">нет</td></tr><tr><td class="mono" data-label="Инцидент">Прочие 10</td><td class="mono" data-label="Сборка">5.6-5.7</td><td class="mono" data-label="База HD_UPD">не читалась</td><td class="mono" data-label="Аварийный EIP">+0x51607</td><td class="mono" data-label="Минидамп">нет</td></tr></tbody></table></div><p>Общий контекст:</p><ul><li>Карта test.h3m, день 0 0 0, сетевая игра 0, игрок совпадает с активным игроком: 15 логов из 15.</li><li>Геометрия кадра неизменна: EBX=<code>0x00000001</code>, EBP-EDI=<code>-0x5AD9</code>, EDI-ESP=<code>0x5BB4</code>, EBP-ESP=<code>0xDB</code> — 15 логов из 15.</li><li>Чтение <code>0xFFFFFFFF</code>, код <code>0xC0000005</code>, HotA 1.8.0 и Windows 10 build 19045 совпадают в 15 логах из 15.</li><li>Состояние отвечает подготовке партии до первого хода.</li></ul><p>Различающиеся условия:</p><ul><li>Девять сборок HD-мода, от 5.6 R10 до 5.7 R40.</li><li>Наблюдаются четыре базы <code>HD_UPD.dll</code> при одном RVA <code>0x51607</code>. Это не доказывает число независимых запусков или компьютеров.</li><li>В двух логах различаются пути установки. По путям нельзя установить число машин или независимость событий.</li><li>Настройки графики подробно разобраны только у основного R40-лога.</li></ul><p>Показания и вложения:</p><ul><li>Показаний игроков нет: 15 логов из 15 содержат только автотекст.</li><li>У 11 из 15 логов слабый стек и отсутствует парный DMP.</li><li>Из почтовой папки забрано 14 писем из 14; сохранено 14 TXT и 3 DMP.</li><li>Сейвов и карт во вложениях не было.</li></ul><p>Идентичный DMP у R40-180 и R40-180-1 доказывает повторную отправку одного состояния. Для остальных TXT разные SHA-256 не доказывают независимость игровых событий, поэтому точное число событий неизвестно.</p>
   </section>
 
   <section id="s7">
     <h2><span class="htext">Воспроизведение вылета</span><a class="anchor" href="#s7">¶</a></h2>
-    <p>Детерминированный пользовательский сценарий по одному событию не восстанавливается. Для диагностического повтора нужен вероятностный прогон:</p><p>1) Использовать HotA 1.8.0 и HD-мод 5.7 R40 с тем же набором модулей. 2) Повторять запуск игры и переходы через главное/предглавное меню к сценарию test.h3m, не объявляя этот путь причиной заранее. 3) Включить &lt;Sys.FullDump&gt; = 1 и сохранять свежий patcher_x86 dump.txt. 4) При событии фиксировать EIP источника косвенного перехода, адрес ячейки с target, прежнее и новое значение, номер потока и полный стек одного потока. 5) Отдельно журналировать регистрацию и вызов callback/hook: источник записи, owner, target и PE-секцию target.</p><p>Признак успешного захвата — трасса, в которой последняя штатная инструкция перед <code>0x70561607</code> видна вместе с адресом хранилища указателя и его источник записи. Совпадение только конечного EIP повторит локальный диагноз, но не установит первый источник порчи.</p><p>Дифференциальная проверка для HD-мода: перед регистрацией и перед косвенным вызовом принимать target только внутри исполняемой секции загруженного PE. Target из .rsrc должен быть отклонён и записан в журнал, а штатные callback из .text — пройти без изменения поведения. Исчезновение вылета подтвердит защиту потребителя; происхождение ошибочного target всё равно проверяется отдельной трассировкой источника записи.</p>
+    <p>Воспроизведение не подтверждено. Имеющиеся 15 TXT показывают одинаковое состояние подготовки партии, но не задают проверенный пользовательский сценарий и не содержат показаний игроков.</p><h3 class="subhead">План захвата</h3><ol class="steps"><li>Использовать HotA 1.8.0 и HD-мод 5.7 R40 с тем же набором модулей.</li><li>Повторять переход к подготовке test.h3m, не объявляя меню причиной.</li><li>Включить &lt;Sys.FullDump&gt; = 1 и сохранять свежий patcher_x86 dump.txt.</li><li>При сбое фиксировать последнюю штатную инструкцию, адрес хранилища цели, прежнее и новое значение, номер потока и стек одного потока.</li><li>Журналировать регистрацию и вызов обработчиков: писателя, владельца, цель перехода и PE-секцию цели.</li></ol><h3 class="subhead">Дифференциальная проверка</h3><p>Перед регистрацией и косвенным вызовом проверять, что цель находится в исполняемой секции загруженного PE. Цель из .rsrc должна быть отклонена и записана в журнал, а штатные цели из .text — пройти без изменения. Исчезновение вылета подтвердит защиту потребителя, но не установит источник ошибочного значения без трассы записи.</p>
   </section>
 
   <section id="s8">
     <h2><span class="htext">Достоверность и ограничения</span><a class="anchor" href="#s8">¶</a></h2>
-    <p>Независимые оценки:</p><p>Точка сбоя: подтверждена DMP-окном и точным бинарником. Локальный механизм: подтверждён как исполнение данных после плохого EIP. Первый источник состояния: не установлен. Полнота семьи: подтверждена в границах 5496 из 5496 TXT и окна +/<code>-0x100</code>.</p><div class="note ok"><span class="t">Подтверждено / высокая достоверность</span><ul><li>Точка сбоя подтверждена: EIP, модуль и RVA одинаковы в TXT и DMP.</li><li>DMP-окно и локальная DLL совпадают; по EIP лежат FF 1A.</li><li>RVA <code>0x51607</code> входит в пиксели <code>RT_ICON</code> 2/1049 внутри .rsrc.</li><li>Точный R40-листинг связан с DLL одинаковым Input SHA-256.</li><li>TryUpdate заканчивается на <code>0x1000550C</code> и не содержит аварийный адрес.</li><li>Полный корпусный проход прочитал 5496 из 5496 TXT; точный и ближний диапазон содержат только текущий уникальный случай.</li></ul></div><div class="note negative"><span class="t">Отрицательные результаты</span><ul><li>0 строк с собственным адресом <code>0x10051607</code>; измеренное покрытие равно 160220 строкам R40-листинга. Контроль — TryUpdate и его границы найдены тем же индексом и полным проходом.</li><li>0 статических переходов в .rsrc в 1085 строках TryUpdate; просмотрены 131 call, включая 14 косвенных, и три возврата.</li><li>0 найденных регистраций для h3hota-сайта <code>0x004FBC52</code> во всех доступных R40-листингах; найдено только собственное место инструкции.</li><li>0 сохранённых байт по <code>0x08831984</code>, <code>0x08A66620</code>, <code>0x08A66B47</code> и странице <code>0x02CE01B9</code>; отсутствие относится только к MemoryList этого DMP.</li><li>0 из 25 ThreadList-контекстов совпадают с Exception CONTEXT; у потоков 15456 и 16724 совпало 0 из 9 основных регистров.</li><li>0 дополнительных точных или близких уникальных случаев после полного прохода 5496 из 5496 TXT.</li></ul></div><div class="note limits"><span class="t">Ограничения и неизвестное</span><ul><li>ExceptionStream называет поток 15456, а диапазоном ESP владеет поток 16724. Регистры и независимый стек не объединялись в единую цепочку.</li><li>MiniDumpNormal не содержит полную кучу, глобалы, MemoryInfoList и страницы по EAX, ECX, EDX и <code>0x02CE01B9</code>.</li><li>Не приложен patcher_x86 dump.txt; регистрация hook/callback не видна.</li><li>Единственный инцидент не даёт сравнить значения target между повторами.</li><li>Фактические runtime-права страницы .rsrc неизвестны. PE-флаг секции запрещает исполнение, но состояние DEP по этому событию не доказано.</li></ul></div>
+    <div class="note evidence confidence-matrix" id="confidence-matrix" aria-labelledby="confidence-matrix-title"><h3 class="t"><span id="confidence-matrix-title">Матрица уверенности</span></h3><dl class="confidence-grid"><div class="confidence-axis is-ok" id="confidence-axis-crash"><dt class="axis-label">Точка сбоя</dt><dd class="axis-value">подтверждена четырьмя точными парами TXT/DMP 5.7 R40.</dd></div><div class="confidence-axis is-ok" id="confidence-axis-mechanism"><dt class="axis-label">Локальный механизм</dt><dd class="axis-value">подтверждена для 5.7 R40; для восьми других сборок не проверена по точным бинарникам.</dd></div><div class="confidence-axis is-unknown" id="confidence-axis-origin"><dt class="axis-label">Происхождение состояния</dt><dd class="axis-value">не установлена.</dd></div><div class="confidence-axis is-partial" id="confidence-axis-family"><dt class="axis-label">Охват семейства</dt><dd class="axis-value">частичная — 15 TXT перечислены и классифицированы, но 11 имеют только контекстный уровень связи.</dd></div><div class="confidence-axis is-level" id="confidence-axis-causality"><dt class="axis-label">Уровень причинности</dt><dd class="axis-value">L1</dd></div></dl></div><div class="note ok"><h3 class="t">Подтверждено / высокая достоверность</h3><ul><li>Все четыре R40-DMP дают RVA <code>0x51607</code> и одинаковое 16-байтовое окно; после SHA-256-дедупликации уникальных DMP три.</li><li>Для точной DLL 5.7 R40 RVA <code>0x51607</code> входит в пиксели <code>RT_ICON</code> 2/1049 внутри .rsrc; DMP-окно и локальный PE совпадают.</li><li>Точный R40-листинг связан с DLL одинаковым Input SHA-256.</li><li>В 160220 строках точного листинга нет инструкции с адресом <code>0x10051607</code>.</li><li>TryUpdate заканчивается на <code>0x1000550C</code> и не содержит аварийный адрес.</li><li>Почтовый добор сохранил 14 из 14 писем, 14 TXT и 3 DMP.</li><li>Полный поиск прочитал 5554 из 5554 TXT и нашёл 15 точных совпадений. Единственное значение Address: <code>HD_UPD.dll+0x51607</code>; дедупликация по SHA-256.</li><li>В 15 TXT совпадают код, чтение, EBX и три дельты кадра.</li></ul></div><h3 class="subhead">Интерпретация повторяемости</h3><p>Один RVA при четырёх наблюдаемых базах показывает, что конечная цель повторяемо привязана к модулю. Это сильнее полностью произвольного EIP, но не различает ошибочный расчёт, устаревший указатель и повторяемую порчу памяти. Поэтому происхождение состояния остаётся неизвестным.</p><div class="note limits"><h3 class="t">Ограничения и неизвестное</h3><ul><li>ExceptionStream называет поток 15456, а диапазоном ESP владеет поток 16724. Регистры разных контекстов не объединялись.</li><li>MiniDumpNormal не содержит полную кучу, глобалы, MemoryInfoList и страницы по EAX, ECX, EDX и <code>0x02CE01B9</code>.</li><li>Не приложен patcher_x86 dump.txt; источник записи цели не виден.</li><li>Один DMP побайтово повторён. Разные SHA-256 остальных TXT не устанавливают точное число независимых игровых событий.</li><li>Для 11 TXT нет парных DMP; 11 из 15 стеков оценены как слабые.</li><li>Листинги <code>HD_UPD.dll</code> есть только для 5.7 R37 и 5.7 R40. Попадание <code>0x51607</code> в .rsrc и <code>RT_ICON</code> доказано только для R40.</li><li>Фактические права страницы .rsrc и состояние DEP не сохранены.</li><li>Текущий корпусный запрос проверял точный Address; прежнее утверждение об отсутствии соседних RVA после почтового добора не переиспользуется.</li></ul></div><div class="note negative"><h3 class="t">Отрицательные результаты</h3><ul><li>0 статических переходов в .rsrc в 1085 строках TryUpdate; просмотрены 131 вызов, включая 14 косвенных, и три возврата.</li><li>0 найденных регистраций h3hota-сайта <code>0x004FBC52</code> в доступных R40-листингах; найдено только собственное место инструкции.</li><li>0 сохранённых байт по <code>0x08831984</code>, <code>0x08A66620</code>, <code>0x08A66B47</code> и странице <code>0x02CE01B9</code>; это отсутствие относится только к MemoryList DMP.</li><li>0 из 25 ThreadList-контекстов совпадают с Exception CONTEXT.</li><li>0 показаний игроков в 15 TXT; блоки Comment содержат автотекст.</li><li>0 парных DMP у 11 из 15 TXT; точные пары есть у четырёх R40-логов.</li></ul></div>
   </section>
 
   <section id="verdict">
     <h2><span class="htext">Вывод</span><a class="anchor" href="#verdict">¶</a></h2>
     <div class="card verdict conf-derived">
-      <p class="conflabel">Выведено из листинга</p>
-      <p><code>HD_UPD.dll+0x51607</code> — подтверждённый переход управления в пиксельные данные встроенного <code>RT_ICON</code>, а не сбой функции TryUpdate. Байты FF 1A в DMP и точной DLL совпадают; зарегистрированное чтение <code>0xFFFFFFFF</code> возникло уже после начала исполнения данных.</p><p>Рекомендуемое исправление:</p><p>HD-моду следует отклонять косвенные адреса вне исполняемых PE-секций. Проверку надо выполнять при регистрации и перед каждым косвенным вызовом. Адреса .rsrc надо отклонять, а источник записи и владельца указателя — журналировать. Такая защита закрывает локальный потребитель, но не заменяет поиск источника ошибочного указателя. Для его атрибуции нужен полный DMP или трасса последнего штатного перехода с адресом ячейки назначения и свежим patcher_x86 dump.txt.</p>
+      <p class="conflabel">Механизм выведен из листинга</p>
+      <div class="verdict-layout"><div class="verdict-segment verdict-proof"><div class="verdict-segment-head"><h3 class="subhead">Контрольный расчёт</h3><span class="evidence-sources" aria-label="Источники доказательства"><a class="evidence-source src-context" href="#confidence-axis-mechanism" title="Открыть в матрице · Локальный механизм · CONTEXT: сохранённые регистры аварийного потока" aria-label="Регистры — открыть ось «Локальный механизм» в матрице уверенности">Регистры</a><a class="evidence-source src-listing" href="#confidence-axis-mechanism" title="Открыть в матрице · Локальный механизм · точный статический листинг" aria-label="Листинг — открыть ось «Локальный механизм» в матрице уверенности">Листинг</a></span></div><dl class="tech-grid verdict-grid"><div class="tech-item"><dt class="tech-label">0x70561607 - 0x70510000</dt><dd class="tech-value"><code>0x51607</code></dd></div><div class="tech-item"><dt class="tech-label">0x10000000 + 0x51607</dt><dd class="tech-value"><code>0x10051607</code></dd></div><div class="tech-item"><dt class="tech-label">0x4E958 + 0x2CAF</dt><dd class="tech-value"><code>0x51607</code></dd></div></dl></div><div class="verdict-segment verdict-boundary"><div class="verdict-segment-head"><h3 class="subhead">Происхождение состояния</h3><span class="evidence-sources" aria-label="Источники доказательства"><a class="evidence-source src-dmp" href="#confidence-axis-origin" title="Открыть в матрице · Происхождение состояния · DMP: файл минидампа" aria-label="Дамп — открыть ось «Происхождение состояния» в матрице уверенности">Дамп</a></span></div><p>Не установлено. Повторяемый RVA не исключает детерминированную порчу, устаревший указатель или ошибочный расчёт. При расхождении потоков имеющиеся регистры и стек нельзя превращать в цепочку первопричины.</p></div><div class="verdict-segment verdict-actions"><div class="verdict-segment-head"><h3 class="subhead">Действия</h3></div><p class="verdict-owner">Адресат: разработчики HD-мода</p><p>HD-моду следует отклонять косвенные адреса вне исполняемых PE-секций. Нужно добавить проверку PE-секции перед регистрацией и косвенным вызовом.</p><ul><li>Проверять цель при регистрации и непосредственно перед вызовом.</li><li>Журналировать адрес ячейки, старое и новое значение, писателя и поток.</li><li>Для остальных восьми сборок сначала получить точные DLL или листинги, а затем проверить, куда попадает их RVA <code>0x51607</code>.</li></ul></div><div class="verdict-segment verdict-criterion"><div class="verdict-segment-head"><h3 class="subhead">Критерий завершения</h3></div><p>Полная трасса должна показать последнюю штатную инструкцию, адрес хранилища цели и стек писателя в одном потоке. Исправленная сборка должна отклонять цель из .rsrc и сохранять штатные цели из .text. До выполнения обоих условий локальный диагноз остаётся L1, а первопричина — открытой.</p></div></div>
     </div>
   </section>
+
+  <footer class="report-passport" id="report-passport" aria-label="Паспорт отчёта">
+    <span class="passport-title">Паспорт</span>
+    <dl class="passport-grid">
+      <div><dt>TXT</dt><dd><code class="passport-source">HD_UPD.dll+0x51607-анализ-gpt-5.6-sol.txt</code></dd></div>
+      <div><dt>SHA-256</dt><dd><code id="reportSourceSha" class="passport-sha" title="303a667a8460eb885ed7eb9cbd0bf91bf1185c7d062b8a1594b343afc515f472">303a667a8460eb885ed7eb9cbd0bf91bf1185c7d062b8a1594b343afc515f472</code></dd></div>
+      <div><dt>Схема</dt><dd>2</dd></div>
+      <div><dt>Рендерер</dt><dd>2.22</dd></div>
+      <div><dt>Создан</dt><dd><time datetime="2026-08-23T13:48:28+03:00">2026-08-23T13:48:28+03:00</time></dd></div>
+    </dl>
+    <span class="sr-only">HTML визуализирует исходный TXT и не добавляет к нему диагностических выводов.</span>
+  </footer>
 
   </main>
 </div>
@@ -640,100 +966,139 @@ document.documentElement.classList.add("theme-"+m);}catch(e){}})();
 
 <script>
 (function(){
-  var KEY="hota-theme-v6",root=document.documentElement;
-  var ic=document.getElementById("themeUse"),lb=document.getElementById("themeLabel");
+  var KEY="hota-theme-v7",root=document.documentElement;
+  var toggle=document.getElementById("themeToggle");
+  var icon=document.getElementById("themeUse");
+  var label=document.getElementById("themeLabel");
   var mq=window.matchMedia?matchMedia("(prefers-color-scheme: light)"):null;
-  // по умолчанию следуем за системной темой; ручной клик фиксирует light/dark и перекрывает её
-  function manual(){try{var s=localStorage.getItem(KEY);return(s==="light"||s==="dark")?s:null;}catch(e){return null;}}
-  function effective(){return manual()||(mq&&mq.matches?"light":"dark");}
-  // иконка — SVG (солнце/луна), переключаем href у <use>, а не emoji-глиф
-  function paintBtn(){var l=effective()==="light";
-    ic.setAttribute("href",l?"#ic-sun":"#ic-moon");
-    lb.textContent=l?"\u0421\u0432\u0435\u0442\u043B\u0430\u044F":"\u0422\u0451\u043C\u043D\u0430\u044F";}
-  // ВСЕГДА ставим явный класс (theme-light либо theme-dark) — без @media-CSS
-  function apply(){root.classList.remove("theme-light","theme-dark");
-    root.classList.add("theme-"+effective());paintBtn();}
-  apply();
-  // смена системной темы -> сбросить ручной выбор и снова следовать за системой
-  if(mq){var hh=function(){try{localStorage.removeItem(KEY);}catch(e){}apply();};
-    mq.addEventListener?mq.addEventListener("change",hh):mq.addListener(hh);}
-  document.getElementById("themeToggle").onclick=function(){
-    var n=effective()==="light"?"dark":"light";
-    try{localStorage.setItem(KEY,n);}catch(e){}apply();};
+  var MODES=["system","light","dark"];
+  var LABELS={system:"Системная",light:"Светлая",dark:"Тёмная"};
+  var ICONS={system:"#ic-system",light:"#ic-sun",dark:"#ic-moon"};
+  function mode(){
+    try{var s=localStorage.getItem(KEY);
+      return MODES.indexOf(s)>=0?s:"system";}
+    catch(e){return "system";}
+  }
+  function effective(value){
+    value=value||mode();
+    return value==="system"?(mq&&mq.matches?"light":"dark"):value;
+  }
+  function applyTheme(){
+    var selected=mode(),actual=effective(selected);
+    root.classList.remove("theme-light","theme-dark");
+    root.classList.add("theme-"+actual);
+    root.dataset.themeMode=selected;
+    if(icon)icon.setAttribute("href",ICONS[selected]);
+    if(label)label.textContent=LABELS[selected];
+    if(toggle){
+      var description="Тема оформления: "+LABELS[selected].toLowerCase();
+      toggle.setAttribute("aria-label",description);
+      toggle.setAttribute("title",description);
+    }
+  }
+  applyTheme();
+  if(toggle)toggle.addEventListener("click",function(){
+    var selected=mode();
+    var next=MODES[(MODES.indexOf(selected)+1)%MODES.length];
+    try{localStorage.setItem(KEY,next);}catch(e){}
+    applyTheme();
+  });
+  if(mq){var themeChanged=function(){if(mode()==="system")applyTheme();};
+    mq.addEventListener?mq.addEventListener("change",themeChanged):mq.addListener(themeChanged);}
+
   var links={},secs=[].slice.call(document.querySelectorAll("main section[id]"));
-  document.querySelectorAll("nav.toc a").forEach(function(a){links[a.getAttribute("href").slice(1)]=a;});
+  document.querySelectorAll("nav.toc a").forEach(function(a){
+    links[a.getAttribute("href").slice(1)]=a;
+  });
   var lock=0,lockT,ticking=0;
-  // подсветка только в оглавлении
   function setActive(id){
-    Object.keys(links).forEach(function(k){links[k].classList.remove("active");
-      links[k].removeAttribute("aria-current");});
-    if(links[id]){links[id].classList.add("active");
-      // скринридер объявляет текущую позицию чтения, а не только визуальный класс
-      links[id].setAttribute("aria-current","location");}}
+    Object.keys(links).forEach(function(k){
+      links[k].classList.remove("active");
+      links[k].removeAttribute("aria-current");
+    });
+    if(links[id]){
+      links[id].classList.add("active");
+      links[id].setAttribute("aria-current","location");
+    }
+  }
   function unlockSoon(){clearTimeout(lockT);lockT=setTimeout(function(){lock=0;},120);}
-  // активна — ПОСЛЕДНЯЯ секция, чьё начало выше порога чтения.
-  // Пороговая логика детерминирована и НЕ пропускает короткие секции
-  // (IntersectionObserver мог «перепрыгивать» через них при быстром скролле).
   function pickActive(){
     ticking=0;
     if(lock)return;
     var thr=innerHeight*0.2,cur=secs.length?secs[0].id:null;
     for(var i=0;i<secs.length;i++){
-      if(secs[i].getBoundingClientRect().top<=thr)cur=secs[i].id;}
-    if(innerHeight+scrollY>=document.body.scrollHeight-2)cur=secs[secs.length-1].id;
-    if(cur)setActive(cur);}
-  // клик по оглавлению: сразу подсветить цель и заглушить scroll-spy до конца плавной прокрутки
+      if(secs[i].getBoundingClientRect().top<=thr)cur=secs[i].id;
+    }
+    if(secs.length&&innerHeight+scrollY>=document.body.scrollHeight-2){
+      cur=secs[secs.length-1].id;
+    }
+    if(cur)setActive(cur);
+  }
   document.querySelectorAll("nav.toc a").forEach(function(a){
     a.addEventListener("click",function(){
-      setActive(a.getAttribute("href").slice(1));lock=1;unlockSoon();});
+      setActive(a.getAttribute("href").slice(1));lock=1;unlockSoon();
+    });
   });
   addEventListener("scroll",function(){
     if(lock){unlockSoon();return;}
     if(!ticking){ticking=1;requestAnimationFrame(pickActive);}
   },{passive:true});
   pickActive();
+
   var toast=document.getElementById("toast"),tt;
-  function showToast(m){toast.textContent=m||"\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e";toast.classList.add("show");
-    clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove("show");},1300);}
-  document.querySelectorAll("[data-copy]").forEach(function(b){
-    b.onclick=function(){var sel=b.getAttribute("data-copy");
-      var el=sel==="prev"?b.parentElement.querySelector("pre"):document.querySelector(sel);
-      var txt=el?el.innerText:"";
-      navigator.clipboard&&navigator.clipboard.writeText(txt).then(function(){showToast("\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e");},
-        function(){showToast("\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c");});};
-  });
-})();
-</script>
-<script>
-(function(){
-  // сворачивание секций по клику на заголовок
-  document.querySelectorAll("section[id^=s] > h2, section[id=sdost] > h2").forEach(function(h){
-    h.style.cursor="pointer";
-    h.title="Свернуть/развернуть";
-    h.addEventListener("click",function(){
-      var sec=h.parentElement;
-      var kids=sec.children;
-      for(var i=1;i<kids.length;i++){
-        kids[i].style.display=kids[i].style.display==="none"?"":"none";
-      }
-      h.classList.toggle("collapsed");
+  function showToast(message){
+    if(!toast)return;
+    toast.textContent=message||"Скопировано";
+    toast.classList.add("show");
+    clearTimeout(tt);
+    tt=setTimeout(function(){toast.classList.remove("show");},1300);
+  }
+  function fallbackCopy(text){
+    var area=document.createElement("textarea");
+    area.value=text;area.setAttribute("readonly","");
+    area.style.position="fixed";area.style.opacity="0";
+    document.body.appendChild(area);area.select();
+    var ok=false;
+    try{ok=document.execCommand("copy");}catch(e){}
+    area.remove();
+    showToast(ok?"Скопировано":"Не удалось скопировать");
+  }
+  function copyText(text){
+    if(!text){showToast("Нет данных для копирования");return;}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){showToast("Скопировано");},
+        function(){fallbackCopy(text);});
+    }else fallbackCopy(text);
+  }
+  document.querySelectorAll("[data-copy]").forEach(function(button){
+    button.addEventListener("click",function(){
+      var selector=button.getAttribute("data-copy");
+      var element=selector==="prev"?button.parentElement.querySelector("pre"):
+        document.querySelector(selector);
+      copyText(element?element.innerText.trim():"");
     });
   });
 })();
 </script>
 <script>
 (function(){
-  // Отдельной легенды и кнопок-фильтров цепочки больше нет
-  // (решение владельца проекта 13.08.2026): шаги не скрываются.
-  // «#» у шага — постоянная ссылка (id считан от текста шага, так что
-  // выживает перерендер): клик ещё и кладёт адрес в буфер.
-  document.querySelectorAll(".chain .step .lnk").forEach(function(a){
-    a.addEventListener("click",function(){
-      var u=location.href.split("#")[0]+a.getAttribute("href");
-      if(navigator.clipboard)navigator.clipboard.writeText(u);
-    });
-  });
+  function revealCrashLogList(){
+    if(!location.hash)return;
+    var id;
+    try{id=decodeURIComponent(location.hash.slice(1));}catch(e){id=location.hash.slice(1);}
+    var target=document.getElementById(id);
+    if(!target)return;
+    var details=target.matches&&target.matches("details.crash-log-list")?
+      target:target.closest("details.crash-log-list");
+    if(details)details.open=true;
+  }
+  addEventListener("hashchange",revealCrashLogList);
+  revealCrashLogList();
 })();
+</script>
+<script>
+// Постоянные id шагов и доказательных блоков сохранены для старых прямых ссылок.
+// Видимые решётки-ссылки рендерер намеренно не создаёт.
 </script>
 </body>
 </html>

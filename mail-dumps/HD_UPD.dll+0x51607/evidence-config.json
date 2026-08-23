@@ -5,7 +5,75 @@
   "inputs": [
     {
       "role": "source",
+      "path": "HD_UPD.dll+0x51607-5.6-R10-180-1.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_UPD.dll+0x51607-5.6-R15-180-1.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_UPD.dll+0x51607-5.6-R19-180-1.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_UPD.dll+0x51607-5.6-R19-180-2.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_UPD.dll+0x51607-5.6-R27-180-1.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_UPD.dll+0x51607-5.6-R31-180-1.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_UPD.dll+0x51607-5.7-R3-180-1.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_UPD.dll+0x51607-5.7-R3-180-2.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_UPD.dll+0x51607-5.7-R3-180-3.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_UPD.dll+0x51607-5.7-R40-180-1.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_UPD.dll+0x51607-5.7-R40-180-2.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_UPD.dll+0x51607-5.7-R40-180-3.txt"
+    },
+    {
+      "role": "source",
       "path": "HD_UPD.dll+0x51607-5.7-R40-180.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_UPD.dll+0x51607-5.7-RC7-180-1.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_UPD.dll+0x51607-5.7-RC9-180-1.txt"
+    },
+    {
+      "role": "runtime",
+      "path": "HD_UPD.dll+0x51607-5.7-R40-180-1.dmp"
+    },
+    {
+      "role": "runtime",
+      "path": "HD_UPD.dll+0x51607-5.7-R40-180-2.dmp"
+    },
+    {
+      "role": "runtime",
+      "path": "HD_UPD.dll+0x51607-5.7-R40-180-3.dmp"
     },
     {
       "role": "runtime",
@@ -45,6 +113,34 @@
     },
     {
       "role": "derived-evidence",
+      "path": "scan-attestation.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "address-proof.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "analysis-contract.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "series-parse.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "series-groups.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "save-inventory.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "ingest-manifest.json"
+    },
+    {
+      "role": "derived-evidence",
       "path": "family-membership-input.json"
     },
     {
@@ -57,43 +153,48 @@
     },
     {
       "role": "derived-evidence",
-      "path": "evidence-config.json"
+      "path": "HD_UPD.dll+0x51607-анализ-gpt-5.6-sol.extra.html"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "repro-plan.json"
     }
   ],
   "claim_json": [
     "claims.json"
   ],
   "tools": [
-    "../../.agents/skills/address-mapping/read_dump.py",
-    "../../.agents/skills/address-mapping/dump_profile.py",
-    "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
-    "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+    "../../.agents/skills/address-mapping/address_proof.py",
+    "../../.agents/skills/hota-crash-triage/analysis_contract.py",
+    "../../.agents/skills/hota-crash-triage/scan_attestation.py",
     "../../.agents/skills/hota-crash-triage/family_membership.py",
+    "../../.agents/skills/hota-crash-triage/coverage_contract.py",
     "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
-    "../../.agents/skills/hota-crash-triage/case_quality_gate.py"
+    "../../.agents/skills/hota-crash-triage/case_quality_gate.py",
+    "../../.agents/skills/hota-crash-triage/repro_plan.py"
   ],
   "commands": [
-    "read_dump.py HD_UPD.dll+0x51607-5.7-R40-180.dmp --read 0x705615E0 0x80",
-    "dump_profile.py HD_UPD.dll+0x51607-5.7-R40-180.dmp --esp 0x00199F48 --json-out capabilities.json --capabilities-only",
-    "static_exhaustion_check.py \"modules/HD_UPD.dll-5.7 R40.txt\" --crash 0x10051607 --func 0x100047E0 --module HD_UPD.dll --module-kind hd_mod --binary 180/HD_UPD.dll --versions R40 --version-axis hd --json-out mail-dumps/HD_UPD.dll+0x51607/static-exhaustion.json",
-    "coverage_contract.py create claims.json --out coverage.json",
-    "family_membership.py create family-membership-input.json --family-id HD_UPD-bad-eip-rt-icon-51607 --out family-membership.json",
-    "evidence_manifest.py create --config evidence-config.json"
+    "corpus_query exact HD_UPD.dll+0x51607 over mail-dumps/**/*.txt",
+    "scan_attestation.py create scan-attestation-input.json --out scan-attestation.json",
+    "address_proof.py create address-proof-input.json --out address-proof.json",
+    "analysis_contract.py create analysis-contract-input.json --out analysis-contract.json",
+    "family_membership.py create family-membership-input.json --out family-membership.json",
+    "coverage_contract.py create claims.json --out coverage.json --schema 2",
+    "evidence_manifest.py create --config evidence-config.json",
+    "repro_plan.py create . --out repro-plan.json"
   ],
   "facts": {
-    "case": "HD_UPD.dll+0x51607",
-    "incident_count": 1,
-    "confirmed_members": 1,
-    "runtime_eip": "0x70561607",
-    "rva": "0x51607",
-    "section": ".rsrc",
-    "resource": "RT_ICON/2/1049",
-    "resource_offset": "0x2CAF",
-    "target_bytes": "FF 1A",
-    "thread_provenance": "CONTEXT_THREAD_MISMATCH",
-    "source_of_transfer": "unknown",
-    "corpus_txt_read": 5496
+    "physical_txt": "15",
+    "unique_txt_sha256": "15",
+    "physical_dmp": "4",
+    "unique_dmp_sha256": "3",
+    "confirmed_local_mechanism_r40": "4",
+    "context_only": "11",
+    "exact_corpus_hits": "15",
+    "corpus_txt_read": "5554",
+    "root_cause_status": "not confirmed",
+    "reproduction_status": "not confirmed"
   },
-  "parser_revision": "e4c4291664f03d56be6da053a2f55d6a662714b7",
-  "code_evidence": "dmp-window"
+  "code_evidence": "dmp-window",
+  "out": "HD_UPD.dll+0x51607-анализ-gpt-5.6-sol.evidence.json"
 }

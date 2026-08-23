@@ -1,11 +1,76 @@
 {
-  "schema": 3,
+  "schema": 4,
   "root": "/Users/Shared/ii/mail-dumps/HD_UPD.dll+0x51607",
   "rows": [
+    {
+      "stem": "HD_UPD.dll+0x51607-5.6-R10-180-1",
+      "txt": "HD_UPD.dll+0x51607-5.6-R10-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_UPD.dll+0x51607-5.6-R15-180-1",
+      "txt": "HD_UPD.dll+0x51607-5.6-R15-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_UPD.dll+0x51607-5.6-R19-180-1",
+      "txt": "HD_UPD.dll+0x51607-5.6-R19-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_UPD.dll+0x51607-5.6-R19-180-2",
+      "txt": "HD_UPD.dll+0x51607-5.6-R19-180-2.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_UPD.dll+0x51607-5.6-R27-180-1",
+      "txt": "HD_UPD.dll+0x51607-5.6-R27-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_UPD.dll+0x51607-5.6-R31-180-1",
+      "txt": "HD_UPD.dll+0x51607-5.6-R31-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_UPD.dll+0x51607-5.7-R3-180-1",
+      "txt": "HD_UPD.dll+0x51607-5.7-R3-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_UPD.dll+0x51607-5.7-R3-180-2",
+      "txt": "HD_UPD.dll+0x51607-5.7-R3-180-2.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_UPD.dll+0x51607-5.7-R3-180-3",
+      "txt": "HD_UPD.dll+0x51607-5.7-R3-180-3.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
     {
       "stem": "HD_UPD.dll+0x51607-5.7-R40-180",
       "txt": "HD_UPD.dll+0x51607-5.7-R40-180.txt",
       "dmp": "HD_UPD.dll+0x51607-5.7-R40-180.dmp",
+      "sha256_txt": "ab0efe29569d7fe8c46f01338a397f56a76b6821ac8b23ce51b75ec4f35130df",
+      "sha256_dmp": "ecabf4e88e0c7fee6b312c2e40eb775554ea7003bcaab843b30644c6ba2857b0",
       "context_eip": "0x70561607",
       "module": "HD_UPD.dll",
       "rva": "0x51607",
@@ -13,6 +78,41 @@
       "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
       "dmp_exception": "0xC0000005",
       "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            18446744073709551615
+          ],
+          "access": "read",
+          "fault_address": "0xFFFFFFFFFFFFFFFF"
+        },
+        "instruction": {
+          "available": false,
+          "bytes": "FF 1A AE F1 FF 34 D0 F4 FF 30 CB F2 FF 2F CA",
+          "reason": "opcode_not_in_conservative_subset",
+          "runtime": "0x70561607"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
       "identity": {
         "txt_module_size": 483328,
         "dmp_module_size": 483328,
@@ -20,10 +120,192 @@
       },
       "status": "exact_pair",
       "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "HD_UPD.dll+0x51607-5.7-R40-180-1",
+      "txt": "HD_UPD.dll+0x51607-5.7-R40-180-1.txt",
+      "dmp": "HD_UPD.dll+0x51607-5.7-R40-180-1.dmp",
+      "sha256_txt": "4bcb98804de4620e3b40619fef6a9b10808af77bf710027282f02da1f403de68",
+      "sha256_dmp": "ecabf4e88e0c7fee6b312c2e40eb775554ea7003bcaab843b30644c6ba2857b0",
+      "context_eip": "0x70561607",
+      "module": "HD_UPD.dll",
+      "rva": "0x51607",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            18446744073709551615
+          ],
+          "access": "read",
+          "fault_address": "0xFFFFFFFFFFFFFFFF"
+        },
+        "instruction": {
+          "available": false,
+          "bytes": "FF 1A AE F1 FF 34 D0 F4 FF 30 CB F2 FF 2F CA",
+          "reason": "opcode_not_in_conservative_subset",
+          "runtime": "0x70561607"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 483328,
+        "dmp_module_size": 483328,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "HD_UPD.dll+0x51607-5.7-R40-180-2",
+      "txt": "HD_UPD.dll+0x51607-5.7-R40-180-2.txt",
+      "dmp": "HD_UPD.dll+0x51607-5.7-R40-180-2.dmp",
+      "sha256_txt": "0e10f8bf2f322ce7e460440e14398e37b42909bd585f21a5db6bf213e2f55852",
+      "sha256_dmp": "b27ba6ce2ae1205ba485b659c4ba468f11dcebbc699aeb1655a4b2f836f6d180",
+      "context_eip": "0x61A01607",
+      "module": "HD_UPD.dll",
+      "rva": "0x51607",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            18446744073709551615
+          ],
+          "access": "read",
+          "fault_address": "0xFFFFFFFFFFFFFFFF"
+        },
+        "instruction": {
+          "available": false,
+          "bytes": "FF 1A AE F1 FF 34 D0 F4 FF 30 CB F2 FF 2F CA",
+          "reason": "opcode_not_in_conservative_subset",
+          "runtime": "0x61A01607"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 483328,
+        "dmp_module_size": 483328,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "HD_UPD.dll+0x51607-5.7-R40-180-3",
+      "txt": "HD_UPD.dll+0x51607-5.7-R40-180-3.txt",
+      "dmp": "HD_UPD.dll+0x51607-5.7-R40-180-3.dmp",
+      "sha256_txt": "aba18f29f5cfd6ee72f3c8b98989dfe37cfbe726ddc52c5cad895c84779cf9ef",
+      "sha256_dmp": "423eb3fc55d039d7275c36de62c9a1c475dcf1f97662877fbec96cfa7ce8c287",
+      "context_eip": "0x721C1607",
+      "module": "HD_UPD.dll",
+      "rva": "0x51607",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            18446744073709551615
+          ],
+          "access": "read",
+          "fault_address": "0xFFFFFFFFFFFFFFFF"
+        },
+        "instruction": {
+          "available": false,
+          "bytes": "FF 1A AE F1 FF 34 D0 F4 FF 30 CB F2 FF 2F CA",
+          "reason": "opcode_not_in_conservative_subset",
+          "runtime": "0x721C1607"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 483328,
+        "dmp_module_size": 483328,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "HD_UPD.dll+0x51607-5.7-RC7-180-1",
+      "txt": "HD_UPD.dll+0x51607-5.7-RC7-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "HD_UPD.dll+0x51607-5.7-RC9-180-1",
+      "txt": "HD_UPD.dll+0x51607-5.7-RC9-180-1.txt",
+      "dmp": "",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
     }
   ],
   "counts": {
-    "exact_pair": 1,
+    "exact_pair": 4,
     "unverifiable_missing_txt_identity": 0,
     "unverifiable_missing_dmp_identity": 0,
     "same_site_different_exception": 0,
@@ -32,7 +314,7 @@
     "unknown_exception_class": 0,
     "txt_parse_error": 0,
     "dmp_parse_error": 0,
-    "unpaired_txt": 0,
+    "unpaired_txt": 11,
     "unpaired_dmp": 0,
     "parse_error": 0
   },
@@ -43,10 +325,10 @@
       "dmp_parse_error"
     ]
   },
-  "complete": true,
+  "complete": false,
   "analysis_ready": true,
-  "quality_complete": true,
+  "quality_complete": false,
   "hard_blockers": 0,
   "identity_gaps": 0,
-  "blockers": 0
+  "blockers": 11
 }
