@@ -1,0 +1,190 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-26T15:31:52.845425+00:00",
+  "parser_revision": "6c020eaf1f7779cc900678b9364310890e7e18ff",
+  "report": {
+    "path": "proxyopengl_Win32_Release.dll+0x3BDB-анализ-claude-opus-5.txt",
+    "size": 37383,
+    "sha256": "0cd63a7c051df6a6ab485cad53df8deb70c07ceb276d7371df898675a0dd6ad9"
+  },
+  "inputs": [
+    {
+      "path": "pair-audit.json",
+      "size": 54821,
+      "sha256": "214896e178843470cb1dc2c6d1d244c519bc5f123a539ea95a9db408a37d171d",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-parse.json",
+      "size": 139080,
+      "sha256": "a80da8fe2ad252d157cb949569b656560c6600f9852f79e74ee9f20a246a3bdb",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-groups.json",
+      "size": 84969,
+      "sha256": "ad6e789f0bdfbca0f682b0932e1b6a8099d475bfa817a6cc4367e6f1c96c6736",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "0x00000000-5.8-R7-181-1.txt",
+      "size": 8739,
+      "sha256": "22038c3a3c2938adbd14184113b6d869c859cf6f3d1a786aab39133c2205f522",
+      "role": "source"
+    },
+    {
+      "path": "0x00000000-5.8-R7-181-1.dmp",
+      "size": 192131,
+      "sha256": "1e14fc133f970effbc35d14f726b1101e4b55298008bda34151dd1414ab8f850",
+      "role": "runtime"
+    },
+    {
+      "path": "../../modules/proxyopengl_Win32_Release.dll",
+      "size": 73752,
+      "sha256": "247437bfbc396d1f7006766229062eefb45bdd41281b0640bff28f7288aefe1b",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/proxyopengl_Win32_Release.dll.txt",
+      "size": 1106006,
+      "sha256": "06b719b9df7b12006b720807effce1beaf7fd90561d68f3252c42a50a984786b",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/proxyuser32_Win32_Release.dll",
+      "size": 42520,
+      "sha256": "c0659b8855e75e161c3b5e14017d3d430aaddc594a0914869551bcce183e4e58",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/proxyuser32_Win32_Release.dll.txt",
+      "size": 720924,
+      "sha256": "c799d023a20737a766b99baf0a0d8341348362c566e7950e9faa055e69ece00f",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/overlay_mediator_Win32_Release.dll",
+      "size": 402968,
+      "sha256": "f5fe88949b33f3e2715bde603df0409c2484bb4bb5892724db5bfb998ff58fdb",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/overlay_mediator_Win32_Release.dll.txt",
+      "size": 13424978,
+      "sha256": "fa9e2090256ed5beea2f6edf07a18d6daac37861b2841212b8cae6115dfd7e97",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_VGL2.dll-5.8 R7.txt",
+      "size": 6322549,
+      "sha256": "b0ab8029cc4f6b22efeaad023a149f713f6f51c823f96f6465bf751ddbf5810d",
+      "role": "source"
+    },
+    {
+      "path": "evidence-config.json",
+      "size": 3357,
+      "sha256": "fdad81e976ee7c209f11ab3b469c6cc4cf85cd814f3dd33de6669dcc0333131f",
+      "role": "derived-evidence"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/multi-dump-diff/pair_audit.py",
+      "size": 27759,
+      "sha256": "01c4484404682450eff88b8cae13b291651bd1c011cfb3369b2147f11c2db1d7"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/relocate_crash_family.py",
+      "size": 37831,
+      "sha256": "24ed349a271c6dea5e23f7e94aec3be00bfe9e298f26470c51b20d6e33a27ece"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/parse_dumps.py",
+      "size": 25318,
+      "sha256": "35e6d7ed23b808756a3599b983ac1022fdc78ecdbc1957fa37e770aeba21cf32"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/read_dump.py",
+      "size": 18720,
+      "sha256": "9b75da0204375641cf65ade9dac40fafc2c1a359929b273e63ad046dfa18cafc"
+    },
+    {
+      "path": "../../mcp/.tmp-tools/null_eip_pair_audit.py",
+      "size": 2712,
+      "sha256": "b7cea9705afb9bb9587f97c613a2201d3fbb971b274928c27f4281f55fb5bcb2"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 28926,
+      "sha256": "7ea0fb7dee59490791f9d5319547668bb5e2627a01e62456b40de097fc827552"
+    }
+  ],
+  "commands": [
+    "python3 mcp/.tmp-tools/null_eip_pair_audit.py mail-dumps/Без-мод-CreateOverlayRenderer mcp/.tmp-tools/Без-мод-CreateOverlayRenderer-pair-audit.json"
+  ],
+  "facts": {
+    "context_eip": "0x00000000",
+    "fault_module": "proxyopengl_Win32_Release.dll",
+    "fault_rva": "0x3BDB",
+    "incident_count": "31",
+    "pair_audit_status": "31 identity gaps; 0 hard blockers",
+    "model": "Claude Opus 5"
+  },
+  "claims": [
+    {
+      "confidence": "видно непосредственно в DMP",
+      "marker": "<!-- claim:eip_zero -->",
+      "id": "eip_zero",
+      "statement": "EIP 0x00000000",
+      "evidence": [
+        "fact:context_eip",
+        "input:pair-audit.json",
+        "command:1"
+      ]
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "marker": "<!-- claim:call_zero -->",
+      "id": "call_zero",
+      "statement": "call EAX = переход на 0x00000000",
+      "evidence": [
+        "fact:context_eip",
+        "input:../../modules/proxyopengl_Win32_Release.dll.txt",
+        "input:0x00000000-5.8-R7-181-1.dmp"
+      ]
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "marker": "<!-- claim:series_count -->",
+      "id": "series_count",
+      "statement": "все 31 из 31 физических TXT серии",
+      "evidence": [
+        "fact:incident_count",
+        "input:series-parse.json",
+        "input:series-groups.json",
+        "input:pair-audit.json"
+      ],
+      "sample": {
+        "numerator": 31,
+        "denominator": 31,
+        "population": "физические crash TXT в папке серии"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "marker": "<!-- claim:fault_module -->",
+      "id": "fault_module",
+      "statement": "Виновник - модуль оверлея GOG Galaxy proxyopengl_Win32_Release.dll.",
+      "evidence": [
+        "fact:fault_module",
+        "input:../../modules/proxyopengl_Win32_Release.dll.txt",
+        "input:pair-audit.json"
+      ]
+    }
+  ],
+  "code_evidence": {
+    "level": "instruction-boundary",
+    "note": "граница инструкции подтверждена листингом"
+  },
+  "machine_results": []
+}

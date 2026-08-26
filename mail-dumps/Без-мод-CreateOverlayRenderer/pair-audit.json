@@ -1,0 +1,1743 @@
+{
+  "schema": 4,
+  "root": "/Users/Shared/ii/mail-dumps/Без-мод-CreateOverlayRenderer",
+  "rows": [
+    {
+      "stem": "0x00000000-5.8-R5-180-1",
+      "txt": "0x00000000-5.8-R5-180-1.txt",
+      "dmp": "0x00000000-5.8-R5-180-1.dmp",
+      "sha256_txt": "33fd25ad7c178a7beac8af30ac653904f9e008d6693bb4b39ebdce61d57412dc",
+      "sha256_dmp": "99864b5c5161d436414f358318624769d1ef6f3306e81982cff10ddf6f7cab00",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R5-180-2",
+      "txt": "0x00000000-5.8-R5-180-2.txt",
+      "dmp": "0x00000000-5.8-R5-180-2.dmp",
+      "sha256_txt": "8ef648d5c1504096c7903f8fb9604bef38efc8b729d48ed1b9058ba56288d1ae",
+      "sha256_dmp": "dbae35dd2b5272209219772166dfb4ea1a86bf3b72ceffdc914b2dd0879e7ba6",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R5-180-3",
+      "txt": "0x00000000-5.8-R5-180-3.txt",
+      "dmp": "0x00000000-5.8-R5-180-3.dmp",
+      "sha256_txt": "72e3d116603fb8a7779f21764c33b7e1b74edce09d72eb61fd580efbeea28ddc",
+      "sha256_dmp": "b40d02f3fa13f14f156cba5ef56c82c0072581f63d19d1d09a8ee1d09e599b16",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-1",
+      "txt": "0x00000000-5.8-R7-181-1.txt",
+      "dmp": "0x00000000-5.8-R7-181-1.dmp",
+      "sha256_txt": "22038c3a3c2938adbd14184113b6d869c859cf6f3d1a786aab39133c2205f522",
+      "sha256_dmp": "1e14fc133f970effbc35d14f726b1101e4b55298008bda34151dd1414ab8f850",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-10",
+      "txt": "0x00000000-5.8-R7-181-10.txt",
+      "dmp": "0x00000000-5.8-R7-181-10.dmp",
+      "sha256_txt": "efdf5fe38a1a311f4bd74d697bea17756fa7fc3f8a16e0a02511a9c62acae7a5",
+      "sha256_dmp": "9cdb8e5183463e636c1aa9393a2f13ab4c9abc0c2ed0f0aba4f34a0d8df5a4ce",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-11",
+      "txt": "0x00000000-5.8-R7-181-11.txt",
+      "dmp": "0x00000000-5.8-R7-181-11.dmp",
+      "sha256_txt": "00e29b178f797345158e6061aaabbec4cabee709fdb9efd3139a74258ab98602",
+      "sha256_dmp": "5825a43bb47ea87a5fde4021f3329f6b55ee5cc87b077d907106152ec4a3f67d",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-12",
+      "txt": "0x00000000-5.8-R7-181-12.txt",
+      "dmp": "0x00000000-5.8-R7-181-12.dmp",
+      "sha256_txt": "5ee2c2846990c079e252866761093e9d023acea6140bb1b9cb2a9b63492178d1",
+      "sha256_dmp": "624212d774bfc43f8ce49bddf57d21f27565a03a1a73ba59feec83b82d4e7446",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-13",
+      "txt": "0x00000000-5.8-R7-181-13.txt",
+      "dmp": "0x00000000-5.8-R7-181-13.dmp",
+      "sha256_txt": "041ee7aec7196ee30a2f912371d20be7fd03dc8cd61f660fa63c9a57eb603b50",
+      "sha256_dmp": "19bc8a879e60dd5f3f7a0cb32830e76c3154365571f258ac6d831ca906a439d5",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-14",
+      "txt": "0x00000000-5.8-R7-181-14.txt",
+      "dmp": "0x00000000-5.8-R7-181-14.dmp",
+      "sha256_txt": "48f042566029bc24cf8dfdefb3f2760399eecd0ae478b9aa4162b60fbbd9476d",
+      "sha256_dmp": "2e21eedc9381b9a4d6730b63113e3723d656acf69503cf8df8c4927b1d475aa0",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-15",
+      "txt": "0x00000000-5.8-R7-181-15.txt",
+      "dmp": "0x00000000-5.8-R7-181-15.dmp",
+      "sha256_txt": "dd1a1e5041b75e132c246525eb85f4b7da3be6f5f4173feffd37dec3f62231e6",
+      "sha256_dmp": "edb500f8080f5ac77c69141d93efc14cd682ec535a009cc8c8038f227ef75c84",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-16",
+      "txt": "0x00000000-5.8-R7-181-16.txt",
+      "dmp": "0x00000000-5.8-R7-181-16.dmp",
+      "sha256_txt": "9d79018d43b301a099c2d9d071a0ee3ce192eb25cd7766c704cc4508f41d1bb5",
+      "sha256_dmp": "227f0a2b8337568be82ab43a7d2381266f762484c47ea29434146e490e218afe",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-17",
+      "txt": "0x00000000-5.8-R7-181-17.txt",
+      "dmp": "0x00000000-5.8-R7-181-17.dmp",
+      "sha256_txt": "63134d213acf44dcee0a8e6fdb9821770abec950c6843cd322e2567a4e90bd06",
+      "sha256_dmp": "278b658c1b2df67eb55c1c55a9d5ac8e0c69f7c35bf7be06b47f80354bbbaa65",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-18",
+      "txt": "0x00000000-5.8-R7-181-18.txt",
+      "dmp": "0x00000000-5.8-R7-181-18.dmp",
+      "sha256_txt": "41d9b9c59faa0aabcaf066d877bb4e433c736e2d3b60af6e31f00079ba69b171",
+      "sha256_dmp": "12298574f9c4fc6d6be9801f3b7f556c26f80b5b956aa77ad08ed7576c4fef03",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-19",
+      "txt": "0x00000000-5.8-R7-181-19.txt",
+      "dmp": "0x00000000-5.8-R7-181-19.dmp",
+      "sha256_txt": "5516315f28bfe0361b732db8d40254a68122831003e79c29e4cecb985c03c4e8",
+      "sha256_dmp": "4823e359024c2a09b0677f1ca88562963766d84129334c3582ef6ac1f1635c1a",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-2",
+      "txt": "0x00000000-5.8-R7-181-2.txt",
+      "dmp": "0x00000000-5.8-R7-181-2.dmp",
+      "sha256_txt": "cbaf0e0227f782d3fc55f09b66fb0f0482f99b829d779620b955f4dbafcf813e",
+      "sha256_dmp": "be9c85448c2dd12fc57f5b1acafaf02cd54127249b58d8299cbbb8a0d5a4e873",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-20",
+      "txt": "0x00000000-5.8-R7-181-20.txt",
+      "dmp": "0x00000000-5.8-R7-181-20.dmp",
+      "sha256_txt": "9f9b4c46079bc28a485f03a6171f9be0af99b40ed9c963b49d3ac2f7e8834c7b",
+      "sha256_dmp": "f1e0908a152f4bfc59f9089861ea72b0dabc6fa4ddd820eb2dc7828db53c4e24",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-21",
+      "txt": "0x00000000-5.8-R7-181-21.txt",
+      "dmp": "0x00000000-5.8-R7-181-21.dmp",
+      "sha256_txt": "b4d0008393d8a76d52fc67c815eaebdc51969a1a491b9cc1604726f32c22681a",
+      "sha256_dmp": "3f8cb13d343748c92ecb036e7f79ed9356b8dd67bac8de69fdec9c3502b621b1",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-22",
+      "txt": "0x00000000-5.8-R7-181-22.txt",
+      "dmp": "0x00000000-5.8-R7-181-22.dmp",
+      "sha256_txt": "7e499a322892951d04fdd56ab86dfc5423ccc8c0344246c64df24715533067e3",
+      "sha256_dmp": "34c3d99f84fb03016f2bebb60160fe6bdbc36d0fef32572a30908cfbb0b1010e",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-23",
+      "txt": "0x00000000-5.8-R7-181-23.txt",
+      "dmp": "0x00000000-5.8-R7-181-23.dmp",
+      "sha256_txt": "b6354cb8353a3d2045206a6fc359a84ff41e6408c9882271b73e7cf4d81e655e",
+      "sha256_dmp": "7550ed9e53a02e8c1eddfebdddd6ec5e84ca42398ca2ed805ff261ec43302ae4",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-24",
+      "txt": "0x00000000-5.8-R7-181-24.txt",
+      "dmp": "0x00000000-5.8-R7-181-24.dmp",
+      "sha256_txt": "6d2bf885e1a6ec0e14d2d685d75a6edc627c6d6738d0336c2aa6114f2a849064",
+      "sha256_dmp": "7adaf722ef2b2aff0f7a73c7ffcd32d5821703db18275c7a9ac93851a866c6bb",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-25",
+      "txt": "0x00000000-5.8-R7-181-25.txt",
+      "dmp": "0x00000000-5.8-R7-181-25.dmp",
+      "sha256_txt": "3722a90a3d67000325f5d3b22a76153c44419fc2eef918226d2466ce7552a96a",
+      "sha256_dmp": "c4429cd5552cae7593d11e417c632e6d8d2eee7f452d9a6a839334f430e0c734",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-26",
+      "txt": "0x00000000-5.8-R7-181-26.txt",
+      "dmp": "0x00000000-5.8-R7-181-26.dmp",
+      "sha256_txt": "d5dae0a962ab732e38fe9ef6331d437f3e4f560869e773f870952c91536212ef",
+      "sha256_dmp": "d14f0efe20bb5ea9d2d7965d9279c4579a1163b2972ae95765560da7793e06d5",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-27",
+      "txt": "0x00000000-5.8-R7-181-27.txt",
+      "dmp": "0x00000000-5.8-R7-181-27.dmp",
+      "sha256_txt": "e972b6391dc09af23f913fb11c86dbc4e672497454263683901bb32f00ee044f",
+      "sha256_dmp": "a347962d78071c8ab2c6b4bbfa261976bd8ebc817be8566461ee1091adeabb7d",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-28",
+      "txt": "0x00000000-5.8-R7-181-28.txt",
+      "dmp": "0x00000000-5.8-R7-181-28.dmp",
+      "sha256_txt": "591507f4e2416ec6f48c1e12b62bab0c7051b7d0828260858f3540d0bb5ef5cb",
+      "sha256_dmp": "b4fdd6729a6021237eeed1deafbd6562495a691b1b21461dc0ae68e24897e385",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-3",
+      "txt": "0x00000000-5.8-R7-181-3.txt",
+      "dmp": "0x00000000-5.8-R7-181-3.dmp",
+      "sha256_txt": "356645e5e7acbfde919d2b17dd24e556e26da19294cf4ba19b3eee54f664dec2",
+      "sha256_dmp": "0bdde0cbb09b6c1057e0c1711ee84cc39eb8e0e7e2aabe419316f3d54360578e",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-4",
+      "txt": "0x00000000-5.8-R7-181-4.txt",
+      "dmp": "0x00000000-5.8-R7-181-4.dmp",
+      "sha256_txt": "1223f72e6540602f6491fe8cf875cdb7c04b5babfe0ccb322db3eec1306dfc01",
+      "sha256_dmp": "c5039e94034d15f07694558ad2031c32a1d274e558473ae7021c627d222d4f66",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-5",
+      "txt": "0x00000000-5.8-R7-181-5.txt",
+      "dmp": "0x00000000-5.8-R7-181-5.dmp",
+      "sha256_txt": "a0d0d973edcf92f6d0d3453c114261a44bea108b0786c06c6e208c479c9e02fe",
+      "sha256_dmp": "6a3f4bd73c369338cafb5a727c14f6e6a10bfec826621dc676024a99bfecfe07",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-6",
+      "txt": "0x00000000-5.8-R7-181-6.txt",
+      "dmp": "0x00000000-5.8-R7-181-6.dmp",
+      "sha256_txt": "8d00388b7f1f886991b185786263e28693b242f419d9b0066f17fa66238b8207",
+      "sha256_dmp": "e670805595d16483fe533b7d46d530014d6a714375e9e7f8adc8b89cad87444b",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-7",
+      "txt": "0x00000000-5.8-R7-181-7.txt",
+      "dmp": "0x00000000-5.8-R7-181-7.dmp",
+      "sha256_txt": "e20607bc9b4bc2a84543dce2c62db57b1dc9b4ebdcd5fd0ed3b7a82a2857d999",
+      "sha256_dmp": "003e06f9f49e3dff3a1b5603686c34e950a4295bb5658465e9379cc1c47f9bc2",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-8",
+      "txt": "0x00000000-5.8-R7-181-8.txt",
+      "dmp": "0x00000000-5.8-R7-181-8.dmp",
+      "sha256_txt": "93f88587c07f51ea88beddc886e1327e688e8cd8b47e2c873ab6bb51cbe60b34",
+      "sha256_dmp": "115034e0825b2da5a30104ce70c8ea44a089423aea0f55870aedb3de751633f1",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "0x00000000-5.8-R7-181-9",
+      "txt": "0x00000000-5.8-R7-181-9.txt",
+      "dmp": "0x00000000-5.8-R7-181-9.dmp",
+      "sha256_txt": "8e5be9b8d824b0d7a26d950f8bc705a1487b944228336716a4bce302d3c7deb8",
+      "sha256_dmp": "c1c7444eeb2e79f84c410b2ab2c65c1d9721998402d8d6ad3fb2e2e985c91110",
+      "context_eip": "0x00000000",
+      "module": "",
+      "level": "CONTEXT.EIP (outside ModuleList)",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            0
+          ],
+          "access": "read",
+          "fault_address": "0x00000000"
+        },
+        "instruction": {
+          "available": false,
+          "reason": "instruction_bytes_not_captured",
+          "runtime": "0x00000000",
+          "access": null
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": null,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    }
+  ],
+  "counts": {
+    "exact_pair": 0,
+    "unverifiable_missing_txt_identity": 31,
+    "unverifiable_missing_dmp_identity": 0,
+    "same_site_different_exception": 0,
+    "build_mismatch": 0,
+    "empty_dump": 0,
+    "unknown_exception_class": 0,
+    "txt_parse_error": 0,
+    "dmp_parse_error": 0,
+    "unpaired_txt": 0,
+    "unpaired_dmp": 0,
+    "parse_error": 0
+  },
+  "legacy_count_aliases": {
+    "parse_error": [
+      "unknown_exception_class",
+      "txt_parse_error",
+      "dmp_parse_error"
+    ]
+  },
+  "complete": false,
+  "analysis_ready": true,
+  "quality_complete": false,
+  "hard_blockers": 0,
+  "identity_gaps": 31,
+  "blockers": 0,
+  "normalization": {
+    "rule": "raw_off_module_eip_v1",
+    "rationale": "Raw TXT address equals CONTEXT.EIP outside ModuleList",
+    "tool": "mcp/.tmp-tools/null_eip_pair_audit.py"
+  }
+}

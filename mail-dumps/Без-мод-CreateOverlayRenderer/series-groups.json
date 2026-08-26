@@ -1,0 +1,2940 @@
+{
+  "schema": 1,
+  "source": "/Users/Shared/ii/mail-dumps/Без-мод-CreateOverlayRenderer",
+  "count_contract": "physical_txt = unique_incidents + duplicate_instances",
+  "counts": {
+    "physical_txt": 31,
+    "unique_incidents": 31,
+    "duplicate_instances": 0,
+    "physical_dmp": 31,
+    "unique_dmp": 31,
+    "confirmed_family_incidents": 0,
+    "signature_groups": 2,
+    "cause_groups": 2,
+    "unresolved_incidents": 31
+  },
+  "counters": {
+    "physical_txt": {
+      "numerator": 31,
+      "denominator": 31,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "none"
+    },
+    "unique_incidents": {
+      "numerator": 31,
+      "denominator": 31,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "normalized_time_tag_exception_context"
+    },
+    "duplicate_instances": {
+      "numerator": 0,
+      "denominator": 31,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "normalized_time_tag_exception_context"
+    },
+    "physical_dmp": {
+      "numerator": 31,
+      "denominator": 31,
+      "population": "paired DMP in current series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "none"
+    },
+    "unique_dmp": {
+      "numerator": 31,
+      "denominator": 31,
+      "population": "paired DMP in current series",
+      "scope": "current_series",
+      "unit": "dump",
+      "dedup_basis": "sha256_dmp"
+    },
+    "classified_incidents": {
+      "numerator": 0,
+      "denominator": 31,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "normalized_time_tag_exception_context"
+    },
+    "unresolved_incidents": {
+      "numerator": 31,
+      "denominator": 31,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "normalized_time_tag_exception_context"
+    },
+    "confirmed_family_incidents": {
+      "numerator": 0,
+      "denominator": 31,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "confirmed state origin and causal tuple"
+    }
+  },
+  "incidents": [
+    {
+      "incident_id": "incident-ca0cff0e2a029a72",
+      "event_fingerprint": "ca0cff0e2a029a72b2cdd17b054de0cab04783248ff1550bb64acb45445f4a23",
+      "sha256_txt": "33fd25ad7c178a7beac8af30ac653904f9e008d6693bb4b39ebdce61d57412dc",
+      "physical_copies": [
+        "0x00000000-5.8-R5-180-1.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R5-180-1.txt",
+      "dmp": "0x00000000-5.8-R5-180-1.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.8 R5"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x6ECD9298",
+        "EBX": "0x058345E8",
+        "ESP": "0x09D8ED90",
+        "EBP": "0x09D8FDBC",
+        "ESI": "0x0F3AB4F8",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-e6fa3ae02221739b",
+      "event_fingerprint": "e6fa3ae02221739b46fb3e75f673b199fdf0c3ec61301b6026d4c144ef580cb3",
+      "sha256_txt": "8ef648d5c1504096c7903f8fb9604bef38efc8b729d48ed1b9058ba56288d1ae",
+      "physical_copies": [
+        "0x00000000-5.8-R5-180-2.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R5-180-2.txt",
+      "dmp": "0x00000000-5.8-R5-180-2.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.8 R5"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x6ECD9298",
+        "EBX": "0x09157EE8",
+        "ESP": "0x089FED90",
+        "EBP": "0x089FFDBC",
+        "ESI": "0x093F7DA0",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-1732c46046198b57",
+      "event_fingerprint": "1732c46046198b57e7138a88b1274b86e22f8b2c49cd322d32cc3a7f7a47c065",
+      "sha256_txt": "72e3d116603fb8a7779f21764c33b7e1b74edce09d72eb61fd580efbeea28ddc",
+      "physical_copies": [
+        "0x00000000-5.8-R5-180-3.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R5-180-3.txt",
+      "dmp": "0x00000000-5.8-R5-180-3.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.8 R5"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x6EC19298",
+        "EBX": "0x08395E28",
+        "ESP": "0x0A15ED90",
+        "EBP": "0x0A15FDBC",
+        "ESI": "0x02FC7A60",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-7df2c3407971200b",
+      "event_fingerprint": "7df2c3407971200b31feac766f0efed0c46a36a7e7c4e312ea018f90a5271711",
+      "sha256_txt": "22038c3a3c2938adbd14184113b6d869c859cf6f3d1a786aab39133c2205f522",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-1.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-1.txt",
+      "dmp": "0x00000000-5.8-R7-181-1.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x644C9298",
+        "EBX": "0x06E74EE8",
+        "ESP": "0x0BB5ED90",
+        "EBP": "0x0BB5FDBC",
+        "ESI": "0x06D6C1F8",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-a52d3e64a1d28299",
+      "event_fingerprint": "a52d3e64a1d282996ee96aa6562061526c40389b574b7a4361cfb60342aadb3e",
+      "sha256_txt": "efdf5fe38a1a311f4bd74d697bea17756fa7fc3f8a16e0a02511a9c62acae7a5",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-10.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-10.txt",
+      "dmp": "0x00000000-5.8-R7-181-10.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x617F9298",
+        "EBX": "0x06F5EC58",
+        "ESP": "0x0A00ED90",
+        "EBP": "0x0A00FDBC",
+        "ESI": "0x06B63B88",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-ad140a467c7bbc14",
+      "event_fingerprint": "ad140a467c7bbc142b53ba2c306e3d0fc6f9a32c34e46d700d06d176b5d44dde",
+      "sha256_txt": "00e29b178f797345158e6061aaabbec4cabee709fdb9efd3139a74258ab98602",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-11.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-11.txt",
+      "dmp": "0x00000000-5.8-R7-181-11.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x61849298",
+        "EBX": "0x071B03D8",
+        "ESP": "0x0BAFED90",
+        "EBP": "0x0BAFFDBC",
+        "ESI": "0x058482E0",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-2da62d0224cea41a",
+      "event_fingerprint": "2da62d0224cea41a30f571845e7c746d4a88bd4d49fd0b2cc92c730000eb1d66",
+      "sha256_txt": "5ee2c2846990c079e252866761093e9d023acea6140bb1b9cb2a9b63492178d1",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-12.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-12.txt",
+      "dmp": "0x00000000-5.8-R7-181-12.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x62159298",
+        "EBX": "0x0712EC70",
+        "ESP": "0x0A0AED90",
+        "EBP": "0x0A0AFDBC",
+        "ESI": "0x058DE5E0",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-201116b7595c8891",
+      "event_fingerprint": "201116b7595c88916d6aceb97acc08a797dffa83caf6010c5785ad7d8d717c2d",
+      "sha256_txt": "041ee7aec7196ee30a2f912371d20be7fd03dc8cd61f660fa63c9a57eb603b50",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-13.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-13.txt",
+      "dmp": "0x00000000-5.8-R7-181-13.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x62159298",
+        "EBX": "0x06DDDD88",
+        "ESP": "0x0A0CED90",
+        "EBP": "0x0A0CFDBC",
+        "ESI": "0x06F46D80",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-3b18549273f12eda",
+      "event_fingerprint": "3b18549273f12edad4dab6eebae03374a8c424e21f1aa2a8c982ade2aa01be6c",
+      "sha256_txt": "48f042566029bc24cf8dfdefb3f2760399eecd0ae478b9aa4162b60fbbd9476d",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-14.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-14.txt",
+      "dmp": "0x00000000-5.8-R7-181-14.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x11462BE8",
+        "ECX": "0x0E7EFCF8",
+        "EDX": "0x77BA6B94",
+        "EBX": "0x11462A98",
+        "ESP": "0x0E7EFD1C",
+        "EBP": "0x0E7EFDA8",
+        "ESI": "0x11462BE4",
+        "EDI": "0x11462BE0"
+      },
+      "caller": "0x3815FF5D",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0x3815FF5D",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-fcc89d1505ad",
+      "cause_group": "cause-5a950979ab89",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-4fba261004bd282c",
+      "event_fingerprint": "4fba261004bd282c05eb86e07416875be0ae63b88458a5df119c17ee9d68538d",
+      "sha256_txt": "dd1a1e5041b75e132c246525eb85f4b7da3be6f5f4173feffd37dec3f62231e6",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-15.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-15.txt",
+      "dmp": "0x00000000-5.8-R7-181-15.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x094E2330",
+        "ECX": "0x0EE0FCF8",
+        "EDX": "0x77BA6B94",
+        "EBX": "0x094E21E0",
+        "ESP": "0x0EE0FD1C",
+        "EBP": "0x0EE0FDA8",
+        "ESI": "0x094E232C",
+        "EDI": "0x094E2328"
+      },
+      "caller": "0x3815FF5D",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0x3815FF5D",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-fcc89d1505ad",
+      "cause_group": "cause-5a950979ab89",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-fe8ce063ed992d17",
+      "event_fingerprint": "fe8ce063ed992d17e62c809e79dfe2857443da03575c101392c044917fe10ed3",
+      "sha256_txt": "9d79018d43b301a099c2d9d071a0ee3ce192eb25cd7766c704cc4508f41d1bb5",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-16.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-16.txt",
+      "dmp": "0x00000000-5.8-R7-181-16.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x61719298",
+        "EBX": "0x0B66E5D0",
+        "ESP": "0x0F39ED90",
+        "EBP": "0x0F39FDBC",
+        "ESI": "0x0B5FBEC0",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-c0a3c85986c4c270",
+      "event_fingerprint": "c0a3c85986c4c2700c393a0f2816933f673b9087015cf658a8797790e2a62685",
+      "sha256_txt": "63134d213acf44dcee0a8e6fdb9821770abec950c6843cd322e2567a4e90bd06",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-17.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-17.txt",
+      "dmp": "0x00000000-5.8-R7-181-17.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x617C9298",
+        "EBX": "0x15614B28",
+        "ESP": "0x0FCDED90",
+        "EBP": "0x0FCDFDBC",
+        "ESI": "0x159F4230",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-2701417a4e8b1fec",
+      "event_fingerprint": "2701417a4e8b1fec7e829e1443b15227ff85bef52b1fa5daa3155f078e26a4db",
+      "sha256_txt": "41d9b9c59faa0aabcaf066d877bb4e433c736e2d3b60af6e31f00079ba69b171",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-18.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-18.txt",
+      "dmp": "0x00000000-5.8-R7-181-18.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x72669298",
+        "EBX": "0x110492D8",
+        "ESP": "0x0F74ED90",
+        "EBP": "0x0F74FDBC",
+        "ESI": "0x0B5A2310",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-d18a57b3f2798b8d",
+      "event_fingerprint": "d18a57b3f2798b8d34b4dbf1436f241e57f6174f34df5d6e831b72de6bb67953",
+      "sha256_txt": "5516315f28bfe0361b732db8d40254a68122831003e79c29e4cecb985c03c4e8",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-19.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-19.txt",
+      "dmp": "0x00000000-5.8-R7-181-19.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x72669298",
+        "EBX": "0x183D3D28",
+        "ESP": "0x0EBBED90",
+        "EBP": "0x0EBBFDBC",
+        "ESI": "0x030D6C70",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-119a6887ee69c5bd",
+      "event_fingerprint": "119a6887ee69c5bd34ada8a1f3e85ee0a172635660e36e0ced0e9a651bdd29cd",
+      "sha256_txt": "cbaf0e0227f782d3fc55f09b66fb0f0482f99b829d779620b955f4dbafcf813e",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-2.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-2.txt",
+      "dmp": "0x00000000-5.8-R7-181-2.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x644C9298",
+        "EBX": "0x113D9220",
+        "ESP": "0x0BB1ED90",
+        "EBP": "0x0BB1FDBC",
+        "ESI": "0x06D00558",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-6d9b44c7a189a720",
+      "event_fingerprint": "6d9b44c7a189a720579657ba00f03291cd058a4dfe7fba9f29c5773505e3b65c",
+      "sha256_txt": "9f9b4c46079bc28a485f03a6171f9be0af99b40ed9c963b49d3ac2f7e8834c7b",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-20.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-20.txt",
+      "dmp": "0x00000000-5.8-R7-181-20.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x72669298",
+        "EBX": "0x1575C670",
+        "ESP": "0x0F22ED90",
+        "EBP": "0x0F22FDBC",
+        "ESI": "0x1570BFC8",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-3573a77c17a32949",
+      "event_fingerprint": "3573a77c17a32949f89762dc19ff8ab68749526808ae3fb0c5c46c733cee69b7",
+      "sha256_txt": "b4d0008393d8a76d52fc67c815eaebdc51969a1a491b9cc1604726f32c22681a",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-21.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-21.txt",
+      "dmp": "0x00000000-5.8-R7-181-21.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x61919298",
+        "EBX": "0x1285FA30",
+        "ESP": "0x0FAAED90",
+        "EBP": "0x0FAAFDBC",
+        "ESI": "0x0B55FB48",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-de5e5e5a8b8ee7d1",
+      "event_fingerprint": "de5e5e5a8b8ee7d1f2b0d6ae8c1961e20265fd8bab52e35a2946b031b0391c84",
+      "sha256_txt": "7e499a322892951d04fdd56ab86dfc5423ccc8c0344246c64df24715533067e3",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-22.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-22.txt",
+      "dmp": "0x00000000-5.8-R7-181-22.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x61929298",
+        "EBX": "0x12CB6D88",
+        "ESP": "0x0FCFED90",
+        "EBP": "0x0FCFFDBC",
+        "ESI": "0x12C59848",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-896f308ff815d751",
+      "event_fingerprint": "896f308ff815d7514e1f621dd131d1422403d6aa200b99ae082e11ead7723151",
+      "sha256_txt": "b6354cb8353a3d2045206a6fc359a84ff41e6408c9882271b73e7cf4d81e655e",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-23.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-23.txt",
+      "dmp": "0x00000000-5.8-R7-181-23.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x61909298",
+        "EBX": "0x1545BEF0",
+        "ESP": "0x0E9CED90",
+        "EBP": "0x0E9CFDBC",
+        "ESI": "0x15796748",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-541be3db4040bcef",
+      "event_fingerprint": "541be3db4040bcef51f9972ff9f0e7d847035de5288e7b24af9f053fdbff3029",
+      "sha256_txt": "6d2bf885e1a6ec0e14d2d685d75a6edc627c6d6738d0336c2aa6114f2a849064",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-24.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-24.txt",
+      "dmp": "0x00000000-5.8-R7-181-24.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x72669298",
+        "EBX": "0x156E90F0",
+        "ESP": "0x0F7CED90",
+        "EBP": "0x0F7CFDBC",
+        "ESI": "0x0B527E48",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-2eeb916c4c140841",
+      "event_fingerprint": "2eeb916c4c14084168412e296cd592b5ce20ab993565554e09eeb69a22ce4793",
+      "sha256_txt": "3722a90a3d67000325f5d3b22a76153c44419fc2eef918226d2466ce7552a96a",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-25.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-25.txt",
+      "dmp": "0x00000000-5.8-R7-181-25.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x63339298",
+        "EBX": "0x07D30658",
+        "ESP": "0x0EFAED90",
+        "EBP": "0x0EFAFDBC",
+        "ESI": "0x07D7D3D8",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-3baaf2460995f312",
+      "event_fingerprint": "3baaf2460995f31275c817c46a8be85591361d06af83f3af1f9c841307e2c610",
+      "sha256_txt": "d5dae0a962ab732e38fe9ef6331d437f3e4f560869e773f870952c91536212ef",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-26.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-26.txt",
+      "dmp": "0x00000000-5.8-R7-181-26.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x62219298",
+        "EBX": "0x1459E758",
+        "ESP": "0x0EB0ED90",
+        "EBP": "0x0EB0FDBC",
+        "ESI": "0x0792F7F0",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-714901434cb20882",
+      "event_fingerprint": "714901434cb20882ce5f19cfbefeade07b1ea5ef70ddfa2b35a14e4ad0e20612",
+      "sha256_txt": "e972b6391dc09af23f913fb11c86dbc4e672497454263683901bb32f00ee044f",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-27.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-27.txt",
+      "dmp": "0x00000000-5.8-R7-181-27.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x62219298",
+        "EBX": "0x150BAE68",
+        "ESP": "0x0F90ED90",
+        "EBP": "0x0F90FDBC",
+        "ESI": "0x0794D800",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-1b2df70197222582",
+      "event_fingerprint": "1b2df7019722258212b26e377051df96d85915b10be9a4c08fdd1bae74848e0e",
+      "sha256_txt": "591507f4e2416ec6f48c1e12b62bab0c7051b7d0828260858f3540d0bb5ef5cb",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-28.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-28.txt",
+      "dmp": "0x00000000-5.8-R7-181-28.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x63A59298",
+        "EBX": "0x06723A58",
+        "ESP": "0x09A6ED90",
+        "EBP": "0x09A6FDBC",
+        "ESI": "0x063BF500",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-ad36bf642e10b0f7",
+      "event_fingerprint": "ad36bf642e10b0f731b913d6afbb80f2b745f77b1cfa5d2d0edc980025934162",
+      "sha256_txt": "356645e5e7acbfde919d2b17dd24e556e26da19294cf4ba19b3eee54f664dec2",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-3.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-3.txt",
+      "dmp": "0x00000000-5.8-R7-181-3.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x644C9298",
+        "EBX": "0x0FA92BF0",
+        "ESP": "0x0BA0ED90",
+        "EBP": "0x0BA0FDBC",
+        "ESI": "0x06FD0D90",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-b88481a8fd3ba0bd",
+      "event_fingerprint": "b88481a8fd3ba0bd8ad84d7bcae159a0ecbabfd6ddb94fb0618b1c1e9c4be902",
+      "sha256_txt": "1223f72e6540602f6491fe8cf875cdb7c04b5babfe0ccb322db3eec1306dfc01",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-4.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-4.txt",
+      "dmp": "0x00000000-5.8-R7-181-4.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x644C9298",
+        "EBX": "0x1135AA48",
+        "ESP": "0x0B91ED90",
+        "EBP": "0x0B91FDBC",
+        "ESI": "0x113AAD70",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-f71f6c2e52f3381f",
+      "event_fingerprint": "f71f6c2e52f3381fec0e85816073072c4b0cc79f4c061fc3d5efda609b989c26",
+      "sha256_txt": "a0d0d973edcf92f6d0d3453c114261a44bea108b0786c06c6e208c479c9e02fe",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-5.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-5.txt",
+      "dmp": "0x00000000-5.8-R7-181-5.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x5AB99298",
+        "EBX": "0x070DB3C8",
+        "ESP": "0x0C94ED90",
+        "EBP": "0x0C94FDBC",
+        "ESI": "0x070B14F8",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-609d12ee14945303",
+      "event_fingerprint": "609d12ee149453037a2864694a66dd63d38e4f4310d5c79d0990a0ba0ee31f36",
+      "sha256_txt": "8d00388b7f1f886991b185786263e28693b242f419d9b0066f17fa66238b8207",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-6.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-6.txt",
+      "dmp": "0x00000000-5.8-R7-181-6.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x5AB99298",
+        "EBX": "0x0F7756E8",
+        "ESP": "0x0A11ED90",
+        "EBP": "0x0A11FDBC",
+        "ESI": "0x06D75DD0",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-078d9b43bc3fc5b7",
+      "event_fingerprint": "078d9b43bc3fc5b744ba830356fbb5a875f710d544cdd0236d7a5b9c3433149b",
+      "sha256_txt": "e20607bc9b4bc2a84543dce2c62db57b1dc9b4ebdcd5fd0ed3b7a82a2857d999",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-7.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-7.txt",
+      "dmp": "0x00000000-5.8-R7-181-7.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x5A589298",
+        "EBX": "0x06EEECA8",
+        "ESP": "0x09FFED90",
+        "EBP": "0x09FFFDBC",
+        "ESI": "0x0F79A7B8",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-19ef88793f94338d",
+      "event_fingerprint": "19ef88793f94338d6b80fa468533a32e633ce5c0fa2518bcc24c1d32561d0d17",
+      "sha256_txt": "93f88587c07f51ea88beddc886e1327e688e8cd8b47e2c873ab6bb51cbe60b34",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-8.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-8.txt",
+      "dmp": "0x00000000-5.8-R7-181-8.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x62409298",
+        "EBX": "0x0B615F40",
+        "ESP": "0x0E64ED90",
+        "EBP": "0x0E64FDBC",
+        "ESI": "0x0B67FE98",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    },
+    {
+      "incident_id": "incident-49393e2a7ab9adfc",
+      "event_fingerprint": "49393e2a7ab9adfca23e850b86d976872e24b5235144079cc16601f39e86e1ea",
+      "sha256_txt": "8e5be9b8d824b0d7a26d950f8bc705a1487b944228336716a4bce302d3c7deb8",
+      "physical_copies": [
+        "0x00000000-5.8-R7-181-9.txt"
+      ],
+      "physical_copy_count": 1,
+      "txt": "0x00000000-5.8-R7-181-9.txt",
+      "dmp": "0x00000000-5.8-R7-181-9.dmp",
+      "pair_quality": "dmp_parse_error",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R7"
+      },
+      "eip_or_rva": "0x00000000",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null
+      },
+      "access_conflict": false,
+      "operand_address": "0x00000000",
+      "registers": {
+        "EAX": "0x00000000",
+        "ECX": "0x00008B31",
+        "EDX": "0x62109298",
+        "EBX": "0x0F6A9E78",
+        "ESP": "0x09D3ED90",
+        "EBP": "0x09D3FDBC",
+        "ESI": "0x06E151F8",
+        "EDI": "0x00008B31"
+      },
+      "caller": "0xFFFFEFEC",
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "cause_group": "cause-e8af1741f3c2",
+      "destination_provenance": "unknown",
+      "size_provenance": "unknown",
+      "capabilities": [],
+      "saves": [],
+      "state_origin": "unknown",
+      "classification_status": "unresolved",
+      "root_cause_allowed": false,
+      "outlier": false
+    }
+  ],
+  "signature_groups": [
+    {
+      "id": "sig-d562e47ef837",
+      "count": 29,
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [
+            "EAX"
+          ],
+          "positive": [
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": [
+            "ECX=EDI"
+          ]
+        },
+        "helper_family": "unknown"
+      },
+      "cause_groups": [
+        "cause-e8af1741f3c2"
+      ],
+      "representative": "incident-ca0cff0e2a029a72"
+    },
+    {
+      "id": "sig-fcc89d1505ad",
+      "count": 2,
+      "signature": {
+        "crash_site": "0x00000000",
+        "instruction": "read",
+        "effective_access": "read",
+        "operand_address": "0x00000000",
+        "register_invariants": {
+          "zero": [],
+          "positive": [
+            "EAX",
+            "ECX",
+            "EDI",
+            "EDX"
+          ],
+          "equal": []
+        },
+        "helper_family": "unknown"
+      },
+      "cause_groups": [
+        "cause-5a950979ab89"
+      ],
+      "representative": "incident-3b18549273f12eda"
+    }
+  ],
+  "cause_groups": [
+    {
+      "id": "cause-5a950979ab89",
+      "count": 2,
+      "cause": {
+        "caller": "0x3815FF5D",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-fcc89d1505ad",
+      "representative": "incident-3b18549273f12eda",
+      "unresolved": true
+    },
+    {
+      "id": "cause-e8af1741f3c2",
+      "count": 29,
+      "cause": {
+        "caller": "0xFFFFEFEC",
+        "destination_origin": "unknown",
+        "size_origin": "unknown",
+        "size_formula": "unknown",
+        "subsystem": "unknown"
+      },
+      "signature_group": "sig-d562e47ef837",
+      "representative": "incident-ca0cff0e2a029a72",
+      "unresolved": true
+    }
+  ],
+  "signature_only_separations": [],
+  "related_cases": [],
+  "representatives": {
+    "algorithm": "deterministic_greedy_set_cover",
+    "selected": [
+      {
+        "incident_id": "incident-ca0cff0e2a029a72",
+        "txt": "0x00000000-5.8-R5-180-1.txt",
+        "newly_covered": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R5",
+          "hota:1.8.0",
+          "outlier:0x00000000-5.8-R5-180-1.txt",
+          "subsystem:unknown"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R5",
+          "hota:1.8.0",
+          "outlier:0x00000000-5.8-R5-180-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-3b18549273f12eda",
+        "txt": "0x00000000-5.8-R7-181-14.txt",
+        "newly_covered": [
+          "cause:cause-5a950979ab89",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-14.txt"
+        ],
+        "all_features": [
+          "cause:cause-5a950979ab89",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-14.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-e6fa3ae02221739b",
+        "txt": "0x00000000-5.8-R5-180-2.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R5-180-2.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R5",
+          "hota:1.8.0",
+          "outlier:0x00000000-5.8-R5-180-2.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-1732c46046198b57",
+        "txt": "0x00000000-5.8-R5-180-3.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R5-180-3.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R5",
+          "hota:1.8.0",
+          "outlier:0x00000000-5.8-R5-180-3.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-7df2c3407971200b",
+        "txt": "0x00000000-5.8-R7-181-1.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-1.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-a52d3e64a1d28299",
+        "txt": "0x00000000-5.8-R7-181-10.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-10.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-10.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-ad140a467c7bbc14",
+        "txt": "0x00000000-5.8-R7-181-11.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-11.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-11.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-2da62d0224cea41a",
+        "txt": "0x00000000-5.8-R7-181-12.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-12.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-12.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-201116b7595c8891",
+        "txt": "0x00000000-5.8-R7-181-13.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-13.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-13.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-4fba261004bd282c",
+        "txt": "0x00000000-5.8-R7-181-15.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-15.txt"
+        ],
+        "all_features": [
+          "cause:cause-5a950979ab89",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-15.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-fe8ce063ed992d17",
+        "txt": "0x00000000-5.8-R7-181-16.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-16.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-16.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-c0a3c85986c4c270",
+        "txt": "0x00000000-5.8-R7-181-17.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-17.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-17.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-2701417a4e8b1fec",
+        "txt": "0x00000000-5.8-R7-181-18.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-18.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-18.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-d18a57b3f2798b8d",
+        "txt": "0x00000000-5.8-R7-181-19.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-19.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-19.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-119a6887ee69c5bd",
+        "txt": "0x00000000-5.8-R7-181-2.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-2.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-2.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-6d9b44c7a189a720",
+        "txt": "0x00000000-5.8-R7-181-20.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-20.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-20.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-3573a77c17a32949",
+        "txt": "0x00000000-5.8-R7-181-21.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-21.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-21.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-de5e5e5a8b8ee7d1",
+        "txt": "0x00000000-5.8-R7-181-22.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-22.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-22.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-896f308ff815d751",
+        "txt": "0x00000000-5.8-R7-181-23.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-23.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-23.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-541be3db4040bcef",
+        "txt": "0x00000000-5.8-R7-181-24.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-24.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-24.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-2eeb916c4c140841",
+        "txt": "0x00000000-5.8-R7-181-25.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-25.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-25.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-3baaf2460995f312",
+        "txt": "0x00000000-5.8-R7-181-26.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-26.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-26.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-714901434cb20882",
+        "txt": "0x00000000-5.8-R7-181-27.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-27.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-27.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-1b2df70197222582",
+        "txt": "0x00000000-5.8-R7-181-28.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-28.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-28.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-ad36bf642e10b0f7",
+        "txt": "0x00000000-5.8-R7-181-3.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-3.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-3.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-b88481a8fd3ba0bd",
+        "txt": "0x00000000-5.8-R7-181-4.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-4.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-4.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-f71f6c2e52f3381f",
+        "txt": "0x00000000-5.8-R7-181-5.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-5.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-5.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-609d12ee14945303",
+        "txt": "0x00000000-5.8-R7-181-6.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-6.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-6.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-078d9b43bc3fc5b7",
+        "txt": "0x00000000-5.8-R7-181-7.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-7.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-7.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-19ef88793f94338d",
+        "txt": "0x00000000-5.8-R7-181-8.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-8.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-8.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-49393e2a7ab9adfc",
+        "txt": "0x00000000-5.8-R7-181-9.txt",
+        "newly_covered": [
+          "outlier:0x00000000-5.8-R7-181-9.txt"
+        ],
+        "all_features": [
+          "cause:cause-e8af1741f3c2",
+          "formula:unknown",
+          "hd:5.8 R7",
+          "hota:1.8.1",
+          "outlier:0x00000000-5.8-R7-181-9.txt",
+          "subsystem:unknown"
+        ]
+      }
+    ],
+    "uncovered": []
+  },
+  "validation_errors": [],
+  "valid": true
+}

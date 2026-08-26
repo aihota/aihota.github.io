@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "manifest_schema": 2,
+  "report": "proxyopengl_Win32_Release.dll+0x3BDB-анализ-claude-opus-5.txt",
+  "out": "proxyopengl_Win32_Release.dll+0x3BDB-анализ-claude-opus-5.evidence.json",
+  "inputs": [
+    {"role": "derived-evidence", "path": "pair-audit.json"},
+    {"role": "derived-evidence", "path": "series-parse.json"},
+    {"role": "derived-evidence", "path": "series-groups.json"},
+    {"role": "source", "path": "0x00000000-5.8-R7-181-1.txt"},
+    {"role": "runtime", "path": "0x00000000-5.8-R7-181-1.dmp"},
+    {"role": "source", "path": "../../modules/proxyopengl_Win32_Release.dll"},
+    {"role": "source", "path": "../../modules/proxyopengl_Win32_Release.dll.txt"},
+    {"role": "source", "path": "../../modules/proxyuser32_Win32_Release.dll"},
+    {"role": "source", "path": "../../modules/proxyuser32_Win32_Release.dll.txt"},
+    {"role": "source", "path": "../../modules/overlay_mediator_Win32_Release.dll"},
+    {"role": "source", "path": "../../modules/overlay_mediator_Win32_Release.dll.txt"},
+    {"role": "source", "path": "../../modules/HD_VGL2.dll-5.8 R7.txt"}
+  ],
+  "tools": [
+    "../../.agents/skills/multi-dump-diff/pair_audit.py",
+    "../../.agents/skills/multi-dump-diff/relocate_crash_family.py",
+    "../../.agents/skills/multi-dump-diff/parse_dumps.py",
+    "../../.agents/skills/address-mapping/read_dump.py",
+    "../../mcp/.tmp-tools/null_eip_pair_audit.py",
+    "../../.agents/skills/hota-crash-triage/evidence_manifest.py"
+  ],
+  "commands": [
+    "python3 mcp/.tmp-tools/null_eip_pair_audit.py mail-dumps/Без-мод-CreateOverlayRenderer mcp/.tmp-tools/Без-мод-CreateOverlayRenderer-pair-audit.json"
+  ],
+  "facts": {
+    "context_eip": "0x00000000",
+    "fault_module": "proxyopengl_Win32_Release.dll",
+    "fault_rva": "0x3BDB",
+    "incident_count": "31",
+    "pair_audit_status": "31 identity gaps; 0 hard blockers",
+    "model": "Claude Opus 5"
+  },
+  "claims": [
+    {
+      "id": "eip_zero",
+      "statement": "EIP 0x00000000",
+      "evidence": ["fact:context_eip", "input:pair-audit.json", "command:1"],
+      "confidence": "видно непосредственно в DMP"
+    },
+    {
+      "id": "call_zero",
+      "statement": "call EAX = переход на 0x00000000",
+      "evidence": ["fact:context_eip", "input:../../modules/proxyopengl_Win32_Release.dll.txt", "input:0x00000000-5.8-R7-181-1.dmp"],
+      "confidence": "выведено из совокупности признаков"
+    },
+    {
+      "id": "series_count",
+      "statement": "все 31 из 31 физических TXT серии",
+      "evidence": ["fact:incident_count", "input:series-parse.json", "input:series-groups.json", "input:pair-audit.json"],
+      "confidence": "выведено из совокупности признаков",
+      "sample": {"numerator": 31, "denominator": 31, "population": "физические crash TXT в папке серии"}
+    },
+    {
+      "id": "fault_module",
+      "statement": "Виновник - модуль оверлея GOG Galaxy proxyopengl_Win32_Release.dll.",
+      "evidence": ["fact:fault_module", "input:../../modules/proxyopengl_Win32_Release.dll.txt", "input:pair-audit.json"],
+      "confidence": "выведено из совокупности признаков"
+    }
+  ],
+  "code_evidence": "instruction-boundary"
+}
