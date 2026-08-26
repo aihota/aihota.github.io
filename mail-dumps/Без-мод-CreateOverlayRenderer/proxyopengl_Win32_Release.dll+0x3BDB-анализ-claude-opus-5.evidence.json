@@ -1,11 +1,11 @@
 {
   "schema": 2,
-  "generated_at": "2026-08-26T15:31:52.845425+00:00",
-  "parser_revision": "6c020eaf1f7779cc900678b9364310890e7e18ff",
+  "generated_at": "2026-08-26T16:31:16.638217+00:00",
+  "parser_revision": "845700e6e745ee3dcef23862915aa3cf93828624",
   "report": {
     "path": "proxyopengl_Win32_Release.dll+0x3BDB-анализ-claude-opus-5.txt",
-    "size": 37383,
-    "sha256": "0cd63a7c051df6a6ab485cad53df8deb70c07ceb276d7371df898675a0dd6ad9"
+    "size": 37612,
+    "sha256": "279a94a2eaab36002f288c8179ba4e29940b392505bccd53ff764f81dd905c4f"
   },
   "inputs": [
     {
