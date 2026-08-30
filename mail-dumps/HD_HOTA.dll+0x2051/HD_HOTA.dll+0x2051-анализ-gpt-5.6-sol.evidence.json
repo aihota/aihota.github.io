@@ -1,0 +1,84 @@
+{
+  "schema": 2,
+  "generated_at": "2026-08-30T15:25:02+00:00",
+  "parser_revision": "52bfe27ef41d9c99e22eed49de9af7ca83368bba",
+  "report": {
+    "path": "HD_HOTA.dll+0x2051-анализ-gpt-5.6-sol.txt",
+    "size": 31816,
+    "sha256": "50a2e735fece870c05c54efbc25d078073ffa950f716d1c5f92d3bfca9cfd870"
+  },
+  "inputs": [
+    {
+      "path": "HD_HOTA.dll+0x2051-5.7-R1-180.txt",
+      "size": 7923,
+      "sha256": "30fb9e6ef1f465766f8f0a8074211a49edb8f0e6d4b86e1660ccf10300c241f1",
+      "role": "source"
+    },
+    {
+      "path": "HD_HOTA.dll+0x2051-5.8-R8-181.txt",
+      "size": 11221,
+      "sha256": "20c216ec945c3239d0623acfff6652c18a03d1400b26b88b1e08becceb5774d1",
+      "role": "source"
+    },
+    {
+      "path": "HD_HOTA.dll+0x2051-5.8-R8-181.dmp",
+      "size": 112046,
+      "sha256": "222636eb1be8315f67d78f06639f7674d349276c460e9d17407f6329f744c3cb",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_HOTA.dll+0x2051-5.7-R1-180-AUTOSAVE.GM1",
+      "size": 38080,
+      "sha256": "385cbc41c65e8e6c4a1696612dc12285334befc9313789530045fed316b512eb",
+      "role": "derived"
+    },
+    {
+      "path": "HD_HOTA.dll+0x2051-5.8-R8-181-AUTOSAVE.GM1",
+      "size": 334784,
+      "sha256": "2894b9221d1c54fab5b9fcaabee0526175e5e70dcf2510af97fbf25197386f8d",
+      "role": "derived"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.7 R1.txt",
+      "size": 41872019,
+      "sha256": "de5433bd8378834ac12ab9ea1b19a09b110adfcb529ad01bd7fbb428166040ee",
+      "role": "derived-cache"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.8-R8.txt",
+      "size": 50707665,
+      "sha256": "88f06be651a395fdc165d78260574dd24d916913f56739d6ff0a415b45d78d25",
+      "role": "derived-cache"
+    },
+    {
+      "path": "../../181/HD_HOTA.dll",
+      "size": 2299904,
+      "sha256": "eabf3ef1193a6bcd3e5b63eb78d8d13f6160ce5eb85ef2f982cae33d4a97d715",
+      "role": "source"
+    }
+  ],
+  "tools": [],
+  "commands": [],
+  "facts": {
+    "instruction": "cmp [edi+4], esi",
+    "unique_incidents": "2"
+  },
+  "claims": [
+    {
+      "confidence": "не проверено",
+      "marker": "<!-- claim:local-mechanism -->",
+      "id": "local-mechanism",
+      "statement": "Инструкция cmp [edi+4], esi пытается прочитать счётчик элементов объекта.",
+      "evidence": [
+        "fact:instruction",
+        "input:HD_HOTA.dll+0x2051-5.8-R8-181.txt",
+        "input:HD_HOTA.dll+0x2051-5.8-R8-181.dmp"
+      ]
+    }
+  ],
+  "code_evidence": {
+    "level": "dmp-window",
+    "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
+  },
+  "machine_results": []
+}
