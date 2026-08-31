@@ -1,6 +1,8 @@
 {
-  "schema": 1,
-  "manifest_schema": 3,
+  "schema": 2,
+  "manifest_schema": 4,
+  "case_root": ".",
+  "project_root": "../..",
   "report": "HD_HOTA.dll+0x1C6B3E-анализ-gpt-5.6-sol.txt",
   "inputs": [
     {
@@ -56,29 +58,49 @@
       "path": "repro-plan.json"
     },
     {
-      "role": "derived",
-      "path": "HD_HOTA.dll+0x1C6B3E-анализ-gpt-5.6-sol.html"
+      "role": "derived-evidence",
+      "path": "scan-attestation.json"
     },
     {
-      "role": "derived",
-      "path": "HD_HOTA.dll+0x1C6B3E-анализ-gpt-5.6-sol.extra.html"
+      "role": "derived-evidence",
+      "path": "frame-slot-provenance-entry.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "frame-slot-provenance-late.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "signed-geometry-audit.json"
     }
   ],
   "tools": [
-    "../../.agents/skills/address-mapping/address_proof.py",
-    "../../.agents/skills/hota-crash-triage/analysis_contract.py",
-    "../../.agents/skills/hota-crash-triage/coverage_contract.py",
-    "../../.agents/skills/hota-crash-triage/family_membership.py",
-    "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
-    "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
-    "../../.agents/skills/html-report/render_report.py",
-    "../../.agents/skills/html-report/report_parts/core.py"
+    ".agents/skills/address-mapping/address_proof.py",
+    ".agents/skills/address-mapping/select_listing.py",
+    ".agents/skills/hota-crash-triage/analysis_contract.py",
+    ".agents/skills/hota-crash-triage/coverage_contract.py",
+    ".agents/skills/hota-crash-triage/family_membership.py",
+    ".agents/skills/hota-crash-triage/static_exhaustion_check.py",
+    ".agents/skills/hota-crash-triage/frame_slot_provenance.py",
+    ".agents/skills/hota-crash-triage/signed_geometry_audit.py",
+    ".agents/skills/hota-crash-triage/scan_attestation.py",
+    ".agents/skills/hota-crash-triage/semantic_contract.py",
+    ".agents/skills/hota-crash-triage/evidence_manifest.py",
+    ".agents/skills/hota-crash-triage/case_quality_gate.py",
+    ".agents/skills/html-report/render_report.py"
+  ],
+  "tool_assets": [
+    ".agents/skills/html-report/template.html",
+    ".agents/skills/html-report/template_parts",
+    ".agents/skills/html-report/fonts"
   ],
   "commands": [
     "dump_query read 0x04606B20 length=64 and ranges",
-    "static_exhaustion_check.py against HD_HOTA.dll 5.8 R8 listing",
-    "lint_report followed by render_report --strict",
-    "address_proof.py, analysis_contract.py, coverage_contract.py, family_membership.py check"
+    "static_exhaustion_check.py modules/HD_HOTA.dll-5.8-R8.txt --crash 0x11C6B3E --func 0x11B7BD0 --actual-caller 0x11B4812 --versions \"5.8 R8\" --version-axis hd --max-show 0",
+    "frame_slot_provenance.py create modules/HD_HOTA.dll-5.8-R8.txt --function sub_11B7BD0 --slot [ebp+0Ch] --use 0x011B7BDC and 0x011B7D31",
+    "python-os.walk exact byte search over all non-report mail-dumps/**/*.txt with hidden/ignored included; denominator 5504/5504/0",
+    "signed_geometry_audit.py create/check with exhaustive direct-call census over 925503 listing lines",
+    "coverage_contract.py create claims.json --schema 2 followed by semantic_contract.py --html and strict render"
   ],
   "facts": {
     "fault_eip": "0x04606B3E",
@@ -94,12 +116,15 @@
     "missing_objects": "0x07D6E3F8, 0x127A7978 and runtime dword_12185E8 were not captured",
     "incident_count": "1 physical TXT, 1 DMP, 1 unique incident",
     "causality_level": "L1",
-    "listing_sha256": "EABF3EF1193A6BCD3E5B63EB78D8D13F6160CE5EB85EF2F982CAE33D4A97D715"
+    "listing_sha256": "88f06be651a395fdc165d78260574dd24d916913f56739d6ff0a415b45d78d25",
+    "renderer_bundle_sha256": "04c82a03f403119297e3f21e30eaf8d417a98c2434136e80a1ebc8d7afb781e7",
+    "corpus_scan": "5504/5504 TXT candidates scanned; 0 skipped; 1 matching physical crash TXT",
+    "sibling_callsite_census": "2/2 siblings; 7/7 direct callsites; 0 skipped"
   },
   "claim_json": [
     "claims.json"
   ],
-  "parser_revision": "GPT-5.6 Sol static analysis; final case-relative evidence config",
+  "parser_revision": "GPT-5.6 Sol; reproducible schema-4 toolchain at 5609b419ed484f6373615fbed93acccacf479e04",
   "code_evidence": "dmp-window",
   "out": "HD_HOTA.dll+0x1C6B3E-анализ-gpt-5.6-sol.evidence.json"
 }

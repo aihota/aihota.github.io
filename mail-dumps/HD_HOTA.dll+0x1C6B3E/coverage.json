@@ -1,7 +1,7 @@
 {
   "schema": 2,
-  "generated_at": "2026-08-30T20:14:19.482474+00:00",
-  "source": "mcp/.tmp-tools/case-stage/HD_HOTA.dll+0x1C6B3E/claims.json",
+  "generated_at": "2026-08-31T11:20:24.359161+00:00",
+  "source": "mail-dumps/HD_HOTA.dll+0x1C6B3E/claims.json",
   "axes": [
     "instruction",
     "mechanism",
@@ -59,7 +59,7 @@
     {
       "id": "state-origin-boundary",
       "type": "state_origin",
-      "statement": "L2 не закрыт: неизвестно, какая функция впервые сформировала X=-1180 и width=0 и является ли это штатным полностью отсечённым элементом либо нарушением выше.",
+      "statement": "L2 не закрыт: неизвестно, какая функция впервые сформировала геометрию, дающую после отсечения ширину -295, и является ли это штатным полностью отсечённым элементом либо нарушением выше.",
       "evidence": [
         "fact:missing_objects",
         "fact:thread_status",

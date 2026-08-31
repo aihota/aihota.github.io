@@ -1,11 +1,11 @@
 {
-  "schema": 3,
-  "generated_at": "2026-08-31T09:28:40.808532+00:00",
-  "parser_revision": "GPT-5.6 Sol static analysis; final case-relative evidence config",
+  "schema": 4,
+  "generated_at": "2026-08-31T12:06:14.643239+00:00",
+  "parser_revision": "GPT-5.6 Sol; reproducible schema-4 toolchain at 5609b419ed484f6373615fbed93acccacf479e04",
   "report": {
     "path": "HD_HOTA.dll+0x1C6B3E-анализ-gpt-5.6-sol.txt",
-    "size": 25285,
-    "sha256": "aacedd98877ca8fc8b08e842c426b45825a7dfdf92bd911e7ca9f89a3e650026"
+    "size": 25824,
+    "sha256": "dd7830675af9de8d6a26073b61985a0af5a59206aa23f88a381e562254e951be"
   },
   "inputs": [
     {
@@ -40,8 +40,8 @@
     },
     {
       "path": "coverage.json",
-      "size": 6222,
-      "sha256": "6591a38d4a43d3cf28675a81cc2d78253860e45c959f3fb098eaf1567be88bb0",
+      "size": 6270,
+      "sha256": "55fb751f0c0eefc6ce2a5c2403652c0ac051e5ffd146099c6c1b99c725656410",
       "role": "derived-evidence"
     },
     {
@@ -58,8 +58,8 @@
     },
     {
       "path": "static-exhaustion.json",
-      "size": 1075879,
-      "sha256": "43a1de5e595d93c7336563692a9cf02ce69a7c6e415038c5df07a535e2d11e21",
+      "size": 410810,
+      "sha256": "bcae0c79e33dc6fc0d3f72d6c649a617eb35c662bbb226188a8c15881a824130",
       "role": "derived-evidence"
     },
     {
@@ -87,21 +87,33 @@
       "role": "derived"
     },
     {
-      "path": "HD_HOTA.dll+0x1C6B3E-анализ-gpt-5.6-sol.html",
-      "size": 541019,
-      "sha256": "9f2a150685b0d257d98e9380de46a5eefb066adf11fef9225e2a446e33345990",
-      "role": "derived"
+      "path": "scan-attestation.json",
+      "size": 1441,
+      "sha256": "ff8783c1bef5f2c25ce2d3da1576b58f604d3670b6cedcd248ff9970a3cdd970",
+      "role": "derived-evidence"
     },
     {
-      "path": "HD_HOTA.dll+0x1C6B3E-анализ-gpt-5.6-sol.extra.html",
-      "size": 2266,
-      "sha256": "109f7ff16bb7dd76a158b804869332b9ec8af5408ed06d7a0f508ea44ed8c4e6",
-      "role": "derived"
+      "path": "frame-slot-provenance-entry.json",
+      "size": 865,
+      "sha256": "79be1afa27686af3ac7aaa964b122635f1243ac94f21435f504fbdc3a4f68597",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "frame-slot-provenance-late.json",
+      "size": 1624,
+      "sha256": "4337d11642ac84bd74d0acc1202d5a20bb67fd95f1233bdf5dc7a75eece4cd86",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "signed-geometry-audit.json",
+      "size": 3379,
+      "sha256": "ef701bb07212e72e82675090a881c9e0f8218f5480fdfe8dad47be84e8ccfab9",
+      "role": "derived-evidence"
     },
     {
       "path": "evidence-config.json",
-      "size": 3213,
-      "sha256": "de7cbcbca61a5b92d1b233936ef4e97d4f109cb1e100dad3c3ba4715640debee",
+      "size": 4592,
+      "sha256": "4fe561b83e60bf83bf963935be4bd4519b6ce6f27d698ff7ff4ec61d60f6ded7",
       "role": "derived-evidence"
     },
     {
@@ -118,9 +130,29 @@
       "sha256": "1fce2fe7c0077b89ad68455b67305a8d86f3fe0bf1ea5244d4b3244db9c7ba51"
     },
     {
+      "path": "../../.agents/skills/address-mapping/dumplib.py",
+      "size": 33743,
+      "sha256": "53fb1d6a9e1a329ae94e1a00a0e3fa36d1ff36b38f30f53199f8538b221dcb5b"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/select_listing.py",
+      "size": 16891,
+      "sha256": "c67ad048bf807349d0f043e64e52e8eb8f57d801d03f9e62e276bac1fb941aa7"
+    },
+    {
       "path": "../../.agents/skills/hota-crash-triage/analysis_contract.py",
       "size": 12086,
       "sha256": "03d51c9a2347f741e926029b8b3fc87343157dd8a37c290c5851b9c5f189e2e9"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/artifact_io.py",
+      "size": 5947,
+      "sha256": "d06234b55d72565c5e7adcd024a261f350b49412492f1d8af2ae593d087751a3"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/case_quality_gate.py",
+      "size": 70139,
+      "sha256": "77cfd774ef8f7c02e69d7aadc6c6078e76b7e8e6d0182817d4fea25aca2c58ee"
     },
     {
       "path": "../../.agents/skills/hota-crash-triage/coverage_contract.py",
@@ -128,19 +160,74 @@
       "sha256": "c1b63505878825761295769ae58240f1f231ab7b5745943a9d52d4e93f3f1d21"
     },
     {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 40442,
+      "sha256": "fd3d920a3fd82955f3494e2fd99ccaee68be77d87f6abacc605c0510f914b305"
+    },
+    {
       "path": "../../.agents/skills/hota-crash-triage/family_membership.py",
       "size": 11485,
       "sha256": "5d8c64a539b34351a98771fddd456a65aa73bc0383aadb4dc38c2de0f4ab5d5b"
     },
     {
-      "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
-      "size": 56535,
-      "sha256": "db098b547f830e35350e4345a8a1e38123fa68cad8c4ba39f0c45e25f8b87efb"
+      "path": "../../.agents/skills/hota-crash-triage/frame_slot_provenance.py",
+      "size": 10584,
+      "sha256": "7d1c896752ed9149602ebf9ace3e029638834fc2dde573fb56c421820c48e81e"
     },
     {
-      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
-      "size": 31202,
-      "sha256": "d5bb37984804bb08d2e0b5d1540536c53e90531990c1424112600069297925e8"
+      "path": "../../.agents/skills/hota-crash-triage/report_safe_edit.py",
+      "size": 3363,
+      "sha256": "dc87c2aec81dae0889d4b1263d373fe9231c7840d98a32950c22e200660ca382"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/scan_attestation.py",
+      "size": 5748,
+      "sha256": "c54765583789dcdc1a49c94a416046dcf5c6aee27c0797eb274215e21b9c13b3"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/semantic_contract.py",
+      "size": 13272,
+      "sha256": "924244e6c082d2d0b5241b093413cfcde44418a9057e949968145e7a9a0aeaa8"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/signed_geometry_audit.py",
+      "size": 7623,
+      "sha256": "5101e17b5a71e51b7c56829c6659692282bb158be495cd895173c16e7c80558f"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+      "size": 57621,
+      "sha256": "c7462b853733377b3a7bf9c1b6d5c04224dbf0d37fdd341c4496229ee6491b31"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/toolchain_closure.py",
+      "size": 10465,
+      "sha256": "ba4f089eb12e8438cd0a1fd0ebdcb37e0cc846477e33ebffae53e137b59fddbf"
+    },
+    {
+      "path": "../../.agents/skills/html-report/fonts/ReportMono-Bold.woff2",
+      "size": 53836,
+      "sha256": "dea64820e1ffa27ee8eeae8769b38cdf287c4d6cfaa2b96be15b0f3c6c1d337c"
+    },
+    {
+      "path": "../../.agents/skills/html-report/fonts/ReportMono-Regular.woff2",
+      "size": 52056,
+      "sha256": "a16f097ed8b1417c5564b1da17c9b7bb809583f4a9d74c9ba272d29e0b5e528e"
+    },
+    {
+      "path": "../../.agents/skills/html-report/fonts/ReportSans-Bold.woff2",
+      "size": 72892,
+      "sha256": "fc9d48df6e3ae8ed4214d1e70ab13ed4af58015263af1d5a24ed7b06b2c0378b"
+    },
+    {
+      "path": "../../.agents/skills/html-report/fonts/ReportSans-Regular.woff2",
+      "size": 67436,
+      "sha256": "9dbf0dab5a6eeac74494e14674b69077c55e8858295647d91d27bfc803dbdb6c"
+    },
+    {
+      "path": "../../.agents/skills/html-report/fonts/ReportSans-SemiBold.woff2",
+      "size": 72760,
+      "sha256": "f5fbca9627ab1338a9a39dc5d1d84d7593e59cca0b860be7145a950ed1c1b9a3"
     },
     {
       "path": "../../.agents/skills/html-report/render_report.py",
@@ -148,16 +235,78 @@
       "sha256": "ede2dd05af3e754cf2c1004ae1d0b1e83277617dc8da912e7308fc4f74e03cb2"
     },
     {
+      "path": "../../.agents/skills/html-report/report_parts/build.py",
+      "size": 36718,
+      "sha256": "43f762d84f64b89d7803881ce28cd3f342e7889261fa65ce67ea7682965632fe"
+    },
+    {
       "path": "../../.agents/skills/html-report/report_parts/core.py",
       "size": 17821,
       "sha256": "9501f80e4fe71782b300d63936700efa37a02bccf278e04f4a32c7ee7e02fff7"
+    },
+    {
+      "path": "../../.agents/skills/html-report/report_parts/fonts.py",
+      "size": 2158,
+      "sha256": "28094a0eb4c20e2bb0a571b1e513926301fa5fde265c7362b7c98102a5b70dbf"
+    },
+    {
+      "path": "../../.agents/skills/html-report/report_parts/meta.py",
+      "size": 11739,
+      "sha256": "94474d34fd95108476145c7addd369e5816aba7228ace0abda6dcc388ed22e03"
+    },
+    {
+      "path": "../../.agents/skills/html-report/report_parts/parse.py",
+      "size": 2960,
+      "sha256": "3f5526ea59802c8bab454c1cc81a897f60ec50800b3024e0c2591906211c5e2d"
+    },
+    {
+      "path": "../../.agents/skills/html-report/report_parts/render.py",
+      "size": 67440,
+      "sha256": "c976acb892f2c9b36dc42480fc7c9b034c9dfcf7ce8de79432a20d48b5b6c37c"
+    },
+    {
+      "path": "../../.agents/skills/html-report/report_parts/terminology.py",
+      "size": 6294,
+      "sha256": "686c36fe81e17e1b651037f4bf854a758a7ad8ef347eac5c76d0a83b64794243"
+    },
+    {
+      "path": "../../.agents/skills/html-report/template.html",
+      "size": 7469,
+      "sha256": "80e538676c5f222991bbe7d6906349420b6d82c2ae014c82e61086b44cb83122"
+    },
+    {
+      "path": "../../.agents/skills/html-report/template_parts/interactions.js",
+      "size": 4461,
+      "sha256": "d00a9ca0044e6305cd67f13f1ea26d645c1fc6433884bf0c8d7efe72de63152e"
+    },
+    {
+      "path": "../../.agents/skills/html-report/template_parts/sections.js",
+      "size": 497,
+      "sha256": "317b485b221f1b57a3b50c3be21ae9fc8b31c5cde446a58951e90034338a9ff6"
+    },
+    {
+      "path": "../../.agents/skills/html-report/template_parts/styles.css",
+      "size": 55058,
+      "sha256": "10795790ddb567537fdb6c6e53e0714be13cc2a25252619b80b05eb38bf20c25"
+    },
+    {
+      "path": "../../.agents/skills/html-report/template_parts/theme-init.js",
+      "size": 608,
+      "sha256": "dfd0663f32a5a77eff2d47b769028be65e80773decab8bf6e6a129844c5f703d"
+    },
+    {
+      "path": "../../.agents/skills/html-report/template_parts/toc.js",
+      "size": 250,
+      "sha256": "3b87a43635a86a012a301213ccc84bf2cc0ca1eff524455f2224e8cc12ecf679"
     }
   ],
   "commands": [
     "dump_query read 0x04606B20 length=64 and ranges",
-    "static_exhaustion_check.py against HD_HOTA.dll 5.8 R8 listing",
-    "lint_report followed by render_report --strict",
-    "address_proof.py, analysis_contract.py, coverage_contract.py, family_membership.py check"
+    "static_exhaustion_check.py modules/HD_HOTA.dll-5.8-R8.txt --crash 0x11C6B3E --func 0x11B7BD0 --actual-caller 0x11B4812 --versions \"5.8 R8\" --version-axis hd --max-show 0",
+    "frame_slot_provenance.py create modules/HD_HOTA.dll-5.8-R8.txt --function sub_11B7BD0 --slot [ebp+0Ch] --use 0x011B7BDC and 0x011B7D31",
+    "python-os.walk exact byte search over all non-report mail-dumps/**/*.txt with hidden/ignored included; denominator 5504/5504/0",
+    "signed_geometry_audit.py create/check with exhaustive direct-call census over 925503 listing lines",
+    "coverage_contract.py create claims.json --schema 2 followed by semantic_contract.py --html and strict render"
   ],
   "facts": {
     "fault_eip": "0x04606B3E",
@@ -173,7 +322,10 @@
     "missing_objects": "0x07D6E3F8, 0x127A7978 and runtime dword_12185E8 were not captured",
     "incident_count": "1 physical TXT, 1 DMP, 1 unique incident",
     "causality_level": "L1",
-    "listing_sha256": "EABF3EF1193A6BCD3E5B63EB78D8D13F6160CE5EB85EF2F982CAE33D4A97D715"
+    "listing_sha256": "88f06be651a395fdc165d78260574dd24d916913f56739d6ff0a415b45d78d25",
+    "renderer_bundle_sha256": "04c82a03f403119297e3f21e30eaf8d417a98c2434136e80a1ebc8d7afb781e7",
+    "corpus_scan": "5504/5504 TXT candidates scanned; 0 skipped; 1 matching physical crash TXT",
+    "sibling_callsite_census": "2/2 siblings; 7/7 direct callsites; 0 skipped"
   },
   "claims": [
     {
@@ -321,5 +473,282 @@
     "level": "dmp-window",
     "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
   },
+  "toolchain": {
+    "schema": 1,
+    "kind": "toolchain_closure",
+    "git_commit": "5609b419ed484f6373615fbed93acccacf479e04",
+    "direct_tools": [
+      ".agents/skills/address-mapping/address_proof.py",
+      ".agents/skills/address-mapping/select_listing.py",
+      ".agents/skills/hota-crash-triage/analysis_contract.py",
+      ".agents/skills/hota-crash-triage/case_quality_gate.py",
+      ".agents/skills/hota-crash-triage/coverage_contract.py",
+      ".agents/skills/hota-crash-triage/evidence_manifest.py",
+      ".agents/skills/hota-crash-triage/family_membership.py",
+      ".agents/skills/hota-crash-triage/frame_slot_provenance.py",
+      ".agents/skills/hota-crash-triage/scan_attestation.py",
+      ".agents/skills/hota-crash-triage/semantic_contract.py",
+      ".agents/skills/hota-crash-triage/signed_geometry_audit.py",
+      ".agents/skills/hota-crash-triage/static_exhaustion_check.py",
+      ".agents/skills/html-report/render_report.py"
+    ],
+    "asset_roots": [
+      ".agents/skills/html-report/fonts",
+      ".agents/skills/html-report/template.html",
+      ".agents/skills/html-report/template_parts"
+    ],
+    "files": [
+      {
+        "repo_path": ".agents/skills/address-mapping/address_proof.py",
+        "size": 6624,
+        "sha256": "1fce2fe7c0077b89ad68455b67305a8d86f3fe0bf1ea5244d4b3244db9c7ba51",
+        "git_sha256": "1fce2fe7c0077b89ad68455b67305a8d86f3fe0bf1ea5244d4b3244db9c7ba51",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/address-mapping/dumplib.py",
+        "size": 33743,
+        "sha256": "53fb1d6a9e1a329ae94e1a00a0e3fa36d1ff36b38f30f53199f8538b221dcb5b",
+        "git_sha256": "53fb1d6a9e1a329ae94e1a00a0e3fa36d1ff36b38f30f53199f8538b221dcb5b",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/address-mapping/select_listing.py",
+        "size": 16891,
+        "sha256": "c67ad048bf807349d0f043e64e52e8eb8f57d801d03f9e62e276bac1fb941aa7",
+        "git_sha256": "c67ad048bf807349d0f043e64e52e8eb8f57d801d03f9e62e276bac1fb941aa7",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/analysis_contract.py",
+        "size": 12086,
+        "sha256": "03d51c9a2347f741e926029b8b3fc87343157dd8a37c290c5851b9c5f189e2e9",
+        "git_sha256": "03d51c9a2347f741e926029b8b3fc87343157dd8a37c290c5851b9c5f189e2e9",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/artifact_io.py",
+        "size": 5947,
+        "sha256": "d06234b55d72565c5e7adcd024a261f350b49412492f1d8af2ae593d087751a3",
+        "git_sha256": "d06234b55d72565c5e7adcd024a261f350b49412492f1d8af2ae593d087751a3",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/case_quality_gate.py",
+        "size": 70139,
+        "sha256": "77cfd774ef8f7c02e69d7aadc6c6078e76b7e8e6d0182817d4fea25aca2c58ee",
+        "git_sha256": "77cfd774ef8f7c02e69d7aadc6c6078e76b7e8e6d0182817d4fea25aca2c58ee",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/coverage_contract.py",
+        "size": 9295,
+        "sha256": "c1b63505878825761295769ae58240f1f231ab7b5745943a9d52d4e93f3f1d21",
+        "git_sha256": "c1b63505878825761295769ae58240f1f231ab7b5745943a9d52d4e93f3f1d21",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/evidence_manifest.py",
+        "size": 40442,
+        "sha256": "fd3d920a3fd82955f3494e2fd99ccaee68be77d87f6abacc605c0510f914b305",
+        "git_sha256": "fd3d920a3fd82955f3494e2fd99ccaee68be77d87f6abacc605c0510f914b305",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/family_membership.py",
+        "size": 11485,
+        "sha256": "5d8c64a539b34351a98771fddd456a65aa73bc0383aadb4dc38c2de0f4ab5d5b",
+        "git_sha256": "5d8c64a539b34351a98771fddd456a65aa73bc0383aadb4dc38c2de0f4ab5d5b",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/frame_slot_provenance.py",
+        "size": 10584,
+        "sha256": "7d1c896752ed9149602ebf9ace3e029638834fc2dde573fb56c421820c48e81e",
+        "git_sha256": "7d1c896752ed9149602ebf9ace3e029638834fc2dde573fb56c421820c48e81e",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/report_safe_edit.py",
+        "size": 3363,
+        "sha256": "dc87c2aec81dae0889d4b1263d373fe9231c7840d98a32950c22e200660ca382",
+        "git_sha256": "dc87c2aec81dae0889d4b1263d373fe9231c7840d98a32950c22e200660ca382",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/scan_attestation.py",
+        "size": 5748,
+        "sha256": "c54765583789dcdc1a49c94a416046dcf5c6aee27c0797eb274215e21b9c13b3",
+        "git_sha256": "c54765583789dcdc1a49c94a416046dcf5c6aee27c0797eb274215e21b9c13b3",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/semantic_contract.py",
+        "size": 13272,
+        "sha256": "924244e6c082d2d0b5241b093413cfcde44418a9057e949968145e7a9a0aeaa8",
+        "git_sha256": "924244e6c082d2d0b5241b093413cfcde44418a9057e949968145e7a9a0aeaa8",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/signed_geometry_audit.py",
+        "size": 7623,
+        "sha256": "5101e17b5a71e51b7c56829c6659692282bb158be495cd895173c16e7c80558f",
+        "git_sha256": "5101e17b5a71e51b7c56829c6659692282bb158be495cd895173c16e7c80558f",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/static_exhaustion_check.py",
+        "size": 57621,
+        "sha256": "c7462b853733377b3a7bf9c1b6d5c04224dbf0d37fdd341c4496229ee6491b31",
+        "git_sha256": "c7462b853733377b3a7bf9c1b6d5c04224dbf0d37fdd341c4496229ee6491b31",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/toolchain_closure.py",
+        "size": 10465,
+        "sha256": "ba4f089eb12e8438cd0a1fd0ebdcb37e0cc846477e33ebffae53e137b59fddbf",
+        "git_sha256": "ba4f089eb12e8438cd0a1fd0ebdcb37e0cc846477e33ebffae53e137b59fddbf",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/fonts/ReportMono-Bold.woff2",
+        "size": 53836,
+        "sha256": "dea64820e1ffa27ee8eeae8769b38cdf287c4d6cfaa2b96be15b0f3c6c1d337c",
+        "git_sha256": "dea64820e1ffa27ee8eeae8769b38cdf287c4d6cfaa2b96be15b0f3c6c1d337c",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/fonts/ReportMono-Regular.woff2",
+        "size": 52056,
+        "sha256": "a16f097ed8b1417c5564b1da17c9b7bb809583f4a9d74c9ba272d29e0b5e528e",
+        "git_sha256": "a16f097ed8b1417c5564b1da17c9b7bb809583f4a9d74c9ba272d29e0b5e528e",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/fonts/ReportSans-Bold.woff2",
+        "size": 72892,
+        "sha256": "fc9d48df6e3ae8ed4214d1e70ab13ed4af58015263af1d5a24ed7b06b2c0378b",
+        "git_sha256": "fc9d48df6e3ae8ed4214d1e70ab13ed4af58015263af1d5a24ed7b06b2c0378b",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/fonts/ReportSans-Regular.woff2",
+        "size": 67436,
+        "sha256": "9dbf0dab5a6eeac74494e14674b69077c55e8858295647d91d27bfc803dbdb6c",
+        "git_sha256": "9dbf0dab5a6eeac74494e14674b69077c55e8858295647d91d27bfc803dbdb6c",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/fonts/ReportSans-SemiBold.woff2",
+        "size": 72760,
+        "sha256": "f5fbca9627ab1338a9a39dc5d1d84d7593e59cca0b860be7145a950ed1c1b9a3",
+        "git_sha256": "f5fbca9627ab1338a9a39dc5d1d84d7593e59cca0b860be7145a950ed1c1b9a3",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/render_report.py",
+        "size": 969,
+        "sha256": "ede2dd05af3e754cf2c1004ae1d0b1e83277617dc8da912e7308fc4f74e03cb2",
+        "git_sha256": "ede2dd05af3e754cf2c1004ae1d0b1e83277617dc8da912e7308fc4f74e03cb2",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/report_parts/build.py",
+        "size": 36718,
+        "sha256": "43f762d84f64b89d7803881ce28cd3f342e7889261fa65ce67ea7682965632fe",
+        "git_sha256": "43f762d84f64b89d7803881ce28cd3f342e7889261fa65ce67ea7682965632fe",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/report_parts/core.py",
+        "size": 17821,
+        "sha256": "9501f80e4fe71782b300d63936700efa37a02bccf278e04f4a32c7ee7e02fff7",
+        "git_sha256": "9501f80e4fe71782b300d63936700efa37a02bccf278e04f4a32c7ee7e02fff7",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/report_parts/fonts.py",
+        "size": 2158,
+        "sha256": "28094a0eb4c20e2bb0a571b1e513926301fa5fde265c7362b7c98102a5b70dbf",
+        "git_sha256": "28094a0eb4c20e2bb0a571b1e513926301fa5fde265c7362b7c98102a5b70dbf",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/report_parts/meta.py",
+        "size": 11739,
+        "sha256": "94474d34fd95108476145c7addd369e5816aba7228ace0abda6dcc388ed22e03",
+        "git_sha256": "94474d34fd95108476145c7addd369e5816aba7228ace0abda6dcc388ed22e03",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/report_parts/parse.py",
+        "size": 2960,
+        "sha256": "3f5526ea59802c8bab454c1cc81a897f60ec50800b3024e0c2591906211c5e2d",
+        "git_sha256": "3f5526ea59802c8bab454c1cc81a897f60ec50800b3024e0c2591906211c5e2d",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/report_parts/render.py",
+        "size": 67440,
+        "sha256": "c976acb892f2c9b36dc42480fc7c9b034c9dfcf7ce8de79432a20d48b5b6c37c",
+        "git_sha256": "c976acb892f2c9b36dc42480fc7c9b034c9dfcf7ce8de79432a20d48b5b6c37c",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/report_parts/terminology.py",
+        "size": 6294,
+        "sha256": "686c36fe81e17e1b651037f4bf854a758a7ad8ef347eac5c76d0a83b64794243",
+        "git_sha256": "686c36fe81e17e1b651037f4bf854a758a7ad8ef347eac5c76d0a83b64794243",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/template.html",
+        "size": 7469,
+        "sha256": "80e538676c5f222991bbe7d6906349420b6d82c2ae014c82e61086b44cb83122",
+        "git_sha256": "80e538676c5f222991bbe7d6906349420b6d82c2ae014c82e61086b44cb83122",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/template_parts/interactions.js",
+        "size": 4461,
+        "sha256": "d00a9ca0044e6305cd67f13f1ea26d645c1fc6433884bf0c8d7efe72de63152e",
+        "git_sha256": "d00a9ca0044e6305cd67f13f1ea26d645c1fc6433884bf0c8d7efe72de63152e",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/template_parts/sections.js",
+        "size": 497,
+        "sha256": "317b485b221f1b57a3b50c3be21ae9fc8b31c5cde446a58951e90034338a9ff6",
+        "git_sha256": "317b485b221f1b57a3b50c3be21ae9fc8b31c5cde446a58951e90034338a9ff6",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/template_parts/styles.css",
+        "size": 55058,
+        "sha256": "10795790ddb567537fdb6c6e53e0714be13cc2a25252619b80b05eb38bf20c25",
+        "git_sha256": "10795790ddb567537fdb6c6e53e0714be13cc2a25252619b80b05eb38bf20c25",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/template_parts/theme-init.js",
+        "size": 608,
+        "sha256": "dfd0663f32a5a77eff2d47b769028be65e80773decab8bf6e6a129844c5f703d",
+        "git_sha256": "dfd0663f32a5a77eff2d47b769028be65e80773decab8bf6e6a129844c5f703d",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/html-report/template_parts/toc.js",
+        "size": 250,
+        "sha256": "3b87a43635a86a012a301213ccc84bf2cc0ca1eff524455f2224e8cc12ecf679",
+        "git_sha256": "3b87a43635a86a012a301213ccc84bf2cc0ca1eff524455f2224e8cc12ecf679",
+        "git_status": "matched"
+      }
+    ],
+    "file_count": 35,
+    "bundle_sha256": "6ca768a8654e7e25212295f5cb5ade64ae025ffa07f25a6ba397e2c56053e56b",
+    "status": "clean",
+    "errors": []
+  },
+  "renderer_bundle_sha256": "6ca768a8654e7e25212295f5cb5ade64ae025ffa07f25a6ba397e2c56053e56b",
   "machine_results": []
 }

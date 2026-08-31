@@ -1,0 +1,148 @@
+{
+  "bits": 32,
+  "input_signed": -295,
+  "listing": {
+    "path": "modules/HD_HOTA.dll-5.8-R8.txt",
+    "size": 50707665,
+    "sha256": "88f06be651a395fdc165d78260574dd24d916913f56739d6ff0a415b45d78d25"
+  },
+  "scan": {
+    "walk_method": "python-line-walk",
+    "query": "exact direct call instruction to sub_11B7BD0 or sub_11B7DB0",
+    "listing_lines": 925503,
+    "truncated": false
+  },
+  "operations": [
+    {
+      "op": "shl",
+      "operand": 2,
+      "address": "0x011B7D56"
+    },
+    {
+      "op": "cast_unsigned",
+      "operand": 0,
+      "address": "0x011B7D6E"
+    }
+  ],
+  "guards": [
+    {
+      "dimension": "height",
+      "rejects_nonpositive": true,
+      "dominates_first_access": true,
+      "address": "0x011B7D52"
+    },
+    {
+      "dimension": "width",
+      "rejects_nonpositive": false,
+      "dominates_first_access": false,
+      "address": "0x011B7D56"
+    }
+  ],
+  "first_access": {
+    "address": "0x011B7D80",
+    "operation": "memmove"
+  },
+  "sibling_census": {
+    "total": 2,
+    "scanned": 2,
+    "skipped": 0
+  },
+  "siblings": [
+    {
+      "function": "sub_11B7BD0",
+      "range": "0x011B7BD0-0x011B7D9F",
+      "optimized_memmove": "0x011B7D80",
+      "width_guard_before_access": false,
+      "vulnerable": true
+    },
+    {
+      "function": "sub_11B7DB0",
+      "range": "0x011B7DB0-0x011B7F87",
+      "optimized_memmove": "0x011B7F6B",
+      "width_guard_before_access": false,
+      "vulnerable": true
+    }
+  ],
+  "callsite_census": {
+    "total": 7,
+    "scanned": 7,
+    "skipped": 0
+  },
+  "callsites": [
+    {
+      "address": "0x011B473C",
+      "callee": "sub_11B7DB0",
+      "caller": "sub_11B46C0",
+      "instruction": "call sub_11B7DB0"
+    },
+    {
+      "address": "0x011B4812",
+      "callee": "sub_11B7BD0",
+      "caller": "sub_11B47E0",
+      "instruction": "call sub_11B7BD0"
+    },
+    {
+      "address": "0x011B4875",
+      "callee": "sub_11B7DB0",
+      "caller": "sub_11B47E0",
+      "instruction": "call sub_11B7DB0"
+    },
+    {
+      "address": "0x011B4992",
+      "callee": "sub_11B7BD0",
+      "caller": "sub_11B4960",
+      "instruction": "call sub_11B7BD0"
+    },
+    {
+      "address": "0x011B49EC",
+      "callee": "sub_11B7DB0",
+      "caller": "sub_11B4960",
+      "instruction": "call sub_11B7DB0"
+    },
+    {
+      "address": "0x011B4C78",
+      "callee": "sub_11B7BD0",
+      "caller": "sub_11B4AE0",
+      "instruction": "call sub_11B7BD0"
+    },
+    {
+      "address": "0x011B4CE2",
+      "callee": "sub_11B7DB0",
+      "caller": "sub_11B4AE0",
+      "instruction": "call sub_11B7DB0"
+    }
+  ],
+  "schema": 1,
+  "kind": "signed_geometry_audit",
+  "chain": [
+    {
+      "index": 0,
+      "op": "shl",
+      "operand": 2,
+      "before_signed": -295,
+      "mathematical_result": -1180,
+      "signed_result": -1180,
+      "unsigned_result": 4294966116,
+      "overflow": false,
+      "address": "0x011B7D56"
+    },
+    {
+      "index": 1,
+      "op": "cast_unsigned",
+      "operand": 0,
+      "before_signed": -1180,
+      "mathematical_result": -1180,
+      "signed_result": -1180,
+      "unsigned_result": 4294966116,
+      "overflow": false,
+      "address": "0x011B7D6E"
+    }
+  ],
+  "final_signed": -1180,
+  "final_unsigned": 4294966116,
+  "width_guard_dominates": false,
+  "unsafe_nonpositive_to_unsigned_size": true,
+  "status": "confirmed",
+  "errors": [],
+  "complete": true
+}

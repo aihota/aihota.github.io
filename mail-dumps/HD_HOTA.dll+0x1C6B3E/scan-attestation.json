@@ -1,0 +1,57 @@
+{
+  "schema": 2,
+  "kind": "scan_attestation",
+  "scans": [
+    {
+      "id": "exact-hd-hota-1c6b3e",
+      "tool": {
+        "name": "python-os.walk-byte-search",
+        "version": "1"
+      },
+      "scope": {
+        "root": "mail-dumps",
+        "glob": "**/*.txt",
+        "excludes": [
+          "*-анализ-*.txt"
+        ],
+        "hidden_included": true,
+        "ignored_included": true,
+        "walk_method": "python-os.walk"
+      },
+      "query": {
+        "exact": "HD_HOTA.dll+0x1C6B3E OR ASCII 04606B3E",
+        "parameters": {
+          "casefold": true,
+          "mode": "physical-crash-txt"
+        }
+      },
+      "denominator": {
+        "total": 5504,
+        "scanned": 5504,
+        "skipped": 0
+      },
+      "dedup": {
+        "basis": "sha256 over complete file bytes",
+        "duplicates": 1264
+      },
+      "positive_control": {
+        "query": "mail-dumps/HD_HOTA.dll+0x1C6B3E/HD_HOTA.dll+0x1C6B3E-5.8-R8-181.txt",
+        "observed": 1,
+        "passed": true
+      },
+      "limits": {
+        "truncated": false,
+        "basis": "os.walk completed without file/count/byte limit"
+      },
+      "results": {
+        "match_count": 1,
+        "matches": [
+          "mail-dumps/HD_HOTA.dll+0x1C6B3E/HD_HOTA.dll+0x1C6B3E-5.8-R8-181.txt"
+        ]
+      },
+      "result_sha256": "905d72423a2dc885eabce9be75ef5359a08eb3901b6b72af37c724c426301d7d"
+    }
+  ],
+  "errors": [],
+  "complete": true
+}

@@ -1,0 +1,74 @@
+{
+  "slot": "[ebp+0Ch]",
+  "canonical_slot": "ebp+12",
+  "classification": "unknown",
+  "cfg_dominance_proven": false,
+  "use": {
+    "address": "0x011B7D31",
+    "instruction": ".text:011B7D31                 mov     eax, [ebp+Ch]",
+    "stack_delta": -28
+  },
+  "last_write": {
+    "address": "0x011B7CE3",
+    "instruction": ".text:011B7CE3                 mov     [ebp+Ch], eax",
+    "stack_delta": -28
+  },
+  "writes": [
+    {
+      "address": "0x011B7C92",
+      "instruction": ".text:011B7C92                 mov     [ebp+Ch], ecx",
+      "stack_delta": -28
+    },
+    {
+      "address": "0x011B7CE3",
+      "instruction": ".text:011B7CE3                 mov     [ebp+Ch], eax",
+      "stack_delta": -28
+    }
+  ],
+  "branch_barriers": [
+    "0x011B7BF4",
+    "0x011B7C01",
+    "0x011B7C05",
+    "0x011B7C09",
+    "0x011B7C22",
+    "0x011B7C2C",
+    "0x011B7C30",
+    "0x011B7C34",
+    "0x011B7C69",
+    "0x011B7C75",
+    "0x011B7C82",
+    "0x011B7C97",
+    "0x011B7CA6",
+    "0x011B7CB1",
+    "0x011B7CC8",
+    "0x011B7CD0",
+    "0x011B7CDC"
+  ],
+  "blockers": [
+    "cfg_dominance_not_proven"
+  ],
+  "denominator": {
+    "instructions": 196,
+    "scanned": 196,
+    "skipped": 0
+  },
+  "frame_aliases": {
+    "var_C": -12,
+    "var_8": -8,
+    "var_4": -4,
+    "arg_0": 8,
+    "Size": 12,
+    "arg_8": 16,
+    "arg_C": 20,
+    "arg_10": 24
+  },
+  "schema": 1,
+  "kind": "frame_slot_provenance",
+  "function": "sub_11B7BD0",
+  "listing": {
+    "path": "modules/HD_HOTA.dll-5.8-R8.txt",
+    "size": 50707665,
+    "sha256": "88f06be651a395fdc165d78260574dd24d916913f56739d6ff0a415b45d78d25"
+  },
+  "complete": false
+}
