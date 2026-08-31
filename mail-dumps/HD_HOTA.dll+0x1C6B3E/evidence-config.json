@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "manifest_schema": 3,
+  "report": "HD_HOTA.dll+0x1C6B3E-анализ-gpt-5.6-sol.txt",
+  "inputs": [
+    {
+      "role": "source",
+      "path": "HD_HOTA.dll+0x1C6B3E-5.8-R8-181.txt"
+    },
+    {
+      "role": "runtime",
+      "path": "HD_HOTA.dll+0x1C6B3E-5.8-R8-181.dmp"
+    },
+    {
+      "role": "source",
+      "path": "../../modules/HD_HOTA.dll-5.8-R8.txt"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "address-proof.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "analysis-contract.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "coverage.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "family-membership.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "thread-provenance-memmove.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "static-exhaustion.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "pair-audit.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "capabilities.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "series-groups.json"
+    },
+    {
+      "role": "derived",
+      "path": "repro-plan.json"
+    },
+    {
+      "role": "derived",
+      "path": "HD_HOTA.dll+0x1C6B3E-анализ-gpt-5.6-sol.html"
+    },
+    {
+      "role": "derived",
+      "path": "HD_HOTA.dll+0x1C6B3E-анализ-gpt-5.6-sol.extra.html"
+    }
+  ],
+  "tools": [
+    "../../.agents/skills/address-mapping/address_proof.py",
+    "../../.agents/skills/hota-crash-triage/analysis_contract.py",
+    "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+    "../../.agents/skills/hota-crash-triage/family_membership.py",
+    "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+    "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+    "../../.agents/skills/html-report/render_report.py",
+    "../../.agents/skills/html-report/report_parts/core.py"
+  ],
+  "commands": [
+    "dump_query read 0x04606B20 length=64 and ranges",
+    "static_exhaustion_check.py against HD_HOTA.dll 5.8 R8 listing",
+    "lint_report followed by render_report --strict",
+    "address_proof.py, analysis_contract.py, coverage_contract.py, family_membership.py check"
+  ],
+  "facts": {
+    "fault_eip": "0x04606B3E",
+    "normalized_eip": "0x011C6B3E",
+    "dmp_opcode": "F3 A4 / rep movsb",
+    "fault_operation": "read",
+    "fault_address": "0x0FBD7000",
+    "input_size": "0xFFFFFB64 (-1180 signed)",
+    "derived_width": "-295 pixels at 4 bytes per pixel",
+    "copied_bytes": "0x0010C2E0 (1098464)",
+    "remaining_bytes": "0xFFEF3884",
+    "thread_status": "CONTEXT_THREAD_MISMATCH; 6668 vs 6724",
+    "missing_objects": "0x07D6E3F8, 0x127A7978 and runtime dword_12185E8 were not captured",
+    "incident_count": "1 physical TXT, 1 DMP, 1 unique incident",
+    "causality_level": "L1",
+    "listing_sha256": "EABF3EF1193A6BCD3E5B63EB78D8D13F6160CE5EB85EF2F982CAE33D4A97D715"
+  },
+  "claim_json": [
+    "claims.json"
+  ],
+  "parser_revision": "GPT-5.6 Sol static analysis; final case-relative evidence config",
+  "code_evidence": "dmp-window",
+  "out": "HD_HOTA.dll+0x1C6B3E-анализ-gpt-5.6-sol.evidence.json"
+}

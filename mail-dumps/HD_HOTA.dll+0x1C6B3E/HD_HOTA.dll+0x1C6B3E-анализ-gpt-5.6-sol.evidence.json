@@ -1,0 +1,325 @@
+{
+  "schema": 3,
+  "generated_at": "2026-08-31T09:28:40.808532+00:00",
+  "parser_revision": "GPT-5.6 Sol static analysis; final case-relative evidence config",
+  "report": {
+    "path": "HD_HOTA.dll+0x1C6B3E-анализ-gpt-5.6-sol.txt",
+    "size": 25285,
+    "sha256": "aacedd98877ca8fc8b08e842c426b45825a7dfdf92bd911e7ca9f89a3e650026"
+  },
+  "inputs": [
+    {
+      "path": "HD_HOTA.dll+0x1C6B3E-5.8-R8-181.txt",
+      "size": 11976,
+      "sha256": "55510bad874af4b1aba85428f93068a66437733d445e6c2d4d3cc651e9e3aff1",
+      "role": "source"
+    },
+    {
+      "path": "HD_HOTA.dll+0x1C6B3E-5.8-R8-181.dmp",
+      "size": 124184,
+      "sha256": "866903fd804193d3826070ae8b4b8aedde1fcb06d88ae0f50e345d4b5735e030",
+      "role": "runtime"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.8-R8.txt",
+      "size": 50707665,
+      "sha256": "88f06be651a395fdc165d78260574dd24d916913f56739d6ff0a415b45d78d25",
+      "role": "source"
+    },
+    {
+      "path": "address-proof.json",
+      "size": 1065,
+      "sha256": "65cb2f65fe359233825464e61d338c1179a622686f9840703c3344e6b0b6e640",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "analysis-contract.json",
+      "size": 6452,
+      "sha256": "b57d1a75d9ec6fafe7a68d25e97d12b4a9f3a294f15c2237c0d2ad03c252e4cc",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "coverage.json",
+      "size": 6222,
+      "sha256": "6591a38d4a43d3cf28675a81cc2d78253860e45c959f3fb098eaf1567be88bb0",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-membership.json",
+      "size": 2168,
+      "sha256": "6918145900743779b6d898dda24af6b92d66e91e54517bd627dabebb32f96f2f",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "thread-provenance-memmove.json",
+      "size": 2474,
+      "sha256": "dd1fb3f24294ea51d18e8e04a76bae95bb7c9bd77bd887ce08fa9e07df9057a6",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "static-exhaustion.json",
+      "size": 1075879,
+      "sha256": "43a1de5e595d93c7336563692a9cf02ce69a7c6e415038c5df07a535e2d11e21",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "pair-audit.json",
+      "size": 2532,
+      "sha256": "3c87637c1ddc0382cf94859e5b26d48bcf5564eecea086ecde192907aed530b9",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "capabilities.json",
+      "size": 3445,
+      "sha256": "5815e60ea8257fc682737e8d55f7bbbdcc7989bd8f745fafc17377de0644b306",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-groups.json",
+      "size": 6347,
+      "sha256": "5d000a3900b2731b4bb08b824a7b995587cdd1d8d08c6e9e5e5d333522763b86",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "repro-plan.json",
+      "size": 6375,
+      "sha256": "8310829b78b21c6bea2f0de94e93a6bdb220cb4fcb5455f6504266413defccc5",
+      "role": "derived"
+    },
+    {
+      "path": "HD_HOTA.dll+0x1C6B3E-анализ-gpt-5.6-sol.html",
+      "size": 541019,
+      "sha256": "9f2a150685b0d257d98e9380de46a5eefb066adf11fef9225e2a446e33345990",
+      "role": "derived"
+    },
+    {
+      "path": "HD_HOTA.dll+0x1C6B3E-анализ-gpt-5.6-sol.extra.html",
+      "size": 2266,
+      "sha256": "109f7ff16bb7dd76a158b804869332b9ec8af5408ed06d7a0f508ea44ed8c4e6",
+      "role": "derived"
+    },
+    {
+      "path": "evidence-config.json",
+      "size": 3213,
+      "sha256": "de7cbcbca61a5b92d1b233936ef4e97d4f109cb1e100dad3c3ba4715640debee",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "claims.json",
+      "size": 5127,
+      "sha256": "76b0f944fa493a4d3bf946831c3efdd091fac55988981d4cc36c7d76a7c2119d",
+      "role": "derived-evidence"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/address-mapping/address_proof.py",
+      "size": 6624,
+      "sha256": "1fce2fe7c0077b89ad68455b67305a8d86f3fe0bf1ea5244d4b3244db9c7ba51"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/analysis_contract.py",
+      "size": 12086,
+      "sha256": "03d51c9a2347f741e926029b8b3fc87343157dd8a37c290c5851b9c5f189e2e9"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+      "size": 9295,
+      "sha256": "c1b63505878825761295769ae58240f1f231ab7b5745943a9d52d4e93f3f1d21"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/family_membership.py",
+      "size": 11485,
+      "sha256": "5d8c64a539b34351a98771fddd456a65aa73bc0383aadb4dc38c2de0f4ab5d5b"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+      "size": 56535,
+      "sha256": "db098b547f830e35350e4345a8a1e38123fa68cad8c4ba39f0c45e25f8b87efb"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 31202,
+      "sha256": "d5bb37984804bb08d2e0b5d1540536c53e90531990c1424112600069297925e8"
+    },
+    {
+      "path": "../../.agents/skills/html-report/render_report.py",
+      "size": 969,
+      "sha256": "ede2dd05af3e754cf2c1004ae1d0b1e83277617dc8da912e7308fc4f74e03cb2"
+    },
+    {
+      "path": "../../.agents/skills/html-report/report_parts/core.py",
+      "size": 17821,
+      "sha256": "9501f80e4fe71782b300d63936700efa37a02bccf278e04f4a32c7ee7e02fff7"
+    }
+  ],
+  "commands": [
+    "dump_query read 0x04606B20 length=64 and ranges",
+    "static_exhaustion_check.py against HD_HOTA.dll 5.8 R8 listing",
+    "lint_report followed by render_report --strict",
+    "address_proof.py, analysis_contract.py, coverage_contract.py, family_membership.py check"
+  ],
+  "facts": {
+    "fault_eip": "0x04606B3E",
+    "normalized_eip": "0x011C6B3E",
+    "dmp_opcode": "F3 A4 / rep movsb",
+    "fault_operation": "read",
+    "fault_address": "0x0FBD7000",
+    "input_size": "0xFFFFFB64 (-1180 signed)",
+    "derived_width": "-295 pixels at 4 bytes per pixel",
+    "copied_bytes": "0x0010C2E0 (1098464)",
+    "remaining_bytes": "0xFFEF3884",
+    "thread_status": "CONTEXT_THREAD_MISMATCH; 6668 vs 6724",
+    "missing_objects": "0x07D6E3F8, 0x127A7978 and runtime dword_12185E8 were not captured",
+    "incident_count": "1 physical TXT, 1 DMP, 1 unique incident",
+    "causality_level": "L1",
+    "listing_sha256": "EABF3EF1193A6BCD3E5B63EB78D8D13F6160CE5EB85EF2F982CAE33D4A97D715"
+  },
+  "claims": [
+    {
+      "confidence": "видно непосредственно в DMP",
+      "marker": "<!-- claim:crash-site -->",
+      "id": "crash-site",
+      "type": "crash_site",
+      "statement": "L0: CONTEXT.EIP=0x04606B3E нормализован в 0x011C6B3E; DMP-байты F3 A4 совпали с rep movsb точного листинга.",
+      "evidence": [
+        "fact:fault_eip",
+        "fact:dmp_opcode",
+        "input:address-proof.json"
+      ],
+      "applicable_axes": [
+        "instruction"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "marker": "<!-- claim:local-mechanism -->",
+      "id": "local-mechanism",
+      "type": "local_mechanism",
+      "statement": "Листинг sub_11B7BD0 показывает test ebx/jle, но не test edi/jle перед shl edi,2 и _memmove. Безопасная попиксельная ветвь такую проверку имеет.",
+      "evidence": [
+        "fact:input_size",
+        "fact:copied_bytes",
+        "input:analysis-contract.json",
+        "input:static-exhaustion.json"
+      ],
+      "applicable_axes": [
+        "mechanism"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "confirmed",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "marker": "<!-- claim:state-origin-boundary -->",
+      "id": "state-origin-boundary",
+      "type": "state_origin",
+      "statement": "L2 не закрыт: неизвестно, какая функция впервые сформировала геометрию, дающую после отсечения ширину -295, и является ли это штатным полностью отсечённым элементом либо нарушением выше.",
+      "evidence": [
+        "fact:missing_objects",
+        "fact:thread_status",
+        "input:thread-provenance-memmove.json"
+      ],
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "marker": "<!-- claim:family-coverage -->",
+      "id": "family-coverage",
+      "type": "family_coverage",
+      "statement": "найден 1 физический TXT, 1 парный DMP и 1 уникальный инцидент; точных дублей нет.",
+      "evidence": [
+        "fact:incident_count",
+        "input:family-membership.json",
+        "input:pair-audit.json"
+      ],
+      "applicable_axes": [
+        "family_coverage"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "marker": "<!-- claim:fix-guard -->",
+      "id": "fix-guard",
+      "type": "fix",
+      "statement": "Добавить общий ранний выход width<=0 || height<=0 в sub_11B7BD0 и sub_11B7DB0 до обеих форматных ветвей.",
+      "evidence": [
+        "input:analysis-contract.json",
+        "input:static-exhaustion.json"
+      ],
+      "applicable_axes": [],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "видно непосредственно в DMP",
+      "marker": "<!-- claim:thread-limitation -->",
+      "id": "thread-limitation",
+      "type": "limitation",
+      "statement": "CONTEXT_THREAD_MISMATCH: регистры ExceptionStream потока 6668 нельзя объединять в единый однопоточный ABI-контекст со стеком, отнесённым к потоку 6724.",
+      "evidence": [
+        "fact:thread_status",
+        "input:thread-provenance-memmove.json"
+      ],
+      "applicable_axes": [],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "marker": "<!-- claim:reproduction -->",
+      "id": "reproduction",
+      "type": "reproduction",
+      "statement": "L3 не выполнялся: управляемого повтора и исправленной сборки нет.",
+      "evidence": [
+        "input:repro-plan.json"
+      ],
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    }
+  ],
+  "code_evidence": {
+    "level": "dmp-window",
+    "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
+  },
+  "machine_results": []
+}

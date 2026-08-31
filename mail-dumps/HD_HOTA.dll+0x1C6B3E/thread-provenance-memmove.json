@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "kind": "thread_provenance_and_memmove_arithmetic",
+  "thread_provenance": {
+    "status": "CONTEXT_THREAD_MISMATCH",
+    "thread_provenance_status": "CONTEXT_THREAD_MISMATCH",
+    "register_sets_may_be_combined": false,
+    "combination_rule": "same_tid_only",
+    "contexts": [
+      {
+        "source": "exception_stream",
+        "tid": 6668,
+        "role": "fault registers and ExceptionInformation"
+      },
+      {
+        "source": "text_context",
+        "tid": 6724,
+        "role": "stack-shaped ABI values; range ownership from ThreadList"
+      }
+    ],
+    "note": "Values from the two contexts are corroborative only and are not asserted as one simultaneous single-thread snapshot."
+  },
+  "memmove_arithmetic": {
+    "initial_source": {
+      "hex": "0x0FACAD20",
+      "u32": 262974752
+    },
+    "initial_destination": {
+      "hex": "0x086A0000",
+      "u32": 141164544
+    },
+    "initial_size": {
+      "hex": "0xFFFFFB64",
+      "u32": 4294966116,
+      "i32": -1180
+    },
+    "derived_width_pixels": -295,
+    "bytes_per_pixel": 4,
+    "current_source": {
+      "hex": "0x0FBD7000",
+      "u32": 264073216,
+      "is_fault_address": true
+    },
+    "current_destination": {
+      "hex": "0x087AC2E0",
+      "u32": 142263008
+    },
+    "remaining": {
+      "hex": "0xFFEF3884",
+      "u32": 4293867652
+    },
+    "copied": {
+      "hex": "0x0010C2E0",
+      "u32": 1098464
+    },
+    "eax_endpoint": {
+      "hex": "0x0FACA884",
+      "u32": 262973572
+    },
+    "equalities": [
+      {
+        "lhs": "current_source-initial_source",
+        "rhs": "copied",
+        "value": "0x0010C2E0",
+        "holds": true
+      },
+      {
+        "lhs": "current_destination-initial_destination",
+        "rhs": "copied",
+        "value": "0x0010C2E0",
+        "holds": true
+      },
+      {
+        "lhs": "initial_size-remaining modulo 2^32",
+        "rhs": "copied",
+        "value": "0x0010C2E0",
+        "holds": true
+      },
+      {
+        "lhs": "initial_source+initial_size modulo 2^32",
+        "rhs": "EAX",
+        "value": "0x0FACA884",
+        "holds": true
+      }
+    ],
+    "verdict": "linear rep movsb progressed to the first unreadable source page after an invalid unsigned size"
+  },
+  "provenance": {
+    "exception": "DMP ExceptionStream",
+    "registers": "exception CONTEXT / crash TXT",
+    "stack_values": "captured stack bytes assigned to TID 6724",
+    "instruction": "DMP bytes F3 A4 plus exact listing"
+  }
+}

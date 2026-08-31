@@ -1,0 +1,76 @@
+{
+  "schema": 4,
+  "generated_at": "2026-08-30T20:14:19.523208+00:00",
+  "family_id": "f6a94d4542dba850d08f79341ccf30fc466f5755c8f3e57c360e38c7267deea6",
+  "source": "mcp/.tmp-tools/case-stage/HD_HOTA.dll+0x1C6B3E/family-membership-input.json",
+  "scope_id": "series:HD_HOTA.dll+0x1C6B3E",
+  "scope_kind": "series",
+  "scope": {
+    "id": "series:HD_HOTA.dll+0x1C6B3E",
+    "kind": "series",
+    "address_range": {
+      "start_rva": "0x001C6B3E",
+      "end_rva": "0x001C6B3E",
+      "end_inclusive": true,
+      "human_label": "HD_HOTA.dll+0x1C6B3E",
+      "basis": "one exact TXT/DMP pair in the case directory"
+    },
+    "enumeration_basis": [
+      "pair-audit.json",
+      "series-groups.json",
+      "event fingerprint 9a4bbdb92b2a7420"
+    ]
+  },
+  "candidate_census": {
+    "total": 1,
+    "classified": 1,
+    "confirmed": 1,
+    "probable": 0,
+    "context_only": 0,
+    "excluded": 0,
+    "unknown": 0,
+    "blocked": 0
+  },
+  "memberships": [
+    {
+      "incident_id": "incident-9a4bbdb92b2a7420",
+      "membership": "confirmed",
+      "basis": "exact sink, exact caller path and exact negative-width-to-memmove mechanism",
+      "evidence": [
+        "pair-audit.json",
+        "address-proof.json",
+        "analysis-contract.json",
+        "static-exhaustion.json"
+      ],
+      "fingerprint": {
+        "structure_role": "HD surface save/restore helper",
+        "field": "clipped width -> EDI -> byte count",
+        "call_tail": [
+          "sub_11B47E0",
+          "sub_11B7BD0",
+          "_memmove"
+        ],
+        "frame_depth": 3
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "signature_group": "sig-a49f14b6d153",
+      "cause_group": "cause-d116688c820f",
+      "event_fingerprint": "9a4bbdb92b2a74201e8f9bf1a0e2d1df685efa6c3842d86aa051f3261387afe6"
+    }
+  ],
+  "counts": {
+    "confirmed": 1
+  },
+  "errors": [],
+  "registry_valid": true,
+  "enumeration_complete": true,
+  "classification_complete": true,
+  "unknown_count": 0,
+  "blocked_by_listing_count": 0,
+  "complete": true
+}

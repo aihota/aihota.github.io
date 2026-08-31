@@ -1,0 +1,122 @@
+{
+  "schema": 3,
+  "source": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1C6B3E/HD_HOTA.dll+0x1C6B3E-5.8-R8-181.dmp",
+  "source_identity": {
+    "path": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1C6B3E/HD_HOTA.dll+0x1C6B3E-5.8-R8-181.dmp",
+    "size": 124184,
+    "sha256": "866903fd804193d3826070ae8b4b8aedde1fcb06d88ae0f50e345d4b5735e030"
+  },
+  "dump_level": "минимальный",
+  "flags": [
+    "прочие биты 0x200000"
+  ],
+  "stream_names": [
+    "ExceptionList",
+    "MemoryList",
+    "MiscInfo",
+    "ModuleList",
+    "SystemInfo",
+    "ThreadList",
+    "тип 0",
+    "тип 21",
+    "тип 22"
+  ],
+  "captured_bytes": 60512,
+  "exception_record": {
+    "tid": 6668,
+    "code": 3221225477,
+    "flags": 0,
+    "exception_record": 0,
+    "address": 73427774,
+    "number_parameters": 2,
+    "parameters_valid": true,
+    "exception_information": [
+      0,
+      264073216
+    ],
+    "access": "read",
+    "fault_address": 264073216,
+    "context_size": 716,
+    "context_rva": 26046
+  },
+  "thread_provenance": {
+    "exception_tid": 6668,
+    "esp_tid": 6724,
+    "status": "CONTEXT_THREAD_MISMATCH",
+    "esp": 1731452,
+    "contexts": [
+      {
+        "source": "exception_stream",
+        "tid": 6668,
+        "role": "register_context",
+        "available": true
+      },
+      {
+        "source": "text_context",
+        "tid": 6724,
+        "role": "stack_context",
+        "esp": 1731452,
+        "available": true
+      }
+    ],
+    "register_sets_may_be_combined": false,
+    "selected_stack_thread_id": 6724,
+    "selected_register_context": "keep_sources_separate",
+    "combination_rule": "same_tid_only",
+    "policy": "use_one_context_only; never combine ExceptionStream registers with the text/ESP stack when thread ids differ"
+  },
+  "counts": {
+    "minidump_streams": 12,
+    "process_threads_in_thread_list": 27,
+    "exception_thread_id": 6668,
+    "esp_stack_thread_id": 6724
+  },
+  "capabilities": {
+    "exception_context": true,
+    "thread_stacks": true,
+    "module_identity": true,
+    "captured_memory": true,
+    "code_window": true,
+    "globals_and_heap": false,
+    "memory_permissions": false,
+    "thread_provenance": true
+  },
+  "available_now": [
+    "captured_memory",
+    "code_window",
+    "exception_context",
+    "module_identity",
+    "thread_provenance",
+    "thread_stacks"
+  ],
+  "requires_full_dump": [
+    "global_state_snapshot",
+    "heap_object_lifetime",
+    "heap_neighbour_overwrite",
+    "whole_container_traversal"
+  ],
+  "requires_runtime_capture": [
+    "first_corrupting_write",
+    "writer_identity",
+    "race_ordering",
+    "object_lifetime_transition"
+  ],
+  "strong_claim_gates": {
+    "race": "requires_runtime_capture",
+    "use_after_free": "requires_full_dump_or_runtime_capture",
+    "heap_overwrite": "requires_full_dump_or_runtime_capture",
+    "callback_register_clobber": "requires_same_thread_pre_post_capture"
+  },
+  "limitations": [
+    ".data модулей: глобалы, карты, реестр-контейнер",
+    "куча целиком: обход списков объектов и поиск блобов",
+    "права и тип страниц (нет MemoryInfoList)"
+  ],
+  "audit_selection": {
+    "selected": "HD_HOTA.dll+0x1C6B3E-5.8-R8-181.dmp",
+    "dmp_count": 1,
+    "rule": "single DMP profiled without silent selection",
+    "text_esp": 1731452,
+    "esp_source": "HD_HOTA.dll+0x1C6B3E-5.8-R8-181.txt"
+  }
+}

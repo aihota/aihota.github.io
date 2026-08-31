@@ -1,0 +1,32 @@
+<section id="viz-mechanism" data-toc="Визуализация сбоя">
+  <h2><span class="htext">Визуализация сбоя</span><a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Схема отделяет подтверждённую арифметику копирования от неустановленного происхождения геометрии.</p>
+  <div class="viz">
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">1</span><span>Подтверждённый путь</span></div>
+      <div class="viz-strip">
+        <div class="viz-box accent">0xFFFFFB64<span class="lbl">исходный размер: −1180 со знаком</span></div>
+        <div class="viz-box">0x0010C2E0<span class="lbl">скопировано 1 098 464 байта</span></div>
+        <div class="viz-box bad">0x0FBD7000<span class="lbl">чтение на границе страницы</span></div>
+      </div>
+    </div>
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">2</span><span>Контрольные равенства</span></div>
+      <div class="viz-strip">
+        <div class="viz-box accent">ESI−Src<span class="lbl">0x0010C2E0</span></div>
+        <div class="viz-box accent">EDI−Dst<span class="lbl">0x0010C2E0</span></div>
+        <div class="viz-box accent">Size−ECX<span class="lbl">0x0010C2E0</span></div>
+      </div>
+    </div>
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">3</span><span>Граница доказанности</span></div>
+      <div class="viz-strip">
+        <div class="viz-box bad">Нет проверки ширины<span class="lbl">перед умножением на 4 и _memmove</span></div>
+        <div class="viz-box">Первый источник неизвестен<span class="lbl">объект кучи не сохранён</span></div>
+      </div>
+    </div>
+    <div class="viz-legend">
+      <div class="item"><span class="viz-key"></span><span class="txt">Три одинаковые дельты подтверждают линейное чтение за концом источника.</span></div>
+    </div>
+  </div>
+</section>

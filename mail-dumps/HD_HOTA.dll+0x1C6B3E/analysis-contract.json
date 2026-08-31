@@ -1,0 +1,247 @@
+{
+  "schema": 2,
+  "kind": "crash_analysis_contract",
+  "mechanism": {
+    "kind": "state_corruption",
+    "name": "negative_clipped_width_to_unsigned_memmove_size",
+    "causality_level": "L1",
+    "local_mechanism_confirmed": true,
+    "state_origin_confirmed": false
+  },
+  "thread_contexts": [
+    {
+      "source": "exception_stream",
+      "tid": 6668,
+      "registers": {
+        "EIP": "0x04606B3E",
+        "EAX": "0x0FACA884",
+        "ECX": "0xFFEF3884",
+        "EDX": "0xFFFFFB64",
+        "ESI": "0x0FBD7000",
+        "EDI": "0x087AC2E0"
+      },
+      "evidence": "ExceptionStream CONTEXT and exception parameters"
+    },
+    {
+      "source": "thread_list",
+      "tid": 6724,
+      "stack": [
+        {
+          "name": "x",
+          "value": -1180
+        },
+        {
+          "name": "y",
+          "value": 571
+        },
+        {
+          "name": "width",
+          "value": 0
+        },
+        {
+          "name": "height",
+          "value": 26
+        },
+        {
+          "name": "helper_object",
+          "value": "0x127A7978"
+        }
+      ],
+      "evidence": "ESP memory range is assigned to TID 6724; it is not merged with TID 6668 registers"
+    }
+  ],
+  "thread_policy": {
+    "status": "CONTEXT_THREAD_MISMATCH",
+    "register_sets_may_be_combined": false,
+    "combination_rule": "same_tid_only",
+    "exception_tid": 6668,
+    "stack_range_tid": 6724
+  },
+  "consumer_boundary": {
+    "input_validity": "invalid",
+    "candidate_validity": "invalid",
+    "boundary": "sub_11B7BD0 optimized branch before shl edi,2 / _memmove",
+    "reason": "non-positive clipped width is converted to 0xFFFFFB64 without a width guard"
+  },
+  "state_origin_candidates": [
+    {
+      "id": "race",
+      "status": "not_established",
+      "next_evidence": [
+        "same-TID geometry trace",
+        "ordered writer/watchpoint capture"
+      ]
+    },
+    {
+      "id": "use_after_free",
+      "status": "not_established",
+      "next_evidence": [
+        "full heap dump",
+        "allocation/free stacks and object generation"
+      ]
+    },
+    {
+      "id": "heap_overwrite",
+      "status": "not_established",
+      "next_evidence": [
+        "first out-of-bounds writer EIP",
+        "owner bounds and write stack"
+      ]
+    },
+    {
+      "id": "third_party_write",
+      "status": "not_established",
+      "next_evidence": [
+        "writer module identity",
+        "watchpoint stack"
+      ]
+    },
+    {
+      "id": "upstream_invalid_geometry",
+      "status": "not_established",
+      "next_evidence": [
+        "same-TID X/Y/width/height before and after clipping",
+        "first geometry producer stack"
+      ]
+    }
+  ],
+  "root_cause_declared": false,
+  "structure": {
+    "role": "HD-mode surface save/restore helpers",
+    "fields": {
+      "x": "stack_arg_x",
+      "y": "stack_arg_y",
+      "width": "stack_arg_width",
+      "height": "stack_arg_height",
+      "surface": "object_arg_0"
+    },
+    "invariants": [
+      "clipped width > 0 before multiplication",
+      "clipped height > 0 before row loop",
+      "width*4 does not overflow",
+      "copy size does not exceed either row span"
+    ],
+    "sibling_coverage": {
+      "scanned": 2,
+      "total": 2,
+      "complete": true,
+      "functions": [
+        "sub_11B7BD0",
+        "sub_11B7DB0"
+      ]
+    }
+  },
+  "lifecycle": {
+    "object": "dword_12185E8",
+    "scope": "all direct references in exact HD_HOTA.dll 5.8 R8 listing",
+    "counts": {
+      "references": 51,
+      "reads": 48,
+      "writes": 2,
+      "checks": 2,
+      "publishes": 2,
+      "clears": 0
+    },
+    "enumeration_complete": true,
+    "absence_claims": [
+      "no direct clear among 51 enumerated references"
+    ]
+  },
+  "fixes": [
+    {
+      "id": "guard-nonpositive-clipped-extent",
+      "fix_role": "containment",
+      "supported_builds": [
+        "HD 5.8 R8"
+      ],
+      "change": "return before either format branch when clipped width<=0 or clipped height<=0; do not clamp",
+      "expected_evidence": [
+        "zero _memmove calls for non-positive extents",
+        "unchanged destination buffer",
+        "no access violation"
+      ],
+      "differential_test": "original reaches _memmove with 0xFFFFFB64; fixed build exits before _memmove; positive rectangle remains byte-identical"
+    },
+    {
+      "id": "harden-both-sibling-helpers",
+      "fix_role": "adjacent_hardening",
+      "supported_builds": [
+        "HD 5.8 R8"
+      ],
+      "change": "apply the shared precondition and checked width*4 to sub_11B7BD0 and sub_11B7DB0",
+      "expected_evidence": [
+        "both helpers reject width<=0",
+        "checked size bounded by source and destination stride"
+      ],
+      "differential_test": "normal text rendering matches original build in both save and restore paths"
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_role": "source_crash_log",
+      "phase_role": "causal_input",
+      "path": "HD_HOTA.dll+0x1C6B3E-5.8-R8-181.txt"
+    },
+    {
+      "artifact_role": "runtime_minidump",
+      "phase_role": "causal_input",
+      "path": "HD_HOTA.dll+0x1C6B3E-5.8-R8-181.dmp"
+    },
+    {
+      "artifact_role": "exact_ida_listing",
+      "phase_role": "contextual",
+      "path": "HD_HOTA.dll-5.8-R8.txt"
+    },
+    {
+      "artifact_role": "derived_static_exhaustion",
+      "phase_role": "contextual",
+      "path": "static-exhaustion.json"
+    }
+  ],
+  "family": {
+    "semantic_fingerprint": {
+      "structure_role": "HD surface save/restore helper",
+      "field_offset": "clipped width -> EDI -> byte count",
+      "access": "read",
+      "call_tail": [
+        "sub_11B47E0",
+        "sub_11B7BD0",
+        "_memmove"
+      ]
+    },
+    "denominator": {
+      "scanned": 1,
+      "total": 1,
+      "scope": "unique incidents in this case directory"
+    }
+  },
+  "call_chain": [
+    {
+      "type": "module_function",
+      "module": "HD_HOTA.dll",
+      "function": "sub_11B47E0",
+      "address": "0x011B47E0",
+      "callsite": "0x011B4812"
+    },
+    {
+      "type": "module_function",
+      "module": "HD_HOTA.dll",
+      "function": "sub_11B7BD0",
+      "address": "0x011B7BD0",
+      "callsite": "0x011B7D80"
+    },
+    {
+      "type": "module_function",
+      "module": "HD_HOTA.dll",
+      "function": "_memmove",
+      "address": "0x011C6AF0",
+      "fault": "0x011C6B3E"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "errors": [],
+    "root_cause_allowed": false
+  },
+  "status": "passed"
+}

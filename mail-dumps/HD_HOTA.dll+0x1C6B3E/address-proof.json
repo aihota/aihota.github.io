@@ -1,0 +1,38 @@
+{
+  "module": "HD_HOTA.dll",
+  "addresses": {
+    "runtime": 73427774,
+    "load_base": 71565312,
+    "imagebase": 16777216,
+    "size_of_image": 18849792,
+    "file_offset": 63800,
+    "rva": 1862462,
+    "module_offset": 1862462,
+    "ida": 18639678
+  },
+  "sources": {
+    "fault_address": "ExceptionStream: ExceptionAddress=0x04606B3E",
+    "load_base": "DMP ModuleList: HD_HOTA.dll base=0x04440000 size=0x011FA000",
+    "imagebase": "exact IDA listing: ImageBase=0x01000000",
+    "file_offset": "DMP MemoryList range 0x04606ABE..0x04606BBE at file 0xF8B8; crash delta 0x80"
+  },
+  "identity": {
+    "level": "dmp-window",
+    "full_binary_match": false,
+    "window": {
+      "runtime": "0x04606B3E",
+      "file_offset": "0x0000F938",
+      "size": 2,
+      "matched": 2
+    },
+    "bytes": "F3 A4",
+    "listing_instruction": "rep movsb",
+    "note": "Two-byte crash instruction matches the exact 5.8 R8 listing; no full DLL image was supplied."
+  },
+  "schema": 1,
+  "kind": "address_proof",
+  "validation": {
+    "status": "passed",
+    "errors": []
+  }
+}
