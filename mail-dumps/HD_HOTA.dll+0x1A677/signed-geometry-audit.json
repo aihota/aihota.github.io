@@ -1,0 +1,73 @@
+{
+  "bits": 32,
+  "input_signed": 1120,
+  "operations": [
+    {
+      "op": "add",
+      "operand": 0,
+      "address": "0x0101A677"
+    }
+  ],
+  "guards": [],
+  "first_access": {
+    "address": "0x0101A677",
+    "operation": "mov eax,[ecx+edi*4]"
+  },
+  "sibling_census": {
+    "total": 2,
+    "scanned": 2,
+    "skipped": 0
+  },
+  "siblings": [
+    {
+      "function": "sub_101A440 (5.7 R36)",
+      "width_guard_before_access": false,
+      "vulnerable": false,
+      "effective_address": "0x460 + 0*4 = 0x460"
+    },
+    {
+      "function": "sub_101A440 (5.8 R8)",
+      "width_guard_before_access": false,
+      "vulnerable": false,
+      "effective_address": "0x400 + 0*4 = 0x400"
+    }
+  ],
+  "callsite_census": {
+    "total": 2,
+    "scanned": 2,
+    "skipped": 0
+  },
+  "callsites": [
+    {
+      "address": "0x0101ACCB (5.7 R36)",
+      "callee": "sub_101A440"
+    },
+    {
+      "address": "0x0101ACCB (5.8 R8)",
+      "callee": "sub_101A440"
+    }
+  ],
+  "applicability": "not a signed-to-unsigned geometry defect; this audit records that the failing arithmetic remains the positive low pointer value",
+  "schema": 1,
+  "kind": "signed_geometry_audit",
+  "chain": [
+    {
+      "index": 0,
+      "op": "add",
+      "operand": 0,
+      "before_signed": 1120,
+      "mathematical_result": 1120,
+      "signed_result": 1120,
+      "unsigned_result": 1120,
+      "overflow": false,
+      "address": "0x0101A677"
+    }
+  ],
+  "final_signed": 1120,
+  "final_unsigned": 1120,
+  "width_guard_dominates": false,
+  "unsafe_nonpositive_to_unsigned_size": false,
+  "status": "not_confirmed",
+  "errors": [],
+  "complete": true
+}

@@ -1,0 +1,65 @@
+{
+  "schema": 4,
+  "family_id": "family-HD_HOTA.dll+0x1A677",
+  "enumeration_complete": true,
+  "scope_id": "series:HD_HOTA.dll+0x1A677",
+  "scope_kind": "series",
+  "scope": {
+    "id": "series:HD_HOTA.dll+0x1A677",
+    "kind": "series",
+    "root": "mail-dumps/HD_HOTA.dll+0x1A677",
+    "address_range": {
+      "start_rva": "0x001A677",
+      "end_rva": "0x001A677",
+      "end_inclusive": true,
+      "human_label": "HD_HOTA.dll+0x1A677",
+      "basis": "two exact TXT/DMP pairs in the current case directory"
+    },
+    "enumeration_basis": [
+      "pair-audit.json",
+      "series-groups.json",
+      "two normalized 0x0101A677 instruction windows"
+    ],
+    "sibling_boundary": "0x1A6A7 has the same sink and local mechanism but unknown shared state origin/root cause"
+  },
+  "memberships": [
+    {
+      "incident_id": "incident-d80b1a387ac21556",
+      "membership": "confirmed",
+      "build": "5.7 R36",
+      "basis": "Exact TXT/DMP pair, exact R36 listing, EDI=0 and low _Def_+0x1C value 0x460 prove the same local crash mechanism.",
+      "evidence": ["pair-audit.json", "address-proof.json", "analysis-contract.json"],
+      "fingerprint": {
+        "structure_role": "_Def_ groups table",
+        "field": "+0x1C",
+        "call_tail": ["A0_DlgStaticDef_DrawToPcx16_sub_4EAC20", "A0_Def_Sprite_Draw_sub_47B610", "HD_HOTA wrapper", "sub_101A440+0x237"],
+        "frame_depth": "ESP-EBP=-0x10"
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-29c7d157345f9783",
+      "membership": "confirmed",
+      "build": "5.8 R8",
+      "basis": "Exact TXT/DMP pair, exact R8 listing, EDI=0 and low _Def_+0x1C value 0x400 prove the same local crash mechanism.",
+      "evidence": ["pair-audit.json", "address-proof.json", "analysis-contract.json"],
+      "fingerprint": {
+        "structure_role": "_Def_ groups table",
+        "field": "+0x1C",
+        "call_tail": ["A0_DlgStaticDef_DrawToPcx16_sub_4EAC20", "A0_Def_Sprite_Draw_sub_47B610", "HD_HOTA wrapper", "sub_101A440+0x237"],
+        "frame_depth": "ESP-EBP=-0x10"
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    }
+  ]
+}

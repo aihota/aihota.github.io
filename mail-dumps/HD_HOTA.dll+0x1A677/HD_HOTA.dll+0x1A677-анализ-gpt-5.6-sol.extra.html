@@ -1,0 +1,26 @@
+<section id="viz-mechanism" data-toc="Визуализация сбоя">
+  <h2><span class="htext">Визуализация сбоя</span>
+      <a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>В обоих дампах поле таблицы групп уже содержит малое ненулевое значение, а индекс равен нулю.</p>
+  <div class="viz">
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">1</span><span>HD 5.7 R36</span></div>
+      <div class="viz-strip">
+        <div class="viz-box accent">_Def_*<span class="lbl">ESI=0x1B41B098</span></div>
+        <div class="viz-box warn">_Def_+0x1C<span class="lbl">ECX=0x460</span></div>
+        <div class="viz-box bad">Чтение 0x460<span class="lbl">EDI=0, AV</span></div>
+      </div>
+    </div>
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">2</span><span>HD 5.8 R8</span></div>
+      <div class="viz-strip">
+        <div class="viz-box accent">_Def_*<span class="lbl">ESI=0x198CDFE8</span></div>
+        <div class="viz-box warn">_Def_+0x1C<span class="lbl">ECX=0x400</span></div>
+        <div class="viz-box bad">Чтение 0x400<span class="lbl">EDI=0, AV</span></div>
+      </div>
+    </div>
+    <div class="viz-legend">
+      <div class="item"><span class="viz-key"></span><span class="txt">Формула: адрес = ECX + EDI*4; индекс не добавляет смещение.</span></div>
+    </div>
+  </div>
+</section>

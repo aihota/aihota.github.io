@@ -1,0 +1,35 @@
+{
+  "slot": "[ebp+8h]",
+  "canonical_slot": "ebp+8",
+  "classification": "entry_argument",
+  "cfg_dominance_proven": true,
+  "use": {
+    "address": "0x0101A446",
+    "instruction": ".text:0101A446                 mov     esi, [ebp+8h]",
+    "stack_delta": -16
+  },
+  "last_write": null,
+  "writes": [],
+  "branch_barriers": [],
+  "blockers": [],
+  "denominator": {
+    "instructions": 729,
+    "scanned": 729,
+    "skipped": 0
+  },
+  "frame_aliases": {
+    "var_4": -4,
+    "arg_0": 8,
+    "arg_4": 12,
+    "arg_8": 16
+  },
+  "schema": 1,
+  "kind": "frame_slot_provenance",
+  "function": "sub_101A440",
+  "listing": {
+    "path": "HD_HOTA.dll-5.7 R36.txt",
+    "size": 50673700,
+    "sha256": "3872cbbf3dfedb81013137f4e5f969d05de0e02894697ee412e28e4c70e60a1c"
+  },
+  "complete": true
+}

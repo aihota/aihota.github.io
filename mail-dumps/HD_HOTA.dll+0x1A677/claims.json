@@ -1,0 +1,131 @@
+{
+  "claims": [
+    {
+      "id": "crash-site",
+      "type": "crash_site",
+      "statement": "EIP и байты 8B 04 B9 совпали с точными листингами в обоих DMP.",
+      "evidence": [
+        "input:address-proof.json",
+        "input:pair-audit.json"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "applicable_axes": [
+        "instruction"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "local-mechanism",
+      "type": "local_mechanism",
+      "statement": "ECX равен содержимому _Def_+0x1C, EDI=0, адресная формула замкнута.",
+      "evidence": [
+        "input:address-proof.json",
+        "input:analysis-contract.json"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "applicable_axes": [
+        "mechanism"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "confirmed",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "state-origin-boundary",
+      "type": "state_origin",
+      "statement": "Источник плохого состояния не установлен.",
+      "evidence": [
+        "input:analysis-contract.json",
+        "input:capabilities.json"
+      ],
+      "confidence": "не проверено",
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "family-coverage",
+      "type": "family_coverage",
+      "statement": "Целевая папка содержит 2 из 2 уникальных событий и 2 точные пары.",
+      "evidence": [
+        "input:family-membership.json",
+        "input:pair-audit.json"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "applicable_axes": [
+        "family_coverage"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "fix-guard",
+      "type": "fix",
+      "statement": "При нарушении контракта пропускать отрисовку и писать структурированный журнал.",
+      "evidence": [
+        "input:analysis-contract.json",
+        "input:repro-plan.json"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "applicable_axes": [],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "thread-limitation",
+      "type": "limitation",
+      "statement": "Нельзя объединять регистры и текстовый стек при разных номерах потоков.",
+      "evidence": [
+        "input:capabilities.json"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "applicable_axes": [],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "reproduction",
+      "type": "reproduction",
+      "statement": "Гарантированный пользовательский сценарий по имеющимся данным не получен.",
+      "evidence": [
+        "input:repro-plan.json"
+      ],
+      "confidence": "не проверено",
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    }
+  ]
+}

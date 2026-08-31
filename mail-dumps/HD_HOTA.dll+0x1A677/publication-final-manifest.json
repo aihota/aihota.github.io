@@ -1,0 +1,187 @@
+{
+  "schema": 2,
+  "kind": "phase_manifest",
+  "phase": "final-publication",
+  "finalized": true,
+  "artifacts": [
+    {
+      "relative_path": "HD_HOTA.dll+0x1A677-анализ-gpt-5.6-sol.evidence.json",
+      "role": "publication-input",
+      "size": 35352,
+      "sha256": "c6d2af8648c4fe4d21a4afe2b67dbc15e9db725c2f5310bb9a08cfd33642fc1a"
+    },
+    {
+      "relative_path": "HD_HOTA.dll+0x1A677-анализ-gpt-5.6-sol.extra.html",
+      "role": "publication-input",
+      "size": 1539,
+      "sha256": "55da289fad78038b84b7353e93bedee411bc345df42c1a3b5894efbdb3e57e4a"
+    },
+    {
+      "relative_path": "HD_HOTA.dll+0x1A677-анализ-gpt-5.6-sol.html",
+      "role": "publication-input",
+      "size": 545428,
+      "sha256": "a7848653c8e8d30c0ffc676f0857759f9150ee33b1de9db423773d05ea9e78d1"
+    },
+    {
+      "relative_path": "HD_HOTA.dll+0x1A677-анализ-gpt-5.6-sol.txt",
+      "role": "publication-input",
+      "size": 29186,
+      "sha256": "321135f870f79c33905cee537b1846c5d4fa46558ba996be5ed10a2c7b1a818b"
+    },
+    {
+      "relative_path": "HD_HOTA.dll+0x1A677-краш-логи-и-дампы.zip",
+      "role": "publication-input",
+      "size": 60057,
+      "sha256": "3dd3799caa638098bbe38b4ac85223503f3f7e453d02ad0d64cd13f1067b85f6"
+    },
+    {
+      "relative_path": "address-proof.json",
+      "role": "derived-evidence",
+      "size": 1375,
+      "sha256": "682108e369adfc2082054e649ab9284469aed8e292845f4c9f7641cbff369935"
+    },
+    {
+      "relative_path": "analysis-contract.json",
+      "role": "derived-evidence",
+      "size": 5254,
+      "sha256": "62c3624576bbb193dbb5a6d735d2d10c4e679b0e56e00910dab39479c15508b4"
+    },
+    {
+      "relative_path": "analysis-promotion-manifest.json",
+      "role": "publication-input",
+      "size": 1029,
+      "sha256": "fd5eb0514e35643cdf8f06f74e95c09266fb6692de41e7a5a9470369d5916ef5"
+    },
+    {
+      "relative_path": "archive-manifest.json",
+      "role": "publication-input",
+      "size": 1495,
+      "sha256": "1a860d23bf85a617aafa21d02238ed96c152c2a703b943ced97d75e5c44b7ab9"
+    },
+    {
+      "relative_path": "capabilities.json",
+      "role": "derived-evidence",
+      "size": 7917,
+      "sha256": "cfbf8eddefa5bf2d6c8e5a4b6aa7aef7aa050523298eef92773358224760f25f"
+    },
+    {
+      "relative_path": "claims.json",
+      "role": "derived-evidence",
+      "size": 4366,
+      "sha256": "a757fafb69fc7d505e1d9bacb261396707038bfe0c637bccf89fbae5baa3754d"
+    },
+    {
+      "relative_path": "corpus-census.json",
+      "role": "derived-evidence",
+      "size": 857,
+      "sha256": "65738f0db868fa0f983587a1a5a77a8a26299a4dd47fd13f94ce22e40ea85a19"
+    },
+    {
+      "relative_path": "coverage.json",
+      "role": "derived-evidence",
+      "size": 5491,
+      "sha256": "b6bd085c0ce17e80e22563fd356e8c2aa21aa484a095028cfcbffd56e75420b1"
+    },
+    {
+      "relative_path": "evidence-config.json",
+      "role": "derived-evidence",
+      "size": 4350,
+      "sha256": "fca913c65d4750bf98c5676638e281a4d4aa033f1cde5f83a5f1483f1ba04d96"
+    },
+    {
+      "relative_path": "family-membership-input.json",
+      "role": "derived-evidence",
+      "size": 2414,
+      "sha256": "d3c67e577aee7fcafe9e3e125725e695c2e11ed3bed16b005fa5fbc7a7e2baf5"
+    },
+    {
+      "relative_path": "family-membership.json",
+      "role": "derived-evidence",
+      "size": 3094,
+      "sha256": "2cc145a8d11ed2f31445e4e2af5a26e4de1b19bcf281299e4200169a200905a6"
+    },
+    {
+      "relative_path": "frame-slot-provenance.json",
+      "role": "derived-evidence",
+      "size": 787,
+      "sha256": "6eb2514e61c9f2660b0b5af9b59797941a47e5b44cf0bfda6f35bf522e8f0c03"
+    },
+    {
+      "relative_path": "pair-audit.json",
+      "role": "derived-evidence",
+      "size": 4342,
+      "sha256": "c397ba37f65f909ba59b5fe78f9ced403ff068e703d44ec83358d7ae3fab35f3"
+    },
+    {
+      "relative_path": "quality-gate.json",
+      "role": "publication-input",
+      "size": 10919,
+      "sha256": "9fded11b9c464674847e657f42869fce6a11420de1a1a484fcd2eb57ebb8ee85"
+    },
+    {
+      "relative_path": "save-inventory.json",
+      "role": "derived-evidence",
+      "size": 2624,
+      "sha256": "09194570a74e75ae1c3084afe3bd1cbfb4d1f24e1735ca2538679a40c01a5d23"
+    },
+    {
+      "relative_path": "series-groups.json",
+      "role": "derived-evidence",
+      "size": 11606,
+      "sha256": "719b79886d165ce91794113f2c4de81cc5ebe8bb0cae54113ea5cb69df785ec2"
+    },
+    {
+      "relative_path": "series-parse.json",
+      "role": "derived-evidence",
+      "size": 16684,
+      "sha256": "1f60355fa568c9aee35a5ad3491251b378a83b5523a3d9cfbce3add1ec183f68"
+    },
+    {
+      "relative_path": "signed-geometry-audit.json",
+      "role": "derived-evidence",
+      "size": 1629,
+      "sha256": "f0c17f45b881fba7f746f3e081f66af0c628d2caad4ae9f1a44f737a76296fe8"
+    },
+    {
+      "relative_path": "static-exhaustion-checklist.json",
+      "role": "derived-evidence",
+      "size": 1266,
+      "sha256": "61050a5701683b0310d59b93b4cee844fb9d0207f56302db1eb481dfafbc6958"
+    }
+  ],
+  "runtime": {
+    "root": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677",
+    "artifacts": {
+      "HD_HOTA.dll+0x1A677-анализ-gpt-5.6-sol.evidence.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/HD_HOTA.dll+0x1A677-анализ-gpt-5.6-sol.evidence.json",
+      "HD_HOTA.dll+0x1A677-анализ-gpt-5.6-sol.extra.html": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/HD_HOTA.dll+0x1A677-анализ-gpt-5.6-sol.extra.html",
+      "HD_HOTA.dll+0x1A677-анализ-gpt-5.6-sol.html": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/HD_HOTA.dll+0x1A677-анализ-gpt-5.6-sol.html",
+      "HD_HOTA.dll+0x1A677-анализ-gpt-5.6-sol.txt": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/HD_HOTA.dll+0x1A677-анализ-gpt-5.6-sol.txt",
+      "HD_HOTA.dll+0x1A677-краш-логи-и-дампы.zip": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A677/HD_HOTA.dll+0x1A677-краш-логи-и-дампы.zip",
+      "address-proof.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/address-proof.json",
+      "analysis-contract.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/analysis-contract.json",
+      "analysis-promotion-manifest.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/analysis-promotion-manifest.json",
+      "archive-manifest.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/archive-manifest.json",
+      "capabilities.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/capabilities.json",
+      "claims.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/claims.json",
+      "corpus-census.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/corpus-census.json",
+      "coverage.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/coverage.json",
+      "evidence-config.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/evidence-config.json",
+      "family-membership-input.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/family-membership-input.json",
+      "family-membership.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/family-membership.json",
+      "frame-slot-provenance.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/frame-slot-provenance.json",
+      "pair-audit.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/pair-audit.json",
+      "quality-gate.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/quality-gate.json",
+      "save-inventory.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/save-inventory.json",
+      "series-groups.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/series-groups.json",
+      "series-parse.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/series-parse.json",
+      "signed-geometry-audit.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/signed-geometry-audit.json",
+      "static-exhaustion-checklist.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A677/static-exhaustion-checklist.json"
+    }
+  },
+  "coverage": {
+    "total": 24,
+    "verified": 24,
+    "skipped": 0
+  },
+  "manifest_sha256": "b732873faac71084429d18a85efe99ccc04823d25b9ccf6676541895bebeb77d"
+}

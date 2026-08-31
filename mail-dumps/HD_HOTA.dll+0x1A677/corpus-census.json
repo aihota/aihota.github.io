@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-31T13:23:36Z",
+  "mode": "crash_address",
+  "basis": "parsed_exception_address",
+  "dedup": true,
+  "files_matched": 5594,
+  "files_read": 5594,
+  "files_truncated": 0,
+  "unreadable": 0,
+  "crash_logs": 5491,
+  "duplicates_skipped": 1264,
+  "non_crash_files": 103,
+  "missing_address": 0,
+  "hits": 3,
+  "files_with_hits": 3,
+  "distinct": 2,
+  "rows": [
+    {
+      "value": "HD_HOTA.dll+0x1A677",
+      "count": 2,
+      "share_percent": 66.7
+    },
+    {
+      "value": "HD_HOTA.dll+0x1A6A7",
+      "count": 1,
+      "share_percent": 33.3
+    }
+  ],
+  "note": "Compared with the pre-publication census, +1 matched/non-crash file is this case's own published TXT report; crash_logs, hits and distribution are unchanged.",
+  "warning": "exact RVA filter does not include older semantically shifted addresses"
+}

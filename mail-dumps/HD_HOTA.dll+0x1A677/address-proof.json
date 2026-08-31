@@ -1,0 +1,52 @@
+{
+  "module": "HD_HOTA.dll",
+  "addresses": {
+    "runtime": 123774583,
+    "load_base": 123666432,
+    "imagebase": 16777216,
+    "size_of_image": 18845696,
+    "file_offset": 78782,
+    "rva": 108151,
+    "module_offset": 108151,
+    "ida": 16885367
+  },
+  "sources": {
+    "fault_address": "R36 DMP ExceptionInformation[1]=0x00000460",
+    "load_base": "R36 DMP ModuleList: HD_HOTA.dll base 0x075F0000",
+    "imagebase": "R36 exact IDA listing uses imagebase 0x01000000",
+    "file_offset": "R36 DMP MemoryList maps EIP bytes at file offset 0x133BE"
+  },
+  "identity": {
+    "level": "dmp-window",
+    "full_binary_match": false,
+    "window": {
+      "runtime": "0x0760A677",
+      "file_offset": "0x133BE",
+      "size": 12,
+      "matched": 12,
+      "bytes": "8B 04 B9 85 C0 0F 85 88 00 00 00 8B"
+    }
+  },
+  "function": "sub_101A440",
+  "offset_in_function": "0x237",
+  "instruction": "mov eax,[ecx+edi*4]",
+  "related_windows": [
+    {
+      "incident_id": "incident-29c7d157345f9783",
+      "runtime": "0x0449A677",
+      "load_base": "0x04480000",
+      "size_of_image": "0x011FA000",
+      "file_offset": "0xF9DD",
+      "fault_address": "0x00000400",
+      "size": 12,
+      "matched": 12,
+      "bytes": "8B 04 B9 85 C0 0F 85 88 00 00 00 8B"
+    }
+  ],
+  "schema": 1,
+  "kind": "address_proof",
+  "validation": {
+    "status": "passed",
+    "errors": []
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "schema": 2,
+  "kind": "crash_analysis_contract",
+  "case": "family-HD_HOTA.dll+0x1A677",
+  "mechanism": {
+    "kind": "state_corruption",
+    "name": "low_nonpointer_in_Def_groups_table_slot",
+    "causality_level": "L1",
+    "local_mechanism_confirmed": true,
+    "state_origin_confirmed": false
+  },
+  "thread_contexts": [
+    {
+      "source": "exception_stream",
+      "tid": 25484,
+      "incident": "5.7 R36",
+      "registers": {
+        "EIP": "0x0760A677",
+        "ECX": "0x00000460",
+        "EDI": "0x00000000",
+        "ESI": "0x1B41B098"
+      }
+    },
+    {
+      "source": "text_context",
+      "tid": 9476,
+      "incident": "5.7 R36",
+      "stack": [
+        "0x004EADD4",
+        "0x004EADCF",
+        "0x0101ACD0"
+      ]
+    },
+    {
+      "source": "exception_stream",
+      "tid": 31648,
+      "incident": "5.8 R8",
+      "registers": {
+        "EIP": "0x0449A677",
+        "ECX": "0x00000400",
+        "EDI": "0x00000000",
+        "ESI": "0x198CDFE8"
+      }
+    },
+    {
+      "source": "text_context",
+      "tid": 30504,
+      "incident": "5.8 R8",
+      "stack": [
+        "0x004EADD4",
+        "0x004EADCF",
+        "0x0101ACD0"
+      ]
+    }
+  ],
+  "thread_policy": {
+    "register_sets_may_be_combined": false,
+    "reason": "ExceptionStream and reporter stack TIDs differ in both incidents"
+  },
+  "consumer_boundary": {
+    "input_validity": "invalid",
+    "candidate_validity": "invalid",
+    "basis": "_Def_+0x1C is 0x460/0x400 and becomes the array base at EDI=0"
+  },
+  "state_origin_candidates": [
+    {
+      "id": "race",
+      "status": "not_established",
+      "next_evidence": [
+        "same-object cross-thread writer trace",
+        "ordering around first bad store"
+      ]
+    },
+    {
+      "id": "use_after_free",
+      "status": "not_established",
+      "next_evidence": [
+        "allocator free stack",
+        "object generation and reuse trace"
+      ]
+    },
+    {
+      "id": "heap_overwrite",
+      "status": "not_established",
+      "next_evidence": [
+        "first out-of-owner write",
+        "full heap metadata before failure"
+      ]
+    },
+    {
+      "id": "third_party_write",
+      "status": "not_established",
+      "next_evidence": [
+        "hardware watchpoint writer EIP",
+        "writer module and stack"
+      ]
+    }
+  ],
+  "root_cause_declared": false,
+  "structure": {
+    "fields": {
+      "refcount": 24,
+      "groups": 28,
+      "group_count": 40,
+      "active_groups": 44
+    },
+    "invariants": [
+      "groups is null or a mapped pointer",
+      "group index is within the allocated groups table",
+      "published _Def_ remains alive for the draw call"
+    ],
+    "sibling_coverage": {
+      "scanned": 3,
+      "total": 3,
+      "complete": true,
+      "population": "two 0x1A677 incidents plus the 0x1A6A7 semantic sibling"
+    }
+  },
+  "lifecycle": {
+    "counts": {
+      "references": 4,
+      "reads": 2,
+      "writes": 1,
+      "checks": 1,
+      "publishes": 1,
+      "clears": 0
+    },
+    "count_basis": "confirmed minimum from exact listings; not an exhaustive writer census",
+    "enumeration_complete": false,
+    "absence_claims": []
+  },
+  "fixes": [
+    {
+      "fix_role": "containment",
+      "supported_builds": [
+        "5.7 R36",
+        "5.8 R8"
+      ],
+      "expected_evidence": [
+        "invalid groups pointer is rejected before the first table read",
+        "structured diagnostic record includes Def and groups values"
+      ],
+      "differential_test": [
+        "original build reaches access violation",
+        "guarded build logs and skips draw",
+        "valid DEF positive control still draws"
+      ]
+    },
+    {
+      "fix_role": "diagnostic",
+      "supported_builds": [
+        "5.7 R36",
+        "5.8 R8"
+      ],
+      "expected_evidence": [
+        "first writer EIP/TID/stack for _Def_+0x1C",
+        "allocation and lifetime generation"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_role": "derived_battle_save",
+      "phase_role": "derived_after_failure",
+      "incident": "5.7 R36"
+    },
+    {
+      "artifact_role": "derived_battle_save",
+      "phase_role": "derived_after_failure",
+      "incident": "5.8 R8"
+    }
+  ],
+  "family": {
+    "semantic_fingerprint": {
+      "structure_role": "_Def_ groups table",
+      "field_offset": "+0x1C",
+      "access": "read",
+      "call_tail": [
+        "A0_DlgStaticDef_DrawToPcx16_sub_4EAC20",
+        "A0_Def_Sprite_Draw_sub_47B610",
+        "HD_HOTA wrapper",
+        "sub_101A440+0x237"
+      ]
+    },
+    "denominator": {
+      "scanned": 3,
+      "total": 3,
+      "population": "exact current incidents and the identified semantic sibling"
+    }
+  },
+  "call_chain": [
+    {
+      "type": "module_function",
+      "module": "h3hota.exe",
+      "function": "A0_DlgStaticDef_DrawToPcx16_sub_4EAC20",
+      "address": "0x004EAC20"
+    },
+    {
+      "type": "module_function",
+      "module": "HD_HOTA.dll",
+      "function": "sub_101ACB0",
+      "address": "0x0101ACB0"
+    },
+    {
+      "type": "module_function",
+      "module": "HD_HOTA.dll",
+      "function": "sub_101A440",
+      "address": "0x0101A440"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "errors": [],
+    "root_cause_allowed": false
+  },
+  "status": "passed"
+}

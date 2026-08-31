@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "status": "static_exhausted_with_runtime_residue",
+  "categories": [
+    {
+      "id": 1,
+      "name": "crash instruction and arithmetic",
+      "status": "closed"
+    },
+    {
+      "id": 2,
+      "name": "immediate caller",
+      "status": "closed"
+    },
+    {
+      "id": 3,
+      "name": "data provider",
+      "status": "closed_to_DlgStaticDef+0x30"
+    },
+    {
+      "id": 4,
+      "name": "all consumers and wrappers",
+      "status": "closed_by_prior_family_analysis"
+    },
+    {
+      "id": 5,
+      "name": "sibling functions and incidents",
+      "status": "closed"
+    },
+    {
+      "id": 6,
+      "name": "vtable type and constructor",
+      "status": "closed"
+    },
+    {
+      "id": 7,
+      "name": "original SoD path",
+      "status": "closed"
+    },
+    {
+      "id": 8,
+      "name": "writers and lifecycle",
+      "status": "runtime_residue"
+    },
+    {
+      "id": 9,
+      "name": "cross-version stability",
+      "status": "closed"
+    },
+    {
+      "id": 10,
+      "name": "activation condition",
+      "status": "closed"
+    },
+    {
+      "id": 11,
+      "name": "allocation arithmetic",
+      "status": "closed"
+    }
+  ],
+  "runtime_residue": "first non-contract write or lifetime transition is not captured"
+}
