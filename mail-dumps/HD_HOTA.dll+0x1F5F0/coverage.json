@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "generated_at": "2026-09-01T10:04:07.695912+00:00",
+  "generated_at": "2026-09-01T11:59:22.595785+00:00",
   "source": "mail-dumps/HD_HOTA.dll+0x1F5F0/evidence-config.json",
   "axes": [
     "instruction",
@@ -81,7 +81,10 @@
       "evidence": [
         "input:series-parse.json",
         "input:series-groups.json",
-        "input:../HD_HOTA-5.7R20/HD_HOTA.dll+0x1E206-1.8.0-1.txt",
+        "input:family-membership.json",
+        "input:relocation-manifest.json",
+        "input:Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1.txt",
+        "input:Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1.dmp",
         "input:../../modules/HD_HOTA.dll-5.7 R20.txt"
       ],
       "confidence": "выведено из совокупности признаков",

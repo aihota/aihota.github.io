@@ -57,10 +57,66 @@
       },
       "status": "exact_pair",
       "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1.txt",
+      "dmp": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1.dmp",
+      "sha256_txt": "df6658af3f8699fbe278f26e179d745a0e8f1cd17ba6ba043c904116fa7afe4e",
+      "sha256_dmp": "f0d7d822b469c4695788644f6681e76afc81a2de9becc97dc2711686f324ecd7",
+      "context_eip": "0x07E9E206",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1E206",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            40
+          ],
+          "access": "read",
+          "fault_address": "0x00000028"
+        },
+        "instruction": {
+          "available": false,
+          "bytes": "FF 73 28 8B 15 3C D0 03 08 8B F8 B9 B8 71 02",
+          "reason": "opcode_not_in_conservative_subset",
+          "runtime": "0x07E9E206"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18468864,
+        "dmp_module_size": 18468864,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
     }
   ],
   "counts": {
-    "exact_pair": 1,
+    "exact_pair": 2,
     "unverifiable_missing_txt_identity": 0,
     "unverifiable_missing_dmp_identity": 0,
     "same_site_different_exception": 0,

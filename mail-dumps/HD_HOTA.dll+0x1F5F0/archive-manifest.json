@@ -3,10 +3,10 @@
   "mode": "canonical",
   "latest_hd_version": "5.8 R6",
   "counts": {
-    "members": 2,
-    "txt": 1,
-    "dmp": 1,
-    "canonical": 2,
+    "members": 4,
+    "txt": 2,
+    "dmp": 2,
+    "canonical": 4,
     "physical_copies": 0
   },
   "members": [
@@ -25,6 +25,22 @@
       "physical_copy": false,
       "size": 7567,
       "sha256": "7b9ce6b7bfb873f9232d0e408287cc90555e462739aa0d1d42b6b75e4adddd8d"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1.dmp",
+      "archive": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1.dmp",
+      "hd_version": "5.7 R20",
+      "physical_copy": false,
+      "size": 58880,
+      "sha256": "f0d7d822b469c4695788644f6681e76afc81a2de9becc97dc2711686f324ecd7"
+    },
+    {
+      "source": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1.txt",
+      "archive": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1.txt",
+      "hd_version": "5.7 R20",
+      "physical_copy": false,
+      "size": 6402,
+      "sha256": "df6658af3f8699fbe278f26e179d745a0e8f1cd17ba6ba043c904116fa7afe4e"
     }
   ]
 }

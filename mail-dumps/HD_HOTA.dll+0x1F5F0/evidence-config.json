@@ -16,7 +16,10 @@
     {"role": "derived-evidence", "path": "coverage.json"},
     {"role": "derived", "path": "series-parse.json"},
     {"role": "derived", "path": "series-groups.json"},
-    {"role": "source", "path": "../HD_HOTA-5.7R20/HD_HOTA.dll+0x1E206-1.8.0-1.txt"},
+    {"role": "derived-evidence", "path": "family-membership.json"},
+    {"role": "derived-evidence", "path": "relocation-manifest.json"},
+    {"role": "source", "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1.txt"},
+    {"role": "source", "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1.dmp"},
     {"role": "source", "path": "../../modules/HD_HOTA.dll-5.8-R6.txt"},
     {"role": "source", "path": "../../modules/HD_HOTA.dll-5.8-R8.txt"},
     {"role": "source", "path": "../../modules/HD_HOTA.dll-5.7 R20.txt"}
@@ -34,11 +37,12 @@
   ],
   "commands": [
     "dump_profile.py <source.dmp> --esp 0x0019FD54 --out capabilities.json",
-    "pair_audit.py <series-parse.json> --out pair-audit.json --require-complete",
+    "pair_audit.py <case> --json-out <stage>/pair-audit.json --summary-only",
     "address_proof.py create address-proof-input.json --out address-proof.json",
     "analysis_contract.py create analysis-contract-input.json --out analysis-contract.json",
-    "parse_dumps.py <two primary crash TXT> --out series-parse.json",
-    "series_registry.py create series-parse.json --out series-groups.json",
+    "relocate_crash_family MCP plan -> inspect -> apply -> verify",
+    "parse_dumps.py <case> --instruction-access read --json <stage>/series-parse.json",
+    "series_registry.py <stage>/series-parse.json --pair-audit <stage>/pair-audit.json --capabilities capabilities.json --output <stage>/series-groups.json",
     "report_consistency.py --root mail-dumps/HD_HOTA.dll+0x1F5F0"
   ],
   "facts": {
@@ -50,7 +54,7 @@
     "stack_tid": "16132",
     "thread_status": "CONTEXT_THREAD_MISMATCH",
     "causality_level": "L1",
-    "toolchain_commit": "c0c8aef"
+    "toolchain_commit": "300af4c"
   },
   "claims": [
     {
@@ -84,7 +88,7 @@
       "id": "family-partial",
       "type": "family_coverage",
       "statement": "полнота переписи остаётся частичной.",
-      "evidence": ["input:series-parse.json", "input:series-groups.json", "input:../HD_HOTA-5.7R20/HD_HOTA.dll+0x1E206-1.8.0-1.txt", "input:../../modules/HD_HOTA.dll-5.7 R20.txt"],
+      "evidence": ["input:series-parse.json", "input:series-groups.json", "input:family-membership.json", "input:relocation-manifest.json", "input:Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1.txt", "input:Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1.dmp", "input:../../modules/HD_HOTA.dll-5.7 R20.txt"],
       "confidence": "выведено из совокупности признаков",
       "applicable_axes": ["family_coverage"],
       "confidence_vector": {"instruction": "not_applicable", "mechanism": "not_applicable", "state_origin": "not_applicable", "family_coverage": "probable"}

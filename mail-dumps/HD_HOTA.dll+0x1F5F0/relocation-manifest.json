@@ -1,0 +1,62 @@
+{
+  "version": 3,
+  "created": "2026-09-01",
+  "target": "mail-dumps/HD_HOTA.dll+0x1F5F0",
+  "source_root": "",
+  "relation": "confirmed_same_defect",
+  "reason": "Второй подтверждённый первичный TXT и его строго сопоставленный DMP должны быть физически материализованы в деле и входить в архив до установки семейного счётчика 2",
+  "count_in_family": true,
+  "publish_with_primary": true,
+  "family_contract": {
+    "event_role": "crash",
+    "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+    "operation": "read",
+    "mechanism_side": "source",
+    "events": 1
+  },
+  "state": "applied",
+  "items": [
+    {
+      "source": "mail-dumps/HD_HOTA-5.7R20/HD_HOTA.dll+0x1E206-1.8.0-1.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1F5F0/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1.txt",
+      "kind": "txt",
+      "size": 6402,
+      "sha256": "df6658af3f8699fbe278f26e179d745a0e8f1cd17ba6ba043c904116fa7afe4e",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing",
+      "pair_check": {
+        "context_eip": "0x07E9E206",
+        "module": "HD_HOTA.dll",
+        "rva": "0x1E206",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_HOTA.dll+0x1E206-1.8.0-1"
+      }
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x1E206-1.8.0-1.dmp",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1F5F0/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1.dmp",
+      "kind": "dmp",
+      "size": 58880,
+      "sha256": "f0d7d822b469c4695788644f6681e76afc81a2de9becc97dc2711686f324ecd7",
+      "pair_check": {
+        "context_eip": "0x07E9E206",
+        "module": "HD_HOTA.dll",
+        "rva": "0x1E206",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_HOTA.dll+0x1E206-1.8.0-1"
+      },
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing"
+    }
+  ],
+  "mcp_relocation_seal": {
+    "schema": 1,
+    "hmac_sha256": "29decb18c6d7d0a5b3f8413e184e1435c6ea5df1872605b3809a93be46bb970b"
+  }
+}

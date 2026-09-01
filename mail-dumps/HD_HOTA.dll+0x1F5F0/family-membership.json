@@ -1,15 +1,15 @@
 {
   "schema": 4,
-  "generated_at": "2026-09-01T10:07:59.880623+00:00",
+  "generated_at": "2026-09-01T11:50:09.101437+00:00",
   "family_id": "hd-hota-slider-null-bitmap816-plus-0x28",
-  "source": "mcp/.tmp-tools/case-stage/HD_HOTA.dll+0x1F5F0/family-membership-input.json",
+  "source": "mcp/.tmp-tools/case-rebuild/HD_HOTA.dll+0x1F5F0/family-membership-input.json",
   "scope_id": "slider-family-two-primary-incidents",
   "scope_kind": "cross_series",
   "scope": {
     "id": "slider-family-two-primary-incidents",
     "kind": "cross_series",
     "population": "two independently parsed primary crash incidents selected by exact slider-resource mechanism",
-    "selection_basis": "primary TXT plus exact per-version listing; DMP available for R6",
+    "selection_basis": "two materialized primary TXT/DMP pairs plus exact per-version listings",
     "limitation": "classification is complete for these two candidates, not for the entire crash corpus",
     "address_range": {
       "start_rva": "0x1E206",
@@ -33,12 +33,14 @@
     {
       "incident_id": "incident-25390449742f652f",
       "membership": "confirmed",
-      "basis": "5.7 R20 primary TXT and exact listing show two GetBitmap816 slider requests followed by a NULL-base read at Bitmap816+0x28",
+      "basis": "5.7 R20 materialized TXT/DMP pair and exact listing show two GetBitmap816 slider requests followed by a NULL-base read at Bitmap816+0x28",
       "evidence": [
-        "../HD_HOTA-5.7R20/HD_HOTA.dll+0x1E206-1.8.0-1.txt",
-        "../../modules/HD_HOTA.dll-5.7 R20.txt",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1.txt",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1.dmp",
+        "pair-audit.json",
         "series-parse.json",
-        "series-groups.json"
+        "series-groups.json",
+        "../../modules/HD_HOTA.dll-5.7 R20.txt"
       ],
       "fingerprint": {
         "structure_role": "nullable Bitmap816 provider result",
