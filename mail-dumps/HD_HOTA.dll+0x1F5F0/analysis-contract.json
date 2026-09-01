@@ -1,0 +1,181 @@
+{
+  "schema": 2,
+  "kind": "crash_analysis_contract",
+  "mechanism": {
+    "kind": "unknown",
+    "local_mechanism": "unchecked nullable resource-provider result",
+    "established": true,
+    "state_origin": "not_established",
+    "next_required": "trace GetBitmap816 branch and failure reason for slider.pcx and sliderV.pcx"
+  },
+  "thread_contexts": [
+    {
+      "source": "exception_stream",
+      "tid": 16000,
+      "registers": {
+        "EIP": "0x0882F5F0",
+        "EAX": "0x00000000",
+        "EDI": "0x00000000",
+        "ESP": "0x0019FD54",
+        "EBP": "0x0019FDC0"
+      }
+    },
+    {
+      "source": "thread_list",
+      "tid": 16132,
+      "stack": [
+        "0x0019F678..0x001A0000 contains recorded ESP/EBP"
+      ]
+    }
+  ],
+  "thread_policy": {
+    "register_sets_may_be_combined": false,
+    "status": "CONTEXT_THREAD_MISMATCH",
+    "rule": "keep ExceptionStream registers separate from ThreadList attribution"
+  },
+  "consumer_boundary": {
+    "input_validity": "unknown",
+    "candidate_validity": "invalid",
+    "evidence": "GetBitmap816 returned NULL; consumer dereferenced EDI+0x28"
+  },
+  "state_origin_candidates": [
+    {
+      "id": "race",
+      "status": "not_established",
+      "next_evidence": [
+        "same-thread provider trace and ordering"
+      ]
+    },
+    {
+      "id": "use_after_free",
+      "status": "not_established",
+      "next_evidence": [
+        "full dump or allocator lifetime trace"
+      ]
+    },
+    {
+      "id": "heap_overwrite",
+      "status": "not_established",
+      "next_evidence": [
+        "full heap snapshot or first-writer capture"
+      ]
+    },
+    {
+      "id": "third_party_write",
+      "status": "not_established",
+      "next_evidence": [
+        "writer module and watchpoint stack"
+      ]
+    }
+  ],
+  "root_cause_declared": false,
+  "structure": {
+    "fields": {
+      "first_bitmap_field": 40,
+      "second_bitmap_field": 36
+    },
+    "invariants": [
+      "GetBitmap816 result is non-NULL before any field access"
+    ],
+    "sibling_coverage": {
+      "scanned": 2,
+      "total": 2,
+      "complete": true,
+      "scope": "two nullable results consumed in sub_101F5C0"
+    }
+  },
+  "lifecycle": {
+    "counts": {
+      "references": 2,
+      "reads": 2,
+      "writes": 2,
+      "checks": 0,
+      "publishes": 0,
+      "clears": 0
+    },
+    "enumeration_complete": false,
+    "absence_claims": []
+  },
+  "fixes": [
+    {
+      "fix_role": "containment",
+      "supported_builds": [
+        "HD-mod 5.8 R6",
+        "HD-mod 5.8 R8"
+      ],
+      "expected_evidence": [
+        "NULL path exits before [EDI+0x28] and [EBX+0x24]"
+      ],
+      "differential_test": "force NULL for slider.pcx, sliderV.pcx, then both"
+    },
+    {
+      "fix_role": "diagnostic",
+      "supported_builds": [
+        "HD-mod 5.8 R6",
+        "HD-mod 5.8 R8"
+      ],
+      "expected_evidence": [
+        "provider branch and exact resource failure reason are logged"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_role": "source_crash_log",
+      "phase_role": "causal_input",
+      "path": "HD_HOTA.dll+0x1F5F0-5.8-R6-181.txt"
+    },
+    {
+      "artifact_role": "source_minidump",
+      "phase_role": "causal_input",
+      "path": "HD_HOTA.dll+0x1F5F0-5.8-R6-181.dmp"
+    },
+    {
+      "artifact_role": "source_listing",
+      "phase_role": "causal_input",
+      "path": "modules/HD_HOTA.dll-5.8-R6.txt"
+    },
+    {
+      "artifact_role": "derived_series_registry",
+      "phase_role": "contextual",
+      "path": "series-groups.json"
+    }
+  ],
+  "family": {
+    "semantic_fingerprint": {
+      "structure_role": "nullable Bitmap816 provider result",
+      "field_offset": "+0x28",
+      "access": "read",
+      "call_tail": [
+        "sub_10206F0",
+        "sub_101F5C0",
+        "GetBitmap816"
+      ]
+    },
+    "denominator": {
+      "scanned": 2,
+      "total": 2,
+      "scope": "two independently parsed primary incidents"
+    }
+  },
+  "call_chain": [
+    {
+      "type": "module_function",
+      "module": "HD_HOTA.dll",
+      "function": "sub_10206F0",
+      "address": "0x010206F0"
+    },
+    {
+      "type": "module_function",
+      "module": "HD_HOTA.dll",
+      "function": "sub_101F5C0",
+      "address": "0x0101F5C0"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "errors": [],
+    "root_cause_allowed": false
+  },
+  "status": "passed"
+}

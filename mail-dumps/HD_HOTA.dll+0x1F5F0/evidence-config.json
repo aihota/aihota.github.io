@@ -1,0 +1,111 @@
+{
+  "schema": 2,
+  "case_root": ".",
+  "project_root": "../..",
+  "report": "HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.txt",
+  "out": "HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.evidence.json",
+  "manifest_schema": 4,
+  "code_evidence": "dmp-window",
+  "inputs": [
+    {"role": "source", "path": "HD_HOTA.dll+0x1F5F0-5.8-R6-181.txt"},
+    {"role": "source", "path": "HD_HOTA.dll+0x1F5F0-5.8-R6-181.dmp"},
+    {"role": "derived-evidence", "path": "capabilities.json"},
+    {"role": "derived-evidence", "path": "pair-audit.json"},
+    {"role": "derived-evidence", "path": "address-proof.json"},
+    {"role": "derived-evidence", "path": "analysis-contract.json"},
+    {"role": "derived-evidence", "path": "coverage.json"},
+    {"role": "derived", "path": "series-parse.json"},
+    {"role": "derived", "path": "series-groups.json"},
+    {"role": "source", "path": "../HD_HOTA-5.7R20/HD_HOTA.dll+0x1E206-1.8.0-1.txt"},
+    {"role": "source", "path": "../../modules/HD_HOTA.dll-5.8-R6.txt"},
+    {"role": "source", "path": "../../modules/HD_HOTA.dll-5.8-R8.txt"},
+    {"role": "source", "path": "../../modules/HD_HOTA.dll-5.7 R20.txt"}
+  ],
+  "tools": [
+    ".agents/skills/address-mapping/dump_profile.py",
+    ".agents/skills/multi-dump-diff/pair_audit.py",
+    ".agents/skills/address-mapping/address_proof.py",
+    ".agents/skills/hota-crash-triage/analysis_contract.py",
+    ".agents/skills/multi-dump-diff/parse_dumps.py",
+    ".agents/skills/multi-dump-diff/series_registry.py",
+    ".agents/skills/hota-crash-triage/coverage_contract.py",
+    ".agents/skills/hota-crash-triage/evidence_manifest.py",
+    "report_consistency.py"
+  ],
+  "commands": [
+    "dump_profile.py <source.dmp> --esp 0x0019FD54 --out capabilities.json",
+    "pair_audit.py <series-parse.json> --out pair-audit.json --require-complete",
+    "address_proof.py create address-proof-input.json --out address-proof.json",
+    "analysis_contract.py create analysis-contract-input.json --out analysis-contract.json",
+    "parse_dumps.py <two primary crash TXT> --out series-parse.json",
+    "series_registry.py create series-parse.json --out series-groups.json",
+    "report_consistency.py --root mail-dumps/HD_HOTA.dll+0x1F5F0"
+  ],
+  "facts": {
+    "exception_code": "0xC0000005",
+    "fault_address": "0x00000028",
+    "runtime_eip": "0x0882F5F0",
+    "module_rva": "0x1F5F0",
+    "exception_tid": "16000",
+    "stack_tid": "16132",
+    "thread_status": "CONTEXT_THREAD_MISMATCH",
+    "causality_level": "L1",
+    "toolchain_commit": "c0c8aef"
+  },
+  "claims": [
+    {
+      "id": "crash-site-r6",
+      "type": "crash_site",
+      "statement": "вычисляет адрес 0x00000028, точно совпадающий с адресом чтения в журнале.",
+      "evidence": ["input:pair-audit.json", "input:address-proof.json", "input:capabilities.json"],
+      "confidence": "видно непосредственно в DMP",
+      "applicable_axes": ["instruction"],
+      "confidence_vector": {"instruction": "confirmed", "mechanism": "not_applicable", "state_origin": "not_applicable", "family_coverage": "not_applicable"}
+    },
+    {
+      "id": "local-null-mechanism",
+      "type": "local_mechanism",
+      "statement": "HD_HOTA.dll использует допускающий NULL результат GetBitmap816 без проверки.",
+      "evidence": ["input:pair-audit.json", "input:analysis-contract.json", "input:../../modules/HD_HOTA.dll-5.8-R6.txt"],
+      "confidence": "однозначно следует из листинга",
+      "applicable_axes": ["mechanism"],
+      "confidence_vector": {"instruction": "not_applicable", "mechanism": "confirmed", "state_origin": "not_applicable", "family_coverage": "not_applicable"}
+    },
+    {
+      "id": "state-origin-unknown",
+      "type": "state_origin",
+      "statement": "двух возвратов NULL не установлена.",
+      "evidence": ["input:analysis-contract.json", "input:capabilities.json"],
+      "confidence": "не проверено",
+      "applicable_axes": ["state_origin"],
+      "confidence_vector": {"instruction": "not_applicable", "mechanism": "not_applicable", "state_origin": "unknown", "family_coverage": "not_applicable"}
+    },
+    {
+      "id": "family-partial",
+      "type": "family_coverage",
+      "statement": "полнота переписи остаётся частичной.",
+      "evidence": ["input:series-parse.json", "input:series-groups.json", "input:../HD_HOTA-5.7R20/HD_HOTA.dll+0x1E206-1.8.0-1.txt", "input:../../modules/HD_HOTA.dll-5.7 R20.txt"],
+      "confidence": "выведено из совокупности признаков",
+      "applicable_axes": ["family_coverage"],
+      "confidence_vector": {"instruction": "not_applicable", "mechanism": "not_applicable", "state_origin": "not_applicable", "family_coverage": "probable"}
+    },
+    {
+      "id": "thread-boundary",
+      "type": "limitation",
+      "statement": "CONTEXT_THREAD_MISMATCH сохранён как ограничение входа.",
+      "evidence": ["input:capabilities.json", "input:analysis-contract.json", "fact:exception_tid", "fact:stack_tid"],
+      "confidence": "выведено из совокупности признаков",
+      "applicable_axes": [],
+      "confidence_vector": {"instruction": "not_applicable", "mechanism": "not_applicable", "state_origin": "not_applicable", "family_coverage": "not_applicable"}
+    },
+    {
+      "id": "containment-fix",
+      "type": "fix",
+      "statement": "Сразу после второго вызова проверить EDI и EAX; если любой равен NULL, перейти",
+      "evidence": ["input:analysis-contract.json", "input:../../modules/HD_HOTA.dll-5.8-R6.txt", "input:../../modules/HD_HOTA.dll-5.8-R8.txt"],
+      "confidence": "однозначно следует из листинга",
+      "applicable_axes": [],
+      "confidence_vector": {"instruction": "not_applicable", "mechanism": "not_applicable", "state_origin": "not_applicable", "family_coverage": "not_applicable"}
+    }
+  ]
+}

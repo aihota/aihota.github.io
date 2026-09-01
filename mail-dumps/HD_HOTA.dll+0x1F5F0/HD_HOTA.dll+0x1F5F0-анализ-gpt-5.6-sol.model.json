@@ -1,0 +1,8 @@
+{
+  "kind": "report_model_provenance",
+  "model": "GPT-5.6 Sol",
+  "model_slug": "gpt-5.6-sol",
+  "report": "HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.txt",
+  "schema": 1,
+  "source": "user_confirmed"
+}

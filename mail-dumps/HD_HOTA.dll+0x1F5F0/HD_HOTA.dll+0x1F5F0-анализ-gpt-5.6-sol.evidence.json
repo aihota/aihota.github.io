@@ -1,0 +1,464 @@
+{
+  "schema": 4,
+  "generated_at": "2026-09-01T10:06:14.289864+00:00",
+  "parser_revision": "c0c8aefc0896c8fd2cd4e847333cf05e8d42d84d",
+  "report": {
+    "path": "HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.txt",
+    "size": 22242,
+    "sha256": "566c4537cf0fc217effe072fb68185a079e848bc2c820b97e9d8ba0435200db1"
+  },
+  "inputs": [
+    {
+      "path": "HD_HOTA.dll+0x1F5F0-5.8-R6-181.txt",
+      "size": 7567,
+      "sha256": "7b9ce6b7bfb873f9232d0e408287cc90555e462739aa0d1d42b6b75e4adddd8d",
+      "role": "source"
+    },
+    {
+      "path": "HD_HOTA.dll+0x1F5F0-5.8-R6-181.dmp",
+      "size": 68874,
+      "sha256": "a429f9678033160d6428e272b86c96be0121b6fde7628bdfa00e00b27b19a964",
+      "role": "source"
+    },
+    {
+      "path": "capabilities.json",
+      "size": 3134,
+      "sha256": "4cac57e91a4cda92f19fec58a6c62a168b50b22095ff7b859cd0fe20dd943aa9",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "pair-audit.json",
+      "size": 2520,
+      "sha256": "a2205a6774f9ea3b389826c87a24cb010b4f86b80556e09ea200b1b4481c3a6d",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "address-proof.json",
+      "size": 1088,
+      "sha256": "5cb5209890e3e8879fd955e5fdd1fe3461842b17e81124c441b700e7a1767423",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "analysis-contract.json",
+      "size": 4356,
+      "sha256": "4ef735fd0f1b7ddf617a72932d67bbc6a6f9842a0902faee869955140c31ac8e",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "coverage.json",
+      "size": 5232,
+      "sha256": "e102ed892c9db264a353c3803002c2da074bfbf42d816b1a3e945c19e42b4d57",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-parse.json",
+      "size": 9143,
+      "sha256": "282a82a6a67b0f87718766ef7c6b93f136aad81c431098b3e1dc0137968eb315",
+      "role": "derived"
+    },
+    {
+      "path": "series-groups.json",
+      "size": 14166,
+      "sha256": "26b748844832ac4a8402b330482d39382718f0053fcfdc1febe1b48d67b46e7a",
+      "role": "derived"
+    },
+    {
+      "path": "../HD_HOTA-5.7R20/HD_HOTA.dll+0x1E206-1.8.0-1.txt",
+      "size": 6402,
+      "sha256": "df6658af3f8699fbe278f26e179d745a0e8f1cd17ba6ba043c904116fa7afe4e",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.8-R6.txt",
+      "size": 50707671,
+      "sha256": "40d8d348a014e8b49d39d001d554039a6ce70b6ec2286a85ed6b093b3419a96f",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.8-R8.txt",
+      "size": 50707665,
+      "sha256": "88f06be651a395fdc165d78260574dd24d916913f56739d6ff0a415b45d78d25",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.7 R20.txt",
+      "size": 42114885,
+      "sha256": "2415e32f39fa5491d237852d6eeaa075ce54b8c3d11d6deb5484e1208c80b302",
+      "role": "source"
+    },
+    {
+      "path": "evidence-config.json",
+      "size": 6099,
+      "sha256": "83db8b49de3f54cb1e0f91ebdc4546fe8b366ed5e4ec663b9b4eba69e77b78da",
+      "role": "derived-evidence"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/address-mapping/address_proof.py",
+      "size": 6624,
+      "sha256": "1fce2fe7c0077b89ad68455b67305a8d86f3fe0bf1ea5244d4b3244db9c7ba51"
+    },
+    {
+      "path": "../../.agents/skills/address-mapping/dump_profile.py",
+      "size": 32614,
+      "sha256": "8eb85776432a884c957cd25cf14ea7323a0ec203d60d21899ed4c9560c830938"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/analysis_contract.py",
+      "size": 12086,
+      "sha256": "03d51c9a2347f741e926029b8b3fc87343157dd8a37c290c5851b9c5f189e2e9"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/artifact_io.py",
+      "size": 5947,
+      "sha256": "d06234b55d72565c5e7adcd024a261f350b49412492f1d8af2ae593d087751a3"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+      "size": 9295,
+      "sha256": "c1b63505878825761295769ae58240f1f231ab7b5745943a9d52d4e93f3f1d21"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "size": 43317,
+      "sha256": "4127d05c3db4897243185f7b237a9bf24d9e89af9985354cf3c91a1e5e1627cb"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/report_safe_edit.py",
+      "size": 3608,
+      "sha256": "57e381a92ff1a80499eea3b947669dbd294c538cacf7664be1a996abfabec73f"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/toolchain_closure.py",
+      "size": 10465,
+      "sha256": "ba4f089eb12e8438cd0a1fd0ebdcb37e0cc846477e33ebffae53e137b59fddbf"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/family_fingerprint.py",
+      "size": 10751,
+      "sha256": "fa68be0e99b1b2e24fb2b143a231a3071bd65022d7284ef7ca6a2a8d65d5307f"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/pair_audit.py",
+      "size": 27759,
+      "sha256": "01c4484404682450eff88b8cae13b291651bd1c011cfb3369b2147f11c2db1d7"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/parse_dumps.py",
+      "size": 25318,
+      "sha256": "35e6d7ed23b808756a3599b983ac1022fdc78ecdbc1957fa37e770aeba21cf32"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/relocate_crash_family.py",
+      "size": 37831,
+      "sha256": "24ed349a271c6dea5e23f7e94aec3be00bfe9e298f26470c51b20d6e33a27ece"
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/series_registry.py",
+      "size": 32879,
+      "sha256": "b7c1967ccf639f3046a3d332a7acb74ab6f6679af8f35fce68212b3f95a90c9a"
+    },
+    {
+      "path": "../../report_consistency.py",
+      "size": 17038,
+      "sha256": "69eb74f28a76fa771758eb82e19066bc25f9933e70136e82e6c43668e29ca9d2"
+    },
+    {
+      "path": "../../report_debt.py",
+      "size": 4279,
+      "sha256": "5746c1218b43e17137215750a9ac720ad7bc940afd18918e6fc56a6e85dc070e"
+    },
+    {
+      "path": "../../report_lifecycle.py",
+      "size": 30085,
+      "sha256": "6ea8cf5743cc684d4b177cdfa610d99917c527d9e0a42c9c5a6808877f0b8f58"
+    }
+  ],
+  "commands": [
+    "dump_profile.py <source.dmp> --esp 0x0019FD54 --out capabilities.json",
+    "pair_audit.py <series-parse.json> --out pair-audit.json --require-complete",
+    "address_proof.py create address-proof-input.json --out address-proof.json",
+    "analysis_contract.py create analysis-contract-input.json --out analysis-contract.json",
+    "parse_dumps.py <two primary crash TXT> --out series-parse.json",
+    "series_registry.py create series-parse.json --out series-groups.json",
+    "report_consistency.py --root mail-dumps/HD_HOTA.dll+0x1F5F0"
+  ],
+  "facts": {
+    "exception_code": "0xC0000005",
+    "fault_address": "0x00000028",
+    "runtime_eip": "0x0882F5F0",
+    "module_rva": "0x1F5F0",
+    "exception_tid": "16000",
+    "stack_tid": "16132",
+    "thread_status": "CONTEXT_THREAD_MISMATCH",
+    "causality_level": "L1",
+    "toolchain_commit": "c0c8aef"
+  },
+  "claims": [
+    {
+      "confidence": "видно непосредственно в DMP",
+      "marker": "<!-- claim:crash-site-r6 -->",
+      "id": "crash-site-r6",
+      "type": "crash_site",
+      "statement": "вычисляет адрес 0x00000028, точно совпадающий с адресом чтения в журнале.",
+      "evidence": [
+        "input:pair-audit.json",
+        "input:address-proof.json",
+        "input:capabilities.json"
+      ],
+      "applicable_axes": [
+        "instruction"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "marker": "<!-- claim:local-null-mechanism -->",
+      "id": "local-null-mechanism",
+      "type": "local_mechanism",
+      "statement": "HD_HOTA.dll использует допускающий NULL результат GetBitmap816 без проверки.",
+      "evidence": [
+        "input:pair-audit.json",
+        "input:analysis-contract.json",
+        "input:../../modules/HD_HOTA.dll-5.8-R6.txt"
+      ],
+      "applicable_axes": [
+        "mechanism"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "confirmed",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "marker": "<!-- claim:state-origin-unknown -->",
+      "id": "state-origin-unknown",
+      "type": "state_origin",
+      "statement": "двух возвратов NULL не установлена.",
+      "evidence": [
+        "input:analysis-contract.json",
+        "input:capabilities.json"
+      ],
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "marker": "<!-- claim:family-partial -->",
+      "id": "family-partial",
+      "type": "family_coverage",
+      "statement": "полнота переписи остаётся частичной.",
+      "evidence": [
+        "input:series-parse.json",
+        "input:series-groups.json",
+        "input:../HD_HOTA-5.7R20/HD_HOTA.dll+0x1E206-1.8.0-1.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R20.txt"
+      ],
+      "applicable_axes": [
+        "family_coverage"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "marker": "<!-- claim:thread-boundary -->",
+      "id": "thread-boundary",
+      "type": "limitation",
+      "statement": "CONTEXT_THREAD_MISMATCH сохранён как ограничение входа.",
+      "evidence": [
+        "input:capabilities.json",
+        "input:analysis-contract.json",
+        "fact:exception_tid",
+        "fact:stack_tid"
+      ],
+      "applicable_axes": [],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "marker": "<!-- claim:containment-fix -->",
+      "id": "containment-fix",
+      "type": "fix",
+      "statement": "Сразу после второго вызова проверить EDI и EAX; если любой равен NULL, перейти",
+      "evidence": [
+        "input:analysis-contract.json",
+        "input:../../modules/HD_HOTA.dll-5.8-R6.txt",
+        "input:../../modules/HD_HOTA.dll-5.8-R8.txt"
+      ],
+      "applicable_axes": [],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    }
+  ],
+  "code_evidence": {
+    "level": "dmp-window",
+    "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
+  },
+  "toolchain": {
+    "schema": 1,
+    "kind": "toolchain_closure",
+    "git_commit": "c0c8aefc0896c8fd2cd4e847333cf05e8d42d84d",
+    "direct_tools": [
+      ".agents/skills/address-mapping/address_proof.py",
+      ".agents/skills/address-mapping/dump_profile.py",
+      ".agents/skills/hota-crash-triage/analysis_contract.py",
+      ".agents/skills/hota-crash-triage/coverage_contract.py",
+      ".agents/skills/hota-crash-triage/evidence_manifest.py",
+      ".agents/skills/multi-dump-diff/pair_audit.py",
+      ".agents/skills/multi-dump-diff/parse_dumps.py",
+      ".agents/skills/multi-dump-diff/series_registry.py",
+      "report_consistency.py"
+    ],
+    "asset_roots": [],
+    "files": [
+      {
+        "repo_path": ".agents/skills/address-mapping/address_proof.py",
+        "size": 6624,
+        "sha256": "1fce2fe7c0077b89ad68455b67305a8d86f3fe0bf1ea5244d4b3244db9c7ba51",
+        "git_sha256": "1fce2fe7c0077b89ad68455b67305a8d86f3fe0bf1ea5244d4b3244db9c7ba51",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/address-mapping/dump_profile.py",
+        "size": 32614,
+        "sha256": "8eb85776432a884c957cd25cf14ea7323a0ec203d60d21899ed4c9560c830938",
+        "git_sha256": "8eb85776432a884c957cd25cf14ea7323a0ec203d60d21899ed4c9560c830938",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/analysis_contract.py",
+        "size": 12086,
+        "sha256": "03d51c9a2347f741e926029b8b3fc87343157dd8a37c290c5851b9c5f189e2e9",
+        "git_sha256": "03d51c9a2347f741e926029b8b3fc87343157dd8a37c290c5851b9c5f189e2e9",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/artifact_io.py",
+        "size": 5947,
+        "sha256": "d06234b55d72565c5e7adcd024a261f350b49412492f1d8af2ae593d087751a3",
+        "git_sha256": "d06234b55d72565c5e7adcd024a261f350b49412492f1d8af2ae593d087751a3",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/coverage_contract.py",
+        "size": 9295,
+        "sha256": "c1b63505878825761295769ae58240f1f231ab7b5745943a9d52d4e93f3f1d21",
+        "git_sha256": "c1b63505878825761295769ae58240f1f231ab7b5745943a9d52d4e93f3f1d21",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/evidence_manifest.py",
+        "size": 43317,
+        "sha256": "4127d05c3db4897243185f7b237a9bf24d9e89af9985354cf3c91a1e5e1627cb",
+        "git_sha256": "4127d05c3db4897243185f7b237a9bf24d9e89af9985354cf3c91a1e5e1627cb",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/report_safe_edit.py",
+        "size": 3608,
+        "sha256": "57e381a92ff1a80499eea3b947669dbd294c538cacf7664be1a996abfabec73f",
+        "git_sha256": "57e381a92ff1a80499eea3b947669dbd294c538cacf7664be1a996abfabec73f",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/hota-crash-triage/toolchain_closure.py",
+        "size": 10465,
+        "sha256": "ba4f089eb12e8438cd0a1fd0ebdcb37e0cc846477e33ebffae53e137b59fddbf",
+        "git_sha256": "ba4f089eb12e8438cd0a1fd0ebdcb37e0cc846477e33ebffae53e137b59fddbf",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/multi-dump-diff/family_fingerprint.py",
+        "size": 10751,
+        "sha256": "fa68be0e99b1b2e24fb2b143a231a3071bd65022d7284ef7ca6a2a8d65d5307f",
+        "git_sha256": "fa68be0e99b1b2e24fb2b143a231a3071bd65022d7284ef7ca6a2a8d65d5307f",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/multi-dump-diff/pair_audit.py",
+        "size": 27759,
+        "sha256": "01c4484404682450eff88b8cae13b291651bd1c011cfb3369b2147f11c2db1d7",
+        "git_sha256": "01c4484404682450eff88b8cae13b291651bd1c011cfb3369b2147f11c2db1d7",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/multi-dump-diff/parse_dumps.py",
+        "size": 25318,
+        "sha256": "35e6d7ed23b808756a3599b983ac1022fdc78ecdbc1957fa37e770aeba21cf32",
+        "git_sha256": "35e6d7ed23b808756a3599b983ac1022fdc78ecdbc1957fa37e770aeba21cf32",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/multi-dump-diff/relocate_crash_family.py",
+        "size": 37831,
+        "sha256": "24ed349a271c6dea5e23f7e94aec3be00bfe9e298f26470c51b20d6e33a27ece",
+        "git_sha256": "24ed349a271c6dea5e23f7e94aec3be00bfe9e298f26470c51b20d6e33a27ece",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": ".agents/skills/multi-dump-diff/series_registry.py",
+        "size": 32879,
+        "sha256": "b7c1967ccf639f3046a3d332a7acb74ab6f6679af8f35fce68212b3f95a90c9a",
+        "git_sha256": "b7c1967ccf639f3046a3d332a7acb74ab6f6679af8f35fce68212b3f95a90c9a",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": "report_consistency.py",
+        "size": 17038,
+        "sha256": "69eb74f28a76fa771758eb82e19066bc25f9933e70136e82e6c43668e29ca9d2",
+        "git_sha256": "69eb74f28a76fa771758eb82e19066bc25f9933e70136e82e6c43668e29ca9d2",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": "report_debt.py",
+        "size": 4279,
+        "sha256": "5746c1218b43e17137215750a9ac720ad7bc940afd18918e6fc56a6e85dc070e",
+        "git_sha256": "5746c1218b43e17137215750a9ac720ad7bc940afd18918e6fc56a6e85dc070e",
+        "git_status": "matched"
+      },
+      {
+        "repo_path": "report_lifecycle.py",
+        "size": 30085,
+        "sha256": "6ea8cf5743cc684d4b177cdfa610d99917c527d9e0a42c9c5a6808877f0b8f58",
+        "git_sha256": "6ea8cf5743cc684d4b177cdfa610d99917c527d9e0a42c9c5a6808877f0b8f58",
+        "git_status": "matched"
+      }
+    ],
+    "file_count": 16,
+    "bundle_sha256": "430328dd1e90410d38a7f006b3976aad59ffb5c4eed29703b8f05c7df3572fed",
+    "status": "clean",
+    "errors": []
+  },
+  "renderer_bundle_sha256": "430328dd1e90410d38a7f006b3976aad59ffb5c4eed29703b8f05c7df3572fed",
+  "machine_results": []
+}

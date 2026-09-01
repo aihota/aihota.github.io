@@ -1,0 +1,131 @@
+{
+  "schema": 2,
+  "kind": "phase_manifest",
+  "phase": "final-publication",
+  "finalized": true,
+  "artifacts": [
+    {
+      "relative_path": "HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.evidence.json",
+      "role": "publication-input",
+      "size": 17493,
+      "sha256": "23eacac6853b6baf21c5f01ad2fa9f04f9c279a5b164d655ef8190c3ff99cec8"
+    },
+    {
+      "relative_path": "HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.extra.html",
+      "role": "publication-input",
+      "size": 1482,
+      "sha256": "19534327aa1dc014c415519039cbb6cba42e298c38a9329e709e1430d1774f14"
+    },
+    {
+      "relative_path": "HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.html",
+      "role": "publication-input",
+      "size": 536409,
+      "sha256": "b04343ad1bafcb674cfd6093bb0a03a8eb4de9800390032a500985e194aef71f"
+    },
+    {
+      "relative_path": "HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.model.json",
+      "role": "publication-input",
+      "size": 206,
+      "sha256": "f8b6a0debc98406bd1296bbad979071c9c546432efc8a8436bad9d1ad6cd484b"
+    },
+    {
+      "relative_path": "HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.txt",
+      "role": "publication-input",
+      "size": 22242,
+      "sha256": "566c4537cf0fc217effe072fb68185a079e848bc2c820b97e9d8ba0435200db1"
+    },
+    {
+      "relative_path": "HD_HOTA.dll+0x1F5F0-краш-логи-и-дампы.zip",
+      "role": "publication-input",
+      "size": 19258,
+      "sha256": "d2366a69d726dd8a93d9af28ce9a729430cbbd4489889965748ecc978b70c7f7"
+    },
+    {
+      "relative_path": "address-proof.json",
+      "role": "derived-evidence",
+      "size": 1088,
+      "sha256": "5cb5209890e3e8879fd955e5fdd1fe3461842b17e81124c441b700e7a1767423"
+    },
+    {
+      "relative_path": "analysis-contract.json",
+      "role": "derived-evidence",
+      "size": 4356,
+      "sha256": "4ef735fd0f1b7ddf617a72932d67bbc6a6f9842a0902faee869955140c31ac8e"
+    },
+    {
+      "relative_path": "analysis-promotion-manifest.json",
+      "role": "publication-input",
+      "size": 1028,
+      "sha256": "8027c76752a79da3748dce63fbc7d8484995accb6caacf5fc81a0403be64b271"
+    },
+    {
+      "relative_path": "archive-manifest.json",
+      "role": "publication-input",
+      "size": 774,
+      "sha256": "1323f1bddd2e9a44c9e4e129b5b26cc76ab410f9129c10e28a2b72b156854021"
+    },
+    {
+      "relative_path": "capabilities.json",
+      "role": "derived-evidence",
+      "size": 3134,
+      "sha256": "4cac57e91a4cda92f19fec58a6c62a168b50b22095ff7b859cd0fe20dd943aa9"
+    },
+    {
+      "relative_path": "coverage.json",
+      "role": "derived-evidence",
+      "size": 5232,
+      "sha256": "e102ed892c9db264a353c3803002c2da074bfbf42d816b1a3e945c19e42b4d57"
+    },
+    {
+      "relative_path": "evidence-config.json",
+      "role": "derived-evidence",
+      "size": 6099,
+      "sha256": "83db8b49de3f54cb1e0f91ebdc4546fe8b366ed5e4ec663b9b4eba69e77b78da"
+    },
+    {
+      "relative_path": "family-membership.json",
+      "role": "publication-input",
+      "size": 3154,
+      "sha256": "18cabcf28399ade520c1f76c6b1b683d468a5093957f555be36b2e2d138e375e"
+    },
+    {
+      "relative_path": "pair-audit.json",
+      "role": "derived-evidence",
+      "size": 2520,
+      "sha256": "a2205a6774f9ea3b389826c87a24cb010b4f86b80556e09ea200b1b4481c3a6d"
+    },
+    {
+      "relative_path": "quality-gate.json",
+      "role": "publication-input",
+      "size": 20077,
+      "sha256": "110aae41b3f7458410741d13efa92db87072a92d7d78c11f89627f346e1147f7"
+    }
+  ],
+  "runtime": {
+    "root": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0",
+    "artifacts": {
+      "HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.evidence.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0/HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.evidence.json",
+      "HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.extra.html": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0/HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.extra.html",
+      "HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.html": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0/HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.html",
+      "HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.model.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0/HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.model.json",
+      "HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.txt": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0/HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.txt",
+      "HD_HOTA.dll+0x1F5F0-краш-логи-и-дампы.zip": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1F5F0/HD_HOTA.dll+0x1F5F0-краш-логи-и-дампы.zip",
+      "address-proof.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0/address-proof.json",
+      "analysis-contract.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0/analysis-contract.json",
+      "analysis-promotion-manifest.json": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1F5F0/analysis-promotion-manifest.json",
+      "archive-manifest.json": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1F5F0/archive-manifest.json",
+      "capabilities.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0/capabilities.json",
+      "coverage.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0/coverage.json",
+      "evidence-config.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0/evidence-config.json",
+      "family-membership.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0/family-membership.json",
+      "pair-audit.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0/pair-audit.json",
+      "quality-gate.json": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1F5F0/quality-gate.json"
+    }
+  },
+  "coverage": {
+    "total": 16,
+    "verified": 16,
+    "skipped": 0
+  },
+  "manifest_sha256": "8a35a0c49eddb83c68ee09ecb1ad136907c23a6c7f13b7744e9d23ae46f35aa2"
+}

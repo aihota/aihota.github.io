@@ -1,0 +1,25 @@
+<section id="viz-mechanism" data-toc="Визуализация сбоя">
+  <h2><span class="htext">Визуализация сбоя</span>
+      <a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Схема отделяет подтверждённую арифметику от неизвестной причины возврата NULL.</p>
+  <div class="viz">
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">1</span><span>Возвраты загрузчика</span></div>
+      <div class="viz-strip">
+        <div class="viz-box bad">slider.pcx<span class="lbl">EDI = 0</span></div>
+        <div class="viz-box bad">sliderV.pcx<span class="lbl">EAX = 0</span></div>
+      </div>
+    </div>
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">2</span><span>Аварийное чтение</span></div>
+      <div class="viz-strip">
+        <div class="viz-box accent">EDI<span class="lbl">0x00000000</span></div>
+        <div class="viz-box">+ 0x28<span class="lbl">смещение поля</span></div>
+        <div class="viz-box bad">0x00000028<span class="lbl">push [edi+28h]</span></div>
+      </div>
+    </div>
+    <div class="viz-legend">
+      <div class="item"><span class="viz-key"></span><span class="txt">Причина двух возвратов NULL остаётся вне захваченного состояния DMP.</span></div>
+    </div>
+  </div>
+</section>

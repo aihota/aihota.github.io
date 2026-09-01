@@ -1,0 +1,98 @@
+{
+  "schema": 4,
+  "generated_at": "2026-09-01T10:07:59.880623+00:00",
+  "family_id": "hd-hota-slider-null-bitmap816-plus-0x28",
+  "source": "mcp/.tmp-tools/case-stage/HD_HOTA.dll+0x1F5F0/family-membership-input.json",
+  "scope_id": "slider-family-two-primary-incidents",
+  "scope_kind": "cross_series",
+  "scope": {
+    "id": "slider-family-two-primary-incidents",
+    "kind": "cross_series",
+    "population": "two independently parsed primary crash incidents selected by exact slider-resource mechanism",
+    "selection_basis": "primary TXT plus exact per-version listing; DMP available for R6",
+    "limitation": "classification is complete for these two candidates, not for the entire crash corpus",
+    "address_range": {
+      "start_rva": "0x1E206",
+      "end_rva": "0x1F5F0",
+      "end_inclusive": true,
+      "human_label": "two cross-version slider crash sites",
+      "basis": "endpoints are the two exact version-specific crash RVAs; this is not an interval census"
+    }
+  },
+  "candidate_census": {
+    "total": 2,
+    "classified": 2,
+    "confirmed": 2,
+    "probable": 0,
+    "context_only": 0,
+    "excluded": 0,
+    "unknown": 0,
+    "blocked": 0
+  },
+  "memberships": [
+    {
+      "incident_id": "incident-25390449742f652f",
+      "membership": "confirmed",
+      "basis": "5.7 R20 primary TXT and exact listing show two GetBitmap816 slider requests followed by a NULL-base read at Bitmap816+0x28",
+      "evidence": [
+        "../HD_HOTA-5.7R20/HD_HOTA.dll+0x1E206-1.8.0-1.txt",
+        "../../modules/HD_HOTA.dll-5.7 R20.txt",
+        "series-parse.json",
+        "series-groups.json"
+      ],
+      "fingerprint": {
+        "structure_role": "nullable Bitmap816 provider result",
+        "field": "+0x28",
+        "call_tail": [
+          "HiRezCore caller",
+          "UI resource builder",
+          "GetBitmap816"
+        ],
+        "frame_depth": 2
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-9af104375467a8ff",
+      "membership": "confirmed",
+      "basis": "5.8 R6 TXT/DMP pair and exact listing show GetBitmap816 returning NULL before the read through EDI+0x28",
+      "evidence": [
+        "HD_HOTA.dll+0x1F5F0-5.8-R6-181.txt",
+        "HD_HOTA.dll+0x1F5F0-5.8-R6-181.dmp",
+        "pair-audit.json",
+        "../../modules/HD_HOTA.dll-5.8-R6.txt"
+      ],
+      "fingerprint": {
+        "structure_role": "nullable Bitmap816 provider result",
+        "field": "+0x28",
+        "call_tail": [
+          "sub_10206F0",
+          "sub_101F5C0",
+          "GetBitmap816"
+        ],
+        "frame_depth": 2
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    }
+  ],
+  "counts": {
+    "confirmed": 2
+  },
+  "errors": [],
+  "registry_valid": true,
+  "enumeration_complete": true,
+  "classification_complete": true,
+  "unknown_count": 0,
+  "blocked_by_listing_count": 0,
+  "complete": true
+}

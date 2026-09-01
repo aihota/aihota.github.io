@@ -1,0 +1,115 @@
+{
+  "schema": 3,
+  "source": "mail-dumps/HD_HOTA.dll+0x1F5F0/HD_HOTA.dll+0x1F5F0-5.8-R6-181.dmp",
+  "source_identity": {
+    "path": "mail-dumps/HD_HOTA.dll+0x1F5F0/HD_HOTA.dll+0x1F5F0-5.8-R6-181.dmp",
+    "size": 68874,
+    "sha256": "a429f9678033160d6428e272b86c96be0121b6fde7628bdfa00e00b27b19a964"
+  },
+  "dump_level": "минимальный",
+  "flags": [
+    "MiniDumpNormal"
+  ],
+  "stream_names": [
+    "ExceptionList",
+    "MemoryList",
+    "MiscInfo",
+    "ModuleList",
+    "SystemInfo",
+    "ThreadList",
+    "тип 0",
+    "тип 21",
+    "тип 22"
+  ],
+  "captured_bytes": 20136,
+  "exception_record": {
+    "tid": 16000,
+    "code": 3221225477,
+    "flags": 0,
+    "exception_record": 0,
+    "address": 142800368,
+    "number_parameters": 2,
+    "parameters_valid": true,
+    "exception_information": [
+      0,
+      40
+    ],
+    "access": "read",
+    "fault_address": 40,
+    "context_size": 716,
+    "context_rva": 22542
+  },
+  "thread_provenance": {
+    "exception_tid": 16000,
+    "esp_tid": null,
+    "status": "CONTEXT_THREAD_UNRESOLVED",
+    "esp": null,
+    "contexts": [
+      {
+        "source": "exception_stream",
+        "tid": 16000,
+        "role": "register_context",
+        "available": true
+      },
+      {
+        "source": "text_context",
+        "tid": null,
+        "role": "stack_context",
+        "esp": null,
+        "available": false
+      }
+    ],
+    "register_sets_may_be_combined": false,
+    "selected_stack_thread_id": null,
+    "selected_register_context": "keep_sources_separate",
+    "combination_rule": "same_tid_only",
+    "policy": "use_one_context_only; never combine ExceptionStream registers with the text/ESP stack when thread ids differ"
+  },
+  "counts": {
+    "minidump_streams": 12,
+    "process_threads_in_thread_list": 29,
+    "exception_thread_id": 16000,
+    "esp_stack_thread_id": null
+  },
+  "capabilities": {
+    "exception_context": true,
+    "thread_stacks": true,
+    "module_identity": true,
+    "captured_memory": true,
+    "code_window": true,
+    "globals_and_heap": false,
+    "memory_permissions": false,
+    "thread_provenance": true
+  },
+  "available_now": [
+    "captured_memory",
+    "code_window",
+    "exception_context",
+    "module_identity",
+    "thread_provenance",
+    "thread_stacks"
+  ],
+  "requires_full_dump": [
+    "global_state_snapshot",
+    "heap_object_lifetime",
+    "heap_neighbour_overwrite",
+    "whole_container_traversal"
+  ],
+  "requires_runtime_capture": [
+    "first_corrupting_write",
+    "writer_identity",
+    "race_ordering",
+    "object_lifetime_transition"
+  ],
+  "strong_claim_gates": {
+    "race": "requires_runtime_capture",
+    "use_after_free": "requires_full_dump_or_runtime_capture",
+    "heap_overwrite": "requires_full_dump_or_runtime_capture",
+    "callback_register_clobber": "requires_same_thread_pre_post_capture"
+  },
+  "limitations": [
+    ".data модулей: глобалы, карты, реестр-контейнер",
+    "куча целиком: обход списков объектов и поиск блобов",
+    "права и тип страниц (нет MemoryInfoList)"
+  ]
+}

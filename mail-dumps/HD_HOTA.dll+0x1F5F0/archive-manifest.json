@@ -1,0 +1,30 @@
+{
+  "schema": 3,
+  "mode": "canonical",
+  "latest_hd_version": "5.8 R6",
+  "counts": {
+    "members": 2,
+    "txt": 1,
+    "dmp": 1,
+    "canonical": 2,
+    "physical_copies": 0
+  },
+  "members": [
+    {
+      "source": "HD_HOTA.dll+0x1F5F0-5.8-R6-181.dmp",
+      "archive": "HD_HOTA.dll+0x1F5F0-5.8-R6-181.dmp",
+      "hd_version": "5.8 R6",
+      "physical_copy": false,
+      "size": 68874,
+      "sha256": "a429f9678033160d6428e272b86c96be0121b6fde7628bdfa00e00b27b19a964"
+    },
+    {
+      "source": "HD_HOTA.dll+0x1F5F0-5.8-R6-181.txt",
+      "archive": "HD_HOTA.dll+0x1F5F0-5.8-R6-181.txt",
+      "hd_version": "5.8 R6",
+      "physical_copy": false,
+      "size": 7567,
+      "sha256": "7b9ce6b7bfb873f9232d0e408287cc90555e462739aa0d1d42b6b75e4adddd8d"
+    }
+  ]
+}
