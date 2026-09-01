@@ -1,0 +1,202 @@
+{
+  "schema": 2,
+  "kind": "crash_reproduction_plan",
+  "status": "ready",
+  "mechanism_kind": "unknown",
+  "case": "HD_HOTA.dll+0x1F5F0",
+  "diagnostic_source": "coverage.json",
+  "causality_level": "L1",
+  "next_required": [
+    "capture_state_origin_and_writer",
+    "confirm_reproduction",
+    "complete_family_coverage"
+  ],
+  "steps": [
+    {
+      "id": "discriminate-origin-race",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "race",
+      "success_evidence": [
+        "same-thread provider trace and ordering"
+      ]
+    },
+    {
+      "id": "discriminate-origin-use_after_free",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "use_after_free",
+      "success_evidence": [
+        "full dump or allocator lifetime trace"
+      ]
+    },
+    {
+      "id": "discriminate-origin-heap_overwrite",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "heap_overwrite",
+      "success_evidence": [
+        "full heap snapshot or first-writer capture"
+      ]
+    },
+    {
+      "id": "discriminate-origin-third_party_write",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "third_party_write",
+      "success_evidence": [
+        "writer module and watchpoint stack"
+      ]
+    },
+    {
+      "id": "complete-structure-lifecycle",
+      "action": "complete sibling and lifecycle census",
+      "success_evidence": [
+        "all_sibling_sites",
+        "reference_denominator",
+        "publish_and_clear_roles"
+      ]
+    },
+    {
+      "id": "capture-origin",
+      "action": "capture full dump and allocator/write telemetry before failure",
+      "success_evidence": [
+        "full_dump",
+        "writer_identity",
+        "largest_free_region",
+        "heap_health"
+      ]
+    },
+    {
+      "id": "controlled-repro",
+      "action": "run original, causal fix, containment, and positive control on matched binaries",
+      "success_evidence": [
+        "binary_sha256",
+        "failing_run",
+        "positive_control",
+        "result.json"
+      ]
+    },
+    {
+      "id": "family-coverage",
+      "action": "repeat one representative from every cause group",
+      "success_evidence": [
+        "representative_ids",
+        "group_results"
+      ]
+    }
+  ],
+  "inputs": {
+    "save_count": 0,
+    "full_dump_available": false,
+    "representatives": [
+      {
+        "incident_id": "incident-25390449742f652f",
+        "txt": "HD_HOTA.dll+0x1E206-1.8.0-1.txt",
+        "newly_covered": [
+          "cause:cause-317ec02ab801",
+          "formula:unknown",
+          "hd:5.7 R20",
+          "hota:1.8.0",
+          "outlier:HD_HOTA.dll+0x1E206-1.8.0-1.txt",
+          "subsystem:unknown"
+        ],
+        "all_features": [
+          "cause:cause-317ec02ab801",
+          "formula:unknown",
+          "hd:5.7 R20",
+          "hota:1.8.0",
+          "outlier:HD_HOTA.dll+0x1E206-1.8.0-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-9af104375467a8ff",
+        "txt": "HD_HOTA.dll+0x1F5F0-5.8-R6-181.txt",
+        "newly_covered": [
+          "cause:cause-7c5410776586",
+          "hd:5.8 R6",
+          "hota:1.8.1",
+          "outlier:HD_HOTA.dll+0x1F5F0-5.8-R6-181.txt"
+        ],
+        "all_features": [
+          "cause:cause-7c5410776586",
+          "formula:unknown",
+          "hd:5.8 R6",
+          "hota:1.8.1",
+          "outlier:HD_HOTA.dll+0x1F5F0-5.8-R6-181.txt",
+          "subsystem:unknown"
+        ]
+      }
+    ],
+    "analysis_contract_present": true,
+    "artifact_phase_roles": []
+  },
+  "populations": {
+    "physical_txt": {
+      "numerator": 2,
+      "denominator": 2,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "none"
+    },
+    "unique_incidents": {
+      "numerator": 2,
+      "denominator": 2,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "normalized_time_tag_exception_context"
+    },
+    "duplicate_instances": {
+      "numerator": 0,
+      "denominator": 2,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "normalized_time_tag_exception_context"
+    },
+    "physical_dmp": {
+      "numerator": 0,
+      "denominator": 0,
+      "population": "paired DMP in current series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "none"
+    },
+    "unique_dmp": {
+      "numerator": 0,
+      "denominator": 0,
+      "population": "paired DMP in current series",
+      "scope": "current_series",
+      "unit": "dump",
+      "dedup_basis": "sha256_dmp_or_path"
+    },
+    "classified_incidents": {
+      "numerator": 0,
+      "denominator": 2,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "normalized_time_tag_exception_context"
+    },
+    "unresolved_incidents": {
+      "numerator": 2,
+      "denominator": 2,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "normalized_time_tag_exception_context"
+    },
+    "confirmed_family_incidents": {
+      "numerator": 0,
+      "denominator": 2,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "confirmed state origin and causal tuple"
+    }
+  },
+  "attestation": {
+    "status": "blocked_by_environment",
+    "reason": "plan generated; controlled runtime has not run"
+  },
+  "completion_rule": "passed requires failing run, positive control, matched SHA-256 and captured result.json"
+}

@@ -1,7 +1,7 @@
 {
   "schema": 4,
-  "generated_at": "2026-09-01T11:59:48.067301+00:00",
-  "parser_revision": "300af4ca7954e5c617c1f0aa30892104ec97c49b",
+  "generated_at": "2026-09-01T15:42:15.827827+00:00",
+  "parser_revision": "39ec2aaca85c8ecfa6e8b3ffad923fa7879c4dd9",
   "report": {
     "path": "HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.txt",
     "size": 22456,
@@ -22,8 +22,8 @@
     },
     {
       "path": "capabilities.json",
-      "size": 3134,
-      "sha256": "4cac57e91a4cda92f19fec58a6c62a168b50b22095ff7b859cd0fe20dd943aa9",
+      "size": 8667,
+      "sha256": "d85d48ea20968f7644470f8175e04d64659d53f230889784e6b81c6982f43fc5",
       "role": "derived-evidence"
     },
     {
@@ -52,20 +52,20 @@
     },
     {
       "path": "series-parse.json",
-      "size": 9215,
-      "sha256": "94a2822252faa656e21d1c18b9486ff1e32a7ee79eec48a845f28d9452f3e678",
+      "size": 9163,
+      "sha256": "9458bb85a5c943dcd842913f77e38e3c1c9ee7d1554f280f98899c5c136d7dcd",
       "role": "derived"
     },
     {
       "path": "series-groups.json",
-      "size": 14282,
-      "sha256": "81f8940ff4798eb3541cf01a24bed177edef0c50ab7e92f9103a11248d3a5606",
+      "size": 15328,
+      "sha256": "56fd40136968acc6f60e4283c8b2737c50157355cb1ac23d5af3515c48590b61",
       "role": "derived"
     },
     {
       "path": "family-membership.json",
       "size": 3368,
-      "sha256": "3c7295a068c96458edcf2ab5f9310c6c036437ec4ca3c088e414403805d5f123",
+      "sha256": "581ea2bc8bd545c605e1d8e9da4c3ab116781659a1a5cd0c3fbb405f9401c64a",
       "role": "derived-evidence"
     },
     {
@@ -107,7 +107,7 @@
     {
       "path": "evidence-config.json",
       "size": 6819,
-      "sha256": "b719b64daae5c59677475a249e748e4e5c2b37b6e7dd8344f247ef3127b8713b",
+      "sha256": "5477b053c864b25952ce90f4c163c6b3146d173870acf7574a963c0abcdc47b7",
       "role": "derived-evidence"
     }
   ],
@@ -179,8 +179,8 @@
     },
     {
       "path": "../../report_consistency.py",
-      "size": 22439,
-      "sha256": "6da92fdeaa6ae424dc8292dfe13e73eab32e0659b1f9d306a720e3cc214247b3"
+      "size": 25957,
+      "sha256": "d7ed530fe47d4f6e6cce97998d121db0b1d04e41fd26e5534501c03c37d31a21"
     },
     {
       "path": "../../report_debt.py",
@@ -212,7 +212,7 @@
     "stack_tid": "16132",
     "thread_status": "CONTEXT_THREAD_MISMATCH",
     "causality_level": "L1",
-    "toolchain_commit": "300af4c"
+    "toolchain_commit": "39ec2aa"
   },
   "claims": [
     {
@@ -349,7 +349,7 @@
   "toolchain": {
     "schema": 1,
     "kind": "toolchain_closure",
-    "git_commit": "300af4ca7954e5c617c1f0aa30892104ec97c49b",
+    "git_commit": "39ec2aaca85c8ecfa6e8b3ffad923fa7879c4dd9",
     "direct_tools": [
       ".agents/skills/address-mapping/address_proof.py",
       ".agents/skills/address-mapping/dump_profile.py",
@@ -456,9 +456,9 @@
       },
       {
         "repo_path": "report_consistency.py",
-        "size": 22439,
-        "sha256": "6da92fdeaa6ae424dc8292dfe13e73eab32e0659b1f9d306a720e3cc214247b3",
-        "git_sha256": "6da92fdeaa6ae424dc8292dfe13e73eab32e0659b1f9d306a720e3cc214247b3",
+        "size": 25957,
+        "sha256": "d7ed530fe47d4f6e6cce97998d121db0b1d04e41fd26e5534501c03c37d31a21",
+        "git_sha256": "d7ed530fe47d4f6e6cce97998d121db0b1d04e41fd26e5534501c03c37d31a21",
         "git_status": "matched"
       },
       {
@@ -477,10 +477,10 @@
       }
     ],
     "file_count": 16,
-    "bundle_sha256": "2a7eea0421bf639070d87cac747645f163766f69d93b9ee81a080d61fc39b327",
+    "bundle_sha256": "9c268775764107c0cd9aa8b2e8110cfec13e8be8ebd6ca25068f1d09291d6527",
     "status": "clean",
     "errors": []
   },
-  "renderer_bundle_sha256": "2a7eea0421bf639070d87cac747645f163766f69d93b9ee81a080d61fc39b327",
+  "renderer_bundle_sha256": "9c268775764107c0cd9aa8b2e8110cfec13e8be8ebd6ca25068f1d09291d6527",
   "machine_results": []
 }

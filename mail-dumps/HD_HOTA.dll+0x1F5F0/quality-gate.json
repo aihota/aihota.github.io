@@ -24,7 +24,7 @@
       {
         "path": "HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.evidence.json",
         "size": 18604,
-        "sha256": "b422746579009d22771310fdaa5367c2803ef94cd19924a20f75569da49a33b0"
+        "sha256": "f1f19fe6747574df998cbdbf85ae94752ec45267d4b4255ddfe0a647b9bfa386"
       },
       {
         "path": "HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.extra.html",
@@ -58,8 +58,13 @@
       },
       {
         "path": "capabilities.json",
-        "size": 3134,
-        "sha256": "4cac57e91a4cda92f19fec58a6c62a168b50b22095ff7b859cd0fe20dd943aa9"
+        "size": 8667,
+        "sha256": "d85d48ea20968f7644470f8175e04d64659d53f230889784e6b81c6982f43fc5"
+      },
+      {
+        "path": "case-manifest.json",
+        "size": 5222,
+        "sha256": "50bdee8b7f5175596e4df105f18af26731de05c34a0e8e7161b959e0467e8d39"
       },
       {
         "path": "coverage.json",
@@ -69,12 +74,17 @@
       {
         "path": "evidence-config.json",
         "size": 6819,
-        "sha256": "b719b64daae5c59677475a249e748e4e5c2b37b6e7dd8344f247ef3127b8713b"
+        "sha256": "5477b053c864b25952ce90f4c163c6b3146d173870acf7574a963c0abcdc47b7"
+      },
+      {
+        "path": "family-membership-input.json",
+        "size": 3017,
+        "sha256": "e971c118b33ffebe4025886f8637c26cce225ae9b03e9844f99052226ce6d057"
       },
       {
         "path": "family-membership.json",
         "size": 3368,
-        "sha256": "3c7295a068c96458edcf2ab5f9310c6c036437ec4ca3c088e414403805d5f123"
+        "sha256": "581ea2bc8bd545c605e1d8e9da4c3ab116781659a1a5cd0c3fbb405f9401c64a"
       },
       {
         "path": "pair-audit.json",
@@ -92,14 +102,19 @@
         "sha256": "326fd187aeac12db66745a4473220749835ac818bf0d9ad8b685a2979e1e922c"
       },
       {
+        "path": "save-inventory.json",
+        "size": 441,
+        "sha256": "dd90df6b6a210bf5ae5c37d069e4ac0609bf142b6705e32f86f575ebe39b04e7"
+      },
+      {
         "path": "series-groups.json",
-        "size": 14282,
-        "sha256": "81f8940ff4798eb3541cf01a24bed177edef0c50ab7e92f9103a11248d3a5606"
+        "size": 15328,
+        "sha256": "56fd40136968acc6f60e4283c8b2737c50157355cb1ac23d5af3515c48590b61"
       },
       {
         "path": "series-parse.json",
-        "size": 9215,
-        "sha256": "94a2822252faa656e21d1c18b9486ff1e32a7ee79eec48a845f28d9452f3e678"
+        "size": 9163,
+        "sha256": "9458bb85a5c943dcd842913f77e38e3c1c9ee7d1554f280f98899c5c136d7dcd"
       },
       {
         "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1E206-1.8.0-1.dmp",
@@ -150,8 +165,8 @@
       },
       {
         "path": ".agents/skills/hota-crash-triage/crash_audit.py",
-        "size": 39692,
-        "sha256": "d20481fc271164dcbb4b86dfbce9c4802d0c9f89db144eb3b9f550cb14080e64"
+        "size": 42519,
+        "sha256": "048c75d6767945e2c22d3a89e172cc2628958710f59aa9af26da9e1b044c072e"
       },
       {
         "path": ".agents/skills/hota-crash-triage/evidence_manifest.py",
@@ -275,11 +290,11 @@
       },
       {
         "path": "report_consistency.py",
-        "size": 22439,
-        "sha256": "6da92fdeaa6ae424dc8292dfe13e73eab32e0659b1f9d306a720e3cc214247b3"
+        "size": 25957,
+        "sha256": "d7ed530fe47d4f6e6cce97998d121db0b1d04e41fd26e5534501c03c37d31a21"
       }
     ],
-    "sha256": "9bbc5f49ea6cb2a0319aebd412b2e07a86b4fd99ffacab8ad802d8c4e01dba16"
+    "sha256": "278d979d9291df5c9023f314881fb0f18423c1fe46d5a1b4d8def4f31d7e2e6f"
   },
   "audit_stages_complete": null,
   "publication_ready": true,
@@ -302,7 +317,7 @@
   "artifact_quality": {
     "status": "passed",
     "passed": true,
-    "step_count": 16,
+    "step_count": 17,
     "blocked_count": 0
   },
   "diagnostic_completeness": {
@@ -326,7 +341,7 @@
   },
   "root_cause_ready": false,
   "causality_level": "L1",
-  "step_count": 16,
+  "step_count": 17,
   "blocked_count": 0,
   "steps": [
     {
@@ -353,9 +368,18 @@
     {
       "kind": "capabilities",
       "path": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0/capabilities.json",
-      "series": false,
-      "item_count": 1,
+      "series": true,
+      "item_count": 2,
       "status": "passed",
+      "errors": []
+    },
+    {
+      "kind": "case_manifest",
+      "path": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0/case-manifest.json",
+      "status": "passed",
+      "expected": "fresh canonical case contract",
+      "actual": "ready",
+      "repair": "python3 .agents/skills/hota-crash-triage/case_rebuild.py prepare /Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0",
       "errors": []
     },
     {
@@ -437,13 +461,14 @@
       "errors": []
     },
     {
-      "name": "render-attestation:HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.txt",
+      "name": "render:HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.txt",
       "status": "passed",
       "returncode": 0,
-      "stdout": "RENDER ATTESTATION: PASSED; errors=none\n",
+      "stdout": "   шрифты встроены (офлайн): 5 начертаний\n   врезка визуализаций: 1 секц., 1 пункт(ов) оглавления\nOK -> /Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1F5F0/rendered/HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.html\n   секций размещено: 10 / 10\n   <section> open=11 close=11\n   ✓ валидация: ключевые поля txt присутствуют в html\n",
       "stderr": "",
-      "render_mode": "reused_attestation",
-      "render_output": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0/HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.html"
+      "verified_existing_html": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1F5F0/HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.html",
+      "normalized_generated_at": true,
+      "render_output": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1F5F0/rendered/HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.html"
     },
     {
       "name": "semantic-html:HD_HOTA.dll+0x1F5F0-анализ-gpt-5.6-sol.txt",
