@@ -1,0 +1,408 @@
+{
+  "schema": 4,
+  "generated_at": "2026-09-01T20:16:28.609790+00:00",
+  "family_id": "HD_HOTA.dll/GetCell/result+0x1E",
+  "source": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x9ACB8/family-membership-input.json",
+  "scope_id": "HD_HOTA.dll+0x9ACB8-materialized-family",
+  "scope_kind": "family",
+  "scope": {
+    "address_range": {
+      "basis": "14 уникальных инцидентов среди 17 физических TXT; 9 точных листингов",
+      "end_inclusive": true,
+      "end_rva": "0x9ACB8",
+      "human_label": "девять межверсионных точек GetCell/result+0x1E",
+      "start_rva": "0x960BD"
+    },
+    "id": "HD_HOTA.dll+0x9ACB8-materialized-family",
+    "kind": "family"
+  },
+  "candidate_census": {
+    "total": 14,
+    "classified": 14,
+    "confirmed": 14,
+    "probable": 0,
+    "context_only": 0,
+    "excluded": 0,
+    "unknown": 0,
+    "blocked": 0
+  },
+  "memberships": [
+    {
+      "basis": "Совпадает межверсионный семантический отпечаток: результат GetCell используется как запись клетки, после проверки только на NULL читается поле +0x1E; точный листинг сопоставлен для сборки.",
+      "evidence": [
+        "series-groups.json#incident-d188d6695e793b6c",
+        "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.txt:125-141,380-383",
+        "HD_HOTA.dll+0x9ACB8-5.8-R8-181.txt"
+      ],
+      "fingerprint": {
+        "call_tail": [
+          "A0_GameMap_GetCell_sub_4086D0",
+          "HD.Af.RepareFunc",
+          "field +0x1E consumer"
+        ],
+        "field": "[result+0x1E]",
+        "frame_depth": 2,
+        "structure_role": "GetCell result consumed as cell object"
+      },
+      "incident_id": "incident-d188d6695e793b6c",
+      "membership": "confirmed",
+      "relationship_ladder": {
+        "same_local_mechanism": true,
+        "same_root_cause": "unknown",
+        "same_sink": true,
+        "same_state_origin": "unknown"
+      }
+    },
+    {
+      "basis": "Совпадает межверсионный семантический отпечаток: результат GetCell используется как запись клетки, после проверки только на NULL читается поле +0x1E; точный листинг сопоставлен для сборки.",
+      "evidence": [
+        "series-groups.json#incident-fd898b85da9f9333",
+        "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.txt:125-141,380-383",
+        "HD_HOTA.dll+0x960BD-1.8.0-2-97CAD.txt",
+        "HD_HOTA.dll+0x960BD-1.8.0-2.txt"
+      ],
+      "fingerprint": {
+        "call_tail": [
+          "A0_GameMap_GetCell_sub_4086D0",
+          "HD.Af.RepareFunc",
+          "field +0x1E consumer"
+        ],
+        "field": "[result+0x1E]",
+        "frame_depth": 2,
+        "structure_role": "GetCell result consumed as cell object"
+      },
+      "incident_id": "incident-fd898b85da9f9333",
+      "membership": "confirmed",
+      "relationship_ladder": {
+        "same_local_mechanism": true,
+        "same_root_cause": "unknown",
+        "same_sink": true,
+        "same_state_origin": "unknown"
+      }
+    },
+    {
+      "basis": "Совпадает межверсионный семантический отпечаток: результат GetCell используется как запись клетки, после проверки только на NULL читается поле +0x1E; точный листинг сопоставлен для сборки.",
+      "evidence": [
+        "series-groups.json#incident-d11cf983d974e5dd",
+        "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.txt:125-141,380-383",
+        "HD_HOTA.dll+0x9631D-1.8.0-2.txt"
+      ],
+      "fingerprint": {
+        "call_tail": [
+          "A0_GameMap_GetCell_sub_4086D0",
+          "HD.Af.RepareFunc",
+          "field +0x1E consumer"
+        ],
+        "field": "[result+0x1E]",
+        "frame_depth": 2,
+        "structure_role": "GetCell result consumed as cell object"
+      },
+      "incident_id": "incident-d11cf983d974e5dd",
+      "membership": "confirmed",
+      "relationship_ladder": {
+        "same_local_mechanism": true,
+        "same_root_cause": "unknown",
+        "same_sink": true,
+        "same_state_origin": "unknown"
+      }
+    },
+    {
+      "basis": "Совпадает межверсионный семантический отпечаток: результат GetCell используется как запись клетки, после проверки только на NULL читается поле +0x1E; точный листинг сопоставлен для сборки.",
+      "evidence": [
+        "series-groups.json#incident-bac84f5375d63366",
+        "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.txt:125-141,380-383",
+        "HD_HOTA.dll+0x9674D-1.8.0-1-97CAD.txt",
+        "HD_HOTA.dll+0x9674D-1.8.0-1.txt"
+      ],
+      "fingerprint": {
+        "call_tail": [
+          "A0_GameMap_GetCell_sub_4086D0",
+          "HD.Af.RepareFunc",
+          "field +0x1E consumer"
+        ],
+        "field": "[result+0x1E]",
+        "frame_depth": 2,
+        "structure_role": "GetCell result consumed as cell object"
+      },
+      "incident_id": "incident-bac84f5375d63366",
+      "membership": "confirmed",
+      "relationship_ladder": {
+        "same_local_mechanism": true,
+        "same_root_cause": "unknown",
+        "same_sink": true,
+        "same_state_origin": "unknown"
+      }
+    },
+    {
+      "basis": "Совпадает межверсионный семантический отпечаток: результат GetCell используется как запись клетки, после проверки только на NULL читается поле +0x1E; точный листинг сопоставлен для сборки.",
+      "evidence": [
+        "series-groups.json#incident-5fea430b40797c43",
+        "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.txt:125-141,380-383",
+        "HD_HOTA.dll+0x9692D-1.8.0-5.txt"
+      ],
+      "fingerprint": {
+        "call_tail": [
+          "A0_GameMap_GetCell_sub_4086D0",
+          "HD.Af.RepareFunc",
+          "field +0x1E consumer"
+        ],
+        "field": "[result+0x1E]",
+        "frame_depth": 2,
+        "structure_role": "GetCell result consumed as cell object"
+      },
+      "incident_id": "incident-5fea430b40797c43",
+      "membership": "confirmed",
+      "relationship_ladder": {
+        "same_local_mechanism": true,
+        "same_root_cause": "unknown",
+        "same_sink": true,
+        "same_state_origin": "unknown"
+      }
+    },
+    {
+      "basis": "Совпадает межверсионный семантический отпечаток: результат GetCell используется как запись клетки, после проверки только на NULL читается поле +0x1E; точный листинг сопоставлен для сборки.",
+      "evidence": [
+        "series-groups.json#incident-ef67fc3c38e93cd8",
+        "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.txt:125-141,380-383",
+        "HD_HOTA.dll+0x9701D-1.8.0-2.txt"
+      ],
+      "fingerprint": {
+        "call_tail": [
+          "A0_GameMap_GetCell_sub_4086D0",
+          "HD.Af.RepareFunc",
+          "field +0x1E consumer"
+        ],
+        "field": "[result+0x1E]",
+        "frame_depth": 2,
+        "structure_role": "GetCell result consumed as cell object"
+      },
+      "incident_id": "incident-ef67fc3c38e93cd8",
+      "membership": "confirmed",
+      "relationship_ladder": {
+        "same_local_mechanism": true,
+        "same_root_cause": "unknown",
+        "same_sink": true,
+        "same_state_origin": "unknown"
+      }
+    },
+    {
+      "basis": "Совпадает межверсионный семантический отпечаток: результат GetCell используется как запись клетки, после проверки только на NULL читается поле +0x1E; точный листинг сопоставлен для сборки.",
+      "evidence": [
+        "series-groups.json#incident-25dde314ecedcc43",
+        "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.txt:125-141,380-383",
+        "HD_HOTA.dll+0x97CAD-1.8.0-14.txt"
+      ],
+      "fingerprint": {
+        "call_tail": [
+          "A0_GameMap_GetCell_sub_4086D0",
+          "HD.Af.RepareFunc",
+          "field +0x1E consumer"
+        ],
+        "field": "[result+0x1E]",
+        "frame_depth": 2,
+        "structure_role": "GetCell result consumed as cell object"
+      },
+      "incident_id": "incident-25dde314ecedcc43",
+      "membership": "confirmed",
+      "relationship_ladder": {
+        "same_local_mechanism": true,
+        "same_root_cause": "unknown",
+        "same_sink": true,
+        "same_state_origin": "unknown"
+      }
+    },
+    {
+      "basis": "Совпадает межверсионный семантический отпечаток: результат GetCell используется как запись клетки, после проверки только на NULL читается поле +0x1E; точный листинг сопоставлен для сборки.",
+      "evidence": [
+        "series-groups.json#incident-6df1047364539f40",
+        "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.txt:125-141,380-383",
+        "HD_HOTA.dll+0x97CAD-1.8.0-21.txt"
+      ],
+      "fingerprint": {
+        "call_tail": [
+          "A0_GameMap_GetCell_sub_4086D0",
+          "HD.Af.RepareFunc",
+          "field +0x1E consumer"
+        ],
+        "field": "[result+0x1E]",
+        "frame_depth": 2,
+        "structure_role": "GetCell result consumed as cell object"
+      },
+      "incident_id": "incident-6df1047364539f40",
+      "membership": "confirmed",
+      "relationship_ladder": {
+        "same_local_mechanism": true,
+        "same_root_cause": "unknown",
+        "same_sink": true,
+        "same_state_origin": "unknown"
+      }
+    },
+    {
+      "basis": "Совпадает межверсионный семантический отпечаток: результат GetCell используется как запись клетки, после проверки только на NULL читается поле +0x1E; точный листинг сопоставлен для сборки.",
+      "evidence": [
+        "series-groups.json#incident-920165d3cc22f2b1",
+        "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.txt:125-141,380-383",
+        "HD_HOTA.dll+0x97CAD-1.8.0-6-97CAD.txt",
+        "HD_HOTA.dll+0x97CAD-1.8.0-6.txt"
+      ],
+      "fingerprint": {
+        "call_tail": [
+          "A0_GameMap_GetCell_sub_4086D0",
+          "HD.Af.RepareFunc",
+          "field +0x1E consumer"
+        ],
+        "field": "[result+0x1E]",
+        "frame_depth": 2,
+        "structure_role": "GetCell result consumed as cell object"
+      },
+      "incident_id": "incident-920165d3cc22f2b1",
+      "membership": "confirmed",
+      "relationship_ladder": {
+        "same_local_mechanism": true,
+        "same_root_cause": "unknown",
+        "same_sink": true,
+        "same_state_origin": "unknown"
+      }
+    },
+    {
+      "basis": "Совпадает межверсионный семантический отпечаток: результат GetCell используется как запись клетки, после проверки только на NULL читается поле +0x1E; точный листинг сопоставлен для сборки.",
+      "evidence": [
+        "series-groups.json#incident-6fadc9c65d2b13d3",
+        "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.txt:125-141,380-383",
+        "HD_HOTA.dll+0x97F9C-1.8.0-18.txt"
+      ],
+      "fingerprint": {
+        "call_tail": [
+          "A0_GameMap_GetCell_sub_4086D0",
+          "HD.Af.RepareFunc",
+          "field +0x1E consumer"
+        ],
+        "field": "[result+0x1E]",
+        "frame_depth": 2,
+        "structure_role": "GetCell result consumed as cell object"
+      },
+      "incident_id": "incident-6fadc9c65d2b13d3",
+      "membership": "confirmed",
+      "relationship_ladder": {
+        "same_local_mechanism": true,
+        "same_root_cause": "unknown",
+        "same_sink": true,
+        "same_state_origin": "unknown"
+      }
+    },
+    {
+      "basis": "Совпадает межверсионный семантический отпечаток: результат GetCell используется как запись клетки, после проверки только на NULL читается поле +0x1E; точный листинг сопоставлен для сборки.",
+      "evidence": [
+        "series-groups.json#incident-a29880f025c5a721",
+        "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.txt:125-141,380-383",
+        "HD_HOTA.dll+0x97F9C-1.8.0-3.txt"
+      ],
+      "fingerprint": {
+        "call_tail": [
+          "A0_GameMap_GetCell_sub_4086D0",
+          "HD.Af.RepareFunc",
+          "field +0x1E consumer"
+        ],
+        "field": "[result+0x1E]",
+        "frame_depth": 2,
+        "structure_role": "GetCell result consumed as cell object"
+      },
+      "incident_id": "incident-a29880f025c5a721",
+      "membership": "confirmed",
+      "relationship_ladder": {
+        "same_local_mechanism": true,
+        "same_root_cause": "unknown",
+        "same_sink": true,
+        "same_state_origin": "unknown"
+      }
+    },
+    {
+      "basis": "Совпадает межверсионный семантический отпечаток: результат GetCell используется как запись клетки, после проверки только на NULL читается поле +0x1E; точный листинг сопоставлен для сборки.",
+      "evidence": [
+        "series-groups.json#incident-48a2b6feb7b948ca",
+        "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.txt:125-141,380-383",
+        "HD_HOTA.dll+0x97F9C-1.8.0-4.txt"
+      ],
+      "fingerprint": {
+        "call_tail": [
+          "A0_GameMap_GetCell_sub_4086D0",
+          "HD.Af.RepareFunc",
+          "field +0x1E consumer"
+        ],
+        "field": "[result+0x1E]",
+        "frame_depth": 2,
+        "structure_role": "GetCell result consumed as cell object"
+      },
+      "incident_id": "incident-48a2b6feb7b948ca",
+      "membership": "confirmed",
+      "relationship_ladder": {
+        "same_local_mechanism": true,
+        "same_root_cause": "unknown",
+        "same_sink": true,
+        "same_state_origin": "unknown"
+      }
+    },
+    {
+      "basis": "Совпадает межверсионный семантический отпечаток: результат GetCell используется как запись клетки, после проверки только на NULL читается поле +0x1E; точный листинг сопоставлен для сборки.",
+      "evidence": [
+        "series-groups.json#incident-f0933107d4656386",
+        "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.txt:125-141,380-383",
+        "HD_HOTA.dll+0x97F9C-1.8.0-9.txt"
+      ],
+      "fingerprint": {
+        "call_tail": [
+          "A0_GameMap_GetCell_sub_4086D0",
+          "HD.Af.RepareFunc",
+          "field +0x1E consumer"
+        ],
+        "field": "[result+0x1E]",
+        "frame_depth": 2,
+        "structure_role": "GetCell result consumed as cell object"
+      },
+      "incident_id": "incident-f0933107d4656386",
+      "membership": "confirmed",
+      "relationship_ladder": {
+        "same_local_mechanism": true,
+        "same_root_cause": "unknown",
+        "same_sink": true,
+        "same_state_origin": "unknown"
+      }
+    },
+    {
+      "basis": "Совпадает межверсионный семантический отпечаток: результат GetCell используется как запись клетки, после проверки только на NULL читается поле +0x1E; точный листинг сопоставлен для сборки.",
+      "evidence": [
+        "series-groups.json#incident-c7f889a6e54b161a",
+        "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.txt:125-141,380-383",
+        "HD_HOTA.dll+0x9ABC8-5.7-R40-180.txt"
+      ],
+      "fingerprint": {
+        "call_tail": [
+          "A0_GameMap_GetCell_sub_4086D0",
+          "HD.Af.RepareFunc",
+          "field +0x1E consumer"
+        ],
+        "field": "[result+0x1E]",
+        "frame_depth": 2,
+        "structure_role": "GetCell result consumed as cell object"
+      },
+      "incident_id": "incident-c7f889a6e54b161a",
+      "membership": "confirmed",
+      "relationship_ladder": {
+        "same_local_mechanism": true,
+        "same_root_cause": "unknown",
+        "same_sink": true,
+        "same_state_origin": "unknown"
+      }
+    }
+  ],
+  "counts": {
+    "confirmed": 14
+  },
+  "errors": [],
+  "registry_valid": true,
+  "enumeration_complete": true,
+  "classification_complete": true,
+  "unknown_count": 0,
+  "blocked_by_listing_count": 0,
+  "complete": true
+}

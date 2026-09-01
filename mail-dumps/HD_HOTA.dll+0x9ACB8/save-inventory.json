@@ -1,0 +1,45 @@
+{
+  "schema": 3,
+  "root": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x9ACB8",
+  "count_contract": "physical_files = unique_sha256 + duplicate_instances",
+  "summary": {
+    "physical_files": 1,
+    "unique_sha256": 1,
+    "duplicate_instances": 0,
+    "roles": {
+      "derived": 1
+    },
+    "extensions": {
+      ".GM1": 1
+    },
+    "phase": "unknown",
+    "phase_relevance": {
+      "unresolved": 1
+    },
+    "unknown_blocks_only_its_file": 0
+  },
+  "items": [
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x9ABC8/HD_HOTA.dll+0x9ABC8-5.7-R40-180-AUTOSAVE.GM1",
+      "size": 335344,
+      "sha256": "f9a3ea88be314d04a91dfb9733cc9fc3ce66f2d79144e2345fff58b9db0d544f",
+      "extension": ".GM1",
+      "role": "derived",
+      "artifact_role": "derived_autosave",
+      "role_basis": "имя указывает на автоматический/боевой выход игры; роль source без отдельного доказательства запрещена",
+      "phase": "unknown",
+      "phase_relevance": "unresolved",
+      "phase_relevance_basis": "роль или временной порядок не доказаны",
+      "corresponding_logs": [],
+      "corresponding_dumps": [],
+      "attachment_names": [],
+      "origin_inference_allowed": true,
+      "can_support_source_origin": false,
+      "duplicate_group": "save-sha-f9a3ea88be31",
+      "duplicate_physical_count": 1,
+      "representative": true
+    }
+  ],
+  "validation_errors": [],
+  "valid": true
+}

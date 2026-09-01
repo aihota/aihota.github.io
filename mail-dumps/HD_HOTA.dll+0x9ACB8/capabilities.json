@@ -1,0 +1,390 @@
+{
+  "schema": 3,
+  "kind": "series_dump_capabilities",
+  "dmp_count": 3,
+  "profiled_count": 3,
+  "items": [
+    {
+      "schema": 3,
+      "source": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x9ACB8/HD_HOTA.dll+0x9ACB8-5.8-R8-181.dmp",
+      "source_identity": {
+        "path": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x9ACB8/HD_HOTA.dll+0x9ACB8-5.8-R8-181.dmp",
+        "size": 110632,
+        "sha256": "dec217f30f713e5bb5719ea7f89f20949765e2cd396a8a699dffc2a6f73e3cab"
+      },
+      "dump_level": "минимальный",
+      "flags": [
+        "MiniDumpNormal"
+      ],
+      "stream_names": [
+        "ExceptionList",
+        "MemoryList",
+        "MiscInfo",
+        "ModuleList",
+        "SystemInfo",
+        "ThreadList",
+        "тип 0",
+        "тип 21",
+        "тип 22"
+      ],
+      "captured_bytes": 51132,
+      "exception_record": {
+        "tid": 19924,
+        "code": 3221225477,
+        "flags": 0,
+        "exception_record": 0,
+        "address": 87141560,
+        "number_parameters": 2,
+        "parameters_valid": true,
+        "exception_information": [
+          0,
+          478081054
+        ],
+        "access": "read",
+        "fault_address": 478081054,
+        "context_size": 716,
+        "context_rva": 31784
+      },
+      "thread_provenance": {
+        "exception_tid": 19924,
+        "esp_tid": 20172,
+        "status": "CONTEXT_THREAD_MISMATCH",
+        "esp": 1744184,
+        "contexts": [
+          {
+            "source": "exception_stream",
+            "tid": 19924,
+            "role": "register_context",
+            "available": true
+          },
+          {
+            "source": "text_context",
+            "tid": 20172,
+            "role": "stack_context",
+            "esp": 1744184,
+            "available": true
+          }
+        ],
+        "register_sets_may_be_combined": false,
+        "selected_stack_thread_id": 20172,
+        "selected_register_context": "keep_sources_separate",
+        "combination_rule": "same_tid_only",
+        "policy": "use_one_context_only; never combine ExceptionStream registers with the text/ESP stack when thread ids differ"
+      },
+      "counts": {
+        "minidump_streams": 12,
+        "process_threads_in_thread_list": 28,
+        "exception_thread_id": 19924,
+        "esp_stack_thread_id": 20172
+      },
+      "capabilities": {
+        "exception_context": true,
+        "thread_stacks": true,
+        "module_identity": true,
+        "captured_memory": true,
+        "code_window": true,
+        "globals_and_heap": false,
+        "memory_permissions": false,
+        "thread_provenance": true
+      },
+      "available_now": [
+        "captured_memory",
+        "code_window",
+        "exception_context",
+        "module_identity",
+        "thread_provenance",
+        "thread_stacks"
+      ],
+      "requires_full_dump": [
+        "global_state_snapshot",
+        "heap_object_lifetime",
+        "heap_neighbour_overwrite",
+        "whole_container_traversal"
+      ],
+      "requires_runtime_capture": [
+        "first_corrupting_write",
+        "writer_identity",
+        "race_ordering",
+        "object_lifetime_transition"
+      ],
+      "strong_claim_gates": {
+        "race": "requires_runtime_capture",
+        "use_after_free": "requires_full_dump_or_runtime_capture",
+        "heap_overwrite": "requires_full_dump_or_runtime_capture",
+        "callback_register_clobber": "requires_same_thread_pre_post_capture"
+      },
+      "limitations": [
+        ".data модулей: глобалы, карты, реестр-контейнер",
+        "куча целиком: обход списков объектов и поиск блобов",
+        "права и тип страниц (нет MemoryInfoList)"
+      ],
+      "incident_id": "incident-d188d6695e793b6c",
+      "event_fingerprint": "d188d6695e793b6c599a74e4f19ded6d4a8b80c25ffcd78002721f5a60882cf6",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R8"
+      },
+      "crash_site": "HD_HOTA.dll+0x9ACB8",
+      "relative_path": "HD_HOTA.dll+0x9ACB8-5.8-R8-181.dmp",
+      "text_esp": 1744184,
+      "esp_source": "HD_HOTA.dll+0x9ACB8-5.8-R8-181.txt"
+    },
+    {
+      "schema": 3,
+      "source": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x9ACB8/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x9701D-1.8.0-2.dmp",
+      "source_identity": {
+        "path": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x9ACB8/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x9701D-1.8.0-2.dmp",
+        "size": 127274,
+        "sha256": "0d05bd9e5b8e6ed64bc21c7831d360872049b36a8e5a45a1a13c99f12a26deac"
+      },
+      "dump_level": "минимальный",
+      "flags": [
+        "прочие биты 0x200000"
+      ],
+      "stream_names": [
+        "ExceptionList",
+        "MemoryList",
+        "MiscInfo",
+        "ModuleList",
+        "SystemInfo",
+        "ThreadList",
+        "тип 0",
+        "тип 21",
+        "тип 22"
+      ],
+      "captured_bytes": 55512,
+      "exception_record": {
+        "tid": 17444,
+        "code": 3221225477,
+        "flags": 0,
+        "exception_record": 0,
+        "address": 68775965,
+        "number_parameters": 2,
+        "parameters_valid": true,
+        "exception_information": [
+          0,
+          91607070
+        ],
+        "access": "read",
+        "fault_address": 91607070,
+        "context_size": 716,
+        "context_rva": 26950
+      },
+      "thread_provenance": {
+        "exception_tid": 17444,
+        "esp_tid": 1116,
+        "status": "CONTEXT_THREAD_MISMATCH",
+        "esp": 1736976,
+        "contexts": [
+          {
+            "source": "exception_stream",
+            "tid": 17444,
+            "role": "register_context",
+            "available": true
+          },
+          {
+            "source": "text_context",
+            "tid": 1116,
+            "role": "stack_context",
+            "esp": 1736976,
+            "available": true
+          }
+        ],
+        "register_sets_may_be_combined": false,
+        "selected_stack_thread_id": 1116,
+        "selected_register_context": "keep_sources_separate",
+        "combination_rule": "same_tid_only",
+        "policy": "use_one_context_only; never combine ExceptionStream registers with the text/ESP stack when thread ids differ"
+      },
+      "counts": {
+        "minidump_streams": 12,
+        "process_threads_in_thread_list": 34,
+        "exception_thread_id": 17444,
+        "esp_stack_thread_id": 1116
+      },
+      "capabilities": {
+        "exception_context": true,
+        "thread_stacks": true,
+        "module_identity": true,
+        "captured_memory": true,
+        "code_window": true,
+        "globals_and_heap": false,
+        "memory_permissions": false,
+        "thread_provenance": true
+      },
+      "available_now": [
+        "captured_memory",
+        "code_window",
+        "exception_context",
+        "module_identity",
+        "thread_provenance",
+        "thread_stacks"
+      ],
+      "requires_full_dump": [
+        "global_state_snapshot",
+        "heap_object_lifetime",
+        "heap_neighbour_overwrite",
+        "whole_container_traversal"
+      ],
+      "requires_runtime_capture": [
+        "first_corrupting_write",
+        "writer_identity",
+        "race_ordering",
+        "object_lifetime_transition"
+      ],
+      "strong_claim_gates": {
+        "race": "requires_runtime_capture",
+        "use_after_free": "requires_full_dump_or_runtime_capture",
+        "heap_overwrite": "requires_full_dump_or_runtime_capture",
+        "callback_register_clobber": "requires_same_thread_pre_post_capture"
+      },
+      "limitations": [
+        ".data модулей: глобалы, карты, реестр-контейнер",
+        "куча целиком: обход списков объектов и поиск блобов",
+        "права и тип страниц (нет MemoryInfoList)"
+      ],
+      "incident_id": "incident-ef67fc3c38e93cd8",
+      "event_fingerprint": "ef67fc3c38e93cd88f52ce1bc0d54027409745cf290a5bfc74cdd49760f020c0",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R19"
+      },
+      "crash_site": "HD_HOTA.dll+0x9701D",
+      "relative_path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x9701D-1.8.0-2.dmp",
+      "text_esp": 1736976,
+      "esp_source": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x9701D-1.8.0-2.txt"
+    },
+    {
+      "schema": 3,
+      "source": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x9ACB8/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x9ABC8-5.7-R40-180.dmp",
+      "source_identity": {
+        "path": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x9ACB8/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x9ABC8-5.7-R40-180.dmp",
+        "size": 96678,
+        "sha256": "df3a6035a76eb1a315147bc30c4867ddd01ba089dcdfdf973f70ac5e79ffd1c2"
+      },
+      "dump_level": "минимальный",
+      "flags": [
+        "прочие биты 0x200000"
+      ],
+      "stream_names": [
+        "ExceptionList",
+        "MemoryList",
+        "MiscInfo",
+        "ModuleList",
+        "SystemInfo",
+        "ThreadList",
+        "тип 0",
+        "тип 21",
+        "тип 22"
+      ],
+      "captured_bytes": 43900,
+      "exception_record": {
+        "tid": 26956,
+        "code": 3221225477,
+        "flags": 0,
+        "exception_record": 0,
+        "address": 66104264,
+        "number_parameters": 2,
+        "parameters_valid": true,
+        "exception_information": [
+          0,
+          57745438
+        ],
+        "access": "read",
+        "fault_address": 57745438,
+        "context_size": 1147,
+        "context_rva": 23842
+      },
+      "thread_provenance": {
+        "exception_tid": 26956,
+        "esp_tid": 22432,
+        "status": "CONTEXT_THREAD_MISMATCH",
+        "esp": 1678752,
+        "contexts": [
+          {
+            "source": "exception_stream",
+            "tid": 26956,
+            "role": "register_context",
+            "available": true
+          },
+          {
+            "source": "text_context",
+            "tid": 22432,
+            "role": "stack_context",
+            "esp": 1678752,
+            "available": true
+          }
+        ],
+        "register_sets_may_be_combined": false,
+        "selected_stack_thread_id": 22432,
+        "selected_register_context": "keep_sources_separate",
+        "combination_rule": "same_tid_only",
+        "policy": "use_one_context_only; never combine ExceptionStream registers with the text/ESP stack when thread ids differ"
+      },
+      "counts": {
+        "minidump_streams": 12,
+        "process_threads_in_thread_list": 20,
+        "exception_thread_id": 26956,
+        "esp_stack_thread_id": 22432
+      },
+      "capabilities": {
+        "exception_context": true,
+        "thread_stacks": true,
+        "module_identity": true,
+        "captured_memory": true,
+        "code_window": true,
+        "globals_and_heap": false,
+        "memory_permissions": false,
+        "thread_provenance": true
+      },
+      "available_now": [
+        "captured_memory",
+        "code_window",
+        "exception_context",
+        "module_identity",
+        "thread_provenance",
+        "thread_stacks"
+      ],
+      "requires_full_dump": [
+        "global_state_snapshot",
+        "heap_object_lifetime",
+        "heap_neighbour_overwrite",
+        "whole_container_traversal"
+      ],
+      "requires_runtime_capture": [
+        "first_corrupting_write",
+        "writer_identity",
+        "race_ordering",
+        "object_lifetime_transition"
+      ],
+      "strong_claim_gates": {
+        "race": "requires_runtime_capture",
+        "use_after_free": "requires_full_dump_or_runtime_capture",
+        "heap_overwrite": "requires_full_dump_or_runtime_capture",
+        "callback_register_clobber": "requires_same_thread_pre_post_capture"
+      },
+      "limitations": [
+        ".data модулей: глобалы, карты, реестр-контейнер",
+        "куча целиком: обход списков объектов и поиск блобов",
+        "права и тип страниц (нет MemoryInfoList)"
+      ],
+      "incident_id": "incident-c7f889a6e54b161a",
+      "event_fingerprint": "c7f889a6e54b161af442be8e012f9549d2993d1306c9a2248a5d50ab4573cbdd",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R40"
+      },
+      "crash_site": "HD_HOTA.dll+0x9ABC8",
+      "relative_path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x9ABC8-5.7-R40-180.dmp",
+      "text_esp": 1678752,
+      "esp_source": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x9ABC8-5.7-R40-180.txt"
+    }
+  ],
+  "errors": [],
+  "complete": true,
+  "audit_selection": {
+    "selected": null,
+    "rule": "profile every DMP independently; never choose one silently",
+    "no_dmp_is_analysis_ready": false
+  }
+}

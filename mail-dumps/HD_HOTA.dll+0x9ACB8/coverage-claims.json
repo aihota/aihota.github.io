@@ -1,0 +1,114 @@
+{
+  "claims": [
+    {
+      "applicable_axes": [
+        "instruction"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "confidence_vector": {
+        "family_coverage": "not_applicable",
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable"
+      },
+      "evidence": [
+        "input:address-proof.json",
+        "input:HD_HOTA.dll+0x9ACB8-5.8-R8-181.dmp",
+        "fact:crash_runtime",
+        "command:1"
+      ],
+      "id": "crash-site",
+      "statement": "Точка сбоя: подтверждена",
+      "type": "crash_site"
+    },
+    {
+      "applicable_axes": [
+        "mechanism"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "confidence_vector": {
+        "family_coverage": "not_applicable",
+        "instruction": "not_applicable",
+        "mechanism": "confirmed",
+        "state_origin": "not_applicable"
+      },
+      "evidence": [
+        "input:address-proof.json",
+        "input:analysis-contract.json",
+        "fact:linear_index",
+        "command:2"
+      ],
+      "id": "local-mechanism",
+      "statement": "Локальный механизм выхода за границы доказан.",
+      "type": "local_mechanism"
+    },
+    {
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "confidence": "не проверено",
+      "confidence_vector": {
+        "family_coverage": "not_applicable",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown"
+      },
+      "evidence": [
+        "input:analysis-contract.json",
+        "fact:state_origin_status",
+        "command:3"
+      ],
+      "id": "state-origin",
+      "statement": "Не установлено. Требуется точка наблюдения первого источника записи размеров.",
+      "type": "state_origin"
+    },
+    {
+      "applicable_axes": [
+        "family_coverage"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "family_coverage": "confirmed",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable"
+      },
+      "evidence": [
+        "input:series-groups.json",
+        "input:family-membership.json",
+        "input:pair-audit.json",
+        "fact:family_counts",
+        "command:4"
+      ],
+      "id": "family-coverage",
+      "sample": {
+        "denominator": 17,
+        "numerator": 14,
+        "population": "подтверждённая materialized-семья: уникальные инциденты среди физических TXT"
+      },
+      "statement": "Подтверждены 17 физических crash TXT, 14 уникальных инцидентов и 3 DMP",
+      "type": "family_coverage"
+    },
+    {
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "confidence": "не проверено",
+      "confidence_vector": {
+        "family_coverage": "not_applicable",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown"
+      },
+      "evidence": [
+        "input:analysis-contract.json",
+        "fact:reproduction_status",
+        "command:5"
+      ],
+      "id": "reproduction",
+      "statement": "Управляемого повторения пока нет.",
+      "type": "reproduction"
+    }
+  ],
+  "schema": 2
+}

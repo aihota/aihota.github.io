@@ -1,0 +1,54 @@
+{
+  "addresses": {
+    "file_offset": 630968,
+    "imagebase": 16777216,
+    "load_base": 86507520,
+    "runtime": 87141560,
+    "size_of_image": 18849792,
+    "rva": 634040,
+    "module_offset": 634040,
+    "ida": 17411256
+  },
+  "arithmetic": {
+    "base": "0x1C66E024",
+    "cell_address": "0x1C7EF000",
+    "cell_size": "0x26",
+    "linear_index": 41498,
+    "observed_x": 170,
+    "read_address": "0x1C7EF01E",
+    "width": "unknown",
+    "y": "unknown",
+    "z": "unknown"
+  },
+  "build": "5.8 R8 / HotA 1.8.1",
+  "identity": {
+    "full_binary_match": false,
+    "level": "dmp-window",
+    "window": {
+      "bytes": "83 7F 1E 22 0F 85 1A 03 00 00 69 37 92 04 00",
+      "file_offset": "0x0009A0B8",
+      "matched": 15,
+      "runtime": "0x0531ACB8",
+      "size": 15
+    }
+  },
+  "instruction": {
+    "access": "read",
+    "ida": "0x0109ACB8",
+    "operand_address": "0x1C7EF01E",
+    "text": "cmp dword ptr [edi+1Eh], 22h"
+  },
+  "module": "HD_HOTA.dll",
+  "sources": {
+    "fault_address": "HD_HOTA.dll+0x9ACB8-5.8-R8-181.dmp ExceptionStream + CONTEXT.EIP",
+    "file_offset": "181/HD_HOTA.dll .text RVA-to-file delta -0xC00",
+    "imagebase": "181/HD_HOTA.dll PE OptionalHeader.ImageBase",
+    "load_base": "DMP ModuleListStream: runtime EIP 0x0531ACB8 - RVA 0x9ACB8"
+  },
+  "schema": 1,
+  "kind": "address_proof",
+  "validation": {
+    "status": "passed",
+    "errors": []
+  }
+}

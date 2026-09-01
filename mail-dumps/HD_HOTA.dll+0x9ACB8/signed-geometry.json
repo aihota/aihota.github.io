@@ -1,0 +1,172 @@
+{
+  "bits": 32,
+  "input_signed": 170,
+  "operations": [
+    {
+      "op": "cast_unsigned",
+      "operand": 0,
+      "address": "0x0109AC9C"
+    }
+  ],
+  "guards": [
+    {
+      "dimension": "width",
+      "rejects_nonpositive": true,
+      "dominates_first_access": true,
+      "address": "0x0109AC81-0x0109AC9A"
+    }
+  ],
+  "first_access": {
+    "address": "0x0109ACB8",
+    "operation": "read dword ptr [edi+0x1E]"
+  },
+  "scope": {
+    "family_id": "HD_HOTA.dll/GetCell/result+0x1E",
+    "builds": 9,
+    "meaning": "audit of the observed signed coordinate before GetCell; not a root-cause claim"
+  },
+  "observed_geometry": {
+    "x": 170,
+    "linear_index": 41498,
+    "y": "unknown",
+    "z": "unknown",
+    "width": "unknown",
+    "minimum_required_cells": 85510
+  },
+  "siblings": [
+    {
+      "function": "sub_10957A0",
+      "width_guard_before_access": true,
+      "vulnerable": true,
+      "basis": "equivalent GetCell call followed by result+0x1E read"
+    },
+    {
+      "function": "sub_1095A00",
+      "width_guard_before_access": true,
+      "vulnerable": true,
+      "basis": "equivalent GetCell call followed by result+0x1E read"
+    },
+    {
+      "function": "sub_1095E30",
+      "width_guard_before_access": true,
+      "vulnerable": true,
+      "basis": "equivalent GetCell call followed by result+0x1E read"
+    },
+    {
+      "function": "sub_1096010",
+      "width_guard_before_access": true,
+      "vulnerable": true,
+      "basis": "equivalent GetCell call followed by result+0x1E read"
+    },
+    {
+      "function": "sub_1097390",
+      "width_guard_before_access": true,
+      "vulnerable": true,
+      "basis": "equivalent GetCell call followed by result+0x1E read"
+    },
+    {
+      "function": "sub_1097650",
+      "width_guard_before_access": true,
+      "vulnerable": true,
+      "basis": "equivalent GetCell call followed by result+0x1E read"
+    },
+    {
+      "function": "sub_1096780",
+      "width_guard_before_access": true,
+      "vulnerable": true,
+      "basis": "equivalent GetCell call followed by result+0x1E read"
+    },
+    {
+      "function": "sub_109A310",
+      "width_guard_before_access": true,
+      "vulnerable": true,
+      "basis": "equivalent GetCell call followed by result+0x1E read"
+    },
+    {
+      "function": "sub_109A400",
+      "width_guard_before_access": true,
+      "vulnerable": true,
+      "basis": "equivalent GetCell call followed by result+0x1E read"
+    }
+  ],
+  "sibling_census": {
+    "total": 9,
+    "scanned": 9,
+    "skipped": 0
+  },
+  "callsites": [
+    {
+      "address": "0x010960B1",
+      "callee": "A0_GameMap_GetCell_sub_4086D0",
+      "caller": "sub_10957A0"
+    },
+    {
+      "address": "0x01096311",
+      "callee": "A0_GameMap_GetCell_sub_4086D0",
+      "caller": "sub_1095A00"
+    },
+    {
+      "address": "0x01096741",
+      "callee": "A0_GameMap_GetCell_sub_4086D0",
+      "caller": "sub_1095E30"
+    },
+    {
+      "address": "0x01096921",
+      "callee": "A0_GameMap_GetCell_sub_4086D0",
+      "caller": "sub_1096010"
+    },
+    {
+      "address": "0x01097CA1",
+      "callee": "A0_GameMap_GetCell_sub_4086D0",
+      "caller": "sub_1097390"
+    },
+    {
+      "address": "0x01097F90",
+      "callee": "A0_GameMap_GetCell_sub_4086D0",
+      "caller": "sub_1097650"
+    },
+    {
+      "address": "0x01097011",
+      "callee": "A0_GameMap_GetCell_sub_4086D0",
+      "caller": "sub_1096780"
+    },
+    {
+      "address": "0x0109ABBC",
+      "callee": "A0_GameMap_GetCell_sub_4086D0",
+      "caller": "sub_109A310"
+    },
+    {
+      "address": "0x0109ACAC",
+      "callee": "A0_GameMap_GetCell_sub_4086D0",
+      "caller": "sub_109A400"
+    }
+  ],
+  "callsite_census": {
+    "total": 9,
+    "scanned": 9,
+    "skipped": 0
+  },
+  "interpretation": "signed nonpositive-to-unsigned geometry conversion is not confirmed; the observed x is positive and width-derived state remains unavailable",
+  "schema": 1,
+  "kind": "signed_geometry_audit",
+  "chain": [
+    {
+      "index": 0,
+      "op": "cast_unsigned",
+      "operand": 0,
+      "before_signed": 170,
+      "mathematical_result": 170,
+      "signed_result": 170,
+      "unsigned_result": 170,
+      "overflow": false,
+      "address": "0x0109AC9C"
+    }
+  ],
+  "final_signed": 170,
+  "final_unsigned": 170,
+  "width_guard_dominates": true,
+  "unsafe_nonpositive_to_unsigned_size": false,
+  "status": "not_confirmed",
+  "errors": [],
+  "complete": true
+}

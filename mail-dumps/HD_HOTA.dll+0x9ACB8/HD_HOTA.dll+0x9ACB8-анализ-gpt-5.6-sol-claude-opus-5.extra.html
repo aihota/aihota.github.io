@@ -1,0 +1,30 @@
+<section id="viz-mechanism" data-toc="Визуализация сбоя">
+  <h2><span class="htext">Визуализация сбоя</span>
+      <a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Схема отделяет наблюдаемую адресную цепочку от значений координат и ширины,
+     которых нет в минимальном дампе.</p>
+  <div class="viz">
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">1</span><span>Наблюдаемые значения</span></div>
+      <div class="viz-strip">
+        <div class="viz-box accent">x = 170<span class="lbl">EBX = ESI = 0xAA</span></div>
+        <div class="viz-box accent">индекс = 41498<span class="lbl">EDX / 9</span></div>
+        <div class="viz-box ok">GetCell<span class="lbl">база + 41498 × 0x26</span></div>
+        <div class="viz-box bad">сбой<span class="lbl">0x1C7EF000 + 0x1E</span></div>
+      </div>
+    </div>
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">2</span><span>Граница доказанности</span></div>
+      <div class="viz-strip">
+        <div class="viz-box ok">карта<span class="lbl">252 × 252 × 2</span></div>
+        <div class="viz-box bad">клетка 41498<span class="lbl">читается не полностью</span></div>
+        <div class="viz-box dashed dim">y, z, W<span class="lbl">не сохранены</span></div>
+      </div>
+    </div>
+    <div class="viz-legend">
+      <div class="item"><span class="viz-key"></span><span class="txt">GetCell вернул <code>0x1C7EF000</code>; чтение поля <code>+0x1E</code> дало адрес <code>0x1C7EF01E</code>.</span></div>
+      <div class="item"><span class="viz-key"></span><span class="txt">Поле ширины <code>[this+0xD4]</code> не сохранено, поэтому варианты <code>W=144</code> и <code>W=252</code> не выбираются как факт.</span></div>
+    </div>
+    <p class="viz-cap">Подтверждён недействительный ненулевой указатель; точная декомпозиция индекса остаётся неизвестной.</p>
+  </div>
+</section>

@@ -1,0 +1,197 @@
+{
+  "artifacts": [
+    {
+      "artifact_role": "source_crash_txt",
+      "phase_role": "potentially_causal"
+    },
+    {
+      "artifact_role": "source_minidump",
+      "phase_role": "contextual"
+    },
+    {
+      "artifact_role": "derived_series_registry",
+      "phase_role": "contextual"
+    },
+    {
+      "artifact_role": "derived_report_html",
+      "phase_role": "derived_after_failure"
+    }
+  ],
+  "call_chain": [
+    {
+      "address": "0x0109A400",
+      "function": "sub_109A400",
+      "module": "HD_HOTA.dll",
+      "type": "module_function"
+    },
+    {
+      "address": "0x004086D0",
+      "function": "A0_GameMap_GetCell_sub_4086D0",
+      "module": "h3hota.exe",
+      "type": "module_function"
+    },
+    {
+      "address": "0x1C7EF000",
+      "field": "+0x1E",
+      "type": "data"
+    },
+    {
+      "address": "0x0109ACB8",
+      "module": "HD_HOTA.dll",
+      "type": "return_address"
+    }
+  ],
+  "consumer_boundary": {
+    "candidate_validity": "invalid",
+    "input_validity": "unknown",
+    "reason": "x and linear index observed; y, z, W and allocation bound absent"
+  },
+  "family": {
+    "denominator": {
+      "scanned": 14,
+      "total": 14
+    },
+    "semantic_fingerprint": {
+      "access": "read",
+      "call_tail": [
+        "GetCell 0x004086D0",
+        "result register",
+        "cmp [result+0x1E],0x22"
+      ],
+      "field_offset": "+0x1E",
+      "structure_role": "GetCell result consumed as cell object"
+    }
+  },
+  "fixes": [
+    {
+      "differential_test": "original reaches index 41498; fixed build rejects it before GetCell or proves it in range",
+      "expected_evidence": [
+        "measured start/end bound before GetCell",
+        "no read beyond result+0x1E"
+      ],
+      "fix_role": "containment",
+      "supported_builds": [
+        "5.7 RC11..5.8 R8"
+      ]
+    },
+    {
+      "expected_evidence": [
+        "first writer EIP/TID/stack",
+        "same-thread dimensions and allocation bound"
+      ],
+      "fix_role": "diagnostic",
+      "supported_builds": [
+        "5.7 RC11..5.8 R8"
+      ]
+    }
+  ],
+  "kind": "crash_analysis_contract",
+  "lifecycle": {
+    "absence_claims": [],
+    "counts": {
+      "checks": 9,
+      "clears": 0,
+      "publishes": 9,
+      "reads": 9,
+      "references": 9,
+      "writes": 0
+    },
+    "enumeration_complete": true
+  },
+  "mechanism": {
+    "description": "GetCell result is checked only for NULL before read at +0x1E",
+    "kind": "state_corruption",
+    "status": "confirmed_local_mechanism"
+  },
+  "root_cause_declared": false,
+  "schema": 2,
+  "state_origin_candidates": [
+    {
+      "id": "race",
+      "next_evidence": [
+        "watchpoint ordering and conflicting writer TID"
+      ],
+      "status": "not_established"
+    },
+    {
+      "id": "use_after_free",
+      "next_evidence": [
+        "allocator free stack and object generation"
+      ],
+      "status": "not_established"
+    },
+    {
+      "id": "heap_overwrite",
+      "next_evidence": [
+        "first write outside the owning allocation"
+      ],
+      "status": "not_established"
+    },
+    {
+      "id": "third_party_write",
+      "next_evidence": [
+        "writer EIP, module, TID and stack"
+      ],
+      "status": "not_established"
+    }
+  ],
+  "structure": {
+    "fields": {
+      "cell_base": "this+0xD0",
+      "cell_record_size": "0x26",
+      "consumed_field": "result+0x1E",
+      "width": "this+0xD4"
+    },
+    "invariants": [
+      "index must be inside the receiver cell allocation",
+      "non-NULL result must be readable through +0x1E"
+    ],
+    "sibling_coverage": {
+      "complete": true,
+      "scanned": 14,
+      "total": 14
+    }
+  },
+  "thread_contexts": [
+    {
+      "registers": {
+        "EIP": "0x0531ACB8"
+      },
+      "source": "exception_stream",
+      "stack": [
+        "HD_HOTA.dll+0x9ACB8",
+        "read 0x1C7EF01E"
+      ],
+      "tid": 19924
+    },
+    {
+      "registers": {
+        "EAX": "0x1C7EF000",
+        "EBP": "0x001A9D6C",
+        "EBX": "0x000000AA",
+        "ECX": "0x1C66E024",
+        "EDI": "0x1C7EF000",
+        "EDX": "0x0005B2EA",
+        "ESI": "0x000000AA",
+        "ESP": "0x001A9D38"
+      },
+      "source": "text_context",
+      "stack": [
+        "HD_HOTA.dll+0x9ACB8",
+        "HD.Af.RepareFunc",
+        "GetCell 0x004086D0"
+      ],
+      "tid": 20172
+    }
+  ],
+  "thread_policy": {
+    "reason": "ExceptionStream TID 19924 differs from text-context TID 20172",
+    "register_sets_may_be_combined": false
+  },
+  "validation": {
+    "status": "passed",
+    "errors": [],
+    "root_cause_allowed": false
+  },
+  "status": "passed"
+}
