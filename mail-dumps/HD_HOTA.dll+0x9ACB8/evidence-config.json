@@ -186,7 +186,7 @@
   ],
   "manifest_schema": 4,
   "out": "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.evidence.json",
-  "parser_revision": "ca988e2feb952a457fdb653cfe490d5e209b11ae",
+  "parser_revision": "04956ec08c41924a884a81380b38f5fb659b50ae",
   "project_root": "../..",
   "report": "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.txt",
   "schema": 2,

@@ -1,11 +1,11 @@
 {
   "schema": 4,
-  "generated_at": "2026-09-01T21:03:09.306367+00:00",
-  "parser_revision": "ca988e2feb952a457fdb653cfe490d5e209b11ae",
+  "generated_at": "2026-09-01T21:25:39.204175+00:00",
+  "parser_revision": "04956ec08c41924a884a81380b38f5fb659b50ae",
   "report": {
     "path": "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.txt",
-    "size": 28307,
-    "sha256": "55d93347a26f0eaa6c7530bfb6396ebf504ccad9406931fe898dffed72c54b5e"
+    "size": 28651,
+    "sha256": "382ad4983be5adaceb739a076b071b9ea33d876321d62248d172d81eec5f817a"
   },
   "inputs": [
     {
@@ -95,7 +95,7 @@
     {
       "path": "evidence-config.json",
       "size": 6459,
-      "sha256": "47393f4067ef56b7787bb1aed1a198afd1422ba552e32171d54b9c01fda7c366",
+      "sha256": "908d0d502937beb348d65eafa5751b62162beaf1f6e1193f079c104fae97c824",
       "role": "derived-evidence"
     }
   ],
@@ -358,7 +358,7 @@
   "toolchain": {
     "schema": 1,
     "kind": "toolchain_closure",
-    "git_commit": "ca988e2feb952a457fdb653cfe490d5e209b11ae",
+    "git_commit": "04956ec08c41924a884a81380b38f5fb659b50ae",
     "direct_tools": [
       ".agents/skills/address-mapping/address_proof.py",
       ".agents/skills/hota-crash-triage/analysis_contract.py",

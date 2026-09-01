@@ -29,7 +29,7 @@
       {
         "path": "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.evidence.json",
         "size": 21338,
-        "sha256": "46e38373926906eb53b08015fea7989b19facb7928948169e9093c417379ef0b"
+        "sha256": "0e5e8125f1313fe70e0986988161d9767fff8be29c90b29cf6269eb233e6519e"
       },
       {
         "path": "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.extra.html",
@@ -38,8 +38,8 @@
       },
       {
         "path": "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.html",
-        "size": 545183,
-        "sha256": "1d7ba6079f946b2d9c87160528d7e721cb902ec8e41553ac874e6e595611d073"
+        "size": 545954,
+        "sha256": "55ae3e86d4d63537d168eab63ba7638c8d33a226d652a0c65ab3c24e52ce3b38"
       },
       {
         "path": "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.model.json",
@@ -48,8 +48,8 @@
       },
       {
         "path": "HD_HOTA.dll+0x9ACB8-анализ-gpt-5.6-sol-claude-opus-5.txt",
-        "size": 28307,
-        "sha256": "55d93347a26f0eaa6c7530bfb6396ebf504ccad9406931fe898dffed72c54b5e"
+        "size": 28651,
+        "sha256": "382ad4983be5adaceb739a076b071b9ea33d876321d62248d172d81eec5f817a"
       },
       {
         "path": "address-proof.json",
@@ -84,7 +84,7 @@
       {
         "path": "evidence-config.json",
         "size": 6459,
-        "sha256": "47393f4067ef56b7787bb1aed1a198afd1422ba552e32171d54b9c01fda7c366"
+        "sha256": "908d0d502937beb348d65eafa5751b62162beaf1f6e1193f079c104fae97c824"
       },
       {
         "path": "family-membership-input.json",
@@ -370,8 +370,8 @@
       },
       {
         "path": ".agents/skills/hota-crash-triage/lint_report.py",
-        "size": 108999,
-        "sha256": "169be4cad82eba5ff5851a81fb87120283071a6868bc602e327d10b1cdc19e29"
+        "size": 110408,
+        "sha256": "ca7cf1c6e9ca329efc7c008f4a80a3b062c4b654856e77a9a1fad4314acc2ed0"
       },
       {
         "path": ".agents/skills/hota-crash-triage/render_attestation.py",
@@ -479,7 +479,7 @@
         "sha256": "6174150efa52104dbc5d5bc316181fa12c8b892b0f51d217559970f368f3e172"
       }
     ],
-    "sha256": "23bd64f44b1bdbc4a0b45de96ed3da7641ae3c478f9530959ab0c76435605507"
+    "sha256": "35d8bc3cf4f07067a81db3d34a7ea8286ce4a664fee442b2d38c29c45bf4e10a"
   },
   "audit_stages_complete": null,
   "publication_ready": true,
