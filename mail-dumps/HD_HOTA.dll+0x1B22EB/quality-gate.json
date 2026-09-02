@@ -17,24 +17,29 @@
         "sha256": "f8b6a56167303a99496d76c32e26e8670a568069b29e2122a5c4f38c4cbcf4f1"
       },
       {
-        "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.evidence.json",
-        "size": 18289,
-        "sha256": "31e0e8525d6b40f1f11fafdd99f5bd5f6c1217dfdf9864f60aa1ca950b2946bd"
+        "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.evidence.json",
+        "size": 18303,
+        "sha256": "a8e0d0c611f6fdd11b6813b780df8d58c2e66d3fb7f18d33a06d8081c26b100c"
       },
       {
-        "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.extra.html",
+        "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.extra.html",
         "size": 2485,
         "sha256": "8ca495ef4c834eeb1348ead0838569ff054df2e316f49935e8f70f2623b682e0"
       },
       {
-        "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.html",
-        "size": 532357,
-        "sha256": "52ae99e517912bd042fbdc7cdc2c35f4ce771411bd7be194b7a36482000f59be"
+        "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.html",
+        "size": 532387,
+        "sha256": "83ba76ab88398382c8e0e721428bdc791d53be5ce67d0c28a6b57da7805d6e66"
       },
       {
-        "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.txt",
-        "size": 17918,
-        "sha256": "79d97c6f7680958a2b86e12b3f41f8cd4220449868dae0cba154ce8316c7cfce"
+        "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.model.json",
+        "size": 251,
+        "sha256": "fd20d15328ad5b27bcef9c89109789cb579df989eb00e2e686876e21f1845c61"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
+        "size": 17934,
+        "sha256": "1fb5ff788f43372e70af4383a0d1706abf6c2b30626854af644c21ec13d336cb"
       },
       {
         "path": "address-proof.json",
@@ -171,7 +176,7 @@
       {
         "path": ".agents/skills/hota-crash-triage/lint_report.py",
         "size": 111462,
-        "sha256": "d2d14d8a99d5595b10ec74add8e26bdca572a28381753f3d828f58f41092dabe"
+        "sha256": "3a5660ef64024b2b1a4a83d7eaf074393892ca7bb9ff9c54c09f2a6e6cdff514"
       },
       {
         "path": ".agents/skills/hota-crash-triage/missing_evidence_request.py",
@@ -299,7 +304,7 @@
         "sha256": "5de7e5a300a3a2a3b0d73ec3c22e147d977cee84da2ddd6abe1cf8129e57300a"
       }
     ],
-    "sha256": "b48d22cec831c64088072c3ca447edcb2f93014c487899d4b3cc9ced3dd4f06f"
+    "sha256": "d8e9f03f9d6566eeb9cba8dbc8e90f18ecef1dc7cbc41b5968a5d55c1506f882"
   },
   "audit_stages_complete": null,
   "publication_ready": true,
@@ -440,43 +445,43 @@
       "stderr": ""
     },
     {
-      "name": "lint:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.txt",
+      "name": "lint:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
       "status": "passed",
       "returncode": 0,
-      "stdout": "епочкой)\n[OK]   Имена канонических секций совпадают со схемой\n[OK]   Поле раздела 1 найдено: Класс сбоя:\n[OK]   Поле раздела 1 найдено: Полезность лога для исправления:\n[OK]   Поле раздела 1 найдено: Версия HotA:\n[OK]   Поле раздела 1 найдено: Версии HD-мода:\n[OK]   Поле раздела 1 найдено: Уникальных вылетов:\n[OK]   Поле «Версия HotA:» содержит только версии\n[OK]   Поле «Версии HD-мода:» содержит только версии\n[OK]   Машинный реестр серии: физические/уникальные/группы сходятся\n[OK]   Обязательное поле найдено: Происхождение стека: CONTEXT_THREAD_MISMATCH; register_sets_may_be_combined=false\n[OK]   Версия схемы отчёта: 2\n[OK]   Поле схемы v2 найдено: Ключ семейства:\n[OK]   Поле схемы v2 найдено: Уровень идентификации кода:\n[OK]   Поле схемы v2 найдено: Поток исключения:\n[OK]   Поле схемы v2 найдено: Поток игрового контекста:\n[OK]   Поле схемы v2 найдено: Первичный источник данных:\n[OK]   Поле схемы v2 найдено: Статус первичного источника:\n[OK]   Поле схемы v2 найдено: Основание локального счёта:\n[OK]   Поле схемы v2 найдено: Граница корпусного поиска:\n[OK]   Поле схемы v2 найдено: Метод дедупликации:\n[OK]   Доказанность точки сбоя: подтверждена\n[OK]   Доказанность локального механизма: выведено из листинга\n[OK]   Происхождение повреждённого состояния: не установлено\n[OK]   Полнота семейной переписи: частичная\n[OK]   Уровень связи дополнительных инцидентов: 3 — тот же локальный механизм, но не доказан тот же источник состояния\n[OK]   Статус визуализации указан: выполнена — NULL проходит EAX -> ESI -> [ESI+0x1C]\n[OK]   'Класс сбоя' — точный русский ярлык из словаря\n[OK]   Нет markdown-заголовков '#'\n[OK]   Нет fenced-блоков ```\n[OK]   Нет markdown-таблиц с '|'\n[OK]   Декоративного Unicode нет (ASCII-эквиваленты)\n[OK]   Нет ссылок на внутренние правила/скиллы\n[OK]   Баг HD-мода: техническая рекомендация присутствует\n[OK]   Нет отдельного раздела истории исправлений\n[OK]   Нет лишних Markdown-кавычек вокруг технических выражений\n[OK]   Заголовки ролей отделены и используют каноническое тире\n[OK]   Нет методического жаргона (V1/V2)\n[OK]   Нет английских терминов в русском тексте\n[OK]   Известных грамматических регрессий нет\n[WARN] Строк длиннее 100 символов: 33\n[OK]   HTML-теги отсутствуют (чистый plain-text)\n[OK]   Diff-таблица: колонки консистентны (2)\n[OK]   Декоративные линии не превышают число секций (0/8)\n[OK]   Блоки дизассемблера с префиксом .text:\n[OK]   Отрицательные результаты зафиксированы\n[OK]   Отрицательный результат с покрытием/контролем\n[OK]   Неподтверждённых отрицательных выводов стенда нет\n[OK]   Модель совпадает со slug в имени файла\n[OK]   Модель совпадает с проектной по умолчанию\n[OK]   Незаполненных мест заготовки не осталось\n[OK]   Абзацы в пределах 1200 символов\n[OK]   Счётные числа помечены или получены разбором формата\n[OK]   Вероятностные условия помечены или отсутствуют\n[OK]   У каждой дроби «X из Y» рядом указано основание счёта\n[OK]   Дата шапки согласована со временем правки файла\n\nИтог: FAIL=0, WARN=1, BLOCKING_WARN=0\n",
+      "stdout": " Имена канонических секций совпадают со схемой\n[OK]   Поле раздела 1 найдено: Класс сбоя:\n[OK]   Поле раздела 1 найдено: Полезность лога для исправления:\n[OK]   Поле раздела 1 найдено: Версия HotA:\n[OK]   Поле раздела 1 найдено: Версии HD-мода:\n[OK]   Поле раздела 1 найдено: Уникальных вылетов:\n[OK]   Поле «Версия HotA:» содержит только версии\n[OK]   Поле «Версии HD-мода:» содержит только версии\n[OK]   Машинный реестр серии: физические/уникальные/группы сходятся\n[OK]   Обязательное поле найдено: Происхождение стека: CONTEXT_THREAD_MISMATCH; register_sets_may_be_combined=false\n[OK]   Версия схемы отчёта: 2\n[OK]   Поле схемы v2 найдено: Ключ семейства:\n[OK]   Поле схемы v2 найдено: Уровень идентификации кода:\n[OK]   Поле схемы v2 найдено: Поток исключения:\n[OK]   Поле схемы v2 найдено: Поток игрового контекста:\n[OK]   Поле схемы v2 найдено: Первичный источник данных:\n[OK]   Поле схемы v2 найдено: Статус первичного источника:\n[OK]   Поле схемы v2 найдено: Основание локального счёта:\n[OK]   Поле схемы v2 найдено: Граница корпусного поиска:\n[OK]   Поле схемы v2 найдено: Метод дедупликации:\n[OK]   Доказанность точки сбоя: подтверждена\n[OK]   Доказанность локального механизма: выведено из листинга\n[OK]   Происхождение повреждённого состояния: не установлено\n[OK]   Полнота семейной переписи: частичная\n[OK]   Уровень связи дополнительных инцидентов: 3 — тот же локальный механизм, но не доказан тот же источник состояния\n[OK]   Статус визуализации указан: выполнена — NULL проходит EAX -> ESI -> [ESI+0x1C]\n[OK]   'Класс сбоя' — точный русский ярлык из словаря\n[OK]   Нет markdown-заголовков '#'\n[OK]   Нет fenced-блоков ```\n[OK]   Нет markdown-таблиц с '|'\n[OK]   Декоративного Unicode нет (ASCII-эквиваленты)\n[OK]   Нет ссылок на внутренние правила/скиллы\n[OK]   Баг HD-мода: техническая рекомендация присутствует\n[OK]   Нет отдельного раздела истории исправлений\n[OK]   Нет лишних Markdown-кавычек вокруг технических выражений\n[OK]   Заголовки ролей отделены и используют каноническое тире\n[OK]   Нет методического жаргона (V1/V2)\n[OK]   Нет английских терминов в русском тексте\n[OK]   Известных грамматических регрессий нет\n[WARN] Строк длиннее 100 символов: 33\n[OK]   HTML-теги отсутствуют (чистый plain-text)\n[OK]   Diff-таблица: колонки консистентны (2)\n[OK]   Декоративные линии не превышают число секций (0/8)\n[OK]   Блоки дизассемблера с префиксом .text:\n[OK]   Отрицательные результаты зафиксированы\n[OK]   Отрицательный результат с покрытием/контролем\n[OK]   Неподтверждённых отрицательных выводов стенда нет\n[OK]   Модель совпадает со slug в имени файла\n[OK]   Модель подтверждена машинным манифестом (user_confirmed)\n[OK]   Незаполненных мест заготовки не осталось\n[OK]   Абзацы в пределах 1200 символов\n[OK]   Счётные числа помечены или получены разбором формата\n[OK]   Вероятностные условия помечены или отсутствуют\n[OK]   У каждой дроби «X из Y» рядом указано основание счёта\n[OK]   Дата шапки согласована со временем правки файла\n\nИтог: FAIL=0, WARN=1, BLOCKING_WARN=0\n",
       "stderr": ""
     },
     {
-      "name": "semantic:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.txt",
+      "name": "semantic:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
       "status": "passed",
       "returncode": 0,
       "stdout": "SEMANTIC: PASSED; errors=none; warnings=none\n",
       "stderr": ""
     },
     {
-      "name": "evidence:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.txt",
+      "name": "evidence:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
       "status": "passed",
       "returncode": 0,
       "stdout": "EVIDENCE: FRESH:UNVERIFIED_TOOL_REVISION; проверено 21\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/address-mapping/address_proof.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/analysis_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/coverage_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/repro_plan.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/evidence_manifest.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n",
       "stderr": ""
     },
     {
-      "name": "schema3_contract:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.evidence.json",
+      "name": "schema3_contract:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.evidence.json",
       "status": "passed",
       "errors": []
     },
     {
-      "name": "render:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.txt",
+      "name": "render:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
       "status": "passed",
       "returncode": 0,
-      "stdout": "   шрифты встроены (офлайн): 5 начертаний\n   врезка визуализаций: 1 секц., 1 пункт(ов) оглавления\nOK -> /Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/rendered/HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.html\n   секций размещено: 10 / 10\n   <section> open=11 close=11\n   ✓ валидация: ключевые поля txt присутствуют в html\n",
+      "stdout": "   шрифты встроены (офлайн): 5 начертаний\n   врезка визуализаций: 1 секц., 1 пункт(ов) оглавления\nOK -> /Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/rendered/HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.html\n   секций размещено: 10 / 10\n   <section> open=11 close=11\n   ✓ валидация: ключевые поля txt присутствуют в html\n",
       "stderr": "",
-      "verified_existing_html": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.html",
+      "verified_existing_html": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.html",
       "normalized_generated_at": true,
-      "render_output": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/rendered/HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.html"
+      "render_output": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/rendered/HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.html"
     },
     {
-      "name": "semantic-html:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.txt",
+      "name": "semantic-html:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
       "status": "passed",
       "returncode": 0,
       "stdout": "SEMANTIC: PASSED; errors=none; warnings=none\n",
