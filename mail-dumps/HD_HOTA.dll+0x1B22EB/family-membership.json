@@ -1,0 +1,79 @@
+{
+  "schema": 4,
+  "generated_at": "2026-09-02T18:53:43.327445+00:00",
+  "family_id": "family-HD_HOTA.dll+0x1B22EB",
+  "source": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/family-membership-input.json",
+  "scope_id": "family-HD_HOTA.dll+0x1B22EB",
+  "scope_kind": "family",
+  "scope": {
+    "id": "family-HD_HOTA.dll+0x1B22EB",
+    "kind": "family",
+    "source": "series-groups.json",
+    "incidents": 1,
+    "classification": "current materialized incident confirmed; two historical cases remain probable context only",
+    "address_range": {
+      "start_rva": "0x001B22EB",
+      "end_rva": "0x001B22EB",
+      "end_inclusive": true,
+      "human_label": "HD_HOTA.dll+0x1B22EB current materialized family",
+      "basis": "Exact current crash site after runtime-base normalization; historical 5.7 R33 cases are not included as confirmed members"
+    }
+  },
+  "candidate_census": {
+    "total": 1,
+    "classified": 1,
+    "confirmed": 1,
+    "probable": 0,
+    "context_only": 0,
+    "excluded": 0,
+    "unknown": 0,
+    "blocked": 0
+  },
+  "incident_set_fingerprint": "910f0bd56e47145ebe54aa3d368815ee3958c1e4e7ec1206c0f44e144f5bda2d",
+  "human_decision": {
+    "author": "1 1",
+    "decided_at": "2026-09-02T21:41:37.681+03:00",
+    "basis": "Пользователь после перепроверки диагноза и внесения уточнений отдельно одобрил публикацию отчёта, где текущий инцидент указан единственным подтверждённым членом материализованной семьи.",
+    "source": "Текущий чат: явная команда «публикуй отчёт» от 2026-09-02T21:41:37.681+03:00",
+    "incident_set_fingerprint": "910f0bd56e47145ebe54aa3d368815ee3958c1e4e7ec1206c0f44e144f5bda2d"
+  },
+  "provenance_warnings": [],
+  "memberships": [
+    {
+      "incident_id": "incident-5fce36c679bf907f",
+      "membership": "confirmed",
+      "basis": "Текущий инцидент определяет материализованную семью: exact pair TXT/DMP, подтверждённый sink RVA 0x001B22EB и подтверждённый локальный механизм непроверенного NULL.",
+      "evidence": [
+        "pair-audit.json",
+        "address-proof.json",
+        "analysis-contract.json",
+        "coverage.json"
+      ],
+      "fingerprint": {
+        "structure_role": "nullable Pcx16 creation result",
+        "field": "+0x1C",
+        "call_tail": [
+          "sub_11B22C0",
+          "sub_11B8130"
+        ],
+        "frame_depth": 0
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    }
+  ],
+  "counts": {
+    "confirmed": 1
+  },
+  "errors": [],
+  "registry_valid": true,
+  "enumeration_complete": true,
+  "classification_complete": true,
+  "unknown_count": 0,
+  "blocked_by_listing_count": 0,
+  "complete": true
+}

@@ -1,0 +1,39 @@
+{
+  "module": "HD_HOTA.dll",
+  "addresses": {
+    "runtime": 71770859,
+    "load_base": 69992448,
+    "imagebase": 16777216,
+    "size_of_image": 18849792,
+    "file_offset": 1775339,
+    "rva": 1778411,
+    "module_offset": 1778411,
+    "ida": 18555627
+  },
+  "sources": {
+    "fault_address": "TXT Context.EIP and DMP ExceptionStream address 0x044722EB",
+    "load_base": "DMP ModuleList: HD_HOTA.dll base 0x042C0000",
+    "imagebase": "modules/HD_HOTA.dll-5.8-R8.txt header: Imagebase 0x01000000",
+    "file_offset": "listing .text: RVA 0x1000 maps to raw 0x400; RVA 0x1B22EB maps to raw 0x1B16EB"
+  },
+  "identity": {
+    "level": "dmp-window",
+    "full_binary_match": false,
+    "listing": "modules/HD_HOTA.dll-5.8-R8.txt",
+    "listing_input_sha256": "EABF3EF1193A6BCD3E5B63EB78D8D13F6160CE5EB85EF2F982CAE33D4A97D715",
+    "window": {
+      "runtime": "0x044722EB",
+      "file_offset": "0x001B16EB",
+      "size": 15,
+      "matched": 15,
+      "bytes": "FF 76 1C FF 71 30 FF 76 30 E8 F7 47 01 00 A1"
+    },
+    "limitation": "MiniDumpNormal proves the local instruction window, not a full runtime binary identity"
+  },
+  "schema": 1,
+  "kind": "address_proof",
+  "validation": {
+    "status": "passed",
+    "errors": []
+  }
+}

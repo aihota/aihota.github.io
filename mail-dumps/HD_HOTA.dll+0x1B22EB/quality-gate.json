@@ -1,0 +1,486 @@
+{
+  "schema": 2,
+  "case": "mail-dumps/HD_HOTA.dll+0x1B22EB",
+  "gate_scope": "full_quality_gate",
+  "static_only": true,
+  "input_fingerprint": {
+    "schema": 1,
+    "case_files": [
+      {
+        "path": "HD_HOTA.dll+0x1B22EB-5.8-R8-181.dmp",
+        "size": 98474,
+        "sha256": "60b96b7d6dff430cb3e0bfabba56c9010f57cdfaff79ad30df0f873774d7cbf4"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1B22EB-5.8-R8-181.txt",
+        "size": 10652,
+        "sha256": "f8b6a56167303a99496d76c32e26e8670a568069b29e2122a5c4f38c4cbcf4f1"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.evidence.json",
+        "size": 18289,
+        "sha256": "31e0e8525d6b40f1f11fafdd99f5bd5f6c1217dfdf9864f60aa1ca950b2946bd"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.extra.html",
+        "size": 2485,
+        "sha256": "8ca495ef4c834eeb1348ead0838569ff054df2e316f49935e8f70f2623b682e0"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.html",
+        "size": 532357,
+        "sha256": "52ae99e517912bd042fbdc7cdc2c35f4ce771411bd7be194b7a36482000f59be"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.txt",
+        "size": 17918,
+        "sha256": "79d97c6f7680958a2b86e12b3f41f8cd4220449868dae0cba154ce8316c7cfce"
+      },
+      {
+        "path": "address-proof.json",
+        "size": 1235,
+        "sha256": "182b11bb1fb99cb29b0b522b728424b36dd00f5d314658cef301344157dac282"
+      },
+      {
+        "path": "analysis-contract.json",
+        "size": 5938,
+        "sha256": "289dfa493465159d5857d4e74d029cef5c897ec1d133355764af770c78ad17cc"
+      },
+      {
+        "path": "capabilities.json",
+        "size": 3660,
+        "sha256": "4d837dac7859d7ffff69e6988051ab7e8ecbe553d67e0f21e8aba761706197bd"
+      },
+      {
+        "path": "case-manifest.json",
+        "size": 3535,
+        "sha256": "77f3d41dbce4b679f64a189a4be0d27d866e31491df9857e5ae2668ad3afc576"
+      },
+      {
+        "path": "coverage.json",
+        "size": 6245,
+        "sha256": "d878e46a5734d9207e3b02d222e6cd92dcbd6d1e0686def10ae905d4ef7c0a50"
+      },
+      {
+        "path": "family-membership-input.json",
+        "size": 2411,
+        "sha256": "c117f280b38dacaf55671adc2a4344a7b713b7676c536042d16c0066bc70684b"
+      },
+      {
+        "path": "family-membership.json",
+        "size": 3057,
+        "sha256": "26882553720f3aa6d3306d22529ceeb721dc58115e21bbf06c1ae34cae190665"
+      },
+      {
+        "path": "pair-audit.json",
+        "size": 2525,
+        "sha256": "4e48f958f1e517f30dd405d5bdaeaeb73c95baea8525941f73942ecc02457972"
+      },
+      {
+        "path": "repro-plan.json",
+        "size": 6102,
+        "sha256": "61a98989778008b9f0ce6b9fe35f18fa3a8f9d900eca8b665d08632a3794bed7"
+      },
+      {
+        "path": "save-inventory.json",
+        "size": 442,
+        "sha256": "7e6dfc687e94eed27d2eb3e39d906e26d103bd6ebf7378361c5c6b25b34e2b98"
+      },
+      {
+        "path": "series-groups.json",
+        "size": 8562,
+        "sha256": "df0e47d909409a2704540f3ae648058f0453caca89bce40d91d19fc874275325"
+      },
+      {
+        "path": "series-parse.json",
+        "size": 7174,
+        "sha256": "257c70da0193fd76298fed881a9b19f643690fba019975910d49439433dc8e95"
+      }
+    ],
+    "toolchain_files": [
+      {
+        "path": ".agents/skills/address-mapping/address_proof.py",
+        "size": 6725,
+        "sha256": "6b46bb722302ff58686668a9c06c29e02ff52b888f6dd5423e2a6b1c9e59f2c6"
+      },
+      {
+        "path": ".agents/skills/address-mapping/call_argument_audit.py",
+        "size": 4474,
+        "sha256": "a888e012a6d347f536601afca3ab412a772670c3ecefc51949ae63e3052387e6"
+      },
+      {
+        "path": ".agents/skills/address-mapping/callback_abi_audit.py",
+        "size": 7092,
+        "sha256": "0463a7798e01036fde8ad65d0241924e3374a46eb55bdb0bc406ad291c8504dd"
+      },
+      {
+        "path": ".agents/skills/gameplay-state-triage/gameplay_case_gate.py",
+        "size": 8279,
+        "sha256": "8c9094db55e62a0899d86f920981e8743eaf22e63b54bd396b1c60e4926bd75f"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/analysis_contract.py",
+        "size": 12272,
+        "sha256": "846623acb217e184e2bd51f3b8a90230d8eee134a879d0cde0c598873f9daee2"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/artifact_io.py",
+        "size": 5947,
+        "sha256": "d06234b55d72565c5e7adcd024a261f350b49412492f1d8af2ae593d087751a3"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/case_lessons.py",
+        "size": 3010,
+        "sha256": "355d9a26320aea363ee6f9b088016ef21870a46825a46ed72a715e80ab9a0ec5"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/coverage_contract.py",
+        "size": 9421,
+        "sha256": "953020e43c32ebd295da252986537608c31a574b1f92d2b3b584bcdc76f5d995"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/crash_audit.py",
+        "size": 45369,
+        "sha256": "25c89f6ba2e3c84712f881b40428f2bf32b05a8902636d3a4c1042c9e9f3853a"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/dimension_provenance.py",
+        "size": 11562,
+        "sha256": "24a7551f6c1e060b876aedc7c3bd2188339c2dcc687da46dc6c5be9889f54414"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/evidence_manifest.py",
+        "size": 56919,
+        "sha256": "9370b9d0315f94851ff85a8b5beb4d4858c92f307d1ad8e9349953e8c0d22c45"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/family_membership.py",
+        "size": 15239,
+        "sha256": "d0da36111f4a2ddded9495e5d6db91af9d7f443ab98f46f2c333299b422147a6"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/frame_slot_provenance.py",
+        "size": 10701,
+        "sha256": "9148a0d65fa49285da9b3285994801193d77204269a51c434ef4159e297603b3"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/geometry_contract_audit.py",
+        "size": 5035,
+        "sha256": "2efdc85e7e2d0b7a8dee96fe97ee454321af287833a0871394ae1258cb2e8590"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/lint_report.py",
+        "size": 111462,
+        "sha256": "d2d14d8a99d5595b10ec74add8e26bdca572a28381753f3d828f58f41092dabe"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/missing_evidence_request.py",
+        "size": 5747,
+        "sha256": "d26ab49aa8f872400c797eef5cab7f76521b65db9e1ac15cdd90b753d84bec80"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/related_crashes.py",
+        "size": 4941,
+        "sha256": "bad8a9737d6c1ca47c90ecf122c009d4aa7ccd8622885a8ecb665709daa5541a"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/render_attestation.py",
+        "size": 6468,
+        "sha256": "13c35031c9b11235563205d69e65ddcb67a3f97914788aecdeea8c5e680f6cdd"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/report_history.py",
+        "size": 5282,
+        "sha256": "304888918b7d1e0e52a170718425f01be61912a509a2342c33fd1f5a7392fb58"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/repro_plan.py",
+        "size": 10339,
+        "sha256": "9a35fbd614506b5662de65b189b3fa61abe4cb94d01eb6d6c2ac825b36fce0c2"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/scan_attestation.py",
+        "size": 5877,
+        "sha256": "ca137a0bd4618a7166c9906e40bcf6584a90f9d295d0038621a48daa86c83568"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/semantic_contract.py",
+        "size": 13387,
+        "sha256": "ac3f438fb957dffb11f3e55e9512afba7673208000df9669e67187893ab33330"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/semantic_site_fingerprint.py",
+        "size": 4957,
+        "sha256": "dec858198b86e8d073a19ed274866137b5e22a8bba38ac52c5820e31f9a0688e"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/signed_geometry_audit.py",
+        "size": 7740,
+        "sha256": "a8dfe38b5c483fdabad1e4718691851aa07a13fc0596ea050ee747e9b3ef54b9"
+      },
+      {
+        "path": ".agents/skills/html-report/fonts/ReportMono-Bold.woff2",
+        "size": 53836,
+        "sha256": "dea64820e1ffa27ee8eeae8769b38cdf287c4d6cfaa2b96be15b0f3c6c1d337c"
+      },
+      {
+        "path": ".agents/skills/html-report/fonts/ReportMono-Regular.woff2",
+        "size": 52056,
+        "sha256": "a16f097ed8b1417c5564b1da17c9b7bb809583f4a9d74c9ba272d29e0b5e528e"
+      },
+      {
+        "path": ".agents/skills/html-report/fonts/ReportSans-Bold.woff2",
+        "size": 72892,
+        "sha256": "fc9d48df6e3ae8ed4214d1e70ab13ed4af58015263af1d5a24ed7b06b2c0378b"
+      },
+      {
+        "path": ".agents/skills/html-report/fonts/ReportSans-Regular.woff2",
+        "size": 67436,
+        "sha256": "9dbf0dab5a6eeac74494e14674b69077c55e8858295647d91d27bfc803dbdb6c"
+      },
+      {
+        "path": ".agents/skills/html-report/fonts/ReportSans-SemiBold.woff2",
+        "size": 72760,
+        "sha256": "f5fbca9627ab1338a9a39dc5d1d84d7593e59cca0b860be7145a950ed1c1b9a3"
+      },
+      {
+        "path": ".agents/skills/html-report/render_report.py",
+        "size": 1086,
+        "sha256": "75e811fef4abc543e74287b913aa39ac4c4a6e67c994bf686241c5859aab4914"
+      },
+      {
+        "path": ".agents/skills/html-report/template.html",
+        "size": 7469,
+        "sha256": "80e538676c5f222991bbe7d6906349420b6d82c2ae014c82e61086b44cb83122"
+      },
+      {
+        "path": ".agents/skills/html-report/template_parts/interactions.js",
+        "size": 4461,
+        "sha256": "d00a9ca0044e6305cd67f13f1ea26d645c1fc6433884bf0c8d7efe72de63152e"
+      },
+      {
+        "path": ".agents/skills/html-report/template_parts/sections.js",
+        "size": 497,
+        "sha256": "317b485b221f1b57a3b50c3be21ae9fc8b31c5cde446a58951e90034338a9ff6"
+      },
+      {
+        "path": ".agents/skills/html-report/template_parts/styles.css",
+        "size": 55058,
+        "sha256": "10795790ddb567537fdb6c6e53e0714be13cc2a25252619b80b05eb38bf20c25"
+      },
+      {
+        "path": ".agents/skills/html-report/template_parts/theme-init.js",
+        "size": 608,
+        "sha256": "dfd0663f32a5a77eff2d47b769028be65e80773decab8bf6e6a129844c5f703d"
+      },
+      {
+        "path": ".agents/skills/html-report/template_parts/toc.js",
+        "size": 250,
+        "sha256": "3b87a43635a86a012a301213ccc84bf2cc0ca1eff524455f2224e8cc12ecf679"
+      },
+      {
+        "path": ".agents/skills/memory-pressure/memory_pressure_contract.py",
+        "size": 4629,
+        "sha256": "cd4de5683de1a0dda82a4d9d5e2d06d8a9033797f2315f11a8916098df321092"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/corpus_denominator.py",
+        "size": 7136,
+        "sha256": "77ee195a25aa5c5bef1a0c6e97948c76c23b62be60a0c77f2bbe83f20972952e"
+      },
+      {
+        "path": ".agents/skills/registry-container/payload_flow_audit.py",
+        "size": 4191,
+        "sha256": "90cfc79f7b860d13bc38caffa0a97137dea16b18ffe4a5038d79279052c5f94f"
+      },
+      {
+        "path": "report_consistency.py",
+        "size": 29330,
+        "sha256": "5de7e5a300a3a2a3b0d73ec3c22e147d977cee84da2ddd6abe1cf8129e57300a"
+      }
+    ],
+    "sha256": "b48d22cec831c64088072c3ca447edcb2f93014c487899d4b3cc9ced3dd4f06f"
+  },
+  "audit_stages_complete": null,
+  "publication_ready": true,
+  "diagnostic_assessed": true,
+  "diagnostic_not_applicable": false,
+  "publication_blockers": [],
+  "actions_not_performed_by_gate": [
+    "Wine",
+    "game launch",
+    "git commit",
+    "git push",
+    "publication"
+  ],
+  "execution_policy": {
+    "scope": "static_validation_only",
+    "publication_after_pass": "allowed_but_not_performed"
+  },
+  "status": "passed",
+  "passed": true,
+  "artifact_quality": {
+    "status": "passed",
+    "passed": true,
+    "step_count": 17,
+    "blocked_count": 0
+  },
+  "diagnostic_completeness": {
+    "status": "incomplete",
+    "complete": false,
+    "causality_level": "L1",
+    "axis_summary": {
+      "instruction": "confirmed",
+      "mechanism": "confirmed",
+      "state_origin": "unknown",
+      "family_coverage": "probable",
+      "reproduction": "unknown"
+    },
+    "root_cause_ready": false,
+    "next_required": [
+      "capture_state_origin_and_writer",
+      "confirm_reproduction",
+      "complete_family_coverage"
+    ],
+    "source": "mail-dumps/HD_HOTA.dll+0x1B22EB/coverage.json"
+  },
+  "root_cause_ready": false,
+  "causality_level": "L1",
+  "step_count": 17,
+  "blocked_count": 0,
+  "steps": [
+    {
+      "name": "mandatory_machine_sidecars",
+      "status": "passed",
+      "errors": [],
+      "legacy_exempt": false,
+      "dmp_count": 1,
+      "evidence_count": 1
+    },
+    {
+      "name": "pair_contract",
+      "status": "passed",
+      "errors": [],
+      "identity_gaps": 0,
+      "limitations": [],
+      "scope": {
+        "kind": "recursive_case",
+        "txt_count": 1,
+        "row_count": 1,
+        "outside_row_count": 0
+      }
+    },
+    {
+      "kind": "capabilities",
+      "path": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/capabilities.json",
+      "series": false,
+      "item_count": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "kind": "case_manifest",
+      "path": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/case-manifest.json",
+      "status": "passed",
+      "expected": "fresh canonical case contract",
+      "actual": "ready",
+      "repair": "python3 .agents/skills/hota-crash-triage/case_rebuild.py prepare /Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB",
+      "errors": []
+    },
+    {
+      "name": "address_proof:address-proof.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "ADDRESS PROOF: PASSED; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "analysis_contract:analysis-contract.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "ANALYSIS CONTRACT: PASSED; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "coverage:coverage.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "COVERAGE: OK; claims=7; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "family:family-membership.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "FAMILY: OK; incidents=1; enumeration=true; classification=true; unknown=0; listing_blockers=0; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "repro_plan",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "REPRO PLAN: OK; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "relocation_family_contract",
+      "status": "passed",
+      "errors": [],
+      "limitations": [
+        "relocation_not_applicable"
+      ],
+      "manifest_count": 0,
+      "active_manifests": []
+    },
+    {
+      "name": "report_consistency",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "СОГЛАСОВАННОСТЬ ОТЧЁТОВ (scope=all)\nОтчётов проверено: 1\nOK: 1 | mismatch: 0 | ambiguous: 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "lint:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "епочкой)\n[OK]   Имена канонических секций совпадают со схемой\n[OK]   Поле раздела 1 найдено: Класс сбоя:\n[OK]   Поле раздела 1 найдено: Полезность лога для исправления:\n[OK]   Поле раздела 1 найдено: Версия HotA:\n[OK]   Поле раздела 1 найдено: Версии HD-мода:\n[OK]   Поле раздела 1 найдено: Уникальных вылетов:\n[OK]   Поле «Версия HotA:» содержит только версии\n[OK]   Поле «Версии HD-мода:» содержит только версии\n[OK]   Машинный реестр серии: физические/уникальные/группы сходятся\n[OK]   Обязательное поле найдено: Происхождение стека: CONTEXT_THREAD_MISMATCH; register_sets_may_be_combined=false\n[OK]   Версия схемы отчёта: 2\n[OK]   Поле схемы v2 найдено: Ключ семейства:\n[OK]   Поле схемы v2 найдено: Уровень идентификации кода:\n[OK]   Поле схемы v2 найдено: Поток исключения:\n[OK]   Поле схемы v2 найдено: Поток игрового контекста:\n[OK]   Поле схемы v2 найдено: Первичный источник данных:\n[OK]   Поле схемы v2 найдено: Статус первичного источника:\n[OK]   Поле схемы v2 найдено: Основание локального счёта:\n[OK]   Поле схемы v2 найдено: Граница корпусного поиска:\n[OK]   Поле схемы v2 найдено: Метод дедупликации:\n[OK]   Доказанность точки сбоя: подтверждена\n[OK]   Доказанность локального механизма: выведено из листинга\n[OK]   Происхождение повреждённого состояния: не установлено\n[OK]   Полнота семейной переписи: частичная\n[OK]   Уровень связи дополнительных инцидентов: 3 — тот же локальный механизм, но не доказан тот же источник состояния\n[OK]   Статус визуализации указан: выполнена — NULL проходит EAX -> ESI -> [ESI+0x1C]\n[OK]   'Класс сбоя' — точный русский ярлык из словаря\n[OK]   Нет markdown-заголовков '#'\n[OK]   Нет fenced-блоков ```\n[OK]   Нет markdown-таблиц с '|'\n[OK]   Декоративного Unicode нет (ASCII-эквиваленты)\n[OK]   Нет ссылок на внутренние правила/скиллы\n[OK]   Баг HD-мода: техническая рекомендация присутствует\n[OK]   Нет отдельного раздела истории исправлений\n[OK]   Нет лишних Markdown-кавычек вокруг технических выражений\n[OK]   Заголовки ролей отделены и используют каноническое тире\n[OK]   Нет методического жаргона (V1/V2)\n[OK]   Нет английских терминов в русском тексте\n[OK]   Известных грамматических регрессий нет\n[WARN] Строк длиннее 100 символов: 33\n[OK]   HTML-теги отсутствуют (чистый plain-text)\n[OK]   Diff-таблица: колонки консистентны (2)\n[OK]   Декоративные линии не превышают число секций (0/8)\n[OK]   Блоки дизассемблера с префиксом .text:\n[OK]   Отрицательные результаты зафиксированы\n[OK]   Отрицательный результат с покрытием/контролем\n[OK]   Неподтверждённых отрицательных выводов стенда нет\n[OK]   Модель совпадает со slug в имени файла\n[OK]   Модель совпадает с проектной по умолчанию\n[OK]   Незаполненных мест заготовки не осталось\n[OK]   Абзацы в пределах 1200 символов\n[OK]   Счётные числа помечены или получены разбором формата\n[OK]   Вероятностные условия помечены или отсутствуют\n[OK]   У каждой дроби «X из Y» рядом указано основание счёта\n[OK]   Дата шапки согласована со временем правки файла\n\nИтог: FAIL=0, WARN=1, BLOCKING_WARN=0\n",
+      "stderr": ""
+    },
+    {
+      "name": "semantic:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "SEMANTIC: PASSED; errors=none; warnings=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "evidence:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "EVIDENCE: FRESH:UNVERIFIED_TOOL_REVISION; проверено 21\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/address-mapping/address_proof.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/analysis_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/coverage_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/repro_plan.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/evidence_manifest.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n",
+      "stderr": ""
+    },
+    {
+      "name": "schema3_contract:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.evidence.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "name": "render:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "   шрифты встроены (офлайн): 5 начертаний\n   врезка визуализаций: 1 секц., 1 пункт(ов) оглавления\nOK -> /Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/rendered/HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.html\n   секций размещено: 10 / 10\n   <section> open=11 close=11\n   ✓ валидация: ключевые поля txt присутствуют в html\n",
+      "stderr": "",
+      "verified_existing_html": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.html",
+      "normalized_generated_at": true,
+      "render_output": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/rendered/HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.html"
+    },
+    {
+      "name": "semantic-html:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "SEMANTIC: PASSED; errors=none; warnings=none\n",
+      "stderr": ""
+    }
+  ]
+}

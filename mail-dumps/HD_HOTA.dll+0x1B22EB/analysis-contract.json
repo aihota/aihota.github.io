@@ -1,0 +1,231 @@
+{
+  "schema": 2,
+  "kind": "crash_analysis_contract",
+  "mechanism": {
+    "kind": "unknown",
+    "local_mechanism": "unchecked nullable Pcx16 creation result",
+    "established": true,
+    "state_origin": "not_established",
+    "next_required": "capture width, height and both allocation results on the same TID"
+  },
+  "thread_contexts": [
+    {
+      "source": "exception_stream",
+      "tid": 17796,
+      "registers": {
+        "EIP": "0x044722EB",
+        "EAX": "0x00000000",
+        "EBX": "0x001A9870",
+        "ECX": "0x108A3310",
+        "EDX": "0x00000000",
+        "ESI": "0x00000000",
+        "EDI": "0x00000312",
+        "ESP": "0x001A9810",
+        "EBP": "0x001A9818"
+      }
+    },
+    {
+      "source": "thread_list",
+      "tid": 17796,
+      "stack": [
+        "0x02BDEE2C..0x02BE0000 is the exception-TID stack; recorded ESP is outside it"
+      ]
+    },
+    {
+      "source": "thread_list",
+      "tid": 20236,
+      "stack": [
+        "0x001A90AC..0x001B0000 contains recorded ESP 0x001A9810"
+      ]
+    }
+  ],
+  "thread_policy": {
+    "register_sets_may_be_combined": false,
+    "status": "CONTEXT_THREAD_MISMATCH",
+    "rule": "ExceptionStream registers, exception-TID stack and ESP-containing stack remain separate sources"
+  },
+  "consumer_boundary": {
+    "input_validity": "unknown",
+    "candidate_validity": "invalid",
+    "evidence": "sub_11B8130 returned NULL and sub_11B22C0 dereferenced ESI+0x1C without a guard"
+  },
+  "state_origin_candidates": [
+    {
+      "id": "race",
+      "status": "not_established",
+      "next_evidence": [
+        "same-TID writer watchpoint and ordering"
+      ]
+    },
+    {
+      "id": "use_after_free",
+      "status": "not_established",
+      "next_evidence": [
+        "allocator lifetime trace for source surface and Pcx16 object"
+      ]
+    },
+    {
+      "id": "heap_overwrite",
+      "status": "not_established",
+      "next_evidence": [
+        "full heap snapshot and first out-of-owner-bounds write"
+      ]
+    },
+    {
+      "id": "third_party_write",
+      "status": "not_established",
+      "next_evidence": [
+        "writer module, TID and stack"
+      ]
+    },
+    {
+      "id": "width_zero",
+      "status": "not_established",
+      "next_evidence": [
+        "capture [surface+0x24] before 0x011B22D8"
+      ]
+    },
+    {
+      "id": "object_allocation_failure",
+      "status": "not_established",
+      "next_evidence": [
+        "capture allocator request 0x38 and result"
+      ]
+    },
+    {
+      "id": "pixel_buffer_allocation_failure",
+      "status": "not_established",
+      "next_evidence": [
+        "capture stride*height request and allocator result"
+      ]
+    },
+    {
+      "id": "height_nonpositive",
+      "status": "rejected",
+      "next_evidence": [
+        "static EDX-preservation proof plus ExceptionStream EDX=0; retain runtime check only as regression control"
+      ]
+    }
+  ],
+  "root_cause_declared": false,
+  "structure": {
+    "fields": {
+      "buffer_size": 28,
+      "width": 36,
+      "height": 40,
+      "stride": 44,
+      "pixel_buffer": 48
+    },
+    "invariants": [
+      "sub_11B8130 result is non-NULL before field access",
+      "width and height are positive before allocation",
+      "stride*height is representable and allocation succeeds"
+    ],
+    "sibling_coverage": {
+      "scanned": 19,
+      "total": 19,
+      "complete": true,
+      "scope": "all exact call sub_11B8130 instructions in HD_HOTA.dll 5.8 R8 listing"
+    }
+  },
+  "lifecycle": {
+    "counts": {
+      "references": 19,
+      "reads": 10,
+      "writes": 0,
+      "checks": 3,
+      "publishes": 0,
+      "clears": 0
+    },
+    "enumeration_complete": false,
+    "absence_claims": []
+  },
+  "fixes": [
+    {
+      "fix_role": "containment",
+      "supported_builds": [
+        "HD-mod 5.8 R8"
+      ],
+      "expected_evidence": [
+        "NULL path exits before [ESI+0x1C] and memmove"
+      ],
+      "differential_test": "force width=0 and each allocation failure; keep height<=0 as a guard regression control"
+    },
+    {
+      "fix_role": "diagnostic",
+      "supported_builds": [
+        "HD-mod 5.8 R8"
+      ],
+      "expected_evidence": [
+        "same-TID width, height, object allocation and pixel-buffer allocation results"
+      ]
+    },
+    {
+      "fix_role": "adjacent_hardening",
+      "supported_builds": [
+        "HD-mod 5.8 R8"
+      ],
+      "expected_evidence": [
+        "all ten unguarded callsites either guard NULL or document an impossible-NULL precondition"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_role": "source_crash_log",
+      "phase_role": "causal_input",
+      "path": "HD_HOTA.dll+0x1B22EB-5.8-R8-181.txt"
+    },
+    {
+      "artifact_role": "source_minidump",
+      "phase_role": "causal_input",
+      "path": "HD_HOTA.dll+0x1B22EB-5.8-R8-181.dmp"
+    },
+    {
+      "artifact_role": "source_listing",
+      "phase_role": "causal_input",
+      "path": "modules/HD_HOTA.dll-5.8-R8.txt"
+    },
+    {
+      "artifact_role": "derived_callsite_census",
+      "phase_role": "contextual",
+      "path": "mcp/.tmp-tools/case-stage/HD_HOTA.dll+0x1B22EB/analysis/helper-callsite-census-5.8-R8.json"
+    }
+  ],
+  "family": {
+    "semantic_fingerprint": {
+      "structure_role": "nullable Pcx16 creation result",
+      "field_offset": "+0x1C",
+      "access": "read",
+      "call_tail": [
+        "sub_11B22C0",
+        "sub_11B8130"
+      ]
+    },
+    "denominator": {
+      "scanned": 1,
+      "total": 1,
+      "scope": "current materialized case"
+    }
+  },
+  "call_chain": [
+    {
+      "type": "module_function",
+      "module": "HD_HOTA.dll",
+      "function": "sub_11B22C0",
+      "address": "0x011B22C0"
+    },
+    {
+      "type": "module_function",
+      "module": "HD_HOTA.dll",
+      "function": "sub_11B8130",
+      "address": "0x011B8130"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "errors": [],
+    "root_cause_allowed": false
+  },
+  "status": "passed"
+}

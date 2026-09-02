@@ -1,0 +1,28 @@
+<section id="viz-mechanism" data-toc="Визуализация сбоя">
+  <h2><span class="htext">Визуализация сбоя</span>
+      <a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Пунктирная стадия показывает неустановленное происхождение NULL. Сплошная цепочка показывает подтверждённый путь от результата функции до чтения адреса 0x0000001C.</p>
+  <div class="viz">
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">1</span><span>Происхождение NULL не установлено</span></div>
+      <div class="viz-strip">
+        <div class="viz-box dashed dim"><span class="viz-badge accent">?</span>Источник состояния<span class="lbl">width=0 или один из двух отказов выделения</span></div>
+        <div class="viz-box accent"><span class="viz-badge accent">0</span>sub_11B8130<span class="lbl">возвращает EAX=0</span></div>
+      </div>
+    </div>
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">2</span><span>Подтверждённый локальный механизм</span></div>
+      <div class="viz-strip">
+        <div class="viz-box accent">EAX=0<span class="lbl">результат sub_11B8130</span></div>
+        <div class="viz-box accent">ESI=0<span class="lbl">mov esi,eax</span></div>
+        <div class="viz-box bad">[ESI+0x1C]<span class="lbl">push dword ptr [esi+1Ch]</span></div>
+        <div class="viz-box bad"><span class="viz-badge bad">F</span>AV 0x0000001C<span class="lbl">чтение нулевой страницы</span></div>
+      </div>
+    </div>
+    <div class="viz-legend">
+      <div class="item"><span class="viz-badge accent">?</span><span class="txt">Не установлено, какая из трёх совместимых причин породила NULL; ветвь height&lt;=0 исключена.</span></div>
+      <div class="item"><span class="viz-badge accent">0</span><span class="txt">Создающая функция Pcx16 вернула нулевой указатель.</span></div>
+      <div class="item"><span class="viz-badge bad">F</span><span class="txt">Первое чтение без проверки обращается к адресу 0x0000001C.</span></div>
+    </div>
+  </div>
+</section>

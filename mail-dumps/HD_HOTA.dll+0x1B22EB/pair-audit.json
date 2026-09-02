@@ -1,0 +1,89 @@
+{
+  "schema": 4,
+  "root": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB",
+  "rows": [
+    {
+      "stem": "HD_HOTA.dll+0x1B22EB-5.8-R8-181",
+      "txt": "HD_HOTA.dll+0x1B22EB-5.8-R8-181.txt",
+      "dmp": "HD_HOTA.dll+0x1B22EB-5.8-R8-181.dmp",
+      "sha256_txt": "f8b6a56167303a99496d76c32e26e8670a568069b29e2122a5c4f38c4cbcf4f1",
+      "sha256_dmp": "60b96b7d6dff430cb3e0bfabba56c9010f57cdfaff79ad30df0f873774d7cbf4",
+      "context_eip": "0x044722EB",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1B22EB",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            28
+          ],
+          "access": "read",
+          "fault_address": "0x0000001C"
+        },
+        "instruction": {
+          "available": false,
+          "bytes": "FF 76 1C FF 71 30 FF 76 30 E8 F7 47 01 00 A1",
+          "reason": "opcode_not_in_conservative_subset",
+          "runtime": "0x044722EB"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18849792,
+        "dmp_module_size": 18849792,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    }
+  ],
+  "counts": {
+    "exact_pair": 1,
+    "unverifiable_missing_txt_identity": 0,
+    "unverifiable_missing_dmp_identity": 0,
+    "same_site_different_exception": 0,
+    "build_mismatch": 0,
+    "empty_dump": 0,
+    "unknown_exception_class": 0,
+    "txt_parse_error": 0,
+    "dmp_parse_error": 0,
+    "unpaired_txt": 0,
+    "unpaired_dmp": 0,
+    "parse_error": 0
+  },
+  "legacy_count_aliases": {
+    "parse_error": [
+      "unknown_exception_class",
+      "txt_parse_error",
+      "dmp_parse_error"
+    ]
+  },
+  "complete": true,
+  "analysis_ready": true,
+  "quality_complete": true,
+  "hard_blockers": 0,
+  "identity_gaps": 0,
+  "blockers": 0
+}
