@@ -1,1 +1,1296 @@
-{"schema":3,"root":"/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A49","scope":{"kind":"series_parse","source":"series-parse.json","txt_count":7,"row_count":7,"outside_row_count":59},"rows":[{"stem":"HD_HOTA.dll+0x1A49-5.7-R35-180","txt":"HD_HOTA.dll+0x1A49-5.7-R35-180.txt","dmp":"HD_HOTA.dll+0x1A49-5.7-R35-180.dmp","sha256_txt":"79498d587d0f2f8fd14789d1cca7d7d2a85a76a91b18097d9eee1795b215fd58","sha256_dmp":"08a9178c878accc992b3311dc4556063c24051fee6f94874f0246d66908b4f85","context_eip":"0x04A91A49","module":"HD_HOTA.dll","rva":"0x1A49","level":"CONTEXT.EIP + module + RVA","txt_exception":"EXCEPTION_BREAKPOINT","dmp_exception":"0x80000003","operation":"read","reported_access":"read","effective_access":"execute","access_sources":{"reporter_text":null,"exception_parameters":"read","instruction":null,"exception_class":"execute"},"access_conflict":true,"identity":{"txt_module_size":18841600,"dmp_module_size":18841600,"module_size_match":true},"status":"exact_pair","reason":"CONTEXT.EIP/module/RVA и событие совпали"},{"stem":"HD_HOTA.dll+0x1A49-5.7-R35-180-1","txt":"HD_HOTA.dll+0x1A49-5.7-R35-180-1.txt","dmp":"HD_HOTA.dll+0x1A49-5.7-R35-180-1.dmp","sha256_txt":"ac3b9898131bab5989e6dff916941bc8a355eb33495817f0ada5d1de12ef7fd0","sha256_dmp":"08a9178c878accc992b3311dc4556063c24051fee6f94874f0246d66908b4f85","context_eip":"0x04A91A49","module":"HD_HOTA.dll","rva":"0x1A49","level":"CONTEXT.EIP + module + RVA","txt_exception":"EXCEPTION_BREAKPOINT","dmp_exception":"0x80000003","operation":"read","reported_access":"read","effective_access":"execute","access_sources":{"reporter_text":null,"exception_parameters":"read","instruction":null,"exception_class":"execute"},"access_conflict":true,"identity":{"txt_module_size":18841600,"dmp_module_size":18841600,"module_size_match":true},"status":"exact_pair","reason":"CONTEXT.EIP/module/RVA и событие совпали"},{"stem":"HD_HOTA.dll+0x1A49-5.7-R35-180-2","txt":"HD_HOTA.dll+0x1A49-5.7-R35-180-2.txt","dmp":"HD_HOTA.dll+0x1A49-5.7-R35-180-2.dmp","sha256_txt":"c33280e8ec682c4ace80f2a79c7b7ed107f0d9d2219aea2a1628c6db74df922d","sha256_dmp":"a06ad2e9736181088411b2c732906b893ff5179c692b644d07afebc651fabdf7","context_eip":"0x04421A49","module":"HD_HOTA.dll","rva":"0x1A49","level":"CONTEXT.EIP + module + RVA","txt_exception":"EXCEPTION_BREAKPOINT","dmp_exception":"0x80000003","operation":"read","reported_access":"read","effective_access":"execute","access_sources":{"reporter_text":null,"exception_parameters":"read","instruction":null,"exception_class":"execute"},"access_conflict":true,"identity":{"txt_module_size":18841600,"dmp_module_size":18841600,"module_size_match":true},"status":"exact_pair","reason":"CONTEXT.EIP/module/RVA и событие совпали"},{"stem":"HD_HOTA.dll+0x1A49-5.7-R35-180-3","txt":"HD_HOTA.dll+0x1A49-5.7-R35-180-3.txt","dmp":"HD_HOTA.dll+0x1A49-5.7-R35-180-3.dmp","sha256_txt":"7de8c6bc94aa192aee21d66223da5b4b6851f2ec86eb4bc3a4f0be0a8be2cd93","sha256_dmp":"a06ad2e9736181088411b2c732906b893ff5179c692b644d07afebc651fabdf7","context_eip":"0x04421A49","module":"HD_HOTA.dll","rva":"0x1A49","level":"CONTEXT.EIP + module + RVA","txt_exception":"EXCEPTION_BREAKPOINT","dmp_exception":"0x80000003","operation":"read","reported_access":"read","effective_access":"execute","access_sources":{"reporter_text":null,"exception_parameters":"read","instruction":null,"exception_class":"execute"},"access_conflict":true,"identity":{"txt_module_size":18841600,"dmp_module_size":18841600,"module_size_match":true},"status":"exact_pair","reason":"CONTEXT.EIP/module/RVA и событие совпали"},{"stem":"HD_HOTA.dll+0x1A49-5.7-R39-180-1","txt":"HD_HOTA.dll+0x1A49-5.7-R39-180-1.txt","dmp":"HD_HOTA.dll+0x1A49-5.7-R39-180-1.dmp","sha256_txt":"21fbf78651021da71922a6cec512db264cd51ecbc62d281e746d86ccab16c4bc","sha256_dmp":"703412811a8e7a0f9d2c6ce3d2b30eb15a0d5253149e8427c8b84267fa1e2ed3","context_eip":"0x04811A49","module":"HD_HOTA.dll","rva":"0x1A49","level":"CONTEXT.EIP + module + RVA","txt_exception":"EXCEPTION_BREAKPOINT","dmp_exception":"0x80000003","operation":"read","reported_access":"read","effective_access":"execute","access_sources":{"reporter_text":null,"exception_parameters":"read","instruction":null,"exception_class":"execute"},"access_conflict":true,"identity":{"txt_module_size":18845696,"dmp_module_size":18845696,"module_size_match":true},"status":"exact_pair","reason":"CONTEXT.EIP/module/RVA и событие совпали"},{"stem":"HD_HOTA.dll+0x1A49-5.7-R40-180-1","txt":"HD_HOTA.dll+0x1A49-5.7-R40-180-1.txt","dmp":"HD_HOTA.dll+0x1A49-5.7-R40-180-1.dmp","sha256_txt":"0d0b67b2f576b9373c1792ae9cc11b030eabfa571a3581bf2ba77336cb03d97f","sha256_dmp":"a50ea6390aef11d9adf123165d6ff72f6c0dd238bddfeb7ae3a181d4b983065a","context_eip":"0x04751A49","module":"HD_HOTA.dll","rva":"0x1A49","level":"CONTEXT.EIP + module + RVA","txt_exception":"EXCEPTION_BREAKPOINT","dmp_exception":"0x80000003","operation":"read","reported_access":"read","effective_access":"execute","access_sources":{"reporter_text":null,"exception_parameters":"read","instruction":null,"exception_class":"execute"},"access_conflict":true,"identity":{"txt_module_size":18845696,"dmp_module_size":18845696,"module_size_match":true},"status":"exact_pair","reason":"CONTEXT.EIP/module/RVA и событие совпали"},{"stem":"HD_HOTA.dll+0x1A49-5.7-R40-180-2","txt":"HD_HOTA.dll+0x1A49-5.7-R40-180-2.txt","dmp":"HD_HOTA.dll+0x1A49-5.7-R40-180-2.dmp","sha256_txt":"d8dc2a9b2357e80fc18e3f022a4a473ccdc2c9d12ea230662254d70a5e62af69","sha256_dmp":"fa545a0b9a2fbf420a3c512ea13fa44d0de2743ca4e98b9a7e0e750ada4e2abb","context_eip":"0x03C71A49","module":"HD_HOTA.dll","rva":"0x1A49","level":"CONTEXT.EIP + module + RVA","txt_exception":"EXCEPTION_BREAKPOINT","dmp_exception":"0x80000003","operation":"read","reported_access":"read","effective_access":"execute","access_sources":{"reporter_text":null,"exception_parameters":"read","instruction":null,"exception_class":"execute"},"access_conflict":true,"identity":{"txt_module_size":18845696,"dmp_module_size":18845696,"module_size_match":true},"status":"exact_pair","reason":"CONTEXT.EIP/module/RVA и событие совпали"}],"counts":{"exact_pair":7},"legacy_recursive":{"row_count":66,"counts":{"exact_pair":13,"unverifiable_missing_txt_identity":1,"unverifiable_missing_dmp_identity":0,"same_site_different_exception":0,"build_mismatch":0,"empty_dump":0,"unknown_exception_class":0,"txt_parse_error":0,"dmp_parse_error":0,"unpaired_txt":52,"unpaired_dmp":0,"parse_error":0},"identity_gaps":1,"hard_blockers":0},"limitations":["legacy_rows_outside_series:59"],"blockers":[],"hard_blockers":0,"identity_gaps":0,"analysis_ready":true,"quality_complete":true,"complete":true}
+{
+  "schema": 4,
+  "root": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A49",
+  "rows": [
+    {
+      "stem": "HD_HOTA.dll+0x1A49-5.7-R35-180",
+      "txt": "HD_HOTA.dll+0x1A49-5.7-R35-180.txt",
+      "dmp": "HD_HOTA.dll+0x1A49-5.7-R35-180.dmp",
+      "sha256_txt": "79498d587d0f2f8fd14789d1cca7d7d2a85a76a91b18097d9eee1795b215fd58",
+      "sha256_dmp": "08a9178c878accc992b3311dc4556063c24051fee6f94874f0246d66908b4f85",
+      "context_eip": "0x04A91A49",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1A49",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_BREAKPOINT",
+      "dmp_exception": "0x80000003",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "execute",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null,
+        "exception_class": "execute"
+      },
+      "access_conflict": true,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 1,
+          "values": [
+            0
+          ],
+          "access": null,
+          "fault_address": null
+        },
+        "instruction": {
+          "available": false,
+          "bytes": "CC C3 C7 00 EF BE 0D F0 83 C0 04 C3 CC CC CC",
+          "reason": "opcode_not_in_conservative_subset",
+          "runtime": "0x04A91A49"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18841600,
+        "dmp_module_size": 18841600,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "HD_HOTA.dll+0x1A49-5.7-R35-180-1",
+      "txt": "HD_HOTA.dll+0x1A49-5.7-R35-180-1.txt",
+      "dmp": "HD_HOTA.dll+0x1A49-5.7-R35-180-1.dmp",
+      "sha256_txt": "ac3b9898131bab5989e6dff916941bc8a355eb33495817f0ada5d1de12ef7fd0",
+      "sha256_dmp": "08a9178c878accc992b3311dc4556063c24051fee6f94874f0246d66908b4f85",
+      "context_eip": "0x04A91A49",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1A49",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_BREAKPOINT",
+      "dmp_exception": "0x80000003",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "execute",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null,
+        "exception_class": "execute"
+      },
+      "access_conflict": true,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 1,
+          "values": [
+            0
+          ],
+          "access": null,
+          "fault_address": null
+        },
+        "instruction": {
+          "available": false,
+          "bytes": "CC C3 C7 00 EF BE 0D F0 83 C0 04 C3 CC CC CC",
+          "reason": "opcode_not_in_conservative_subset",
+          "runtime": "0x04A91A49"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18841600,
+        "dmp_module_size": 18841600,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "HD_HOTA.dll+0x1A49-5.7-R35-180-2",
+      "txt": "HD_HOTA.dll+0x1A49-5.7-R35-180-2.txt",
+      "dmp": "HD_HOTA.dll+0x1A49-5.7-R35-180-2.dmp",
+      "sha256_txt": "c33280e8ec682c4ace80f2a79c7b7ed107f0d9d2219aea2a1628c6db74df922d",
+      "sha256_dmp": "a06ad2e9736181088411b2c732906b893ff5179c692b644d07afebc651fabdf7",
+      "context_eip": "0x04421A49",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1A49",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_BREAKPOINT",
+      "dmp_exception": "0x80000003",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "execute",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null,
+        "exception_class": "execute"
+      },
+      "access_conflict": true,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 1,
+          "values": [
+            0
+          ],
+          "access": null,
+          "fault_address": null
+        },
+        "instruction": {
+          "available": false,
+          "bytes": "CC C3 C7 00 EF BE 0D F0 83 C0 04 C3 CC CC CC",
+          "reason": "opcode_not_in_conservative_subset",
+          "runtime": "0x04421A49"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18841600,
+        "dmp_module_size": 18841600,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "HD_HOTA.dll+0x1A49-5.7-R35-180-3",
+      "txt": "HD_HOTA.dll+0x1A49-5.7-R35-180-3.txt",
+      "dmp": "HD_HOTA.dll+0x1A49-5.7-R35-180-3.dmp",
+      "sha256_txt": "7de8c6bc94aa192aee21d66223da5b4b6851f2ec86eb4bc3a4f0be0a8be2cd93",
+      "sha256_dmp": "a06ad2e9736181088411b2c732906b893ff5179c692b644d07afebc651fabdf7",
+      "context_eip": "0x04421A49",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1A49",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_BREAKPOINT",
+      "dmp_exception": "0x80000003",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "execute",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null,
+        "exception_class": "execute"
+      },
+      "access_conflict": true,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 1,
+          "values": [
+            0
+          ],
+          "access": null,
+          "fault_address": null
+        },
+        "instruction": {
+          "available": false,
+          "bytes": "CC C3 C7 00 EF BE 0D F0 83 C0 04 C3 CC CC CC",
+          "reason": "opcode_not_in_conservative_subset",
+          "runtime": "0x04421A49"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18841600,
+        "dmp_module_size": 18841600,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "HD_HOTA.dll+0x1A49-5.7-R39-180-1",
+      "txt": "HD_HOTA.dll+0x1A49-5.7-R39-180-1.txt",
+      "dmp": "HD_HOTA.dll+0x1A49-5.7-R39-180-1.dmp",
+      "sha256_txt": "21fbf78651021da71922a6cec512db264cd51ecbc62d281e746d86ccab16c4bc",
+      "sha256_dmp": "703412811a8e7a0f9d2c6ce3d2b30eb15a0d5253149e8427c8b84267fa1e2ed3",
+      "context_eip": "0x04811A49",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1A49",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_BREAKPOINT",
+      "dmp_exception": "0x80000003",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "execute",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null,
+        "exception_class": "execute"
+      },
+      "access_conflict": true,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 1,
+          "values": [
+            0
+          ],
+          "access": null,
+          "fault_address": null
+        },
+        "instruction": {
+          "available": false,
+          "bytes": "CC C3 C7 00 EF BE 0D F0 83 C0 04 C3 CC CC CC",
+          "reason": "opcode_not_in_conservative_subset",
+          "runtime": "0x04811A49"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18845696,
+        "dmp_module_size": 18845696,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "HD_HOTA.dll+0x1A49-5.7-R40-180-1",
+      "txt": "HD_HOTA.dll+0x1A49-5.7-R40-180-1.txt",
+      "dmp": "HD_HOTA.dll+0x1A49-5.7-R40-180-1.dmp",
+      "sha256_txt": "0d0b67b2f576b9373c1792ae9cc11b030eabfa571a3581bf2ba77336cb03d97f",
+      "sha256_dmp": "a50ea6390aef11d9adf123165d6ff72f6c0dd238bddfeb7ae3a181d4b983065a",
+      "context_eip": "0x04751A49",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1A49",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_BREAKPOINT",
+      "dmp_exception": "0x80000003",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "execute",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null,
+        "exception_class": "execute"
+      },
+      "access_conflict": true,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 1,
+          "values": [
+            0
+          ],
+          "access": null,
+          "fault_address": null
+        },
+        "instruction": {
+          "available": false,
+          "bytes": "CC C3 C7 00 EF BE 0D F0 83 C0 04 C3 CC CC CC",
+          "reason": "opcode_not_in_conservative_subset",
+          "runtime": "0x04751A49"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18845696,
+        "dmp_module_size": 18845696,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "HD_HOTA.dll+0x1A49-5.7-R40-180-2",
+      "txt": "HD_HOTA.dll+0x1A49-5.7-R40-180-2.txt",
+      "dmp": "HD_HOTA.dll+0x1A49-5.7-R40-180-2.dmp",
+      "sha256_txt": "d8dc2a9b2357e80fc18e3f022a4a473ccdc2c9d12ea230662254d70a5e62af69",
+      "sha256_dmp": "fa545a0b9a2fbf420a3c512ea13fa44d0de2743ca4e98b9a7e0e750ada4e2abb",
+      "context_eip": "0x03C71A49",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1A49",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_BREAKPOINT",
+      "dmp_exception": "0x80000003",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "execute",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null,
+        "exception_class": "execute"
+      },
+      "access_conflict": true,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 1,
+          "values": [
+            0
+          ],
+          "access": null,
+          "fault_address": null
+        },
+        "instruction": {
+          "available": false,
+          "bytes": "CC C3 C7 00 EF BE 0D F0 83 C0 04 C3 CC CC CC",
+          "reason": "opcode_not_in_conservative_subset",
+          "runtime": "0x03C71A49"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18845696,
+        "dmp_module_size": 18845696,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "HD_HOTA.dll+0x1A49-5.8-R8-181",
+      "txt": "HD_HOTA.dll+0x1A49-5.8-R8-181.txt",
+      "dmp": "HD_HOTA.dll+0x1A49-5.8-R8-181.dmp",
+      "sha256_txt": "089961ed19bffd3f5a56a3e2d3df1a2bfa5e3f10964b31fae0c96e34ab6723e2",
+      "sha256_dmp": "878b5b251bf3139413bde1d22a54eb4495bb3c4629c931cab1e10d01b49e6966",
+      "context_eip": "0x041B1A49",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1A49",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_BREAKPOINT",
+      "dmp_exception": "0x80000003",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "execute",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": null,
+        "instruction": null,
+        "exception_class": "execute"
+      },
+      "access_conflict": true,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 1,
+          "values": [
+            0
+          ],
+          "access": null,
+          "fault_address": null
+        },
+        "instruction": {
+          "available": false,
+          "bytes": "CC C3 C7 00 EF BE 0D F0 83 C0 04 C3 CC CC CC",
+          "reason": "opcode_not_in_conservative_subset",
+          "runtime": "0x041B1A49"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18849792,
+        "dmp_module_size": 18849792,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-1",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-1.txt",
+      "dmp": "",
+      "sha256_txt": "c2fe3fc2e5b075cc7c903b6f31fa686119c17fab94cba74c64cb7a6f5a563276",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-2",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-2.txt",
+      "dmp": "",
+      "sha256_txt": "c6b4aa25004023dfdce52f81c53b73898d8c4aa0a08659828f326166c00992da",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-3",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-3.txt",
+      "dmp": "",
+      "sha256_txt": "4de499e99ce727df069bdfb561f22feb9e21b1442ede9a534325e88819db2fb2",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-1",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-1.txt",
+      "dmp": "",
+      "sha256_txt": "d60ca2feae6e0009ca07392e71345867303dc53df5968f57a6cbc5b934003a0e",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-10",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-10.txt",
+      "dmp": "",
+      "sha256_txt": "4d02c37761e8a6ba9e07eb0813a6eae0516eb948231b66a2d16b3f94dfcefd2c",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-11",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-11.txt",
+      "dmp": "",
+      "sha256_txt": "982bbd46eade523d037300abb71dcc37c2ee98218e1895e43c650f98ff11f03a",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-12",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-12.txt",
+      "dmp": "",
+      "sha256_txt": "66c9b660aff668cd1650de4d5e1bddaf7d9d8d0c2515836a071da9d3c0647393",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-13",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-13.txt",
+      "dmp": "",
+      "sha256_txt": "9ed87a99ce59dde20410bd7787fdcd563acaf897109e978345523e3cc89cc4cf",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-14",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-14.txt",
+      "dmp": "",
+      "sha256_txt": "a7cb2caeb5c1342399e378d9bd78a54f75bfdd00354945f95bc719c15fead527",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-15",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-15.txt",
+      "dmp": "",
+      "sha256_txt": "3a79508ab2800d39969d19b274e69670da62662c20582831cb883b54bab7347a",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-16",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-16.txt",
+      "dmp": "",
+      "sha256_txt": "002e7930b8679c81e1a6c8dac9eb15ea5fc33d9f59a531417dba7c350abdc00e",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-17",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-17.txt",
+      "dmp": "",
+      "sha256_txt": "ca6d62175eb240009f3d9c8af28d524d3d5a4d576052b3e7da8c0fb539623b25",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-18",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-18.txt",
+      "dmp": "",
+      "sha256_txt": "53bd49f0aa510a19ca11b5334cbf256754b053f1c2c5afdb1b729af054fb9d4f",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-19",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-19.txt",
+      "dmp": "",
+      "sha256_txt": "171bb91ae7392c0301c05bcd02168227457786d50938f20281a6a0976939c832",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-2",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-2.txt",
+      "dmp": "",
+      "sha256_txt": "6ceeaad2265b98fafa2833094672d59360f6b95f43e0a868555ff7dcdd90cd4a",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-20",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-20.txt",
+      "dmp": "",
+      "sha256_txt": "816f98e3af3b4d855ac06c778fb4dc7a89c1cfe6aefe670ba454fa505aeb5764",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-21",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-21.txt",
+      "dmp": "",
+      "sha256_txt": "3ce73c265995d233f1ff0611d5420fe2dfb687f90b3cdba21c7260810cbe2e29",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-22",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-22.txt",
+      "dmp": "",
+      "sha256_txt": "0f435124973d827c74088d8381e164b09859643be0f6e5d5554b8069283e6aea",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-23",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-23.txt",
+      "dmp": "",
+      "sha256_txt": "c403317d1c473a425b59752ea71e1a419b55ab0901a240c2bf2f4b32b0d24c9b",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-24",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-24.txt",
+      "dmp": "",
+      "sha256_txt": "a8c49b5f8eaada0bd4ceedafb74543d4e4f5f9ec0e5516af790c5bbf0f73d343",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-25",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-25.txt",
+      "dmp": "",
+      "sha256_txt": "4d448d0fab43ddcdbbb8578ab3947bfd70cafbde9fd56549338d610ef60c2b1c",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-26",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-26.txt",
+      "dmp": "",
+      "sha256_txt": "2fa2ec16582e238cea6b99f71f748266df40cb3f83517e5bf763cbcdf4704c48",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-27",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-27.txt",
+      "dmp": "",
+      "sha256_txt": "1c48464c8636d2ca5736d073ec077e27b74d858c5488e0096c10e6bacc7610a7",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-28",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-28.txt",
+      "dmp": "",
+      "sha256_txt": "de5c5b7293eee81ff1c7a623ba14582e92fc71e0824f3a079cd1cb75dba99bba",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-29",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-29.txt",
+      "dmp": "",
+      "sha256_txt": "7a0b567fe55aaee4294a6af6732550ba0ad70b121a25da9260993b12736e5134",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-3",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-3.txt",
+      "dmp": "",
+      "sha256_txt": "9164f3d28cff6c8b8b48c38c4e742985e664f144c3d77a40996bd17fd6db1a35",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-30",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-30.txt",
+      "dmp": "",
+      "sha256_txt": "b61568c29f4a1be076337a0d95a09929416bfcff394d6e9b8cf14139a02f8ff1",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-31",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-31.txt",
+      "dmp": "",
+      "sha256_txt": "99dfc429092102d0c90b49901d6d60d1a8c6d1fc48bcadaf9e8ff1d6de543106",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-32",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-32.txt",
+      "dmp": "",
+      "sha256_txt": "1e01f4c6e1a74f6f112c9beabca89ad0bbe3d7a07b61992babcf21a3d1ec008f",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-33",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-33.txt",
+      "dmp": "",
+      "sha256_txt": "472827e8abcb1bb2fb12719ac3546e4e1bb57afab3efe3b2b4eb5eb37e4d0017",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-34",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-34.txt",
+      "dmp": "",
+      "sha256_txt": "de6e5ea1b76c837f122b5489288ad951e4bfd1df1f932b1d228621fcb225ee78",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-35",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-35.txt",
+      "dmp": "",
+      "sha256_txt": "e24414ba573be6d815e3307cb734ba845b8228046515396c0a428a6bf24a2851",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-36",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-36.txt",
+      "dmp": "",
+      "sha256_txt": "83922c60104fd026a055fe4f2cfbf6591321a99d32d5bd989c903bb7c8c3480e",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-37",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-37.txt",
+      "dmp": "",
+      "sha256_txt": "2589411d24686ce8d03f1f423f686d15a2a7bd447188e7a424d20e3ee7a5e6a4",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-38",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-38.txt",
+      "dmp": "",
+      "sha256_txt": "d0304b6db2d02fe15cb39238e5b3ed6cc24f172d004fc863fa5a502161ed45c0",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-39",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-39.txt",
+      "dmp": "",
+      "sha256_txt": "9102602d1111ba1dda44e197400455043b1c45393cbce572a4c2fdd35ae0c242",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-4",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-4.txt",
+      "dmp": "",
+      "sha256_txt": "512d22fed6d01707ade21393dd9e06d972a6c8abfd85c17c053cf5853123bc08",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-40",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-40.txt",
+      "dmp": "",
+      "sha256_txt": "f032030c8c7048368f28670f67eb832638195800e526afebe602597b36a7b4ee",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-41",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-41.txt",
+      "dmp": "",
+      "sha256_txt": "97e798f2f17f4a4882050716065edf5639e7ca379c9364b8c4768289fc85197a",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-5",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-5.txt",
+      "dmp": "",
+      "sha256_txt": "15b3b3dc1fcac168203c2bbb54043fb0057e643bf31b635fdd49b8efa4311261",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-6",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-6.txt",
+      "dmp": "",
+      "sha256_txt": "963bebbec4d59c423fe43f6e38a9aa4b40c87e351521516595d85c14c27414cd",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-7",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-7.txt",
+      "dmp": "",
+      "sha256_txt": "f490eefb570435bf9f1658e31bab9c9e89cc17445cc5425b8655196f97ce8096",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-8",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-8.txt",
+      "dmp": "",
+      "sha256_txt": "c203ca6dd641d3e44affbab97ebe940d02899c0b64ca27977eda8a62f023edb7",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-9",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-9.txt",
+      "dmp": "",
+      "sha256_txt": "5e8eec562844479e74cb1582f7e947b735c4489b898aff025a4acc26035b5513",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0Time13.04.2-1",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0Time13.04.2-1.txt",
+      "dmp": "",
+      "sha256_txt": "98f0ae3b042d7b9e83e3059a43e9485fe12eea2e2393dd5df6dd7a8cb0f64bcf",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-1",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-1.txt",
+      "dmp": "",
+      "sha256_txt": "e7767a07524e34ce0674051eec2e01f5376df2e51c02569762e7ae622444024d",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-10",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-10.txt",
+      "dmp": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-10.dmp",
+      "sha256_txt": "7a5a62222bd843f30975c9afef526997c15f61dee72bb05408983f158da945d6",
+      "sha256_dmp": "f4d649d7b3162690e7518c82996204c3114a9d96d07771cba0c38b24dcc83aa2",
+      "context_eip": "0x03E01A4E",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1A4E",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "write",
+      "reported_access": "write",
+      "effective_access": "write",
+      "access_sources": {
+        "reporter_text": "write",
+        "exception_parameters": "write",
+        "instruction": "write"
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "write"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            1,
+            1048576
+          ],
+          "access": "write",
+          "fault_address": "0x00100000"
+        },
+        "instruction": {
+          "available": true,
+          "access": "write",
+          "bytes": "89 36 5E C3 C7 00 EF BE 0D F0 83 C0 04 5E C3",
+          "decoder": "x86_opcode_subset_v1",
+          "runtime": "0x03E01A4E"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18837504,
+        "dmp_module_size": 18837504,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-11",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-11.txt",
+      "dmp": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-11.dmp",
+      "sha256_txt": "9cd0bd8434cc50bffb16cfdaa833a262dabb035dfc350afd9d4cceb20cc52c20",
+      "sha256_dmp": "3d3c3c851de5065aad2ec5a9f040e85e63ae4d2ddaed058ec1dcc143cf58dc49",
+      "context_eip": "0x04421A4E",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1A4E",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "write",
+      "reported_access": "write",
+      "effective_access": "write",
+      "access_sources": {
+        "reporter_text": "write",
+        "exception_parameters": "write",
+        "instruction": "write"
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "write"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            1,
+            1048576
+          ],
+          "access": "write",
+          "fault_address": "0x00100000"
+        },
+        "instruction": {
+          "available": true,
+          "access": "write",
+          "bytes": "89 36 5E C3 C7 00 EF BE 0D F0 83 C0 04 5E C3",
+          "decoder": "x86_opcode_subset_v1",
+          "runtime": "0x04421A4E"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18837504,
+        "dmp_module_size": 18837504,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-12",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-12.txt",
+      "dmp": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-12.dmp",
+      "sha256_txt": "ed5267633b4ae9762000ee3e29591e445c02a3dee43169f6d616b63ee717ed61",
+      "sha256_dmp": "4f12e721525db41b909fe3754e351b2bad54aa97732b3058ef7e9044e74f22b0",
+      "context_eip": "0x045D1A4E",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1A4E",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "write",
+      "reported_access": "write",
+      "effective_access": "write",
+      "access_sources": {
+        "reporter_text": "write",
+        "exception_parameters": "write",
+        "instruction": "write"
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "write"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            1,
+            1048576
+          ],
+          "access": "write",
+          "fault_address": "0x00100000"
+        },
+        "instruction": {
+          "available": true,
+          "access": "write",
+          "bytes": "89 36 5E C3 C7 00 EF BE 0D F0 83 C0 04 5E C3",
+          "decoder": "x86_opcode_subset_v1",
+          "runtime": "0x045D1A4E"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18837504,
+        "dmp_module_size": 18837504,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-2",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-2.txt",
+      "dmp": "",
+      "sha256_txt": "33e9a28d54133f75c07b33b1f89f0678bb634221ad5ba33838d1b653c1a702f3",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-3",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-3.txt",
+      "dmp": "",
+      "sha256_txt": "a707cb6ea5108d785577c01748f50375e28eaa9dd6aea78b34bdc803bf3b2263",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-4",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-4.txt",
+      "dmp": "",
+      "sha256_txt": "3b7ab57893901e256c450b22c213a8526773f50baf26d07644e1dfb07f977fee",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-5",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-5.txt",
+      "dmp": "",
+      "sha256_txt": "2c639ef9e48495dc60172bf354cc69aae1b76721559d35423a4db32bdc1fd843",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-6",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-6.txt",
+      "dmp": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-6.dmp",
+      "sha256_txt": "327bcf4f994b6a002d497df54488926a54e98d729d6cdffa07f7bb04cf7be5a2",
+      "sha256_dmp": "60f2900036d57ad4cc5c1848599c9b8be9e4f25c0b6c09ebb12bccd609019e86",
+      "context_eip": "0x03581A4E",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1A4E",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "write",
+      "reported_access": "write",
+      "effective_access": "write",
+      "access_sources": {
+        "reporter_text": "write",
+        "exception_parameters": "write",
+        "instruction": "write"
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "write"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            1,
+            1048576
+          ],
+          "access": "write",
+          "fault_address": "0x00100000"
+        },
+        "instruction": {
+          "available": true,
+          "access": "write",
+          "bytes": "89 36 5E C3 C7 00 EF BE 0D F0 83 C0 04 5E C3",
+          "decoder": "x86_opcode_subset_v1",
+          "runtime": "0x03581A4E"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": null,
+        "dmp_module_size": 18468864,
+        "module_size_match": null
+      },
+      "status": "unverifiable_missing_txt_identity",
+      "reason": "site и класс совпали; размер модуля отсутствует в TXT"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-7",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-7.txt",
+      "dmp": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-7.dmp",
+      "sha256_txt": "a3aa89091ed5ac24981e46ead2d12fd40d05963eb22e8d5b18d5395cbefdac74",
+      "sha256_dmp": "6746526d95f16d0f929b1c9aee688f6204ab9a70e6773e8b4a79ab03f01343b9",
+      "context_eip": "0x03A61A4E",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1A4E",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "write",
+      "reported_access": "write",
+      "effective_access": "write",
+      "access_sources": {
+        "reporter_text": "write",
+        "exception_parameters": "write",
+        "instruction": "write"
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "write"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            1,
+            49807360
+          ],
+          "access": "write",
+          "fault_address": "0x02F80000"
+        },
+        "instruction": {
+          "available": true,
+          "access": "write",
+          "bytes": "89 36 5E C3 C7 00 EF BE 0D F0 83 C0 04 5E C3",
+          "decoder": "x86_opcode_subset_v1",
+          "runtime": "0x03A61A4E"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18485248,
+        "dmp_module_size": 18485248,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-8",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-8.txt",
+      "dmp": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-8.dmp",
+      "sha256_txt": "777c87cb70bbe95f7496c1753a24f69e9994773b7a577074b8bb1784454e1e98",
+      "sha256_dmp": "3db6ce813d99fec590f3a065e99c12fad04cf84313255bdc8dff22b6db28258c",
+      "context_eip": "0x03D91A4E",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1A4E",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "write",
+      "reported_access": "write",
+      "effective_access": "write",
+      "access_sources": {
+        "reporter_text": "write",
+        "exception_parameters": "write",
+        "instruction": "write"
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "write"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            1,
+            1734868992
+          ],
+          "access": "write",
+          "fault_address": "0x67680000"
+        },
+        "instruction": {
+          "available": true,
+          "access": "write",
+          "bytes": "89 36 5E C3 C7 00 EF BE 0D F0 83 C0 04 5E C3",
+          "decoder": "x86_opcode_subset_v1",
+          "runtime": "0x03D91A4E"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18509824,
+        "dmp_module_size": 18509824,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-9",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-9.txt",
+      "dmp": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-9.dmp",
+      "sha256_txt": "2c9bd12c760ea67dec2d0a387601d65358f8277d9cecf5e50a9bda2085d752c4",
+      "sha256_dmp": "df44afaa35ca199a9b278c21039a161d70653cfee169599c6c109907c34e50de",
+      "context_eip": "0x04151A4E",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1A4E",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "write",
+      "reported_access": "write",
+      "effective_access": "write",
+      "access_sources": {
+        "reporter_text": "write",
+        "exception_parameters": "write",
+        "instruction": "write"
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "write"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            1,
+            1048576
+          ],
+          "access": "write",
+          "fault_address": "0x00100000"
+        },
+        "instruction": {
+          "available": true,
+          "access": "write",
+          "bytes": "89 36 5E C3 C7 00 EF BE 0D F0 83 C0 04 5E C3",
+          "decoder": "x86_opcode_subset_v1",
+          "runtime": "0x04151A4E"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18501632,
+        "dmp_module_size": 18501632,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0Time0526202-1",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0Time0526202-1.txt",
+      "dmp": "",
+      "sha256_txt": "e01312fa7c7ac096eea8f0e5dc610a1de7b256a65da614e52285704ddc6871f4",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1ABE-1.8.0-1",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1ABE-1.8.0-1.txt",
+      "dmp": "",
+      "sha256_txt": "b2c9ac55aa476216461f2a5555f119c99a80589b44804e20c8d9352c2383f240",
+      "status": "unpaired_txt",
+      "reason": "одноимённый DMP отсутствует"
+    }
+  ],
+  "counts": {
+    "exact_pair": 14,
+    "unverifiable_missing_txt_identity": 1,
+    "unverifiable_missing_dmp_identity": 0,
+    "same_site_different_exception": 0,
+    "build_mismatch": 0,
+    "empty_dump": 0,
+    "unknown_exception_class": 0,
+    "txt_parse_error": 0,
+    "dmp_parse_error": 0,
+    "unpaired_txt": 52,
+    "unpaired_dmp": 0,
+    "parse_error": 0
+  },
+  "legacy_count_aliases": {
+    "parse_error": [
+      "unknown_exception_class",
+      "txt_parse_error",
+      "dmp_parse_error"
+    ]
+  },
+  "complete": false,
+  "analysis_ready": true,
+  "quality_complete": false,
+  "hard_blockers": 0,
+  "identity_gaps": 1,
+  "blockers": 52
+}

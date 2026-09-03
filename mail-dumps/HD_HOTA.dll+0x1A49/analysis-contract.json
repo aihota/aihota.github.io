@@ -1,0 +1,215 @@
+{
+  "schema": 2,
+  "kind": "crash_analysis_contract",
+  "case": "HD_HOTA.dll+0x1A49",
+  "mechanism": {
+    "kind": "allocator_failure",
+    "summary": "_malloc returns NULL; sub_1001A30 tests EAX and executes int 3"
+  },
+  "thread_contexts": [
+    {
+      "source": "exception_stream",
+      "tid": 3940,
+      "registers": {
+        "EIP": "0x041B1A49",
+        "EAX": "0x00000000"
+      },
+      "scope": "R8 authoritative exception registers"
+    },
+    {
+      "source": "text_context",
+      "tid": 13984,
+      "stack": [
+        "HD_HOTA.dll+0x4659E",
+        "sub_1001A30+0x19"
+      ],
+      "scope": "R8 textual Context/stack only"
+    }
+  ],
+  "thread_policy": {
+    "register_sets_may_be_combined": false,
+    "basis": "ExceptionStream TID 3940 and textual Context TID 13984 are different threads"
+  },
+  "consumer_boundary": {
+    "input_validity": "confirmed",
+    "candidate_validity": "invalid",
+    "basis": "Saved call argument is 0x00180004; allocator result in EAX is NULL"
+  },
+  "state_origin_candidates": [
+    {
+      "id": "race",
+      "status": "not_established",
+      "next_evidence": [
+        "full dump plus allocator/write chronology across threads"
+      ]
+    },
+    {
+      "id": "use_after_free",
+      "status": "not_established",
+      "next_evidence": [
+        "page-heap free stack and allocation generation"
+      ]
+    },
+    {
+      "id": "heap_overwrite",
+      "status": "not_established",
+      "next_evidence": [
+        "full heap validation and first corrupting write"
+      ]
+    },
+    {
+      "id": "third_party_write",
+      "status": "not_established",
+      "next_evidence": [
+        "writer watchpoint with module and stack"
+      ]
+    },
+    {
+      "id": "address_space_pressure",
+      "status": "not_established",
+      "next_evidence": [
+        "largest free virtual region and private bytes at first failed allocation"
+      ]
+    }
+  ],
+  "root_cause_declared": false,
+  "structure": {
+    "fields": {
+      "cursor": 264,
+      "buffer_pointer": 268,
+      "filled_size": 272,
+      "capacity": 276
+    },
+    "invariants": [
+      "allocation request is saturated payload size plus four bytes",
+      "NULL result must not publish a new buffer or capacity",
+      "R40 and R8 growth capacities are rounded to 0x80000 boundaries"
+    ],
+    "sibling_coverage": {
+      "scanned": 4,
+      "total": 4,
+      "complete": true,
+      "population": "exact HD_HOTA listings R35, R39, R40 and R8"
+    }
+  },
+  "lifecycle": {
+    "counts": {
+      "references": 4,
+      "reads": 4,
+      "writes": 0,
+      "checks": 4,
+      "publishes": 0,
+      "clears": 0
+    },
+    "enumeration_complete": false,
+    "absence_claims": [],
+    "scope": "local allocator-result path in four exact listings"
+  },
+  "fixes": [
+    {
+      "id": "contain-null",
+      "fix_role": "containment",
+      "summary": "Replace the breakpoint-only NULL path with a recoverable allocation error while preserving the old buffer state",
+      "supported_builds": [
+        "5.7 R35",
+        "5.7 R39",
+        "5.7 R40",
+        "5.8 R8"
+      ],
+      "expected_evidence": [
+        "forced allocation failure returns an error without int 3",
+        "pointer, filled size and capacity remain coherent"
+      ],
+      "differential_test": "Run matched builds with allocator fault injection at 0x00100004, 0x00180004, 0x0D680004 and 0x0D880004; compare failing and normal controls"
+    },
+    {
+      "id": "log-allocator-state",
+      "fix_role": "diagnostic",
+      "summary": "Log request size, buffer fields and virtual-memory limits before the NULL branch",
+      "supported_builds": [
+        "5.7 R35",
+        "5.7 R39",
+        "5.7 R40",
+        "5.8 R8"
+      ],
+      "expected_evidence": [
+        "first failed request, private bytes, largest free region and heap status captured"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "HD_HOTA.dll+0x1A49-5.8-R8-181.dmp",
+      "artifact_role": "source_minidump",
+      "phase_role": "causal_input"
+    },
+    {
+      "path": "HD_HOTA.dll+0x1A49-5.8-R8-181.txt",
+      "artifact_role": "source_crash_log",
+      "phase_role": "causal_input"
+    },
+    {
+      "path": "HD_HOTA.dll+0x1A49-5.8-R8-181-AUTOSAVE.GM2",
+      "artifact_role": "source_autosave",
+      "phase_role": "contextual"
+    },
+    {
+      "path": "call-arguments-r8-00180004.json",
+      "artifact_role": "derived_call_argument",
+      "phase_role": "derived_after_failure"
+    },
+    {
+      "path": "family-membership.json",
+      "artifact_role": "derived_family_census",
+      "phase_role": "contextual"
+    },
+    {
+      "path": "coverage.json",
+      "artifact_role": "derived_coverage",
+      "phase_role": "contextual"
+    }
+  ],
+  "family": {
+    "semantic_fingerprint": {
+      "structure_role": "HD_HOTA dynamic buffer allocator wrapper",
+      "field_offset": "EAX allocator result after request payload+4",
+      "access": "test EAX followed by int 3 on NULL",
+      "call_tail": [
+        "sub_1001A30",
+        "_malloc",
+        "int 3 at HD_HOTA.dll+0x1A49"
+      ]
+    },
+    "denominator": {
+      "scanned": 65,
+      "total": 65,
+      "population": "unique materialized incidents in case census"
+    }
+  },
+  "call_chain": [
+    {
+      "type": "module_function",
+      "module": "HD_HOTA.dll",
+      "function": "sub_1001A30",
+      "address": "HD_HOTA.dll+0x1A30"
+    },
+    {
+      "type": "module_function",
+      "module": "MSVCRT",
+      "function": "_malloc",
+      "address": "import thunk"
+    },
+    {
+      "type": "return_address",
+      "module": "HD_HOTA.dll",
+      "function": "sub_1046540",
+      "address": "HD_HOTA.dll+0x4659E"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "errors": [],
+    "root_cause_allowed": false
+  },
+  "status": "passed"
+}

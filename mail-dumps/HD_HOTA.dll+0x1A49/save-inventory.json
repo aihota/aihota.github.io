@@ -1,1 +1,153 @@
-{"schema":3,"root":"/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A49","count_contract":"physical_files = unique_sha256 + duplicate_instances","summary":{"physical_files":4,"unique_sha256":4,"duplicate_instances":0,"roles":{"derived":4},"extensions":{".GM2":4},"phase":"unknown","phase_relevance":{"unresolved":4},"unknown_blocks_only_its_file":0},"items":[{"path":"HD_HOTA.dll+0x1A49-5.7-R35-180-1-AUTOSAVE.GM2","sha256":"b553a8cd3bb8178f3715eefe6eca5bb6fee3b390e6584679d43c9e68745cb457","role":"derived","phase":"unknown","phase_relevance":"unresolved","corresponding_logs":["HD_HOTA.dll+0x1A49-5.7-R35-180-1.txt"],"can_support_source_origin":false},{"path":"HD_HOTA.dll+0x1A49-5.7-R35-180-3-AUTOSAVE.GM2","sha256":"ae456b52958fe431f354b01dc2bb94c6881bb06ae29f6193f8044a7e4f61b77f","role":"derived","phase":"unknown","phase_relevance":"unresolved","corresponding_logs":["HD_HOTA.dll+0x1A49-5.7-R35-180-3.txt"],"can_support_source_origin":false},{"path":"HD_HOTA.dll+0x1A49-5.7-R39-180-1-AUTOSAVE.GM2","sha256":"218d8955f3cdbbfa272c495a9ca68d8fc7246cf051e76bc2ad24f0af94e0d125","role":"derived","phase":"unknown","phase_relevance":"unresolved","corresponding_logs":["HD_HOTA.dll+0x1A49-5.7-R39-180-1.txt"],"can_support_source_origin":false},{"path":"HD_HOTA.dll+0x1A49-5.7-R40-180-1-BATTLE_non_continuable.GM2","sha256":"4061b285a4ee4ac085ebb4d5234c6709121abc972a6868310033ada9430da3b4","role":"derived","phase":"unknown","phase_relevance":"unresolved","corresponding_logs":["HD_HOTA.dll+0x1A49-5.7-R40-180-1.txt"],"can_support_source_origin":false}],"validation_errors":[],"valid":true}
+{
+  "schema": 3,
+  "root": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A49",
+  "count_contract": "physical_files = unique_sha256 + duplicate_instances",
+  "summary": {
+    "physical_files": 5,
+    "unique_sha256": 5,
+    "duplicate_instances": 0,
+    "roles": {
+      "derived": 5
+    },
+    "extensions": {
+      ".GM2": 5
+    },
+    "phase": "unknown",
+    "phase_relevance": {
+      "unresolved": 5
+    },
+    "unknown_blocks_only_its_file": 0
+  },
+  "items": [
+    {
+      "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1-AUTOSAVE.GM2",
+      "size": 50655,
+      "sha256": "b553a8cd3bb8178f3715eefe6eca5bb6fee3b390e6584679d43c9e68745cb457",
+      "extension": ".GM2",
+      "role": "derived",
+      "artifact_role": "derived_autosave",
+      "role_basis": "имя указывает на автоматический/боевой выход игры; роль source без отдельного доказательства запрещена",
+      "phase": "unknown",
+      "phase_relevance": "unresolved",
+      "phase_relevance_basis": "роль или временной порядок не доказаны",
+      "corresponding_logs": [
+        "HD_HOTA.dll+0x1A49-5.7-R35-180-1.txt"
+      ],
+      "corresponding_dumps": [
+        "HD_HOTA.dll+0x1A49-5.7-R35-180-1.dmp"
+      ],
+      "attachment_names": [
+        "AUTOSAVE.GM2"
+      ],
+      "origin_inference_allowed": true,
+      "can_support_source_origin": false,
+      "duplicate_group": "save-sha-b553a8cd3bb8",
+      "duplicate_physical_count": 1,
+      "representative": true
+    },
+    {
+      "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3-AUTOSAVE.GM2",
+      "size": 50880,
+      "sha256": "ae456b52958fe431f354b01dc2bb94c6881bb06ae29f6193f8044a7e4f61b77f",
+      "extension": ".GM2",
+      "role": "derived",
+      "artifact_role": "derived_autosave",
+      "role_basis": "имя указывает на автоматический/боевой выход игры; роль source без отдельного доказательства запрещена",
+      "phase": "unknown",
+      "phase_relevance": "unresolved",
+      "phase_relevance_basis": "роль или временной порядок не доказаны",
+      "corresponding_logs": [
+        "HD_HOTA.dll+0x1A49-5.7-R35-180-3.txt"
+      ],
+      "corresponding_dumps": [
+        "HD_HOTA.dll+0x1A49-5.7-R35-180-3.dmp"
+      ],
+      "attachment_names": [
+        "AUTOSAVE.GM2"
+      ],
+      "origin_inference_allowed": true,
+      "can_support_source_origin": false,
+      "duplicate_group": "save-sha-ae456b52958f",
+      "duplicate_physical_count": 1,
+      "representative": true
+    },
+    {
+      "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1-AUTOSAVE.GM2",
+      "size": 267570,
+      "sha256": "218d8955f3cdbbfa272c495a9ca68d8fc7246cf051e76bc2ad24f0af94e0d125",
+      "extension": ".GM2",
+      "role": "derived",
+      "artifact_role": "derived_autosave",
+      "role_basis": "имя указывает на автоматический/боевой выход игры; роль source без отдельного доказательства запрещена",
+      "phase": "unknown",
+      "phase_relevance": "unresolved",
+      "phase_relevance_basis": "роль или временной порядок не доказаны",
+      "corresponding_logs": [
+        "HD_HOTA.dll+0x1A49-5.7-R39-180-1.txt"
+      ],
+      "corresponding_dumps": [
+        "HD_HOTA.dll+0x1A49-5.7-R39-180-1.dmp"
+      ],
+      "attachment_names": [
+        "AUTOSAVE.GM2"
+      ],
+      "origin_inference_allowed": true,
+      "can_support_source_origin": false,
+      "duplicate_group": "save-sha-218d8955f3cd",
+      "duplicate_physical_count": 1,
+      "representative": true
+    },
+    {
+      "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-1-BATTLE_non_continuable.GM2",
+      "size": 347588,
+      "sha256": "4061b285a4ee4ac085ebb4d5234c6709121abc972a6868310033ada9430da3b4",
+      "extension": ".GM2",
+      "role": "derived",
+      "artifact_role": "derived_battle_save",
+      "role_basis": "имя указывает на автоматический/боевой выход игры; роль source без отдельного доказательства запрещена",
+      "phase": "unknown",
+      "phase_relevance": "unresolved",
+      "phase_relevance_basis": "роль или временной порядок не доказаны",
+      "corresponding_logs": [
+        "HD_HOTA.dll+0x1A49-5.7-R40-180-1.txt"
+      ],
+      "corresponding_dumps": [
+        "HD_HOTA.dll+0x1A49-5.7-R40-180-1.dmp"
+      ],
+      "attachment_names": [
+        "BATTLE_non_continuable.GM2"
+      ],
+      "origin_inference_allowed": true,
+      "can_support_source_origin": false,
+      "duplicate_group": "save-sha-4061b285a4ee",
+      "duplicate_physical_count": 1,
+      "representative": true
+    },
+    {
+      "path": "HD_HOTA.dll+0x1A49-5.8-R8-181-AUTOSAVE.GM2",
+      "size": 243443,
+      "sha256": "a278d107fc1c2ef1cd48b24053863a593c355b6e484385ede189a56826d31ebe",
+      "extension": ".GM2",
+      "role": "derived",
+      "artifact_role": "derived_autosave",
+      "role_basis": "имя указывает на автоматический/боевой выход игры; роль source без отдельного доказательства запрещена",
+      "phase": "unknown",
+      "phase_relevance": "unresolved",
+      "phase_relevance_basis": "роль или временной порядок не доказаны",
+      "corresponding_logs": [
+        "HD_HOTA.dll+0x1A49-5.8-R8-181.txt"
+      ],
+      "corresponding_dumps": [
+        "HD_HOTA.dll+0x1A49-5.8-R8-181.dmp"
+      ],
+      "attachment_names": [],
+      "origin_inference_allowed": true,
+      "can_support_source_origin": false,
+      "duplicate_group": "save-sha-a278d107fc1c",
+      "duplicate_physical_count": 1,
+      "representative": true
+    }
+  ],
+  "validation_errors": [],
+  "valid": true
+}

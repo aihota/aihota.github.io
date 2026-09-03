@@ -37,6 +37,9 @@
     },
     "HD_HOTA.dll+0x1A49-5.7-R40-180-2.txt": {
       "caller": "network_dynamic_buffer_growth_R40"
+    },
+    "HD_HOTA.dll+0x1A49-5.8-R8-181.txt": {
+      "caller": "dynamic_buffer_growth_R8"
     }
   },
   "related_cases": []

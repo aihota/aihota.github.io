@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "kind": "x86_call_argument_observation",
+  "architecture": "x86",
+  "calling_convention": "cdecl",
+  "builds": ["5.8 R8"],
+  "callee": "_malloc",
+  "observation_point": "after_caller_cleanup",
+  "cleanup_bytes": 4,
+  "arguments": [
+    {
+      "index": 0,
+      "value": "0x00180004",
+      "source_kind": "stack_slot",
+      "relative_to_observed_esp": -4,
+      "provenance": "R8 caller passes rounded capacity 0x00180000 to sub_1001A30; the helper adds 4, pushes the exact request before _malloc, and the value is recovered from ESP-4 after cleanup"
+    }
+  ],
+  "rejected_sources": [
+    {
+      "source": "ECX",
+      "observed_value": "0x00000008",
+      "reason": "volatile post-call register; it is not the cdecl argument"
+    }
+  ]
+}

@@ -1,0 +1,1097 @@
+{
+  "schema": 2,
+  "case": "mail-dumps/HD_HOTA.dll+0x1A49",
+  "gate_scope": "full_quality_gate",
+  "static_only": true,
+  "input_fingerprint": {
+    "schema": 1,
+    "case_files": [
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1-AUTOSAVE.GM2",
+        "size": 50655,
+        "sha256": "b553a8cd3bb8178f3715eefe6eca5bb6fee3b390e6584679d43c9e68745cb457"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1.dmp",
+        "size": 126100,
+        "sha256": "08a9178c878accc992b3311dc4556063c24051fee6f94874f0246d66908b4f85"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1.txt",
+        "size": 7809,
+        "sha256": "ac3b9898131bab5989e6dff916941bc8a355eb33495817f0ada5d1de12ef7fd0"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-2.dmp",
+        "size": 125496,
+        "sha256": "a06ad2e9736181088411b2c732906b893ff5179c692b644d07afebc651fabdf7"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-2.txt",
+        "size": 7985,
+        "sha256": "c33280e8ec682c4ace80f2a79c7b7ed107f0d9d2219aea2a1628c6db74df922d"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3-AUTOSAVE.GM2",
+        "size": 50880,
+        "sha256": "ae456b52958fe431f354b01dc2bb94c6881bb06ae29f6193f8044a7e4f61b77f"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3.dmp",
+        "size": 125496,
+        "sha256": "a06ad2e9736181088411b2c732906b893ff5179c692b644d07afebc651fabdf7"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3.txt",
+        "size": 7810,
+        "sha256": "7de8c6bc94aa192aee21d66223da5b4b6851f2ec86eb4bc3a4f0be0a8be2cd93"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180.dmp",
+        "size": 126100,
+        "sha256": "08a9178c878accc992b3311dc4556063c24051fee6f94874f0246d66908b4f85"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180.txt",
+        "size": 7984,
+        "sha256": "79498d587d0f2f8fd14789d1cca7d7d2a85a76a91b18097d9eee1795b215fd58"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1-AUTOSAVE.GM2",
+        "size": 267570,
+        "sha256": "218d8955f3cdbbfa272c495a9ca68d8fc7246cf051e76bc2ad24f0af94e0d125"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1.dmp",
+        "size": 124184,
+        "sha256": "703412811a8e7a0f9d2c6ce3d2b30eb15a0d5253149e8427c8b84267fa1e2ed3"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1.txt",
+        "size": 9873,
+        "sha256": "21fbf78651021da71922a6cec512db264cd51ecbc62d281e746d86ccab16c4bc"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-1-BATTLE_non_continuable.GM2",
+        "size": 347588,
+        "sha256": "4061b285a4ee4ac085ebb4d5234c6709121abc972a6868310033ada9430da3b4"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-1.dmp",
+        "size": 130828,
+        "sha256": "a50ea6390aef11d9adf123165d6ff72f6c0dd238bddfeb7ae3a181d4b983065a"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-1.txt",
+        "size": 9821,
+        "sha256": "0d0b67b2f576b9373c1792ae9cc11b030eabfa571a3581bf2ba77336cb03d97f"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-2.dmp",
+        "size": 170477,
+        "sha256": "fa545a0b9a2fbf420a3c512ea13fa44d0de2743ca4e98b9a7e0e750ada4e2abb"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-2.txt",
+        "size": 8796,
+        "sha256": "d8dc2a9b2357e80fc18e3f022a4a473ccdc2c9d12ea230662254d70a5e62af69"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.8-R8-181-AUTOSAVE.GM2",
+        "size": 243443,
+        "sha256": "a278d107fc1c2ef1cd48b24053863a593c355b6e484385ede189a56826d31ebe"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.8-R8-181.dmp",
+        "size": 92470,
+        "sha256": "878b5b251bf3139413bde1d22a54eb4495bb3c4629c931cab1e10d01b49e6966"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.8-R8-181.txt",
+        "size": 11266,
+        "sha256": "089961ed19bffd3f5a56a3e2d3df1a2bfa5e3f10964b31fae0c96e34ab6723e2"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.evidence.json",
+        "size": 38079,
+        "sha256": "e85596a2cd1c189ee517232a0a16eae5b69da5825c49e560b0b49f917f1026b6"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.extra.html",
+        "size": 4458,
+        "sha256": "0b2b53cb3c82a372134831f2b84d808ee04e71eb906d718ae69a1d2c23401fa7"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.html",
+        "size": 557210,
+        "sha256": "4af4e676dedecf5531303e1b49f82dd0af2b3a526acc360180879f0e4485e24a"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.model.json",
+        "size": 207,
+        "sha256": "8bbee26e533636aaa3000790938a8dbc7b61b6ed835e995345e0ec88bdeb7922"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.txt",
+        "size": 30160,
+        "sha256": "a7ae73af56ca47dfbf3df94dd2798c2c28910bba6befa9efb1428591ee8f26cd"
+      },
+      {
+        "path": "address-proof.json",
+        "size": 1135,
+        "sha256": "ce169b9610b19def3d6a08f81f9e622b344888a60e428ad8c154dc00bfc6e2f3"
+      },
+      {
+        "path": "analysis-contract.json",
+        "size": 5774,
+        "sha256": "b5032c4dd42f5a44c779bb095ac378c6eb188f02a0778eb61d57f307c673b04a"
+      },
+      {
+        "path": "call-arguments-r35-r39.json",
+        "size": 656,
+        "sha256": "dd9c6c16fc0cc5a2054d80f353e3ef31a68c02d96544c9ba098b01f8968c082d"
+      },
+      {
+        "path": "call-arguments-r40-0d680004.json",
+        "size": 669,
+        "sha256": "3038c505f71b7345097ae71b13417bd3db3ee60a05a71ced57ddd8ac03d5389c"
+      },
+      {
+        "path": "call-arguments-r40-0d880004.json",
+        "size": 669,
+        "sha256": "c838bc437c4dbe14fddfc0cd37b437a837a7ce3c4a48abc62e5347b7a9e89c70"
+      },
+      {
+        "path": "call-arguments-r8-00180004.json",
+        "size": 762,
+        "sha256": "c2c4413c51b20baacd15634e46a9b968445523bfb52057fba5ceeb9546a5e63c"
+      },
+      {
+        "path": "capabilities.json",
+        "size": 63036,
+        "sha256": "ddb31c2da29772a5d78a99062f1d382035251a5ef4ee62db7008c6abae6066a1"
+      },
+      {
+        "path": "case-manifest.json",
+        "size": 83647,
+        "sha256": "828de6313b3bcbb8bf867153de5e872694172325295cbf1da8d5be0600a9fca2"
+      },
+      {
+        "path": "coverage-claims.json",
+        "size": 4042,
+        "sha256": "85ed13b0a00c0acbc90ac8cc825eb272c6e8c4a00021054045f681c56d103520"
+      },
+      {
+        "path": "coverage.json",
+        "size": 5529,
+        "sha256": "d1d131f7492d2c5449c0459f3e57a5594149c6f4b9266084e23e1158aa49111a"
+      },
+      {
+        "path": "evidence-config.json",
+        "size": 5861,
+        "sha256": "ea9a949953e97a7015d32ad614dd611e949694889360e4cfb8ce0f0589db4477"
+      },
+      {
+        "path": "family-membership-input.json",
+        "size": 43329,
+        "sha256": "b26d5ea5e524e8697c99c78467d287af231e8cfe8d6304d8784e06048226888d"
+      },
+      {
+        "path": "family-membership.json",
+        "size": 43996,
+        "sha256": "ee00dbf8cfeb8bba5c1b83fcd01588823e04caa985e347603670d5cee15f68c9"
+      },
+      {
+        "path": "ingest-manifest.json",
+        "size": 44748,
+        "sha256": "aca5b0925411f2b092cca4f931bcd5b102e7adf795319dcd4e4c3b20a1f713c4"
+      },
+      {
+        "path": "lessons.json",
+        "size": 3256,
+        "sha256": "6d7552f6ce79b40dcc0487f195cbdcf5abf7fed0d677d06e83590e45f2542628"
+      },
+      {
+        "path": "memory-pressure-r40.json",
+        "size": 801,
+        "sha256": "6cf94c5d47b9648cba98215abd632adf157d39fb7dbc9b14441f139199a02bd1"
+      },
+      {
+        "path": "pair-audit.json",
+        "size": 52900,
+        "sha256": "795459fc3046804384a78e91e8df4de719b2b2d035ba64c03d4297a7aa4ad1fb"
+      },
+      {
+        "path": "repro-plan.json",
+        "size": 38025,
+        "sha256": "6cb3da49ef7a29a62897f34b620eec4c38cb6b65e93606c458537d6457178064"
+      },
+      {
+        "path": "save-inventory.json",
+        "size": 5944,
+        "sha256": "e67984119593df4e79bdaccdf19aa208f5096e46b62224bff3a01c9e30be7743"
+      },
+      {
+        "path": "series-annotations.json",
+        "size": 1374,
+        "sha256": "593fa57564d66beb9dc2f6509ccaa3cd118988bdf7eebff07db77c5a9aeec01b"
+      },
+      {
+        "path": "series-groups.json",
+        "size": 297412,
+        "sha256": "311f6d7c3b0dc50b3b9c0434883acf8518bd7508183b3be6b7b80316254487ef"
+      },
+      {
+        "path": "series-parse.json",
+        "size": 405618,
+        "sha256": "4a2d4f632f6fc1889033a5e5537dde8e9115d8f8470094c64413552c9bbe3779"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-1.txt",
+        "size": 6362,
+        "sha256": "c2fe3fc2e5b075cc7c903b6f31fa686119c17fab94cba74c64cb7a6f5a563276"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-2.txt",
+        "size": 8913,
+        "sha256": "c6b4aa25004023dfdce52f81c53b73898d8c4aa0a08659828f326166c00992da"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-3.txt",
+        "size": 8926,
+        "sha256": "4de499e99ce727df069bdfb561f22feb9e21b1442ede9a534325e88819db2fb2"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-1.txt",
+        "size": 8575,
+        "sha256": "d60ca2feae6e0009ca07392e71345867303dc53df5968f57a6cbc5b934003a0e"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-10.txt",
+        "size": 9037,
+        "sha256": "4d02c37761e8a6ba9e07eb0813a6eae0516eb948231b66a2d16b3f94dfcefd2c"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-11.txt",
+        "size": 9037,
+        "sha256": "982bbd46eade523d037300abb71dcc37c2ee98218e1895e43c650f98ff11f03a"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-12.txt",
+        "size": 8843,
+        "sha256": "66c9b660aff668cd1650de4d5e1bddaf7d9d8d0c2515836a071da9d3c0647393"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-13.txt",
+        "size": 10110,
+        "sha256": "9ed87a99ce59dde20410bd7787fdcd563acaf897109e978345523e3cc89cc4cf"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-14.txt",
+        "size": 7752,
+        "sha256": "a7cb2caeb5c1342399e378d9bd78a54f75bfdd00354945f95bc719c15fead527"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-15.txt",
+        "size": 8556,
+        "sha256": "3a79508ab2800d39969d19b274e69670da62662c20582831cb883b54bab7347a"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-16.txt",
+        "size": 8028,
+        "sha256": "002e7930b8679c81e1a6c8dac9eb15ea5fc33d9f59a531417dba7c350abdc00e"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-17.txt",
+        "size": 8069,
+        "sha256": "ca6d62175eb240009f3d9c8af28d524d3d5a4d576052b3e7da8c0fb539623b25"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-18.txt",
+        "size": 7871,
+        "sha256": "53bd49f0aa510a19ca11b5334cbf256754b053f1c2c5afdb1b729af054fb9d4f"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-19.txt",
+        "size": 8016,
+        "sha256": "171bb91ae7392c0301c05bcd02168227457786d50938f20281a6a0976939c832"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-2.txt",
+        "size": 9724,
+        "sha256": "6ceeaad2265b98fafa2833094672d59360f6b95f43e0a868555ff7dcdd90cd4a"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-20.txt",
+        "size": 8962,
+        "sha256": "816f98e3af3b4d855ac06c778fb4dc7a89c1cfe6aefe670ba454fa505aeb5764"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-21.txt",
+        "size": 8440,
+        "sha256": "3ce73c265995d233f1ff0611d5420fe2dfb687f90b3cdba21c7260810cbe2e29"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-22.txt",
+        "size": 8440,
+        "sha256": "0f435124973d827c74088d8381e164b09859643be0f6e5d5554b8069283e6aea"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-23.txt",
+        "size": 8053,
+        "sha256": "c403317d1c473a425b59752ea71e1a419b55ab0901a240c2bf2f4b32b0d24c9b"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-24.txt",
+        "size": 8082,
+        "sha256": "a8c49b5f8eaada0bd4ceedafb74543d4e4f5f9ec0e5516af790c5bbf0f73d343"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-25.txt",
+        "size": 8971,
+        "sha256": "4d448d0fab43ddcdbbb8578ab3947bfd70cafbde9fd56549338d610ef60c2b1c"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-26.txt",
+        "size": 9020,
+        "sha256": "2fa2ec16582e238cea6b99f71f748266df40cb3f83517e5bf763cbcdf4704c48"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-27.txt",
+        "size": 8883,
+        "sha256": "1c48464c8636d2ca5736d073ec077e27b74d858c5488e0096c10e6bacc7610a7"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-28.txt",
+        "size": 8828,
+        "sha256": "de5c5b7293eee81ff1c7a623ba14582e92fc71e0824f3a079cd1cb75dba99bba"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-29.txt",
+        "size": 8114,
+        "sha256": "7a0b567fe55aaee4294a6af6732550ba0ad70b121a25da9260993b12736e5134"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-3.txt",
+        "size": 8016,
+        "sha256": "9164f3d28cff6c8b8b48c38c4e742985e664f144c3d77a40996bd17fd6db1a35"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-30.txt",
+        "size": 8079,
+        "sha256": "b61568c29f4a1be076337a0d95a09929416bfcff394d6e9b8cf14139a02f8ff1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-31.txt",
+        "size": 9376,
+        "sha256": "99dfc429092102d0c90b49901d6d60d1a8c6d1fc48bcadaf9e8ff1d6de543106"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-32.txt",
+        "size": 9887,
+        "sha256": "1e01f4c6e1a74f6f112c9beabca89ad0bbe3d7a07b61992babcf21a3d1ec008f"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-33.txt",
+        "size": 8163,
+        "sha256": "472827e8abcb1bb2fb12719ac3546e4e1bb57afab3efe3b2b4eb5eb37e4d0017"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-34.txt",
+        "size": 7897,
+        "sha256": "de6e5ea1b76c837f122b5489288ad951e4bfd1df1f932b1d228621fcb225ee78"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-35.txt",
+        "size": 8738,
+        "sha256": "e24414ba573be6d815e3307cb734ba845b8228046515396c0a428a6bf24a2851"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-36.txt",
+        "size": 9562,
+        "sha256": "83922c60104fd026a055fe4f2cfbf6591321a99d32d5bd989c903bb7c8c3480e"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-37.txt",
+        "size": 7995,
+        "sha256": "2589411d24686ce8d03f1f423f686d15a2a7bd447188e7a424d20e3ee7a5e6a4"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-38.txt",
+        "size": 7754,
+        "sha256": "d0304b6db2d02fe15cb39238e5b3ed6cc24f172d004fc863fa5a502161ed45c0"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-39.txt",
+        "size": 7935,
+        "sha256": "9102602d1111ba1dda44e197400455043b1c45393cbce572a4c2fdd35ae0c242"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-4.txt",
+        "size": 8016,
+        "sha256": "512d22fed6d01707ade21393dd9e06d972a6c8abfd85c17c053cf5853123bc08"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-40.txt",
+        "size": 8454,
+        "sha256": "f032030c8c7048368f28670f67eb832638195800e526afebe602597b36a7b4ee"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-41.txt",
+        "size": 8726,
+        "sha256": "97e798f2f17f4a4882050716065edf5639e7ca379c9364b8c4768289fc85197a"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-5.txt",
+        "size": 8016,
+        "sha256": "15b3b3dc1fcac168203c2bbb54043fb0057e643bf31b635fdd49b8efa4311261"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-6.txt",
+        "size": 8016,
+        "sha256": "963bebbec4d59c423fe43f6e38a9aa4b40c87e351521516595d85c14c27414cd"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-7.txt",
+        "size": 7948,
+        "sha256": "f490eefb570435bf9f1658e31bab9c9e89cc17445cc5425b8655196f97ce8096"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-8.txt",
+        "size": 8312,
+        "sha256": "c203ca6dd641d3e44affbab97ebe940d02899c0b64ca27977eda8a62f023edb7"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-9.txt",
+        "size": 8917,
+        "sha256": "5e8eec562844479e74cb1582f7e947b735c4489b898aff025a4acc26035b5513"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0Time13.04.2-1.txt",
+        "size": 334786,
+        "sha256": "98f0ae3b042d7b9e83e3059a43e9485fe12eea2e2393dd5df6dd7a8cb0f64bcf"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-1.txt",
+        "size": 9635,
+        "sha256": "e7767a07524e34ce0674051eec2e01f5376df2e51c02569762e7ae622444024d"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-10.dmp",
+        "size": 92919,
+        "sha256": "f4d649d7b3162690e7518c82996204c3114a9d96d07771cba0c38b24dcc83aa2"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-10.txt",
+        "size": 9439,
+        "sha256": "7a5a62222bd843f30975c9afef526997c15f61dee72bb05408983f158da945d6"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-11.dmp",
+        "size": 145562,
+        "sha256": "3d3c3c851de5065aad2ec5a9f040e85e63ae4d2ddaed058ec1dcc143cf58dc49"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-11.txt",
+        "size": 8652,
+        "sha256": "9cd0bd8434cc50bffb16cfdaa833a262dabb035dfc350afd9d4cceb20cc52c20"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-12.dmp",
+        "size": 134405,
+        "sha256": "4f12e721525db41b909fe3754e351b2bad54aa97732b3058ef7e9044e74f22b0"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-12.txt",
+        "size": 8933,
+        "sha256": "ed5267633b4ae9762000ee3e29591e445c02a3dee43169f6d616b63ee717ed61"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-2.txt",
+        "size": 8934,
+        "sha256": "33e9a28d54133f75c07b33b1f89f0678bb634221ad5ba33838d1b653c1a702f3"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-3.txt",
+        "size": 8871,
+        "sha256": "a707cb6ea5108d785577c01748f50375e28eaa9dd6aea78b34bdc803bf3b2263"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-4.txt",
+        "size": 10558,
+        "sha256": "3b7ab57893901e256c450b22c213a8526773f50baf26d07644e1dfb07f977fee"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-5.txt",
+        "size": 10189,
+        "sha256": "2c639ef9e48495dc60172bf354cc69aae1b76721559d35423a4db32bdc1fd843"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-6.dmp",
+        "size": 95784,
+        "sha256": "60f2900036d57ad4cc5c1848599c9b8be9e4f25c0b6c09ebb12bccd609019e86"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-6.txt",
+        "size": 7140,
+        "sha256": "327bcf4f994b6a002d497df54488926a54e98d729d6cdffa07f7bb04cf7be5a2"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-7.dmp",
+        "size": 166922,
+        "sha256": "6746526d95f16d0f929b1c9aee688f6204ab9a70e6773e8b4a79ab03f01343b9"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-7.txt",
+        "size": 9631,
+        "sha256": "a3aa89091ed5ac24981e46ead2d12fd40d05963eb22e8d5b18d5395cbefdac74"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-8.dmp",
+        "size": 104010,
+        "sha256": "3db6ce813d99fec590f3a065e99c12fad04cf84313255bdc8dff22b6db28258c"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-8.txt",
+        "size": 9644,
+        "sha256": "777c87cb70bbe95f7496c1753a24f69e9994773b7a577074b8bb1784454e1e98"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-9.dmp",
+        "size": 109669,
+        "sha256": "df44afaa35ca199a9b278c21039a161d70653cfee169599c6c109907c34e50de"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-9.txt",
+        "size": 9148,
+        "sha256": "2c9bd12c760ea67dec2d0a387601d65358f8277d9cecf5e50a9bda2085d752c4"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0Time0526202-1.txt",
+        "size": 1362525,
+        "sha256": "e01312fa7c7ac096eea8f0e5dc610a1de7b256a65da614e52285704ddc6871f4"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-анализ-qwen-3.8.extra.html",
+        "size": 3810,
+        "sha256": "ba8a71d046cc9c9c2cb68dbfe28128d30ba712f3014b5f56c3fa87ca625aee2a"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-анализ-qwen-3.8.html",
+        "size": 540091,
+        "sha256": "24aaca6003c721cd75ad40d00e9fbf17d58a7ab926ea58ee8ddc372454051291"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-анализ-qwen-3.8.txt",
+        "size": 57907,
+        "sha256": "60576e9bc71dd6c026d3a4c1ebdc1c889425332efa0f86f70d7dceb4aeef4b2f"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1ABE-1.8.0-1.txt",
+        "size": 7323,
+        "sha256": "b2c9ac55aa476216461f2a5555f119c99a80589b44804e20c8d9352c2383f240"
+      }
+    ],
+    "toolchain_files": [
+      {
+        "path": ".agents/skills/address-mapping/address_proof.py",
+        "size": 6725,
+        "sha256": "6b46bb722302ff58686668a9c06c29e02ff52b888f6dd5423e2a6b1c9e59f2c6"
+      },
+      {
+        "path": ".agents/skills/address-mapping/call_argument_audit.py",
+        "size": 4474,
+        "sha256": "a888e012a6d347f536601afca3ab412a772670c3ecefc51949ae63e3052387e6"
+      },
+      {
+        "path": ".agents/skills/address-mapping/callback_abi_audit.py",
+        "size": 7092,
+        "sha256": "0463a7798e01036fde8ad65d0241924e3374a46eb55bdb0bc406ad291c8504dd"
+      },
+      {
+        "path": ".agents/skills/gameplay-state-triage/gameplay_case_gate.py",
+        "size": 8279,
+        "sha256": "8c9094db55e62a0899d86f920981e8743eaf22e63b54bd396b1c60e4926bd75f"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/analysis_contract.py",
+        "size": 12272,
+        "sha256": "846623acb217e184e2bd51f3b8a90230d8eee134a879d0cde0c598873f9daee2"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/artifact_io.py",
+        "size": 5947,
+        "sha256": "d06234b55d72565c5e7adcd024a261f350b49412492f1d8af2ae593d087751a3"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/case_lessons.py",
+        "size": 5178,
+        "sha256": "cc6995efbcc467d25c81a8145a5124b34b694f3c6b741c5409a5c0019e669b5c"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/coverage_contract.py",
+        "size": 9421,
+        "sha256": "953020e43c32ebd295da252986537608c31a574b1f92d2b3b584bcdc76f5d995"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/crash_audit.py",
+        "size": 46887,
+        "sha256": "23a6b5a844de2ce30d6e11d9861bff461f0a98260f82b7790c5e1b226c5f5b70"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/dimension_provenance.py",
+        "size": 11562,
+        "sha256": "24a7551f6c1e060b876aedc7c3bd2188339c2dcc687da46dc6c5be9889f54414"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/evidence_manifest.py",
+        "size": 56919,
+        "sha256": "9370b9d0315f94851ff85a8b5beb4d4858c92f307d1ad8e9349953e8c0d22c45"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/family_membership.py",
+        "size": 15239,
+        "sha256": "d0da36111f4a2ddded9495e5d6db91af9d7f443ab98f46f2c333299b422147a6"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/frame_slot_provenance.py",
+        "size": 10701,
+        "sha256": "9148a0d65fa49285da9b3285994801193d77204269a51c434ef4159e297603b3"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/geometry_contract_audit.py",
+        "size": 5035,
+        "sha256": "2efdc85e7e2d0b7a8dee96fe97ee454321af287833a0871394ae1258cb2e8590"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/lint_report.py",
+        "size": 114560,
+        "sha256": "220559afb071b03403dc0bae75be65af68d878f5518bf7cf155809480275a1c7"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/missing_evidence_request.py",
+        "size": 5747,
+        "sha256": "d26ab49aa8f872400c797eef5cab7f76521b65db9e1ac15cdd90b753d84bec80"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/related_crashes.py",
+        "size": 4941,
+        "sha256": "bad8a9737d6c1ca47c90ecf122c009d4aa7ccd8622885a8ecb665709daa5541a"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/render_attestation.py",
+        "size": 6468,
+        "sha256": "13c35031c9b11235563205d69e65ddcb67a3f97914788aecdeea8c5e680f6cdd"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/report_history.py",
+        "size": 5282,
+        "sha256": "304888918b7d1e0e52a170718425f01be61912a509a2342c33fd1f5a7392fb58"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/repro_plan.py",
+        "size": 12201,
+        "sha256": "da50a907d08589b1998cfbe7b4d84034bc23ee1273e9931de0d04c9ffbe031b8"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/scan_attestation.py",
+        "size": 5877,
+        "sha256": "ca137a0bd4618a7166c9906e40bcf6584a90f9d295d0038621a48daa86c83568"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/semantic_contract.py",
+        "size": 13387,
+        "sha256": "ac3f438fb957dffb11f3e55e9512afba7673208000df9669e67187893ab33330"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/semantic_site_fingerprint.py",
+        "size": 4957,
+        "sha256": "dec858198b86e8d073a19ed274866137b5e22a8bba38ac52c5820e31f9a0688e"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/signed_geometry_audit.py",
+        "size": 7740,
+        "sha256": "a8dfe38b5c483fdabad1e4718691851aa07a13fc0596ea050ee747e9b3ef54b9"
+      },
+      {
+        "path": ".agents/skills/html-report/fonts/ReportMono-Bold.woff2",
+        "size": 53836,
+        "sha256": "dea64820e1ffa27ee8eeae8769b38cdf287c4d6cfaa2b96be15b0f3c6c1d337c"
+      },
+      {
+        "path": ".agents/skills/html-report/fonts/ReportMono-Regular.woff2",
+        "size": 52056,
+        "sha256": "a16f097ed8b1417c5564b1da17c9b7bb809583f4a9d74c9ba272d29e0b5e528e"
+      },
+      {
+        "path": ".agents/skills/html-report/fonts/ReportSans-Bold.woff2",
+        "size": 72892,
+        "sha256": "fc9d48df6e3ae8ed4214d1e70ab13ed4af58015263af1d5a24ed7b06b2c0378b"
+      },
+      {
+        "path": ".agents/skills/html-report/fonts/ReportSans-Regular.woff2",
+        "size": 67436,
+        "sha256": "9dbf0dab5a6eeac74494e14674b69077c55e8858295647d91d27bfc803dbdb6c"
+      },
+      {
+        "path": ".agents/skills/html-report/fonts/ReportSans-SemiBold.woff2",
+        "size": 72760,
+        "sha256": "f5fbca9627ab1338a9a39dc5d1d84d7593e59cca0b860be7145a950ed1c1b9a3"
+      },
+      {
+        "path": ".agents/skills/html-report/render_report.py",
+        "size": 1086,
+        "sha256": "75e811fef4abc543e74287b913aa39ac4c4a6e67c994bf686241c5859aab4914"
+      },
+      {
+        "path": ".agents/skills/html-report/template.html",
+        "size": 7469,
+        "sha256": "80e538676c5f222991bbe7d6906349420b6d82c2ae014c82e61086b44cb83122"
+      },
+      {
+        "path": ".agents/skills/html-report/template_parts/interactions.js",
+        "size": 4461,
+        "sha256": "d00a9ca0044e6305cd67f13f1ea26d645c1fc6433884bf0c8d7efe72de63152e"
+      },
+      {
+        "path": ".agents/skills/html-report/template_parts/sections.js",
+        "size": 497,
+        "sha256": "317b485b221f1b57a3b50c3be21ae9fc8b31c5cde446a58951e90034338a9ff6"
+      },
+      {
+        "path": ".agents/skills/html-report/template_parts/styles.css",
+        "size": 55058,
+        "sha256": "10795790ddb567537fdb6c6e53e0714be13cc2a25252619b80b05eb38bf20c25"
+      },
+      {
+        "path": ".agents/skills/html-report/template_parts/theme-init.js",
+        "size": 608,
+        "sha256": "dfd0663f32a5a77eff2d47b769028be65e80773decab8bf6e6a129844c5f703d"
+      },
+      {
+        "path": ".agents/skills/html-report/template_parts/toc.js",
+        "size": 250,
+        "sha256": "3b87a43635a86a012a301213ccc84bf2cc0ca1eff524455f2224e8cc12ecf679"
+      },
+      {
+        "path": ".agents/skills/memory-pressure/memory_pressure_contract.py",
+        "size": 4629,
+        "sha256": "cd4de5683de1a0dda82a4d9d5e2d06d8a9033797f2315f11a8916098df321092"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/consolidation_attestation.py",
+        "size": 16939,
+        "sha256": "a90d37c146fca0ec6d28824f41d3d04402f9f86912a8ed6be2c3e82c23d57993"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/corpus_denominator.py",
+        "size": 7136,
+        "sha256": "77ee195a25aa5c5bef1a0c6e97948c76c23b62be60a0c77f2bbe83f20972952e"
+      },
+      {
+        "path": ".agents/skills/registry-container/payload_flow_audit.py",
+        "size": 4191,
+        "sha256": "90cfc79f7b860d13bc38caffa0a97137dea16b18ffe4a5038d79279052c5f94f"
+      },
+      {
+        "path": "report_consistency.py",
+        "size": 29850,
+        "sha256": "598b5b172786c0c7118cd17c2387ae500761e6a9d4caa1f1c15bd7146be31fd5"
+      }
+    ],
+    "sha256": "30b82394b4fec93df90374684cb42ce760001bd1227b9f2aa2c2e12b68ea2f72"
+  },
+  "audit_stages_complete": null,
+  "publication_ready": true,
+  "diagnostic_assessed": true,
+  "diagnostic_not_applicable": false,
+  "publication_blockers": [],
+  "actions_not_performed_by_gate": [
+    "Wine",
+    "game launch",
+    "git commit",
+    "git push",
+    "publication"
+  ],
+  "execution_policy": {
+    "scope": "static_validation_only",
+    "publication_after_pass": "allowed_but_not_performed"
+  },
+  "status": "passed",
+  "passed": true,
+  "artifact_quality": {
+    "status": "passed",
+    "passed": true,
+    "step_count": 23,
+    "blocked_count": 0
+  },
+  "diagnostic_completeness": {
+    "status": "incomplete",
+    "complete": false,
+    "causality_level": "L1",
+    "axis_summary": {
+      "instruction": "confirmed",
+      "mechanism": "confirmed",
+      "state_origin": "probable",
+      "family_coverage": "confirmed",
+      "reproduction": "unknown"
+    },
+    "root_cause_ready": false,
+    "next_required": [
+      "capture_state_origin_and_writer",
+      "confirm_reproduction"
+    ],
+    "source": "mail-dumps/HD_HOTA.dll+0x1A49/coverage.json"
+  },
+  "root_cause_ready": false,
+  "causality_level": "L1",
+  "step_count": 23,
+  "blocked_count": 0,
+  "steps": [
+    {
+      "name": "mandatory_machine_sidecars",
+      "status": "passed",
+      "errors": [],
+      "legacy_exempt": false,
+      "dmp_count": 15,
+      "evidence_count": 1
+    },
+    {
+      "name": "pair_contract",
+      "status": "passed",
+      "errors": [],
+      "identity_gaps": 0,
+      "limitations": [
+        "legacy_rows_outside_ingest:62",
+        "legacy_pair_gaps_outside_ingest:53"
+      ],
+      "scope": {
+        "kind": "ingest_manifest",
+        "txt_count": 5,
+        "row_count": 5,
+        "outside_row_count": 62
+      }
+    },
+    {
+      "kind": "capabilities",
+      "path": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A49/capabilities.json",
+      "series": true,
+      "item_count": 15,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "kind": "case_manifest",
+      "path": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A49/case-manifest.json",
+      "status": "passed",
+      "expected": "fresh canonical case contract",
+      "actual": "ready",
+      "repair": "python3 .agents/skills/hota-crash-triage/case_rebuild.py prepare /Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A49",
+      "errors": []
+    },
+    {
+      "name": "address_proof:address-proof.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "ADDRESS PROOF: PASSED; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "analysis_contract:analysis-contract.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "ANALYSIS CONTRACT: PASSED; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "case_lessons:lessons.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\"errors\": []}\n",
+      "stderr": "",
+      "json_result": {
+        "errors": []
+      }
+    },
+    {
+      "name": "coverage:coverage.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "COVERAGE: OK; claims=5; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "family:family-membership.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "FAMILY: OK; incidents=65; enumeration=true; classification=true; unknown=0; listing_blockers=0; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "repro_plan",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "REPRO PLAN: OK; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "call_arguments:call-arguments-r35-r39.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\n  \"schema\": 1,\n  \"kind\": \"x86_call_argument_provenance\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"argument_count\": 1,\n  \"rule\": \"recover at call boundary; volatile post-call registers are not arguments\"\n}\n",
+      "stderr": "",
+      "json_result": {
+        "schema": 1,
+        "kind": "x86_call_argument_provenance",
+        "status": "passed",
+        "errors": [],
+        "argument_count": 1,
+        "rule": "recover at call boundary; volatile post-call registers are not arguments"
+      }
+    },
+    {
+      "name": "call_arguments:call-arguments-r40-0d680004.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\n  \"schema\": 1,\n  \"kind\": \"x86_call_argument_provenance\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"argument_count\": 1,\n  \"rule\": \"recover at call boundary; volatile post-call registers are not arguments\"\n}\n",
+      "stderr": "",
+      "json_result": {
+        "schema": 1,
+        "kind": "x86_call_argument_provenance",
+        "status": "passed",
+        "errors": [],
+        "argument_count": 1,
+        "rule": "recover at call boundary; volatile post-call registers are not arguments"
+      }
+    },
+    {
+      "name": "call_arguments:call-arguments-r40-0d880004.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\n  \"schema\": 1,\n  \"kind\": \"x86_call_argument_provenance\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"argument_count\": 1,\n  \"rule\": \"recover at call boundary; volatile post-call registers are not arguments\"\n}\n",
+      "stderr": "",
+      "json_result": {
+        "schema": 1,
+        "kind": "x86_call_argument_provenance",
+        "status": "passed",
+        "errors": [],
+        "argument_count": 1,
+        "rule": "recover at call boundary; volatile post-call registers are not arguments"
+      }
+    },
+    {
+      "name": "call_arguments:call-arguments-r8-00180004.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\n  \"schema\": 1,\n  \"kind\": \"x86_call_argument_provenance\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"argument_count\": 1,\n  \"rule\": \"recover at call boundary; volatile post-call registers are not arguments\"\n}\n",
+      "stderr": "",
+      "json_result": {
+        "schema": 1,
+        "kind": "x86_call_argument_provenance",
+        "status": "passed",
+        "errors": [],
+        "argument_count": 1,
+        "rule": "recover at call boundary; volatile post-call registers are not arguments"
+      }
+    },
+    {
+      "name": "memory_pressure:memory-pressure-r40.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\n  \"schema\": 1,\n  \"kind\": \"allocator_growth_contract\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"events\": [\n    {\n      \"id\": \"r40-0d680000\",\n      \"old_size\": 224395264,\n      \"new_size\": 224919552,\n      \"request_bytes\": 224919556,\n      \"old_block_live_until_success\": true,\n      \"simultaneous_required_bytes\": 449314820\n    },\n    {\n      \"id\": \"r40-0d880000\",\n      \"old_size\": 226492416,\n      \"new_size\": 227016704,\n      \"request_bytes\": 227016708,\n      \"old_block_live_until_success\": true,\n      \"simultaneous_required_bytes\": 453509124\n    }\n  ],\n  \"local_mechanism\": \"confirmed\",\n  \"address_space_exhaustion\": \"probable\",\n  \"root_cause_allowed\": false,\n  \"alternatives\": [\n    \"fragmentation\",\n    \"heap_metadata_corruption\"\n  ],\n  \"rule\": \"NULL plus a plausible request proves local failure, not its upstream cause\"\n}\n",
+      "stderr": "",
+      "json_result": {
+        "schema": 1,
+        "kind": "allocator_growth_contract",
+        "status": "passed",
+        "errors": [],
+        "events": [
+          {
+            "id": "r40-0d680000",
+            "old_size": 224395264,
+            "new_size": 224919552,
+            "request_bytes": 224919556,
+            "old_block_live_until_success": true,
+            "simultaneous_required_bytes": 449314820
+          },
+          {
+            "id": "r40-0d880000",
+            "old_size": 226492416,
+            "new_size": 227016704,
+            "request_bytes": 227016708,
+            "old_block_live_until_success": true,
+            "simultaneous_required_bytes": 453509124
+          }
+        ],
+        "local_mechanism": "confirmed",
+        "address_space_exhaustion": "probable",
+        "root_cause_allowed": false,
+        "alternatives": [
+          "fragmentation",
+          "heap_metadata_corruption"
+        ],
+        "rule": "NULL plus a plausible request proves local failure, not its upstream cause"
+      }
+    },
+    {
+      "name": "relocation_family_contract",
+      "status": "passed",
+      "errors": [],
+      "limitations": [
+        "relocation_not_applicable"
+      ],
+      "manifest_count": 0,
+      "active_manifests": []
+    },
+    {
+      "name": "report_consistency",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "СОГЛАСОВАННОСТЬ ОТЧЁТОВ (scope=all)\nОтчётов проверено: 2\nOK: 2 | mismatch: 0 | ambiguous: 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "lint:HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "равления:\n[OK]   Поле раздела 1 найдено: Версия HotA:\n[OK]   Поле раздела 1 найдено: Версии HD-мода:\n[OK]   Поле раздела 1 найдено: Уникальных вылетов:\n[OK]   Поле «Версия HotA:» содержит только версии\n[OK]   Поле «Версии HD-мода:» содержит только версии\n[OK]   Локальный семейный счёт 6 из 65 отделён от итога серии\n[OK]   Машинный реестр серии: физические/уникальные/группы сходятся\n[OK]   Обязательное поле найдено: Происхождение стека: CONTEXT_THREAD_MISMATCH во всех 6 DMP\n[OK]   Версия схемы отчёта: 2\n[OK]   Поле схемы v2 найдено: Ключ семейства:\n[OK]   Поле схемы v2 найдено: Уровень идентификации кода:\n[OK]   Поле схемы v2 найдено: Поток исключения:\n[OK]   Поле схемы v2 найдено: Поток игрового контекста:\n[OK]   Поле схемы v2 найдено: Первичный источник данных:\n[OK]   Поле схемы v2 найдено: Статус первичного источника:\n[OK]   Поле схемы v2 найдено: Основание локального счёта:\n[OK]   Поле схемы v2 найдено: Граница корпусного поиска:\n[OK]   Поле схемы v2 найдено: Метод дедупликации:\n[OK]   Доказанность точки сбоя: подтверждена\n[OK]   Доказанность локального механизма: выведено из листинга\n[OK]   Происхождение повреждённого состояния: частично установлено\n[OK]   Полнота семейной переписи: подтверждена\n[OK]   Уровень связи дополнительных инцидентов: дополнительных инцидентов нет;\n[OK]   Статус визуализации указан: выполнена — показаны размеры и два пути вызова\n[OK]   'Класс сбоя' — точный русский ярлык из словаря\n[OK]   Нет markdown-заголовков '#'\n[OK]   Нет fenced-блоков ```\n[OK]   Нет markdown-таблиц с '|'\n[OK]   Декоративного Unicode нет (ASCII-эквиваленты)\n[OK]   Нет ссылок на внутренние правила/скиллы\n[OK]   Рекомендация HD-мода (readiness): проверены ресурс, NULL-guard, ранний выход, порядок состояния, сигнатура и дифференциальный тест\n[OK]   Баг HD-мода: техническая рекомендация присутствует\n[OK]   Нет отдельного раздела истории исправлений\n[OK]   Нет лишних Markdown-кавычек вокруг технических выражений\n[OK]   Заголовки ролей отделены и используют каноническое тире\n[OK]   Нет методического жаргона (V1/V2)\n[OK]   Нет английских терминов в русском тексте\n[OK]   Известных грамматических регрессий нет\n[WARN] Строк длиннее 100 символов: 2\n[OK]   HTML-теги отсутствуют (чистый plain-text)\n[OK]   Diff-таблица: колонки консистентны (5)\n[OK]   Декоративные линии не превышают число секций (0/28)\n[OK]   Блоки дизассемблера с префиксом .text:\n[OK]   Отрицательные результаты зафиксированы\n[OK]   Отрицательный результат с покрытием/контролем\n[OK]   Неподтверждённых отрицательных выводов стенда нет\n[OK]   Модель совпадает со slug в имени файла\n[OK]   Модель подтверждена машинным манифестом (external_runtime)\n[OK]   Незаполненных мест заготовки не осталось\n[OK]   Абзацы в пределах 1200 символов\n[OK]   Счётные числа помечены или получены разбором формата\n[OK]   Вероятностные условия помечены или отсутствуют\n[OK]   У каждой дроби «X из Y» рядом указано основание счёта\n[OK]   Дата шапки согласована со временем правки файла\n\nИтог: FAIL=0, WARN=1, BLOCKING_WARN=0\n",
+      "stderr": ""
+    },
+    {
+      "name": "semantic:HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "SEMANTIC: PASSED; errors=none; warnings=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "evidence:HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/address-mapping/dumplib.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/address-mapping/dump_profile.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/crash_audit.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/save-map-analysis/save_inventory.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/family_membership.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/coverage_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/case_manifest.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/address-mapping/address_proof.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/analysis_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/case_lessons.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/evidence_manifest.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/lint_report.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/semantic_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/repro_plan.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/address-mapping/call_argument_audit.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/memory-pressure/memory_pressure_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/case_quality_gate.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n",
+      "stderr": ""
+    },
+    {
+      "name": "schema3_contract:HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.evidence.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "name": "render:HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "   шрифты встроены (офлайн): 5 начертаний\n   врезка визуализаций: 1 секц., 1 пункт(ов) оглавления\nOK -> mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A49/strict-render/HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.html\n   секций размещено: 10 / 10\n   <section> open=11 close=11\n   ✓ валидация: ключевые поля txt присутствуют в html\n",
+      "stderr": "",
+      "verified_existing_html": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A49/HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.html",
+      "normalized_generated_at": true,
+      "render_output": "mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A49/strict-render/HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.html"
+    },
+    {
+      "name": "semantic-html:HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "SEMANTIC: PASSED; errors=none; warnings=none\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,2375 @@
+{
+  "schema": 1,
+  "kind": "case_manifest",
+  "case_id": "HD_HOTA.dll+0x1A49",
+  "root": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A49",
+  "status": "ready",
+  "errors": [],
+  "counts": {
+    "physical_txt": 67,
+    "physical_dmp": 15,
+    "unique_incidents": 65,
+    "family_events": 6,
+    "profiled_dmp": 15
+  },
+  "versions": {
+    "hota": [
+      "1.8.0",
+      "1.8.1"
+    ],
+    "hd": [
+      "5.6 R19",
+      "5.6 R30",
+      "5.6 R31",
+      "5.6 R35",
+      "5.6 R37",
+      "5.7 R10",
+      "5.7 R14",
+      "5.7 R20",
+      "5.7 R23",
+      "5.7 R26",
+      "5.7 R28",
+      "5.7 R33",
+      "5.7 R35",
+      "5.7 R39",
+      "5.7 R40",
+      "5.7 RC1",
+      "5.7 RC11",
+      "5.7 RC2",
+      "5.7 RC6",
+      "5.7 RC7",
+      "5.7 RC9",
+      "5.8 R8"
+    ]
+  },
+  "axes": {
+    "physical_materialization": {
+      "txt": 67,
+      "dmp": 15,
+      "exact_pairs": 14
+    },
+    "incident_identity": {
+      "unique_incidents": 65,
+      "dedup_basis": "event_fingerprint"
+    },
+    "family_membership": {
+      "counts": {
+        "confirmed": 6,
+        "excluded": 59
+      },
+      "classification_complete": true,
+      "same_sink": true,
+      "same_local_mechanism": true,
+      "same_state_origin": "unknown",
+      "same_root_cause": "unknown"
+    },
+    "state_origin_and_root_cause": {
+      "same_state_origin": "unknown",
+      "same_root_cause": "unknown",
+      "independent_from_family_membership": true
+    }
+  },
+  "report_contract": {
+    "numerator": 65,
+    "denominator": 67,
+    "census_numerator": 65,
+    "census_denominator": 67,
+    "population": "current_materialized_case",
+    "scope": "local_case",
+    "unit": "unique_incident",
+    "dedup_basis": "event_fingerprint",
+    "hota_versions": [
+      "1.8.0",
+      "1.8.1"
+    ],
+    "hd_versions": [
+      "5.6 R19",
+      "5.6 R30",
+      "5.6 R31",
+      "5.6 R35",
+      "5.6 R37",
+      "5.7 R10",
+      "5.7 R14",
+      "5.7 R20",
+      "5.7 R23",
+      "5.7 R26",
+      "5.7 R28",
+      "5.7 R33",
+      "5.7 R35",
+      "5.7 R39",
+      "5.7 R40",
+      "5.7 RC1",
+      "5.7 RC11",
+      "5.7 RC2",
+      "5.7 RC6",
+      "5.7 RC7",
+      "5.7 RC9",
+      "5.8 R8"
+    ]
+  },
+  "archive_contract": {
+    "population": "all_materialized_primary_txt_dmp",
+    "txt_members": 67,
+    "dmp_members": 15,
+    "member_count": 82,
+    "members": [
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1.dmp",
+        "size": 126100,
+        "sha256": "08a9178c878accc992b3311dc4556063c24051fee6f94874f0246d66908b4f85"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1.txt",
+        "size": 7809,
+        "sha256": "ac3b9898131bab5989e6dff916941bc8a355eb33495817f0ada5d1de12ef7fd0"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-2.dmp",
+        "size": 125496,
+        "sha256": "a06ad2e9736181088411b2c732906b893ff5179c692b644d07afebc651fabdf7"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-2.txt",
+        "size": 7985,
+        "sha256": "c33280e8ec682c4ace80f2a79c7b7ed107f0d9d2219aea2a1628c6db74df922d"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3.dmp",
+        "size": 125496,
+        "sha256": "a06ad2e9736181088411b2c732906b893ff5179c692b644d07afebc651fabdf7"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3.txt",
+        "size": 7810,
+        "sha256": "7de8c6bc94aa192aee21d66223da5b4b6851f2ec86eb4bc3a4f0be0a8be2cd93"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180.dmp",
+        "size": 126100,
+        "sha256": "08a9178c878accc992b3311dc4556063c24051fee6f94874f0246d66908b4f85"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R35-180.txt",
+        "size": 7984,
+        "sha256": "79498d587d0f2f8fd14789d1cca7d7d2a85a76a91b18097d9eee1795b215fd58"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1.dmp",
+        "size": 124184,
+        "sha256": "703412811a8e7a0f9d2c6ce3d2b30eb15a0d5253149e8427c8b84267fa1e2ed3"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1.txt",
+        "size": 9873,
+        "sha256": "21fbf78651021da71922a6cec512db264cd51ecbc62d281e746d86ccab16c4bc"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-1.dmp",
+        "size": 130828,
+        "sha256": "a50ea6390aef11d9adf123165d6ff72f6c0dd238bddfeb7ae3a181d4b983065a"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-1.txt",
+        "size": 9821,
+        "sha256": "0d0b67b2f576b9373c1792ae9cc11b030eabfa571a3581bf2ba77336cb03d97f"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-2.dmp",
+        "size": 170477,
+        "sha256": "fa545a0b9a2fbf420a3c512ea13fa44d0de2743ca4e98b9a7e0e750ada4e2abb"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-2.txt",
+        "size": 8796,
+        "sha256": "d8dc2a9b2357e80fc18e3f022a4a473ccdc2c9d12ea230662254d70a5e62af69"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.8-R8-181.dmp",
+        "size": 92470,
+        "sha256": "878b5b251bf3139413bde1d22a54eb4495bb3c4629c931cab1e10d01b49e6966"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A49-5.8-R8-181.txt",
+        "size": 11266,
+        "sha256": "089961ed19bffd3f5a56a3e2d3df1a2bfa5e3f10964b31fae0c96e34ab6723e2"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-1.txt",
+        "size": 6362,
+        "sha256": "c2fe3fc2e5b075cc7c903b6f31fa686119c17fab94cba74c64cb7a6f5a563276"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-2.txt",
+        "size": 8913,
+        "sha256": "c6b4aa25004023dfdce52f81c53b73898d8c4aa0a08659828f326166c00992da"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-3.txt",
+        "size": 8926,
+        "sha256": "4de499e99ce727df069bdfb561f22feb9e21b1442ede9a534325e88819db2fb2"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-1.txt",
+        "size": 8575,
+        "sha256": "d60ca2feae6e0009ca07392e71345867303dc53df5968f57a6cbc5b934003a0e"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-10.txt",
+        "size": 9037,
+        "sha256": "4d02c37761e8a6ba9e07eb0813a6eae0516eb948231b66a2d16b3f94dfcefd2c"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-11.txt",
+        "size": 9037,
+        "sha256": "982bbd46eade523d037300abb71dcc37c2ee98218e1895e43c650f98ff11f03a"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-12.txt",
+        "size": 8843,
+        "sha256": "66c9b660aff668cd1650de4d5e1bddaf7d9d8d0c2515836a071da9d3c0647393"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-13.txt",
+        "size": 10110,
+        "sha256": "9ed87a99ce59dde20410bd7787fdcd563acaf897109e978345523e3cc89cc4cf"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-14.txt",
+        "size": 7752,
+        "sha256": "a7cb2caeb5c1342399e378d9bd78a54f75bfdd00354945f95bc719c15fead527"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-15.txt",
+        "size": 8556,
+        "sha256": "3a79508ab2800d39969d19b274e69670da62662c20582831cb883b54bab7347a"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-16.txt",
+        "size": 8028,
+        "sha256": "002e7930b8679c81e1a6c8dac9eb15ea5fc33d9f59a531417dba7c350abdc00e"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-17.txt",
+        "size": 8069,
+        "sha256": "ca6d62175eb240009f3d9c8af28d524d3d5a4d576052b3e7da8c0fb539623b25"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-18.txt",
+        "size": 7871,
+        "sha256": "53bd49f0aa510a19ca11b5334cbf256754b053f1c2c5afdb1b729af054fb9d4f"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-19.txt",
+        "size": 8016,
+        "sha256": "171bb91ae7392c0301c05bcd02168227457786d50938f20281a6a0976939c832"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-2.txt",
+        "size": 9724,
+        "sha256": "6ceeaad2265b98fafa2833094672d59360f6b95f43e0a868555ff7dcdd90cd4a"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-20.txt",
+        "size": 8962,
+        "sha256": "816f98e3af3b4d855ac06c778fb4dc7a89c1cfe6aefe670ba454fa505aeb5764"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-21.txt",
+        "size": 8440,
+        "sha256": "3ce73c265995d233f1ff0611d5420fe2dfb687f90b3cdba21c7260810cbe2e29"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-22.txt",
+        "size": 8440,
+        "sha256": "0f435124973d827c74088d8381e164b09859643be0f6e5d5554b8069283e6aea"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-23.txt",
+        "size": 8053,
+        "sha256": "c403317d1c473a425b59752ea71e1a419b55ab0901a240c2bf2f4b32b0d24c9b"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-24.txt",
+        "size": 8082,
+        "sha256": "a8c49b5f8eaada0bd4ceedafb74543d4e4f5f9ec0e5516af790c5bbf0f73d343"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-25.txt",
+        "size": 8971,
+        "sha256": "4d448d0fab43ddcdbbb8578ab3947bfd70cafbde9fd56549338d610ef60c2b1c"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-26.txt",
+        "size": 9020,
+        "sha256": "2fa2ec16582e238cea6b99f71f748266df40cb3f83517e5bf763cbcdf4704c48"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-27.txt",
+        "size": 8883,
+        "sha256": "1c48464c8636d2ca5736d073ec077e27b74d858c5488e0096c10e6bacc7610a7"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-28.txt",
+        "size": 8828,
+        "sha256": "de5c5b7293eee81ff1c7a623ba14582e92fc71e0824f3a079cd1cb75dba99bba"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-29.txt",
+        "size": 8114,
+        "sha256": "7a0b567fe55aaee4294a6af6732550ba0ad70b121a25da9260993b12736e5134"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-3.txt",
+        "size": 8016,
+        "sha256": "9164f3d28cff6c8b8b48c38c4e742985e664f144c3d77a40996bd17fd6db1a35"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-30.txt",
+        "size": 8079,
+        "sha256": "b61568c29f4a1be076337a0d95a09929416bfcff394d6e9b8cf14139a02f8ff1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-31.txt",
+        "size": 9376,
+        "sha256": "99dfc429092102d0c90b49901d6d60d1a8c6d1fc48bcadaf9e8ff1d6de543106"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-32.txt",
+        "size": 9887,
+        "sha256": "1e01f4c6e1a74f6f112c9beabca89ad0bbe3d7a07b61992babcf21a3d1ec008f"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-33.txt",
+        "size": 8163,
+        "sha256": "472827e8abcb1bb2fb12719ac3546e4e1bb57afab3efe3b2b4eb5eb37e4d0017"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-34.txt",
+        "size": 7897,
+        "sha256": "de6e5ea1b76c837f122b5489288ad951e4bfd1df1f932b1d228621fcb225ee78"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-35.txt",
+        "size": 8738,
+        "sha256": "e24414ba573be6d815e3307cb734ba845b8228046515396c0a428a6bf24a2851"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-36.txt",
+        "size": 9562,
+        "sha256": "83922c60104fd026a055fe4f2cfbf6591321a99d32d5bd989c903bb7c8c3480e"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-37.txt",
+        "size": 7995,
+        "sha256": "2589411d24686ce8d03f1f423f686d15a2a7bd447188e7a424d20e3ee7a5e6a4"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-38.txt",
+        "size": 7754,
+        "sha256": "d0304b6db2d02fe15cb39238e5b3ed6cc24f172d004fc863fa5a502161ed45c0"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-39.txt",
+        "size": 7935,
+        "sha256": "9102602d1111ba1dda44e197400455043b1c45393cbce572a4c2fdd35ae0c242"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-4.txt",
+        "size": 8016,
+        "sha256": "512d22fed6d01707ade21393dd9e06d972a6c8abfd85c17c053cf5853123bc08"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-40.txt",
+        "size": 8454,
+        "sha256": "f032030c8c7048368f28670f67eb832638195800e526afebe602597b36a7b4ee"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-41.txt",
+        "size": 8726,
+        "sha256": "97e798f2f17f4a4882050716065edf5639e7ca379c9364b8c4768289fc85197a"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-5.txt",
+        "size": 8016,
+        "sha256": "15b3b3dc1fcac168203c2bbb54043fb0057e643bf31b635fdd49b8efa4311261"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-6.txt",
+        "size": 8016,
+        "sha256": "963bebbec4d59c423fe43f6e38a9aa4b40c87e351521516595d85c14c27414cd"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-7.txt",
+        "size": 7948,
+        "sha256": "f490eefb570435bf9f1658e31bab9c9e89cc17445cc5425b8655196f97ce8096"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-8.txt",
+        "size": 8312,
+        "sha256": "c203ca6dd641d3e44affbab97ebe940d02899c0b64ca27977eda8a62f023edb7"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-9.txt",
+        "size": 8917,
+        "sha256": "5e8eec562844479e74cb1582f7e947b735c4489b898aff025a4acc26035b5513"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0Time13.04.2-1.txt",
+        "size": 334786,
+        "sha256": "98f0ae3b042d7b9e83e3059a43e9485fe12eea2e2393dd5df6dd7a8cb0f64bcf"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-1.txt",
+        "size": 9635,
+        "sha256": "e7767a07524e34ce0674051eec2e01f5376df2e51c02569762e7ae622444024d"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-10.dmp",
+        "size": 92919,
+        "sha256": "f4d649d7b3162690e7518c82996204c3114a9d96d07771cba0c38b24dcc83aa2"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-10.txt",
+        "size": 9439,
+        "sha256": "7a5a62222bd843f30975c9afef526997c15f61dee72bb05408983f158da945d6"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-11.dmp",
+        "size": 145562,
+        "sha256": "3d3c3c851de5065aad2ec5a9f040e85e63ae4d2ddaed058ec1dcc143cf58dc49"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-11.txt",
+        "size": 8652,
+        "sha256": "9cd0bd8434cc50bffb16cfdaa833a262dabb035dfc350afd9d4cceb20cc52c20"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-12.dmp",
+        "size": 134405,
+        "sha256": "4f12e721525db41b909fe3754e351b2bad54aa97732b3058ef7e9044e74f22b0"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-12.txt",
+        "size": 8933,
+        "sha256": "ed5267633b4ae9762000ee3e29591e445c02a3dee43169f6d616b63ee717ed61"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-2.txt",
+        "size": 8934,
+        "sha256": "33e9a28d54133f75c07b33b1f89f0678bb634221ad5ba33838d1b653c1a702f3"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-3.txt",
+        "size": 8871,
+        "sha256": "a707cb6ea5108d785577c01748f50375e28eaa9dd6aea78b34bdc803bf3b2263"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-4.txt",
+        "size": 10558,
+        "sha256": "3b7ab57893901e256c450b22c213a8526773f50baf26d07644e1dfb07f977fee"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-5.txt",
+        "size": 10189,
+        "sha256": "2c639ef9e48495dc60172bf354cc69aae1b76721559d35423a4db32bdc1fd843"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-6.dmp",
+        "size": 95784,
+        "sha256": "60f2900036d57ad4cc5c1848599c9b8be9e4f25c0b6c09ebb12bccd609019e86"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-6.txt",
+        "size": 7140,
+        "sha256": "327bcf4f994b6a002d497df54488926a54e98d729d6cdffa07f7bb04cf7be5a2"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-7.dmp",
+        "size": 166922,
+        "sha256": "6746526d95f16d0f929b1c9aee688f6204ab9a70e6773e8b4a79ab03f01343b9"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-7.txt",
+        "size": 9631,
+        "sha256": "a3aa89091ed5ac24981e46ead2d12fd40d05963eb22e8d5b18d5395cbefdac74"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-8.dmp",
+        "size": 104010,
+        "sha256": "3db6ce813d99fec590f3a065e99c12fad04cf84313255bdc8dff22b6db28258c"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-8.txt",
+        "size": 9644,
+        "sha256": "777c87cb70bbe95f7496c1753a24f69e9994773b7a577074b8bb1784454e1e98"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-9.dmp",
+        "size": 109669,
+        "sha256": "df44afaa35ca199a9b278c21039a161d70653cfee169599c6c109907c34e50de"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-9.txt",
+        "size": 9148,
+        "sha256": "2c9bd12c760ea67dec2d0a387601d65358f8277d9cecf5e50a9bda2085d752c4"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0Time0526202-1.txt",
+        "size": 1362525,
+        "sha256": "e01312fa7c7ac096eea8f0e5dc610a1de7b256a65da614e52285704ddc6871f4"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1ABE-1.8.0-1.txt",
+        "size": 7323,
+        "sha256": "b2c9ac55aa476216461f2a5555f119c99a80589b44804e20c8d9352c2383f240"
+      }
+    ]
+  },
+  "capabilities_contract": {
+    "dmp_count": 15,
+    "profiled_count": 15,
+    "one_row_per_dmp": true
+  },
+  "incidents": [
+    {
+      "incident_id": "incident-064d728b3b761db1",
+      "event_fingerprint": "064d728b3b761db17f7aa1aa8bff3c2f4cc8b384ffa605559d96e8803420d049",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.6 R30"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-15.txt",
+            "size": 8556,
+            "sha256": "3a79508ab2800d39969d19b274e69670da62662c20582831cb883b54bab7347a"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-0cf34e1bacfdc4a4",
+      "event_fingerprint": "0cf34e1bacfdc4a4adf50d4bf61352555973f14009881fe5374f499ab751ea06",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC11"
+      },
+      "crash_site": "hd_hota.dll+0x1a4e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0Time0526202-1.txt",
+            "size": 1362525,
+            "sha256": "e01312fa7c7ac096eea8f0e5dc610a1de7b256a65da614e52285704ddc6871f4"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-0dfbcb75acaf17ed",
+      "event_fingerprint": "0dfbcb75acaf17ed65670089a3cfdb477baded47d50083818b9eb054b28a1ca6",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R8"
+      },
+      "crash_site": "hd_hota.dll+0x1a49",
+      "family_membership": "confirmed",
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "HD_HOTA.dll+0x1A49-5.8-R8-181.txt",
+            "size": 11266,
+            "sha256": "089961ed19bffd3f5a56a3e2d3df1a2bfa5e3f10964b31fae0c96e34ab6723e2"
+          },
+          "dmp": {
+            "path": "HD_HOTA.dll+0x1A49-5.8-R8-181.dmp",
+            "size": 92470,
+            "sha256": "878b5b251bf3139413bde1d22a54eb4495bb3c4629c931cab1e10d01b49e6966"
+          },
+          "pair_quality": "exact_pair"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-0e7d02ddcd1b926a",
+      "event_fingerprint": "0e7d02ddcd1b926a0af7ec5f17b9fb039dd6ba11b526af89857bfc9c619a9793",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-8.txt",
+            "size": 8312,
+            "sha256": "c203ca6dd641d3e44affbab97ebe940d02899c0b64ca27977eda8a62f023edb7"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-106a1c45b93ddef1",
+      "event_fingerprint": "106a1c45b93ddef15634c9b12926bd81bb8cc81fbf3283ac3205c8c9ceb0a543",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC2"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-39.txt",
+            "size": 7935,
+            "sha256": "9102602d1111ba1dda44e197400455043b1c45393cbce572a4c2fdd35ae0c242"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-10cc9fc86033909d",
+      "event_fingerprint": "10cc9fc86033909de83723e2d5f2a2f93d36b76a712d5ce3c4e8f8ddad33ac12",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.6 R37"
+      },
+      "crash_site": "hd_hota.dll+0x19ae",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-2.txt",
+            "size": 8913,
+            "sha256": "c6b4aa25004023dfdce52f81c53b73898d8c4aa0a08659828f326166c00992da"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-11211b10ad3da3b6",
+      "event_fingerprint": "11211b10ad3da3b6164bed67d064735f6993a331093d213a1ea83ee38dfe6afd",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-7.txt",
+            "size": 7948,
+            "sha256": "f490eefb570435bf9f1658e31bab9c9e89cc17445cc5425b8655196f97ce8096"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-12c0b1a70cbeab9e",
+      "event_fingerprint": "12c0b1a70cbeab9eeadc4f7f1240af243215e795e2a53bab7f913fcdbe68f9ec",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC2"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-37.txt",
+            "size": 7995,
+            "sha256": "2589411d24686ce8d03f1f423f686d15a2a7bd447188e7a424d20e3ee7a5e6a4"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-169210b19fe61bfb",
+      "event_fingerprint": "169210b19fe61bfbc61fe5b3728fa8ee6cbcc436db37e6fe5ce6962a2f8cba57",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-23.txt",
+            "size": 8053,
+            "sha256": "c403317d1c473a425b59752ea71e1a419b55ab0901a240c2bf2f4b32b0d24c9b"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-20bb62ebab52e90f",
+      "event_fingerprint": "20bb62ebab52e90fecfd31b54d2ba8af426e3aa55473310ed6c358e041d9c1b3",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-19.txt",
+            "size": 8016,
+            "sha256": "171bb91ae7392c0301c05bcd02168227457786d50938f20281a6a0976939c832"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-26ef11012bf9aa96",
+      "event_fingerprint": "26ef11012bf9aa96d2bd7e79e81d6754cd34e5cff0baa6cdc5f48892b37f99f3",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-10.txt",
+            "size": 9037,
+            "sha256": "4d02c37761e8a6ba9e07eb0813a6eae0516eb948231b66a2d16b3f94dfcefd2c"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-2a42a448ac469623",
+      "event_fingerprint": "2a42a448ac46962343850a14eb20aa3fb9105732d7d4cc83c3f4fcb4333515a0",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R14"
+      },
+      "crash_site": "hd_hota.dll+0x1abe",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1ABE-1.8.0-1.txt",
+            "size": 7323,
+            "sha256": "b2c9ac55aa476216461f2a5555f119c99a80589b44804e20c8d9352c2383f240"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-2a4e45557e77cc88",
+      "event_fingerprint": "2a4e45557e77cc8878e38703e2455edf362e02de190e06ddccc9022b329bc4e4",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC9"
+      },
+      "crash_site": "hd_hota.dll+0x1a4e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-3.txt",
+            "size": 8871,
+            "sha256": "a707cb6ea5108d785577c01748f50375e28eaa9dd6aea78b34bdc803bf3b2263"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-2fa70311797904ad",
+      "event_fingerprint": "2fa70311797904ada3dd0a7d7ff482f6d2ab1bb4279ae0d1671cf94779a0ca04",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-4.txt",
+            "size": 8016,
+            "sha256": "512d22fed6d01707ade21393dd9e06d972a6c8abfd85c17c053cf5853123bc08"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-328d59cf9a037eff",
+      "event_fingerprint": "328d59cf9a037eff9158750cf6c03b3f956a42e77c4d4e734fe8df2daf3f74a6",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R40"
+      },
+      "crash_site": "hd_hota.dll+0x1a49",
+      "family_membership": "confirmed",
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-2.txt",
+            "size": 8796,
+            "sha256": "d8dc2a9b2357e80fc18e3f022a4a473ccdc2c9d12ea230662254d70a5e62af69"
+          },
+          "dmp": {
+            "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-2.dmp",
+            "size": 170477,
+            "sha256": "fa545a0b9a2fbf420a3c512ea13fa44d0de2743ca4e98b9a7e0e750ada4e2abb"
+          },
+          "pair_quality": "exact_pair"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-38d27b33d122ad5d",
+      "event_fingerprint": "38d27b33d122ad5d38b09cb822af34bb7cdb3e9fa04c0fadc58d854a8422499f",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC11"
+      },
+      "crash_site": "hd_hota.dll+0x1a4e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-4.txt",
+            "size": 10558,
+            "sha256": "3b7ab57893901e256c450b22c213a8526773f50baf26d07644e1dfb07f977fee"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-405eab9bb9232857",
+      "event_fingerprint": "405eab9bb923285748917a4a1c87ca30195c2fc0984f4b4b389e37a6bad5f0fb",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-28.txt",
+            "size": 8828,
+            "sha256": "de5c5b7293eee81ff1c7a623ba14582e92fc71e0824f3a079cd1cb75dba99bba"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-424d5c78e1905c3f",
+      "event_fingerprint": "424d5c78e1905c3f01c6194dc7ce9421096821fa4de1f175b8c1b1b6a82cccc1",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-22.txt",
+            "size": 8440,
+            "sha256": "0f435124973d827c74088d8381e164b09859643be0f6e5d5554b8069283e6aea"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-44fc95235a93dfae",
+      "event_fingerprint": "44fc95235a93dfae5c2839f82a12fdf9f000bd3610f73b5747443c92f5357159",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-11.txt",
+            "size": 9037,
+            "sha256": "982bbd46eade523d037300abb71dcc37c2ee98218e1895e43c650f98ff11f03a"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-4662afe0644a11ef",
+      "event_fingerprint": "4662afe0644a11efde9a56b0c97357113ad26d086b3f93e2dc35dfa3c7a6f2b9",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-24.txt",
+            "size": 8082,
+            "sha256": "a8c49b5f8eaada0bd4ceedafb74543d4e4f5f9ec0e5516af790c5bbf0f73d343"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-48f237ebfe50e2e7",
+      "event_fingerprint": "48f237ebfe50e2e729a2410dadb4a492bcf96cc110d7dcb17862a205aa092f30",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-29.txt",
+            "size": 8114,
+            "sha256": "7a0b567fe55aaee4294a6af6732550ba0ad70b121a25da9260993b12736e5134"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-49ea639f3f15c53b",
+      "event_fingerprint": "49ea639f3f15c53b3abc0bb2b9a817cdca59f363a24bf8a32c3fc16642106c82",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-9.txt",
+            "size": 8917,
+            "sha256": "5e8eec562844479e74cb1582f7e947b735c4489b898aff025a4acc26035b5513"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-4ba4d8580384ea3b",
+      "event_fingerprint": "4ba4d8580384ea3b15b817ddced8d18657282195642bac5d22485711c31bcaca",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.6 R19"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-1.txt",
+            "size": 8575,
+            "sha256": "d60ca2feae6e0009ca07392e71345867303dc53df5968f57a6cbc5b934003a0e"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-5b70c18951e5c550",
+      "event_fingerprint": "5b70c18951e5c550bcc096bc57a365076aeddc477048adccb2a272f4c95b31b2",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R40"
+      },
+      "crash_site": "hd_hota.dll+0x1a49",
+      "family_membership": "confirmed",
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-1.txt",
+            "size": 9821,
+            "sha256": "0d0b67b2f576b9373c1792ae9cc11b030eabfa571a3581bf2ba77336cb03d97f"
+          },
+          "dmp": {
+            "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-1.dmp",
+            "size": 130828,
+            "sha256": "a50ea6390aef11d9adf123165d6ff72f6c0dd238bddfeb7ae3a181d4b983065a"
+          },
+          "pair_quality": "exact_pair"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-5c8863f8ecfcbace",
+      "event_fingerprint": "5c8863f8ecfcbace7f80252362139c61d130d16a0dca4ce8bc89fa6045770432",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R33"
+      },
+      "crash_site": "hd_hota.dll+0x1a4e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-10.txt",
+            "size": 9439,
+            "sha256": "7a5a62222bd843f30975c9afef526997c15f61dee72bb05408983f158da945d6"
+          },
+          "dmp": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-10.dmp",
+            "size": 92919,
+            "sha256": "f4d649d7b3162690e7518c82996204c3114a9d96d07771cba0c38b24dcc83aa2"
+          },
+          "pair_quality": "exact_pair"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-5e2931edfa0cdca4",
+      "event_fingerprint": "5e2931edfa0cdca47349d47012926ef2ecafb3616986fb3142f7af7d24385d35",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-3.txt",
+            "size": 8016,
+            "sha256": "9164f3d28cff6c8b8b48c38c4e742985e664f144c3d77a40996bd17fd6db1a35"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-602c4c67057d8e02",
+      "event_fingerprint": "602c4c67057d8e02ed8bdc1eae09a5c646b6fa6759a674f2699d0aae796644ad",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-27.txt",
+            "size": 8883,
+            "sha256": "1c48464c8636d2ca5736d073ec077e27b74d858c5488e0096c10e6bacc7610a7"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-60efa16a864f35ee",
+      "event_fingerprint": "60efa16a864f35eec8b845f9a38b12d55b0d368bd6714288d425b676f68560fb",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.6 R37"
+      },
+      "crash_site": "hd_hota.dll+0x19ae",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-3.txt",
+            "size": 8926,
+            "sha256": "4de499e99ce727df069bdfb561f22feb9e21b1442ede9a534325e88819db2fb2"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-651855c2612a7d1b",
+      "event_fingerprint": "651855c2612a7d1b6809724b32848b8e71dd87c4fb805087f89a833a09260873",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.6 R35"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-2.txt",
+            "size": 9724,
+            "sha256": "6ceeaad2265b98fafa2833094672d59360f6b95f43e0a868555ff7dcdd90cd4a"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-689b021e6a23abfa",
+      "event_fingerprint": "689b021e6a23abfab49b334f2ce14b2a4353705db9f656820fc6223babf10e99",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-32.txt",
+            "size": 9887,
+            "sha256": "1e01f4c6e1a74f6f112c9beabca89ad0bbe3d7a07b61992babcf21a3d1ec008f"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-6e3ca52384d351ac",
+      "event_fingerprint": "6e3ca52384d351ac97d04966364a65674b39e79a327ff78ff3248a4209f6e554",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-36.txt",
+            "size": 9562,
+            "sha256": "83922c60104fd026a055fe4f2cfbf6591321a99d32d5bd989c903bb7c8c3480e"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-6ebc123d062b4ec5",
+      "event_fingerprint": "6ebc123d062b4ec50824f0ca471aa35a85299dcd856723235ccf4766f2d01091",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-18.txt",
+            "size": 7871,
+            "sha256": "53bd49f0aa510a19ca11b5334cbf256754b053f1c2c5afdb1b729af054fb9d4f"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-6fe82a1d66a8ff70",
+      "event_fingerprint": "6fe82a1d66a8ff70610c9de79b492428205bb26598c9942f370d85dd8534f4ea",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-33.txt",
+            "size": 8163,
+            "sha256": "472827e8abcb1bb2fb12719ac3546e4e1bb57afab3efe3b2b4eb5eb37e4d0017"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-76f5cc6f007aee4f",
+      "event_fingerprint": "76f5cc6f007aee4f00689ec72c1039632362dc44c3682e96e3214d11e363a265",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-12.txt",
+            "size": 8843,
+            "sha256": "66c9b660aff668cd1650de4d5e1bddaf7d9d8d0c2515836a071da9d3c0647393"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-7789989aa7274f7e",
+      "event_fingerprint": "7789989aa7274f7edf7f23aebf461e8eb9611734ae75528f3feb853b4d051fca",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-17.txt",
+            "size": 8069,
+            "sha256": "ca6d62175eb240009f3d9c8af28d524d3d5a4d576052b3e7da8c0fb539623b25"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-78183abbc0d94391",
+      "event_fingerprint": "78183abbc0d94391f60c8108c6da7ce4534a04396b735f31680a96f027720186",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.6 R37"
+      },
+      "crash_site": "hd_hota.dll+0x19ae",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-1.txt",
+            "size": 6362,
+            "sha256": "c2fe3fc2e5b075cc7c903b6f31fa686119c17fab94cba74c64cb7a6f5a563276"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-7a25ee8bbbdfc4b7",
+      "event_fingerprint": "7a25ee8bbbdfc4b794dc7705bb874198392b2ed666eac0201c4d36eb43536643",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC2"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-41.txt",
+            "size": 8726,
+            "sha256": "97e798f2f17f4a4882050716065edf5639e7ca379c9364b8c4768289fc85197a"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-7c7823ebff09561a",
+      "event_fingerprint": "7c7823ebff09561a1fc397dad7b0656b5e4eabc4daf6955f186d0381c3f191e7",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC7"
+      },
+      "crash_site": "hd_hota.dll+0x1a4e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-2.txt",
+            "size": 8934,
+            "sha256": "33e9a28d54133f75c07b33b1f89f0678bb634221ad5ba33838d1b653c1a702f3"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-7e5480633025653e",
+      "event_fingerprint": "7e5480633025653eb9a0a522fd8b2ee993b8d560a8d5e160af0b1aa4cc5c407f",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-30.txt",
+            "size": 8079,
+            "sha256": "b61568c29f4a1be076337a0d95a09929416bfcff394d6e9b8cf14139a02f8ff1"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-8186fbc04e657958",
+      "event_fingerprint": "8186fbc04e657958f1a31ff26eb636ce531cece98f3bc833984674b80bc07e42",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC2"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-40.txt",
+            "size": 8454,
+            "sha256": "f032030c8c7048368f28670f67eb832638195800e526afebe602597b36a7b4ee"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-863d7845c2dcd0ce",
+      "event_fingerprint": "863d7845c2dcd0ce5a324546dcd23ba6306bb738aadcfc0acae40605b87449a1",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R23"
+      },
+      "crash_site": "hd_hota.dll+0x1a4e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-7.txt",
+            "size": 9631,
+            "sha256": "a3aa89091ed5ac24981e46ead2d12fd40d05963eb22e8d5b18d5395cbefdac74"
+          },
+          "dmp": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-7.dmp",
+            "size": 166922,
+            "sha256": "6746526d95f16d0f929b1c9aee688f6204ab9a70e6773e8b4a79ab03f01343b9"
+          },
+          "pair_quality": "exact_pair"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-889fe8d682d74f69",
+      "event_fingerprint": "889fe8d682d74f691c13727100ab5876c88cccbad2281ca88cea48dc0f3c6eb0",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC6"
+      },
+      "crash_site": "hd_hota.dll+0x1a4e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-1.txt",
+            "size": 9635,
+            "sha256": "e7767a07524e34ce0674051eec2e01f5376df2e51c02569762e7ae622444024d"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-8aa7f93ad523fcb6",
+      "event_fingerprint": "8aa7f93ad523fcb6a636bdda9893fb66de5468a39d07c07c5eeaba115522c621",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-21.txt",
+            "size": 8440,
+            "sha256": "3ce73c265995d233f1ff0611d5420fe2dfb687f90b3cdba21c7260810cbe2e29"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-8b4bbb9da9a8e709",
+      "event_fingerprint": "8b4bbb9da9a8e7093dec0f47436528d4265e2e60b99657fe9706498b1eb6c512",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R39"
+      },
+      "crash_site": "hd_hota.dll+0x1a49",
+      "family_membership": "confirmed",
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1.txt",
+            "size": 9873,
+            "sha256": "21fbf78651021da71922a6cec512db264cd51ecbc62d281e746d86ccab16c4bc"
+          },
+          "dmp": {
+            "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1.dmp",
+            "size": 124184,
+            "sha256": "703412811a8e7a0f9d2c6ce3d2b30eb15a0d5253149e8427c8b84267fa1e2ed3"
+          },
+          "pair_quality": "exact_pair"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-92c6d189aeb45210",
+      "event_fingerprint": "92c6d189aeb45210ad054c98d80f75e57c966b0b7987ae85717e48e7360057fb",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.6 R30"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-14.txt",
+            "size": 7752,
+            "sha256": "a7cb2caeb5c1342399e378d9bd78a54f75bfdd00354945f95bc719c15fead527"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-adc90c956bb2819c",
+      "event_fingerprint": "adc90c956bb2819c63951f91b4ca8ecdb9d2d8b0de3b8ef76c88f0b03e3ce6d1",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-6.txt",
+            "size": 8016,
+            "sha256": "963bebbec4d59c423fe43f6e38a9aa4b40c87e351521516595d85c14c27414cd"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-c9440584133af088",
+      "event_fingerprint": "c9440584133af088a3b9859f80efa2355c9ae9d6f8746de79f88a4f1a928145e",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-5.txt",
+            "size": 8016,
+            "sha256": "15b3b3dc1fcac168203c2bbb54043fb0057e643bf31b635fdd49b8efa4311261"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-ca0e2a87e7ef4f76",
+      "event_fingerprint": "ca0e2a87e7ef4f76b7ffc4b1524145fa87f1712e5c3d4d4f14ecf062479af624",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-13.txt",
+            "size": 10110,
+            "sha256": "9ed87a99ce59dde20410bd7787fdcd563acaf897109e978345523e3cc89cc4cf"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-ca54307c0ea090b8",
+      "event_fingerprint": "ca54307c0ea090b8f260063fb017312b4791170a15a6d836875b3814b6cdd4b8",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC2"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-38.txt",
+            "size": 7754,
+            "sha256": "d0304b6db2d02fe15cb39238e5b3ed6cc24f172d004fc863fa5a502161ed45c0"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-ca7e1c88e2c81c29",
+      "event_fingerprint": "ca7e1c88e2c81c29111ee45b36dcec4c9628282164fc0396bf72afe662261d78",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R33"
+      },
+      "crash_site": "hd_hota.dll+0x1a4e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-11.txt",
+            "size": 8652,
+            "sha256": "9cd0bd8434cc50bffb16cfdaa833a262dabb035dfc350afd9d4cceb20cc52c20"
+          },
+          "dmp": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-11.dmp",
+            "size": 145562,
+            "sha256": "3d3c3c851de5065aad2ec5a9f040e85e63ae4d2ddaed058ec1dcc143cf58dc49"
+          },
+          "pair_quality": "exact_pair"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-cac2bc5a87f49535",
+      "event_fingerprint": "cac2bc5a87f49535e25cb26de312c3bf7da022ea98b0b0d79054177f5adf30c9",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-35.txt",
+            "size": 8738,
+            "sha256": "e24414ba573be6d815e3307cb734ba845b8228046515396c0a428a6bf24a2851"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-cc27fbe3a8077f14",
+      "event_fingerprint": "cc27fbe3a8077f140b5d5fc17753f395389b8e2657f20420126fb4cf2acc2a57",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R33"
+      },
+      "crash_site": "hd_hota.dll+0x1a4e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-12.txt",
+            "size": 8933,
+            "sha256": "ed5267633b4ae9762000ee3e29591e445c02a3dee43169f6d616b63ee717ed61"
+          },
+          "dmp": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-12.dmp",
+            "size": 134405,
+            "sha256": "4f12e721525db41b909fe3754e351b2bad54aa97732b3058ef7e9044e74f22b0"
+          },
+          "pair_quality": "exact_pair"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-cdb79735bf68c38b",
+      "event_fingerprint": "cdb79735bf68c38b2242ea1c6f60c7c8c156952bf76d46f4cff8b6d77a74b532",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-31.txt",
+            "size": 9376,
+            "sha256": "99dfc429092102d0c90b49901d6d60d1a8c6d1fc48bcadaf9e8ff1d6de543106"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-cfa092ea3d16684f",
+      "event_fingerprint": "cfa092ea3d16684fbecb3b7d8d2e38fa2d0b07db4945195a0390dcdb0bbccd49",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R28"
+      },
+      "crash_site": "hd_hota.dll+0x1a4e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-9.txt",
+            "size": 9148,
+            "sha256": "2c9bd12c760ea67dec2d0a387601d65358f8277d9cecf5e50a9bda2085d752c4"
+          },
+          "dmp": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-9.dmp",
+            "size": 109669,
+            "sha256": "df44afaa35ca199a9b278c21039a161d70653cfee169599c6c109907c34e50de"
+          },
+          "pair_quality": "exact_pair"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-d2e08ebff1e30a49",
+      "event_fingerprint": "d2e08ebff1e30a490c9a975dab147b90768d9a236cf2b2d09aec9a1c6d59b4f0",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-26.txt",
+            "size": 9020,
+            "sha256": "2fa2ec16582e238cea6b99f71f748266df40cb3f83517e5bf763cbcdf4704c48"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-d322b70c118c632b",
+      "event_fingerprint": "d322b70c118c632b1d74b6d5aa252c0b6d9b231a9d12698873c6e03659b6b858",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.6 R31"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-16.txt",
+            "size": 8028,
+            "sha256": "002e7930b8679c81e1a6c8dac9eb15ea5fc33d9f59a531417dba7c350abdc00e"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-d99cead18c450c81",
+      "event_fingerprint": "d99cead18c450c81b345ede8793f9a5c0e0a3ba4b2d2145fddccfd1a05bf59b1",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R35"
+      },
+      "crash_site": "hd_hota.dll+0x1a49",
+      "family_membership": "confirmed",
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-2.txt",
+            "size": 7985,
+            "sha256": "c33280e8ec682c4ace80f2a79c7b7ed107f0d9d2219aea2a1628c6db74df922d"
+          },
+          "dmp": {
+            "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-2.dmp",
+            "size": 125496,
+            "sha256": "a06ad2e9736181088411b2c732906b893ff5179c692b644d07afebc651fabdf7"
+          },
+          "pair_quality": "exact_pair"
+        },
+        {
+          "txt": {
+            "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3.txt",
+            "size": 7810,
+            "sha256": "7de8c6bc94aa192aee21d66223da5b4b6851f2ec86eb4bc3a4f0be0a8be2cd93"
+          },
+          "dmp": {
+            "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3.dmp",
+            "size": 125496,
+            "sha256": "a06ad2e9736181088411b2c732906b893ff5179c692b644d07afebc651fabdf7"
+          },
+          "pair_quality": "exact_pair"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-dab33b563101b11f",
+      "event_fingerprint": "dab33b563101b11f2eb2d7f6aebc05c74a6e9cd6c10db685e3416c2606567fe5",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-25.txt",
+            "size": 8971,
+            "sha256": "4d448d0fab43ddcdbbb8578ab3947bfd70cafbde9fd56549338d610ef60c2b1c"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-e38f206d2828430a",
+      "event_fingerprint": "e38f206d2828430a19ea31667c450740238d00d5e351e76fcf709603d23519ad",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R20"
+      },
+      "crash_site": "hd_hota.dll+0x1a4e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-6.txt",
+            "size": 7140,
+            "sha256": "327bcf4f994b6a002d497df54488926a54e98d729d6cdffa07f7bb04cf7be5a2"
+          },
+          "dmp": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-6.dmp",
+            "size": 95784,
+            "sha256": "60f2900036d57ad4cc5c1848599c9b8be9e4f25c0b6c09ebb12bccd609019e86"
+          },
+          "pair_quality": "unverifiable_missing_txt_identity"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-e536d0e16cc216f6",
+      "event_fingerprint": "e536d0e16cc216f6ea956b1bcdca755247b77ecc05b0573321d8180e55bba216",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-20.txt",
+            "size": 8962,
+            "sha256": "816f98e3af3b4d855ac06c778fb4dc7a89c1cfe6aefe670ba454fa505aeb5764"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-e7f2111151fff5de",
+      "event_fingerprint": "e7f2111151fff5dee03e3b7245e71d01775d346790a40b8aaedbb21c084e9aea",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-34.txt",
+            "size": 7897,
+            "sha256": "de6e5ea1b76c837f122b5489288ad951e4bfd1df1f932b1d228621fcb225ee78"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-e970cdce86fd7a8b",
+      "event_fingerprint": "e970cdce86fd7a8b08f612b03aa3bc494e1bc4f2500fe688d80a8bf7e4b5f35f",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R10"
+      },
+      "crash_site": "hd_hota.dll+0x1a4e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-5.txt",
+            "size": 10189,
+            "sha256": "2c639ef9e48495dc60172bf354cc69aae1b76721559d35423a4db32bdc1fd843"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-ee9201e099c97597",
+      "event_fingerprint": "ee9201e099c97597587eed51a9fac97a79a8affdf5b49949507ece87268ded24",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R35"
+      },
+      "crash_site": "hd_hota.dll+0x1a49",
+      "family_membership": "confirmed",
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1.txt",
+            "size": 7809,
+            "sha256": "ac3b9898131bab5989e6dff916941bc8a355eb33495817f0ada5d1de12ef7fd0"
+          },
+          "dmp": {
+            "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1.dmp",
+            "size": 126100,
+            "sha256": "08a9178c878accc992b3311dc4556063c24051fee6f94874f0246d66908b4f85"
+          },
+          "pair_quality": "exact_pair"
+        },
+        {
+          "txt": {
+            "path": "HD_HOTA.dll+0x1A49-5.7-R35-180.txt",
+            "size": 7984,
+            "sha256": "79498d587d0f2f8fd14789d1cca7d7d2a85a76a91b18097d9eee1795b215fd58"
+          },
+          "dmp": {
+            "path": "HD_HOTA.dll+0x1A49-5.7-R35-180.dmp",
+            "size": 126100,
+            "sha256": "08a9178c878accc992b3311dc4556063c24051fee6f94874f0246d66908b4f85"
+          },
+          "pair_quality": "exact_pair"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-fc6d5b867250aa95",
+      "event_fingerprint": "fc6d5b867250aa95df6c585d1a80399a119eef01ec786fe34054c9167aaa676a",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 RC1"
+      },
+      "crash_site": "hd_hota.dll+0x1a0e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0Time13.04.2-1.txt",
+            "size": 334786,
+            "sha256": "98f0ae3b042d7b9e83e3059a43e9485fe12eea2e2393dd5df6dd7a8cb0f64bcf"
+          },
+          "dmp": null,
+          "pair_quality": "unpaired_txt"
+        }
+      ]
+    },
+    {
+      "incident_id": "incident-ff5896b2f47c690a",
+      "event_fingerprint": "ff5896b2f47c690adfba3a5fb41ac0991eca04e2548fc33116de6a112fda5225",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R26"
+      },
+      "crash_site": "hd_hota.dll+0x1a4e",
+      "family_membership": "excluded",
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-8.txt",
+            "size": 9644,
+            "sha256": "777c87cb70bbe95f7496c1753a24f69e9994773b7a577074b8bb1784454e1e98"
+          },
+          "dmp": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-8.dmp",
+            "size": 104010,
+            "sha256": "3db6ce813d99fec590f3a065e99c12fad04cf84313255bdc8dff22b6db28258c"
+          },
+          "pair_quality": "exact_pair"
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "series": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A49-rebuild/series-groups.json",
+    "pair_audit": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A49-rebuild/pair-audit.json",
+    "family_membership": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A49-rebuild/family-membership.json",
+    "capabilities": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A49-rebuild/capabilities.json"
+  },
+  "case_fingerprint": "4184a8d75604566eb723d7e082324355defcf22aa844b1806d9e372a5aeba75c"
+}

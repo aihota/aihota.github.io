@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "kind": "crash_case_lessons",
+  "case": "HD_HOTA.dll+0x1A49",
+  "status": "closed",
+  "lessons": [
+    {
+      "id": "separate-thread-contexts",
+      "category": "evidence",
+      "mistake": "ExceptionStream registers and textual Context stack were initially at risk of being combined across different thread IDs.",
+      "rule": "Keep each register and stack source in a thread ledger and forbid cross-thread register synthesis.",
+      "enforcement": [
+        "analysis-contract.json thread_contexts and register_sets_may_be_combined=false"
+      ]
+    },
+    {
+      "id": "recover-true-argument",
+      "category": "diagnosis",
+      "mistake": "A volatile post-call register can be mistaken for the allocator argument.",
+      "rule": "Recover the call argument from the saved stack slot at the call boundary and verify the arithmetic in the exact listing.",
+      "enforcement": [
+        "call-arguments-r8-00180004.json",
+        "address-proof.json"
+      ]
+    },
+    {
+      "id": "classify-full-census",
+      "category": "process",
+      "mistake": "A six-row exact family control did not classify the other materialized incidents in the same case tree.",
+      "rule": "Classify the full materialized census; use excluded for other sinks instead of merging them into the family.",
+      "enforcement": [
+        "family-membership.json contains 65 decisions with zero unknown"
+      ]
+    },
+    {
+      "id": "filter-reports-from-dumps",
+      "category": "tooling",
+      "mistake": "A historical report in the old-version folder was counted as a crash TXT pseudo-incident.",
+      "rule": "Apply dump recognition to every family-path candidate before parsing or counting.",
+      "enforcement": [
+        "report_consistency.py filters family_dump_paths with dumplib.is_dump"
+      ]
+    },
+    {
+      "id": "one-final-report",
+      "category": "publication",
+      "mistake": "Multiple top-level final report variants could survive in case and public output.",
+      "rule": "Keep one canonical top-level report set and retain older reports only as clearly historical nested material.",
+      "enforcement": [
+        "case quality gate report lifecycle and publication inventory checks"
+      ]
+    }
+  ],
+  "regressions": [
+    {
+      "id": "nested-report-filter",
+      "test": ".agents/skills/address-mapping/test_reports.py::test_report_consistency_ignores_report_in_family_subfolder",
+      "status": "implemented"
+    },
+    {
+      "id": "allocation-fault-injection",
+      "test": "Matched-build failing run and positive control with forced allocator failure",
+      "status": "planned"
+    },
+    {
+      "id": "full-dump-origin",
+      "test": "Capture full dump and allocator telemetry at first NULL return",
+      "status": "planned"
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "r8-null-origin",
+      "question": "What made a 0x00180004 allocation fail in R8?",
+      "status": "open"
+    },
+    {
+      "id": "shared-root-cause",
+      "question": "Do R35, R39, R40 and R8 share one upstream exhaustion or corruption cause?",
+      "status": "open"
+    }
+  ],
+  "rule": "каждый урок содержит ошибку, новое правило и машинное закрепление"
+}

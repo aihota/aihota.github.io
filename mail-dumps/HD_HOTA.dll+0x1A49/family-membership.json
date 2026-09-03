@@ -1,1 +1,1073 @@
-{"schema":3,"generated_at":"2026-08-20T12:07:01.264548+00:00","family_id":"family-HD_HOTA-null-malloc-breakpoint","source":"mail-dumps/HD_HOTA.dll+0x1A49/family-membership-input.json","scope_id":"family-HD_HOTA-null-malloc-breakpoint","scope_kind":"family","scope":{"id":"family-HD_HOTA-null-malloc-breakpoint","kind":"family","population":"seven target TXT incidents representing five unique DMP states"},"memberships":[{"incident_id":"incident-ac3b9898131bab59","membership":"confirmed","basis":"Тот же локальный sink, EAX=0 и int 3 после NULL из _malloc.","evidence":["exact_pair","R35 listing","DMP context"],"fingerprint":{"structure_role":"HD_HOTA allocator failure","field":"allocation_result_EAX","call_tail":"initial_buffer_path_R35 -> sub_1001A30","frame_depth":"0x8"}},{"incident_id":"incident-c33280e8ec682c4a","membership":"confirmed","basis":"Тот же локальный sink, EAX=0 и int 3 после NULL из _malloc.","evidence":["exact_pair","R35 listing","DMP context"],"fingerprint":{"structure_role":"HD_HOTA allocator failure","field":"allocation_result_EAX","call_tail":"initial_buffer_path_R35 -> sub_1001A30","frame_depth":"0x8"}},{"incident_id":"incident-7de8c6bc94aa192a","membership":"context_only","basis":"Тот же локальный sink, EAX=0 и int 3 после NULL из _malloc.","evidence":["exact_pair","R35 listing","DMP context"],"fingerprint":{"structure_role":"HD_HOTA allocator failure","field":"allocation_result_EAX","call_tail":"initial_buffer_path_R35 -> sub_1001A30","frame_depth":"0x8"}},{"incident_id":"incident-79498d587d0f2f8f","membership":"context_only","basis":"Тот же локальный sink, EAX=0 и int 3 после NULL из _malloc.","evidence":["exact_pair","R35 listing","DMP context"],"fingerprint":{"structure_role":"HD_HOTA allocator failure","field":"allocation_result_EAX","call_tail":"initial_buffer_path_R35 -> sub_1001A30","frame_depth":"0x8"}},{"incident_id":"incident-21fbf78651021da7","membership":"confirmed","basis":"Тот же локальный sink, EAX=0 и int 3 после NULL из _malloc; листинг R39 совпадает по механизму.","evidence":["exact_pair","R39 listing","DMP context"],"fingerprint":{"structure_role":"HD_HOTA allocator failure","field":"allocation_result_EAX","call_tail":"initial_buffer_path_R39 -> sub_1001A30","frame_depth":"0x8"}},{"incident_id":"incident-0d0b67b2f576b937","membership":"confirmed","basis":"Тот же локальный sink, EAX=0 и int 3 после NULL из _malloc; листинг R40 подтверждает путь роста буфера.","evidence":["exact_pair","R40 listing","DMP context"],"fingerprint":{"structure_role":"HD_HOTA allocator failure","field":"allocation_result_EAX","call_tail":"network_dynamic_buffer_growth_R40 -> sub_1001A30","frame_depth":"0x18"}},{"incident_id":"incident-d8dc2a9b2357e80f","membership":"confirmed","basis":"Тот же локальный sink, EAX=0 и int 3 после NULL из _malloc; листинг R40 подтверждает путь роста буфера.","evidence":["exact_pair","R40 listing","DMP context"],"fingerprint":{"structure_role":"HD_HOTA allocator failure","field":"allocation_result_EAX","call_tail":"network_dynamic_buffer_growth_R40 -> sub_1001A30","frame_depth":"0x18"}}],"counts":{"confirmed":5,"context_only":2},"errors":[],"registry_valid":true,"enumeration_complete":true,"classification_complete":true,"unknown_count":0,"blocked_by_listing_count":0,"complete":true}
+{
+  "schema": 4,
+  "generated_at": "2026-09-03T19:21:32.592435+00:00",
+  "family_id": "family-HD_HOTA-null-malloc-breakpoint",
+  "source": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A49/family-membership-input.json",
+  "scope_id": "series-HD_HOTA-1A49-case-census",
+  "scope_kind": "series",
+  "scope": {
+    "id": "series-HD_HOTA-1A49-case-census",
+    "kind": "series",
+    "population": "67 physical crash TXT representing 65 unique incidents in the materialized case",
+    "source": "series-groups.json",
+    "physical_txt": 67,
+    "incidents": 65,
+    "classification": "the six exact HD_HOTA.dll+0x1A49 incidents are confirmed; 59 incidents at other sinks are excluded without inferring their local mechanism or root cause",
+    "address_range": {
+      "start_rva": "0x19AE",
+      "end_rva": "0x1ABE",
+      "end_inclusive": true,
+      "human_label": "materialized HD_HOTA old-version case census",
+      "basis": "complete parser census of the root and canonical old-version family folder"
+    }
+  },
+  "candidate_census": {
+    "total": 65,
+    "classified": 65,
+    "confirmed": 6,
+    "probable": 0,
+    "context_only": 0,
+    "excluded": 59,
+    "unknown": 0,
+    "blocked": 0
+  },
+  "incident_set_fingerprint": "093ed881a9f1556bbb8526867c32ae44e7e1ce9d710cf56d1482b0b906a5f903",
+  "human_decision": {
+    "author": "1 1 (review assisted by GPT-5.6 Sol)",
+    "decided_at": "2026-09-03T22:21:00+03:00",
+    "basis": "All 65 unique incidents were classified by exact normalized sink. Only the six HD_HOTA.dll+0x1A49 incidents share the confirmed NULL-to-breakpoint allocator mechanism; 59 incidents at other RVAs are explicitly excluded.",
+    "source": "series-groups.json; HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.txt; user authorization 2026-09-03",
+    "incident_set_fingerprint": "093ed881a9f1556bbb8526867c32ae44e7e1ce9d710cf56d1482b0b906a5f903"
+  },
+  "provenance_warnings": [],
+  "memberships": [
+    {
+      "incident_id": "incident-ee9201e099c97597",
+      "membership": "confirmed",
+      "basis": "R35: exact HD_HOTA.dll+0x1A49 sink, EAX=0 after _malloc, then int 3.",
+      "evidence": [
+        "series-groups.json:incident-ee9201e099c97597",
+        "HD_HOTA.dll+0x1A49-5.7-R35-180-1.dmp",
+        "../../modules/HD_HOTA.dll-5.7 R35.txt"
+      ],
+      "fingerprint": {
+        "structure_role": "HD_HOTA allocator failure",
+        "field": "allocation_result_EAX",
+        "call_tail": "initial_buffer_path_R35 -> sub_1001A30",
+        "frame_depth": "0x8"
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-d99cead18c450c81",
+      "membership": "confirmed",
+      "basis": "R35: exact HD_HOTA.dll+0x1A49 sink, EAX=0 after _malloc, then int 3.",
+      "evidence": [
+        "series-groups.json:incident-d99cead18c450c81",
+        "HD_HOTA.dll+0x1A49-5.7-R35-180-2.dmp",
+        "../../modules/HD_HOTA.dll-5.7 R35.txt"
+      ],
+      "fingerprint": {
+        "structure_role": "HD_HOTA allocator failure",
+        "field": "allocation_result_EAX",
+        "call_tail": "initial_buffer_path_R35 -> sub_1001A30",
+        "frame_depth": "0x8"
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-8b4bbb9da9a8e709",
+      "membership": "confirmed",
+      "basis": "R39: exact HD_HOTA.dll+0x1A49 sink, EAX=0 after _malloc, then int 3.",
+      "evidence": [
+        "series-groups.json:incident-8b4bbb9da9a8e709",
+        "HD_HOTA.dll+0x1A49-5.7-R39-180-1.dmp",
+        "../../modules/HD_HOTA.dll-5.7 R39.txt"
+      ],
+      "fingerprint": {
+        "structure_role": "HD_HOTA allocator failure",
+        "field": "allocation_result_EAX",
+        "call_tail": "initial_buffer_path_R39 -> sub_1001A30",
+        "frame_depth": "0x8"
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-5b70c18951e5c550",
+      "membership": "confirmed",
+      "basis": "R40: exact HD_HOTA.dll+0x1A49 sink and confirmed dynamic-buffer growth path; state origin is not generalized.",
+      "evidence": [
+        "series-groups.json:incident-5b70c18951e5c550",
+        "HD_HOTA.dll+0x1A49-5.7-R40-180-1.dmp",
+        "../../modules/HD_HOTA.dll-5.7 R40.txt"
+      ],
+      "fingerprint": {
+        "structure_role": "HD_HOTA allocator failure",
+        "field": "allocation_result_EAX",
+        "call_tail": "network_dynamic_buffer_growth_R40 -> sub_1001A30",
+        "frame_depth": "0x18"
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-328d59cf9a037eff",
+      "membership": "confirmed",
+      "basis": "R40: exact HD_HOTA.dll+0x1A49 sink and confirmed dynamic-buffer growth path; state origin is not generalized.",
+      "evidence": [
+        "series-groups.json:incident-328d59cf9a037eff",
+        "HD_HOTA.dll+0x1A49-5.7-R40-180-2.dmp",
+        "../../modules/HD_HOTA.dll-5.7 R40.txt"
+      ],
+      "fingerprint": {
+        "structure_role": "HD_HOTA allocator failure",
+        "field": "allocation_result_EAX",
+        "call_tail": "network_dynamic_buffer_growth_R40 -> sub_1001A30",
+        "frame_depth": "0x18"
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-0dfbcb75acaf17ed",
+      "membership": "confirmed",
+      "basis": "R8: exact HD_HOTA.dll+0x1A49 sink and confirmed dynamic-buffer growth path; the 1.5 MiB request does not establish a shared state origin with R40.",
+      "evidence": [
+        "series-groups.json:incident-0dfbcb75acaf17ed",
+        "HD_HOTA.dll+0x1A49-5.8-R8-181.dmp",
+        "../../modules/HD_HOTA.dll-5.8-R8.txt"
+      ],
+      "fingerprint": {
+        "structure_role": "HD_HOTA allocator failure",
+        "field": "allocation_result_EAX",
+        "call_tail": "dynamic_buffer_growth_R8 -> sub_1001A30",
+        "frame_depth": "0x18"
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-78183abbc0d94391",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x19ae; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-78183abbc0d94391",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-1.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-10cc9fc86033909d",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x19ae; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-10cc9fc86033909d",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-2.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-60efa16a864f35ee",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x19ae; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-60efa16a864f35ee",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x19AE-1.8.0-3.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-4ba4d8580384ea3b",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-4ba4d8580384ea3b",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-1.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-26ef11012bf9aa96",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-26ef11012bf9aa96",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-10.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-44fc95235a93dfae",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-44fc95235a93dfae",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-11.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-76f5cc6f007aee4f",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-76f5cc6f007aee4f",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-12.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-ca0e2a87e7ef4f76",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-ca0e2a87e7ef4f76",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-13.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-92c6d189aeb45210",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-92c6d189aeb45210",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-14.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-064d728b3b761db1",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-064d728b3b761db1",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-15.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-d322b70c118c632b",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-d322b70c118c632b",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-16.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-7789989aa7274f7e",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-7789989aa7274f7e",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-17.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-6ebc123d062b4ec5",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-6ebc123d062b4ec5",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-18.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-20bb62ebab52e90f",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-20bb62ebab52e90f",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-19.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-651855c2612a7d1b",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-651855c2612a7d1b",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-2.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-e536d0e16cc216f6",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-e536d0e16cc216f6",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-20.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-8aa7f93ad523fcb6",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-8aa7f93ad523fcb6",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-21.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-424d5c78e1905c3f",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-424d5c78e1905c3f",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-22.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-169210b19fe61bfb",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-169210b19fe61bfb",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-23.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-4662afe0644a11ef",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-4662afe0644a11ef",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-24.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-dab33b563101b11f",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-dab33b563101b11f",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-25.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-d2e08ebff1e30a49",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-d2e08ebff1e30a49",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-26.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-602c4c67057d8e02",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-602c4c67057d8e02",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-27.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-405eab9bb9232857",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-405eab9bb9232857",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-28.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-48f237ebfe50e2e7",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-48f237ebfe50e2e7",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-29.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-5e2931edfa0cdca4",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-5e2931edfa0cdca4",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-3.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-7e5480633025653e",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-7e5480633025653e",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-30.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-cdb79735bf68c38b",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-cdb79735bf68c38b",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-31.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-689b021e6a23abfa",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-689b021e6a23abfa",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-32.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-6fe82a1d66a8ff70",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-6fe82a1d66a8ff70",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-33.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-e7f2111151fff5de",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-e7f2111151fff5de",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-34.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-cac2bc5a87f49535",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-cac2bc5a87f49535",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-35.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-6e3ca52384d351ac",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-6e3ca52384d351ac",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-36.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-12c0b1a70cbeab9e",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-12c0b1a70cbeab9e",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-37.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-ca54307c0ea090b8",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-ca54307c0ea090b8",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-38.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-106a1c45b93ddef1",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-106a1c45b93ddef1",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-39.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-2fa70311797904ad",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-2fa70311797904ad",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-4.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-8186fbc04e657958",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-8186fbc04e657958",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-40.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-7a25ee8bbbdfc4b7",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-7a25ee8bbbdfc4b7",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-41.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-c9440584133af088",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-c9440584133af088",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-5.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-adc90c956bb2819c",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-adc90c956bb2819c",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-6.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-11211b10ad3da3b6",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-11211b10ad3da3b6",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-7.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-0e7d02ddcd1b926a",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-0e7d02ddcd1b926a",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-8.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-49ea639f3f15c53b",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-49ea639f3f15c53b",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0-9.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-fc6d5b867250aa95",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a0e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-fc6d5b867250aa95",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A0E-1.8.0Time13.04.2-1.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-889fe8d682d74f69",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-889fe8d682d74f69",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-1.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-5c8863f8ecfcbace",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-5c8863f8ecfcbace",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-10.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-ca7e1c88e2c81c29",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-ca7e1c88e2c81c29",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-11.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-cc27fbe3a8077f14",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-cc27fbe3a8077f14",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-12.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-7c7823ebff09561a",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-7c7823ebff09561a",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-2.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-2a4e45557e77cc88",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-2a4e45557e77cc88",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-3.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-38d27b33d122ad5d",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-38d27b33d122ad5d",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-4.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-e970cdce86fd7a8b",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-e970cdce86fd7a8b",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-5.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-e38f206d2828430a",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-e38f206d2828430a",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-6.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-863d7845c2dcd0ce",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-863d7845c2dcd0ce",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-7.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-ff5896b2f47c690a",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-ff5896b2f47c690a",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-8.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-cfa092ea3d16684f",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-cfa092ea3d16684f",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-9.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-0cf34e1bacfdc4a4",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-0cf34e1bacfdc4a4",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0Time0526202-1.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-2a42a448ac469623",
+      "membership": "excluded",
+      "basis": "Иной точный sink hd_hota.dll+0x1abe; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "evidence": [
+        "series-groups.json:incident-2a42a448ac469623",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1ABE-1.8.0-1.txt"
+      ],
+      "relationship_ladder": {
+        "same_sink": false,
+        "same_local_mechanism": "unknown",
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    }
+  ],
+  "counts": {
+    "confirmed": 6,
+    "excluded": 59
+  },
+  "errors": [],
+  "registry_valid": true,
+  "enumeration_complete": true,
+  "classification_complete": true,
+  "unknown_count": 0,
+  "blocked_by_listing_count": 0,
+  "complete": true
+}
