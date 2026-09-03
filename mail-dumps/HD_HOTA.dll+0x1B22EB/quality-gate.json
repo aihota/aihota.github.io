@@ -18,8 +18,8 @@
       },
       {
         "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.evidence.json",
-        "size": 18303,
-        "sha256": "a8e0d0c611f6fdd11b6813b780df8d58c2e66d3fb7f18d33a06d8081c26b100c"
+        "size": 20040,
+        "sha256": "f4d1e80c376dcf751a9c206a87018fa0274a6f591ba83b8eced4bbb890cd6c22"
       },
       {
         "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.extra.html",
@@ -28,8 +28,8 @@
       },
       {
         "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.html",
-        "size": 532387,
-        "sha256": "83ba76ab88398382c8e0e721428bdc791d53be5ce67d0c28a6b57da7805d6e66"
+        "size": 535736,
+        "sha256": "70c0272a361a0218cf7cb9966a823c897e7f61269cb72db109d3a1ce6807ea19"
       },
       {
         "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.model.json",
@@ -38,8 +38,8 @@
       },
       {
         "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
-        "size": 17934,
-        "sha256": "1fb5ff788f43372e70af4383a0d1706abf6c2b30626854af644c21ec13d336cb"
+        "size": 20867,
+        "sha256": "da0b84d24ba1e3533211166d12f010aa0cc3de0b0ec0060496ca8b7609e0965f"
       },
       {
         "path": "address-proof.json",
@@ -48,43 +48,53 @@
       },
       {
         "path": "analysis-contract.json",
-        "size": 5938,
-        "sha256": "289dfa493465159d5857d4e74d029cef5c897ec1d133355764af770c78ad17cc"
+        "size": 7958,
+        "sha256": "5d68b6d4d1ecb835e3a86d97f8ba65af6a196299dd254ba6b63e0946ccd4a31e"
       },
       {
         "path": "capabilities.json",
-        "size": 3660,
-        "sha256": "4d837dac7859d7ffff69e6988051ab7e8ecbe553d67e0f21e8aba761706197bd"
+        "size": 13027,
+        "sha256": "f738aaef9e4c849bf338111d9732ac5e243b4f2516e63cee90b96bd866a78915"
       },
       {
         "path": "case-manifest.json",
-        "size": 3535,
-        "sha256": "77f3d41dbce4b679f64a189a4be0d27d866e31491df9857e5ae2668ad3afc576"
+        "size": 6308,
+        "sha256": "a71fe767f7f44b0cce847ba7892556dd702965c2aa9bcfd01734e003005e7476"
       },
       {
         "path": "coverage.json",
-        "size": 6245,
-        "sha256": "d878e46a5734d9207e3b02d222e6cd92dcbd6d1e0686def10ae905d4ef7c0a50"
+        "size": 6748,
+        "sha256": "a49bc97a6ff3e00ef50c9c026d65762c4a9a213432f77d792ef25bd6139deab2"
+      },
+      {
+        "path": "evidence-config.json",
+        "size": 8821,
+        "sha256": "e9be0703e58d231c38390ac24f22022477b54a5741ff17645ba846c94713c872"
       },
       {
         "path": "family-membership-input.json",
-        "size": 2411,
-        "sha256": "c117f280b38dacaf55671adc2a4344a7b713b7676c536042d16c0066bc70684b"
+        "size": 4116,
+        "sha256": "d2aa3d8a2808a1966be57a1ae5152ae2b327167940252f0af4af937168be2a42"
       },
       {
         "path": "family-membership.json",
-        "size": 3057,
-        "sha256": "26882553720f3aa6d3306d22529ceeb721dc58115e21bbf06c1ae34cae190665"
+        "size": 4762,
+        "sha256": "5635e1e174765b68f2f0ab335026da9b1af76986a3855b686e494a00c75dcc36"
       },
       {
         "path": "pair-audit.json",
-        "size": 2525,
-        "sha256": "4e48f958f1e517f30dd405d5bdaeaeb73c95baea8525941f73942ecc02457972"
+        "size": 6485,
+        "sha256": "6f4c372338ecbd090e76e0093221cf0edd3dbc06ab5b839fdc8bb5e0c3f65e18"
+      },
+      {
+        "path": "relocation-manifest.json",
+        "size": 4488,
+        "sha256": "410d527ddc8271026f88743cca11043eff9a30c017524a9d90eee06fc7319bd9"
       },
       {
         "path": "repro-plan.json",
-        "size": 6102,
-        "sha256": "61a98989778008b9f0ce6b9fe35f18fa3a8f9d900eca8b665d08632a3794bed7"
+        "size": 7114,
+        "sha256": "5c00002f65ee0845f126c39f1fb9e88f18f69a281e589368b10cb9f851cdf56f"
       },
       {
         "path": "save-inventory.json",
@@ -93,13 +103,33 @@
       },
       {
         "path": "series-groups.json",
-        "size": 8562,
-        "sha256": "df0e47d909409a2704540f3ae648058f0453caca89bce40d91d19fc874275325"
+        "size": 15504,
+        "sha256": "12b52445ce83f3b6b76cc4890b8ab9ccc5c5925aeabe66fcfb1519cb7d98ecb1"
       },
       {
         "path": "series-parse.json",
-        "size": 7174,
-        "sha256": "257c70da0193fd76298fed881a9b19f643690fba019975910d49439433dc8e95"
+        "size": 13338,
+        "sha256": "190fcd6f0d2c45a51888d1c18ed0a4cc4b0104622076a0d01f14d4abc6b1dbf6"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.dmp",
+        "size": 125759,
+        "sha256": "737eaae081d8a037e547c9f61fac08f7aa2475feae34688fa47f6971cf13e9a5"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.txt",
+        "size": 8407,
+        "sha256": "d72f174ee9603b62a2f32dc27f0cbe79bfb8b1f144384c8a5e4bb86885bb0a02"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.dmp",
+        "size": 125759,
+        "sha256": "737eaae081d8a037e547c9f61fac08f7aa2475feae34688fa47f6971cf13e9a5"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.txt",
+        "size": 9305,
+        "sha256": "5b69fd6e2c084d247772c6888a05e81937e152cce040ce8c4c86d7102dc3fc22"
       }
     ],
     "toolchain_files": [
@@ -145,8 +175,8 @@
       },
       {
         "path": ".agents/skills/hota-crash-triage/crash_audit.py",
-        "size": 45369,
-        "sha256": "25c89f6ba2e3c84712f881b40428f2bf32b05a8902636d3a4c1042c9e9f3853a"
+        "size": 46887,
+        "sha256": "23a6b5a844de2ce30d6e11d9861bff461f0a98260f82b7790c5e1b226c5f5b70"
       },
       {
         "path": ".agents/skills/hota-crash-triage/dimension_provenance.py",
@@ -300,11 +330,11 @@
       },
       {
         "path": "report_consistency.py",
-        "size": 29330,
-        "sha256": "5de7e5a300a3a2a3b0d73ec3c22e147d977cee84da2ddd6abe1cf8129e57300a"
+        "size": 29801,
+        "sha256": "fe461b4dfd54513a63b6ec625047484cda0fc5c20b801c01a572691e4516fa58"
       }
     ],
-    "sha256": "d8e9f03f9d6566eeb9cba8dbc8e90f18ecef1dc7cbc41b5968a5d55c1506f882"
+    "sha256": "85ecec0ba51222964d108db0639548740ae6930d2a9880d21dde75436ae02336"
   },
   "audit_stages_complete": null,
   "publication_ready": true,
@@ -338,14 +368,13 @@
       "instruction": "confirmed",
       "mechanism": "confirmed",
       "state_origin": "unknown",
-      "family_coverage": "probable",
+      "family_coverage": "confirmed",
       "reproduction": "unknown"
     },
     "root_cause_ready": false,
     "next_required": [
       "capture_state_origin_and_writer",
-      "confirm_reproduction",
-      "complete_family_coverage"
+      "confirm_reproduction"
     ],
     "source": "mail-dumps/HD_HOTA.dll+0x1B22EB/coverage.json"
   },
@@ -359,7 +388,7 @@
       "status": "passed",
       "errors": [],
       "legacy_exempt": false,
-      "dmp_count": 1,
+      "dmp_count": 3,
       "evidence_count": 1
     },
     {
@@ -370,16 +399,16 @@
       "limitations": [],
       "scope": {
         "kind": "recursive_case",
-        "txt_count": 1,
-        "row_count": 1,
+        "txt_count": 3,
+        "row_count": 3,
         "outside_row_count": 0
       }
     },
     {
       "kind": "capabilities",
       "path": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/capabilities.json",
-      "series": false,
-      "item_count": 1,
+      "series": true,
+      "item_count": 3,
       "status": "passed",
       "errors": []
     },
@@ -417,7 +446,7 @@
       "name": "family:family-membership.json",
       "status": "passed",
       "returncode": 0,
-      "stdout": "FAMILY: OK; incidents=1; enumeration=true; classification=true; unknown=0; listing_blockers=0; errors=none\n",
+      "stdout": "FAMILY: OK; incidents=2; enumeration=true; classification=true; unknown=0; listing_blockers=0; errors=none\n",
       "stderr": ""
     },
     {
@@ -429,13 +458,13 @@
     },
     {
       "name": "relocation_family_contract",
+      "manifest_count": 1,
+      "active_manifests": [
+        "relocation-manifest.json"
+      ],
       "status": "passed",
       "errors": [],
-      "limitations": [
-        "relocation_not_applicable"
-      ],
-      "manifest_count": 0,
-      "active_manifests": []
+      "manifest_errors": []
     },
     {
       "name": "report_consistency",
@@ -448,7 +477,7 @@
       "name": "lint:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
       "status": "passed",
       "returncode": 0,
-      "stdout": " Имена канонических секций совпадают со схемой\n[OK]   Поле раздела 1 найдено: Класс сбоя:\n[OK]   Поле раздела 1 найдено: Полезность лога для исправления:\n[OK]   Поле раздела 1 найдено: Версия HotA:\n[OK]   Поле раздела 1 найдено: Версии HD-мода:\n[OK]   Поле раздела 1 найдено: Уникальных вылетов:\n[OK]   Поле «Версия HotA:» содержит только версии\n[OK]   Поле «Версии HD-мода:» содержит только версии\n[OK]   Машинный реестр серии: физические/уникальные/группы сходятся\n[OK]   Обязательное поле найдено: Происхождение стека: CONTEXT_THREAD_MISMATCH; register_sets_may_be_combined=false\n[OK]   Версия схемы отчёта: 2\n[OK]   Поле схемы v2 найдено: Ключ семейства:\n[OK]   Поле схемы v2 найдено: Уровень идентификации кода:\n[OK]   Поле схемы v2 найдено: Поток исключения:\n[OK]   Поле схемы v2 найдено: Поток игрового контекста:\n[OK]   Поле схемы v2 найдено: Первичный источник данных:\n[OK]   Поле схемы v2 найдено: Статус первичного источника:\n[OK]   Поле схемы v2 найдено: Основание локального счёта:\n[OK]   Поле схемы v2 найдено: Граница корпусного поиска:\n[OK]   Поле схемы v2 найдено: Метод дедупликации:\n[OK]   Доказанность точки сбоя: подтверждена\n[OK]   Доказанность локального механизма: выведено из листинга\n[OK]   Происхождение повреждённого состояния: не установлено\n[OK]   Полнота семейной переписи: частичная\n[OK]   Уровень связи дополнительных инцидентов: 3 — тот же локальный механизм, но не доказан тот же источник состояния\n[OK]   Статус визуализации указан: выполнена — NULL проходит EAX -> ESI -> [ESI+0x1C]\n[OK]   'Класс сбоя' — точный русский ярлык из словаря\n[OK]   Нет markdown-заголовков '#'\n[OK]   Нет fenced-блоков ```\n[OK]   Нет markdown-таблиц с '|'\n[OK]   Декоративного Unicode нет (ASCII-эквиваленты)\n[OK]   Нет ссылок на внутренние правила/скиллы\n[OK]   Баг HD-мода: техническая рекомендация присутствует\n[OK]   Нет отдельного раздела истории исправлений\n[OK]   Нет лишних Markdown-кавычек вокруг технических выражений\n[OK]   Заголовки ролей отделены и используют каноническое тире\n[OK]   Нет методического жаргона (V1/V2)\n[OK]   Нет английских терминов в русском тексте\n[OK]   Известных грамматических регрессий нет\n[WARN] Строк длиннее 100 символов: 33\n[OK]   HTML-теги отсутствуют (чистый plain-text)\n[OK]   Diff-таблица: колонки консистентны (2)\n[OK]   Декоративные линии не превышают число секций (0/8)\n[OK]   Блоки дизассемблера с префиксом .text:\n[OK]   Отрицательные результаты зафиксированы\n[OK]   Отрицательный результат с покрытием/контролем\n[OK]   Неподтверждённых отрицательных выводов стенда нет\n[OK]   Модель совпадает со slug в имени файла\n[OK]   Модель подтверждена машинным манифестом (user_confirmed)\n[OK]   Незаполненных мест заготовки не осталось\n[OK]   Абзацы в пределах 1200 символов\n[OK]   Счётные числа помечены или получены разбором формата\n[OK]   Вероятностные условия помечены или отсутствуют\n[OK]   У каждой дроби «X из Y» рядом указано основание счёта\n[OK]   Дата шапки согласована со временем правки файла\n\nИтог: FAIL=0, WARN=1, BLOCKING_WARN=0\n",
+      "stdout": "раздела 1 найдено: Класс сбоя:\n[OK]   Поле раздела 1 найдено: Полезность лога для исправления:\n[OK]   Поле раздела 1 найдено: Версия HotA:\n[OK]   Поле раздела 1 найдено: Версии HD-мода:\n[OK]   Поле раздела 1 найдено: Уникальных вылетов:\n[OK]   Поле «Версия HotA:» содержит только версии\n[OK]   Поле «Версии HD-мода:» содержит только версии\n[OK]   Машинный реестр серии: физические/уникальные/группы сходятся\n[OK]   Обязательное поле найдено: Происхождение стека: CONTEXT_THREAD_MISMATCH; register_sets_may_be_combined=false\n[OK]   Версия схемы отчёта: 2\n[OK]   Поле схемы v2 найдено: Ключ семейства:\n[OK]   Поле схемы v2 найдено: Уровень идентификации кода:\n[OK]   Поле схемы v2 найдено: Поток исключения:\n[OK]   Поле схемы v2 найдено: Поток игрового контекста:\n[OK]   Поле схемы v2 найдено: Первичный источник данных:\n[OK]   Поле схемы v2 найдено: Статус первичного источника:\n[OK]   Поле схемы v2 найдено: Основание локального счёта:\n[OK]   Поле схемы v2 найдено: Граница корпусного поиска:\n[OK]   Поле схемы v2 найдено: Метод дедупликации:\n[OK]   Доказанность точки сбоя: подтверждена\n[OK]   Доказанность локального механизма: выведено из листинга\n[OK]   Происхождение повреждённого состояния: не установлено\n[OK]   Полнота семейной переписи: подтверждена — проверено 2 из 2 уникальных инцидентов\n[OK]   Уровень связи дополнительных инцидентов: 3 — тот же локальный дефект; общий источник состояния и общая первопричина неизвестны\n[OK]   Статус визуализации указан: выполнена — NULL проходит EAX -> ESI -> [ESI+0x1C]\n[OK]   'Класс сбоя' — точный русский ярлык из словаря\n[OK]   Нет markdown-заголовков '#'\n[OK]   Нет fenced-блоков ```\n[OK]   Нет markdown-таблиц с '|'\n[OK]   Декоративного Unicode нет (ASCII-эквиваленты)\n[OK]   Нет ссылок на внутренние правила/скиллы\n[OK]   Баг HD-мода: техническая рекомендация присутствует\n[OK]   Нет отдельного раздела истории исправлений\n[OK]   Нет лишних Markdown-кавычек вокруг технических выражений\n[OK]   Заголовки ролей отделены и используют каноническое тире\n[OK]   Нет методического жаргона (V1/V2)\n[OK]   Нет английских терминов в русском тексте\n[OK]   Известных грамматических регрессий нет\n[WARN] Строк длиннее 100 символов: 40\n[OK]   HTML-теги отсутствуют (чистый plain-text)\n[OK]   Diff-таблица: колонки консистентны (2)\n[OK]   Декоративные линии не превышают число секций (0/8)\n[OK]   Блоки дизассемблера с префиксом .text:\n[OK]   Отрицательные результаты зафиксированы\n[OK]   Отрицательный результат с покрытием/контролем\n[OK]   Неподтверждённых отрицательных выводов стенда нет\n[OK]   Модель совпадает со slug в имени файла\n[OK]   Модель подтверждена машинным манифестом (user_confirmed)\n[OK]   Незаполненных мест заготовки не осталось\n[OK]   Абзацы в пределах 1200 символов\n[OK]   Счётные числа помечены или получены разбором формата\n[OK]   Вероятностные условия помечены или отсутствуют\n[OK]   У каждой дроби «X из Y» рядом указано основание счёта\n[OK]   Дата шапки согласована со временем правки файла\n\nИтог: FAIL=0, WARN=1, BLOCKING_WARN=0\n",
       "stderr": ""
     },
     {
@@ -462,7 +491,7 @@
       "name": "evidence:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
       "status": "passed",
       "returncode": 0,
-      "stdout": "EVIDENCE: FRESH:UNVERIFIED_TOOL_REVISION; проверено 21\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/address-mapping/address_proof.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/analysis_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/coverage_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/repro_plan.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/evidence_manifest.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n",
+      "stdout": "EVIDENCE: FRESH:UNVERIFIED_TOOL_REVISION; проверено 26\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/address-mapping/address_proof.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/analysis_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/coverage_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/evidence_manifest.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/repro_plan.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n",
       "stderr": ""
     },
     {

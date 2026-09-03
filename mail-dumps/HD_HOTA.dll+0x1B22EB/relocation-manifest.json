@@ -1,0 +1,100 @@
+{
+  "version": 3,
+  "created": "2026-09-02",
+  "target": "mail-dumps/HD_HOTA.dll+0x1B22EB",
+  "source_root": "",
+  "relation": "confirmed_same_defect",
+  "reason": "Exact-listing подтверждает один локальный дефект между HD 5.7 R33 и 5.8 R8: sub_11B1050+0x2B и sub_11B22C0+0x2B имеют одинаковую последовательность surface -> nullable Pcx16 helper -> EAX/ESI -> push [ESI+0x1C] без NULL-проверки; оба исторических TXT фиксируют AV read 0x0000001C при EAX=ESI=0. Источник состояния и первопричина остаются unknown.",
+  "count_in_family": true,
+  "publish_with_primary": true,
+  "family_contract": {
+    "event_role": "crash",
+    "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+    "operation": "read",
+    "mechanism_side": "source",
+    "events": 2
+  },
+  "state": "applied",
+  "items": [
+    {
+      "source": "mail-dumps/HD_HOTA.dll+0x1B214B/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.dmp",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.dmp",
+      "kind": "dmp",
+      "size": 125759,
+      "sha256": "737eaae081d8a037e547c9f61fac08f7aa2475feae34688fa47f6971cf13e9a5",
+      "pair_check": {
+        "context_eip": "0x0485107B",
+        "module": "HD_HOTA.dll",
+        "rva": "0x1B107B",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_HOTA.dll+0x1B107B-1.8.0-1"
+      },
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing"
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll+0x1B214B/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.txt",
+      "kind": "txt",
+      "size": 8407,
+      "sha256": "d72f174ee9603b62a2f32dc27f0cbe79bfb8b1f144384c8a5e4bb86885bb0a02",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing",
+      "pair_check": {
+        "context_eip": "0x0485107B",
+        "module": "HD_HOTA.dll",
+        "rva": "0x1B107B",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_HOTA.dll+0x1B107B-1.8.0-1"
+      }
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll+0x1B214B/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.dmp",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.dmp",
+      "kind": "dmp",
+      "size": 125759,
+      "sha256": "737eaae081d8a037e547c9f61fac08f7aa2475feae34688fa47f6971cf13e9a5",
+      "pair_check": {
+        "context_eip": "0x0485107B",
+        "module": "HD_HOTA.dll",
+        "rva": "0x1B107B",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_HOTA.dll+0x1B107B-180"
+      },
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing"
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll+0x1B214B/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.txt",
+      "kind": "txt",
+      "size": 9305,
+      "sha256": "5b69fd6e2c084d247772c6888a05e81937e152cce040ce8c4c86d7102dc3fc22",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing",
+      "pair_check": {
+        "context_eip": "0x0485107B",
+        "module": "HD_HOTA.dll",
+        "rva": "0x1B107B",
+        "level": "CONTEXT.EIP + module + RVA",
+        "stem": "HD_HOTA.dll+0x1B107B-180"
+      }
+    }
+  ],
+  "mcp_relocation_seal": {
+    "schema": 1,
+    "hmac_sha256": "9192af2b7a1734ff18d14810fda03813781c978a9bc3d313b4a8d88c46bef0e1"
+  }
+}

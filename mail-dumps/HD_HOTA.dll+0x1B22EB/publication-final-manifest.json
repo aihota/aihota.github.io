@@ -7,8 +7,8 @@
     {
       "relative_path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.evidence.json",
       "role": "publication-input",
-      "size": 18303,
-      "sha256": "a8e0d0c611f6fdd11b6813b780df8d58c2e66d3fb7f18d33a06d8081c26b100c"
+      "size": 20040,
+      "sha256": "f4d1e80c376dcf751a9c206a87018fa0274a6f591ba83b8eced4bbb890cd6c22"
     },
     {
       "relative_path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.extra.html",
@@ -19,8 +19,8 @@
     {
       "relative_path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.html",
       "role": "publication-input",
-      "size": 532387,
-      "sha256": "83ba76ab88398382c8e0e721428bdc791d53be5ce67d0c28a6b57da7805d6e66"
+      "size": 535736,
+      "sha256": "70c0272a361a0218cf7cb9966a823c897e7f61269cb72db109d3a1ce6807ea19"
     },
     {
       "relative_path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.model.json",
@@ -31,14 +31,14 @@
     {
       "relative_path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
       "role": "publication-input",
-      "size": 17934,
-      "sha256": "1fb5ff788f43372e70af4383a0d1706abf6c2b30626854af644c21ec13d336cb"
+      "size": 20867,
+      "sha256": "da0b84d24ba1e3533211166d12f010aa0cc3de0b0ec0060496ca8b7609e0965f"
     },
     {
       "relative_path": "HD_HOTA.dll+0x1B22EB-краш-логи-и-дампы.zip",
       "role": "publication-input",
-      "size": 28119,
-      "sha256": "5ab8837eca5258a2f83d579a016d19171b9c251ade281fd813422d1683f77fa9"
+      "size": 89230,
+      "sha256": "d8931e147ce62a51e24536aac530f0b9f98b08988fa2f1315484428775c0fad3"
     },
     {
       "relative_path": "address-proof.json",
@@ -49,62 +49,74 @@
     {
       "relative_path": "analysis-contract.json",
       "role": "derived-evidence",
-      "size": 5938,
-      "sha256": "289dfa493465159d5857d4e74d029cef5c897ec1d133355764af770c78ad17cc"
+      "size": 7958,
+      "sha256": "5d68b6d4d1ecb835e3a86d97f8ba65af6a196299dd254ba6b63e0946ccd4a31e"
     },
     {
       "relative_path": "analysis-promotion-manifest.json",
       "role": "publication-input",
-      "size": 706,
-      "sha256": "862d08c46ce8a4b3a897f678c078e2beb65ea3bf6693b9b4772e5ead5677756c"
+      "size": 1032,
+      "sha256": "93efbcb0c7c1cf2511f94c39ffd438637c45aca09d6e31f945e7446ed13cebd4"
     },
     {
       "relative_path": "archive-manifest.json",
       "role": "publication-input",
-      "size": 779,
-      "sha256": "140e06c1847bdb73db38007e468445185223c2eb216ca80557a52022827ba528"
+      "size": 2455,
+      "sha256": "6511b9aff44bc31b959fd18c4623225f649e01a783fb352d81676c2959f2d0d3"
     },
     {
       "relative_path": "capabilities.json",
       "role": "derived-evidence",
-      "size": 3660,
-      "sha256": "4d837dac7859d7ffff69e6988051ab7e8ecbe553d67e0f21e8aba761706197bd"
+      "size": 13027,
+      "sha256": "f738aaef9e4c849bf338111d9732ac5e243b4f2516e63cee90b96bd866a78915"
     },
     {
       "relative_path": "case-manifest.json",
       "role": "derived-evidence",
-      "size": 3535,
-      "sha256": "77f3d41dbce4b679f64a189a4be0d27d866e31491df9857e5ae2668ad3afc576"
+      "size": 6308,
+      "sha256": "a71fe767f7f44b0cce847ba7892556dd702965c2aa9bcfd01734e003005e7476"
     },
     {
       "relative_path": "coverage.json",
       "role": "derived-evidence",
-      "size": 6245,
-      "sha256": "d878e46a5734d9207e3b02d222e6cd92dcbd6d1e0686def10ae905d4ef7c0a50"
+      "size": 6748,
+      "sha256": "a49bc97a6ff3e00ef50c9c026d65762c4a9a213432f77d792ef25bd6139deab2"
+    },
+    {
+      "relative_path": "evidence-config.json",
+      "role": "derived-evidence",
+      "size": 8821,
+      "sha256": "e9be0703e58d231c38390ac24f22022477b54a5741ff17645ba846c94713c872"
     },
     {
       "relative_path": "family-membership.json",
       "role": "derived-evidence",
-      "size": 3057,
-      "sha256": "26882553720f3aa6d3306d22529ceeb721dc58115e21bbf06c1ae34cae190665"
+      "size": 4762,
+      "sha256": "5635e1e174765b68f2f0ab335026da9b1af76986a3855b686e494a00c75dcc36"
     },
     {
       "relative_path": "pair-audit.json",
       "role": "derived-evidence",
-      "size": 2525,
-      "sha256": "4e48f958f1e517f30dd405d5bdaeaeb73c95baea8525941f73942ecc02457972"
+      "size": 6485,
+      "sha256": "6f4c372338ecbd090e76e0093221cf0edd3dbc06ab5b839fdc8bb5e0c3f65e18"
     },
     {
       "relative_path": "quality-gate.json",
       "role": "publication-input",
-      "size": 23320,
-      "sha256": "c7160e78b4540a3cce46484d0b65ec7b19b8964d42a23a3998f5815fd0c6303f"
+      "size": 24610,
+      "sha256": "3f2be959897e8d445b9b8eb382aa943e0a1849fb47fc049ab3795b4bed7657bf"
+    },
+    {
+      "relative_path": "relocation-manifest.json",
+      "role": "publication-input",
+      "size": 4488,
+      "sha256": "410d527ddc8271026f88743cca11043eff9a30c017524a9d90eee06fc7319bd9"
     },
     {
       "relative_path": "repro-plan.json",
       "role": "derived-evidence",
-      "size": 6102,
-      "sha256": "61a98989778008b9f0ce6b9fe35f18fa3a8f9d900eca8b665d08632a3794bed7"
+      "size": 7114,
+      "sha256": "5c00002f65ee0845f126c39f1fb9e88f18f69a281e589368b10cb9f851cdf56f"
     },
     {
       "relative_path": "save-inventory.json",
@@ -115,14 +127,14 @@
     {
       "relative_path": "series-groups.json",
       "role": "derived-evidence",
-      "size": 8562,
-      "sha256": "df0e47d909409a2704540f3ae648058f0453caca89bce40d91d19fc874275325"
+      "size": 15504,
+      "sha256": "12b52445ce83f3b6b76cc4890b8ab9ccc5c5925aeabe66fcfb1519cb7d98ecb1"
     },
     {
       "relative_path": "series-parse.json",
       "role": "derived-evidence",
-      "size": 7174,
-      "sha256": "257c70da0193fd76298fed881a9b19f643690fba019975910d49439433dc8e95"
+      "size": 13338,
+      "sha256": "190fcd6f0d2c45a51888d1c18ed0a4cc4b0104622076a0d01f14d4abc6b1dbf6"
     }
   ],
   "runtime": {
@@ -137,13 +149,15 @@
       "address-proof.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/address-proof.json",
       "analysis-contract.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/analysis-contract.json",
       "analysis-promotion-manifest.json": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/analysis-promotion-manifest.json",
-      "archive-manifest.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/archive-manifest.json",
+      "archive-manifest.json": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/archive-manifest.json",
       "capabilities.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/capabilities.json",
       "case-manifest.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/case-manifest.json",
       "coverage.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/coverage.json",
+      "evidence-config.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/evidence-config.json",
       "family-membership.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/family-membership.json",
       "pair-audit.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/pair-audit.json",
       "quality-gate.json": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/quality-gate.json",
+      "relocation-manifest.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/relocation-manifest.json",
       "repro-plan.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/repro-plan.json",
       "save-inventory.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/save-inventory.json",
       "series-groups.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/series-groups.json",
@@ -151,9 +165,9 @@
     }
   },
   "coverage": {
-    "total": 20,
-    "verified": 20,
+    "total": 22,
+    "verified": 22,
     "skipped": 0
   },
-  "manifest_sha256": "fe7f23067bbff337129244cceff81c37e553bb02cfc996c99d58bd2cb458e754"
+  "manifest_sha256": "cfcea2fbef0915180e35bccd8b0202f8d823d53e0b9544365d454bf05299dcd3"
 }

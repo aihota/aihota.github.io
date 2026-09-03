@@ -1,7 +1,7 @@
 {
   "schema": 4,
-  "generated_at": "2026-09-02T19:55:29.815154+00:00",
-  "parser_revision": "e5870a19dcf48c282198c14198f48c98303c9a12",
+  "generated_at": "2026-09-03T08:06:36.501002+00:00",
+  "parser_revision": "3390486a24b569998f72e1c1ecda9bfa04ca9bd5",
   "binding": {
     "mode": "hybrid-v1",
     "toolchain_mode": "closure",
@@ -9,8 +9,8 @@
   },
   "report": {
     "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
-    "size": 17934,
-    "sha256": "1fb5ff788f43372e70af4383a0d1706abf6c2b30626854af644c21ec13d336cb"
+    "size": 20867,
+    "sha256": "da0b84d24ba1e3533211166d12f010aa0cc3de0b0ec0060496ca8b7609e0965f"
   },
   "inputs": [
     {
@@ -26,15 +26,39 @@
       "role": "runtime"
     },
     {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.txt",
+      "size": 8407,
+      "sha256": "d72f174ee9603b62a2f32dc27f0cbe79bfb8b1f144384c8a5e4bb86885bb0a02",
+      "role": "source"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.dmp",
+      "size": 125759,
+      "sha256": "737eaae081d8a037e547c9f61fac08f7aa2475feae34688fa47f6971cf13e9a5",
+      "role": "runtime"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.txt",
+      "size": 9305,
+      "sha256": "5b69fd6e2c084d247772c6888a05e81937e152cce040ce8c4c86d7102dc3fc22",
+      "role": "source"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.dmp",
+      "size": 125759,
+      "sha256": "737eaae081d8a037e547c9f61fac08f7aa2475feae34688fa47f6971cf13e9a5",
+      "role": "runtime"
+    },
+    {
       "path": "pair-audit.json",
-      "size": 2525,
-      "sha256": "4e48f958f1e517f30dd405d5bdaeaeb73c95baea8525941f73942ecc02457972",
+      "size": 6485,
+      "sha256": "6f4c372338ecbd090e76e0093221cf0edd3dbc06ab5b839fdc8bb5e0c3f65e18",
       "role": "derived-evidence"
     },
     {
       "path": "capabilities.json",
-      "size": 3660,
-      "sha256": "4d837dac7859d7ffff69e6988051ab7e8ecbe553d67e0f21e8aba761706197bd",
+      "size": 13027,
+      "sha256": "f738aaef9e4c849bf338111d9732ac5e243b4f2516e63cee90b96bd866a78915",
       "role": "derived-evidence"
     },
     {
@@ -45,44 +69,38 @@
     },
     {
       "path": "analysis-contract.json",
-      "size": 5938,
-      "sha256": "289dfa493465159d5857d4e74d029cef5c897ec1d133355764af770c78ad17cc",
-      "role": "derived-evidence"
-    },
-    {
-      "path": "coverage.json",
-      "size": 6245,
-      "sha256": "d878e46a5734d9207e3b02d222e6cd92dcbd6d1e0686def10ae905d4ef7c0a50",
+      "size": 7958,
+      "sha256": "5d68b6d4d1ecb835e3a86d97f8ba65af6a196299dd254ba6b63e0946ccd4a31e",
       "role": "derived-evidence"
     },
     {
       "path": "series-parse.json",
-      "size": 7174,
-      "sha256": "257c70da0193fd76298fed881a9b19f643690fba019975910d49439433dc8e95",
+      "size": 13338,
+      "sha256": "190fcd6f0d2c45a51888d1c18ed0a4cc4b0104622076a0d01f14d4abc6b1dbf6",
       "role": "derived-evidence"
     },
     {
       "path": "series-groups.json",
-      "size": 8562,
-      "sha256": "df0e47d909409a2704540f3ae648058f0453caca89bce40d91d19fc874275325",
+      "size": 15504,
+      "sha256": "12b52445ce83f3b6b76cc4890b8ab9ccc5c5925aeabe66fcfb1519cb7d98ecb1",
       "role": "derived-evidence"
     },
     {
       "path": "family-membership.json",
-      "size": 3057,
-      "sha256": "26882553720f3aa6d3306d22529ceeb721dc58115e21bbf06c1ae34cae190665",
+      "size": 4762,
+      "sha256": "5635e1e174765b68f2f0ab335026da9b1af76986a3855b686e494a00c75dcc36",
       "role": "derived-evidence"
     },
     {
       "path": "case-manifest.json",
-      "size": 3535,
-      "sha256": "77f3d41dbce4b679f64a189a4be0d27d866e31491df9857e5ae2668ad3afc576",
+      "size": 6308,
+      "sha256": "a71fe767f7f44b0cce847ba7892556dd702965c2aa9bcfd01734e003005e7476",
       "role": "derived-evidence"
     },
     {
       "path": "repro-plan.json",
-      "size": 6102,
-      "sha256": "61a98989778008b9f0ce6b9fe35f18fa3a8f9d900eca8b665d08632a3794bed7",
+      "size": 7114,
+      "sha256": "5c00002f65ee0845f126c39f1fb9e88f18f69a281e589368b10cb9f851cdf56f",
       "role": "derived-evidence"
     },
     {
@@ -96,6 +114,18 @@
       "size": 50573270,
       "sha256": "11657ec4465db82ef3cfce6a9e752486ab07766788530650e785bc9dcae4afc8",
       "role": "source"
+    },
+    {
+      "path": "coverage.json",
+      "size": 6748,
+      "sha256": "a49bc97a6ff3e00ef50c9c026d65762c4a9a213432f77d792ef25bd6139deab2",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "evidence-config.json",
+      "size": 8821,
+      "sha256": "e9be0703e58d231c38390ac24f22022477b54a5741ff17645ba846c94713c872",
+      "role": "derived-evidence"
     }
   ],
   "tools": [
@@ -188,35 +218,6 @@
       }
     },
     {
-      "path": "../../.agents/skills/hota-crash-triage/repro_plan.py",
-      "binding": "contract-result-v1",
-      "contract": {
-        "name": "repro_plan",
-        "version": "1",
-        "outputs": [
-          "repro-plan.json"
-        ]
-      },
-      "result_scope": {
-        "kind": "facts",
-        "keys": [
-          "causal_level",
-          "crash_address",
-          "ida_address",
-          "module_rva",
-          "reproduction_status",
-          "root_cause_status"
-        ],
-        "ownership": "legacy_shared"
-      },
-      "result_fingerprint": "8fdbe9150a17e1862e26108cf8f3659aaf9d3a35155b045afaca305ad3b9f144",
-      "revision": {
-        "size": 10339,
-        "sha256": "9a35fbd614506b5662de65b189b3fa61abe4cb94d01eb6d6c2ac825b36fce0c2",
-        "git": "72ddad529ed41c46a5d7aa0baaa9dc26bb8a7780"
-      }
-    },
-    {
       "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
       "binding": "contract-result-v1",
       "contract": {
@@ -247,6 +248,35 @@
       }
     },
     {
+      "path": "../../.agents/skills/hota-crash-triage/repro_plan.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "repro_plan",
+        "version": "1",
+        "outputs": [
+          "repro-plan.json"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [
+          "causal_level",
+          "crash_address",
+          "ida_address",
+          "module_rva",
+          "reproduction_status",
+          "root_cause_status"
+        ],
+        "ownership": "legacy_shared"
+      },
+      "result_fingerprint": "8fdbe9150a17e1862e26108cf8f3659aaf9d3a35155b045afaca305ad3b9f144",
+      "revision": {
+        "size": 10339,
+        "sha256": "9a35fbd614506b5662de65b189b3fa61abe4cb94d01eb6d6c2ac825b36fce0c2",
+        "git": "72ddad529ed41c46a5d7aa0baaa9dc26bb8a7780"
+      }
+    },
+    {
       "path": "../../.agents/skills/hota-crash-triage/case_rebuild.py",
       "size": 13638,
       "sha256": "bf0ea73e88393b3b5d8a5ed088aabfba25fc1d518300bcf5d6869f817bb05584"
@@ -255,151 +285,156 @@
   "tool_assets": [],
   "commands": [],
   "facts": {
-    "crash_address": "0x044722EB",
-    "module_rva": "0x001B22EB",
-    "ida_address": "0x011B22EB",
     "causal_level": "L1",
-    "root_cause_status": "not_established",
-    "reproduction_status": "not_confirmed"
+    "crash_address": "0x044722EB",
+    "ida_address": "0x011B22EB",
+    "module_rva": "0x001B22EB",
+    "reproduction_status": "not_confirmed",
+    "root_cause_status": "not_established"
   },
   "claims": [
     {
       "confidence": "видно непосредственно в DMP",
       "marker": "<!-- claim:crash-site -->",
-      "id": "crash-site",
-      "type": "crash_site",
-      "statement": "Инструкция читает dword по ESI+0x1C. При ESI=0 получается 0x0000001C, ровно адрес из ExceptionInformation[1].",
+      "applicable_axes": [
+        "instruction"
+      ],
+      "confidence_vector": {
+        "family_coverage": "not_applicable",
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable"
+      },
       "evidence": [
         "input:pair-audit.json",
         "input:address-proof.json",
         "input:capabilities.json"
       ],
-      "applicable_axes": [
-        "instruction"
-      ],
-      "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "not_applicable",
-        "state_origin": "not_applicable",
-        "family_coverage": "not_applicable"
-      }
+      "id": "crash-site",
+      "statement": "Инструкция читает dword по ESI+0x1C. При ESI=0 получается 0x0000001C, ровно адрес из ExceptionInformation[1].",
+      "type": "crash_site"
     },
     {
       "confidence": "однозначно следует из листинга",
       "marker": "<!-- claim:local-null-mechanism -->",
-      "id": "local-null-mechanism",
-      "type": "local_mechanism",
-      "statement": "sub_11B8130 вернул EAX=0; sub_11B22C0 выполнил mov esi,eax и не сделал test/jz до первого разыменования.",
-      "evidence": [
-        "input:analysis-contract.json",
-        "input:../../modules/HD_HOTA.dll-5.8-R8.txt"
-      ],
       "applicable_axes": [
         "mechanism"
       ],
       "confidence_vector": {
+        "family_coverage": "not_applicable",
         "instruction": "not_applicable",
         "mechanism": "confirmed",
-        "state_origin": "not_applicable",
-        "family_coverage": "not_applicable"
-      }
+        "state_origin": "not_applicable"
+      },
+      "evidence": [
+        "input:analysis-contract.json",
+        "input:../../modules/HD_HOTA.dll-5.8-R8.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R33.txt"
+      ],
+      "id": "local-null-mechanism",
+      "statement": "В обеих версиях sink находится на +0x2B от начала функции: nullable-результат helper проходит EAX -> ESI и без проверки читается по [ESI+0x1C].",
+      "type": "local_mechanism"
     },
     {
       "confidence": "не проверено",
       "marker": "<!-- claim:state-origin-unknown -->",
-      "id": "state-origin-unknown",
-      "type": "state_origin",
-      "statement": "Объект ECX=0x108A3310 и глобалы в MiniDumpNormal не сохранены, поэтому окончательный выбор невозможен.",
-      "evidence": [
-        "input:analysis-contract.json",
-        "input:capabilities.json"
-      ],
       "applicable_axes": [
         "state_origin"
       ],
       "confidence_vector": {
+        "family_coverage": "not_applicable",
         "instruction": "not_applicable",
         "mechanism": "not_applicable",
-        "state_origin": "unknown",
-        "family_coverage": "not_applicable"
-      }
+        "state_origin": "unknown"
+      },
+      "evidence": [
+        "input:analysis-contract.json",
+        "input:capabilities.json"
+      ],
+      "id": "state-origin-unknown",
+      "statement": "Объект ECX=0x108A3310 и глобалы в MiniDumpNormal не сохранены, поэтому окончательный выбор невозможен.",
+      "type": "state_origin"
     },
     {
       "confidence": "выведено из совокупности признаков",
-      "marker": "<!-- claim:family-partial -->",
-      "id": "family-partial",
-      "type": "family_coverage",
-      "statement": "Два журнала 5.7 R33 имеют тот же локальный механизм, но общий источник состояния и общая первопричина для них не доказаны.",
-      "evidence": [
-        "input:series-parse.json",
-        "input:series-groups.json",
-        "input:family-membership.json",
-        "input:../../modules/HD_HOTA.dll-5.7 R33.txt"
-      ],
+      "marker": "<!-- claim:family-confirmed -->",
       "applicable_axes": [
         "family_coverage"
       ],
       "confidence_vector": {
+        "family_coverage": "confirmed",
         "instruction": "not_applicable",
         "mechanism": "not_applicable",
-        "state_origin": "not_applicable",
-        "family_coverage": "probable"
-      }
+        "state_origin": "not_applicable"
+      },
+      "evidence": [
+        "input:series-parse.json",
+        "input:series-groups.json",
+        "input:family-membership.json",
+        "input:case-manifest.json",
+        "input:analysis-contract.json",
+        "input:../../modules/HD_HOTA.dll-5.7 R33.txt",
+        "input:../../modules/HD_HOTA.dll-5.8-R8.txt"
+      ],
+      "id": "family-confirmed",
+      "statement": "Межверсионная семья подтверждена для 2 из 2 уникальных инцидентов по одинаковой локальной структуре дефекта; материализованы 3 TXT и 3 DMP, включая одну duplicate-пару исторического события.",
+      "type": "family_coverage"
     },
     {
       "confidence": "выведено из совокупности признаков",
       "marker": "<!-- claim:thread-boundary -->",
-      "id": "thread-boundary",
-      "type": "limitation",
-      "statement": "CONTEXT_THREAD_MISMATCH: номер потока исключения 17796, диапазон ESP — номер потока 20236; источники не объединяются.",
+      "applicable_axes": [],
+      "confidence_vector": {
+        "family_coverage": "not_applicable",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable"
+      },
       "evidence": [
         "input:capabilities.json",
         "input:analysis-contract.json"
       ],
-      "applicable_axes": [],
-      "confidence_vector": {
-        "instruction": "not_applicable",
-        "mechanism": "not_applicable",
-        "state_origin": "not_applicable",
-        "family_coverage": "not_applicable"
-      }
+      "id": "thread-boundary",
+      "statement": "CONTEXT_THREAD_MISMATCH: номер потока исключения 17796, диапазон ESP — номер потока 20236; источники не объединяются.",
+      "type": "limitation"
     },
     {
       "confidence": "однозначно следует из листинга",
       "marker": "<!-- claim:containment-fix -->",
-      "id": "containment-fix",
-      "type": "fix",
-      "statement": "Проверить EAX сразу после 0x011B22D8 и не выполнять чтение/memmove при NULL.",
-      "evidence": [
-        "input:analysis-contract.json",
-        "input:../../modules/HD_HOTA.dll-5.8-R8.txt"
-      ],
       "applicable_axes": [],
       "confidence_vector": {
+        "family_coverage": "not_applicable",
         "instruction": "not_applicable",
         "mechanism": "not_applicable",
-        "state_origin": "not_applicable",
-        "family_coverage": "not_applicable"
-      }
+        "state_origin": "not_applicable"
+      },
+      "evidence": [
+        "input:analysis-contract.json",
+        "input:../../modules/HD_HOTA.dll-5.8-R8.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R33.txt"
+      ],
+      "id": "containment-fix",
+      "statement": "Проверить EAX сразу после 0x011B22D8 в HD 5.8 R8 и после 0x011B1068 в HD 5.7 R33; не выполнять чтение/memmove при NULL.",
+      "type": "fix"
     },
     {
       "confidence": "выведено из совокупности признаков",
       "marker": "<!-- claim:height-branch-rejected -->",
-      "id": "height-branch-rejected",
-      "type": "observation",
-      "statement": "Ранняя ветвь height<=0 при width>0 для этого инцидента исключается: sub_11B8130 до возврата не меняет EDX, но в CONTEXT потока исключения сохранено EDX=0.",
+      "applicable_axes": [],
+      "confidence_vector": {
+        "family_coverage": "not_applicable",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable"
+      },
       "evidence": [
         "input:capabilities.json",
         "input:analysis-contract.json",
         "input:../../modules/HD_HOTA.dll-5.8-R8.txt"
       ],
-      "applicable_axes": [],
-      "confidence_vector": {
-        "instruction": "not_applicable",
-        "mechanism": "not_applicable",
-        "state_origin": "not_applicable",
-        "family_coverage": "not_applicable"
-      }
+      "id": "height-branch-rejected",
+      "statement": "Ранняя ветвь height<=0 при width>0 для этого инцидента исключается: sub_11B8130 до возврата не меняет EDX, но в CONTEXT потока исключения сохранено EDX=0.",
+      "type": "observation"
     }
   ],
   "code_evidence": {
@@ -409,7 +444,7 @@
   "toolchain": {
     "schema": 1,
     "kind": "toolchain_closure",
-    "git_commit": "e5870a19dcf48c282198c14198f48c98303c9a12",
+    "git_commit": "3390486a24b569998f72e1c1ecda9bfa04ca9bd5",
     "direct_tools": [
       ".agents/skills/address-mapping/address_proof.py",
       ".agents/skills/hota-crash-triage/analysis_contract.py",
@@ -443,9 +478,9 @@
       },
       {
         "repo_path": ".agents/skills/hota-crash-triage/case_manifest.py",
-        "size": 22764,
-        "sha256": "f4571bb0e1a103717743d4136f4bfce9d83d4331851fa03ed018e6863f9e4ae4",
-        "git_sha256": "f4571bb0e1a103717743d4136f4bfce9d83d4331851fa03ed018e6863f9e4ae4",
+        "size": 24546,
+        "sha256": "bca377802a213693d5bd5a2752f6600d1b47cd6afea79d12296854c0041a3018",
+        "git_sha256": "bca377802a213693d5bd5a2752f6600d1b47cd6afea79d12296854c0041a3018",
         "git_status": "matched"
       },
       {
@@ -506,9 +541,10 @@
       }
     ],
     "file_count": 12,
-    "bundle_sha256": "5b6c18db5bf9e92f25b61724772a3757239acd198d52b3b4ec14d1710c5124dc",
+    "bundle_sha256": "dc174a6ea9e803b718ba8f153881499a8dc88a67105b1db69fcf6bdb340259eb",
     "status": "clean",
     "errors": []
   },
-  "renderer_bundle_sha256": "5b6c18db5bf9e92f25b61724772a3757239acd198d52b3b4ec14d1710c5124dc"
+  "renderer_bundle_sha256": "dc174a6ea9e803b718ba8f153881499a8dc88a67105b1db69fcf6bdb340259eb",
+  "machine_results": []
 }

@@ -144,7 +144,8 @@
     {
       "fix_role": "containment",
       "supported_builds": [
-        "HD-mod 5.8 R8"
+        "HD-mod 5.8 R8",
+        "HD-mod 5.7 R33"
       ],
       "expected_evidence": [
         "NULL path exits before [ESI+0x1C] and memmove"
@@ -154,7 +155,8 @@
     {
       "fix_role": "diagnostic",
       "supported_builds": [
-        "HD-mod 5.8 R8"
+        "HD-mod 5.8 R8",
+        "HD-mod 5.7 R33"
       ],
       "expected_evidence": [
         "same-TID width, height, object allocation and pixel-buffer allocation results"
@@ -163,7 +165,8 @@
     {
       "fix_role": "adjacent_hardening",
       "supported_builds": [
-        "HD-mod 5.8 R8"
+        "HD-mod 5.8 R8",
+        "HD-mod 5.7 R33"
       ],
       "expected_evidence": [
         "all ten unguarded callsites either guard NULL or document an impossible-NULL precondition"
@@ -190,6 +193,31 @@
       "artifact_role": "derived_callsite_census",
       "phase_role": "contextual",
       "path": "mcp/.tmp-tools/case-stage/HD_HOTA.dll+0x1B22EB/analysis/helper-callsite-census-5.8-R8.json"
+    },
+    {
+      "artifact_role": "source_listing",
+      "phase_role": "causal_input",
+      "path": "modules/HD_HOTA.dll-5.7 R33.txt"
+    },
+    {
+      "artifact_role": "source_crash_log",
+      "phase_role": "contextual",
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.txt"
+    },
+    {
+      "artifact_role": "source_minidump",
+      "phase_role": "contextual",
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.dmp"
+    },
+    {
+      "artifact_role": "source_crash_log",
+      "phase_role": "contextual",
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.txt"
+    },
+    {
+      "artifact_role": "source_minidump",
+      "phase_role": "contextual",
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.dmp"
     }
   ],
   "family": {
@@ -203,10 +231,42 @@
       ]
     },
     "denominator": {
-      "scanned": 1,
-      "total": 1,
-      "scope": "current materialized case"
-    }
+      "scanned": 2,
+      "total": 2,
+      "scope": "current materialized case; unique incidents classified by family-membership.json"
+    },
+    "relationship_ladder": {
+      "same_sink": true,
+      "same_local_mechanism": true,
+      "same_state_origin": "unknown",
+      "same_root_cause": "unknown"
+    },
+    "cross_version_variants": [
+      {
+        "hota": "1.8.0",
+        "hd": "5.7 R33",
+        "consumer": "sub_11B1050",
+        "producer": "sub_11B6EC0",
+        "call": "0x011B1068",
+        "move": "0x011B1073",
+        "sink": "0x011B107B",
+        "function_offset": "+0x2B",
+        "flow": "EAX -> ESI -> [ESI+0x1C]",
+        "incident_id": "incident-5eb3e8171efa21bf"
+      },
+      {
+        "hota": "1.8.1",
+        "hd": "5.8 R8",
+        "consumer": "sub_11B22C0",
+        "producer": "sub_11B8130",
+        "call": "0x011B22D8",
+        "move": "0x011B22E3",
+        "sink": "0x011B22EB",
+        "function_offset": "+0x2B",
+        "flow": "EAX -> ESI -> [ESI+0x1C]",
+        "incident_id": "incident-5fce36c679bf907f"
+      }
+    ]
   },
   "call_chain": [
     {

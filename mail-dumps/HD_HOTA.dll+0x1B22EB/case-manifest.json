@@ -6,36 +6,38 @@
   "status": "ready",
   "errors": [],
   "counts": {
-    "physical_txt": 1,
-    "physical_dmp": 1,
-    "unique_incidents": 1,
-    "profiled_dmp": 1
+    "physical_txt": 3,
+    "physical_dmp": 3,
+    "unique_incidents": 2,
+    "profiled_dmp": 3
   },
   "versions": {
     "hota": [
+      "1.8.0",
       "1.8.1"
     ],
     "hd": [
+      "5.7 R33",
       "5.8 R8"
     ]
   },
   "axes": {
     "physical_materialization": {
-      "txt": 1,
-      "dmp": 1,
-      "exact_pairs": 1
+      "txt": 3,
+      "dmp": 3,
+      "exact_pairs": 3
     },
     "incident_identity": {
-      "unique_incidents": 1,
+      "unique_incidents": 2,
       "dedup_basis": "event_fingerprint"
     },
     "family_membership": {
       "counts": {
-        "unknown": 1
+        "confirmed": 2
       },
-      "classification_complete": false,
-      "same_sink": "unknown",
-      "same_local_mechanism": "unknown",
+      "classification_complete": true,
+      "same_sink": true,
+      "same_local_mechanism": true,
       "same_state_origin": "unknown",
       "same_root_cause": "unknown"
     },
@@ -46,24 +48,26 @@
     }
   },
   "report_contract": {
-    "numerator": 1,
-    "denominator": 1,
+    "numerator": 2,
+    "denominator": 3,
     "population": "current_materialized_case",
     "scope": "local_case",
     "unit": "unique_incident",
     "dedup_basis": "event_fingerprint",
     "hota_versions": [
+      "1.8.0",
       "1.8.1"
     ],
     "hd_versions": [
+      "5.7 R33",
       "5.8 R8"
     ]
   },
   "archive_contract": {
     "population": "all_materialized_primary_txt_dmp",
-    "txt_members": 1,
-    "dmp_members": 1,
-    "member_count": 2,
+    "txt_members": 3,
+    "dmp_members": 3,
+    "member_count": 6,
     "members": [
       {
         "path": "HD_HOTA.dll+0x1B22EB-5.8-R8-181.dmp",
@@ -74,15 +78,79 @@
         "path": "HD_HOTA.dll+0x1B22EB-5.8-R8-181.txt",
         "size": 10652,
         "sha256": "f8b6a56167303a99496d76c32e26e8670a568069b29e2122a5c4f38c4cbcf4f1"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.dmp",
+        "size": 125759,
+        "sha256": "737eaae081d8a037e547c9f61fac08f7aa2475feae34688fa47f6971cf13e9a5"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.txt",
+        "size": 8407,
+        "sha256": "d72f174ee9603b62a2f32dc27f0cbe79bfb8b1f144384c8a5e4bb86885bb0a02"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.dmp",
+        "size": 125759,
+        "sha256": "737eaae081d8a037e547c9f61fac08f7aa2475feae34688fa47f6971cf13e9a5"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.txt",
+        "size": 9305,
+        "sha256": "5b69fd6e2c084d247772c6888a05e81937e152cce040ce8c4c86d7102dc3fc22"
       }
     ]
   },
   "capabilities_contract": {
-    "dmp_count": 1,
-    "profiled_count": 1,
+    "dmp_count": 3,
+    "profiled_count": 3,
     "one_row_per_dmp": true
   },
   "incidents": [
+    {
+      "incident_id": "incident-5eb3e8171efa21bf",
+      "event_fingerprint": "5eb3e8171efa21bf21d7afd189e26eea4919e5dacd21a56755843a160a84df7e",
+      "versions": {
+        "hota": "1.8.0",
+        "hd": "5.7 R33"
+      },
+      "crash_site": "hd_hota.dll+0x1b107b",
+      "family_membership": "confirmed",
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.txt",
+            "size": 8407,
+            "sha256": "d72f174ee9603b62a2f32dc27f0cbe79bfb8b1f144384c8a5e4bb86885bb0a02"
+          },
+          "dmp": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.dmp",
+            "size": 125759,
+            "sha256": "737eaae081d8a037e547c9f61fac08f7aa2475feae34688fa47f6971cf13e9a5"
+          },
+          "pair_quality": "exact_pair"
+        },
+        {
+          "txt": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.txt",
+            "size": 9305,
+            "sha256": "5b69fd6e2c084d247772c6888a05e81937e152cce040ce8c4c86d7102dc3fc22"
+          },
+          "dmp": {
+            "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.dmp",
+            "size": 125759,
+            "sha256": "737eaae081d8a037e547c9f61fac08f7aa2475feae34688fa47f6971cf13e9a5"
+          },
+          "pair_quality": "exact_pair"
+        }
+      ]
+    },
     {
       "incident_id": "incident-5fce36c679bf907f",
       "event_fingerprint": "5fce36c679bf907f1a994ae5438cd5123d6c05168915973f3d560c7655ea23e8",
@@ -91,10 +159,10 @@
         "hd": "5.8 R8"
       },
       "crash_site": "hd_hota.dll+0x1b22eb",
-      "family_membership": "unknown",
+      "family_membership": "confirmed",
       "relationship_ladder": {
-        "same_sink": "unknown",
-        "same_local_mechanism": "unknown",
+        "same_sink": true,
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       },
@@ -116,10 +184,10 @@
     }
   ],
   "sources": {
-    "series": "/Users/Shared/ii/mcp/.tmp-tools/case-stage/HD_HOTA.dll+0x1B22EB/series-groups.json",
-    "pair_audit": "/Users/Shared/ii/mcp/.tmp-tools/case-stage/HD_HOTA.dll+0x1B22EB/pair-audit.json",
-    "family_membership": "/Users/Shared/ii/mcp/.tmp-tools/case-stage/HD_HOTA.dll+0x1B22EB/family-membership.json",
-    "capabilities": "/Users/Shared/ii/mcp/.tmp-tools/case-stage/HD_HOTA.dll+0x1B22EB/capabilities.json"
+    "series": "/Users/Shared/ii/mcp/.tmp-tools/case-rebuild/HD_HOTA.dll+0x1B22EB/series-groups.json",
+    "pair_audit": "/Users/Shared/ii/mcp/.tmp-tools/case-rebuild/HD_HOTA.dll+0x1B22EB/pair-audit.json",
+    "family_membership": "/Users/Shared/ii/mcp/.tmp-tools/case-rebuild/HD_HOTA.dll+0x1B22EB/family-membership.json",
+    "capabilities": "/Users/Shared/ii/mcp/.tmp-tools/case-rebuild/HD_HOTA.dll+0x1B22EB/capabilities.json"
   },
-  "case_fingerprint": "b8b7cee9fd87332b16ddb4c61aeb24ff6b96f00913545656c0449b66d07b931b"
+  "case_fingerprint": "13bc218ccc6a7385016d0f9161dd08579d5420595ad227ba0ab1138d7d9a1644"
 }

@@ -1,7 +1,7 @@
 {
   "schema": 2,
-  "generated_at": "2026-09-02T18:47:42.171916+00:00",
-  "source": "evidence-config.json",
+  "generated_at": "2026-09-02T20:57:34.768242+00:00",
+  "source": "mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/coverage-claims.json",
   "axes": [
     "instruction",
     "mechanism",
@@ -38,10 +38,11 @@
     {
       "id": "local-null-mechanism",
       "type": "local_mechanism",
-      "statement": "sub_11B8130 вернул EAX=0; sub_11B22C0 выполнил mov esi,eax и не сделал test/jz до первого разыменования.",
+      "statement": "В обеих версиях sink находится на +0x2B от начала функции: nullable-результат helper проходит EAX -> ESI и без проверки читается по [ESI+0x1C].",
       "evidence": [
         "input:analysis-contract.json",
-        "input:../../modules/HD_HOTA.dll-5.8-R8.txt"
+        "input:../../modules/HD_HOTA.dll-5.8-R8.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R33.txt"
       ],
       "confidence": "однозначно следует из листинга",
       "applicable_axes": [
@@ -74,14 +75,17 @@
       }
     },
     {
-      "id": "family-partial",
+      "id": "family-confirmed",
       "type": "family_coverage",
-      "statement": "Два журнала 5.7 R33 имеют тот же локальный механизм, но общий источник состояния и общая первопричина для них не доказаны.",
+      "statement": "Межверсионная семья подтверждена для 2 из 2 уникальных инцидентов по одинаковой локальной структуре дефекта; материализованы 3 TXT и 3 DMP, включая одну duplicate-пару исторического события.",
       "evidence": [
         "input:series-parse.json",
         "input:series-groups.json",
         "input:family-membership.json",
-        "input:../../modules/HD_HOTA.dll-5.7 R33.txt"
+        "input:case-manifest.json",
+        "input:analysis-contract.json",
+        "input:../../modules/HD_HOTA.dll-5.7 R33.txt",
+        "input:../../modules/HD_HOTA.dll-5.8-R8.txt"
       ],
       "confidence": "выведено из совокупности признаков",
       "applicable_axes": [
@@ -91,7 +95,7 @@
         "instruction": "not_applicable",
         "mechanism": "not_applicable",
         "state_origin": "not_applicable",
-        "family_coverage": "probable"
+        "family_coverage": "confirmed"
       }
     },
     {
@@ -114,10 +118,11 @@
     {
       "id": "containment-fix",
       "type": "fix",
-      "statement": "Проверить EAX сразу после 0x011B22D8 и не выполнять чтение/memmove при NULL.",
+      "statement": "Проверить EAX сразу после 0x011B22D8 в HD 5.8 R8 и после 0x011B1068 в HD 5.7 R33; не выполнять чтение/memmove при NULL.",
       "evidence": [
         "input:analysis-contract.json",
-        "input:../../modules/HD_HOTA.dll-5.8-R8.txt"
+        "input:../../modules/HD_HOTA.dll-5.8-R8.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R33.txt"
       ],
       "confidence": "однозначно следует из листинга",
       "applicable_axes": [],
@@ -162,7 +167,7 @@
     },
     "family_coverage": {
       "not_applicable": 6,
-      "probable": 1
+      "confirmed": 1
     }
   },
   "diagnostic_completeness": {
@@ -173,14 +178,13 @@
       "instruction": "confirmed",
       "mechanism": "confirmed",
       "state_origin": "unknown",
-      "family_coverage": "probable",
+      "family_coverage": "confirmed",
       "reproduction": "unknown"
     },
     "root_cause_ready": false,
     "next_required": [
       "capture_state_origin_and_writer",
-      "confirm_reproduction",
-      "complete_family_coverage"
+      "confirm_reproduction"
     ]
   },
   "errors": [],

@@ -1,6 +1,6 @@
 {
   "schema": 4,
-  "generated_at": "2026-09-02T18:53:43.327445+00:00",
+  "generated_at": "2026-09-02T20:18:41.498308+00:00",
   "family_id": "family-HD_HOTA.dll+0x1B22EB",
   "source": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/family-membership-input.json",
   "scope_id": "family-HD_HOTA.dll+0x1B22EB",
@@ -8,46 +8,48 @@
   "scope": {
     "id": "family-HD_HOTA.dll+0x1B22EB",
     "kind": "family",
-    "source": "series-groups.json",
-    "incidents": 1,
-    "classification": "current materialized incident confirmed; two historical cases remain probable context only",
+    "source": "series-groups.json and relocation-manifest.json",
+    "incidents": 2,
+    "classification": "two unique cross-version incidents confirmed as one family at the same local-defect level; state origin and root cause remain unknown",
     "address_range": {
-      "start_rva": "0x001B22EB",
+      "start_rva": "0x001B107B",
       "end_rva": "0x001B22EB",
       "end_inclusive": true,
-      "human_label": "HD_HOTA.dll+0x1B22EB current materialized family",
-      "basis": "Exact current crash site after runtime-base normalization; historical 5.7 R33 cases are not included as confirmed members"
+      "human_label": "HD_HOTA.dll nullable-Pcx16 unchecked-read family across 5.7 R33 and 5.8 R8",
+      "basis": "Envelope of two version-specific exact crash sites; exact listings show the same function-relative sink +0x2B and the same nullable helper result dereferenced at +0x1C without a guard"
     }
   },
   "candidate_census": {
-    "total": 1,
-    "classified": 1,
-    "confirmed": 1,
+    "total": 2,
+    "classified": 2,
+    "confirmed": 2,
     "probable": 0,
     "context_only": 0,
     "excluded": 0,
     "unknown": 0,
     "blocked": 0
   },
-  "incident_set_fingerprint": "910f0bd56e47145ebe54aa3d368815ee3958c1e4e7ec1206c0f44e144f5bda2d",
+  "incident_set_fingerprint": "6c51ffef1c0f05e09f9d5b92de097b84b9e61867252c9bb05f77b5d3285fde2d",
   "human_decision": {
     "author": "1 1",
-    "decided_at": "2026-09-02T21:41:37.681+03:00",
-    "basis": "Пользователь после перепроверки диагноза и внесения уточнений отдельно одобрил публикацию отчёта, где текущий инцидент указан единственным подтверждённым членом материализованной семьи.",
-    "source": "Текущий чат: явная команда «публикуй отчёт» от 2026-09-02T21:41:37.681+03:00",
-    "incident_set_fingerprint": "910f0bd56e47145ebe54aa3d368815ee3958c1e4e7ec1206c0f44e144f5bda2d"
+    "decided_at": "2026-09-02T23:08:31.025+03:00",
+    "basis": "Пользователь явно потребовал перенести два исторических журнала в папку дела и включить их в счётчик; exact-listing сверка подтверждает одну межверсионную семью на уровне локального дефекта.",
+    "source": "Текущий чат: «ты пишешь в отчёте, что есть другие ситуации и исторические случаи, но их не перенёс в папку. И количество журналов в бейдже не увеличил»",
+    "incident_set_fingerprint": "6c51ffef1c0f05e09f9d5b92de097b84b9e61867252c9bb05f77b5d3285fde2d"
   },
   "provenance_warnings": [],
   "memberships": [
     {
       "incident_id": "incident-5fce36c679bf907f",
       "membership": "confirmed",
-      "basis": "Текущий инцидент определяет материализованную семью: exact pair TXT/DMP, подтверждённый sink RVA 0x001B22EB и подтверждённый локальный механизм непроверенного NULL.",
+      "basis": "HD 5.8 R8: sub_11B8130 возвращает NULL, sub_11B22C0 переносит EAX в ESI и на +0x2B без проверки читает [ESI+0x1C]; TXT/DMP фиксируют AV read 0x1C при EAX=ESI=0.",
       "evidence": [
-        "pair-audit.json",
+        "HD_HOTA.dll+0x1B22EB-5.8-R8-181.txt",
+        "HD_HOTA.dll+0x1B22EB-5.8-R8-181.dmp",
         "address-proof.json",
         "analysis-contract.json",
-        "coverage.json"
+        "modules/HD_HOTA.dll-5.8-R8.txt",
+        "relocation-manifest.json"
       ],
       "fingerprint": {
         "structure_role": "nullable Pcx16 creation result",
@@ -64,10 +66,38 @@
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       }
+    },
+    {
+      "incident_id": "incident-5eb3e8171efa21bf",
+      "membership": "confirmed",
+      "basis": "HD 5.7 R33: sub_11B6EC0 возвращает NULL, sub_11B1050 переносит EAX в ESI и на +0x2B без проверки читает [ESI+0x1C]; обе физические TXT-копии описывают один AV read 0x1C при EAX=ESI=0.",
+      "evidence": [
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.txt",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.txt",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.dmp",
+        "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.dmp",
+        "modules/HD_HOTA.dll-5.7 R33.txt",
+        "relocation-manifest.json"
+      ],
+      "fingerprint": {
+        "structure_role": "nullable Pcx16 creation result",
+        "field": "+0x1C",
+        "call_tail": [
+          "sub_11B1050",
+          "sub_11B6EC0"
+        ],
+        "frame_depth": 0
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
     }
   ],
   "counts": {
-    "confirmed": 1
+    "confirmed": 2
   },
   "errors": [],
   "registry_valid": true,

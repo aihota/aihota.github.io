@@ -8,8 +8,7 @@
   "causality_level": "L1",
   "next_required": [
     "capture_state_origin_and_writer",
-    "confirm_reproduction",
-    "complete_family_coverage"
+    "confirm_reproduction"
   ],
   "steps": [
     {
@@ -96,14 +95,6 @@
         "positive_control",
         "result.json"
       ]
-    },
-    {
-      "id": "family-coverage",
-      "action": "repeat one representative from every cause group",
-      "success_evidence": [
-        "representative_ids",
-        "group_results"
-      ]
     }
   ],
   "inputs": {
@@ -111,17 +102,53 @@
     "full_dump_available": false,
     "representatives": [
       {
+        "incident_id": "incident-5eb3e8171efa21bf",
+        "txt": "HD_HOTA.dll+0x1B107B-1.8.0-1.txt",
+        "newly_covered": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-95c429362291",
+          "formula:unknown",
+          "hd:5.7 R33",
+          "hota:1.8.0",
+          "outlier:HD_HOTA.dll+0x1B107B-1.8.0-1.txt",
+          "subsystem:unknown"
+        ],
+        "all_features": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-95c429362291",
+          "formula:unknown",
+          "hd:5.7 R33",
+          "hota:1.8.0",
+          "outlier:HD_HOTA.dll+0x1B107B-1.8.0-1.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
         "incident_id": "incident-5fce36c679bf907f",
         "txt": "HD_HOTA.dll+0x1B22EB-5.8-R8-181.txt",
         "newly_covered": [
           "cause:cause-083992c66522",
-          "formula:unknown",
           "hd:5.8 R8",
           "hota:1.8.1",
-          "outlier:HD_HOTA.dll+0x1B22EB-5.8-R8-181.txt",
-          "subsystem:unknown"
+          "outlier:HD_HOTA.dll+0x1B22EB-5.8-R8-181.txt"
         ],
         "all_features": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
           "cause:cause-083992c66522",
           "formula:unknown",
           "hd:5.8 R8",
@@ -137,40 +164,40 @@
   },
   "populations": {
     "physical_txt": {
-      "numerator": 1,
-      "denominator": 1,
+      "numerator": 3,
+      "denominator": 3,
       "population": "crash TXT in series",
       "scope": "current_series",
       "unit": "file",
       "dedup_basis": "none"
     },
     "unique_incidents": {
-      "numerator": 1,
-      "denominator": 1,
+      "numerator": 2,
+      "denominator": 3,
       "population": "crash TXT in series",
       "scope": "current_series",
       "unit": "incident",
       "dedup_basis": "normalized_time_tag_exception_context"
     },
     "duplicate_instances": {
-      "numerator": 0,
-      "denominator": 1,
+      "numerator": 1,
+      "denominator": 3,
       "population": "crash TXT in series",
       "scope": "current_series",
       "unit": "file",
       "dedup_basis": "normalized_time_tag_exception_context"
     },
     "physical_dmp": {
-      "numerator": 1,
-      "denominator": 1,
+      "numerator": 3,
+      "denominator": 3,
       "population": "paired DMP in current series",
       "scope": "current_series",
       "unit": "file",
       "dedup_basis": "none"
     },
     "unique_dmp": {
-      "numerator": 1,
-      "denominator": 1,
+      "numerator": 2,
+      "denominator": 3,
       "population": "paired DMP in current series",
       "scope": "current_series",
       "unit": "dump",
@@ -178,15 +205,15 @@
     },
     "classified_incidents": {
       "numerator": 0,
-      "denominator": 1,
+      "denominator": 2,
       "population": "unique incidents",
       "scope": "current_series",
       "unit": "incident",
       "dedup_basis": "normalized_time_tag_exception_context"
     },
     "unresolved_incidents": {
-      "numerator": 1,
-      "denominator": 1,
+      "numerator": 2,
+      "denominator": 2,
       "population": "unique incidents",
       "scope": "current_series",
       "unit": "incident",
@@ -194,7 +221,7 @@
     },
     "confirmed_family_incidents": {
       "numerator": 0,
-      "denominator": 1,
+      "denominator": 2,
       "population": "unique incidents",
       "scope": "current_series",
       "unit": "incident",

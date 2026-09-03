@@ -57,10 +57,122 @@
       },
       "status": "exact_pair",
       "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.txt",
+      "dmp": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.dmp",
+      "sha256_txt": "d72f174ee9603b62a2f32dc27f0cbe79bfb8b1f144384c8a5e4bb86885bb0a02",
+      "sha256_dmp": "737eaae081d8a037e547c9f61fac08f7aa2475feae34688fa47f6971cf13e9a5",
+      "context_eip": "0x0485107B",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1B107B",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            28
+          ],
+          "access": "read",
+          "fault_address": "0x0000001C"
+        },
+        "instruction": {
+          "available": false,
+          "bytes": "FF 76 1C FF 71 30 FF 76 30 E8 A7 47 01 00 A1",
+          "reason": "opcode_not_in_conservative_subset",
+          "runtime": "0x0485107B"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18837504,
+        "dmp_module_size": 18837504,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
+    },
+    {
+      "stem": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180",
+      "txt": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.txt",
+      "dmp": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.dmp",
+      "sha256_txt": "5b69fd6e2c084d247772c6888a05e81937e152cce040ce8c4c86d7102dc3fc22",
+      "sha256_dmp": "737eaae081d8a037e547c9f61fac08f7aa2475feae34688fa47f6971cf13e9a5",
+      "context_eip": "0x0485107B",
+      "module": "HD_HOTA.dll",
+      "rva": "0x1B107B",
+      "level": "CONTEXT.EIP + module + RVA",
+      "txt_exception": "EXCEPTION_ACCESS_VIOLATION",
+      "dmp_exception": "0xC0000005",
+      "operation": "read",
+      "reported_access": "read",
+      "effective_access": "read",
+      "access_sources": {
+        "reporter_text": "read",
+        "exception_parameters": "read",
+        "instruction": null
+      },
+      "access_conflict": false,
+      "access_evidence": {
+        "reporter_text": {
+          "available": true,
+          "access": "read"
+        },
+        "exception_parameters": {
+          "available": true,
+          "number_parameters": 2,
+          "values": [
+            0,
+            28
+          ],
+          "access": "read",
+          "fault_address": "0x0000001C"
+        },
+        "instruction": {
+          "available": false,
+          "bytes": "FF 76 1C FF 71 30 FF 76 30 E8 A7 47 01 00 A1",
+          "reason": "opcode_not_in_conservative_subset",
+          "runtime": "0x0485107B"
+        },
+        "precedence": [
+          "exception_parameters",
+          "instruction",
+          "reporter_text"
+        ]
+      },
+      "identity": {
+        "txt_module_size": 18837504,
+        "dmp_module_size": 18837504,
+        "module_size_match": true
+      },
+      "status": "exact_pair",
+      "reason": "CONTEXT.EIP/module/RVA и событие совпали"
     }
   ],
   "counts": {
-    "exact_pair": 1,
+    "exact_pair": 3,
     "unverifiable_missing_txt_identity": 0,
     "unverifiable_missing_dmp_identity": 0,
     "same_site_different_exception": 0,
