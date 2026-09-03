@@ -156,6 +156,21 @@
     "reproduction_status": "not_confirmed",
     "root_cause_status": "not_established"
   },
+  "fact_owners": {
+    "address_proof": [
+      "crash_address",
+      "ida_address",
+      "module_rva"
+    ],
+    "analysis_contract": [],
+    "coverage_contract": [
+      "causal_level",
+      "reproduction_status",
+      "root_cause_status"
+    ],
+    "evidence_manifest": [],
+    "repro_plan": []
+  },
   "inputs": [
     {
       "path": "HD_HOTA.dll+0x1B22EB-5.8-R8-181.txt",

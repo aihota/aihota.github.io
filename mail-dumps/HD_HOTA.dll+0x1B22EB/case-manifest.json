@@ -9,6 +9,7 @@
     "physical_txt": 3,
     "physical_dmp": 3,
     "unique_incidents": 2,
+    "family_events": 2,
     "profiled_dmp": 3
   },
   "versions": {
@@ -50,6 +51,8 @@
   "report_contract": {
     "numerator": 2,
     "denominator": 3,
+    "census_numerator": 2,
+    "census_denominator": 3,
     "population": "current_materialized_case",
     "scope": "local_case",
     "unit": "unique_incident",
@@ -184,10 +187,10 @@
     }
   ],
   "sources": {
-    "series": "/Users/Shared/ii/mcp/.tmp-tools/case-rebuild/HD_HOTA.dll+0x1B22EB/series-groups.json",
-    "pair_audit": "/Users/Shared/ii/mcp/.tmp-tools/case-rebuild/HD_HOTA.dll+0x1B22EB/pair-audit.json",
-    "family_membership": "/Users/Shared/ii/mcp/.tmp-tools/case-rebuild/HD_HOTA.dll+0x1B22EB/family-membership.json",
-    "capabilities": "/Users/Shared/ii/mcp/.tmp-tools/case-rebuild/HD_HOTA.dll+0x1B22EB/capabilities.json"
+    "series": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/case-rebuild/series-groups.json",
+    "pair_audit": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/case-rebuild/pair-audit.json",
+    "family_membership": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/case-rebuild/family-membership.json",
+    "capabilities": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/case-rebuild/capabilities.json"
   },
-  "case_fingerprint": "13bc218ccc6a7385016d0f9161dd08579d5420595ad227ba0ab1138d7d9a1644"
+  "case_fingerprint": "b6fcb0c56dbbf707ab51859a69f3093359a9466eecf8d622fb4d919b7d4231bb"
 }

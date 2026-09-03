@@ -1,6 +1,6 @@
 {
   "schema": 4,
-  "generated_at": "2026-09-03T09:42:38.452096+00:00",
+  "generated_at": "2026-09-03T15:50:49.010202+00:00",
   "parser_revision": "3390486a24b569998f72e1c1ecda9bfa04ca9bd5",
   "binding": {
     "mode": "hybrid-v1",
@@ -9,8 +9,8 @@
   },
   "report": {
     "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
-    "size": 22008,
-    "sha256": "62289048744103cdaff08f35b1b1894b44070c71ff9d4a2415c3dc7dfbf0ad9c"
+    "size": 22146,
+    "sha256": "478d1c641738b62d6033288dd3b529221364e523046125b7be43e553dada993d"
   },
   "inputs": [
     {
@@ -88,19 +88,19 @@
     {
       "path": "family-membership.json",
       "size": 4762,
-      "sha256": "5635e1e174765b68f2f0ab335026da9b1af76986a3855b686e494a00c75dcc36",
+      "sha256": "d397749b792c4316df991a3c17ef2cbfdd8edb35e61372131b6ca81ae20d7171",
       "role": "derived-evidence"
     },
     {
       "path": "case-manifest.json",
-      "size": 6308,
-      "sha256": "a71fe767f7f44b0cce847ba7892556dd702965c2aa9bcfd01734e003005e7476",
+      "size": 6460,
+      "sha256": "101008a6795fc54458f48585f9aefce35be25bf8df6c985c825675870901e7f5",
       "role": "derived-evidence"
     },
     {
       "path": "repro-plan.json",
-      "size": 7114,
-      "sha256": "5c00002f65ee0845f126c39f1fb9e88f18f69a281e589368b10cb9f851cdf56f",
+      "size": 7800,
+      "sha256": "dfaca8ee2c95a8630c0edbe1fb0f03c5d985624442cb1ca151acddd24f2c902d",
       "role": "derived-evidence"
     },
     {
@@ -123,8 +123,8 @@
     },
     {
       "path": "evidence-config.json",
-      "size": 8973,
-      "sha256": "ff3a9bd9b462e98ff5b81db49e9c86b81148d70770f4abdc7d9a2a221b5806bc",
+      "size": 9280,
+      "sha256": "c7596e7dc89997a405f3a8f6018f41d4047f46b48bf010178418a8dd24b0fda6",
       "role": "derived-evidence"
     }
   ],
@@ -142,16 +142,13 @@
       "result_scope": {
         "kind": "facts",
         "keys": [
-          "causal_level",
           "crash_address",
           "ida_address",
-          "module_rva",
-          "reproduction_status",
-          "root_cause_status"
+          "module_rva"
         ],
-        "ownership": "legacy_shared"
+        "ownership": "explicit"
       },
-      "result_fingerprint": "8fdbe9150a17e1862e26108cf8f3659aaf9d3a35155b045afaca305ad3b9f144",
+      "result_fingerprint": "4bf571bb7266c31e632b4c715ebdc818bafdf0b606d3fa9dad3f8848cf3078f7",
       "revision": {
         "size": 6725,
         "sha256": "6b46bb722302ff58686668a9c06c29e02ff52b888f6dd5423e2a6b1c9e59f2c6",
@@ -170,17 +167,10 @@
       },
       "result_scope": {
         "kind": "facts",
-        "keys": [
-          "causal_level",
-          "crash_address",
-          "ida_address",
-          "module_rva",
-          "reproduction_status",
-          "root_cause_status"
-        ],
-        "ownership": "legacy_shared"
+        "keys": [],
+        "ownership": "explicit"
       },
-      "result_fingerprint": "8fdbe9150a17e1862e26108cf8f3659aaf9d3a35155b045afaca305ad3b9f144",
+      "result_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "revision": {
         "size": 12272,
         "sha256": "846623acb217e184e2bd51f3b8a90230d8eee134a879d0cde0c598873f9daee2",
@@ -202,15 +192,12 @@
         "kind": "facts",
         "keys": [
           "causal_level",
-          "crash_address",
-          "ida_address",
-          "module_rva",
           "reproduction_status",
           "root_cause_status"
         ],
-        "ownership": "legacy_shared"
+        "ownership": "explicit"
       },
-      "result_fingerprint": "8fdbe9150a17e1862e26108cf8f3659aaf9d3a35155b045afaca305ad3b9f144",
+      "result_fingerprint": "78f5008c0709f1662cf453088e179c05d465c346ca0b734754d6dd28b40fdcf0",
       "revision": {
         "size": 9421,
         "sha256": "953020e43c32ebd295da252986537608c31a574b1f92d2b3b584bcdc76f5d995",
@@ -230,17 +217,10 @@
       },
       "result_scope": {
         "kind": "facts",
-        "keys": [
-          "causal_level",
-          "crash_address",
-          "ida_address",
-          "module_rva",
-          "reproduction_status",
-          "root_cause_status"
-        ],
-        "ownership": "legacy_shared"
+        "keys": [],
+        "ownership": "explicit"
       },
-      "result_fingerprint": "8fdbe9150a17e1862e26108cf8f3659aaf9d3a35155b045afaca305ad3b9f144",
+      "result_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "revision": {
         "size": 56919,
         "sha256": "9370b9d0315f94851ff85a8b5beb4d4858c92f307d1ad8e9349953e8c0d22c45",
@@ -252,28 +232,21 @@
       "binding": "contract-result-v1",
       "contract": {
         "name": "repro_plan",
-        "version": "1",
+        "version": "2",
         "outputs": [
           "repro-plan.json"
         ]
       },
       "result_scope": {
         "kind": "facts",
-        "keys": [
-          "causal_level",
-          "crash_address",
-          "ida_address",
-          "module_rva",
-          "reproduction_status",
-          "root_cause_status"
-        ],
-        "ownership": "legacy_shared"
+        "keys": [],
+        "ownership": "explicit"
       },
-      "result_fingerprint": "8fdbe9150a17e1862e26108cf8f3659aaf9d3a35155b045afaca305ad3b9f144",
+      "result_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "revision": {
-        "size": 10339,
-        "sha256": "9a35fbd614506b5662de65b189b3fa61abe4cb94d01eb6d6c2ac825b36fce0c2",
-        "git": "72ddad529ed41c46a5d7aa0baaa9dc26bb8a7780"
+        "size": 12201,
+        "sha256": "da50a907d08589b1998cfbe7b4d84034bc23ee1273e9931de0d04c9ffbe031b8",
+        "git": "7321e86074224d6aaf20bfbe8b6ccc6c7999f036"
       }
     },
     {
@@ -444,7 +417,7 @@
   "toolchain": {
     "schema": 1,
     "kind": "toolchain_closure",
-    "git_commit": "b18961b4e7a6ad06d48353744e6aa3899030487e",
+    "git_commit": "7321e86074224d6aaf20bfbe8b6ccc6c7999f036",
     "direct_tools": [
       ".agents/skills/address-mapping/address_proof.py",
       ".agents/skills/hota-crash-triage/analysis_contract.py",
@@ -478,9 +451,9 @@
       },
       {
         "repo_path": ".agents/skills/hota-crash-triage/case_manifest.py",
-        "size": 24546,
-        "sha256": "bca377802a213693d5bd5a2752f6600d1b47cd6afea79d12296854c0041a3018",
-        "git_sha256": "bca377802a213693d5bd5a2752f6600d1b47cd6afea79d12296854c0041a3018",
+        "size": 25545,
+        "sha256": "9e7cd28beccc1a06ee239590bed13da0721b00c10c42335861e63c41f137749c",
+        "git_sha256": "9e7cd28beccc1a06ee239590bed13da0721b00c10c42335861e63c41f137749c",
         "git_status": "matched"
       },
       {
@@ -527,9 +500,9 @@
       },
       {
         "repo_path": ".agents/skills/hota-crash-triage/repro_plan.py",
-        "size": 10339,
-        "sha256": "9a35fbd614506b5662de65b189b3fa61abe4cb94d01eb6d6c2ac825b36fce0c2",
-        "git_sha256": "9a35fbd614506b5662de65b189b3fa61abe4cb94d01eb6d6c2ac825b36fce0c2",
+        "size": 12201,
+        "sha256": "da50a907d08589b1998cfbe7b4d84034bc23ee1273e9931de0d04c9ffbe031b8",
+        "git_sha256": "da50a907d08589b1998cfbe7b4d84034bc23ee1273e9931de0d04c9ffbe031b8",
         "git_status": "matched"
       },
       {
@@ -541,10 +514,10 @@
       }
     ],
     "file_count": 12,
-    "bundle_sha256": "dc174a6ea9e803b718ba8f153881499a8dc88a67105b1db69fcf6bdb340259eb",
+    "bundle_sha256": "80c8106ba89067537464186272271d1c1bb05a32b74250b89b4a02498c168611",
     "status": "clean",
     "errors": []
   },
-  "renderer_bundle_sha256": "dc174a6ea9e803b718ba8f153881499a8dc88a67105b1db69fcf6bdb340259eb",
+  "renderer_bundle_sha256": "80c8106ba89067537464186272271d1c1bb05a32b74250b89b4a02498c168611",
   "machine_results": []
 }

@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "created": "2026-09-02",
   "target": "mail-dumps/HD_HOTA.dll+0x1B22EB",
   "source_root": "",
@@ -95,7 +95,7 @@
   ],
   "mcp_relocation_seal": {
     "schema": 1,
-    "hmac_sha256": "8ded12083ab1c70c45af1515355d7c663825a888f5786a2b991b0876d11adaa9"
+    "hmac_sha256": "2d10d45396d0b696d4d4c1cfccd1eb0c92f28dce0b5c16ee19c5c6f1428d2be3"
   },
   "source_cleanup": {
     "state": "applied",
@@ -158,6 +158,209 @@
     ],
     "mode": "delete_after_verified_consolidation",
     "deleted_at": "2026-09-03T12:51:42.317687Z",
-    "recovered_from_snapshot": "20260903-152906"
+    "recovered_from_snapshot": "20260903-152906",
+    "consolidation_attestation": {
+      "schema": 1,
+      "kind": "source_cleanup_consolidation_attestation",
+      "status": "passed",
+      "source_cases": [
+        "mail-dumps/HD_HOTA.dll+0x1B107B"
+      ],
+      "source_item_hashes": [
+        {
+          "path": "mail-dumps/HD_HOTA.dll+0x1B107B/.DS_Store",
+          "size": 10244,
+          "sha256": "7c191aebef3997f801097c9028cd844d931bfa92a7afbea34469c7f7d66cc43f"
+        },
+        {
+          "path": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.extra.html",
+          "size": 1687,
+          "sha256": "18c0d7152b9c8e734cc67e50f3ed969c772c1e214cb801a63cabd0c6d87c9d12"
+        },
+        {
+          "path": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.html",
+          "size": 498191,
+          "sha256": "5fd2111a22a57bb287283c9dab95817d1a8601e10630f02660e2f7efab161f95"
+        },
+        {
+          "path": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.txt",
+          "size": 22826,
+          "sha256": "372bf6ec57240a9b5dbb7dc658eef6b3948ad360fea989b169d3afeff01474ca"
+        },
+        {
+          "path": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-краш-логи-и-дампы.zip",
+          "size": 30271,
+          "sha256": "f3e3a92a27eb285779ded238b0f3c820f6d8a3e81a0df51ccb6dab8709d4fc50"
+        },
+        {
+          "path": "mail-dumps/HD_HOTA.dll+0x1B107B/capabilities.json",
+          "size": 2339,
+          "sha256": "e7b97a4c2406bc37607e61655003f505693e22bede60a04c441ee51acf49a256"
+        }
+      ],
+      "target_report": {
+        "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
+        "size": 22146,
+        "sha256": "478d1c641738b62d6033288dd3b529221364e523046125b7be43e553dada993d"
+      },
+      "family_membership": {
+        "path": "family-membership.json",
+        "size": 4762,
+        "sha256": "d397749b792c4316df991a3c17ef2cbfdd8edb35e61372131b6ca81ae20d7171"
+      },
+      "case_manifest": {
+        "path": "case-manifest.json",
+        "size": 6460,
+        "sha256": "101008a6795fc54458f48585f9aefce35be25bf8df6c985c825675870901e7f5"
+      },
+      "imported_incident_ids": [
+        "incident-5eb3e8171efa21bf",
+        "incident-5fce36c679bf907f"
+      ],
+      "imported_claim_ids": [
+        "historical-family-coverage",
+        "historical-local-mechanism",
+        "historical-materialization"
+      ],
+      "raw_destinations": [
+        {
+          "path": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.dmp",
+          "kind": "dmp",
+          "size": 125759,
+          "sha256": "737eaae081d8a037e547c9f61fac08f7aa2475feae34688fa47f6971cf13e9a5"
+        },
+        {
+          "path": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-1.8.0-1.txt",
+          "kind": "txt",
+          "size": 8407,
+          "sha256": "d72f174ee9603b62a2f32dc27f0cbe79bfb8b1f144384c8a5e4bb86885bb0a02"
+        },
+        {
+          "path": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.dmp",
+          "kind": "dmp",
+          "size": 125759,
+          "sha256": "737eaae081d8a037e547c9f61fac08f7aa2475feae34688fa47f6971cf13e9a5"
+        },
+        {
+          "path": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.txt",
+          "kind": "txt",
+          "size": 9305,
+          "sha256": "5b69fd6e2c084d247772c6888a05e81937e152cce040ce8c4c86d7102dc3fc22"
+        }
+      ],
+      "target_artifacts": [
+        {
+          "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
+          "size": 22146,
+          "sha256": "478d1c641738b62d6033288dd3b529221364e523046125b7be43e553dada993d"
+        },
+        {
+          "path": "capabilities.json",
+          "size": 13027,
+          "sha256": "f738aaef9e4c849bf338111d9732ac5e243b4f2516e63cee90b96bd866a78915"
+        },
+        {
+          "path": "case-manifest.json",
+          "size": 6460,
+          "sha256": "101008a6795fc54458f48585f9aefce35be25bf8df6c985c825675870901e7f5"
+        },
+        {
+          "path": "family-membership.json",
+          "size": 4762,
+          "sha256": "d397749b792c4316df991a3c17ef2cbfdd8edb35e61372131b6ca81ae20d7171"
+        }
+      ],
+      "source_dispositions": [
+        {
+          "source": "mail-dumps/HD_HOTA.dll+0x1B107B/.DS_Store",
+          "resolution": "discarded_transient",
+          "target_claim_ids": [],
+          "target_artifacts": [],
+          "reason": "Служебные метаданные macOS не содержат материалов дела."
+        },
+        {
+          "source": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.extra.html",
+          "resolution": "superseded",
+          "target_claim_ids": [
+            "historical-local-mechanism"
+          ],
+          "target_artifacts": [
+            "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt"
+          ],
+          "reason": "Дополнительная визуализация старого отчёта заменена проверенной межверсионной схемой в каноническом отчёте."
+        },
+        {
+          "source": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.html",
+          "resolution": "superseded",
+          "target_claim_ids": [
+            "historical-family-coverage",
+            "historical-local-mechanism",
+            "historical-materialization"
+          ],
+          "target_artifacts": [
+            "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt"
+          ],
+          "reason": "Старый HTML заменён единым каноническим отчётом с тем же инцидентом, точной межверсионной сверкой и материализованным сырьём."
+        },
+        {
+          "source": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.txt",
+          "resolution": "integrated",
+          "target_claim_ids": [
+            "historical-family-coverage",
+            "historical-local-mechanism",
+            "historical-materialization"
+          ],
+          "target_artifacts": [
+            "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
+            "family-membership.json",
+            "case-manifest.json"
+          ],
+          "reason": "Проверенные сведения старого отчёта перенесены в единый отчёт; неподтверждённые привязки к онлайн-лобби и нехватке памяти явно не унаследованы."
+        },
+        {
+          "source": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-краш-логи-и-дампы.zip",
+          "resolution": "superseded",
+          "target_claim_ids": [
+            "historical-materialization"
+          ],
+          "target_artifacts": [
+            "case-manifest.json"
+          ],
+          "reason": "Старый архив заменён материализованными TXT/DMP и новым архивным контрактом канонического дела."
+        },
+        {
+          "source": "mail-dumps/HD_HOTA.dll+0x1B107B/capabilities.json",
+          "resolution": "integrated",
+          "target_claim_ids": [
+            "historical-family-coverage",
+            "historical-materialization"
+          ],
+          "target_artifacts": [
+            "capabilities.json",
+            "case-manifest.json"
+          ],
+          "reason": "Паспорт исторического дампа включён в общий capabilities.json и учтён в счётчиках текущего дела."
+        }
+      ],
+      "human_decision": {
+        "author": "1 1",
+        "decided_at": "2026-09-03T17:26:00+03:00",
+        "basis": "Сырые журналы и дампы перенесены в каноническое дело, проверенные выводы старого отчёта интегрированы, неподтверждённые выводы не унаследованы; временную историю после хэш-привязанной проверки следует удалить.",
+        "source": "Текущий чат: «Удалить и закрепить» и последующее «делай всё»"
+      },
+      "input": {
+        "path": "consolidation-input.json",
+        "size": 4128,
+        "sha256": "a468c467ca495a7a8cd098d04c3e368c2c546082842e10668229a0e35ed0086b"
+      },
+      "verified_at": "2026-09-03T15:44:19.742367+00:00",
+      "verifier_contract": {
+        "name": "consolidation_attestation",
+        "version": "1",
+        "outputs": [
+          "source_cleanup.consolidation_attestation"
+        ]
+      }
+    }
   }
 }

@@ -95,6 +95,24 @@
         "positive_control",
         "result.json"
       ]
+    },
+    {
+      "id": "capture-capability-globals-and-heap",
+      "action": "получить дамп с возможностью globals_and_heap",
+      "hypothesis": "missing_dump_capability",
+      "success_evidence": [
+        "globals_and_heap",
+        "capabilities.json"
+      ]
+    },
+    {
+      "id": "capture-capability-memory-permissions",
+      "action": "получить дамп с возможностью memory_permissions",
+      "hypothesis": "missing_dump_capability",
+      "success_evidence": [
+        "memory_permissions",
+        "capabilities.json"
+      ]
     }
   ],
   "inputs": {
@@ -160,6 +178,10 @@
     ],
     "analysis_contract_present": true,
     "missing_evidence_items": 0,
+    "missing_capabilities": [
+      "globals_and_heap",
+      "memory_permissions"
+    ],
     "artifact_phase_roles": []
   },
   "populations": {
@@ -219,7 +241,7 @@
       "unit": "incident",
       "dedup_basis": "normalized_time_tag_exception_context"
     },
-    "confirmed_family_incidents": {
+    "root_cause_confirmed_incidents": {
       "numerator": 0,
       "denominator": 2,
       "population": "unique incidents",

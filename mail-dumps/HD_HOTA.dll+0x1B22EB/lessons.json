@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "kind": "crash_case_lessons",
+  "case": "HD_HOTA.dll+0x1B22EB",
+  "status": "closed",
+  "rule": "каждый урок содержит ошибку, новое правило и машинное закрепление",
+  "lessons": [
+    {"id":"independent-diagnostic-axes","category":"diagnosis","mistake":"Совпадение локального дефекта между версиями могло быть принято за общий источник состояния и общую первопричину.","rule":"Точку сбоя, локальный механизм, происхождение состояния и полноту семейной переписи оценивать независимо.","enforcement":["analysis-contract.json relationship_ladder","case_manifest.py selftest","case_quality_gate.py"]},
+    {"id":"nullable-callsite-census","category":"diagnosis","mistake":"Одна незащищённая ветвь не показывала полный договор обработки нулевого результата.","rule":"Переписывать все места вызова функции с возможным нулевым результатом и фиксировать проверку, цепочку псевдонимов и первое использование.","enforcement":["helper_callsite_census.py CONTRACT v2","helper_callsite_census.py --selftest"]},
+    {"id":"early-dump-profile","category":"evidence","mistake":"Ограничения обычного минидампа могли выясняться после попыток читать отсутствующие глобалы и кучу.","rule":"До чтения памяти строить паспорт каждого DMP и превращать отсутствующие возможности в машинные запреты.","enforcement":["dump_profile.py --capabilities-only","capabilities.json","case_quality_gate.py"]},
+    {"id":"thread-context-separation","category":"evidence","mistake":"Регистры потока исключения и стек диапазона другого потока могли быть объединены в один причинный кадр.","rule":"Контексты объединять только при одинаковом номере потока; при расхождении хранить источники раздельно.","enforcement":["capabilities.json thread_provenance","analysis-contract.json thread_policy","case_quality_gate.py"]},
+    {"id":"semantic-cross-version-identity","category":"diagnosis","mistake":"Разные адреса сборок могли сравниваться только по смещению либо имени функции.","rule":"Межверсионное родство подтверждать смысловой ролью, смещением внутри функции, потоком данных, точными листингами и регистровым инвариантом.","enforcement":["family-membership.json relationship_ladder","relocate_crash_family.py CONTRACT v4"]},
+    {"id":"discriminating-runtime-plan","category":"process","mistake":"План повторения мог перечислять общий сбор телеметрии, не различающий нулевую ширину и два отказа выделения.","rule":"Каждая оставшаяся гипотеза получает отдельное управляемое условие, положительный контроль и измеримый признак успеха.","enforcement":["repro_plan.py CONTRACT v2","repro_plan.py selftest","repro-plan.json"]},
+    {"id":"explicit-population-counters","category":"evidence","mistake":"Физические журналы, дампы, уникальные инциденты и события семьи могли смешиваться в одном числе.","rule":"Хранить отдельные physical_txt, physical_dmp, unique_incidents и family_events с числителем, знаменателем и основанием дедупликации.","enforcement":["case_manifest.py CONTRACT v2","series-groups.json counters","report_consistency.py"]},
+    {"id":"temporary-history-only","category":"process","mistake":"Исторические материалы могли оставаться постоянной копией после переноса выводов и сырого корпуса.","rule":"Исторические материалы являются только временным восстанавливаемым этапом и удаляются после хэш-привязанной смысловой аттестации.","enforcement":["consolidation_attestation.py","relocate_crash_family finalize_attest","publication_plan.py schema 3"]},
+    {"id":"recoverable-compaction","category":"tooling","mistake":"Прерванное удаление могло оставить частично очищенную папку без безопасного продолжения.","rule":"Перед удалением создавать проверяемый снимок, восстанавливать пропавшие файлы и только затем повторять аттестованную очистку.","enforcement":["relocation_compact.py","test_mcp_server.py relocation policy"]},
+    {"id":"publication-stale-rebuild","category":"publication","mistake":"Завершённый журнал публикации мог блокировать новый выпуск после изменения входов либо сбрасываться после частичного необратимого шага.","rule":"Завершённый устаревший журнал автоматически переводить в rebuilding до первого нового commit; частичный новый выпуск не сбрасывать.","enforcement":["publication_journal.py begin_rebuild","tools_publish.py _refresh_rebuild_state","test_mcp_server.py"]},
+    {"id":"russian-user-terminology","category":"publication","mistake":"В пользовательском отчёте сохранялись английские методические термины.","rule":"Пользовательскую прозу писать по-русски; исходные идентификаторы допускаются только как машинные имена или дословные цитаты.","enforcement":["lint_report.py EN_TERMS","hota-crash-triage SKILL language gate"]},
+    {"id":"publication-input-contract","category":"tooling","mistake":"Публикационный инструмент принимал только каталог, хотя агент передал канонический TXT отчёта.","rule":"publish_case принимает каталог дела либо его *-анализ-*.txt и нормализует TXT к родительскому каталогу; прочие файлы блокируются.","enforcement":["tools_publish.py _safe_case","test_publish_case_accepts_directory_or_report_txt_only"]},
+    {"id":"lessons-mandatory-sidecar","category":"process","mistake":"Уроки разбора оставались только в чате и не проходили машинную проверку закрытия дела.","rule":"Каждое новое или изменённое DMP-дело содержит канонический lessons.json с ошибкой, правилом и закреплением.","enforcement":["case_lessons.py CONTRACT v2","case_quality_gate.py mandatory_sidecar_contract"]}
+  ],
+  "regressions": [
+    {"id":"attestation-coverage","test":"consolidation_attestation.py selftest","status":"implemented"},
+    {"id":"relocation-compact","test":"relocate_crash_family.py selftest","status":"implemented"},
+    {"id":"publication-plan-schema3","test":"publication_plan.py selftest","status":"implemented"},
+    {"id":"publication-journal-rebuild","test":"publication_journal.py selftest","status":"implemented"},
+    {"id":"case-count-contract","test":"case_manifest.py selftest","status":"implemented"},
+    {"id":"nullable-census-contract","test":"helper_callsite_census.py --selftest","status":"implemented"},
+    {"id":"capability-driven-repro","test":"repro_plan.py selftest","status":"implemented"},
+    {"id":"mcp-relocation-attest","test":"test_mcp_server.py relocation policy","status":"implemented"},
+    {"id":"publish-path-and-stale","test":"test_mcp_server.py publish_case contract","status":"implemented"},
+    {"id":"strict-environment-class","test":"test-mcp.sh distinguishes functional_failure and environment_unavailable","status":"implemented"}
+  ],
+  "unresolved": [
+    {"id":"null-return-branch","question":"Какая из трёх оставшихся ветвей вернула NULL: нулевая ширина, отказ объекта или отказ пиксельного буфера?","status":"open"},
+    {"id":"geometry-first-writer","question":"Какой код первым создал некорректную геометрию поверхности?","status":"open"},
+    {"id":"user-ui-trigger","question":"Какое точное действие интерфейса непосредственно предшествовало вылету?","status":"deferred"}
+  ]
+}

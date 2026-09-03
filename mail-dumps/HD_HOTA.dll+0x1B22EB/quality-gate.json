@@ -18,8 +18,8 @@
       },
       {
         "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.evidence.json",
-        "size": 20192,
-        "sha256": "d445b3d27d3fff1bd96ebe5f39becfe1f96521ea37ed6d4ad33e68b31933b6e2"
+        "size": 19479,
+        "sha256": "29a7bd45f235aa2c692f06842cf02aab6018d7d7636ea1b8373d245071461a06"
       },
       {
         "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.extra.html",
@@ -28,8 +28,8 @@
       },
       {
         "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.html",
-        "size": 536889,
-        "sha256": "2265040642d2575b6e999669a9716d5918a374ec9975e1d6e035345f91f878fb"
+        "size": 537053,
+        "sha256": "01c10df8d35e7866f03f9b97d05e161b8c8eafd1c63007f0256bf52bb632d633"
       },
       {
         "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.model.json",
@@ -38,8 +38,8 @@
       },
       {
         "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
-        "size": 22008,
-        "sha256": "62289048744103cdaff08f35b1b1894b44070c71ff9d4a2415c3dc7dfbf0ad9c"
+        "size": 22146,
+        "sha256": "478d1c641738b62d6033288dd3b529221364e523046125b7be43e553dada993d"
       },
       {
         "path": "address-proof.json",
@@ -58,8 +58,13 @@
       },
       {
         "path": "case-manifest.json",
-        "size": 6308,
-        "sha256": "a71fe767f7f44b0cce847ba7892556dd702965c2aa9bcfd01734e003005e7476"
+        "size": 6460,
+        "sha256": "101008a6795fc54458f48585f9aefce35be25bf8df6c985c825675870901e7f5"
+      },
+      {
+        "path": "consolidation-input.json",
+        "size": 4128,
+        "sha256": "a468c467ca495a7a8cd098d04c3e368c2c546082842e10668229a0e35ed0086b"
       },
       {
         "path": "coverage.json",
@@ -68,8 +73,8 @@
       },
       {
         "path": "evidence-config.json",
-        "size": 8973,
-        "sha256": "ff3a9bd9b462e98ff5b81db49e9c86b81148d70770f4abdc7d9a2a221b5806bc"
+        "size": 9280,
+        "sha256": "c7596e7dc89997a405f3a8f6018f41d4047f46b48bf010178418a8dd24b0fda6"
       },
       {
         "path": "family-membership-input.json",
@@ -79,7 +84,12 @@
       {
         "path": "family-membership.json",
         "size": 4762,
-        "sha256": "5635e1e174765b68f2f0ab335026da9b1af76986a3855b686e494a00c75dcc36"
+        "sha256": "d397749b792c4316df991a3c17ef2cbfdd8edb35e61372131b6ca81ae20d7171"
+      },
+      {
+        "path": "lessons.json",
+        "size": 9589,
+        "sha256": "95b75b1f3477cea447e6cac06caedd8aba6cc3ee22df3cfcc86d3cc8a4c07798"
       },
       {
         "path": "pair-audit.json",
@@ -88,13 +98,13 @@
       },
       {
         "path": "relocation-manifest.json",
-        "size": 8590,
-        "sha256": "fe651a5c5a3df0f4ad2379bcb80f4f64191a780e8f9ed2e37002fde1901f5fd6"
+        "size": 17763,
+        "sha256": "5ad103df252100ff829e3c05d4c0c9bd024b4a56f316727bbc0c157d2324989b"
       },
       {
         "path": "repro-plan.json",
-        "size": 7114,
-        "sha256": "5c00002f65ee0845f126c39f1fb9e88f18f69a281e589368b10cb9f851cdf56f"
+        "size": 7800,
+        "sha256": "dfaca8ee2c95a8630c0edbe1fb0f03c5d985624442cb1ca151acddd24f2c902d"
       },
       {
         "path": "save-inventory.json",
@@ -165,8 +175,8 @@
       },
       {
         "path": ".agents/skills/hota-crash-triage/case_lessons.py",
-        "size": 3010,
-        "sha256": "355d9a26320aea363ee6f9b088016ef21870a46825a46ed72a715e80ab9a0ec5"
+        "size": 5178,
+        "sha256": "cc6995efbcc467d25c81a8145a5124b34b694f3c6b741c5409a5c0019e669b5c"
       },
       {
         "path": ".agents/skills/hota-crash-triage/coverage_contract.py",
@@ -230,8 +240,8 @@
       },
       {
         "path": ".agents/skills/hota-crash-triage/repro_plan.py",
-        "size": 10339,
-        "sha256": "9a35fbd614506b5662de65b189b3fa61abe4cb94d01eb6d6c2ac825b36fce0c2"
+        "size": 12201,
+        "sha256": "da50a907d08589b1998cfbe7b4d84034bc23ee1273e9931de0d04c9ffbe031b8"
       },
       {
         "path": ".agents/skills/hota-crash-triage/scan_attestation.py",
@@ -319,6 +329,11 @@
         "sha256": "cd4de5683de1a0dda82a4d9d5e2d06d8a9033797f2315f11a8916098df321092"
       },
       {
+        "path": ".agents/skills/multi-dump-diff/consolidation_attestation.py",
+        "size": 16939,
+        "sha256": "a90d37c146fca0ec6d28824f41d3d04402f9f86912a8ed6be2c3e82c23d57993"
+      },
+      {
         "path": ".agents/skills/multi-dump-diff/corpus_denominator.py",
         "size": 7136,
         "sha256": "77ee195a25aa5c5bef1a0c6e97948c76c23b62be60a0c77f2bbe83f20972952e"
@@ -334,7 +349,7 @@
         "sha256": "fe461b4dfd54513a63b6ec625047484cda0fc5c20b801c01a572691e4516fa58"
       }
     ],
-    "sha256": "932fda112336ed4590c111f6c47aefe82d5c5ea6444fd88ff44cae48c2a87b0c"
+    "sha256": "9f792208b3dffad7924a2170880acc688c13fc5b234e189c529e004fab3d791e"
   },
   "audit_stages_complete": null,
   "publication_ready": true,
@@ -357,7 +372,7 @@
   "artifact_quality": {
     "status": "passed",
     "passed": true,
-    "step_count": 17,
+    "step_count": 18,
     "blocked_count": 0
   },
   "diagnostic_completeness": {
@@ -380,7 +395,7 @@
   },
   "root_cause_ready": false,
   "causality_level": "L1",
-  "step_count": 17,
+  "step_count": 18,
   "blocked_count": 0,
   "steps": [
     {
@@ -434,6 +449,16 @@
       "returncode": 0,
       "stdout": "ANALYSIS CONTRACT: PASSED; errors=none\n",
       "stderr": ""
+    },
+    {
+      "name": "case_lessons:lessons.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\"errors\": []}\n",
+      "stderr": "",
+      "json_result": {
+        "errors": []
+      }
     },
     {
       "name": "coverage:coverage.json",
@@ -491,7 +516,7 @@
       "name": "evidence:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
       "status": "passed",
       "returncode": 0,
-      "stdout": "EVIDENCE: FRESH:UNVERIFIED_TOOL_REVISION; проверено 26\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/address-mapping/address_proof.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/analysis_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/coverage_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/evidence_manifest.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/repro_plan.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n",
+      "stdout": "EVIDENCE: FRESH; проверено 26\n",
       "stderr": ""
     },
     {
@@ -500,14 +525,13 @@
       "errors": []
     },
     {
-      "name": "render:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
+      "name": "render-attestation:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
       "status": "passed",
       "returncode": 0,
-      "stdout": "   шрифты встроены (офлайн): 5 начертаний\n   врезка визуализаций: 1 секц., 1 пункт(ов) оглавления\nOK -> /Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/rendered/HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.html\n   секций размещено: 10 / 10\n   <section> open=11 close=11\n   ✓ валидация: ключевые поля txt присутствуют в html\n",
+      "stdout": "RENDER ATTESTATION: PASSED; errors=none\n",
       "stderr": "",
-      "verified_existing_html": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.html",
-      "normalized_generated_at": true,
-      "render_output": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/rendered/HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.html"
+      "render_mode": "reused_attestation",
+      "render_output": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.html"
     },
     {
       "name": "semantic-html:HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
