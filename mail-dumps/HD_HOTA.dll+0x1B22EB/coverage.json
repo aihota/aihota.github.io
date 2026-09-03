@@ -1,7 +1,7 @@
 {
   "schema": 2,
-  "generated_at": "2026-09-02T20:57:34.768242+00:00",
-  "source": "mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/coverage-claims.json",
+  "generated_at": "2026-09-03T09:41:44.510228+00:00",
+  "source": "mail-dumps/HD_HOTA.dll+0x1B22EB/evidence-config.json",
   "axes": [
     "instruction",
     "mechanism",
@@ -16,68 +16,78 @@
   ],
   "claims": [
     {
-      "id": "crash-site",
-      "type": "crash_site",
-      "statement": "Инструкция читает dword по ESI+0x1C. При ESI=0 получается 0x0000001C, ровно адрес из ExceptionInformation[1].",
+      "applicable_axes": [
+        "instruction"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "confidence_vector": {
+        "family_coverage": "not_applicable",
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable"
+      },
       "evidence": [
         "input:pair-audit.json",
         "input:address-proof.json",
         "input:capabilities.json"
       ],
-      "confidence": "видно непосредственно в DMP",
-      "applicable_axes": [
-        "instruction"
-      ],
-      "confidence_vector": {
-        "instruction": "confirmed",
-        "mechanism": "not_applicable",
-        "state_origin": "not_applicable",
-        "family_coverage": "not_applicable"
-      }
+      "id": "crash-site",
+      "marker": "<!-- claim:crash-site -->",
+      "statement": "Инструкция читает dword по ESI+0x1C. При ESI=0 получается 0x0000001C, ровно адрес из ExceptionInformation[1].",
+      "type": "crash_site"
     },
     {
-      "id": "local-null-mechanism",
-      "type": "local_mechanism",
-      "statement": "В обеих версиях sink находится на +0x2B от начала функции: nullable-результат helper проходит EAX -> ESI и без проверки читается по [ESI+0x1C].",
+      "applicable_axes": [
+        "mechanism"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "confidence_vector": {
+        "family_coverage": "not_applicable",
+        "instruction": "not_applicable",
+        "mechanism": "confirmed",
+        "state_origin": "not_applicable"
+      },
       "evidence": [
         "input:analysis-contract.json",
         "input:../../modules/HD_HOTA.dll-5.8-R8.txt",
         "input:../../modules/HD_HOTA.dll-5.7 R33.txt"
       ],
-      "confidence": "однозначно следует из листинга",
-      "applicable_axes": [
-        "mechanism"
-      ],
-      "confidence_vector": {
-        "instruction": "not_applicable",
-        "mechanism": "confirmed",
-        "state_origin": "not_applicable",
-        "family_coverage": "not_applicable"
-      }
+      "id": "local-null-mechanism",
+      "marker": "<!-- claim:local-null-mechanism -->",
+      "statement": "В обеих версиях точка потребления находится на +0x2B от начала функции: результат вспомогательной функции, который может быть нулевым, проходит EAX -> ESI и без проверки читается по [ESI+0x1C].",
+      "type": "local_mechanism"
     },
     {
-      "id": "state-origin-unknown",
-      "type": "state_origin",
-      "statement": "Объект ECX=0x108A3310 и глобалы в MiniDumpNormal не сохранены, поэтому окончательный выбор невозможен.",
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "confidence": "не проверено",
+      "confidence_vector": {
+        "family_coverage": "not_applicable",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown"
+      },
       "evidence": [
         "input:analysis-contract.json",
         "input:capabilities.json"
       ],
-      "confidence": "не проверено",
-      "applicable_axes": [
-        "state_origin"
-      ],
-      "confidence_vector": {
-        "instruction": "not_applicable",
-        "mechanism": "not_applicable",
-        "state_origin": "unknown",
-        "family_coverage": "not_applicable"
-      }
+      "id": "state-origin-unknown",
+      "marker": "<!-- claim:state-origin-unknown -->",
+      "statement": "Объект ECX=0x108A3310 и глобалы в обычном минидампе не сохранены, поэтому окончательный выбор невозможен.",
+      "type": "state_origin"
     },
     {
-      "id": "family-confirmed",
-      "type": "family_coverage",
-      "statement": "Межверсионная семья подтверждена для 2 из 2 уникальных инцидентов по одинаковой локальной структуре дефекта; материализованы 3 TXT и 3 DMP, включая одну duplicate-пару исторического события.",
+      "applicable_axes": [
+        "family_coverage"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "family_coverage": "confirmed",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable"
+      },
       "evidence": [
         "input:series-parse.json",
         "input:series-groups.json",
@@ -87,69 +97,66 @@
         "input:../../modules/HD_HOTA.dll-5.7 R33.txt",
         "input:../../modules/HD_HOTA.dll-5.8-R8.txt"
       ],
-      "confidence": "выведено из совокупности признаков",
-      "applicable_axes": [
-        "family_coverage"
-      ],
-      "confidence_vector": {
-        "instruction": "not_applicable",
-        "mechanism": "not_applicable",
-        "state_origin": "not_applicable",
-        "family_coverage": "confirmed"
-      }
+      "id": "family-confirmed",
+      "marker": "<!-- claim:family-confirmed -->",
+      "statement": "Межверсионная семья подтверждена для 2 из 2 уникальных инцидентов по одинаковой локальной структуре дефекта; материализованы 3 TXT и 3 DMP, включая пару дубликатов исторического события.",
+      "type": "family_coverage"
     },
     {
-      "id": "thread-boundary",
-      "type": "limitation",
-      "statement": "CONTEXT_THREAD_MISMATCH: номер потока исключения 17796, диапазон ESP — номер потока 20236; источники не объединяются.",
+      "applicable_axes": [],
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "family_coverage": "not_applicable",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable"
+      },
       "evidence": [
         "input:capabilities.json",
         "input:analysis-contract.json"
       ],
-      "confidence": "выведено из совокупности признаков",
-      "applicable_axes": [],
-      "confidence_vector": {
-        "instruction": "not_applicable",
-        "mechanism": "not_applicable",
-        "state_origin": "not_applicable",
-        "family_coverage": "not_applicable"
-      }
+      "id": "thread-boundary",
+      "marker": "<!-- claim:thread-boundary -->",
+      "statement": "CONTEXT_THREAD_MISMATCH: номер потока исключения 17796, диапазон ESP — номер потока 20236; источники не объединяются.",
+      "type": "limitation"
     },
     {
-      "id": "containment-fix",
-      "type": "fix",
-      "statement": "Проверить EAX сразу после 0x011B22D8 в HD 5.8 R8 и после 0x011B1068 в HD 5.7 R33; не выполнять чтение/memmove при NULL.",
+      "applicable_axes": [],
+      "confidence": "однозначно следует из листинга",
+      "confidence_vector": {
+        "family_coverage": "not_applicable",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable"
+      },
       "evidence": [
         "input:analysis-contract.json",
         "input:../../modules/HD_HOTA.dll-5.8-R8.txt",
         "input:../../modules/HD_HOTA.dll-5.7 R33.txt"
       ],
-      "confidence": "однозначно следует из листинга",
-      "applicable_axes": [],
-      "confidence_vector": {
-        "instruction": "not_applicable",
-        "mechanism": "not_applicable",
-        "state_origin": "not_applicable",
-        "family_coverage": "not_applicable"
-      }
+      "id": "containment-fix",
+      "marker": "<!-- claim:containment-fix -->",
+      "statement": "Проверить EAX сразу после 0x011B22D8 в HD 5.8 R8 и после 0x011B1068 в HD 5.7 R33; не выполнять чтение/memmove при NULL.",
+      "type": "fix"
     },
     {
-      "id": "height-branch-rejected",
-      "type": "observation",
-      "statement": "Ранняя ветвь height<=0 при width>0 для этого инцидента исключается: sub_11B8130 до возврата не меняет EDX, но в CONTEXT потока исключения сохранено EDX=0.",
+      "applicable_axes": [],
+      "confidence": "выведено из совокупности признаков",
+      "confidence_vector": {
+        "family_coverage": "not_applicable",
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable"
+      },
       "evidence": [
         "input:capabilities.json",
         "input:analysis-contract.json",
         "input:../../modules/HD_HOTA.dll-5.8-R8.txt"
       ],
-      "confidence": "выведено из совокупности признаков",
-      "applicable_axes": [],
-      "confidence_vector": {
-        "instruction": "not_applicable",
-        "mechanism": "not_applicable",
-        "state_origin": "not_applicable",
-        "family_coverage": "not_applicable"
-      }
+      "id": "height-branch-rejected",
+      "marker": "<!-- claim:height-branch-rejected -->",
+      "statement": "Ранняя ветвь при высоте <= 0 и ширине > 0 для этого инцидента исключается: sub_11B8130 до возврата не меняет EDX, но в CONTEXT потока исключения сохранено EDX=0.",
+      "type": "observation"
     }
   ],
   "matrix": {

@@ -7,20 +7,20 @@
     {
       "relative_path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.evidence.json",
       "role": "publication-input",
-      "size": 20040,
-      "sha256": "f4d1e80c376dcf751a9c206a87018fa0274a6f591ba83b8eced4bbb890cd6c22"
+      "size": 20192,
+      "sha256": "d445b3d27d3fff1bd96ebe5f39becfe1f96521ea37ed6d4ad33e68b31933b6e2"
     },
     {
       "relative_path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.extra.html",
       "role": "publication-input",
-      "size": 2485,
-      "sha256": "8ca495ef4c834eeb1348ead0838569ff054df2e316f49935e8f70f2623b682e0"
+      "size": 2520,
+      "sha256": "74f382b93c60a642f51f1449baaf11743510e469da02c1d7b2e27c2196231495"
     },
     {
       "relative_path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.html",
       "role": "publication-input",
-      "size": 535736,
-      "sha256": "70c0272a361a0218cf7cb9966a823c897e7f61269cb72db109d3a1ce6807ea19"
+      "size": 536889,
+      "sha256": "2265040642d2575b6e999669a9716d5918a374ec9975e1d6e035345f91f878fb"
     },
     {
       "relative_path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.model.json",
@@ -31,8 +31,8 @@
     {
       "relative_path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
       "role": "publication-input",
-      "size": 20867,
-      "sha256": "da0b84d24ba1e3533211166d12f010aa0cc3de0b0ec0060496ca8b7609e0965f"
+      "size": 22008,
+      "sha256": "62289048744103cdaff08f35b1b1894b44070c71ff9d4a2415c3dc7dfbf0ad9c"
     },
     {
       "relative_path": "HD_HOTA.dll+0x1B22EB-краш-логи-и-дампы.zip",
@@ -55,8 +55,8 @@
     {
       "relative_path": "analysis-promotion-manifest.json",
       "role": "publication-input",
-      "size": 1032,
-      "sha256": "93efbcb0c7c1cf2511f94c39ffd438637c45aca09d6e31f945e7446ed13cebd4"
+      "size": 706,
+      "sha256": "9700a38d72de0404679327cdeb84e2f825a0131696ef3a638cbe6969908d37ee"
     },
     {
       "relative_path": "archive-manifest.json",
@@ -79,14 +79,14 @@
     {
       "relative_path": "coverage.json",
       "role": "derived-evidence",
-      "size": 6748,
-      "sha256": "a49bc97a6ff3e00ef50c9c026d65762c4a9a213432f77d792ef25bd6139deab2"
+      "size": 7241,
+      "sha256": "d648af72cbd45befabb3f1514bc5cee0f4b39539dac2b43aa2d23b5d0150157d"
     },
     {
       "relative_path": "evidence-config.json",
       "role": "derived-evidence",
-      "size": 8821,
-      "sha256": "e9be0703e58d231c38390ac24f22022477b54a5741ff17645ba846c94713c872"
+      "size": 8973,
+      "sha256": "ff3a9bd9b462e98ff5b81db49e9c86b81148d70770f4abdc7d9a2a221b5806bc"
     },
     {
       "relative_path": "family-membership.json",
@@ -103,14 +103,14 @@
     {
       "relative_path": "quality-gate.json",
       "role": "publication-input",
-      "size": 24610,
-      "sha256": "3f2be959897e8d445b9b8eb382aa943e0a1849fb47fc049ab3795b4bed7657bf"
+      "size": 25892,
+      "sha256": "eebddff6d582693b45986040153750f81db626b6ff27a44c98b579c12c6872ee"
     },
     {
       "relative_path": "relocation-manifest.json",
       "role": "publication-input",
-      "size": 4488,
-      "sha256": "410d527ddc8271026f88743cca11043eff9a30c017524a9d90eee06fc7319bd9"
+      "size": 7321,
+      "sha256": "8399f71ae7c2deb3778b1878fc02da4f9794ea665decd07df65a837bc38f219d"
     },
     {
       "relative_path": "repro-plan.json",
@@ -149,7 +149,7 @@
       "address-proof.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/address-proof.json",
       "analysis-contract.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/analysis-contract.json",
       "analysis-promotion-manifest.json": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/analysis-promotion-manifest.json",
-      "archive-manifest.json": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1B22EB/archive-manifest.json",
+      "archive-manifest.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/archive-manifest.json",
       "capabilities.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/capabilities.json",
       "case-manifest.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/case-manifest.json",
       "coverage.json": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1B22EB/coverage.json",
@@ -169,5 +169,5 @@
     "verified": 22,
     "skipped": 0
   },
-  "manifest_sha256": "cfcea2fbef0915180e35bccd8b0202f8d823d53e0b9544365d454bf05299dcd3"
+  "manifest_sha256": "4e0a831fe102525951ed7b04e8fee39feaaff5a7876000fe4236ffd73edf6f9f"
 }

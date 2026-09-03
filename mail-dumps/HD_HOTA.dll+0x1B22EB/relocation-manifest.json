@@ -95,6 +95,50 @@
   ],
   "mcp_relocation_seal": {
     "schema": 1,
-    "hmac_sha256": "9192af2b7a1734ff18d14810fda03813781c978a9bc3d313b4a8d88c46bef0e1"
+    "hmac_sha256": "0c159e9cc1a17886fa5b02deddc0b49c46a87001983b1b9ed737fc0191e0b50e"
+  },
+  "source_cleanup": {
+    "state": "applied",
+    "source_cases": [
+      "mail-dumps/HD_HOTA.dll+0x1B107B"
+    ],
+    "items": [
+      {
+        "source": "mail-dumps/HD_HOTA.dll+0x1B107B/.DS_Store",
+        "destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/.DS_Store",
+        "size": 10244,
+        "sha256": "7c191aebef3997f801097c9028cd844d931bfa92a7afbea34469c7f7d66cc43f"
+      },
+      {
+        "source": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.extra.html",
+        "destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.extra.html",
+        "size": 1687,
+        "sha256": "18c0d7152b9c8e734cc67e50f3ed969c772c1e214cb801a63cabd0c6d87c9d12"
+      },
+      {
+        "source": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.html",
+        "destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.html",
+        "size": 498191,
+        "sha256": "5fd2111a22a57bb287283c9dab95817d1a8601e10630f02660e2f7efab161f95"
+      },
+      {
+        "source": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.txt",
+        "destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.txt",
+        "size": 22826,
+        "sha256": "372bf6ec57240a9b5dbb7dc658eef6b3948ad360fea989b169d3afeff01474ca"
+      },
+      {
+        "source": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-краш-логи-и-дампы.zip",
+        "destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-краш-логи-и-дампы.zip",
+        "size": 30271,
+        "sha256": "f3e3a92a27eb285779ded238b0f3c820f6d8a3e81a0df51ccb6dab8709d4fc50"
+      },
+      {
+        "source": "mail-dumps/HD_HOTA.dll+0x1B107B/capabilities.json",
+        "destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/capabilities.json",
+        "size": 2339,
+        "sha256": "e7b97a4c2406bc37607e61655003f505693e22bede60a04c441ee51acf49a256"
+      }
+    ]
   }
 }

@@ -18,18 +18,18 @@
       },
       {
         "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.evidence.json",
-        "size": 20040,
-        "sha256": "f4d1e80c376dcf751a9c206a87018fa0274a6f591ba83b8eced4bbb890cd6c22"
+        "size": 20192,
+        "sha256": "d445b3d27d3fff1bd96ebe5f39becfe1f96521ea37ed6d4ad33e68b31933b6e2"
       },
       {
         "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.extra.html",
-        "size": 2485,
-        "sha256": "8ca495ef4c834eeb1348ead0838569ff054df2e316f49935e8f70f2623b682e0"
+        "size": 2520,
+        "sha256": "74f382b93c60a642f51f1449baaf11743510e469da02c1d7b2e27c2196231495"
       },
       {
         "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.html",
-        "size": 535736,
-        "sha256": "70c0272a361a0218cf7cb9966a823c897e7f61269cb72db109d3a1ce6807ea19"
+        "size": 536889,
+        "sha256": "2265040642d2575b6e999669a9716d5918a374ec9975e1d6e035345f91f878fb"
       },
       {
         "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.model.json",
@@ -38,8 +38,8 @@
       },
       {
         "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
-        "size": 20867,
-        "sha256": "da0b84d24ba1e3533211166d12f010aa0cc3de0b0ec0060496ca8b7609e0965f"
+        "size": 22008,
+        "sha256": "62289048744103cdaff08f35b1b1894b44070c71ff9d4a2415c3dc7dfbf0ad9c"
       },
       {
         "path": "address-proof.json",
@@ -63,13 +63,13 @@
       },
       {
         "path": "coverage.json",
-        "size": 6748,
-        "sha256": "a49bc97a6ff3e00ef50c9c026d65762c4a9a213432f77d792ef25bd6139deab2"
+        "size": 7241,
+        "sha256": "d648af72cbd45befabb3f1514bc5cee0f4b39539dac2b43aa2d23b5d0150157d"
       },
       {
         "path": "evidence-config.json",
-        "size": 8821,
-        "sha256": "e9be0703e58d231c38390ac24f22022477b54a5741ff17645ba846c94713c872"
+        "size": 8973,
+        "sha256": "ff3a9bd9b462e98ff5b81db49e9c86b81148d70770f4abdc7d9a2a221b5806bc"
       },
       {
         "path": "family-membership-input.json",
@@ -88,8 +88,8 @@
       },
       {
         "path": "relocation-manifest.json",
-        "size": 4488,
-        "sha256": "410d527ddc8271026f88743cca11043eff9a30c017524a9d90eee06fc7319bd9"
+        "size": 7321,
+        "sha256": "8399f71ae7c2deb3778b1878fc02da4f9794ea665decd07df65a837bc38f219d"
       },
       {
         "path": "repro-plan.json",
@@ -130,6 +130,26 @@
         "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.txt",
         "size": 9305,
         "sha256": "5b69fd6e2c084d247772c6888a05e81937e152cce040ce8c4c86d7102dc3fc22"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.extra.html",
+        "size": 1687,
+        "sha256": "18c0d7152b9c8e734cc67e50f3ed969c772c1e214cb801a63cabd0c6d87c9d12"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.html",
+        "size": 498191,
+        "sha256": "5fd2111a22a57bb287283c9dab95817d1a8601e10630f02660e2f7efab161f95"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.txt",
+        "size": 22826,
+        "sha256": "372bf6ec57240a9b5dbb7dc658eef6b3948ad360fea989b169d3afeff01474ca"
+      },
+      {
+        "path": "Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/capabilities.json",
+        "size": 2339,
+        "sha256": "e7b97a4c2406bc37607e61655003f505693e22bede60a04c441ee51acf49a256"
       }
     ],
     "toolchain_files": [
@@ -205,8 +225,8 @@
       },
       {
         "path": ".agents/skills/hota-crash-triage/lint_report.py",
-        "size": 111462,
-        "sha256": "3a5660ef64024b2b1a4a83d7eaf074393892ca7bb9ff9c54c09f2a6e6cdff514"
+        "size": 114560,
+        "sha256": "220559afb071b03403dc0bae75be65af68d878f5518bf7cf155809480275a1c7"
       },
       {
         "path": ".agents/skills/hota-crash-triage/missing_evidence_request.py",
@@ -334,7 +354,7 @@
         "sha256": "fe461b4dfd54513a63b6ec625047484cda0fc5c20b801c01a572691e4516fa58"
       }
     ],
-    "sha256": "85ecec0ba51222964d108db0639548740ae6930d2a9880d21dde75436ae02336"
+    "sha256": "d96a1b6e123ecc83659d716ea39e20dd81fb12f7701129092c2855fbde9577f4"
   },
   "audit_stages_complete": null,
   "publication_ready": true,

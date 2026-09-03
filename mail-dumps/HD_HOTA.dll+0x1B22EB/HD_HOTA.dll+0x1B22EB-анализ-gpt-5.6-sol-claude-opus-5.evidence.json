@@ -1,6 +1,6 @@
 {
   "schema": 4,
-  "generated_at": "2026-09-03T08:06:36.501002+00:00",
+  "generated_at": "2026-09-03T09:42:38.452096+00:00",
   "parser_revision": "3390486a24b569998f72e1c1ecda9bfa04ca9bd5",
   "binding": {
     "mode": "hybrid-v1",
@@ -9,8 +9,8 @@
   },
   "report": {
     "path": "HD_HOTA.dll+0x1B22EB-анализ-gpt-5.6-sol-claude-opus-5.txt",
-    "size": 20867,
-    "sha256": "da0b84d24ba1e3533211166d12f010aa0cc3de0b0ec0060496ca8b7609e0965f"
+    "size": 22008,
+    "sha256": "62289048744103cdaff08f35b1b1894b44070c71ff9d4a2415c3dc7dfbf0ad9c"
   },
   "inputs": [
     {
@@ -117,14 +117,14 @@
     },
     {
       "path": "coverage.json",
-      "size": 6748,
-      "sha256": "a49bc97a6ff3e00ef50c9c026d65762c4a9a213432f77d792ef25bd6139deab2",
+      "size": 7241,
+      "sha256": "d648af72cbd45befabb3f1514bc5cee0f4b39539dac2b43aa2d23b5d0150157d",
       "role": "derived-evidence"
     },
     {
       "path": "evidence-config.json",
-      "size": 8821,
-      "sha256": "e9be0703e58d231c38390ac24f22022477b54a5741ff17645ba846c94713c872",
+      "size": 8973,
+      "sha256": "ff3a9bd9b462e98ff5b81db49e9c86b81148d70770f4abdc7d9a2a221b5806bc",
       "role": "derived-evidence"
     }
   ],
@@ -332,7 +332,7 @@
         "input:../../modules/HD_HOTA.dll-5.7 R33.txt"
       ],
       "id": "local-null-mechanism",
-      "statement": "В обеих версиях sink находится на +0x2B от начала функции: nullable-результат helper проходит EAX -> ESI и без проверки читается по [ESI+0x1C].",
+      "statement": "В обеих версиях точка потребления находится на +0x2B от начала функции: результат вспомогательной функции, который может быть нулевым, проходит EAX -> ESI и без проверки читается по [ESI+0x1C].",
       "type": "local_mechanism"
     },
     {
@@ -352,7 +352,7 @@
         "input:capabilities.json"
       ],
       "id": "state-origin-unknown",
-      "statement": "Объект ECX=0x108A3310 и глобалы в MiniDumpNormal не сохранены, поэтому окончательный выбор невозможен.",
+      "statement": "Объект ECX=0x108A3310 и глобалы в обычном минидампе не сохранены, поэтому окончательный выбор невозможен.",
       "type": "state_origin"
     },
     {
@@ -377,7 +377,7 @@
         "input:../../modules/HD_HOTA.dll-5.8-R8.txt"
       ],
       "id": "family-confirmed",
-      "statement": "Межверсионная семья подтверждена для 2 из 2 уникальных инцидентов по одинаковой локальной структуре дефекта; материализованы 3 TXT и 3 DMP, включая одну duplicate-пару исторического события.",
+      "statement": "Межверсионная семья подтверждена для 2 из 2 уникальных инцидентов по одинаковой локальной структуре дефекта; материализованы 3 TXT и 3 DMP, включая пару дубликатов исторического события.",
       "type": "family_coverage"
     },
     {
@@ -433,7 +433,7 @@
         "input:../../modules/HD_HOTA.dll-5.8-R8.txt"
       ],
       "id": "height-branch-rejected",
-      "statement": "Ранняя ветвь height<=0 при width>0 для этого инцидента исключается: sub_11B8130 до возврата не меняет EDX, но в CONTEXT потока исключения сохранено EDX=0.",
+      "statement": "Ранняя ветвь при высоте <= 0 и ширине > 0 для этого инцидента исключается: sub_11B8130 до возврата не меняет EDX, но в CONTEXT потока исключения сохранено EDX=0.",
       "type": "observation"
     }
   ],
@@ -444,7 +444,7 @@
   "toolchain": {
     "schema": 1,
     "kind": "toolchain_closure",
-    "git_commit": "3390486a24b569998f72e1c1ecda9bfa04ca9bd5",
+    "git_commit": "b18961b4e7a6ad06d48353744e6aa3899030487e",
     "direct_tools": [
       ".agents/skills/address-mapping/address_proof.py",
       ".agents/skills/hota-crash-triage/analysis_contract.py",
