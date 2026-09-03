@@ -95,7 +95,7 @@
   ],
   "mcp_relocation_seal": {
     "schema": 1,
-    "hmac_sha256": "0c159e9cc1a17886fa5b02deddc0b49c46a87001983b1b9ed737fc0191e0b50e"
+    "hmac_sha256": "8ded12083ab1c70c45af1515355d7c663825a888f5786a2b991b0876d11adaa9"
   },
   "source_cleanup": {
     "state": "applied",
@@ -105,40 +105,59 @@
     "items": [
       {
         "source": "mail-dumps/HD_HOTA.dll+0x1B107B/.DS_Store",
-        "destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/.DS_Store",
         "size": 10244,
-        "sha256": "7c191aebef3997f801097c9028cd844d931bfa92a7afbea34469c7f7d66cc43f"
+        "sha256": "7c191aebef3997f801097c9028cd844d931bfa92a7afbea34469c7f7d66cc43f",
+        "archived_destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/.DS_Store",
+        "disposition": "deleted_after_verified_consolidation"
       },
       {
         "source": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.extra.html",
-        "destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.extra.html",
         "size": 1687,
-        "sha256": "18c0d7152b9c8e734cc67e50f3ed969c772c1e214cb801a63cabd0c6d87c9d12"
+        "sha256": "18c0d7152b9c8e734cc67e50f3ed969c772c1e214cb801a63cabd0c6d87c9d12",
+        "archived_destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.extra.html",
+        "disposition": "deleted_after_verified_consolidation"
       },
       {
         "source": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.html",
-        "destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.html",
         "size": 498191,
-        "sha256": "5fd2111a22a57bb287283c9dab95817d1a8601e10630f02660e2f7efab161f95"
+        "sha256": "5fd2111a22a57bb287283c9dab95817d1a8601e10630f02660e2f7efab161f95",
+        "archived_destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.html",
+        "disposition": "deleted_after_verified_consolidation"
       },
       {
         "source": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.txt",
-        "destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.txt",
         "size": 22826,
-        "sha256": "372bf6ec57240a9b5dbb7dc658eef6b3948ad360fea989b169d3afeff01474ca"
+        "sha256": "372bf6ec57240a9b5dbb7dc658eef6b3948ad360fea989b169d3afeff01474ca",
+        "archived_destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.txt",
+        "disposition": "deleted_after_verified_consolidation"
       },
       {
         "source": "mail-dumps/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-краш-логи-и-дампы.zip",
-        "destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-краш-логи-и-дампы.zip",
         "size": 30271,
-        "sha256": "f3e3a92a27eb285779ded238b0f3c820f6d8a3e81a0df51ccb6dab8709d4fc50"
+        "sha256": "f3e3a92a27eb285779ded238b0f3c820f6d8a3e81a0df51ccb6dab8709d4fc50",
+        "archived_destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-краш-логи-и-дампы.zip",
+        "disposition": "deleted_after_verified_consolidation"
       },
       {
         "source": "mail-dumps/HD_HOTA.dll+0x1B107B/capabilities.json",
-        "destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/capabilities.json",
         "size": 2339,
-        "sha256": "e7b97a4c2406bc37607e61655003f505693e22bede60a04c441ee51acf49a256"
+        "sha256": "e7b97a4c2406bc37607e61655003f505693e22bede60a04c441ee51acf49a256",
+        "archived_destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/capabilities.json",
+        "disposition": "deleted_after_verified_consolidation"
       }
-    ]
+    ],
+    "transient_metadata": [
+      {
+        "source": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/.DS_Store",
+        "archived_destination": "mail-dumps/HD_HOTA.dll+0x1B22EB/Краш-логи и дампы старых версий HD-мода/Исторические материалы/.DS_Store",
+        "size": 10244,
+        "sha256": "e74f483a086f26c4289310298b581eec8e7123cd2f3103da3a246baa712f25a8",
+        "disposition": "deleted_transient_os_metadata",
+        "reason": "служебные метаданные macOS без материалов дела"
+      }
+    ],
+    "mode": "delete_after_verified_consolidation",
+    "deleted_at": "2026-09-03T12:51:42.317687Z",
+    "recovered_from_snapshot": "20260903-152906"
   }
 }

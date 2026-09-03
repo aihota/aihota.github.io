@@ -88,8 +88,8 @@
       },
       {
         "path": "relocation-manifest.json",
-        "size": 7321,
-        "sha256": "8399f71ae7c2deb3778b1878fc02da4f9794ea665decd07df65a837bc38f219d"
+        "size": 8590,
+        "sha256": "fe651a5c5a3df0f4ad2379bcb80f4f64191a780e8f9ed2e37002fde1901f5fd6"
       },
       {
         "path": "repro-plan.json",
@@ -130,26 +130,6 @@
         "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1B107B-180.txt",
         "size": 9305,
         "sha256": "5b69fd6e2c084d247772c6888a05e81937e152cce040ce8c4c86d7102dc3fc22"
-      },
-      {
-        "path": "Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.extra.html",
-        "size": 1687,
-        "sha256": "18c0d7152b9c8e734cc67e50f3ed969c772c1e214cb801a63cabd0c6d87c9d12"
-      },
-      {
-        "path": "Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.html",
-        "size": 498191,
-        "sha256": "5fd2111a22a57bb287283c9dab95817d1a8601e10630f02660e2f7efab161f95"
-      },
-      {
-        "path": "Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/HD_HOTA.dll+0x1B107B-анализ-qwen-3.8.txt",
-        "size": 22826,
-        "sha256": "372bf6ec57240a9b5dbb7dc658eef6b3948ad360fea989b169d3afeff01474ca"
-      },
-      {
-        "path": "Краш-логи и дампы старых версий HD-мода/Исторические материалы/HD_HOTA.dll+0x1B107B/capabilities.json",
-        "size": 2339,
-        "sha256": "e7b97a4c2406bc37607e61655003f505693e22bede60a04c441ee51acf49a256"
       }
     ],
     "toolchain_files": [
@@ -354,7 +334,7 @@
         "sha256": "fe461b4dfd54513a63b6ec625047484cda0fc5c20b801c01a572691e4516fa58"
       }
     ],
-    "sha256": "d96a1b6e123ecc83659d716ea39e20dd81fb12f7701129092c2855fbde9577f4"
+    "sha256": "932fda112336ed4590c111f6c47aefe82d5c5ea6444fd88ff44cae48c2a87b0c"
   },
   "audit_stages_complete": null,
   "publication_ready": true,

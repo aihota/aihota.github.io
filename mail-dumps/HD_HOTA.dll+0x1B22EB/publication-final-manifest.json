@@ -56,7 +56,7 @@
       "relative_path": "analysis-promotion-manifest.json",
       "role": "publication-input",
       "size": 706,
-      "sha256": "9700a38d72de0404679327cdeb84e2f825a0131696ef3a638cbe6969908d37ee"
+      "sha256": "fd5a07580c5472454200ec14d93aec5b87a5fb3462934149d21570bd5bfd99e3"
     },
     {
       "relative_path": "archive-manifest.json",
@@ -103,14 +103,14 @@
     {
       "relative_path": "quality-gate.json",
       "role": "publication-input",
-      "size": 25892,
-      "sha256": "eebddff6d582693b45986040153750f81db626b6ff27a44c98b579c12c6872ee"
+      "size": 24610,
+      "sha256": "c2e3fc76f667cc5a334b599be3f24171f79ee4cf5af76d34af55660e281e51a9"
     },
     {
       "relative_path": "relocation-manifest.json",
       "role": "publication-input",
-      "size": 7321,
-      "sha256": "8399f71ae7c2deb3778b1878fc02da4f9794ea665decd07df65a837bc38f219d"
+      "size": 8590,
+      "sha256": "fe651a5c5a3df0f4ad2379bcb80f4f64191a780e8f9ed2e37002fde1901f5fd6"
     },
     {
       "relative_path": "repro-plan.json",
@@ -169,5 +169,5 @@
     "verified": 22,
     "skipped": 0
   },
-  "manifest_sha256": "4e0a831fe102525951ed7b04e8fee39feaaff5a7876000fe4236ffd73edf6f9f"
+  "manifest_sha256": "25077d29ed97a289e2213aa734f24ab5093bc5e46aad741fcae3ab44720ddc74"
 }
