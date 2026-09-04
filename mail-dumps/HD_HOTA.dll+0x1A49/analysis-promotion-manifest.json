@@ -8,7 +8,7 @@
       "relative_path": "quality-gate.json",
       "role": "promoted-artifact",
       "size": 56485,
-      "sha256": "41e71f0816402b8b966a40d0881aa7c9f3c85bc43f99f7f44464fe33a0cc02a2"
+      "sha256": "617795e227be8323ad38acc2f96a4f49c4a72fc78f0fcfd5aced53f7173a79e1"
     }
   ],
   "runtime": {
@@ -22,5 +22,5 @@
     "verified": 1,
     "skipped": 0
   },
-  "manifest_sha256": "27e461c5f900a6dc0635f1c14f6ad7f03e7b7a9204595875e46fb337729fb14f"
+  "manifest_sha256": "43cfc7d509342d26f404a3256379b1b6c1aaf1b7b7fb8f109641c07211b41330"
 }

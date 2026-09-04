@@ -123,8 +123,8 @@
       },
       {
         "path": "HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.html",
-        "size": 568631,
-        "sha256": "5589e885312951735acf8d85cad2e1d8d0fca2c7105437bad69ddaf167bf41f3"
+        "size": 568508,
+        "sha256": "f59920fdd8d385e692303c018b289af0b88222cd8ae9cbb71101f7764b511745"
       },
       {
         "path": "HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.model.json",
@@ -814,7 +814,7 @@
         "sha256": "598b5b172786c0c7118cd17c2387ae500761e6a9d4caa1f1c15bd7146be31fd5"
       }
     ],
-    "sha256": "3efe29b1c672634171bd2f93d1151c7f1d6201247eaa6e94dd2af048700df639"
+    "sha256": "b9efdc6847172c50d61df22ec8f269b95893a5e855daf2e27a1245d8b9e6e013"
   },
   "audit_stages_complete": null,
   "publication_ready": true,

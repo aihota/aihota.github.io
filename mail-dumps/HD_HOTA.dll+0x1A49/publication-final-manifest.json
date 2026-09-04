@@ -19,8 +19,8 @@
     {
       "relative_path": "HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.html",
       "role": "publication-input",
-      "size": 568631,
-      "sha256": "5589e885312951735acf8d85cad2e1d8d0fca2c7105437bad69ddaf167bf41f3"
+      "size": 568508,
+      "sha256": "f59920fdd8d385e692303c018b289af0b88222cd8ae9cbb71101f7764b511745"
     },
     {
       "relative_path": "HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.model.json",
@@ -62,7 +62,7 @@
       "relative_path": "analysis-promotion-manifest.json",
       "role": "publication-input",
       "size": 702,
-      "sha256": "de1914a6c871afd46ac241675a5129f7c1032daa4baf97f42efb3d1393d89e52"
+      "sha256": "bc8cbedc00920b456f79177d0e562a581e99844a3efba3bcb09a1e73e9cffae4"
     },
     {
       "relative_path": "archive-manifest.json",
@@ -164,7 +164,7 @@
       "relative_path": "quality-gate.json",
       "role": "publication-input",
       "size": 56485,
-      "sha256": "41e71f0816402b8b966a40d0881aa7c9f3c85bc43f99f7f44464fe33a0cc02a2"
+      "sha256": "617795e227be8323ad38acc2f96a4f49c4a72fc78f0fcfd5aced53f7173a79e1"
     },
     {
       "relative_path": "report-consolidation-manifest.json",
@@ -246,5 +246,5 @@
     "verified": 33,
     "skipped": 0
   },
-  "manifest_sha256": "9ba894a76c661597d0530199420a56b6e7c864645133b889e60974704db24ffa"
+  "manifest_sha256": "b949bd17d0962f92c6f33a5bde6301ac820309aae2a1ed39c116f9b1cb54623b"
 }
