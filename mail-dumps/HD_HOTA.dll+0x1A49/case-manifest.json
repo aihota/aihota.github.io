@@ -55,7 +55,8 @@
     "family_membership": {
       "counts": {
         "confirmed": 6,
-        "excluded": 59
+        "context_only": 13,
+        "excluded": 46
       },
       "classification_complete": true,
       "same_sink": true,
@@ -566,10 +567,10 @@
         "hd": "5.7 RC11"
       },
       "crash_site": "hd_hota.dll+0x1a4e",
-      "family_membership": "excluded",
+      "family_membership": "context_only",
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       },
@@ -867,10 +868,10 @@
         "hd": "5.7 RC9"
       },
       "crash_site": "hd_hota.dll+0x1a4e",
-      "family_membership": "excluded",
+      "family_membership": "context_only",
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       },
@@ -952,10 +953,10 @@
         "hd": "5.7 RC11"
       },
       "crash_site": "hd_hota.dll+0x1a4e",
-      "family_membership": "excluded",
+      "family_membership": "context_only",
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       },
@@ -1199,10 +1200,10 @@
         "hd": "5.7 R33"
       },
       "crash_site": "hd_hota.dll+0x1a4e",
-      "family_membership": "excluded",
+      "family_membership": "context_only",
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       },
@@ -1554,10 +1555,10 @@
         "hd": "5.7 RC7"
       },
       "crash_site": "hd_hota.dll+0x1a4e",
-      "family_membership": "excluded",
+      "family_membership": "context_only",
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       },
@@ -1635,10 +1636,10 @@
         "hd": "5.7 R23"
       },
       "crash_site": "hd_hota.dll+0x1a4e",
-      "family_membership": "excluded",
+      "family_membership": "context_only",
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       },
@@ -1666,10 +1667,10 @@
         "hd": "5.7 RC6"
       },
       "crash_site": "hd_hota.dll+0x1a4e",
-      "family_membership": "excluded",
+      "family_membership": "context_only",
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       },
@@ -1886,10 +1887,10 @@
         "hd": "5.7 R33"
       },
       "crash_site": "hd_hota.dll+0x1a4e",
-      "family_membership": "excluded",
+      "family_membership": "context_only",
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       },
@@ -1944,10 +1945,10 @@
         "hd": "5.7 R33"
       },
       "crash_site": "hd_hota.dll+0x1a4e",
-      "family_membership": "excluded",
+      "family_membership": "context_only",
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       },
@@ -2002,10 +2003,10 @@
         "hd": "5.7 R28"
       },
       "crash_site": "hd_hota.dll+0x1a4e",
-      "family_membership": "excluded",
+      "family_membership": "context_only",
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       },
@@ -2158,10 +2159,10 @@
         "hd": "5.7 R20"
       },
       "crash_site": "hd_hota.dll+0x1a4e",
-      "family_membership": "excluded",
+      "family_membership": "context_only",
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       },
@@ -2243,10 +2244,10 @@
         "hd": "5.7 R10"
       },
       "crash_site": "hd_hota.dll+0x1a4e",
-      "family_membership": "excluded",
+      "family_membership": "context_only",
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       },
@@ -2341,10 +2342,10 @@
         "hd": "5.7 R26"
       },
       "crash_site": "hd_hota.dll+0x1a4e",
-      "family_membership": "excluded",
+      "family_membership": "context_only",
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       },
@@ -2366,10 +2367,10 @@
     }
   ],
   "sources": {
-    "series": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A49-rebuild/series-groups.json",
-    "pair_audit": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A49-rebuild/pair-audit.json",
-    "family_membership": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A49-rebuild/family-membership.json",
-    "capabilities": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A49-rebuild/capabilities.json"
+    "series": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A49/series-groups.json",
+    "pair_audit": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A49/pair-audit.json",
+    "family_membership": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A49/family-membership.json",
+    "capabilities": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A49/capabilities.json"
   },
-  "case_fingerprint": "4184a8d75604566eb723d7e082324355defcf22aa844b1806d9e372a5aeba75c"
+  "case_fingerprint": "b271bbf9bdeb07af19d863339382dd2052bd84c8021680d905d02101b5b9b5f1"
 }

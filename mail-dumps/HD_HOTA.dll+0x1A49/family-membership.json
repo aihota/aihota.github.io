@@ -1,6 +1,6 @@
 {
   "schema": 4,
-  "generated_at": "2026-09-03T19:21:32.592435+00:00",
+  "generated_at": "2026-09-04T07:59:36.002802+00:00",
   "family_id": "family-HD_HOTA-null-malloc-breakpoint",
   "source": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A49/family-membership-input.json",
   "scope_id": "series-HD_HOTA-1A49-case-census",
@@ -12,7 +12,7 @@
     "source": "series-groups.json",
     "physical_txt": 67,
     "incidents": 65,
-    "classification": "the six exact HD_HOTA.dll+0x1A49 incidents are confirmed; 59 incidents at other sinks are excluded without inferring their local mechanism or root cause",
+    "classification": "the six exact HD_HOTA.dll+0x1A49 breakpoint incidents are confirmed; 13 HD_HOTA.dll+0x1A4E incidents are context_only because seven exact listings and raw register invariants confirm the same local allocator-failure mechanism at a different sink; 46 other historical incidents are excluded",
     "address_range": {
       "start_rva": "0x19AE",
       "end_rva": "0x1ABE",
@@ -26,17 +26,17 @@
     "classified": 65,
     "confirmed": 6,
     "probable": 0,
-    "context_only": 0,
-    "excluded": 59,
+    "context_only": 13,
+    "excluded": 46,
     "unknown": 0,
     "blocked": 0
   },
   "incident_set_fingerprint": "093ed881a9f1556bbb8526867c32ae44e7e1ce9d710cf56d1482b0b906a5f903",
   "human_decision": {
     "author": "1 1 (review assisted by GPT-5.6 Sol)",
-    "decided_at": "2026-09-03T22:21:00+03:00",
-    "basis": "All 65 unique incidents were classified by exact normalized sink. Only the six HD_HOTA.dll+0x1A49 incidents share the confirmed NULL-to-breakpoint allocator mechanism; 59 incidents at other RVAs are explicitly excluded.",
-    "source": "series-groups.json; HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.txt; user authorization 2026-09-03",
+    "decided_at": "2026-09-04T10:12:19+03:00",
+    "basis": "All 65 unique incidents were classified by exact normalized sink. Six HD_HOTA.dll+0x1A49 incidents form the confirmed breakpoint family. Thirteen HD_HOTA.dll+0x1A4E incidents have a different write-fault sink but the same local _malloc-to-NULL mechanism in seven exact listings, so they are context_only and do not increase the exact-family count. The other 46 incidents remain excluded.",
+    "source": "series-groups.json; seven exact HD_HOTA.dll 5.7 RC9/RC11/R10/R20/R23/R28/R33 listings; 13 raw +0x1A4E TXT; HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.txt; user authorization 2026-09-04",
     "incident_set_fingerprint": "093ed881a9f1556bbb8526867c32ae44e7e1ce9d710cf56d1482b0b906a5f903"
   },
   "provenance_warnings": [],
@@ -850,195 +850,195 @@
     },
     {
       "incident_id": "incident-889fe8d682d74f69",
-      "membership": "excluded",
-      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "membership": "context_only",
+      "basis": "Межверсионный контекст: тот же локальный путь sub_1001A30, в котором _malloc вернул NULL; однако точка +0x1A4E выполняет запись mov [esi],esi, а не int 3 по +0x1A49. Общие происхождение состояния и первопричина не установлены.",
       "evidence": [
         "series-groups.json:incident-889fe8d682d74f69",
         "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-1.txt"
       ],
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       }
     },
     {
       "incident_id": "incident-5c8863f8ecfcbace",
-      "membership": "excluded",
-      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "membership": "context_only",
+      "basis": "Межверсионный контекст: тот же локальный путь sub_1001A30, в котором _malloc вернул NULL; однако точка +0x1A4E выполняет запись mov [esi],esi, а не int 3 по +0x1A49. Общие происхождение состояния и первопричина не установлены.",
       "evidence": [
         "series-groups.json:incident-5c8863f8ecfcbace",
         "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-10.txt"
       ],
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       }
     },
     {
       "incident_id": "incident-ca7e1c88e2c81c29",
-      "membership": "excluded",
-      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "membership": "context_only",
+      "basis": "Межверсионный контекст: тот же локальный путь sub_1001A30, в котором _malloc вернул NULL; однако точка +0x1A4E выполняет запись mov [esi],esi, а не int 3 по +0x1A49. Общие происхождение состояния и первопричина не установлены.",
       "evidence": [
         "series-groups.json:incident-ca7e1c88e2c81c29",
         "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-11.txt"
       ],
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       }
     },
     {
       "incident_id": "incident-cc27fbe3a8077f14",
-      "membership": "excluded",
-      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "membership": "context_only",
+      "basis": "Межверсионный контекст: тот же локальный путь sub_1001A30, в котором _malloc вернул NULL; однако точка +0x1A4E выполняет запись mov [esi],esi, а не int 3 по +0x1A49. Общие происхождение состояния и первопричина не установлены.",
       "evidence": [
         "series-groups.json:incident-cc27fbe3a8077f14",
         "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-12.txt"
       ],
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       }
     },
     {
       "incident_id": "incident-7c7823ebff09561a",
-      "membership": "excluded",
-      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "membership": "context_only",
+      "basis": "Межверсионный контекст: тот же локальный путь sub_1001A30, в котором _malloc вернул NULL; однако точка +0x1A4E выполняет запись mov [esi],esi, а не int 3 по +0x1A49. Общие происхождение состояния и первопричина не установлены.",
       "evidence": [
         "series-groups.json:incident-7c7823ebff09561a",
         "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-2.txt"
       ],
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       }
     },
     {
       "incident_id": "incident-2a4e45557e77cc88",
-      "membership": "excluded",
-      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "membership": "context_only",
+      "basis": "Межверсионный контекст: тот же локальный путь sub_1001A30, в котором _malloc вернул NULL; однако точка +0x1A4E выполняет запись mov [esi],esi, а не int 3 по +0x1A49. Общие происхождение состояния и первопричина не установлены.",
       "evidence": [
         "series-groups.json:incident-2a4e45557e77cc88",
         "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-3.txt"
       ],
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       }
     },
     {
       "incident_id": "incident-38d27b33d122ad5d",
-      "membership": "excluded",
-      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "membership": "context_only",
+      "basis": "Межверсионный контекст: тот же локальный путь sub_1001A30, в котором _malloc вернул NULL; однако точка +0x1A4E выполняет запись mov [esi],esi, а не int 3 по +0x1A49. Общие происхождение состояния и первопричина не установлены.",
       "evidence": [
         "series-groups.json:incident-38d27b33d122ad5d",
         "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-4.txt"
       ],
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       }
     },
     {
       "incident_id": "incident-e970cdce86fd7a8b",
-      "membership": "excluded",
-      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "membership": "context_only",
+      "basis": "Межверсионный контекст: тот же локальный путь sub_1001A30, в котором _malloc вернул NULL; однако точка +0x1A4E выполняет запись mov [esi],esi, а не int 3 по +0x1A49. Общие происхождение состояния и первопричина не установлены.",
       "evidence": [
         "series-groups.json:incident-e970cdce86fd7a8b",
         "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-5.txt"
       ],
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       }
     },
     {
       "incident_id": "incident-e38f206d2828430a",
-      "membership": "excluded",
-      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "membership": "context_only",
+      "basis": "Межверсионный контекст: тот же локальный путь sub_1001A30, в котором _malloc вернул NULL; однако точка +0x1A4E выполняет запись mov [esi],esi, а не int 3 по +0x1A49. Общие происхождение состояния и первопричина не установлены.",
       "evidence": [
         "series-groups.json:incident-e38f206d2828430a",
         "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-6.txt"
       ],
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       }
     },
     {
       "incident_id": "incident-863d7845c2dcd0ce",
-      "membership": "excluded",
-      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "membership": "context_only",
+      "basis": "Межверсионный контекст: тот же локальный путь sub_1001A30, в котором _malloc вернул NULL; однако точка +0x1A4E выполняет запись mov [esi],esi, а не int 3 по +0x1A49. Общие происхождение состояния и первопричина не установлены.",
       "evidence": [
         "series-groups.json:incident-863d7845c2dcd0ce",
         "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-7.txt"
       ],
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       }
     },
     {
       "incident_id": "incident-ff5896b2f47c690a",
-      "membership": "excluded",
-      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "membership": "context_only",
+      "basis": "Межверсионный контекст: тот же локальный путь sub_1001A30, в котором _malloc вернул NULL; однако точка +0x1A4E выполняет запись mov [esi],esi, а не int 3 по +0x1A49. Общие происхождение состояния и первопричина не установлены.",
       "evidence": [
         "series-groups.json:incident-ff5896b2f47c690a",
         "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-8.txt"
       ],
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       }
     },
     {
       "incident_id": "incident-cfa092ea3d16684f",
-      "membership": "excluded",
-      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "membership": "context_only",
+      "basis": "Межверсионный контекст: тот же локальный путь sub_1001A30, в котором _malloc вернул NULL; однако точка +0x1A4E выполняет запись mov [esi],esi, а не int 3 по +0x1A49. Общие происхождение состояния и первопричина не установлены.",
       "evidence": [
         "series-groups.json:incident-cfa092ea3d16684f",
         "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-9.txt"
       ],
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       }
     },
     {
       "incident_id": "incident-0cf34e1bacfdc4a4",
-      "membership": "excluded",
-      "basis": "Иной точный sink hd_hota.dll+0x1a4e; это отдельная адресная группа, не HD_HOTA.dll+0x1A49.",
+      "membership": "context_only",
+      "basis": "Межверсионный контекст: тот же локальный путь sub_1001A30, в котором _malloc вернул NULL; однако точка +0x1A4E выполняет запись mov [esi],esi, а не int 3 по +0x1A49. Общие происхождение состояния и первопричина не установлены.",
       "evidence": [
         "series-groups.json:incident-0cf34e1bacfdc4a4",
         "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0Time0526202-1.txt"
       ],
       "relationship_ladder": {
         "same_sink": false,
-        "same_local_mechanism": "unknown",
+        "same_local_mechanism": true,
         "same_state_origin": "unknown",
         "same_root_cause": "unknown"
       }
@@ -1061,7 +1061,8 @@
   ],
   "counts": {
     "confirmed": 6,
-    "excluded": 59
+    "excluded": 46,
+    "context_only": 13
   },
   "errors": [],
   "registry_valid": true,

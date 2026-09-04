@@ -211,5 +211,44 @@
     "errors": [],
     "root_cause_allowed": false
   },
-  "status": "passed"
+  "status": "passed",
+  "historical_context": {
+    "case": "HD_HOTA.dll+0x1A4E",
+    "membership": "context_only",
+    "exact_breakpoint_family_increment": 0,
+    "incidents": 13,
+    "physical_txt": 13,
+    "physical_dmp": 7,
+    "exception": "EXCEPTION_ACCESS_VIOLATION write",
+    "sink_instruction": "mov [esi],esi",
+    "register_invariants": [
+      "EAX=0 in 13/13 TXT",
+      "ESI equals faulting write address in 13/13 TXT"
+    ],
+    "same_local_mechanism": true,
+    "same_sink": false,
+    "same_state_origin": "unknown",
+    "same_root_cause": "unknown",
+    "exact_listing_coverage": {
+      "scanned": 7,
+      "total_available": 7,
+      "complete_for_available": true,
+      "builds": [
+        "5.7 RC9",
+        "5.7 RC11",
+        "5.7 R10",
+        "5.7 R20",
+        "5.7 R23",
+        "5.7 R28",
+        "5.7 R33"
+      ],
+      "missing_builds": [
+        "5.7 RC6",
+        "5.7 RC7",
+        "5.7 R26"
+      ]
+    },
+    "network_context": "Network Game=1 and Game Type=2 in 12/13 TXT",
+    "r26_boundary": "EBX=0x67616D42 (Bmag) rounds to ESI=0x67680000; corrupted size is indicated, but the writer and a shared root cause are not established"
+  }
 }

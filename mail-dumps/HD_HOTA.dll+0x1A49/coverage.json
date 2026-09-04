@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "generated_at": "2026-09-03T19:21:32.553368+00:00",
+  "generated_at": "2026-09-04T07:59:35.970655+00:00",
   "source": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A49/coverage-claims.json",
   "axes": [
     "instruction",
@@ -91,8 +91,8 @@
     {
       "id": "claim-family-coverage",
       "type": "family_coverage",
-      "statement": "Покрытие: просмотрены все 6 уникальных DMP; полной памяти нет ни в одном.",
-      "confidence": "выведено из совокупности признаков",
+      "statement": "Покрытие: просмотрены все 6 уникальных DMP точной семьи +0x1A49; для межверсионного контекста +0x1A4E есть 7 точных листингов из 10 сборок.",
+      "confidence": "полное для точной семьи, частичное для межверсионного контекста",
       "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
       "scope_kind": "family",
       "applicable_axes": [
@@ -107,13 +107,20 @@
         "input:series-groups.json",
         "input:family-membership.json",
         "input:pair-audit.json",
-        "input:capabilities.json"
+        "input:capabilities.json",
+        "input:../../modules/HD_HOTA.dll-5.7 RC9.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 RC11.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R10.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R20.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R23.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R28.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R33.txt"
       ],
       "confidence_vector": {
         "instruction": "not_applicable",
         "mechanism": "not_applicable",
         "state_origin": "not_applicable",
-        "family_coverage": "confirmed"
+        "family_coverage": "probable"
       }
     },
     {
@@ -135,25 +142,94 @@
         "state_origin": "unknown",
         "family_coverage": "not_applicable"
       }
+    },
+    {
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "id": "historical-1a4e-relation",
+      "type": "local_mechanism",
+      "statement": "13 исторических инцидентов HD_HOTA.dll+0x1A4E имеют тот же локальный путь sub_1001A30: _malloc возвращает NULL; другая точка сбоя выполняет запись mov [esi],esi, поэтому это межверсионный контекст, а не увеличение точной семьи +0x1A49.",
+      "confidence": "однозначно следует из 13 журналов и семи точных листингов",
+      "applicable_axes": [
+        "mechanism"
+      ],
+      "evidence": [
+        "input:series-groups.json",
+        "input:family-membership.json",
+        "input:../../modules/HD_HOTA.dll-5.7 RC9.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 RC11.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R10.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R20.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R23.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R28.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R33.txt"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "confirmed",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "id": "historical-1a4e-size-distribution",
+      "type": "observation",
+      "statement": "В 13 журналах +0x1A4E адрес записи и ESI распределены так: 0x00100000 — 8, 0x02F80000 — 1, 0x08200000 — 1, 0x0AE00000 — 1, 0x11B00000 — 1, 0x67680000 — 1.",
+      "confidence": "видно непосредственно в полном наборе 13 журналов",
+      "applicable_axes": [],
+      "evidence": [
+        "input:series-groups.json",
+        "input:family-membership.json"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "id": "historical-1a4e-causality-boundary",
+      "type": "state_origin",
+      "statement": "Общая причина возврата NULL для 13 случаев +0x1A4E не установлена: сетевые поля присутствуют в 12 из 13 журналов; R26 с EBX=0x67616D42 и ESI=0x67680000 указывает на повреждённый размер, но источник повреждения и общность причин неизвестны.",
+      "confidence": "граница следует из сокращённых дампов, неполного покрытия листингами и регистра R26",
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "evidence": [
+        "input:capabilities.json",
+        "input:family-membership.json",
+        "input:series-groups.json"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
     }
   ],
   "matrix": {
     "instruction": {
       "confirmed": 1,
-      "not_applicable": 4
+      "not_applicable": 7
     },
     "mechanism": {
-      "not_applicable": 4,
-      "confirmed": 1
+      "not_applicable": 6,
+      "confirmed": 2
     },
     "state_origin": {
-      "not_applicable": 3,
+      "not_applicable": 5,
       "probable": 1,
-      "unknown": 1
+      "unknown": 2
     },
     "family_coverage": {
-      "not_applicable": 4,
-      "confirmed": 1
+      "not_applicable": 7,
+      "probable": 1
     }
   },
   "diagnostic_completeness": {
@@ -164,13 +240,14 @@
       "instruction": "confirmed",
       "mechanism": "confirmed",
       "state_origin": "probable",
-      "family_coverage": "confirmed",
+      "family_coverage": "probable",
       "reproduction": "unknown"
     },
     "root_cause_ready": false,
     "next_required": [
       "capture_state_origin_and_writer",
-      "confirm_reproduction"
+      "confirm_reproduction",
+      "complete_family_coverage"
     ]
   },
   "errors": [],

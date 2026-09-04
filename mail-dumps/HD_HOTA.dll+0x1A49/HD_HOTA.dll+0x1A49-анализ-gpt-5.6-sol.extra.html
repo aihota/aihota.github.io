@@ -1,24 +1,30 @@
 <section id="viz-mechanism" data-toc="Визуализация сбоя">
   <h2><span class="htext">Визуализация сбоя</span>
       <a class="anchor" href="#viz-mechanism">¶</a></h2>
-  <p>Пять уникальных инцидентов сходятся в sub_1001A30+0x19,
-     но приходят туда из двух разных сценариев выделения памяти.</p>
+  <p>Шесть уникальных минидампов образуют точную семью +0x1A49.
+     Они сходятся в sub_1001A30+0x19 по двум локальным ветвям;
+     ещё 13 событий +0x1A4E относятся только к межверсионному контексту.</p>
   <div class="viz">
     <div class="viz-stage">
       <div class="viz-stage-title">
         <span class="viz-stage-index">1</span>
-        <span>Два вызывающих пути</span>
+        <span>Две локальные ветви, шесть инцидентов</span>
       </div>
       <div class="viz-strip badge-tl">
         <div class="viz-box accent">
           <span class="viz-badge accent">A</span>
-          <span>R35 и R39: создание исходного буфера</span>
-          <span class="lbl">1 МиБ → 0x00100004</span>
+          <span>R35 и R39: начальное выделение</span>
+          <span class="lbl">3 минидампа · 1 МиБ → 0x00100004</span>
         </div>
         <div class="viz-box accent">
           <span class="viz-badge accent">B</span>
-          <span>R40: рост dword_21B7CA0 после добавления 5 байт</span>
-          <span class="lbl">0x0D680004 или 0x0D880004</span>
+          <span>R40: рост динамического буфера</span>
+          <span class="lbl">2 минидампа · 0x0D680004 / 0x0D880004</span>
+        </div>
+        <div class="viz-box accent">
+          <span class="viz-badge accent">B</span>
+          <span>R8: тот же путь роста, другой вход</span>
+          <span class="lbl">1 минидамп · 1,5 МиБ → 0x00180004</span>
         </div>
       </div>
     </div>
@@ -32,7 +38,7 @@
         <div class="viz-box ok">
           <span class="viz-badge ok">1</span>
           <span>sub_1001A30 добавляет заголовок 4 байта</span>
-          <span class="lbl">точный листинг R35, R39 и R40</span>
+          <span class="lbl">точные листинги R35, R39, R40 и R8</span>
         </div>
         <div class="viz-box accent">
           <span class="viz-badge accent">2</span>
@@ -42,7 +48,7 @@
         <div class="viz-box bad">
           <span class="viz-badge bad">3</span>
           <span>_malloc возвращает NULL</span>
-          <span class="lbl">EAX=0 во всех пяти DMP</span>
+          <span class="lbl">EAX=0 во всех шести минидампах</span>
         </div>
         <div class="viz-box bad">
           <span class="viz-badge bad">4</span>
@@ -55,7 +61,7 @@
     <div class="viz-stage">
       <div class="viz-stage-title">
         <span class="viz-stage-index">3</span>
-        <span>Почему R40 особенно чувствителен к адресному пространству</span>
+        <span>Почему два случая R40 чувствительны к адресному пространству</span>
       </div>
       <div class="viz-strip badge-tl">
         <div class="viz-box dashed">
@@ -74,8 +80,56 @@
           <span class="lbl">около 428,5 либо 432,5 МиБ</span>
         </div>
       </div>
-      <p class="viz-cap">Полная куча не сохранена: фрагментация вероятна,
-         но повреждение кучи окончательно не исключено.</p>
+      <p class="viz-cap">Эта рабочая гипотеза относится к R40. Запросы R35,
+         R39 и R8 намного меньше, а полной кучи нет ни в одном минидампе;
+         поэтому причина NULL для всей точной семьи не установлена.</p>
+    </div>
+
+    <div class="viz-stage">
+      <div class="viz-stage-title">
+        <span class="viz-stage-index">4</span>
+        <span>Межверсионный контекст не увеличивает точную семью</span>
+      </div>
+      <div class="viz-strip badge-tl">
+        <div class="viz-box dashed">
+          <span class="viz-badge neutral">13</span>
+          <span>Старая ветвь +0x1A4E</span>
+          <span class="lbl">13 TXT · 7 минидампов · только контекст</span>
+        </div>
+        <div class="viz-box ok">
+          <span class="viz-badge ok">=</span>
+          <span>Совпадает локальный путь отказа</span>
+          <span class="lbl">sub_1001A30 · _malloc → EAX=0</span>
+        </div>
+        <div class="viz-box bad">
+          <span class="viz-badge bad">≠</span>
+          <span>Различаются инструкция и класс сбоя</span>
+          <span class="lbl">запись mov [esi],esi вместо int 3</span>
+        </div>
+      </div>
+      <p class="viz-cap">Классификация 65 уникальных инцидентов:
+         6 подтверждены для +0x1A49, 13 контекстных для +0x1A4E,
+         46 исключены. Общая первопричина этих групп не доказана.</p>
+    </div>
+
+    <div class="viz-stage">
+      <div class="viz-stage-title">
+        <span class="viz-stage-index">5</span>
+        <span>Размеры старой ветви +0x1A4E</span>
+      </div>
+      <div class="viz-strip badge-tl">
+        <div class="viz-box accent"><span class="viz-badge accent">8</span><span>0x00100000</span><span class="lbl">1 МиБ</span></div>
+        <div class="viz-box accent"><span class="viz-badge accent">1</span><span>0x02F80000</span><span class="lbl">47,5 МиБ</span></div>
+        <div class="viz-box accent"><span class="viz-badge accent">1</span><span>0x08200000</span><span class="lbl">130 МиБ</span></div>
+      </div>
+      <div class="viz-strip badge-tl">
+        <div class="viz-box accent"><span class="viz-badge accent">1</span><span>0x0AE00000</span><span class="lbl">174 МиБ</span></div>
+        <div class="viz-box accent"><span class="viz-badge accent">1</span><span>0x11B00000</span><span class="lbl">283 МиБ · около 296,7 МБ</span></div>
+        <div class="viz-box bad"><span class="viz-badge bad">1</span><span>0x67680000</span><span class="lbl">около 1,62 ГиБ · около 1,73 ГБ</span></div>
+      </div>
+      <p class="viz-cap">Распределение размеров само по себе не различает
+         исчерпание, фрагментацию и повреждение кучи. Значение R26 указывает
+         на повреждённый размер, но не устанавливает его источник.</p>
     </div>
 
     <div class="viz-legend">

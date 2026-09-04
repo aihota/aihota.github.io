@@ -1,76 +1,308 @@
 {
-  "schema": 1,
+  "schema": 2,
   "report": "HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.txt",
   "inputs": [
-    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180.txt"},
-    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180.dmp"},
-    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1.txt"},
-    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1.dmp"},
-    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-2.txt"},
-    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-2.dmp"},
-    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3.txt"},
-    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3.dmp"},
-    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1.txt"},
-    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1.dmp"},
-    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-1.txt"},
-    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-1.dmp"},
-    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-2.txt"},
-    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-2.dmp"},
-    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.8-R8-181.txt"},
-    {"role": "source", "path": "HD_HOTA.dll+0x1A49-5.8-R8-181.dmp"},
-    {"role": "source", "path": "../../modules/HD_HOTA.dll-5.7 R35.txt"},
-    {"role": "source", "path": "../../modules/HD_HOTA.dll-5.7 R39.txt"},
-    {"role": "source", "path": "../../modules/HD_HOTA.dll-5.7 R40.txt"},
-    {"role": "source", "path": "../../modules/HD_HOTA.dll-5.8-R8.txt"},
-    {"role": "derived-evidence", "path": "pair-audit.json"},
-    {"role": "derived-evidence", "path": "capabilities.json"},
-    {"role": "derived-evidence", "path": "series-parse.json"},
-    {"role": "derived-evidence", "path": "series-annotations.json"},
-    {"role": "derived-evidence", "path": "series-groups.json"},
-    {"role": "derived-evidence", "path": "save-inventory.json"},
-    {"role": "derived", "path": "family-membership-input.json"},
-    {"role": "derived-evidence", "path": "family-membership.json"},
-    {"role": "derived-evidence", "path": "coverage.json"},
-    {"role": "derived-evidence", "path": "case-manifest.json"},
-    {"role": "derived-evidence", "path": "address-proof.json"},
-    {"role": "derived-evidence", "path": "analysis-contract.json"},
-    {"role": "derived-evidence", "path": "lessons.json"},
-    {"role": "derived-evidence", "path": "ingest-manifest.json"},
-    {"role": "derived-evidence", "path": "repro-plan.json"},
-    {"role": "derived-evidence", "path": "call-arguments-r35-r39.json"},
-    {"role": "derived-evidence", "path": "call-arguments-r40-0d680004.json"},
-    {"role": "derived-evidence", "path": "call-arguments-r40-0d880004.json"},
-    {"role": "derived-evidence", "path": "memory-pressure-r40.json"},
-    {"role": "derived-evidence", "path": "call-arguments-r8-00180004.json"},
-    {"role": "derived-evidence", "path": "HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.model.json"},
-    {"role": "derived", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1-AUTOSAVE.GM2"},
-    {"role": "derived", "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3-AUTOSAVE.GM2"},
-    {"role": "derived", "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1-AUTOSAVE.GM2"},
-    {"role": "derived", "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-1-BATTLE_non_continuable.GM2"},
-    {"role": "derived", "path": "HD_HOTA.dll+0x1A49-5.8-R8-181-AUTOSAVE.GM2"}
+    {
+      "role": "source",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R35-180.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R35-180.dmp"
+    },
+    {
+      "role": "source",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1.dmp"
+    },
+    {
+      "role": "source",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-2.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-2.dmp"
+    },
+    {
+      "role": "source",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3.dmp"
+    },
+    {
+      "role": "source",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1.dmp"
+    },
+    {
+      "role": "source",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-1.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-1.dmp"
+    },
+    {
+      "role": "source",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-2.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-2.dmp"
+    },
+    {
+      "role": "source",
+      "path": "HD_HOTA.dll+0x1A49-5.8-R8-181.txt"
+    },
+    {
+      "role": "source",
+      "path": "HD_HOTA.dll+0x1A49-5.8-R8-181.dmp"
+    },
+    {
+      "role": "source",
+      "path": "../../modules/HD_HOTA.dll-5.7 R35.txt"
+    },
+    {
+      "role": "source",
+      "path": "../../modules/HD_HOTA.dll-5.7 R39.txt"
+    },
+    {
+      "role": "source",
+      "path": "../../modules/HD_HOTA.dll-5.7 R40.txt"
+    },
+    {
+      "role": "source",
+      "path": "../../modules/HD_HOTA.dll-5.8-R8.txt"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "pair-audit.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "capabilities.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "series-parse.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "series-annotations.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "series-groups.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "save-inventory.json"
+    },
+    {
+      "role": "derived",
+      "path": "family-membership-input.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "family-membership.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "coverage.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "case-manifest.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "address-proof.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "analysis-contract.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "lessons.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "ingest-manifest.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "repro-plan.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "call-arguments-r35-r39.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "call-arguments-r40-0d680004.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "call-arguments-r40-0d880004.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "memory-pressure-r40.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "call-arguments-r8-00180004.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.model.json"
+    },
+    {
+      "role": "derived",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-1-AUTOSAVE.GM2"
+    },
+    {
+      "role": "derived",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R35-180-3-AUTOSAVE.GM2"
+    },
+    {
+      "role": "derived",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R39-180-1-AUTOSAVE.GM2"
+    },
+    {
+      "role": "derived",
+      "path": "HD_HOTA.dll+0x1A49-5.7-R40-180-1-BATTLE_non_continuable.GM2"
+    },
+    {
+      "role": "derived",
+      "path": "HD_HOTA.dll+0x1A49-5.8-R8-181-AUTOSAVE.GM2"
+    },
+    {
+      "role": "source",
+      "path": "../../modules/HD_HOTA.dll-5.7 RC9.txt"
+    },
+    {
+      "role": "source",
+      "path": "../../modules/HD_HOTA.dll-5.7 RC11.txt"
+    },
+    {
+      "role": "source",
+      "path": "../../modules/HD_HOTA.dll-5.7 R10.txt"
+    },
+    {
+      "role": "source",
+      "path": "../../modules/HD_HOTA.dll-5.7 R20.txt"
+    },
+    {
+      "role": "source",
+      "path": "../../modules/HD_HOTA.dll-5.7 R23.txt"
+    },
+    {
+      "role": "source",
+      "path": "../../modules/HD_HOTA.dll-5.7 R28.txt"
+    },
+    {
+      "role": "source",
+      "path": "../../modules/HD_HOTA.dll-5.7 R33.txt"
+    },
+    {
+      "role": "source",
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-1.txt"
+    },
+    {
+      "role": "source",
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-10.txt"
+    },
+    {
+      "role": "source",
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-11.txt"
+    },
+    {
+      "role": "source",
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-12.txt"
+    },
+    {
+      "role": "source",
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-2.txt"
+    },
+    {
+      "role": "source",
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-3.txt"
+    },
+    {
+      "role": "source",
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-4.txt"
+    },
+    {
+      "role": "source",
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-5.txt"
+    },
+    {
+      "role": "source",
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-6.txt"
+    },
+    {
+      "role": "source",
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-7.txt"
+    },
+    {
+      "role": "source",
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-8.txt"
+    },
+    {
+      "role": "source",
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0-9.txt"
+    },
+    {
+      "role": "source",
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1A4E-1.8.0Time0526202-1.txt"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "report-consolidation-input.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "report-consolidation-manifest.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "coverage-claims.json"
+    }
   ],
   "tools": [
-    "../../.agents/skills/multi-dump-diff/parse_dumps.py",
-    "../../.agents/skills/multi-dump-diff/pair_audit.py",
-    "../../.agents/skills/multi-dump-diff/relocate_crash_family.py",
-    "../../.agents/skills/multi-dump-diff/series_registry.py",
-    "../../.agents/skills/address-mapping/dumplib.py",
-    "../../.agents/skills/address-mapping/dump_profile.py",
-    "../../.agents/skills/hota-crash-triage/crash_audit.py",
-    "../../.agents/skills/save-map-analysis/save_inventory.py",
-    "../../.agents/skills/hota-crash-triage/family_membership.py",
-    "../../.agents/skills/hota-crash-triage/coverage_contract.py",
-    "../../.agents/skills/hota-crash-triage/case_manifest.py",
-    "../../.agents/skills/address-mapping/address_proof.py",
-    "../../.agents/skills/hota-crash-triage/analysis_contract.py",
-    "../../.agents/skills/hota-crash-triage/case_lessons.py",
-    "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
-    "../../.agents/skills/hota-crash-triage/lint_report.py",
-    "../../.agents/skills/hota-crash-triage/semantic_contract.py",
-    "../../.agents/skills/hota-crash-triage/repro_plan.py",
-    "../../.agents/skills/address-mapping/call_argument_audit.py",
-    "../../.agents/skills/memory-pressure/memory_pressure_contract.py",
-    "../../.agents/skills/hota-crash-triage/case_quality_gate.py"
+    ".agents/skills/multi-dump-diff/parse_dumps.py",
+    ".agents/skills/multi-dump-diff/pair_audit.py",
+    ".agents/skills/multi-dump-diff/relocate_crash_family.py",
+    ".agents/skills/multi-dump-diff/series_registry.py",
+    ".agents/skills/address-mapping/dumplib.py",
+    ".agents/skills/address-mapping/dump_profile.py",
+    ".agents/skills/hota-crash-triage/crash_audit.py",
+    ".agents/skills/save-map-analysis/save_inventory.py",
+    ".agents/skills/hota-crash-triage/family_membership.py",
+    ".agents/skills/hota-crash-triage/coverage_contract.py",
+    ".agents/skills/hota-crash-triage/case_manifest.py",
+    ".agents/skills/address-mapping/address_proof.py",
+    ".agents/skills/hota-crash-triage/analysis_contract.py",
+    ".agents/skills/hota-crash-triage/case_lessons.py",
+    ".agents/skills/hota-crash-triage/evidence_manifest.py",
+    ".agents/skills/hota-crash-triage/lint_report.py",
+    ".agents/skills/hota-crash-triage/semantic_contract.py",
+    ".agents/skills/hota-crash-triage/repro_plan.py",
+    ".agents/skills/address-mapping/call_argument_audit.py",
+    ".agents/skills/memory-pressure/memory_pressure_contract.py",
+    ".agents/skills/hota-crash-triage/case_quality_gate.py",
+    ".agents/skills/hota-crash-triage/case_rebuild.py",
+    ".agents/skills/multi-dump-diff/consolidation_attestation.py"
   ],
   "commands": [
     "parse_dumps.py HD_HOTA.dll+0x1A49 --glob HD_HOTA.dll+0x1A49-*.txt",
@@ -78,25 +310,239 @@
     "family_membership.py create family-membership-input.json",
     "coverage_contract.py create coverage-claims.json",
     "repro_plan.py create . --out repro-plan.json",
-    "evidence_manifest.py create --config evidence-config.json"
+    "evidence_manifest.py create --config evidence-config.json",
+    "case_rebuild.py prepare/check through canonical publication-stage and schema-2 artifact_promote handoff",
+    "consolidation_attestation.py check report-consolidation-manifest.json --project-root ."
   ],
   "facts": {
     "physical_txt": "67",
     "unique_incidents": "65",
     "confirmed_family_incidents": "6",
-    "excluded_registry_incidents": "59",
+    "excluded_registry_incidents": "46",
     "physical_dmp": "15",
     "unique_dmp": "13",
     "unique_dmp_sha256": "13",
     "analyzed_unique_dmp_states": "6",
     "classified_registry_incidents": "65",
     "root_cause_status": "not confirmed",
-    "reproduction_status": "not confirmed"
+    "reproduction_status": "not confirmed",
+    "duplicate_instances": "2",
+    "family_events": "6",
+    "context_only_registry_incidents": "13",
+    "unknown_registry_incidents": "0",
+    "profiled_dmp": "15",
+    "historical_raw_txt": "59",
+    "historical_raw_dmp": "7",
+    "preserved_saves": "5",
+    "consolidation_status": "attested and applied"
   },
-  "claims": [],
-  "claim_json": ["coverage-claims.json"],
+  "claims": [
+    {
+      "id": "claim-crash-site",
+      "type": "crash_site",
+      "statement": "Все 6 уникальных DMP: EXCEPTION_BREAKPOINT, EIP по +0x1A49, EAX=0.",
+      "confidence": "видно непосредственно в DMP",
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "applicable_axes": [
+        "instruction"
+      ],
+      "evidence": [
+        "input:series-groups.json",
+        "input:../../modules/HD_HOTA.dll-5.7 R35.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R39.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R40.txt",
+        "input:../../modules/HD_HOTA.dll-5.8-R8.txt"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "claim-local-mechanism",
+      "type": "local_mechanism",
+      "statement": "Во всех 6 DMP аргумент _malloc прочитан по ESP-4, возврат — по ESP.",
+      "confidence": "однозначно следует из листинга",
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "applicable_axes": [
+        "mechanism"
+      ],
+      "evidence": [
+        "input:call-arguments-r35-r39.json",
+        "input:call-arguments-r40-0d680004.json",
+        "input:call-arguments-r40-0d880004.json",
+        "input:call-arguments-r8-00180004.json",
+        "input:../../modules/HD_HOTA.dll-5.7 R35.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R39.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R40.txt",
+        "input:../../modules/HD_HOTA.dll-5.8-R8.txt"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "confirmed",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "claim-state-origin",
+      "type": "state_origin",
+      "statement": "Причина возврата NULL не доказана окончательно.",
+      "confidence": "выведено из совокупности признаков",
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "evidence": [
+        "input:capabilities.json",
+        "input:memory-pressure-r40.json",
+        "input:save-inventory.json"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "probable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "claim-family-coverage",
+      "type": "family_coverage",
+      "statement": "Покрытие: просмотрены все 6 уникальных DMP; полной памяти нет ни в одном.",
+      "confidence": "выведено из совокупности признаков",
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "applicable_axes": [
+        "family_coverage"
+      ],
+      "sample": {
+        "numerator": 6,
+        "denominator": 6,
+        "population": "unique DMP states after SHA-256 deduplication"
+      },
+      "evidence": [
+        "input:series-groups.json",
+        "input:family-membership.json",
+        "input:pair-audit.json",
+        "input:capabilities.json",
+        "input:../../modules/HD_HOTA.dll-5.7 RC9.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 RC11.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R10.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R20.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R23.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R28.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R33.txt"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "probable"
+      }
+    },
+    {
+      "id": "claim-reproduction",
+      "type": "reproduction",
+      "statement": "Приложены пять сейвов для попытки воспроизведения.",
+      "confidence": "не проверено",
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "evidence": [
+        "input:save-inventory.json"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "id": "historical-1a4e-relation",
+      "type": "local_mechanism",
+      "statement": "13 исторических инцидентов HD_HOTA.dll+0x1A4E имеют тот же локальный путь sub_1001A30: _malloc возвращает NULL; другая точка сбоя выполняет запись mov [esi],esi, поэтому это межверсионный контекст, а не увеличение точной семьи +0x1A49.",
+      "confidence": "однозначно следует из листинга",
+      "applicable_axes": [
+        "mechanism"
+      ],
+      "evidence": [
+        "input:series-groups.json",
+        "input:family-membership.json",
+        "input:../../modules/HD_HOTA.dll-5.7 RC9.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 RC11.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R10.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R20.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R23.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R28.txt",
+        "input:../../modules/HD_HOTA.dll-5.7 R33.txt"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "confirmed",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "id": "historical-1a4e-size-distribution",
+      "type": "observation",
+      "statement": "В 13 журналах +0x1A4E адрес записи и ESI распределены так: 0x00100000 — 8, 0x02F80000 — 1, 0x08200000 — 1, 0x0AE00000 — 1, 0x11B00000 — 1, 0x67680000 — 1.",
+      "confidence": "выведено из совокупности признаков",
+      "applicable_axes": [],
+      "evidence": [
+        "input:series-groups.json",
+        "input:family-membership.json"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "scope_id": "family-HD_HOTA-null-malloc-breakpoint",
+      "scope_kind": "family",
+      "id": "historical-1a4e-causality-boundary",
+      "type": "state_origin",
+      "statement": "Общая причина возврата NULL для 13 случаев +0x1A4E не установлена: сетевые поля присутствуют в 12 из 13 журналов; R26 с EBX=0x67616D42 и ESI=0x67680000 указывает на повреждённый размер, но источник повреждения и общность причин неизвестны.",
+      "confidence": "выведено из совокупности признаков",
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "evidence": [
+        "input:capabilities.json",
+        "input:family-membership.json",
+        "input:series-groups.json"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    }
+  ],
+  "claim_json": [],
   "machine_json": [],
   "code_evidence": "dmp-window",
-  "manifest_schema": 3,
-  "out": "HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.evidence.json"
+  "manifest_schema": 4,
+  "out": "HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.evidence.json",
+  "case_root": ".",
+  "project_root": "../..",
+  "binding_mode": "auto",
+  "toolchain_mode": "closure",
+  "tool_assets": []
 }

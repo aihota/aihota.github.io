@@ -29,7 +29,7 @@
       "mistake": "A six-row exact family control did not classify the other materialized incidents in the same case tree.",
       "rule": "Classify the full materialized census; use excluded for other sinks instead of merging them into the family.",
       "enforcement": [
-        "family-membership.json contains 65 decisions with zero unknown"
+        "family-membership.json contains 65 decisions: 6 confirmed, 13 context_only, 46 excluded, zero unknown"
       ]
     },
     {
@@ -44,17 +44,28 @@
     {
       "id": "one-final-report",
       "category": "publication",
-      "mistake": "Multiple top-level final report variants could survive in case and public output.",
-      "rule": "Keep one canonical top-level report set and retain older reports only as clearly historical nested material.",
+      "mistake": "A derived old report set remained permanently inside the raw old-version family folder after its useful findings had been integrated.",
+      "rule": "Keep one canonical report set. Nested old derived reports are temporary: attest semantic transfer against exact hashes, delete TXT/HTML/extra HTML/evidence/ZIP, and preserve raw TXT/DMP/saves.",
       "enforcement": [
-        "case quality gate report lifecycle and publication inventory checks"
+        "report-consolidation-manifest.json",
+        "case_quality_gate.py historical_report_contract blocks nested *-анализ-*"
+      ]
+    },
+    {
+      "id": "separate-context-from-exact-family",
+      "category": "diagnosis",
+      "mistake": "A shared local allocator-failure mechanism could be mistaken for the same exact crash family despite different sink instructions and exception classes.",
+      "rule": "Classify a different sink with the same local mechanism as context_only unless same sink and defect identity are proven; never increase the exact-family counter from context alone.",
+      "enforcement": [
+        "family-membership.json relationship ladder",
+        "series-groups.json related_cases family_counter_increment=false"
       ]
     }
   ],
   "regressions": [
     {
-      "id": "nested-report-filter",
-      "test": ".agents/skills/address-mapping/test_reports.py::test_report_consistency_ignores_report_in_family_subfolder",
+      "id": "nested-report-consolidation",
+      "test": ".agents/skills/hota-crash-triage/case_quality_gate.py::selftest historical_report_contract",
       "status": "implemented"
     },
     {

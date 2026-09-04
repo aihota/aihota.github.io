@@ -42,5 +42,48 @@
       "caller": "dynamic_buffer_growth_R8"
     }
   },
-  "related_cases": []
+  "related_cases": [
+    {
+      "case": "HD_HOTA.dll+0x1A4E",
+      "relation_status": "same_local_mechanism_only",
+      "membership": "context_only",
+      "family_counter_increment": false,
+      "same_sink": false,
+      "same_local_mechanism": true,
+      "same_state_origin": "unknown",
+      "same_root_cause": "unknown",
+      "incident_ids": [
+        "incident-889fe8d682d74f69",
+        "incident-5c8863f8ecfcbace",
+        "incident-ca7e1c88e2c81c29",
+        "incident-cc27fbe3a8077f14",
+        "incident-7c7823ebff09561a",
+        "incident-2a4e45557e77cc88",
+        "incident-38d27b33d122ad5d",
+        "incident-e970cdce86fd7a8b",
+        "incident-e38f206d2828430a",
+        "incident-863d7845c2dcd0ce",
+        "incident-ff5896b2f47c690a",
+        "incident-cfa092ea3d16684f",
+        "incident-0cf34e1bacfdc4a4"
+      ],
+      "physical_txt": 13,
+      "physical_dmp": 7,
+      "exact_listing_builds": [
+        "5.7 RC9",
+        "5.7 RC11",
+        "5.7 R10",
+        "5.7 R20",
+        "5.7 R23",
+        "5.7 R28",
+        "5.7 R33"
+      ],
+      "missing_exact_listing_builds": [
+        "5.7 RC6",
+        "5.7 RC7",
+        "5.7 R26"
+      ],
+      "basis": "same sub_1001A30 _malloc-to-NULL branch; old sink writes mov [esi],esi at +0x1A4E, current exact family executes int 3 at +0x1A49; no shared state origin or root cause inferred"
+    }
+  ]
 }
