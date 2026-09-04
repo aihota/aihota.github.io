@@ -1,16 +1,122 @@
 {
-  "schema": 2,
+  "schema": 3,
   "kind": "crash_reproduction_plan",
   "status": "ready",
-  "mechanism_kind": "unknown",
+  "mechanism_kind": "allocator_failure",
   "case": "HD_HOTA.dll+0x1A49",
   "diagnostic_source": "coverage.json",
   "causality_level": "L1",
   "next_required": [
     "capture_state_origin_and_writer",
-    "confirm_reproduction"
+    "confirm_reproduction",
+    "complete_family_coverage"
   ],
   "steps": [
+    {
+      "id": "discriminate-origin-race",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "race",
+      "success_evidence": [
+        "full dump plus allocator/write chronology across threads"
+      ],
+      "required_evidence": [
+        "full dump plus allocator/write chronology across threads"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-race с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "race"
+      ]
+    },
+    {
+      "id": "discriminate-origin-use_after_free",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "use_after_free",
+      "success_evidence": [
+        "page-heap free stack and allocation generation"
+      ],
+      "required_evidence": [
+        "page-heap free stack and allocation generation"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-use_after_free с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "use_after_free"
+      ]
+    },
+    {
+      "id": "discriminate-origin-heap_overwrite",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "heap_overwrite",
+      "success_evidence": [
+        "full heap validation and first corrupting write"
+      ],
+      "required_evidence": [
+        "full heap validation and first corrupting write"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-heap_overwrite с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "heap_overwrite"
+      ]
+    },
+    {
+      "id": "discriminate-origin-third_party_write",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "third_party_write",
+      "success_evidence": [
+        "writer watchpoint with module and stack"
+      ],
+      "required_evidence": [
+        "writer watchpoint with module and stack"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-third_party_write с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "third_party_write"
+      ]
+    },
+    {
+      "id": "discriminate-origin-address_space_pressure",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "address_space_pressure",
+      "success_evidence": [
+        "largest free virtual region and private bytes at first failed allocation"
+      ],
+      "required_evidence": [
+        "largest free virtual region and private bytes at first failed allocation"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-address_space_pressure с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "address_space_pressure"
+      ]
+    },
+    {
+      "id": "complete-structure-lifecycle",
+      "action": "complete sibling and lifecycle census",
+      "success_evidence": [
+        "all_sibling_sites",
+        "reference_denominator",
+        "publish_and_clear_roles"
+      ],
+      "required_evidence": [
+        "all_sibling_sites",
+        "reference_denominator",
+        "publish_and_clear_roles"
+      ],
+      "capture_command": "выполнить шаг complete-structure-lifecycle с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "causal_claim"
+      ]
+    },
     {
       "id": "capture-origin",
       "action": "capture full dump and allocator/write telemetry before failure",
@@ -19,6 +125,18 @@
         "writer_identity",
         "largest_free_region",
         "heap_health"
+      ],
+      "required_evidence": [
+        "full_dump",
+        "writer_identity",
+        "largest_free_region",
+        "heap_health"
+      ],
+      "capture_command": "выполнить шаг capture-origin с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "causal_claim"
       ]
     },
     {
@@ -29,6 +147,189 @@
         "failing_run",
         "positive_control",
         "result.json"
+      ],
+      "required_evidence": [
+        "binary_sha256",
+        "failing_run",
+        "positive_control",
+        "result.json"
+      ],
+      "capture_command": "выполнить шаг controlled-repro с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "causal_claim"
+      ]
+    },
+    {
+      "id": "family-coverage",
+      "action": "repeat one representative from every cause group",
+      "success_evidence": [
+        "representative_ids",
+        "group_results"
+      ],
+      "required_evidence": [
+        "representative_ids",
+        "group_results"
+      ],
+      "capture_command": "выполнить шаг family-coverage с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "causal_claim"
+      ]
+    },
+    {
+      "id": "capture-first-null",
+      "action": "остановиться на первом возврате NULL из распределителя и снять полный дамп",
+      "hypothesis": "state_origin",
+      "success_evidence": [
+        "first_null_call_stack",
+        "full_memory_dump",
+        "allocator_metrics",
+        "binary_sha256"
+      ],
+      "capture_command": "winedbg: break on _malloc return; if EAX==0 run '.dump /ma <run>/first-null.dmp' and export memory metrics",
+      "positive_control": "та же сборка и тот же сценарий без отказа до первого успешного возврата",
+      "closing_condition": "первый NULL связан со стеком, размером запроса, полным дампом и показателями памяти",
+      "blocked_claims": [
+        "state_origin",
+        "root_cause"
+      ],
+      "required_evidence": [
+        "first_null_call_stack",
+        "full_memory_dump",
+        "allocator_metrics",
+        "binary_sha256"
+      ]
+    },
+    {
+      "id": "inject-allocation-failure-small",
+      "action": "принудительно отказать на малом наблюдавшемся запросе",
+      "hypothesis": "null_containment",
+      "success_evidence": [
+        "positive_control",
+        "forced_failure_run",
+        "full_memory_dump",
+        "allocator_metrics",
+        "allocation-failure-result.json"
+      ],
+      "request_sizes": [
+        "0x00100004",
+        "0x00180004"
+      ],
+      "capture_command": "allocation_failure_experiment.py check --plan allocation-failure-plan.json --result allocation-failure-result.json",
+      "positive_control": "совпавшая SHA-256 сборка без принудительного отказа достигает той же точки",
+      "closing_condition": "исходный вариант воспроизводит ловушку, исправленный возвращает ошибку и сохраняет состояние",
+      "blocked_claims": [
+        "fix_verified",
+        "small_request_containment"
+      ],
+      "required_evidence": [
+        "positive_control",
+        "forced_failure_run",
+        "full_memory_dump",
+        "allocator_metrics",
+        "allocation-failure-result.json"
+      ]
+    },
+    {
+      "id": "inject-allocation-failure-large",
+      "action": "принудительно отказать на крупном наблюдавшемся запросе",
+      "hypothesis": "null_containment",
+      "success_evidence": [
+        "positive_control",
+        "forced_failure_run",
+        "full_memory_dump",
+        "allocator_metrics",
+        "allocation-failure-result.json"
+      ],
+      "request_sizes": [
+        "0x0D680004",
+        "0x0D880004"
+      ],
+      "capture_command": "allocation_failure_experiment.py check --plan allocation-failure-plan.json --result allocation-failure-result.json",
+      "positive_control": "совпавшая SHA-256 сборка без принудительного отказа достигает той же точки",
+      "closing_condition": "исходный вариант воспроизводит ловушку, исправленный возвращает ошибку и сохраняет состояние",
+      "blocked_claims": [
+        "fix_verified",
+        "large_request_containment"
+      ],
+      "required_evidence": [
+        "positive_control",
+        "forced_failure_run",
+        "full_memory_dump",
+        "allocator_metrics",
+        "allocation-failure-result.json"
+      ]
+    },
+    {
+      "id": "verify-null-containment",
+      "action": "сверить указатель буфера, заполненный размер и вместимость до и после отказа",
+      "hypothesis": "contain-null",
+      "success_evidence": [
+        "no_int3",
+        "explicit_error",
+        "buffer_state_before_after"
+      ],
+      "capture_command": "allocation_failure_experiment.py check --plan allocation-failure-plan.json --result allocation-failure-result.json",
+      "positive_control": "обычный прогон расширяет буфер и не меняет семантику успешного пути",
+      "closing_condition": "в исправленном варианте нет int 3, есть явная ошибка и старое состояние неизменно",
+      "blocked_claims": [
+        "containment_fix_verified"
+      ],
+      "required_evidence": [
+        "no_int3",
+        "explicit_error",
+        "buffer_state_before_after"
+      ]
+    },
+    {
+      "id": "resolve-r8-null-origin",
+      "action": "Что вызвало отказ запроса 0x00180004 в R8?",
+      "hypothesis": "r8-null-origin",
+      "success_evidence": [
+        "полный дамп на первом NULL",
+        "стек вызова",
+        "показатели распределителя",
+        "карта адресного пространства"
+      ],
+      "capture_command": "winedbg: на первом возврате _malloc с EAX=0 выполнить .dump /ma и экспортировать показатели памяти",
+      "positive_control": "та же SHA-256 сборка и сценарий без отказа до успешного прохождения этой точки",
+      "closing_condition": "непосредственная причина отказа 0x00180004 воспроизводимо различена",
+      "blocked_claims": [
+        "r8_state_origin",
+        "shared_root_cause"
+      ],
+      "required_evidence": [
+        "полный дамп на первом NULL",
+        "стек вызова",
+        "показатели распределителя",
+        "карта адресного пространства"
+      ]
+    },
+    {
+      "id": "resolve-shared-root-cause",
+      "action": "Есть ли у R35, R39, R40 и R8 одна общая первопричина исчерпания или повреждения?",
+      "hypothesis": "shared-root-cause",
+      "success_evidence": [
+        "результаты четырёх размеров",
+        "полные дампы",
+        "показатели памяти",
+        "положительные контроли"
+      ],
+      "capture_command": "выполнить allocation_failure_experiment.py check для R35/R39/R40/R8 и сопоставить источники первого NULL",
+      "positive_control": "для каждой сборки совпавшая SHA-256 и тот же сценарий без принудительного отказа",
+      "closing_condition": "один механизм происхождения подтверждён для всех сборок либо семьи происхождения явно разделены",
+      "blocked_claims": [
+        "cross_build_root_cause",
+        "causal_fix"
+      ],
+      "required_evidence": [
+        "результаты четырёх размеров",
+        "полные дампы",
+        "показатели памяти",
+        "положительные контроли"
       ]
     },
     {
@@ -38,6 +339,16 @@
       "success_evidence": [
         "globals_and_heap",
         "capabilities.json"
+      ],
+      "required_evidence": [
+        "globals_and_heap",
+        "capabilities.json"
+      ],
+      "capture_command": "выполнить шаг capture-capability-globals-and-heap с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "missing_dump_capability"
       ]
     },
     {
@@ -47,6 +358,16 @@
       "success_evidence": [
         "memory_permissions",
         "capabilities.json"
+      ],
+      "required_evidence": [
+        "memory_permissions",
+        "capabilities.json"
+      ],
+      "capture_command": "выполнить шаг capture-capability-memory-permissions с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "missing_dump_capability"
       ]
     }
   ],
@@ -64,12 +385,11 @@
           "capability:module_identity",
           "capability:thread_provenance",
           "capability:thread_stacks",
-          "cause:cause-747ef6822f9a",
-          "formula:unknown",
+          "cause:cause-d5f8186d5257",
+          "formula:payload_size+4",
           "hd:5.7 R35",
           "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A49-5.7-R35-180-1.txt",
-          "subsystem:unknown"
+          "subsystem:HD_HOTA_memory_allocation"
         ],
         "all_features": [
           "capability:captured_memory",
@@ -78,22 +398,20 @@
           "capability:module_identity",
           "capability:thread_provenance",
           "capability:thread_stacks",
-          "cause:cause-747ef6822f9a",
-          "formula:unknown",
+          "cause:cause-d5f8186d5257",
+          "formula:payload_size+4",
           "hd:5.7 R35",
           "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A49-5.7-R35-180-1.txt",
-          "subsystem:unknown"
+          "subsystem:HD_HOTA_memory_allocation"
         ]
       },
       {
         "incident_id": "incident-0dfbcb75acaf17ed",
         "txt": "HD_HOTA.dll+0x1A49-5.8-R8-181.txt",
         "newly_covered": [
-          "cause:cause-4c7cb1b388b8",
+          "cause:cause-b0ff53f66ea0",
           "hd:5.8 R8",
-          "hota:1.8.1",
-          "outlier:HD_HOTA.dll+0x1A49-5.8-R8-181.txt"
+          "hota:1.8.1"
         ],
         "all_features": [
           "capability:captured_memory",
@@ -102,140 +420,49 @@
           "capability:module_identity",
           "capability:thread_provenance",
           "capability:thread_stacks",
-          "cause:cause-4c7cb1b388b8",
-          "formula:unknown",
+          "cause:cause-b0ff53f66ea0",
+          "formula:payload_size+4",
           "hd:5.8 R8",
           "hota:1.8.1",
-          "outlier:HD_HOTA.dll+0x1A49-5.8-R8-181.txt",
-          "subsystem:unknown"
+          "subsystem:HD_HOTA_memory_allocation"
         ]
       },
       {
         "incident_id": "incident-78183abbc0d94391",
         "txt": "HD_HOTA.dll+0x19AE-1.8.0-1.txt",
         "newly_covered": [
-          "cause:cause-bc30a49fd712",
-          "hd:5.6 R37",
-          "outlier:HD_HOTA.dll+0x19AE-1.8.0-1.txt"
+          "cause:cause-517facc2538f",
+          "hd:5.6 R37"
         ],
         "all_features": [
-          "cause:cause-bc30a49fd712",
-          "formula:unknown",
+          "cause:cause-517facc2538f",
+          "formula:payload_size+4",
           "hd:5.6 R37",
           "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x19AE-1.8.0-1.txt",
-          "subsystem:unknown"
+          "subsystem:HD_HOTA_memory_allocation"
         ]
       },
       {
         "incident_id": "incident-4ba4d8580384ea3b",
         "txt": "HD_HOTA.dll+0x1A0E-1.8.0-1.txt",
         "newly_covered": [
-          "cause:cause-60e35d1b2c45",
+          "cause:cause-2cb7376b0b72",
+          "hd:5.6 R19"
+        ],
+        "all_features": [
+          "cause:cause-2cb7376b0b72",
+          "formula:payload_size+4",
           "hd:5.6 R19",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-1.txt"
-        ],
-        "all_features": [
-          "cause:cause-60e35d1b2c45",
-          "formula:unknown",
-          "hd:5.6 R19",
           "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-1.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-26ef11012bf9aa96",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-10.txt",
-        "newly_covered": [
-          "cause:cause-abeae13a95e2",
-          "hd:5.7 RC1",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-10.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-10.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-92c6d189aeb45210",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-14.txt",
-        "newly_covered": [
-          "cause:cause-34e8e2491bbc",
-          "hd:5.6 R30",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-14.txt"
-        ],
-        "all_features": [
-          "cause:cause-34e8e2491bbc",
-          "formula:unknown",
-          "hd:5.6 R30",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-14.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-d322b70c118c632b",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-16.txt",
-        "newly_covered": [
-          "cause:cause-204b11e338b3",
-          "hd:5.6 R31",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-16.txt"
-        ],
-        "all_features": [
-          "cause:cause-204b11e338b3",
-          "formula:unknown",
-          "hd:5.6 R31",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-16.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-651855c2612a7d1b",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-2.txt",
-        "newly_covered": [
-          "cause:cause-44875bba1a98",
-          "hd:5.6 R35",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-2.txt"
-        ],
-        "all_features": [
-          "cause:cause-44875bba1a98",
-          "formula:unknown",
-          "hd:5.6 R35",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-2.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-12c0b1a70cbeab9e",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-37.txt",
-        "newly_covered": [
-          "cause:cause-55188455f801",
-          "hd:5.7 RC2",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-37.txt"
-        ],
-        "all_features": [
-          "cause:cause-55188455f801",
-          "formula:unknown",
-          "hd:5.7 RC2",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-37.txt",
-          "subsystem:unknown"
+          "subsystem:HD_HOTA_memory_allocation"
         ]
       },
       {
         "incident_id": "incident-8b4bbb9da9a8e709",
         "txt": "HD_HOTA.dll+0x1A49-5.7-R39-180-1.txt",
         "newly_covered": [
-          "cause:cause-3efbdb14a6f5",
-          "hd:5.7 R39",
-          "outlier:HD_HOTA.dll+0x1A49-5.7-R39-180-1.txt"
+          "cause:cause-28464ae3044c",
+          "hd:5.7 R39"
         ],
         "all_features": [
           "capability:captured_memory",
@@ -244,21 +471,19 @@
           "capability:module_identity",
           "capability:thread_provenance",
           "capability:thread_stacks",
-          "cause:cause-3efbdb14a6f5",
-          "formula:unknown",
+          "cause:cause-28464ae3044c",
+          "formula:payload_size+4",
           "hd:5.7 R39",
           "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A49-5.7-R39-180-1.txt",
-          "subsystem:unknown"
+          "subsystem:HD_HOTA_memory_allocation"
         ]
       },
       {
         "incident_id": "incident-5b70c18951e5c550",
         "txt": "HD_HOTA.dll+0x1A49-5.7-R40-180-1.txt",
         "newly_covered": [
-          "cause:cause-415c6b02550a",
-          "hd:5.7 R40",
-          "outlier:HD_HOTA.dll+0x1A49-5.7-R40-180-1.txt"
+          "cause:cause-137945b4dad6",
+          "hd:5.7 R40"
         ],
         "all_features": [
           "capability:captured_memory",
@@ -267,406 +492,118 @@
           "capability:module_identity",
           "capability:thread_provenance",
           "capability:thread_stacks",
-          "cause:cause-415c6b02550a",
-          "formula:unknown",
+          "cause:cause-137945b4dad6",
+          "formula:payload_size+4",
           "hd:5.7 R40",
           "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A49-5.7-R40-180-1.txt",
-          "subsystem:unknown"
+          "subsystem:HD_HOTA_memory_allocation"
         ]
       },
       {
         "incident_id": "incident-889fe8d682d74f69",
         "txt": "HD_HOTA.dll+0x1A4E-1.8.0-1.txt",
         "newly_covered": [
-          "cause:cause-71d8f1ff2687",
+          "cause:cause-fc1cd1067c55",
+          "hd:5.7 RC6"
+        ],
+        "all_features": [
+          "cause:cause-fc1cd1067c55",
+          "formula:payload_size+4",
           "hd:5.7 RC6",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-1.txt"
-        ],
-        "all_features": [
-          "cause:cause-71d8f1ff2687",
-          "formula:unknown",
-          "hd:5.7 RC6",
           "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-1.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-5c8863f8ecfcbace",
-        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-10.txt",
-        "newly_covered": [
-          "cause:cause-6e241275c5c9",
-          "hd:5.7 R33",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-10.txt"
-        ],
-        "all_features": [
-          "capability:captured_memory",
-          "capability:code_window",
-          "capability:exception_context",
-          "capability:module_identity",
-          "capability:thread_provenance",
-          "capability:thread_stacks",
-          "cause:cause-6e241275c5c9",
-          "formula:unknown",
-          "hd:5.7 R33",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-10.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-7c7823ebff09561a",
-        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-2.txt",
-        "newly_covered": [
-          "cause:cause-ff347efbd0cf",
-          "hd:5.7 RC7",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-2.txt"
-        ],
-        "all_features": [
-          "cause:cause-ff347efbd0cf",
-          "formula:unknown",
-          "hd:5.7 RC7",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-2.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-2a4e45557e77cc88",
-        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-3.txt",
-        "newly_covered": [
-          "cause:cause-d6bf512fa415",
-          "hd:5.7 RC9",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-3.txt"
-        ],
-        "all_features": [
-          "cause:cause-d6bf512fa415",
-          "formula:unknown",
-          "hd:5.7 RC9",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-3.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-38d27b33d122ad5d",
-        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-4.txt",
-        "newly_covered": [
-          "cause:cause-5b652ae5a304",
-          "hd:5.7 RC11",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-4.txt"
-        ],
-        "all_features": [
-          "cause:cause-5b652ae5a304",
-          "formula:unknown",
-          "hd:5.7 RC11",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-4.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-e970cdce86fd7a8b",
-        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-5.txt",
-        "newly_covered": [
-          "cause:cause-1fd1875ecf92",
-          "hd:5.7 R10",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-5.txt"
-        ],
-        "all_features": [
-          "cause:cause-1fd1875ecf92",
-          "formula:unknown",
-          "hd:5.7 R10",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-5.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-e38f206d2828430a",
-        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-6.txt",
-        "newly_covered": [
-          "cause:cause-ff58508498a1",
-          "hd:5.7 R20",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-6.txt"
-        ],
-        "all_features": [
-          "capability:captured_memory",
-          "capability:code_window",
-          "capability:exception_context",
-          "capability:module_identity",
-          "capability:thread_provenance",
-          "capability:thread_stacks",
-          "cause:cause-ff58508498a1",
-          "formula:unknown",
-          "hd:5.7 R20",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-6.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-ff5896b2f47c690a",
-        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-8.txt",
-        "newly_covered": [
-          "cause:cause-b46c0a6e73ba",
-          "hd:5.7 R26",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-8.txt"
-        ],
-        "all_features": [
-          "capability:captured_memory",
-          "capability:code_window",
-          "capability:exception_context",
-          "capability:module_identity",
-          "capability:thread_provenance",
-          "capability:thread_stacks",
-          "cause:cause-b46c0a6e73ba",
-          "formula:unknown",
-          "hd:5.7 R26",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-8.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-cfa092ea3d16684f",
-        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-9.txt",
-        "newly_covered": [
-          "cause:cause-4b54e1cab94e",
-          "hd:5.7 R28",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-9.txt"
-        ],
-        "all_features": [
-          "capability:captured_memory",
-          "capability:code_window",
-          "capability:exception_context",
-          "capability:module_identity",
-          "capability:thread_provenance",
-          "capability:thread_stacks",
-          "cause:cause-4b54e1cab94e",
-          "formula:unknown",
-          "hd:5.7 R28",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-9.txt",
-          "subsystem:unknown"
+          "subsystem:HD_HOTA_memory_allocation"
         ]
       },
       {
         "incident_id": "incident-2a42a448ac469623",
         "txt": "HD_HOTA.dll+0x1ABE-1.8.0-1.txt",
         "newly_covered": [
-          "cause:cause-d4c0fee0e98f",
+          "cause:cause-5f6765c81f64",
+          "hd:5.7 R14"
+        ],
+        "all_features": [
+          "cause:cause-5f6765c81f64",
+          "formula:payload_size+4",
           "hd:5.7 R14",
-          "outlier:HD_HOTA.dll+0x1ABE-1.8.0-1.txt"
-        ],
-        "all_features": [
-          "cause:cause-d4c0fee0e98f",
-          "formula:unknown",
-          "hd:5.7 R14",
           "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1ABE-1.8.0-1.txt",
-          "subsystem:unknown"
+          "subsystem:HD_HOTA_memory_allocation"
         ]
       },
       {
-        "incident_id": "incident-60efa16a864f35ee",
-        "txt": "HD_HOTA.dll+0x19AE-1.8.0-3.txt",
+        "incident_id": "incident-26ef11012bf9aa96",
+        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-10.txt",
         "newly_covered": [
-          "cause:cause-d7b920ed8351",
-          "outlier:HD_HOTA.dll+0x19AE-1.8.0-3.txt"
+          "hd:5.7 RC1"
         ],
         "all_features": [
-          "cause:cause-d7b920ed8351",
-          "formula:unknown",
-          "hd:5.6 R37",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x19AE-1.8.0-3.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-76f5cc6f007aee4f",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-12.txt",
-        "newly_covered": [
-          "cause:cause-2f2e6c1b64b9",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-12.txt"
-        ],
-        "all_features": [
-          "cause:cause-2f2e6c1b64b9",
-          "formula:unknown",
+          "cause:cause-2cb7376b0b72",
+          "formula:payload_size+4",
           "hd:5.7 RC1",
           "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-12.txt",
-          "subsystem:unknown"
+          "subsystem:HD_HOTA_memory_allocation"
         ]
       },
       {
-        "incident_id": "incident-ca0e2a87e7ef4f76",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-13.txt",
+        "incident_id": "incident-92c6d189aeb45210",
+        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-14.txt",
         "newly_covered": [
-          "cause:cause-fd6f975e80cf",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-13.txt"
+          "hd:5.6 R30"
         ],
         "all_features": [
-          "cause:cause-fd6f975e80cf",
-          "formula:unknown",
-          "hd:5.7 RC1",
+          "cause:cause-2cb7376b0b72",
+          "formula:payload_size+4",
+          "hd:5.6 R30",
           "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-13.txt",
-          "subsystem:unknown"
+          "subsystem:HD_HOTA_memory_allocation"
         ]
       },
       {
-        "incident_id": "incident-e536d0e16cc216f6",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-20.txt",
+        "incident_id": "incident-d322b70c118c632b",
+        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-16.txt",
         "newly_covered": [
-          "cause:cause-8924dadbd18f",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-20.txt"
+          "hd:5.6 R31"
         ],
         "all_features": [
-          "cause:cause-8924dadbd18f",
-          "formula:unknown",
-          "hd:5.7 RC1",
+          "cause:cause-2cb7376b0b72",
+          "formula:payload_size+4",
+          "hd:5.6 R31",
           "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-20.txt",
-          "subsystem:unknown"
+          "subsystem:HD_HOTA_memory_allocation"
         ]
       },
       {
-        "incident_id": "incident-dab33b563101b11f",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-25.txt",
+        "incident_id": "incident-651855c2612a7d1b",
+        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-2.txt",
         "newly_covered": [
-          "cause:cause-928bc0472dd8",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-25.txt"
+          "hd:5.6 R35"
         ],
         "all_features": [
-          "cause:cause-928bc0472dd8",
-          "formula:unknown",
-          "hd:5.7 RC1",
+          "cause:cause-2cb7376b0b72",
+          "formula:payload_size+4",
+          "hd:5.6 R35",
           "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-25.txt",
-          "subsystem:unknown"
+          "subsystem:HD_HOTA_memory_allocation"
         ]
       },
       {
-        "incident_id": "incident-d2e08ebff1e30a49",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-26.txt",
+        "incident_id": "incident-12c0b1a70cbeab9e",
+        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-37.txt",
         "newly_covered": [
-          "cause:cause-eb35c7d45a6a",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-26.txt"
+          "hd:5.7 RC2"
         ],
         "all_features": [
-          "cause:cause-eb35c7d45a6a",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-26.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-602c4c67057d8e02",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-27.txt",
-        "newly_covered": [
-          "cause:cause-0e63bd952d0c",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-27.txt"
-        ],
-        "all_features": [
-          "cause:cause-0e63bd952d0c",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-27.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-405eab9bb9232857",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-28.txt",
-        "newly_covered": [
-          "cause:cause-f51a2678479e",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-28.txt"
-        ],
-        "all_features": [
-          "cause:cause-f51a2678479e",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-28.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-ca54307c0ea090b8",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-38.txt",
-        "newly_covered": [
-          "cause:cause-1b35e04ea788",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-38.txt"
-        ],
-        "all_features": [
-          "cause:cause-1b35e04ea788",
-          "formula:unknown",
+          "cause:cause-2cb7376b0b72",
+          "formula:payload_size+4",
           "hd:5.7 RC2",
           "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-38.txt",
-          "subsystem:unknown"
+          "subsystem:HD_HOTA_memory_allocation"
         ]
       },
       {
-        "incident_id": "incident-7a25ee8bbbdfc4b7",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-41.txt",
+        "incident_id": "incident-5c8863f8ecfcbace",
+        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-10.txt",
         "newly_covered": [
-          "cause:cause-2e4d2e68fd2f",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-41.txt"
-        ],
-        "all_features": [
-          "cause:cause-2e4d2e68fd2f",
-          "formula:unknown",
-          "hd:5.7 RC2",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-41.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-49ea639f3f15c53b",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-9.txt",
-        "newly_covered": [
-          "cause:cause-ef26a8b049f0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-9.txt"
-        ],
-        "all_features": [
-          "cause:cause-ef26a8b049f0",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-9.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-fc6d5b867250aa95",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0Time13.04.2-1.txt",
-        "newly_covered": [
-          "cause:cause-82cadbdbdee9",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0Time13.04.2-1.txt"
-        ],
-        "all_features": [
-          "cause:cause-82cadbdbdee9",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0Time13.04.2-1.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-ca7e1c88e2c81c29",
-        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-11.txt",
-        "newly_covered": [
-          "cause:cause-317d98365829",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-11.txt"
+          "hd:5.7 R33"
         ],
         "all_features": [
           "capability:captured_memory",
@@ -675,20 +612,114 @@
           "capability:module_identity",
           "capability:thread_provenance",
           "capability:thread_stacks",
-          "cause:cause-317d98365829",
-          "formula:unknown",
+          "cause:cause-fc1cd1067c55",
+          "formula:payload_size+4",
           "hd:5.7 R33",
           "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-11.txt",
-          "subsystem:unknown"
+          "subsystem:HD_HOTA_memory_allocation"
+        ]
+      },
+      {
+        "incident_id": "incident-7c7823ebff09561a",
+        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-2.txt",
+        "newly_covered": [
+          "hd:5.7 RC7"
+        ],
+        "all_features": [
+          "cause:cause-fc1cd1067c55",
+          "formula:payload_size+4",
+          "hd:5.7 RC7",
+          "hota:1.8.0",
+          "subsystem:HD_HOTA_memory_allocation"
+        ]
+      },
+      {
+        "incident_id": "incident-2a4e45557e77cc88",
+        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-3.txt",
+        "newly_covered": [
+          "hd:5.7 RC9"
+        ],
+        "all_features": [
+          "cause:cause-fc1cd1067c55",
+          "formula:payload_size+4",
+          "hd:5.7 RC9",
+          "hota:1.8.0",
+          "subsystem:HD_HOTA_memory_allocation"
+        ]
+      },
+      {
+        "incident_id": "incident-38d27b33d122ad5d",
+        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-4.txt",
+        "newly_covered": [
+          "hd:5.7 RC11"
+        ],
+        "all_features": [
+          "cause:cause-fc1cd1067c55",
+          "formula:payload_size+4",
+          "hd:5.7 RC11",
+          "hota:1.8.0",
+          "subsystem:HD_HOTA_memory_allocation"
+        ]
+      },
+      {
+        "incident_id": "incident-e970cdce86fd7a8b",
+        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-5.txt",
+        "newly_covered": [
+          "hd:5.7 R10"
+        ],
+        "all_features": [
+          "cause:cause-fc1cd1067c55",
+          "formula:payload_size+4",
+          "hd:5.7 R10",
+          "hota:1.8.0",
+          "subsystem:HD_HOTA_memory_allocation"
+        ]
+      },
+      {
+        "incident_id": "incident-e38f206d2828430a",
+        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-6.txt",
+        "newly_covered": [
+          "hd:5.7 R20"
+        ],
+        "all_features": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-fc1cd1067c55",
+          "formula:payload_size+4",
+          "hd:5.7 R20",
+          "hota:1.8.0",
+          "subsystem:HD_HOTA_memory_allocation"
         ]
       },
       {
         "incident_id": "incident-863d7845c2dcd0ce",
         "txt": "HD_HOTA.dll+0x1A4E-1.8.0-7.txt",
         "newly_covered": [
+          "hd:5.7 R23"
+        ],
+        "all_features": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-fc1cd1067c55",
+          "formula:payload_size+4",
           "hd:5.7 R23",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-7.txt"
+          "hota:1.8.0",
+          "subsystem:HD_HOTA_memory_allocation"
+        ]
+      },
+      {
+        "incident_id": "incident-ff5896b2f47c690a",
+        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-8.txt",
+        "newly_covered": [
+          "hd:5.7 R26"
         ],
         "all_features": [
           "capability:captured_memory",
@@ -697,409 +728,18 @@
           "capability:module_identity",
           "capability:thread_provenance",
           "capability:thread_stacks",
-          "cause:cause-d6bf512fa415",
-          "formula:unknown",
-          "hd:5.7 R23",
+          "cause:cause-fc1cd1067c55",
+          "formula:payload_size+4",
+          "hd:5.7 R26",
           "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-7.txt",
-          "subsystem:unknown"
+          "subsystem:HD_HOTA_memory_allocation"
         ]
       },
       {
-        "incident_id": "incident-10cc9fc86033909d",
-        "txt": "HD_HOTA.dll+0x19AE-1.8.0-2.txt",
+        "incident_id": "incident-cfa092ea3d16684f",
+        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-9.txt",
         "newly_covered": [
-          "outlier:HD_HOTA.dll+0x19AE-1.8.0-2.txt"
-        ],
-        "all_features": [
-          "cause:cause-bc30a49fd712",
-          "formula:unknown",
-          "hd:5.6 R37",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x19AE-1.8.0-2.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-44fc95235a93dfae",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-11.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-11.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-11.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-064d728b3b761db1",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-15.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-15.txt"
-        ],
-        "all_features": [
-          "cause:cause-204b11e338b3",
-          "formula:unknown",
-          "hd:5.6 R30",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-15.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-7789989aa7274f7e",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-17.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-17.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-17.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-6ebc123d062b4ec5",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-18.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-18.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-18.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-20bb62ebab52e90f",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-19.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-19.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-19.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-8aa7f93ad523fcb6",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-21.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-21.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-21.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-424d5c78e1905c3f",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-22.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-22.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-22.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-169210b19fe61bfb",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-23.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-23.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-23.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-4662afe0644a11ef",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-24.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-24.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-24.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-48f237ebfe50e2e7",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-29.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-29.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-29.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-5e2931edfa0cdca4",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-3.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-3.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-3.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-7e5480633025653e",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-30.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-30.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-30.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-cdb79735bf68c38b",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-31.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-31.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-31.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-689b021e6a23abfa",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-32.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-32.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-32.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-6fe82a1d66a8ff70",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-33.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-33.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-33.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-e7f2111151fff5de",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-34.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-34.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-34.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-cac2bc5a87f49535",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-35.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-35.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-35.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-6e3ca52384d351ac",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-36.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-36.txt"
-        ],
-        "all_features": [
-          "cause:cause-928bc0472dd8",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-36.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-106a1c45b93ddef1",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-39.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-39.txt"
-        ],
-        "all_features": [
-          "cause:cause-55188455f801",
-          "formula:unknown",
-          "hd:5.7 RC2",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-39.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-2fa70311797904ad",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-4.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-4.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-4.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-8186fbc04e657958",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-40.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-40.txt"
-        ],
-        "all_features": [
-          "cause:cause-55188455f801",
-          "formula:unknown",
-          "hd:5.7 RC2",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-40.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-c9440584133af088",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-5.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-5.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-5.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-adc90c956bb2819c",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-6.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-6.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-6.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-11211b10ad3da3b6",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-7.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-7.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-7.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-0e7d02ddcd1b926a",
-        "txt": "HD_HOTA.dll+0x1A0E-1.8.0-8.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-8.txt"
-        ],
-        "all_features": [
-          "cause:cause-abeae13a95e2",
-          "formula:unknown",
-          "hd:5.7 RC1",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A0E-1.8.0-8.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-d99cead18c450c81",
-        "txt": "HD_HOTA.dll+0x1A49-5.7-R35-180-2.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A49-5.7-R35-180-2.txt"
+          "hd:5.7 R28"
         ],
         "all_features": [
           "capability:captured_memory",
@@ -1108,73 +748,24 @@
           "capability:module_identity",
           "capability:thread_provenance",
           "capability:thread_stacks",
-          "cause:cause-747ef6822f9a",
-          "formula:unknown",
-          "hd:5.7 R35",
+          "cause:cause-fc1cd1067c55",
+          "formula:payload_size+4",
+          "hd:5.7 R28",
           "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A49-5.7-R35-180-2.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-328d59cf9a037eff",
-        "txt": "HD_HOTA.dll+0x1A49-5.7-R40-180-2.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A49-5.7-R40-180-2.txt"
-        ],
-        "all_features": [
-          "capability:captured_memory",
-          "capability:code_window",
-          "capability:exception_context",
-          "capability:module_identity",
-          "capability:thread_provenance",
-          "capability:thread_stacks",
-          "cause:cause-415c6b02550a",
-          "formula:unknown",
-          "hd:5.7 R40",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A49-5.7-R40-180-2.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-cc27fbe3a8077f14",
-        "txt": "HD_HOTA.dll+0x1A4E-1.8.0-12.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-12.txt"
-        ],
-        "all_features": [
-          "capability:captured_memory",
-          "capability:code_window",
-          "capability:exception_context",
-          "capability:module_identity",
-          "capability:thread_provenance",
-          "capability:thread_stacks",
-          "cause:cause-317d98365829",
-          "formula:unknown",
-          "hd:5.7 R33",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0-12.txt",
-          "subsystem:unknown"
-        ]
-      },
-      {
-        "incident_id": "incident-0cf34e1bacfdc4a4",
-        "txt": "HD_HOTA.dll+0x1A4E-1.8.0Time0526202-1.txt",
-        "newly_covered": [
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0Time0526202-1.txt"
-        ],
-        "all_features": [
-          "cause:cause-5b652ae5a304",
-          "formula:unknown",
-          "hd:5.7 RC11",
-          "hota:1.8.0",
-          "outlier:HD_HOTA.dll+0x1A4E-1.8.0Time0526202-1.txt",
-          "subsystem:unknown"
+          "subsystem:HD_HOTA_memory_allocation"
         ]
       }
     ],
-    "analysis_contract_present": false,
+    "analysis_contract_present": true,
+    "lessons_present": true,
+    "unresolved_questions": 2,
+    "call_argument_contract_present": true,
+    "request_sizes": [
+      "0x00100004",
+      "0x0D680004",
+      "0x0D880004",
+      "0x00180004"
+    ],
     "missing_evidence_items": 0,
     "missing_capabilities": [
       "globals_and_heap",
@@ -1226,7 +817,7 @@
       "dedup_basis": "sha256_dmp"
     },
     "classified_incidents": {
-      "numerator": 0,
+      "numerator": 65,
       "denominator": 65,
       "population": "unique incidents",
       "scope": "current_series",
@@ -1234,7 +825,7 @@
       "dedup_basis": "normalized_time_tag_exception_context"
     },
     "unresolved_incidents": {
-      "numerator": 65,
+      "numerator": 0,
       "denominator": 65,
       "population": "unique incidents",
       "scope": "current_series",

@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "kind": "allocation_failure_experiment_plan",
+  "case": "HD_HOTA.dll+0x1A49",
+  "mechanism": "allocator_failure",
+  "status": "ready",
+  "requests": [
+    {
+      "id": "r35-r39-00100004",
+      "builds": [
+        "5.7 R35",
+        "5.7 R39"
+      ],
+      "request_size": "0x00100004",
+      "request_bytes": 1048580,
+      "size_class": "small",
+      "source_call": "HD_HOTA.dll::sub_1001A30 allocation branch",
+      "required_variants": [
+        "original",
+        "candidate"
+      ]
+    },
+    {
+      "id": "r40-0d680004",
+      "builds": [
+        "5.7 R40"
+      ],
+      "request_size": "0x0D680004",
+      "request_bytes": 224919556,
+      "size_class": "large",
+      "source_call": "HD_HOTA.dll::sub_1001A30 allocation branch",
+      "required_variants": [
+        "original",
+        "candidate"
+      ]
+    },
+    {
+      "id": "r40-0d880004",
+      "builds": [
+        "5.7 R40"
+      ],
+      "request_size": "0x0D880004",
+      "request_bytes": 227016708,
+      "size_class": "large",
+      "source_call": "HD_HOTA.dll::sub_1001A30 allocation branch",
+      "required_variants": [
+        "original",
+        "candidate"
+      ]
+    },
+    {
+      "id": "r8-00180004",
+      "builds": [
+        "5.8 R8"
+      ],
+      "request_size": "0x00180004",
+      "request_bytes": 1572868,
+      "size_class": "small",
+      "source_call": "HD_HOTA.dll::sub_1001A30 allocation branch",
+      "required_variants": [
+        "original",
+        "candidate"
+      ]
+    }
+  ],
+  "positive_control": {
+    "same_binary_sha256": true,
+    "same_trigger_without_forced_failure": true,
+    "must_reach_target": true,
+    "allocator_result": "non_null"
+  },
+  "forced_failure": {
+    "injection_point": "first matching allocator request",
+    "allocator_result": "null",
+    "required_capture": [
+      "full_memory_dump",
+      "allocator_metrics",
+      "binary_sha256",
+      "buffer_state_before_after"
+    ]
+  },
+  "acceptance": {
+    "original": [
+      "known_trap_observed"
+    ],
+    "candidate": [
+      "no_trap",
+      "explicit_error_returned",
+      "old_buffer_pointer_preserved",
+      "filled_size_preserved",
+      "capacity_preserved"
+    ]
+  },
+  "rule": "a synthetic selftest proves only the checker; the case stays blocked_by_environment until matched runtime runs pass"
+}

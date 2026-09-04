@@ -886,8 +886,8 @@
       "target_artifacts": [
         {
           "path": "analysis-contract.json",
-          "size": 6929,
-          "sha256": "431424e2ba1f03a6eb15f61a0cf5a48c984bbae8a108c7bf67f2e5006f08ff4f"
+          "size": 7515,
+          "sha256": "3595a26e326f8a1659fc90425fcae293daaca1dd8bbd74405b727f0356782c0b"
         },
         {
           "path": "case-manifest.json",
@@ -906,8 +906,8 @@
         },
         {
           "path": "lessons.json",
-          "size": 4102,
-          "sha256": "a87a2a680c9790c6cbc4a8ea00935d63c893947039eb1155e0567b9ab114428c"
+          "size": 13249,
+          "sha256": "b03d13d72ae018f7ebf9dec94bb9b39da85b8e9dca3dde5488be065f4efd6dc9"
         },
         {
           "path": "series-annotations.json",
@@ -982,7 +982,7 @@
         "size": 4216,
         "sha256": "30cdfe65cf004322de40c04124e90c12b5bf475eeb38de123f789fbab4233de1"
       },
-      "verified_at": "2026-09-04T08:13:30.368455+00:00",
+      "verified_at": "2026-09-04T15:10:18.593533+00:00",
       "verifier_contract": {
         "name": "consolidation_attestation",
         "version": "2",

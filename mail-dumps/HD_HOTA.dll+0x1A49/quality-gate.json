@@ -113,8 +113,8 @@
       },
       {
         "path": "HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.evidence.json",
-        "size": 67359,
-        "sha256": "7905ed26fc87ce877dde0b5556376bd5da6e88ace1bcfc4d00d120c85956d402"
+        "size": 69797,
+        "sha256": "b1339a25212ada67dcb228c728c9d563955b71f0ccfa6a848d88f62a1940bb8e"
       },
       {
         "path": "HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.extra.html",
@@ -142,9 +142,14 @@
         "sha256": "ce169b9610b19def3d6a08f81f9e622b344888a60e428ad8c154dc00bfc6e2f3"
       },
       {
+        "path": "allocation-failure-plan.json",
+        "size": 2320,
+        "sha256": "f050b1398c8a4ef1cdb95badc59adfd553bb98627beb28add4a341c261b6aaf4"
+      },
+      {
         "path": "analysis-contract.json",
-        "size": 6929,
-        "sha256": "431424e2ba1f03a6eb15f61a0cf5a48c984bbae8a108c7bf67f2e5006f08ff4f"
+        "size": 7515,
+        "sha256": "3595a26e326f8a1659fc90425fcae293daaca1dd8bbd74405b727f0356782c0b"
       },
       {
         "path": "call-arguments-r35-r39.json",
@@ -165,6 +170,11 @@
         "path": "call-arguments-r8-00180004.json",
         "size": 762,
         "sha256": "c2c4413c51b20baacd15634e46a9b968445523bfb52057fba5ceeb9546a5e63c"
+      },
+      {
+        "path": "call-arguments.json",
+        "size": 4422,
+        "sha256": "8a33515a0524876668b41605e631fca7a1eabf813f3b08af47968c327abf4bb7"
       },
       {
         "path": "capabilities.json",
@@ -188,8 +198,8 @@
       },
       {
         "path": "evidence-config.json",
-        "size": 18309,
-        "sha256": "ca6248e527882e3b4bd04c56a004cbdeba185fac866ff2d294896f39bdf4d82f"
+        "size": 18690,
+        "sha256": "998fb130d9981dae96bd5cbe456f9e46333ff779b03a6fdbe529f10d602b2137"
       },
       {
         "path": "family-membership-input.json",
@@ -208,8 +218,8 @@
       },
       {
         "path": "lessons.json",
-        "size": 4102,
-        "sha256": "a87a2a680c9790c6cbc4a8ea00935d63c893947039eb1155e0567b9ab114428c"
+        "size": 13249,
+        "sha256": "b03d13d72ae018f7ebf9dec94bb9b39da85b8e9dca3dde5488be065f4efd6dc9"
       },
       {
         "path": "memory-pressure-r40.json",
@@ -228,13 +238,13 @@
       },
       {
         "path": "report-consolidation-manifest.json",
-        "size": 49036,
-        "sha256": "9070a6db0b3646f7152eb7fb627afc1c4fecdc3ab42deb6fdd7aa4e8cc8fa32e"
+        "size": 49037,
+        "sha256": "cb8b8550a9e30298a4fe4b0c031819f3260485c15dbb9e0e45b8f7ba32d5fb55"
       },
       {
         "path": "repro-plan.json",
-        "size": 38025,
-        "sha256": "6cb3da49ef7a29a62897f34b620eec4c38cb6b65e93606c458537d6457178064"
+        "size": 31562,
+        "sha256": "aedadbd98a191e844b367de09c604f81b51156151242c536946411383f4b2cad"
       },
       {
         "path": "save-inventory.json",
@@ -595,8 +605,8 @@
       },
       {
         "path": ".agents/skills/address-mapping/call_argument_audit.py",
-        "size": 4474,
-        "sha256": "a888e012a6d347f536601afca3ab412a772670c3ecefc51949ae63e3052387e6"
+        "size": 11417,
+        "sha256": "70d517323f08bfd32c4b13760acd8b43da7f57215f6011c2264256e44ffc77e7"
       },
       {
         "path": ".agents/skills/address-mapping/callback_abi_audit.py",
@@ -619,9 +629,14 @@
         "sha256": "d06234b55d72565c5e7adcd024a261f350b49412492f1d8af2ae593d087751a3"
       },
       {
+        "path": ".agents/skills/hota-crash-triage/case_archive_policy.py",
+        "size": 3511,
+        "sha256": "037c8934a871370feb4b5c17afe8749d9ce7f713c2a55ca994651bdec6537825"
+      },
+      {
         "path": ".agents/skills/hota-crash-triage/case_lessons.py",
-        "size": 5178,
-        "sha256": "cc6995efbcc467d25c81a8145a5124b34b694f3c6b741c5409a5c0019e669b5c"
+        "size": 9699,
+        "sha256": "e9c42565408fda559c4a72d37ea6721ce668f290675458e6434b5d31f9dbdf52"
       },
       {
         "path": ".agents/skills/hota-crash-triage/coverage_contract.py",
@@ -685,8 +700,8 @@
       },
       {
         "path": ".agents/skills/hota-crash-triage/repro_plan.py",
-        "size": 12201,
-        "sha256": "da50a907d08589b1998cfbe7b4d84034bc23ee1273e9931de0d04c9ffbe031b8"
+        "size": 21044,
+        "sha256": "121cb694e928b6040b15fee94d2fe34826bb149239555784717555489e7eb8f7"
       },
       {
         "path": ".agents/skills/hota-crash-triage/scan_attestation.py",
@@ -789,12 +804,17 @@
         "sha256": "90cfc79f7b860d13bc38caffa0a97137dea16b18ffe4a5038d79279052c5f94f"
       },
       {
+        "path": ".agents/skills/runtime-verification/allocation_failure_experiment.py",
+        "size": 13288,
+        "sha256": "9429f26b99868ab748db9f1a5f993308491acdf969ce248b943d39dca1f2908b"
+      },
+      {
         "path": "report_consistency.py",
         "size": 29850,
         "sha256": "598b5b172786c0c7118cd17c2387ae500761e6a9d4caa1f1c15bd7146be31fd5"
       }
     ],
-    "sha256": "0b5f7cfa4b0de2fd80a49e983b52a996556c70f7099184c83eb581a96623a20d"
+    "sha256": "3efe29b1c672634171bd2f93d1151c7f1d6201247eaa6e94dd2af048700df639"
   },
   "audit_stages_complete": null,
   "publication_ready": true,
@@ -817,7 +837,7 @@
   "artifact_quality": {
     "status": "passed",
     "passed": true,
-    "step_count": 24,
+    "step_count": 27,
     "blocked_count": 0
   },
   "diagnostic_completeness": {
@@ -841,7 +861,7 @@
   },
   "root_cause_ready": false,
   "causality_level": "L1",
-  "step_count": 24,
+  "step_count": 27,
   "blocked_count": 0,
   "steps": [
     {
@@ -851,6 +871,22 @@
       "legacy_exempt": false,
       "dmp_count": 15,
       "evidence_count": 1
+    },
+    {
+      "name": "case_archive_policy",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\n  \"schema\": 1,\n  \"kind\": \"case_archive_policy_verdict\",\n  \"status\": \"passed\",\n  \"forbidden_archives\": [],\n  \"errors\": [],\n  \"rule\": \"the canonical ZIP is generated from archive-manifest.json in publication staging and is never copied back into mail-dumps/<case>\",\n  \"remediation\": \"verify staging/public archive, then delete the case-root derived ZIP through the MCP backup-aware delete operation\"\n}\n",
+      "stderr": "",
+      "json_result": {
+        "schema": 1,
+        "kind": "case_archive_policy_verdict",
+        "status": "passed",
+        "forbidden_archives": [],
+        "errors": [],
+        "rule": "the canonical ZIP is generated from archive-manifest.json in publication staging and is never copied back into mail-dumps/<case>",
+        "remediation": "verify staging/public archive, then delete the case-root derived ZIP through the MCP backup-aware delete operation"
+      }
     },
     {
       "name": "pair_contract",
@@ -934,60 +970,91 @@
       "name": "call_arguments:call-arguments-r35-r39.json",
       "status": "passed",
       "returncode": 0,
-      "stdout": "{\n  \"schema\": 1,\n  \"kind\": \"x86_call_argument_provenance\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"argument_count\": 1,\n  \"rule\": \"recover at call boundary; volatile post-call registers are not arguments\"\n}\n",
+      "stdout": "{\n  \"schema\": 2,\n  \"kind\": \"x86_call_argument_provenance\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"call_count\": 1,\n  \"argument_count\": 1,\n  \"rule\": \"recover every argument at the call boundary and verify push/stack/cleanup/retn arithmetic; volatile post-call registers are not arguments\"\n}\n",
       "stderr": "",
       "json_result": {
-        "schema": 1,
+        "schema": 2,
         "kind": "x86_call_argument_provenance",
         "status": "passed",
         "errors": [],
+        "call_count": 1,
         "argument_count": 1,
-        "rule": "recover at call boundary; volatile post-call registers are not arguments"
+        "rule": "recover every argument at the call boundary and verify push/stack/cleanup/retn arithmetic; volatile post-call registers are not arguments"
       }
     },
     {
       "name": "call_arguments:call-arguments-r40-0d680004.json",
       "status": "passed",
       "returncode": 0,
-      "stdout": "{\n  \"schema\": 1,\n  \"kind\": \"x86_call_argument_provenance\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"argument_count\": 1,\n  \"rule\": \"recover at call boundary; volatile post-call registers are not arguments\"\n}\n",
+      "stdout": "{\n  \"schema\": 2,\n  \"kind\": \"x86_call_argument_provenance\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"call_count\": 1,\n  \"argument_count\": 1,\n  \"rule\": \"recover every argument at the call boundary and verify push/stack/cleanup/retn arithmetic; volatile post-call registers are not arguments\"\n}\n",
       "stderr": "",
       "json_result": {
-        "schema": 1,
+        "schema": 2,
         "kind": "x86_call_argument_provenance",
         "status": "passed",
         "errors": [],
+        "call_count": 1,
         "argument_count": 1,
-        "rule": "recover at call boundary; volatile post-call registers are not arguments"
+        "rule": "recover every argument at the call boundary and verify push/stack/cleanup/retn arithmetic; volatile post-call registers are not arguments"
       }
     },
     {
       "name": "call_arguments:call-arguments-r40-0d880004.json",
       "status": "passed",
       "returncode": 0,
-      "stdout": "{\n  \"schema\": 1,\n  \"kind\": \"x86_call_argument_provenance\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"argument_count\": 1,\n  \"rule\": \"recover at call boundary; volatile post-call registers are not arguments\"\n}\n",
+      "stdout": "{\n  \"schema\": 2,\n  \"kind\": \"x86_call_argument_provenance\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"call_count\": 1,\n  \"argument_count\": 1,\n  \"rule\": \"recover every argument at the call boundary and verify push/stack/cleanup/retn arithmetic; volatile post-call registers are not arguments\"\n}\n",
       "stderr": "",
       "json_result": {
-        "schema": 1,
+        "schema": 2,
         "kind": "x86_call_argument_provenance",
         "status": "passed",
         "errors": [],
+        "call_count": 1,
         "argument_count": 1,
-        "rule": "recover at call boundary; volatile post-call registers are not arguments"
+        "rule": "recover every argument at the call boundary and verify push/stack/cleanup/retn arithmetic; volatile post-call registers are not arguments"
       }
     },
     {
       "name": "call_arguments:call-arguments-r8-00180004.json",
       "status": "passed",
       "returncode": 0,
-      "stdout": "{\n  \"schema\": 1,\n  \"kind\": \"x86_call_argument_provenance\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"argument_count\": 1,\n  \"rule\": \"recover at call boundary; volatile post-call registers are not arguments\"\n}\n",
+      "stdout": "{\n  \"schema\": 2,\n  \"kind\": \"x86_call_argument_provenance\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"call_count\": 1,\n  \"argument_count\": 1,\n  \"rule\": \"recover every argument at the call boundary and verify push/stack/cleanup/retn arithmetic; volatile post-call registers are not arguments\"\n}\n",
       "stderr": "",
       "json_result": {
-        "schema": 1,
+        "schema": 2,
         "kind": "x86_call_argument_provenance",
         "status": "passed",
         "errors": [],
+        "call_count": 1,
         "argument_count": 1,
-        "rule": "recover at call boundary; volatile post-call registers are not arguments"
+        "rule": "recover every argument at the call boundary and verify push/stack/cleanup/retn arithmetic; volatile post-call registers are not arguments"
+      }
+    },
+    {
+      "name": "call_arguments:call-arguments.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\n  \"schema\": 2,\n  \"kind\": \"x86_call_argument_audit\",\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"call_count\": 4,\n  \"argument_count\": 4,\n  \"rule\": \"recover every argument at the call boundary and verify push/stack/cleanup/retn arithmetic; volatile post-call registers are not arguments\"\n}\n",
+      "stderr": "",
+      "json_result": {
+        "schema": 2,
+        "kind": "x86_call_argument_audit",
+        "status": "passed",
+        "errors": [],
+        "call_count": 4,
+        "argument_count": 4,
+        "rule": "recover every argument at the call boundary and verify push/stack/cleanup/retn arithmetic; volatile post-call registers are not arguments"
+      }
+    },
+    {
+      "name": "allocation_failure_plan:allocation-failure-plan.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\"status\": \"passed\", \"errors\": []}\n",
+      "stderr": "",
+      "json_result": {
+        "status": "passed",
+        "errors": []
       }
     },
     {
@@ -1084,7 +1151,7 @@
       "name": "evidence:HD_HOTA.dll+0x1A49-анализ-gpt-5.6-sol.txt",
       "status": "passed",
       "returncode": 0,
-      "stdout": " {'kind': 'tool', 'path': '../../.agents/skills/address-mapping/dump_profile.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/crash_audit.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/save-map-analysis/save_inventory.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/family_membership.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/coverage_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/case_manifest.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/address-mapping/address_proof.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/analysis_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/case_lessons.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/evidence_manifest.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/lint_report.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/semantic_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/repro_plan.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/address-mapping/call_argument_audit.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/memory-pressure/memory_pressure_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/case_quality_gate.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/multi-dump-diff/consolidation_attestation.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n",
+      "stdout": "h': '../../.agents/skills/hota-crash-triage/crash_audit.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/save-map-analysis/save_inventory.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/family_membership.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/coverage_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/case_manifest.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/address-mapping/address_proof.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/analysis_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/case_lessons.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/evidence_manifest.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/lint_report.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/semantic_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/repro_plan.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/address-mapping/call_argument_audit.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/runtime-verification/allocation_failure_experiment.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/memory-pressure/memory_pressure_contract.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/hota-crash-triage/case_quality_gate.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n  warning: {'kind': 'tool', 'path': '../../.agents/skills/multi-dump-diff/consolidation_attestation.py', 'code': 'unscoped_result_ownership', 'reason': 'facts are shared across tools'}\n",
       "stderr": ""
     },
     {

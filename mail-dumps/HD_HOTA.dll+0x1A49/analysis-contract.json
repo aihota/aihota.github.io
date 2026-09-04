@@ -159,6 +159,26 @@
       "phase_role": "derived_after_failure"
     },
     {
+      "path": "call-arguments.json",
+      "artifact_role": "derived_call_argument_census",
+      "phase_role": "derived_after_failure"
+    },
+    {
+      "path": "allocation-failure-plan.json",
+      "artifact_role": "derived_runtime_experiment_plan",
+      "phase_role": "derived_after_failure"
+    },
+    {
+      "path": "repro-plan.json",
+      "artifact_role": "derived_reproduction_plan",
+      "phase_role": "derived_after_failure"
+    },
+    {
+      "path": "lessons.json",
+      "artifact_role": "derived_case_lessons",
+      "phase_role": "derived_after_failure"
+    },
+    {
       "path": "family-membership.json",
       "artifact_role": "derived_family_census",
       "phase_role": "contextual"

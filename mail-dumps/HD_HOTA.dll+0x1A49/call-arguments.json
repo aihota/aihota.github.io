@@ -1,0 +1,112 @@
+{
+  "schema": 2,
+  "kind": "x86_call_argument_audit",
+  "architecture": "x86",
+  "scope": "four observed allocation requests in exact +0x1A49 family",
+  "calls": [
+    {
+      "id": "r35-r39-00100004",
+      "builds": ["5.7 R35", "5.7 R39"],
+      "callsite": "HD_HOTA.dll::sub_1001A30 allocation branch",
+      "callee": "_malloc",
+      "calling_convention": "cdecl",
+      "observation_point": "after_caller_cleanup",
+      "instruction_sequence": ["push eax", "call _malloc", "add esp, 4"],
+      "push_count": 1,
+      "argument_bytes": 4,
+      "caller_cleanup_bytes": 4,
+      "callee_retn_bytes": 0,
+      "return_instruction": "ret",
+      "arguments": [{
+        "index": 0,
+        "value": "0x00100004",
+        "source_kind": "stack_slot",
+        "relative_to_observed_esp": -4,
+        "provenance": "размер помещён в стек перед _malloc и восстановлен по ESP-4 после add esp, 4"
+      }],
+      "rejected_sources": [{
+        "source": "ECX",
+        "observed_value": "0x00000008",
+        "reason": "изменяемый вызываемой функцией регистр после возврата не является аргументом"
+      }]
+    },
+    {
+      "id": "r40-0d680004",
+      "builds": ["5.7 R40"],
+      "callsite": "HD_HOTA.dll::sub_1001A30 allocation branch",
+      "callee": "_malloc",
+      "calling_convention": "cdecl",
+      "observation_point": "after_caller_cleanup",
+      "instruction_sequence": ["push eax", "call _malloc", "add esp, 4"],
+      "push_count": 1,
+      "argument_bytes": 4,
+      "caller_cleanup_bytes": 4,
+      "callee_retn_bytes": 0,
+      "return_instruction": "ret",
+      "arguments": [{
+        "index": 0,
+        "value": "0x0D680004",
+        "source_kind": "stack_slot",
+        "relative_to_observed_esp": -4,
+        "provenance": "запрошенная вместимость с четырёхбайтовым заголовком восстановлена по ESP-4"
+      }],
+      "rejected_sources": [{
+        "source": "ECX",
+        "observed_value": "0xB155DBB9",
+        "reason": "контрпример: изменяемый регистр после _malloc не равен переданному размеру"
+      }]
+    },
+    {
+      "id": "r40-0d880004",
+      "builds": ["5.7 R40"],
+      "callsite": "HD_HOTA.dll::sub_1001A30 allocation branch",
+      "callee": "_malloc",
+      "calling_convention": "cdecl",
+      "observation_point": "after_caller_cleanup",
+      "instruction_sequence": ["push eax", "call _malloc", "add esp, 4"],
+      "push_count": 1,
+      "argument_bytes": 4,
+      "caller_cleanup_bytes": 4,
+      "callee_retn_bytes": 0,
+      "return_instruction": "ret",
+      "arguments": [{
+        "index": 0,
+        "value": "0x0D880004",
+        "source_kind": "stack_slot",
+        "relative_to_observed_esp": -4,
+        "provenance": "запрошенная вместимость с четырёхбайтовым заголовком восстановлена по ESP-4"
+      }],
+      "rejected_sources": [{
+        "source": "ECX",
+        "observed_value": "0xB155DBB9",
+        "reason": "контрпример: изменяемый регистр после _malloc не равен переданному размеру"
+      }]
+    },
+    {
+      "id": "r8-00180004",
+      "builds": ["5.8 R8"],
+      "callsite": "HD_HOTA.dll::sub_1001A30 allocation branch",
+      "callee": "_malloc",
+      "calling_convention": "cdecl",
+      "observation_point": "after_caller_cleanup",
+      "instruction_sequence": ["push eax", "call _malloc", "add esp, 4"],
+      "push_count": 1,
+      "argument_bytes": 4,
+      "caller_cleanup_bytes": 4,
+      "callee_retn_bytes": 0,
+      "return_instruction": "ret",
+      "arguments": [{
+        "index": 0,
+        "value": "0x00180004",
+        "source_kind": "stack_slot",
+        "relative_to_observed_esp": -4,
+        "provenance": "подпрограмма добавила четыре байта к округлённой вместимости и передала результат через стек"
+      }],
+      "rejected_sources": [{
+        "source": "ECX",
+        "observed_value": "0x00000008",
+        "reason": "изменяемый вызываемой функцией регистр после возврата не является аргументом"
+      }]
+    }
+  ]
+}

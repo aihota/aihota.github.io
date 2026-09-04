@@ -144,6 +144,14 @@
     },
     {
       "role": "derived-evidence",
+      "path": "call-arguments.json"
+    },
+    {
+      "role": "derived-evidence",
+      "path": "allocation-failure-plan.json"
+    },
+    {
+      "role": "derived-evidence",
       "path": "call-arguments-r35-r39.json"
     },
     {
@@ -299,6 +307,7 @@
     ".agents/skills/hota-crash-triage/semantic_contract.py",
     ".agents/skills/hota-crash-triage/repro_plan.py",
     ".agents/skills/address-mapping/call_argument_audit.py",
+    ".agents/skills/runtime-verification/allocation_failure_experiment.py",
     ".agents/skills/memory-pressure/memory_pressure_contract.py",
     ".agents/skills/hota-crash-triage/case_quality_gate.py",
     ".agents/skills/hota-crash-triage/case_rebuild.py",
@@ -310,6 +319,8 @@
     "family_membership.py create family-membership-input.json",
     "coverage_contract.py create coverage-claims.json",
     "repro_plan.py create . --out repro-plan.json",
+    "call_argument_audit.py call-arguments.json",
+    "allocation_failure_experiment.py check-plan allocation-failure-plan.json",
     "evidence_manifest.py create --config evidence-config.json",
     "case_rebuild.py prepare/check through canonical publication-stage and schema-2 artifact_promote handoff",
     "consolidation_attestation.py check report-consolidation-manifest.json --project-root ."

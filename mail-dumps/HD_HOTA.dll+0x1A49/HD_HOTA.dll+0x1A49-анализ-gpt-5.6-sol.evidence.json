@@ -1,7 +1,7 @@
 {
   "schema": 4,
-  "generated_at": "2026-09-04T09:47:27.977755+00:00",
-  "parser_revision": "02d14258cee879b0dfd62cd6ded817b3ed6580f4",
+  "generated_at": "2026-09-04T15:13:09.902468+00:00",
+  "parser_revision": "28803067d970786eb2efb72fede75883a4dd7c4f",
   "binding": {
     "mode": "hybrid-v1",
     "toolchain_mode": "closure",
@@ -201,14 +201,14 @@
     },
     {
       "path": "analysis-contract.json",
-      "size": 6929,
-      "sha256": "431424e2ba1f03a6eb15f61a0cf5a48c984bbae8a108c7bf67f2e5006f08ff4f",
+      "size": 7515,
+      "sha256": "3595a26e326f8a1659fc90425fcae293daaca1dd8bbd74405b727f0356782c0b",
       "role": "derived-evidence"
     },
     {
       "path": "lessons.json",
-      "size": 4102,
-      "sha256": "a87a2a680c9790c6cbc4a8ea00935d63c893947039eb1155e0567b9ab114428c",
+      "size": 13249,
+      "sha256": "b03d13d72ae018f7ebf9dec94bb9b39da85b8e9dca3dde5488be065f4efd6dc9",
       "role": "derived-evidence"
     },
     {
@@ -219,8 +219,20 @@
     },
     {
       "path": "repro-plan.json",
-      "size": 38025,
-      "sha256": "6cb3da49ef7a29a62897f34b620eec4c38cb6b65e93606c458537d6457178064",
+      "size": 31562,
+      "sha256": "aedadbd98a191e844b367de09c604f81b51156151242c536946411383f4b2cad",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "call-arguments.json",
+      "size": 4422,
+      "sha256": "8a33515a0524876668b41605e631fca7a1eabf813f3b08af47968c327abf4bb7",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "allocation-failure-plan.json",
+      "size": 2320,
+      "sha256": "f050b1398c8a4ef1cdb95badc59adfd553bb98627beb28add4a341c261b6aaf4",
       "role": "derived-evidence"
     },
     {
@@ -417,8 +429,8 @@
     },
     {
       "path": "report-consolidation-manifest.json",
-      "size": 49036,
-      "sha256": "9070a6db0b3646f7152eb7fb627afc1c4fecdc3ab42deb6fdd7aa4e8cc8fa32e",
+      "size": 49037,
+      "sha256": "cb8b8550a9e30298a4fe4b0c031819f3260485c15dbb9e0e45b8f7ba32d5fb55",
       "role": "derived-evidence"
     },
     {
@@ -429,8 +441,8 @@
     },
     {
       "path": "evidence-config.json",
-      "size": 18309,
-      "sha256": "ca6248e527882e3b4bd04c56a004cbdeba185fac866ff2d294896f39bdf4d82f",
+      "size": 18690,
+      "sha256": "998fb130d9981dae96bd5cbe456f9e46333ff779b03a6fdbe529f10d602b2137",
       "role": "derived-evidence"
     }
   ],
@@ -1006,10 +1018,10 @@
       "binding": "contract-result-v1",
       "contract": {
         "name": "case_lessons",
-        "version": "2",
+        "version": "3",
         "outputs": [
           "lessons.json",
-          "closure verdict"
+          "multi-axis closure verdict"
         ]
       },
       "result_scope": {
@@ -1040,9 +1052,9 @@
       },
       "result_fingerprint": "58a46e33ff2486a23c15f6306fcff1c575dfe13e1132058dbb0b190aa66ad457",
       "revision": {
-        "size": 5178,
-        "sha256": "cc6995efbcc467d25c81a8145a5124b34b694f3c6b741c5409a5c0019e669b5c",
-        "git": "7321e86074224d6aaf20bfbe8b6ccc6c7999f036"
+        "size": 9699,
+        "sha256": "e9c42565408fda559c4a72d37ea6721ce668f290675458e6434b5d31f9dbdf52",
+        "git": "02478135cb31c632034508226b6d539dbfbf5cd9"
       }
     },
     {
@@ -1180,9 +1192,10 @@
       "binding": "contract-result-v1",
       "contract": {
         "name": "repro_plan",
-        "version": "2",
+        "version": "3",
         "outputs": [
-          "repro-plan.json"
+          "repro-plan.json",
+          "executable unresolved-evidence plan"
         ]
       },
       "result_scope": {
@@ -1213,9 +1226,9 @@
       },
       "result_fingerprint": "58a46e33ff2486a23c15f6306fcff1c575dfe13e1132058dbb0b190aa66ad457",
       "revision": {
-        "size": 12201,
-        "sha256": "da50a907d08589b1998cfbe7b4d84034bc23ee1273e9931de0d04c9ffbe031b8",
-        "git": "7321e86074224d6aaf20bfbe8b6ccc6c7999f036"
+        "size": 21044,
+        "sha256": "121cb694e928b6040b15fee94d2fe34826bb149239555784717555489e7eb8f7",
+        "git": "02478135cb31c632034508226b6d539dbfbf5cd9"
       }
     },
     {
@@ -1223,9 +1236,9 @@
       "binding": "contract-result-v1",
       "contract": {
         "name": "call_argument_audit",
-        "version": "1",
+        "version": "2",
         "outputs": [
-          "call argument verdict"
+          "single or multi-call argument verdict"
         ]
       },
       "result_scope": {
@@ -1256,9 +1269,53 @@
       },
       "result_fingerprint": "58a46e33ff2486a23c15f6306fcff1c575dfe13e1132058dbb0b190aa66ad457",
       "revision": {
-        "size": 4474,
-        "sha256": "a888e012a6d347f536601afca3ab412a772670c3ecefc51949ae63e3052387e6",
-        "git": "72ddad529ed41c46a5d7aa0baaa9dc26bb8a7780"
+        "size": 11417,
+        "sha256": "70d517323f08bfd32c4b13760acd8b43da7f57215f6011c2264256e44ffc77e7",
+        "git": "02478135cb31c632034508226b6d539dbfbf5cd9"
+      }
+    },
+    {
+      "path": "../../.agents/skills/runtime-verification/allocation_failure_experiment.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "allocation_failure_experiment",
+        "version": "1",
+        "outputs": [
+          "allocation-failure-plan.json",
+          "experiment verdict"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [
+          "analyzed_unique_dmp_states",
+          "classified_registry_incidents",
+          "confirmed_family_incidents",
+          "consolidation_status",
+          "context_only_registry_incidents",
+          "duplicate_instances",
+          "excluded_registry_incidents",
+          "family_events",
+          "historical_raw_dmp",
+          "historical_raw_txt",
+          "physical_dmp",
+          "physical_txt",
+          "preserved_saves",
+          "profiled_dmp",
+          "reproduction_status",
+          "root_cause_status",
+          "unique_dmp",
+          "unique_dmp_sha256",
+          "unique_incidents",
+          "unknown_registry_incidents"
+        ],
+        "ownership": "legacy_shared"
+      },
+      "result_fingerprint": "58a46e33ff2486a23c15f6306fcff1c575dfe13e1132058dbb0b190aa66ad457",
+      "revision": {
+        "size": 13288,
+        "sha256": "9429f26b99868ab748db9f1a5f993308491acdf969ce248b943d39dca1f2908b",
+        "git": "02478135cb31c632034508226b6d539dbfbf5cd9"
       }
     },
     {
@@ -1343,9 +1400,9 @@
       },
       "result_fingerprint": "58a46e33ff2486a23c15f6306fcff1c575dfe13e1132058dbb0b190aa66ad457",
       "revision": {
-        "size": 92245,
-        "sha256": "9761f7a6c9316f80b133c0d832f8b17ca23c0e972a5426cbdd0c2a07d1c85685",
-        "git": "305a966af5c0221f22b887e0b65dd9e5975c3377"
+        "size": 92833,
+        "sha256": "b97b976d9acd12693634f23732e036b80e654318687575b90f7fd083f825cbfb",
+        "git": "02478135cb31c632034508226b6d539dbfbf5cd9"
       }
     },
     {
@@ -1404,6 +1461,8 @@
     "family_membership.py create family-membership-input.json",
     "coverage_contract.py create coverage-claims.json",
     "repro_plan.py create . --out repro-plan.json",
+    "call_argument_audit.py call-arguments.json",
+    "allocation_failure_experiment.py check-plan allocation-failure-plan.json",
     "evidence_manifest.py create --config evidence-config.json",
     "case_rebuild.py prepare/check through canonical publication-stage and schema-2 artifact_promote handoff",
     "consolidation_attestation.py check report-consolidation-manifest.json --project-root ."
@@ -1644,7 +1703,7 @@
   "toolchain": {
     "schema": 1,
     "kind": "toolchain_closure",
-    "git_commit": "02d14258cee879b0dfd62cd6ded817b3ed6580f4",
+    "git_commit": "28803067d970786eb2efb72fede75883a4dd7c4f",
     "direct_tools": [
       ".agents/skills/address-mapping/address_proof.py",
       ".agents/skills/address-mapping/call_argument_audit.py",
@@ -1668,6 +1727,7 @@
       ".agents/skills/multi-dump-diff/parse_dumps.py",
       ".agents/skills/multi-dump-diff/relocate_crash_family.py",
       ".agents/skills/multi-dump-diff/series_registry.py",
+      ".agents/skills/runtime-verification/allocation_failure_experiment.py",
       ".agents/skills/save-map-analysis/save_inventory.py"
     ],
     "asset_roots": [],
@@ -1681,9 +1741,9 @@
       },
       {
         "repo_path": ".agents/skills/address-mapping/call_argument_audit.py",
-        "size": 4474,
-        "sha256": "a888e012a6d347f536601afca3ab412a772670c3ecefc51949ae63e3052387e6",
-        "git_sha256": "a888e012a6d347f536601afca3ab412a772670c3ecefc51949ae63e3052387e6",
+        "size": 11417,
+        "sha256": "70d517323f08bfd32c4b13760acd8b43da7f57215f6011c2264256e44ffc77e7",
+        "git_sha256": "70d517323f08bfd32c4b13760acd8b43da7f57215f6011c2264256e44ffc77e7",
         "git_status": "matched"
       },
       {
@@ -1716,9 +1776,9 @@
       },
       {
         "repo_path": ".agents/skills/hota-crash-triage/case_lessons.py",
-        "size": 5178,
-        "sha256": "cc6995efbcc467d25c81a8145a5124b34b694f3c6b741c5409a5c0019e669b5c",
-        "git_sha256": "cc6995efbcc467d25c81a8145a5124b34b694f3c6b741c5409a5c0019e669b5c",
+        "size": 9699,
+        "sha256": "e9c42565408fda559c4a72d37ea6721ce668f290675458e6434b5d31f9dbdf52",
+        "git_sha256": "e9c42565408fda559c4a72d37ea6721ce668f290675458e6434b5d31f9dbdf52",
         "git_status": "matched"
       },
       {
@@ -1730,9 +1790,9 @@
       },
       {
         "repo_path": ".agents/skills/hota-crash-triage/case_quality_gate.py",
-        "size": 92245,
-        "sha256": "9761f7a6c9316f80b133c0d832f8b17ca23c0e972a5426cbdd0c2a07d1c85685",
-        "git_sha256": "9761f7a6c9316f80b133c0d832f8b17ca23c0e972a5426cbdd0c2a07d1c85685",
+        "size": 92833,
+        "sha256": "b97b976d9acd12693634f23732e036b80e654318687575b90f7fd083f825cbfb",
+        "git_sha256": "b97b976d9acd12693634f23732e036b80e654318687575b90f7fd083f825cbfb",
         "git_status": "matched"
       },
       {
@@ -1814,9 +1874,9 @@
       },
       {
         "repo_path": ".agents/skills/hota-crash-triage/repro_plan.py",
-        "size": 12201,
-        "sha256": "da50a907d08589b1998cfbe7b4d84034bc23ee1273e9931de0d04c9ffbe031b8",
-        "git_sha256": "da50a907d08589b1998cfbe7b4d84034bc23ee1273e9931de0d04c9ffbe031b8",
+        "size": 21044,
+        "sha256": "121cb694e928b6040b15fee94d2fe34826bb149239555784717555489e7eb8f7",
+        "git_sha256": "121cb694e928b6040b15fee94d2fe34826bb149239555784717555489e7eb8f7",
         "git_status": "matched"
       },
       {
@@ -1883,6 +1943,13 @@
         "git_status": "matched"
       },
       {
+        "repo_path": ".agents/skills/runtime-verification/allocation_failure_experiment.py",
+        "size": 13288,
+        "sha256": "9429f26b99868ab748db9f1a5f993308491acdf969ce248b943d39dca1f2908b",
+        "git_sha256": "9429f26b99868ab748db9f1a5f993308491acdf969ce248b943d39dca1f2908b",
+        "git_status": "matched"
+      },
+      {
         "repo_path": ".agents/skills/save-map-analysis/save_inventory.py",
         "size": 12706,
         "sha256": "360a1ad9a98967b09e0da77cae9d7829717062540fb8caa70fa73e64bcfc9419",
@@ -1890,11 +1957,11 @@
         "git_status": "matched"
       }
     ],
-    "file_count": 31,
-    "bundle_sha256": "41ab31aec860cf7a6f1a532f81ccfa43e592b535dc7b77335393d991cc44a62c",
+    "file_count": 32,
+    "bundle_sha256": "d98e7a9e845a30c6bf4e0befc7fa32b0fac5ff19601e21f81d72bfadb457fa3d",
     "status": "clean",
     "errors": []
   },
-  "renderer_bundle_sha256": "41ab31aec860cf7a6f1a532f81ccfa43e592b535dc7b77335393d991cc44a62c",
+  "renderer_bundle_sha256": "d98e7a9e845a30c6bf4e0befc7fa32b0fac5ff19601e21f81d72bfadb457fa3d",
   "machine_results": []
 }

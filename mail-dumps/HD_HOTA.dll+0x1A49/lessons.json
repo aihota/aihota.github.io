@@ -1,94 +1,142 @@
 {
-  "schema": 1,
+  "schema": 2,
   "kind": "crash_case_lessons",
   "case": "HD_HOTA.dll+0x1A49",
-  "status": "closed",
+  "closure": {
+    "publication_status": "closed",
+    "local_mechanism_status": "confirmed",
+    "state_origin_status": "unknown",
+    "reproduction_status": "blocked_by_environment"
+  },
   "lessons": [
     {
       "id": "separate-thread-contexts",
       "category": "evidence",
-      "mistake": "ExceptionStream registers and textual Context stack were initially at risk of being combined across different thread IDs.",
-      "rule": "Keep each register and stack source in a thread ledger and forbid cross-thread register synthesis.",
-      "enforcement": [
-        "analysis-contract.json thread_contexts and register_sets_may_be_combined=false"
-      ]
+      "mistake": "Регистры потока исключения и стек текстового контекста можно было ошибочно объединить при разных идентификаторах потоков.",
+      "rule": "Хранить каждый набор регистров и стек в журнале своего потока и запрещать синтез между потоками.",
+      "enforcement": ["analysis-contract.json: thread_contexts и register_sets_may_be_combined=false"]
     },
     {
       "id": "recover-true-argument",
       "category": "diagnosis",
-      "mistake": "A volatile post-call register can be mistaken for the allocator argument.",
-      "rule": "Recover the call argument from the saved stack slot at the call boundary and verify the arithmetic in the exact listing.",
-      "enforcement": [
-        "call-arguments-r8-00180004.json",
-        "address-proof.json"
-      ]
+      "mistake": "Изменяемый вызываемой функцией регистр после возврата можно ошибочно принять за аргумент распределителя памяти.",
+      "rule": "Восстанавливать аргументы в точке вызова и сверять число push, байты аргументов, очистку стека и retn N.",
+      "enforcement": ["call-arguments.json", "call_argument_audit.py schema 2", "address-proof.json"]
     },
     {
       "id": "classify-full-census",
       "category": "process",
-      "mistake": "A six-row exact family control did not classify the other materialized incidents in the same case tree.",
-      "rule": "Classify the full materialized census; use excluded for other sinks instead of merging them into the family.",
-      "enforcement": [
-        "family-membership.json contains 65 decisions: 6 confirmed, 13 context_only, 46 excluded, zero unknown"
-      ]
+      "mistake": "Контроль шести точных случаев не классифицировал остальные материализованные инциденты дерева дела.",
+      "rule": "Классифицировать весь корпус; другие конечные точки помечать excluded, не сливая их с точной семьёй.",
+      "enforcement": ["family-membership.json: 65 решений, 6 confirmed, 13 context_only, 46 excluded, 0 unknown"]
     },
     {
       "id": "filter-reports-from-dumps",
       "category": "tooling",
-      "mistake": "A historical report in the old-version folder was counted as a crash TXT pseudo-incident.",
-      "rule": "Apply dump recognition to every family-path candidate before parsing or counting.",
-      "enforcement": [
-        "report_consistency.py filters family_dump_paths with dumplib.is_dump"
-      ]
+      "mistake": "Исторический отчёт в папке старой версии был посчитан как псевдоинцидент TXT.",
+      "rule": "Перед разбором и подсчётом проверять каждый кандидат функцией распознавания настоящего краш-журнала.",
+      "enforcement": ["report_consistency.py фильтрует family_dump_paths через dumplib.is_dump"]
     },
     {
       "id": "one-final-report",
       "category": "publication",
-      "mistake": "A derived old report set remained permanently inside the raw old-version family folder after its useful findings had been integrated.",
-      "rule": "Keep one canonical report set. Nested old derived reports are temporary: attest semantic transfer against exact hashes, delete TXT/HTML/extra HTML/evidence/ZIP, and preserve raw TXT/DMP/saves.",
-      "enforcement": [
-        "report-consolidation-manifest.json",
-        "case_quality_gate.py historical_report_contract blocks nested *-анализ-*"
-      ]
+      "mistake": "Производный старый комплект отчёта оставался среди исходных материалов после переноса уникальных сведений.",
+      "rule": "Оставлять один канонический отчёт; после аттестованного переноса удалять старые TXT/HTML/дополнительный HTML/evidence/ZIP, сохраняя исходные журналы, дампы и сохранения.",
+      "enforcement": ["report-consolidation-manifest.json", "case_quality_gate.py historical_report_contract"]
     },
     {
       "id": "separate-context-from-exact-family",
       "category": "diagnosis",
-      "mistake": "A shared local allocator-failure mechanism could be mistaken for the same exact crash family despite different sink instructions and exception classes.",
-      "rule": "Classify a different sink with the same local mechanism as context_only unless same sink and defect identity are proven; never increase the exact-family counter from context alone.",
-      "enforcement": [
-        "family-membership.json relationship ladder",
-        "series-groups.json related_cases family_counter_increment=false"
-      ]
+      "mistake": "Общий локальный механизм отказа памяти можно было принять за одну точную семью при разных конечных инструкциях и классах исключения.",
+      "rule": "Другую конечную точку с тем же локальным механизмом считать context_only, пока не доказано тождество конечной точки и дефекта.",
+      "enforcement": ["family-membership.json relationship ladder", "series-groups.json family_counter_increment=false"]
+    },
+    {
+      "id": "split-case-closure",
+      "category": "process",
+      "mistake": "Один статус closed скрывал открытый источник состояния и невыполненное воспроизведение.",
+      "rule": "Закрывать отдельно публикацию, локальный механизм, источник состояния и воспроизведение.",
+      "enforcement": ["case_lessons.py schema 2", "lessons.json closure"]
+    },
+    {
+      "id": "verify-git-and-pages",
+      "category": "publication",
+      "mistake": "Наличие новых объектов Git ошибочно принималось за уже развёрнутую страницу GitHub Pages.",
+      "rule": "Проверять двумя независимыми слоями: удалённые Git-объекты и фактические HTTP-байты HTML/ZIP; completed разрешён только после обоих.",
+      "enforcement": ["publication_journal.py verification_layers", "remote_publication_check.py", "publication_handoff.py"]
+    },
+    {
+      "id": "forbid-stale-case-zip",
+      "category": "publication",
+      "mistake": "Устаревший одноимённый ZIP оставался в корне дела и расходился с каноническим публичным архивом.",
+      "rule": "Канонический ZIP существует только в staging/public; одноимённый ZIP в mail-dumps/<case> блокирует публикацию и удаляется через операцию с резервной копией.",
+      "enforcement": ["case_archive_policy.py", "case_quality_gate.py case_archive_policy"]
+    },
+    {
+      "id": "aggregate-call-contract",
+      "category": "evidence",
+      "mistake": "Разрозненные одновызовные файлы не доказывали общий договор вызовов всех сборок.",
+      "rule": "Создавать общий schema-2 договор всех вызовов и проверять арифметику стека для cdecl/stdcall.",
+      "enforcement": ["call-arguments.json", "call_argument_audit.py"]
+    },
+    {
+      "id": "capture-first-null",
+      "category": "evidence",
+      "mistake": "Обычные минидампы показывали конечную ловушку, но не состояние памяти в момент первого возврата NULL.",
+      "rule": "На первом NULL сохранять полный дамп, стек, точный размер запроса и показатели распределителя и адресного пространства.",
+      "enforcement": ["repro_plan.py schema 3", "allocation-failure-plan.json"]
+    },
+    {
+      "id": "controlled-allocation-failure",
+      "category": "tooling",
+      "mistake": "Предполагаемое исправление не было связано с управляемым отказом на малых и крупных наблюдавшихся запросах.",
+      "rule": "Для исходного и исправленного вариантов проводить обычный контроль и принудительный отказ на совпавших SHA-256, проверяя ловушку, явную ошибку и сохранность старого буфера.",
+      "enforcement": ["allocation_failure_experiment.py", "allocation-failure-plan.json"]
+    },
+    {
+      "id": "executable-open-questions",
+      "category": "process",
+      "mistake": "Открытые вопросы были текстом без команды захвата, положительного контроля и условия закрытия.",
+      "rule": "Каждый открытый вопрос связывать с required_evidence, capture_command, positive_control, closing_condition и blocked_claims.",
+      "enforcement": ["case_lessons.py schema 2", "repro_plan.py resolve-* steps"]
+    },
+    {
+      "id": "publication-timeout-recovery",
+      "category": "publication",
+      "mistake": "После тайм-аута ответ не перечислял уже завершённые необратимые шаги и безопасное продолжение.",
+      "rule": "Автоматически разбирать журнал, handoff и снимок, показывать следующий незавершённый шаг и не повторять commit/push.",
+      "enforcement": ["tools_publish.py reconciliation", "test_mcp_server.py timeout recovery"]
     }
   ],
   "regressions": [
-    {
-      "id": "nested-report-consolidation",
-      "test": ".agents/skills/hota-crash-triage/case_quality_gate.py::selftest historical_report_contract",
-      "status": "implemented"
-    },
-    {
-      "id": "allocation-fault-injection",
-      "test": "Matched-build failing run and positive control with forced allocator failure",
-      "status": "planned"
-    },
-    {
-      "id": "full-dump-origin",
-      "test": "Capture full dump and allocator telemetry at first NULL return",
-      "status": "planned"
-    }
+    {"id": "nested-report-consolidation", "test": "case_quality_gate.py historical_report_contract", "implementation_status": "implemented", "execution_status": "passed", "closing_condition": "вложенные производные отчёты отсутствуют после аттестованного переноса"},
+    {"id": "aggregate-call-audit", "test": "call_argument_audit.py --selftest и call-arguments.json", "implementation_status": "implemented", "execution_status": "passed", "closing_condition": "все четыре наблюдения проходят общий договор стека"},
+    {"id": "stale-case-archive", "test": "case_archive_policy.py selftest и quality gate", "implementation_status": "implemented", "execution_status": "passed", "closing_condition": "в корне дела нет канонически названного ZIP"},
+    {"id": "dual-publication-verification", "test": "publication_journal.py и publication_handoff.py selftest", "implementation_status": "implemented", "execution_status": "passed", "closing_condition": "Git и фактическая Pages подтверждены независимо до completed"},
+    {"id": "timeout-reconciliation", "test": "tools_publish.py reconciliation regression", "implementation_status": "implemented", "execution_status": "passed", "closing_condition": "блокер тайм-аута содержит завершённые шаги и точное продолжение"},
+    {"id": "allocation-fault-injection", "test": "allocation_failure_experiment.py на исходной и исправленной сборках", "implementation_status": "implemented", "execution_status": "blocked_by_environment", "closing_condition": "обычный контроль и принудительный отказ прошли для четырёх размеров"},
+    {"id": "full-dump-origin", "test": "полный дамп и показатели памяти на первом NULL", "implementation_status": "implemented", "execution_status": "blocked_by_environment", "closing_condition": "источник первого NULL установлен и связан с конкретным стеком"}
   ],
   "unresolved": [
     {
       "id": "r8-null-origin",
-      "question": "What made a 0x00180004 allocation fail in R8?",
-      "status": "open"
+      "question": "Что вызвало отказ запроса 0x00180004 в R8?",
+      "status": "open",
+      "required_evidence": ["полный дамп на первом NULL", "стек вызова", "показатели распределителя", "карта адресного пространства"],
+      "capture_command": "winedbg: на первом возврате _malloc с EAX=0 выполнить .dump /ma и экспортировать показатели памяти",
+      "positive_control": "та же SHA-256 сборка и сценарий без отказа до успешного прохождения этой точки",
+      "closing_condition": "непосредственная причина отказа 0x00180004 воспроизводимо различена",
+      "blocked_claims": ["r8_state_origin", "shared_root_cause"]
     },
     {
       "id": "shared-root-cause",
-      "question": "Do R35, R39, R40 and R8 share one upstream exhaustion or corruption cause?",
-      "status": "open"
+      "question": "Есть ли у R35, R39, R40 и R8 одна общая первопричина исчерпания или повреждения?",
+      "status": "open",
+      "required_evidence": ["результаты четырёх размеров", "полные дампы", "показатели памяти", "положительные контроли"],
+      "capture_command": "выполнить allocation_failure_experiment.py check для R35/R39/R40/R8 и сопоставить источники первого NULL",
+      "positive_control": "для каждой сборки совпавшая SHA-256 и тот же сценарий без принудительного отказа",
+      "closing_condition": "один механизм происхождения подтверждён для всех сборок либо семьи происхождения явно разделены",
+      "blocked_claims": ["cross_build_root_cause", "causal_fix"]
     }
   ],
   "rule": "каждый урок содержит ошибку, новое правило и машинное закрепление"
