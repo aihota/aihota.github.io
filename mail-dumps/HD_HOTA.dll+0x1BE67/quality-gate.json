@@ -23,8 +23,8 @@
       },
       {
         "path": "HD_HOTA.dll+0x1BE67-анализ-gpt-5.6-sol-claude-opus-5.evidence.json",
-        "size": 47010,
-        "sha256": "1e785c9cda030fedb0aa439489832be9e501bc6cc855ee68a089c8c1fa85140d"
+        "size": 47143,
+        "sha256": "7a6e3e72e99ad36a2a6fa37e773a2e3cd02761bd9a037bf63a8fb88d4f5148ae"
       },
       {
         "path": "HD_HOTA.dll+0x1BE67-анализ-gpt-5.6-sol-claude-opus-5.extra.html",
@@ -48,8 +48,8 @@
       },
       {
         "path": "address-proof.json",
-        "size": 1470,
-        "sha256": "f3e65b491aa7c4718c325ad4b56a9dc59eecd5c3e13d0ab2b0835c8cc97e2c83"
+        "size": 2432,
+        "sha256": "ca2150b1b86887fd5e5c7799994f20476c88615701c4438f50c2e49ddb90bc7d"
       },
       {
         "path": "analysis-contract.json",
@@ -128,8 +128,8 @@
       },
       {
         "path": "lessons.json",
-        "size": 6916,
-        "sha256": "87aa9603fe21e4365eb82d68ba696f2444e3b24c00ac2f6e9abfe12932b01c69"
+        "size": 13595,
+        "sha256": "58b7788b5cb14226909df53af1bb06b35a009b710075431b9c54817d566af8f7"
       },
       {
         "path": "missing-evidence-request.json",
@@ -220,8 +220,8 @@
     "toolchain_files": [
       {
         "path": ".agents/skills/address-mapping/address_proof.py",
-        "size": 6725,
-        "sha256": "6b46bb722302ff58686668a9c06c29e02ff52b888f6dd5423e2a6b1c9e59f2c6"
+        "size": 19754,
+        "sha256": "d88fa92cbb856cf0dd30a94d9b7277a1a696d497aa9daa78aaaaf6f7d63a14dc"
       },
       {
         "path": ".agents/skills/address-mapping/call_argument_audit.py",
@@ -245,8 +245,8 @@
       },
       {
         "path": ".agents/skills/hota-crash-triage/artifact_io.py",
-        "size": 5947,
-        "sha256": "d06234b55d72565c5e7adcd024a261f350b49412492f1d8af2ae593d087751a3"
+        "size": 6846,
+        "sha256": "abb29d086a48957c69541b2aaaddb56828b11f5ad5bf7dc386ceebec5baeea50"
       },
       {
         "path": ".agents/skills/hota-crash-triage/case_archive_policy.py",
@@ -275,8 +275,8 @@
       },
       {
         "path": ".agents/skills/hota-crash-triage/evidence_manifest.py",
-        "size": 56919,
-        "sha256": "9370b9d0315f94851ff85a8b5beb4d4858c92f307d1ad8e9349953e8c0d22c45"
+        "size": 59827,
+        "sha256": "8ff5c713a9521552a7265284b463000e5ae4f71aa0feff515f4ffe6cace03fd2"
       },
       {
         "path": ".agents/skills/hota-crash-triage/family_membership.py",
@@ -434,7 +434,7 @@
         "sha256": "598b5b172786c0c7118cd17c2387ae500761e6a9d4caa1f1c15bd7146be31fd5"
       }
     ],
-    "sha256": "be9615c69050ebbfbc65caae784953a6fe62f60bca33d806788e76eb1d3c5897"
+    "sha256": "a4cf2061d45cf8681c7c5239573731bc57d8b76d04e7708b840ca7bb7a8b9f7e"
   },
   "audit_stages_complete": null,
   "publication_ready": true,
@@ -541,7 +541,7 @@
       "name": "address_proof:address-proof.json",
       "status": "passed",
       "returncode": 0,
-      "stdout": "ADDRESS PROOF: PASSED; errors=none\n",
+      "stdout": "ADDRESS PROOF: PASSED; errors=none; warnings=none\n",
       "stderr": ""
     },
     {

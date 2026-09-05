@@ -58,6 +58,70 @@
         "case_rebuild.py prepare",
         "artifact_promote"
       ]
+    },
+    {
+      "id": "dmp-offset-domain",
+      "category": "evidence",
+      "mistake": "Treating an RVA, a PE file offset, or a minidump descriptor position as the physical DMP offset can make the displayed bytes look plausible while the proof points at the wrong file location.",
+      "rule": "Map a requested VA through the parsed MemoryList or Memory64List range, compute file_offset=range_file_offset+(VA-range_start), bind the DMP size and SHA-256, and re-read the exact target bytes before accepting a proof.",
+      "enforcement": [
+        "read_dump.py MemoryList/Memory64List mapping",
+        "address_proof.py schema 2 validation",
+        "case_quality_gate.py DMP-offset revalidation"
+      ]
+    },
+    {
+      "id": "typed-dump-evidence",
+      "category": "tooling",
+      "mistake": "Free-form dump output and a manually asserted matched flag can be mistaken for machine evidence.",
+      "rule": "Dump queries must return typed captured/not_captured/ambiguous states with range provenance and a hash-bound address-proof fragment; prose and manual matched fields never satisfy the gate.",
+      "enforcement": [
+        "dump_query schema 2",
+        "test_dump_query_typed_contract_and_memory64",
+        "address_proof.py schema 2"
+      ]
+    },
+    {
+      "id": "dependency-closure",
+      "category": "publication",
+      "mistake": "Promoting a corrected upstream proof while leaving evidence, quality gates, manifests, HTML, archives, or snapshots in place creates a mixed-revision case.",
+      "rule": "Compute the dependency closure from every changed root, atomically promote exact staged sidecars, invalidate every stale derived output, and never invalidate immutable TXT, DMP, or .extra.html inputs.",
+      "enforcement": [
+        "case_rebuild.py dependency_plan",
+        "tools_promotion.py schema-2 all-or-nothing handoff",
+        "test_artifact_promote_is_exact_atomic_and_idempotent"
+      ]
+    },
+    {
+      "id": "sealed-remote-resume",
+      "category": "publication",
+      "mistake": "Repeating prepare, commit, or push after an already pushed cycle is waiting only for Pages verification can combine old remote artifacts with new local edits.",
+      "rule": "Recognize the old cycle only from its schema-4 state, pending Pages handoff, self-digested snapshot, direct private commit lineage, committed source blobs, and Git attestation; then perform only Pages verification, clipboard copy, and journal closure. Publish later local changes in a separate cycle.",
+      "enforcement": [
+        "tools_publish._sealed_remote_cycle",
+        "tools_publish._remote_only_resume",
+        "test_remote_only_resume_uses_sealed_cycle_and_closes_tail"
+      ]
+    },
+    {
+      "id": "narrow-promotion-allowlist",
+      "category": "process",
+      "mistake": "Allowing arbitrary JSON names in a staging handoff turns a narrow correction path into an uncontrolled case rewrite.",
+      "rule": "Promotion accepts only explicit canonical basenames or audited evidence/address prefixes; each newly allowed sidecar must have a denial regression for an arbitrary neighbour.",
+      "enforcement": [
+        "tools_promotion.ALLOWED_TARGETS",
+        "test_artifact_promote_is_exact_atomic_and_idempotent"
+      ]
+    },
+    {
+      "id": "historical-quality-blobs",
+      "category": "publication",
+      "mistake": "Using current working-copy quality artifacts to acknowledge a historical sealed cycle turns intentional later corrections into false corruption and can encourage replay of an already pushed cycle.",
+      "rule": "A historical sealed tail must verify every recorded quality artifact by path, size, and SHA-256 against immutable blobs in the cycle private commit. Current-cycle acknowledgement remains strict against the working copy and is never reused for historical closure.",
+      "enforcement": [
+        "mcp/test_mcp_server.py::test_remote_only_resume_uses_sealed_cycle_and_closes_tail",
+        "private_commit_quality_blob_mismatch fail-closed blocker"
+      ]
     }
   ],
   "regressions": [
@@ -95,6 +159,55 @@
       "implementation_status": "planned",
       "execution_status": "blocked_by_environment",
       "closing_condition": "The first invalid terrain byte or NULL slot writer is identified with module and stack."
+    },
+    {
+      "id": "dmp-offset-schema2",
+      "test": "address_proof.py selftest plus all current corpus address-proof*.json checks",
+      "implementation_status": "implemented",
+      "execution_status": "passed",
+      "closing_condition": "MemoryList physical offsets, DMP identity, and target bytes validate for every current proof."
+    },
+    {
+      "id": "typed-memory-streams",
+      "test": "dump_query typed contract on real DMP, synthetic MemoryList, and synthetic Memory64List",
+      "implementation_status": "implemented",
+      "execution_status": "passed",
+      "closing_condition": "Captured and not_captured results carry exact stream, range, physical offset, bytes, and hashes."
+    },
+    {
+      "id": "quality-gate-dmp-binding",
+      "test": "test_quality_gate_binds_dmp_offsets",
+      "implementation_status": "implemented",
+      "execution_status": "passed",
+      "closing_condition": "A false schema-2 physical offset is rejected and schema-1 data is explicitly marked legacy-unverified."
+    },
+    {
+      "id": "atomic-dependency-invalidation",
+      "test": "case_rebuild.py selftest and test_artifact_promote_is_exact_atomic_and_idempotent",
+      "implementation_status": "implemented",
+      "execution_status": "passed",
+      "closing_condition": "Downstream closure is hash-bound; replace/create/delete operations roll back together and immutable inputs cannot be invalidated."
+    },
+    {
+      "id": "sealed-pages-only-resume",
+      "test": "test_publish_case_remote_only_precedes_local_pipeline and test_remote_only_resume_uses_sealed_cycle_and_closes_tail",
+      "implementation_status": "implemented",
+      "execution_status": "passed",
+      "closing_condition": "A sealed Pages tail bypasses tests/prepare/rebuild/commit/push and closes only after verification and clipboard journal marking."
+    },
+    {
+      "id": "promotion-allowlist",
+      "test": "test_artifact_promote_is_exact_atomic_and_idempotent",
+      "implementation_status": "implemented",
+      "execution_status": "passed",
+      "closing_condition": "lessons.json is allowed while arbitrary.json, raw TXT/DMP, and .extra.html remain denied."
+    },
+    {
+      "id": "historical-quality-blobs",
+      "test": "test_remote_only_resume_uses_sealed_cycle_and_closes_tail",
+      "implementation_status": "implemented",
+      "execution_status": "passed",
+      "closing_condition": "Intentional local drift is accepted only when every original quality artifact matches its immutable private-commit blob; a missing or mismatched blob blocks closure before clipboard or state mutation, with no prepare, commit, or push."
     }
   ],
   "unresolved": [

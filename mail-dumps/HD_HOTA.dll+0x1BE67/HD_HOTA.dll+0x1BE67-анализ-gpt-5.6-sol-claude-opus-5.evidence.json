@@ -1,6 +1,6 @@
 {
   "schema": 4,
-  "generated_at": "2026-09-05T07:51:30.459924+00:00",
+  "generated_at": "2026-09-05T10:34:23.122206+00:00",
   "parser_revision": "65c6f9fe84767fd7ce9a4535026f136003021282",
   "binding": {
     "mode": "hybrid-v1",
@@ -93,8 +93,8 @@
     },
     {
       "path": "address-proof.json",
-      "size": 1470,
-      "sha256": "f3e65b491aa7c4718c325ad4b56a9dc59eecd5c3e13d0ab2b0835c8cc97e2c83",
+      "size": 2432,
+      "sha256": "ca2150b1b86887fd5e5c7799994f20476c88615701c4438f50c2e49ddb90bc7d",
       "role": "derived-evidence"
     },
     {
@@ -213,8 +213,8 @@
     },
     {
       "path": "lessons.json",
-      "size": 6916,
-      "sha256": "87aa9603fe21e4365eb82d68ba696f2444e3b24c00ac2f6e9abfe12932b01c69",
+      "size": 13595,
+      "sha256": "58b7788b5cb14226909df53af1bb06b35a009b710075431b9c54817d566af8f7",
       "role": "derived-evidence"
     },
     {
@@ -284,9 +284,10 @@
       "binding": "contract-result-v1",
       "contract": {
         "name": "address_proof",
-        "version": "1",
+        "version": "2",
         "outputs": [
-          "address-proof.json"
+          "address-proof.json",
+          "dump-bound mapping verdict"
         ]
       },
       "result_scope": {
@@ -301,9 +302,9 @@
       },
       "result_fingerprint": "4e2cade468f671168c1d02dc9135942a7bdffaf86e74c78274fc7d2a97ad3a20",
       "revision": {
-        "size": 6725,
-        "sha256": "6b46bb722302ff58686668a9c06c29e02ff52b888f6dd5423e2a6b1c9e59f2c6",
-        "git": "72ddad529ed41c46a5d7aa0baaa9dc26bb8a7780"
+        "size": 19754,
+        "sha256": "d88fa92cbb856cf0dd30a94d9b7277a1a696d497aa9daa78aaaaf6f7d63a14dc",
+        "git": "f30232f8b90f4669afcd979aa763479e7331e93d"
       }
     },
     {
@@ -333,10 +334,11 @@
       "binding": "contract-result-v1",
       "contract": {
         "name": "read_dump",
-        "version": "1",
+        "version": "2",
         "outputs": [
           "runtime dump facts",
-          "memory reads"
+          "memory reads",
+          "VA to DMP file-offset mapping"
         ]
       },
       "result_scope": {
@@ -351,9 +353,9 @@
       },
       "result_fingerprint": "fef3f169cdab237ca2f08ae89d9d9375adcd4d9d987770853be7e64ed76d5c1f",
       "revision": {
-        "size": 18833,
-        "sha256": "029272ed81bf3b0cbc02c16692c933ada6356ac58924551159ecf8435d321ac2",
-        "git": "72ddad529ed41c46a5d7aa0baaa9dc26bb8a7780"
+        "size": 21244,
+        "sha256": "e1b68bfec99348355a2de2760b2dde60e7482fb24a24150702f714d896f76839",
+        "git": "f30232f8b90f4669afcd979aa763479e7331e93d"
       }
     },
     {
@@ -553,10 +555,11 @@
       "binding": "contract-result-v1",
       "contract": {
         "name": "evidence_manifest",
-        "version": "2",
+        "version": "3",
         "outputs": [
           "evidence manifest",
-          "evidence status"
+          "evidence status",
+          "artifact_promote schema-2 handoff"
         ]
       },
       "result_scope": {
@@ -566,9 +569,9 @@
       },
       "result_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "revision": {
-        "size": 56919,
-        "sha256": "9370b9d0315f94851ff85a8b5beb4d4858c92f307d1ad8e9349953e8c0d22c45",
-        "git": "e5870a19dcf48c282198c14198f48c98303c9a12"
+        "size": 59827,
+        "sha256": "8ff5c713a9521552a7265284b463000e5ae4f71aa0feff515f4ffe6cace03fd2",
+        "git": "f30232f8b90f4669afcd979aa763479e7331e93d"
       }
     },
     {
@@ -889,7 +892,7 @@
   "toolchain": {
     "schema": 1,
     "kind": "toolchain_closure",
-    "git_commit": "65c6f9fe84767fd7ce9a4535026f136003021282",
+    "git_commit": "c2b1fecceba306cc1908af4515547aac4bb57386",
     "direct_tools": [
       ".agents/skills/address-mapping/address_proof.py",
       ".agents/skills/address-mapping/dumplib.py",
@@ -927,9 +930,9 @@
     "files": [
       {
         "repo_path": ".agents/skills/address-mapping/address_proof.py",
-        "size": 6725,
-        "sha256": "6b46bb722302ff58686668a9c06c29e02ff52b888f6dd5423e2a6b1c9e59f2c6",
-        "git_sha256": "6b46bb722302ff58686668a9c06c29e02ff52b888f6dd5423e2a6b1c9e59f2c6",
+        "size": 19754,
+        "sha256": "d88fa92cbb856cf0dd30a94d9b7277a1a696d497aa9daa78aaaaf6f7d63a14dc",
+        "git_sha256": "d88fa92cbb856cf0dd30a94d9b7277a1a696d497aa9daa78aaaaf6f7d63a14dc",
         "git_status": "matched"
       },
       {
@@ -941,9 +944,9 @@
       },
       {
         "repo_path": ".agents/skills/address-mapping/read_dump.py",
-        "size": 18833,
-        "sha256": "029272ed81bf3b0cbc02c16692c933ada6356ac58924551159ecf8435d321ac2",
-        "git_sha256": "029272ed81bf3b0cbc02c16692c933ada6356ac58924551159ecf8435d321ac2",
+        "size": 21244,
+        "sha256": "e1b68bfec99348355a2de2760b2dde60e7482fb24a24150702f714d896f76839",
+        "git_sha256": "e1b68bfec99348355a2de2760b2dde60e7482fb24a24150702f714d896f76839",
         "git_status": "matched"
       },
       {
@@ -955,9 +958,9 @@
       },
       {
         "repo_path": ".agents/skills/hota-crash-triage/artifact_io.py",
-        "size": 5947,
-        "sha256": "d06234b55d72565c5e7adcd024a261f350b49412492f1d8af2ae593d087751a3",
-        "git_sha256": "d06234b55d72565c5e7adcd024a261f350b49412492f1d8af2ae593d087751a3",
+        "size": 6846,
+        "sha256": "abb29d086a48957c69541b2aaaddb56828b11f5ad5bf7dc386ceebec5baeea50",
+        "git_sha256": "abb29d086a48957c69541b2aaaddb56828b11f5ad5bf7dc386ceebec5baeea50",
         "git_status": "matched"
       },
       {
@@ -997,9 +1000,9 @@
       },
       {
         "repo_path": ".agents/skills/hota-crash-triage/evidence_manifest.py",
-        "size": 56919,
-        "sha256": "9370b9d0315f94851ff85a8b5beb4d4858c92f307d1ad8e9349953e8c0d22c45",
-        "git_sha256": "9370b9d0315f94851ff85a8b5beb4d4858c92f307d1ad8e9349953e8c0d22c45",
+        "size": 59827,
+        "sha256": "8ff5c713a9521552a7265284b463000e5ae4f71aa0feff515f4ffe6cace03fd2",
+        "git_sha256": "8ff5c713a9521552a7265284b463000e5ae4f71aa0feff515f4ffe6cace03fd2",
         "git_status": "matched"
       },
       {
@@ -1263,10 +1266,10 @@
       }
     ],
     "file_count": 48,
-    "bundle_sha256": "712ee8baa9419b6a95123838c1959d1cb3740d4caa99832e418ff73abef47d43",
+    "bundle_sha256": "2ab6bf68bcb0273de1adad34b0fafc7525d1133d76a3bd56b0e246e596416600",
     "status": "clean",
     "errors": []
   },
-  "renderer_bundle_sha256": "712ee8baa9419b6a95123838c1959d1cb3740d4caa99832e418ff73abef47d43",
+  "renderer_bundle_sha256": "2ab6bf68bcb0273de1adad34b0fafc7525d1133d76a3bd56b0e246e596416600",
   "machine_results": []
 }
