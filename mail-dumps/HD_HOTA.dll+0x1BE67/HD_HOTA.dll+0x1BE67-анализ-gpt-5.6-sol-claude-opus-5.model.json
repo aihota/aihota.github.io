@@ -1,0 +1,8 @@
+{
+  "kind": "report_model_provenance",
+  "model": "GPT-5.6 Sol + Claude Opus 5",
+  "model_slug": "gpt-5.6-sol-claude-opus-5",
+  "report": "HD_HOTA.dll+0x1BE67-анализ-gpt-5.6-sol-claude-opus-5.txt",
+  "schema": 1,
+  "source": "external_runtime"
+}

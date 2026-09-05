@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "kind": "thread_context_provenance",
+  "status": "CONTEXT_THREAD_MISMATCH",
+  "dump_thread_count": 30,
+  "exception_stream": {
+    "tid": 14932,
+    "stack_range": "0x02C7EE2C..0x02C80000"
+  },
+  "context": {
+    "EIP": "0x0420BE67",
+    "EAX": "0x00000000",
+    "ECX": "0x00000504",
+    "EDX": "0x0000005C",
+    "EBX": "0x0000005C",
+    "ESP": "0x001A9C1C",
+    "EBP": "0x001A9CC0",
+    "ESI": "0x05486BDA",
+    "EDI": "0x00000059"
+  },
+  "stack_owner": {
+    "tid": 9092,
+    "stack_range": "0x001A9520..0x001B0000",
+    "contains_esp": true,
+    "contains_ebp": true
+  },
+  "policy": {
+    "instruction_and_operand_context_usable": true,
+    "frame_slots_usable_with_provenance_caveat": true,
+    "attribute_context_to_exception_tid": false,
+    "combine_thread_register_sets": false
+  },
+  "sources": [
+    "DMP ExceptionStream",
+    "DMP ThreadList",
+    "frame-slot-provenance-land-def-shift.json",
+    "frame-slot-provenance-z.json"
+  ]
+}

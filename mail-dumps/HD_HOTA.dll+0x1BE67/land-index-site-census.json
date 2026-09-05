@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "kind": "land_index_site_census",
+  "status": "complete_for_named_functions",
+  "hd_hota": {
+    "listing": "HD_HOTA.dll-5.8-R8.txt",
+    "function": "sub_101B140",
+    "range": "0x0101B140..0x0101C5AF",
+    "denominator": {
+      "total": 8,
+      "scanned": 8,
+      "skipped": 0
+    },
+    "sites": [
+      {
+        "index_address": "0x0101B5AA",
+        "extension": "movzx",
+        "first_def_plus_0x20": "0x0101B5BA",
+        "bounds_guard": false,
+        "slot_null_guard": false
+      },
+      {
+        "index_address": "0x0101B671",
+        "extension": "movzx",
+        "first_def_plus_0x20": "0x0101B67E",
+        "bounds_guard": false,
+        "slot_null_guard": false
+      },
+      {
+        "index_address": "0x0101B6BB",
+        "extension": "movzx",
+        "first_def_plus_0x20": "0x0101B6C5",
+        "bounds_guard": false,
+        "slot_null_guard": false
+      },
+      {
+        "index_address": "0x0101B6FA",
+        "extension": "movzx",
+        "first_def_plus_0x20": "0x0101B704",
+        "bounds_guard": false,
+        "slot_null_guard": false
+      },
+      {
+        "index_address": "0x0101BE5A",
+        "extension": "movzx",
+        "first_def_plus_0x20": "0x0101BE67",
+        "bounds_guard": false,
+        "slot_null_guard": false
+      },
+      {
+        "index_address": "0x0101BF5A",
+        "extension": "movzx",
+        "first_def_plus_0x20": "0x0101BF67",
+        "bounds_guard": false,
+        "slot_null_guard": false
+      },
+      {
+        "index_address": "0x0101BFD8",
+        "extension": "movzx",
+        "first_def_plus_0x20": "0x0101BFE5",
+        "bounds_guard": false,
+        "slot_null_guard": false
+      },
+      {
+        "index_address": "0x0101C04E",
+        "extension": "movzx",
+        "first_def_plus_0x20": "0x0101C05E",
+        "bounds_guard": false,
+        "slot_null_guard": false
+      }
+    ]
+  },
+  "hota": {
+    "listing": "HotA.dll-181.txt",
+    "function": "sub_10181050",
+    "range": "0x10181050..0x101819E8",
+    "denominator": {
+      "total": 3,
+      "scanned": 3,
+      "skipped": 0
+    },
+    "sites": [
+      {
+        "index_address": "0x101813F6",
+        "extension": "movsx",
+        "first_def_plus_0x20": "0x1018140D",
+        "bounds_guard": false,
+        "slot_null_guard": false
+      },
+      {
+        "index_address": "0x101814E4",
+        "extension": "movsx",
+        "first_def_plus_0x20": "0x101814EE",
+        "bounds_guard": false,
+        "slot_null_guard": false
+      },
+      {
+        "index_address": "0x1018154C",
+        "extension": "movsx",
+        "first_def_plus_0x20": "0x10181556",
+        "bounds_guard": false,
+        "slot_null_guard": false
+      }
+    ]
+  },
+  "sod": {
+    "listing": "h3hota.exe.txt",
+    "function": "A0_AdvMgr_Draw_Minimap_sub_412BA0",
+    "denominator": {
+      "total": 2,
+      "scanned": 2,
+      "skipped": 0
+    },
+    "sites": [
+      {
+        "index_address": "0x00412EC0",
+        "extension": "sign-extend-shl-sar",
+        "first_def_plus_0x20": "0x00412ED3",
+        "bounds_guard": false,
+        "slot_null_guard": false
+      },
+      {
+        "index_address": "0x00412F61",
+        "extension": "sign-extend-shl-sar",
+        "first_def_plus_0x20": "0x00412F74",
+        "bounds_guard": false,
+        "slot_null_guard": false
+      }
+    ]
+  },
+  "runtime": {
+    "AdvMgr": "0x08F51398",
+    "LandDefShift": "0x504",
+    "raw_land_byte": "not_captured",
+    "loaded_slot_value": "0x00000000"
+  },
+  "table_contract": {
+    "default_minimum_count": 10,
+    "count_may_be_raised_from_HotA_descriptors": true,
+    "runtime_count": "not_captured",
+    "shift_formula": "arg_0 + 4*runtime_count",
+    "observed_shift": "0x504"
+  },
+  "conclusion": "HD_HOTA uses zero extension at all eight sites while HotA and SoD use signed extension; none of the named consumers checks index range or the selected slot."
+}

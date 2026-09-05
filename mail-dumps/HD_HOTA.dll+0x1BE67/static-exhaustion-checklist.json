@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "kind": "static_exhaustion_checklist",
+  "status": "static_exhausted_with_runtime_residue",
+  "categories": [
+    {
+      "id": 1,
+      "name": "crash instruction and arithmetic",
+      "status": "closed",
+      "basis": "exact DMP bytes and exact R8 listing"
+    },
+    {
+      "id": 2,
+      "name": "immediate caller",
+      "status": "closed",
+      "basis": "sub_101B140 is the HD_HOTA minimap replacement"
+    },
+    {
+      "id": 3,
+      "name": "data provider",
+      "status": "closed_to_MapCell_plus_4_and_land_def_slot",
+      "basis": "GetCell result in ESI, terrain byte at +4, slot formula reconstructed"
+    },
+    {
+      "id": 4,
+      "name": "container bounds",
+      "status": "consumer_gap_confirmed",
+      "basis": "8/8 HD sites lack index and null guards; runtime count not captured"
+    },
+    {
+      "id": 5,
+      "name": "initialization",
+      "status": "partially_closed",
+      "basis": "SoD loads ten standard terrain DEF resources; HotA can raise count and relocates the table"
+    },
+    {
+      "id": 6,
+      "name": "writers",
+      "status": "runtime_residue",
+      "basis": "first writer of the raw terrain byte or NULL slot not captured"
+    },
+    {
+      "id": 7,
+      "name": "lifetime and frees",
+      "status": "runtime_residue",
+      "basis": "MiniDumpNormal omits AdvMgr and table memory; no allocation/free history"
+    },
+    {
+      "id": 8,
+      "name": "siblings and versions",
+      "status": "closed",
+      "basis": "3/3 SHA-unique family incidents mapped to the same semantic site"
+    },
+    {
+      "id": 9,
+      "name": "corpus boundary",
+      "status": "closed",
+      "basis": "5509/5509 raw TXT and 1688/1688 HD_HOTA TXT scanned; skipped 0"
+    },
+    {
+      "id": 10,
+      "name": "controlled reproduction",
+      "status": "not_performed",
+      "basis": "only a derived post-failure AUTOSAVE is available"
+    },
+    {
+      "id": 11,
+      "name": "fix discrimination",
+      "status": "planned",
+      "basis": "guarded-index, clamped-z and positive-control differential test specified"
+    }
+  ],
+  "runtime_residue": "raw land byte, runtime count, selected slot address, first invalid writer and controlled reproduction remain unavailable",
+  "machine_sources": [
+    "static-exhaustion.json",
+    "scan-attestation.json",
+    "land-index-site-census.json",
+    "analysis-contract.json"
+  ]
+}

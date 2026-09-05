@@ -1,0 +1,290 @@
+{
+  "case_root": ".",
+  "claim_json": [
+    "claims.json"
+  ],
+  "code_evidence": "dmp-window",
+  "commands": [
+    "read_dump.py exception, module, thread and code-window reads for current DMP",
+    "exact listing review of sub_101B140 and cross-version analogues",
+    "python os.walk corpus scan with full-file SHA-256 deduplication",
+    "frame_slot_provenance.py, static_exhaustion_check.py and scan_attestation.py create/check",
+    "semantic_site_fingerprint.py, related_crashes.py and family_membership.py create/check",
+    "analysis_contract.py, coverage_contract.py, repro_plan.py and case_lessons.py create/check",
+    "lint_report.py --publish --json and strict HTML render"
+  ],
+  "fact_owners": {
+    ".agents/skills/address-mapping/address_proof.py": [
+      "fault_eip",
+      "rva",
+      "normalized_eip",
+      "listing_sha256_r8"
+    ],
+    ".agents/skills/address-mapping/dumplib.py": [],
+    ".agents/skills/address-mapping/read_dump.py": [
+      "opcode",
+      "fault_address",
+      "slot_value",
+      "thread_status"
+    ],
+    ".agents/skills/hota-crash-triage/analysis_contract.py": [
+      "slot_formula",
+      "causality_level",
+      "save_role"
+    ],
+    ".agents/skills/hota-crash-triage/case_lessons.py": [],
+    ".agents/skills/hota-crash-triage/case_quality_gate.py": [],
+    ".agents/skills/hota-crash-triage/coverage_contract.py": [],
+    ".agents/skills/hota-crash-triage/evidence_manifest.py": [],
+    ".agents/skills/hota-crash-triage/family_membership.py": [
+      "incident_count"
+    ],
+    ".agents/skills/hota-crash-triage/frame_slot_provenance.py": [],
+    ".agents/skills/hota-crash-triage/lint_report.py": [],
+    ".agents/skills/hota-crash-triage/related_crashes.py": [],
+    ".agents/skills/hota-crash-triage/repro_plan.py": [],
+    ".agents/skills/hota-crash-triage/scan_attestation.py": [
+      "near_null_count",
+      "corpus_scan"
+    ],
+    ".agents/skills/hota-crash-triage/semantic_site_fingerprint.py": [],
+    ".agents/skills/hota-crash-triage/static_exhaustion_check.py": [
+      "signedness_boundary"
+    ],
+    ".agents/skills/html-report/render_report.py": [],
+    ".agents/skills/multi-dump-diff/pair_audit.py": [],
+    ".agents/skills/multi-dump-diff/parse_dumps.py": [],
+    ".agents/skills/hota-crash-triage/signed_geometry_audit.py": [
+      "signed_geometry_status"
+    ]
+  },
+  "facts": {
+    "causality_level": "L1",
+    "corpus_scan": "5509/5509 raw TXT and 1688/1688 HD_HOTA TXT; skipped 0",
+    "fault_address": "0x00000020",
+    "fault_eip": "0x0420BE67",
+    "incident_count": "4 physical same-site TXT, 3 SHA-unique confirmed incidents",
+    "listing_sha256_r8": "88f06be651a395fdc165d78260574dd24d916913f56739d6ff0a415b45d78d25",
+    "near_null_count": "6 physical TXT, 4 SHA-unique incidents",
+    "normalized_eip": "0x0101BE67",
+    "opcode": "8B 40 20 / mov eax,[eax+20h]",
+    "rva": "0x1BE67",
+    "save_role": "AUTOSAVE is derived_after_failure and not runtime evidence",
+    "signedness_boundary": "HD_HOTA 8 movzx sites; HotA 3 movsx sites; actual land byte not captured",
+    "slot_formula": "AdvMgr + 0x504 + 4*land_byte",
+    "slot_value": "0x00000000",
+    "thread_status": "CONTEXT_THREAD_MISMATCH; exception TID 14932, context stack TID 9092",
+    "signed_geometry_status": "not confirmed; captured LandDefShift is positive, while the terrain byte and runtime table count were not captured; code-site census is 13/13 with zero skipped"
+  },
+  "inputs": [
+    {
+      "path": "HD_HOTA.dll+0x1BE67-5.8-R8-181.txt",
+      "role": "source"
+    },
+    {
+      "path": "HD_HOTA.dll+0x1BE67-5.8-R8-181.dmp",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_HOTA.dll+0x1BE67-5.8-R8-181-AUTOSAVE.GM2",
+      "role": "derived"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1AAE7-1.8.0-1.txt",
+      "role": "source"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1AAE7-1.8.0-1-97CAD.txt",
+      "role": "source"
+    },
+    {
+      "path": "Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1ADD7-1.8.0-1.txt",
+      "role": "source"
+    },
+    {
+      "path": "../HD_HOTA.dll/HD_HOTA.dll+0x16920E-1.8.0-1.txt",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.8-R8.txt",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.8-R8.h",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.7 R10.txt",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.7 R17.txt",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HotA.dll-181.txt",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/h3hota.exe.txt",
+      "role": "source"
+    },
+    {
+      "path": "address-proof.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "analysis-contract.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "coverage.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-membership.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-membership-input.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "frame-slot-provenance-land-def-shift.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "frame-slot-provenance-z.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "static-exhaustion.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "static-exhaustion-checklist.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "scan-attestation.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "corpus-census.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "semantic-site-fingerprint.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "related-crashes.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "land-index-site-census.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "cross-version-matrix.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "thread-provenance.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "derived-save-analysis.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "investigation-facts.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "missing-evidence-request.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "repro-plan.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "lessons.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "pair-audit.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "capabilities.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-groups.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-parse.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "save-inventory.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "case-manifest.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "relocation-manifest.json",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "signed-geometry-audit.json",
+      "role": "derived-evidence"
+    }
+  ],
+  "manifest_schema": 4,
+  "out": "HD_HOTA.dll+0x1BE67-анализ-gpt-5.6-sol-claude-opus-5.evidence.json",
+  "parser_revision": "65c6f9fe84767fd7ce9a4535026f136003021282",
+  "project_root": "../..",
+  "report": "HD_HOTA.dll+0x1BE67-анализ-gpt-5.6-sol-claude-opus-5.txt",
+  "schema": 2,
+  "tool_assets": [
+    ".agents/skills/html-report/template.html",
+    ".agents/skills/html-report/template_parts/interactions.js",
+    ".agents/skills/html-report/template_parts/sections.js",
+    ".agents/skills/html-report/template_parts/styles.css",
+    ".agents/skills/html-report/template_parts/theme-init.js",
+    ".agents/skills/html-report/template_parts/toc.js",
+    ".agents/skills/html-report/fonts/ReportMono-Bold.woff2",
+    ".agents/skills/html-report/fonts/ReportMono-Regular.woff2",
+    ".agents/skills/html-report/fonts/ReportSans-Bold.woff2",
+    ".agents/skills/html-report/fonts/ReportSans-Regular.woff2",
+    ".agents/skills/html-report/fonts/ReportSans-SemiBold.woff2"
+  ],
+  "toolchain_mode": "closure",
+  "tools": [
+    ".agents/skills/address-mapping/address_proof.py",
+    ".agents/skills/address-mapping/dumplib.py",
+    ".agents/skills/address-mapping/read_dump.py",
+    ".agents/skills/hota-crash-triage/analysis_contract.py",
+    ".agents/skills/hota-crash-triage/coverage_contract.py",
+    ".agents/skills/hota-crash-triage/family_membership.py",
+    ".agents/skills/hota-crash-triage/frame_slot_provenance.py",
+    ".agents/skills/hota-crash-triage/static_exhaustion_check.py",
+    ".agents/skills/hota-crash-triage/scan_attestation.py",
+    ".agents/skills/hota-crash-triage/semantic_site_fingerprint.py",
+    ".agents/skills/hota-crash-triage/related_crashes.py",
+    ".agents/skills/hota-crash-triage/repro_plan.py",
+    ".agents/skills/hota-crash-triage/case_lessons.py",
+    ".agents/skills/hota-crash-triage/evidence_manifest.py",
+    ".agents/skills/hota-crash-triage/case_quality_gate.py",
+    ".agents/skills/hota-crash-triage/lint_report.py",
+    ".agents/skills/html-report/render_report.py",
+    ".agents/skills/multi-dump-diff/pair_audit.py",
+    ".agents/skills/multi-dump-diff/parse_dumps.py"
+  ]
+}

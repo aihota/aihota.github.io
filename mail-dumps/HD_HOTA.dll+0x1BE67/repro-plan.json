@@ -1,0 +1,510 @@
+{
+  "schema": 3,
+  "kind": "crash_reproduction_plan",
+  "status": "ready",
+  "mechanism_kind": "state_corruption",
+  "case": "HD_HOTA.dll+0x1BE67",
+  "diagnostic_source": "coverage.json",
+  "causality_level": "L1",
+  "next_required": [
+    "capture_state_origin_and_writer",
+    "confirm_reproduction"
+  ],
+  "steps": [
+    {
+      "id": "discriminate-origin-out_of_range_land_byte",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "out_of_range_land_byte",
+      "success_evidence": [
+        "capture raw byte [cell+4] before slot lookup",
+        "compare against runtime land-def count"
+      ],
+      "required_evidence": [
+        "capture raw byte [cell+4] before slot lookup",
+        "compare against runtime land-def count"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-out_of_range_land_byte с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "out_of_range_land_byte"
+      ]
+    },
+    {
+      "id": "discriminate-origin-missing_or_released_land_def",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "missing_or_released_land_def",
+      "success_evidence": [
+        "capture all land-def table entries and resource names",
+        "trace load/free lifecycle"
+      ],
+      "required_evidence": [
+        "capture all land-def table entries and resource names",
+        "trace load/free lifecycle"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-missing_or_released_land_def с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "missing_or_released_land_def"
+      ]
+    },
+    {
+      "id": "discriminate-origin-pointer_table_corruption",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "pointer_table_corruption",
+      "success_evidence": [
+        "watch first write that changes the selected slot to NULL",
+        "capture AdvMgr generation and owner thread"
+      ],
+      "required_evidence": [
+        "watch first write that changes the selected slot to NULL",
+        "capture AdvMgr generation and owner thread"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-pointer_table_corruption с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "pointer_table_corruption"
+      ]
+    },
+    {
+      "id": "discriminate-origin-signedness_regression",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "signedness_regression",
+      "success_evidence": [
+        "capture raw land byte",
+        "A/B movsx versus guarded unsigned lookup"
+      ],
+      "required_evidence": [
+        "capture raw land byte",
+        "A/B movsx versus guarded unsigned lookup"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-signedness_regression с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "signedness_regression"
+      ]
+    },
+    {
+      "id": "discriminate-origin-unclamped_visibility_z",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "unclamped_visibility_z",
+      "success_evidence": [
+        "A/B same clamped z for GetCell and GetCellParams",
+        "capture returned visibility byte for z=-1 and z=0"
+      ],
+      "required_evidence": [
+        "A/B same clamped z for GetCell and GetCellParams",
+        "capture returned visibility byte for z=-1 and z=0"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-unclamped_visibility_z с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "unclamped_visibility_z"
+      ]
+    },
+    {
+      "id": "discriminate-origin-race",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "race",
+      "success_evidence": [
+        "same-object cross-thread writer trace",
+        "ordering around first bad store"
+      ],
+      "required_evidence": [
+        "same-object cross-thread writer trace",
+        "ordering around first bad store"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-race с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "race"
+      ]
+    },
+    {
+      "id": "discriminate-origin-use_after_free",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "use_after_free",
+      "success_evidence": [
+        "allocator free stack",
+        "AdvMgr and land-def generation/reuse trace"
+      ],
+      "required_evidence": [
+        "allocator free stack",
+        "AdvMgr and land-def generation/reuse trace"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-use_after_free с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "use_after_free"
+      ]
+    },
+    {
+      "id": "discriminate-origin-heap_overwrite",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "heap_overwrite",
+      "success_evidence": [
+        "first write outside owner bounds",
+        "full heap metadata before failure"
+      ],
+      "required_evidence": [
+        "first write outside owner bounds",
+        "full heap metadata before failure"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-heap_overwrite с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "heap_overwrite"
+      ]
+    },
+    {
+      "id": "discriminate-origin-third_party_write",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "third_party_write",
+      "success_evidence": [
+        "hardware watchpoint writer EIP/TID/stack",
+        "writer module identity"
+      ],
+      "required_evidence": [
+        "hardware watchpoint writer EIP/TID/stack",
+        "writer module identity"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-third_party_write с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "third_party_write"
+      ]
+    },
+    {
+      "id": "complete-structure-lifecycle",
+      "action": "complete sibling and lifecycle census",
+      "success_evidence": [
+        "all_sibling_sites",
+        "reference_denominator",
+        "publish_and_clear_roles"
+      ],
+      "required_evidence": [
+        "all_sibling_sites",
+        "reference_denominator",
+        "publish_and_clear_roles"
+      ],
+      "capture_command": "выполнить шаг complete-structure-lifecycle с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "causal_claim"
+      ]
+    },
+    {
+      "id": "capture-origin",
+      "action": "capture full dump and allocator/write telemetry before failure",
+      "success_evidence": [
+        "full_dump",
+        "writer_identity",
+        "largest_free_region",
+        "heap_health"
+      ],
+      "required_evidence": [
+        "full_dump",
+        "writer_identity",
+        "largest_free_region",
+        "heap_health"
+      ],
+      "capture_command": "выполнить шаг capture-origin с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "causal_claim"
+      ]
+    },
+    {
+      "id": "controlled-repro",
+      "action": "run original, causal fix, containment, and positive control on matched binaries",
+      "success_evidence": [
+        "binary_sha256",
+        "failing_run",
+        "positive_control",
+        "result.json"
+      ],
+      "required_evidence": [
+        "binary_sha256",
+        "failing_run",
+        "positive_control",
+        "result.json"
+      ],
+      "capture_command": "выполнить шаг controlled-repro с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "causal_claim"
+      ]
+    },
+    {
+      "id": "collect-full-memory-dump",
+      "action": "capture a full dump before teardown on the failing path",
+      "hypothesis": "runtime.memory",
+      "success_evidence": [
+        "full_dump",
+        "binary_sha256",
+        "exception_tid",
+        "memory_map"
+      ],
+      "required_evidence": [
+        "full_dump",
+        "binary_sha256",
+        "exception_tid",
+        "memory_map"
+      ],
+      "capture_command": "выполнить шаг collect-full-memory-dump с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "runtime.memory"
+      ]
+    },
+    {
+      "id": "resolve-raw-land-byte",
+      "action": "What exact terrain byte selected the NULL slot?",
+      "hypothesis": "raw-land-byte",
+      "success_evidence": [
+        "raw byte [MapCell+4]",
+        "runtime land-def count",
+        "slot address and value"
+      ],
+      "capture_command": "Break before 0x0101BE5A and log cell+4, count, shift, slot and DEF.",
+      "positive_control": "Log a valid terrain cell on the same binary and map level.",
+      "closing_condition": "Failing raw value and accepted range are both recorded.",
+      "blocked_claims": [
+        "signedness_regression",
+        "out_of_range_land_byte",
+        "root_cause"
+      ],
+      "required_evidence": [
+        "raw byte [MapCell+4]",
+        "runtime land-def count",
+        "slot address and value"
+      ]
+    },
+    {
+      "id": "resolve-null-slot-writer",
+      "action": "What first produced the NULL land-def table entry?",
+      "hypothesis": "null-slot-writer",
+      "success_evidence": [
+        "full memory dump",
+        "initialization trace",
+        "first writer or free stack"
+      ],
+      "capture_command": "Set a watchpoint on the selected slot after initialization and capture every writer/free.",
+      "positive_control": "Trace an adjacent valid slot through the same initialization and update path.",
+      "closing_condition": "The first transition to NULL is tied to an instruction, module, stack and object generation.",
+      "blocked_claims": [
+        "missing_or_released_land_def",
+        "pointer_table_corruption",
+        "root_cause"
+      ],
+      "required_evidence": [
+        "full memory dump",
+        "initialization trace",
+        "first writer or free stack"
+      ]
+    },
+    {
+      "id": "resolve-visibility-z",
+      "action": "Would clamping z before A0_Get_CellParams change the activating visibility bit?",
+      "hypothesis": "visibility-z",
+      "success_evidence": [
+        "paired return values for z=-1 and z=0",
+        "same x/y/cell and binary"
+      ],
+      "capture_command": "Invoke the visibility helper twice on the same cell with only z varied and log AL.",
+      "positive_control": "Repeat on a cell where both levels are known valid.",
+      "closing_condition": "The branch result is shown equal or different under a one-variable test.",
+      "blocked_claims": [
+        "unclamped_visibility_z",
+        "root_cause"
+      ],
+      "required_evidence": [
+        "paired return values for z=-1 and z=0",
+        "same x/y/cell and binary"
+      ]
+    },
+    {
+      "id": "resolve-controlled-trigger",
+      "action": "Can the reported map state reproduce the crash before instrumentation changes semantics?",
+      "hypothesis": "controlled-trigger",
+      "success_evidence": [
+        "source H3M or pre-failure save",
+        "matched binary hashes",
+        "failing run and positive control"
+      ],
+      "capture_command": "Run the preserved scenario on matching HD/HotA binaries and capture full telemetry.",
+      "positive_control": "Run a nearby valid terrain path with identical settings.",
+      "closing_condition": "At least one failing original run and one successful control are captured.",
+      "blocked_claims": [
+        "reproduction",
+        "fix_verified",
+        "root_cause"
+      ],
+      "required_evidence": [
+        "source H3M or pre-failure save",
+        "matched binary hashes",
+        "failing run and positive control"
+      ]
+    },
+    {
+      "id": "capture-capability-globals-and-heap",
+      "action": "получить дамп с возможностью globals_and_heap",
+      "hypothesis": "missing_dump_capability",
+      "success_evidence": [
+        "globals_and_heap",
+        "capabilities.json"
+      ],
+      "required_evidence": [
+        "globals_and_heap",
+        "capabilities.json"
+      ],
+      "capture_command": "выполнить шаг capture-capability-globals-and-heap с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "missing_dump_capability"
+      ]
+    },
+    {
+      "id": "capture-capability-memory-permissions",
+      "action": "получить дамп с возможностью memory_permissions",
+      "hypothesis": "missing_dump_capability",
+      "success_evidence": [
+        "memory_permissions",
+        "capabilities.json"
+      ],
+      "required_evidence": [
+        "memory_permissions",
+        "capabilities.json"
+      ],
+      "capture_command": "выполнить шаг capture-capability-memory-permissions с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "missing_dump_capability"
+      ]
+    }
+  ],
+  "inputs": {
+    "save_count": 1,
+    "full_dump_available": false,
+    "representatives": [
+      {
+        "incident_id": "incident-89c63dd7b9de8ed5",
+        "txt": "HD_HOTA.dll+0x1BE67-5.8-R8-181.txt",
+        "newly_covered": [
+          "cause:cause-f7c71bb7bf21",
+          "formula:unknown",
+          "hd:5.8 R8",
+          "hota:1.8.1",
+          "outlier:HD_HOTA.dll+0x1BE67-5.8-R8-181.txt",
+          "subsystem:unknown"
+        ],
+        "all_features": [
+          "cause:cause-f7c71bb7bf21",
+          "formula:unknown",
+          "hd:5.8 R8",
+          "hota:1.8.1",
+          "outlier:HD_HOTA.dll+0x1BE67-5.8-R8-181.txt",
+          "subsystem:unknown"
+        ]
+      }
+    ],
+    "analysis_contract_present": true,
+    "lessons_present": true,
+    "unresolved_questions": 4,
+    "call_argument_contract_present": false,
+    "request_sizes": [],
+    "missing_evidence_items": 1,
+    "missing_capabilities": [
+      "globals_and_heap",
+      "memory_permissions"
+    ],
+    "artifact_phase_roles": [
+      "unresolved"
+    ]
+  },
+  "populations": {
+    "physical_txt": {
+      "numerator": 1,
+      "denominator": 1,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "none"
+    },
+    "unique_incidents": {
+      "numerator": 1,
+      "denominator": 1,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "normalized_time_tag_exception_context"
+    },
+    "duplicate_instances": {
+      "numerator": 0,
+      "denominator": 1,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "normalized_time_tag_exception_context"
+    },
+    "physical_dmp": {
+      "numerator": 1,
+      "denominator": 1,
+      "population": "paired DMP in current series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "none"
+    },
+    "unique_dmp": {
+      "numerator": 1,
+      "denominator": 1,
+      "population": "paired DMP in current series",
+      "scope": "current_series",
+      "unit": "dump",
+      "dedup_basis": "sha256_dmp"
+    },
+    "classified_incidents": {
+      "numerator": 0,
+      "denominator": 1,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "normalized_time_tag_exception_context"
+    },
+    "unresolved_incidents": {
+      "numerator": 1,
+      "denominator": 1,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "normalized_time_tag_exception_context"
+    },
+    "root_cause_confirmed_incidents": {
+      "numerator": 0,
+      "denominator": 1,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "confirmed state origin and causal tuple"
+    }
+  },
+  "attestation": {
+    "status": "blocked_by_environment",
+    "reason": "plan generated; controlled runtime has not run"
+  },
+  "completion_rule": "passed requires failing run, positive control, matched SHA-256 and captured result.json"
+}

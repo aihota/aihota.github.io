@@ -1,0 +1,173 @@
+{
+  "schema": 2,
+  "kind": "crash_case_lessons",
+  "case": "HD_HOTA.dll+0x1BE67",
+  "closure": {
+    "publication_status": "closed",
+    "local_mechanism_status": "confirmed",
+    "state_origin_status": "unknown",
+    "reproduction_status": "blocked_by_environment"
+  },
+  "lessons": [
+    {
+      "id": "thread-provenance",
+      "category": "evidence",
+      "mistake": "Treating ExceptionStream TID and the stack-owner TID as one context would create a false call chain.",
+      "rule": "Keep exception context and stack ownership separate whenever ESP/EBP fall outside the ExceptionStream thread range.",
+      "enforcement": [
+        "thread-provenance.json",
+        "analysis_contract.py check"
+      ]
+    },
+    {
+      "id": "signedness-boundary",
+      "category": "diagnosis",
+      "mistake": "A cross-version movzx versus movsx difference can be mistaken for the actual producer when the raw byte is absent.",
+      "rule": "Keep signedness as not established until the failing raw value and accepted range are captured.",
+      "enforcement": [
+        "land-index-site-census.json",
+        "coverage_contract.py check"
+      ]
+    },
+    {
+      "id": "corpus-denominator",
+      "category": "process",
+      "mistake": "A capped search can look complete while omitting most of the crash corpus.",
+      "rule": "Every family count must carry a complete denominator, skipped count, SHA-256 deduplication and positive control.",
+      "enforcement": [
+        "scan-attestation.json",
+        "scan_attestation.py check"
+      ]
+    },
+    {
+      "id": "derived-save-role",
+      "category": "evidence",
+      "mistake": "A post-failure AUTOSAVE can be read as if it were the exact runtime state.",
+      "rule": "Mark post-failure saves as derived and do not infer a crash-time cell without a version-bound decoder.",
+      "enforcement": [
+        "derived-save-analysis.json",
+        "save-inventory.json"
+      ]
+    },
+    {
+      "id": "staging-first",
+      "category": "publication",
+      "mistake": "Editing protected crash artifacts before all checks would invalidate the canonical case contract.",
+      "rule": "Build and verify every report and sidecar in canonical staging; promote only after a fresh case contract.",
+      "enforcement": [
+        "case_rebuild.py prepare",
+        "artifact_promote"
+      ]
+    }
+  ],
+  "regressions": [
+    {
+      "id": "scan-attestation",
+      "test": "scan_attestation.py check scan-attestation.json",
+      "implementation_status": "implemented",
+      "execution_status": "passed",
+      "closing_condition": "Three exhaustive scans pass with skipped=0 and positive control present."
+    },
+    {
+      "id": "contract-suite",
+      "test": "analysis_contract.py, coverage_contract.py and family_membership.py checks",
+      "implementation_status": "implemented",
+      "execution_status": "passed",
+      "closing_condition": "All machine contracts validate without errors."
+    },
+    {
+      "id": "static-census",
+      "test": "land-index-site-census.json and static-exhaustion.json review",
+      "implementation_status": "implemented",
+      "execution_status": "passed",
+      "closing_condition": "All named HD_HOTA and HotA sites are enumerated with zero skipped."
+    },
+    {
+      "id": "controlled-repro",
+      "test": "matched-build A/B reproduction with positive control",
+      "implementation_status": "planned",
+      "execution_status": "blocked_by_environment",
+      "closing_condition": "Original path fails and fixed path survives with complete telemetry on matched binaries."
+    },
+    {
+      "id": "full-dump-watchpoint",
+      "test": "full dump plus watchpoint on first invalid slot writer",
+      "implementation_status": "planned",
+      "execution_status": "blocked_by_environment",
+      "closing_condition": "The first invalid terrain byte or NULL slot writer is identified with module and stack."
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "raw-land-byte",
+      "question": "What exact terrain byte selected the NULL slot?",
+      "status": "open",
+      "required_evidence": [
+        "raw byte [MapCell+4]",
+        "runtime land-def count",
+        "slot address and value"
+      ],
+      "capture_command": "Break before 0x0101BE5A and log cell+4, count, shift, slot and DEF.",
+      "positive_control": "Log a valid terrain cell on the same binary and map level.",
+      "closing_condition": "Failing raw value and accepted range are both recorded.",
+      "blocked_claims": [
+        "signedness_regression",
+        "out_of_range_land_byte",
+        "root_cause"
+      ]
+    },
+    {
+      "id": "null-slot-writer",
+      "question": "What first produced the NULL land-def table entry?",
+      "status": "open",
+      "required_evidence": [
+        "full memory dump",
+        "initialization trace",
+        "first writer or free stack"
+      ],
+      "capture_command": "Set a watchpoint on the selected slot after initialization and capture every writer/free.",
+      "positive_control": "Trace an adjacent valid slot through the same initialization and update path.",
+      "closing_condition": "The first transition to NULL is tied to an instruction, module, stack and object generation.",
+      "blocked_claims": [
+        "missing_or_released_land_def",
+        "pointer_table_corruption",
+        "root_cause"
+      ]
+    },
+    {
+      "id": "visibility-z",
+      "question": "Would clamping z before A0_Get_CellParams change the activating visibility bit?",
+      "status": "open",
+      "required_evidence": [
+        "paired return values for z=-1 and z=0",
+        "same x/y/cell and binary"
+      ],
+      "capture_command": "Invoke the visibility helper twice on the same cell with only z varied and log AL.",
+      "positive_control": "Repeat on a cell where both levels are known valid.",
+      "closing_condition": "The branch result is shown equal or different under a one-variable test.",
+      "blocked_claims": [
+        "unclamped_visibility_z",
+        "root_cause"
+      ]
+    },
+    {
+      "id": "controlled-trigger",
+      "question": "Can the reported map state reproduce the crash before instrumentation changes semantics?",
+      "status": "open",
+      "required_evidence": [
+        "source H3M or pre-failure save",
+        "matched binary hashes",
+        "failing run and positive control"
+      ],
+      "capture_command": "Run the preserved scenario on matching HD/HotA binaries and capture full telemetry.",
+      "positive_control": "Run a nearby valid terrain path with identical settings.",
+      "closing_condition": "At least one failing original run and one successful control are captured.",
+      "blocked_claims": [
+        "reproduction",
+        "fix_verified",
+        "root_cause"
+      ]
+    }
+  ],
+  "rule": "каждый урок содержит ошибку, новое правило и машинное закрепление"
+}

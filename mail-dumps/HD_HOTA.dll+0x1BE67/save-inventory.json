@@ -1,0 +1,49 @@
+{
+  "schema": 3,
+  "root": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1BE67",
+  "count_contract": "physical_files = unique_sha256 + duplicate_instances",
+  "summary": {
+    "physical_files": 1,
+    "unique_sha256": 1,
+    "duplicate_instances": 0,
+    "roles": {
+      "derived": 1
+    },
+    "extensions": {
+      ".GM2": 1
+    },
+    "phase": "unknown",
+    "phase_relevance": {
+      "unresolved": 1
+    },
+    "unknown_blocks_only_its_file": 0
+  },
+  "items": [
+    {
+      "path": "HD_HOTA.dll+0x1BE67-5.8-R8-181-AUTOSAVE.GM2",
+      "size": 252825,
+      "sha256": "53981f054154145e0c9e0f7bbc7f6519883979acaa093231ac48789e6b4acfbd",
+      "extension": ".GM2",
+      "role": "derived",
+      "artifact_role": "derived_autosave",
+      "role_basis": "имя указывает на автоматический/боевой выход игры; роль source без отдельного доказательства запрещена",
+      "phase": "unknown",
+      "phase_relevance": "unresolved",
+      "phase_relevance_basis": "роль или временной порядок не доказаны",
+      "corresponding_logs": [
+        "HD_HOTA.dll+0x1BE67-5.8-R8-181.txt"
+      ],
+      "corresponding_dumps": [
+        "HD_HOTA.dll+0x1BE67-5.8-R8-181.dmp"
+      ],
+      "attachment_names": [],
+      "origin_inference_allowed": true,
+      "can_support_source_origin": false,
+      "duplicate_group": "save-sha-53981f054154",
+      "duplicate_physical_count": 1,
+      "representative": true
+    }
+  ],
+  "validation_errors": [],
+  "valid": true
+}

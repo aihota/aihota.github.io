@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "kind": "derived_save_map_analysis",
+  "artifact": "HD_HOTA.dll+0x1BE67-5.8-R8-181-AUTOSAVE.GM2",
+  "role": "derived",
+  "sha256": "53981f054154145e0c9e0f7bbc7f6519883979acaa093231ac48789e6b4acfbd",
+  "container": {
+    "compression": "raw-deflate",
+    "compressed_offset": 10,
+    "h3svg_offset": "0x49",
+    "decompressed_size": 1532764,
+    "format_version": 11,
+    "player_records": 2
+  },
+  "reported_map": "Holzwagen,romanzo 2026.09.03 13;43 JO-com-3.1-SuperHero.h3m",
+  "source_map_found": false,
+  "cell_decoder": {
+    "coordinate_candidate": [
+      89,
+      92,
+      0
+    ],
+    "land_byte_recovered": false,
+    "reason": "no version-bound map-cell decoder and source H3M absent"
+  },
+  "causal_use": false
+}

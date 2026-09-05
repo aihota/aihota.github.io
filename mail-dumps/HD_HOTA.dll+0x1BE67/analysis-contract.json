@@ -1,0 +1,236 @@
+{
+  "schema": 2,
+  "kind": "crash_analysis_contract",
+  "case": "family-HD_HOTA.dll+0x1BE67",
+  "mechanism": {
+    "kind": "state_corruption",
+    "name": "null_land_def_slot_selected_by_unchecked_map_cell_land_byte",
+    "causality_level": "L1",
+    "local_mechanism_confirmed": true,
+    "state_origin_confirmed": false
+  },
+  "thread_contexts": [
+    {
+      "source": "exception_stream",
+      "tid": 14932,
+      "incident": "5.8 R8 / HotA 1.8.1",
+      "registers": {
+        "EIP": "0x0420BE67",
+        "EAX": "0x00000000",
+        "ECX": "0x00000504",
+        "EDX": "0x0000005C",
+        "EBX": "0x0000005C",
+        "ESP": "0x001A9C1C",
+        "EBP": "0x001A9CC0",
+        "ESI": "0x05486BDA",
+        "EDI": "0x00000059"
+      }
+    },
+    {
+      "source": "thread_list",
+      "tid": 9092,
+      "incident": "5.8 R8 / HotA 1.8.1",
+      "stack": [
+        "0x001A9520..0x001B0000",
+        "ESP=0x001A9C1C",
+        "EBP=0x001A9CC0"
+      ]
+    }
+  ],
+  "thread_policy": {
+    "register_sets_may_be_combined": false,
+    "reason": "CONTEXT_THREAD_MISMATCH: ExceptionStream names TID 14932 while ESP/EBP belong to the stack range of TID 9092"
+  },
+  "consumer_boundary": {
+    "input_validity": "unknown",
+    "candidate_validity": "invalid",
+    "basis": "the slot load at AdvMgr+LandDefShift+4*land_byte returned NULL and the next instruction read [NULL+0x20]"
+  },
+  "state_origin_candidates": [
+    {
+      "id": "out_of_range_land_byte",
+      "status": "not_established",
+      "next_evidence": [
+        "capture raw byte [cell+4] before slot lookup",
+        "compare against runtime land-def count"
+      ]
+    },
+    {
+      "id": "missing_or_released_land_def",
+      "status": "not_established",
+      "next_evidence": [
+        "capture all land-def table entries and resource names",
+        "trace load/free lifecycle"
+      ]
+    },
+    {
+      "id": "pointer_table_corruption",
+      "status": "not_established",
+      "next_evidence": [
+        "watch first write that changes the selected slot to NULL",
+        "capture AdvMgr generation and owner thread"
+      ]
+    },
+    {
+      "id": "signedness_regression",
+      "status": "not_established",
+      "next_evidence": [
+        "capture raw land byte",
+        "A/B movsx versus guarded unsigned lookup"
+      ]
+    },
+    {
+      "id": "unclamped_visibility_z",
+      "status": "not_established",
+      "next_evidence": [
+        "A/B same clamped z for GetCell and GetCellParams",
+        "capture returned visibility byte for z=-1 and z=0"
+      ]
+    },
+    {
+      "id": "race",
+      "status": "not_established",
+      "next_evidence": [
+        "same-object cross-thread writer trace",
+        "ordering around first bad store"
+      ]
+    },
+    {
+      "id": "use_after_free",
+      "status": "not_established",
+      "next_evidence": [
+        "allocator free stack",
+        "AdvMgr and land-def generation/reuse trace"
+      ]
+    },
+    {
+      "id": "heap_overwrite",
+      "status": "not_established",
+      "next_evidence": [
+        "first write outside owner bounds",
+        "full heap metadata before failure"
+      ]
+    },
+    {
+      "id": "third_party_write",
+      "status": "not_established",
+      "next_evidence": [
+        "hardware watchpoint writer EIP/TID/stack",
+        "writer module identity"
+      ]
+    }
+  ],
+  "root_cause_declared": false,
+  "structure": {
+    "fields": {
+      "map_cell_land_byte": 4,
+      "land_def_shift_runtime": 1284,
+      "def_palette_pointer": 32
+    },
+    "invariants": [
+      "raw terrain index is within the runtime land-def table count",
+      "selected land-def slot is non-null and points to a live DEF",
+      "the same validated z level is used for cell and visibility data"
+    ],
+    "sibling_coverage": {
+      "scanned": 4,
+      "total": 4,
+      "complete": true,
+      "population": "four SHA-unique HD_HOTA near-null events selected from six physical TXT logs; three match this semantic site and one is a negative control"
+    }
+  },
+  "lifecycle": {
+    "counts": {
+      "references": 11,
+      "reads": 11,
+      "writes": 0,
+      "checks": 0,
+      "publishes": 1,
+      "clears": 0
+    },
+    "count_basis": "complete consumer-site census: 8 HD_HOTA sites and 3 HotA sites; producer/writer lifecycle remains incomplete",
+    "enumeration_complete": false,
+    "absence_claims": []
+  },
+  "fixes": [
+    {
+      "fix_role": "containment",
+      "supported_builds": [
+        "HD 5.7 R10",
+        "HD 5.7 R17",
+        "HD 5.8 R8"
+      ],
+      "expected_evidence": [
+        "reject land index outside runtime count",
+        "reject null land-def/DEF palette pointer",
+        "use the same clamped z for visibility and map-cell lookup"
+      ],
+      "differential_test": [
+        "original build reaches access violation on captured trigger",
+        "guarded build logs coordinates/raw byte/count/slot and continues",
+        "valid terrain positive control keeps identical minimap colours"
+      ]
+    },
+    {
+      "fix_role": "diagnostic",
+      "supported_builds": [
+        "HD 5.8 R8"
+      ],
+      "expected_evidence": [
+        "raw [cell+4], x/y/z, clamped z, LandDefShift, count, slot address and pointer",
+        "first writer/free stack if a valid in-range slot becomes NULL"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_role": "derived_autosave",
+      "phase_role": "derived_after_failure",
+      "incident": "5.8 R8 / HotA 1.8.1"
+    }
+  ],
+  "family": {
+    "semantic_fingerprint": {
+      "structure_role": "AdvMgr land-def pointer table selected by MapCell.terrain",
+      "field_offset": "+0x20 from selected DEF",
+      "access": "read",
+      "call_tail": [
+        "advManager::UpdateRadar replacement",
+        "HD_HOTA sub_* minimap implementation",
+        "unchecked land-byte index",
+        "NULL DEF + 0x20"
+      ]
+    },
+    "denominator": {
+      "scanned": 4,
+      "total": 4,
+      "population": "SHA-unique events in the complete six-file HD_HOTA near-null screen"
+    }
+  },
+  "call_chain": [
+    {
+      "type": "module_function",
+      "module": "h3hota.exe",
+      "function": "A0_MainMgr_PlayMgr_sub_4B0BA0",
+      "address": "0x004B0BA0"
+    },
+    {
+      "type": "module_function",
+      "module": "HD_HOTA.dll",
+      "function": "sub_101B140",
+      "address": "0x0101B140"
+    },
+    {
+      "type": "module_function",
+      "module": "HD_HOTA.dll",
+      "function": "sub_101B140+0xD27",
+      "address": "0x0101BE67"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "errors": [],
+    "root_cause_allowed": false
+  },
+  "status": "passed"
+}

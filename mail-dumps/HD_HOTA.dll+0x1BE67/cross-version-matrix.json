@@ -1,0 +1,74 @@
+{
+  "claim_boundary": "The family is evidenced in HotA 1.8.0 and 1.8.1 with HD 5.7 R10, 5.7 R17 and 5.8 R8; no claim is made for earlier versions.",
+  "complete_for_confirmed_family": true,
+  "denominator": {
+    "mapped": 3,
+    "missing_dumps": 2,
+    "missing_listings": 0,
+    "physical_txt": 4,
+    "sha256_unique_incidents": 3
+  },
+  "kind": "cross_version_semantic_matrix",
+  "negative_controls": [
+    {
+      "hd": "5.7 RC6",
+      "hota": "1.8.0",
+      "incident_id": "incident-4acf6978a249965c",
+      "reason": "different side-thread function and different pointer role",
+      "rva": "0x16920E"
+    },
+    {
+      "family": "HD_HOTA.dll+0x1C053",
+      "reason": "same minimap subsystem but towns_list out-of-range mechanism",
+      "rvas": [
+        "0x1BD83",
+        "0x1C053"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "dmp": false,
+      "fault_read": "0x20",
+      "function": "sub_1019DF0",
+      "function_offset": "0xCF7",
+      "hd": "5.7 R10",
+      "hota": "1.8.0",
+      "incident_id": "incident-a64d3a2ed9157f3d",
+      "index_extension": "movzx",
+      "rva": "0x1AAE7",
+      "semantic_site": "confirmed",
+      "slot_shift": "0x504",
+      "slot_value": "NULL"
+    },
+    {
+      "dmp": false,
+      "fault_read": "0x20",
+      "function": "sub_101A0B0",
+      "function_offset": "0xD27",
+      "hd": "5.7 R17",
+      "hota": "1.8.0",
+      "incident_id": "incident-90857fa1353b1994",
+      "index_extension": "movzx",
+      "rva": "0x1ADD7",
+      "semantic_site": "confirmed",
+      "slot_shift": "0x504",
+      "slot_value": "NULL"
+    },
+    {
+      "dmp": true,
+      "fault_read": "0x20",
+      "function": "sub_101B140",
+      "function_offset": "0xD27",
+      "hd": "5.8 R8",
+      "hota": "1.8.1",
+      "incident_id": "incident-89c63dd7b9de8ed5",
+      "index_extension": "movzx",
+      "rva": "0x1BE67",
+      "semantic_site": "confirmed",
+      "slot_shift": "0x504",
+      "slot_value": "NULL"
+    }
+  ],
+  "schema": 1
+}

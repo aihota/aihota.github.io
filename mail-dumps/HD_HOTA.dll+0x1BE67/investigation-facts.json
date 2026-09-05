@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "kind": "investigation_facts",
+  "causality_level": "L1",
+  "event_fingerprint": "89c63dd7b9de8ed5e73c84aa3e5b7b1503caecb7ecbbc363ad18f012bf92c912",
+  "case_fingerprint": "8d18864d2a17824b74053b8592cc7decbe6051cc3022caf6384b9f8eba9be0b6",
+  "family_fingerprint": "f43a98bec71ae4a06c3aed00eb23360f6dbc54b4309b8e2749744d1a687746f6",
+  "local_mechanism": "selected land-def slot is NULL; next instruction reads NULL+0x20",
+  "state_origin": "not_captured",
+  "confirmed_family_unique": 3,
+  "confirmed_family_physical_txt": 4,
+  "near_null_unique": 4,
+  "near_null_physical_txt": 6,
+  "raw_txt_scanned": 5509,
+  "hd_hota_txt_scanned": 1688
+}

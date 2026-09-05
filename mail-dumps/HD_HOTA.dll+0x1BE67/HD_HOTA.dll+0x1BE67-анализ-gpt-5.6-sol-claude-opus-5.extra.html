@@ -1,0 +1,43 @@
+<section id="viz-mechanism" data-toc="Визуализация сбоя">
+  <h2><span class="htext">Визуализация сбоя</span>
+    <a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Сплошная цепочка показывает подтверждённые операции. Пунктирный блок
+  отделяет неизвестное происхождение нулевого состояния.</p>
+  <div class="viz">
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">1</span>
+        Подтверждённая цепочка чтения</div>
+      <div class="viz-strip">
+        <div class="viz-box accent"><span class="viz-badge accent">C</span>
+          клетка<span class="lbl">MapCell+4</span></div>
+        <div class="viz-box ok"><span class="viz-badge ok">S</span>
+          элемент<span class="lbl">AdvMgr+0x504+4*n</span></div>
+        <div class="viz-box bad"><span class="viz-badge bad">0</span>
+          DEF<span class="lbl">0x00000000</span></div>
+        <div class="viz-box bad"><span class="viz-badge bad">F</span>
+          вылет<span class="lbl">чтение 0x00000020</span></div>
+      </div>
+    </div>
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">2</span>
+        Граница имеющихся данных</div>
+      <div class="viz-strip">
+        <div class="viz-box dashed dim"><span class="viz-badge">?</span>
+          источник<span class="lbl">не сохранён в минидампе</span></div>
+      </div>
+    </div>
+    <p class="viz-cap">Нулевой элемент доказан; его первый производитель неизвестен.</p>
+  </div>
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge accent">C</span>
+      <span class="txt">C — байт типа земли читается из клетки карты.</span></div>
+    <div class="item"><span class="viz-badge ok">S</span>
+      <span class="txt">S — адрес элемента вычисляется по сохранённому смещению.</span></div>
+    <div class="item"><span class="viz-badge bad">0</span>
+      <span class="txt">0 — выбранный элемент содержит нулевой указатель DEF.</span></div>
+    <div class="item"><span class="viz-badge bad">F</span>
+      <span class="txt">F — чтение поля +0x20 вызывает исключение.</span></div>
+    <div class="item"><span class="viz-badge">?</span>
+      <span class="txt">? — фактический индекс и источник NULL не захвачены.</span></div>
+  </div>
+</section>

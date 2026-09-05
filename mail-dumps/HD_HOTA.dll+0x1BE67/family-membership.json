@@ -1,0 +1,133 @@
+{
+  "schema": 4,
+  "generated_at": "2026-09-05T07:49:52.914530+00:00",
+  "family_id": "family-HD_HOTA.dll+0x1BE67",
+  "source": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1BE67/family-membership-input.json",
+  "scope_id": "family:HD_HOTA.dll+0x1BE67-materialized",
+  "scope_kind": "family",
+  "scope": {
+    "address_range": {
+      "basis": "RVA-independent instruction-role fingerprint",
+      "end_inclusive": true,
+      "end_rva": "version-relative",
+      "human_label": "semantic minimap land-def site across HD builds",
+      "start_rva": "version-relative"
+    },
+    "enumeration_basis": [
+      "4 physical crash TXT materialized in the case (1 current + 3 historical)",
+      "SHA-256 deduplication: 4 physical TXT -> 3 unique incidents",
+      "family-membership rows cover exactly the 3 unique incidents"
+    ],
+    "id": "family:HD_HOTA.dll+0x1BE67-materialized",
+    "kind": "family",
+    "root": "mail-dumps/HD_HOTA.dll+0x1BE67",
+    "scan_attestation": "scan-attestation.json",
+    "sibling_boundary": "RVA 0x16920E remains outside the materialized family as adjacent_unresolved; it is documented by related-crashes.json and does not enter this family incident set."
+  },
+  "candidate_census": {
+    "total": 3,
+    "classified": 3,
+    "confirmed": 3,
+    "probable": 0,
+    "context_only": 0,
+    "excluded": 0,
+    "unknown": 0,
+    "blocked": 0
+  },
+  "incident_set_fingerprint": "7e37c92b70c0a5410f46d2d9e7a1e9a6006fb04e5681da7a84bbffde6a17189b",
+  "human_decision": null,
+  "provenance_warnings": [
+    "human_decision_missing_legacy"
+  ],
+  "memberships": [
+    {
+      "basis": "Exact R10 listing: sub_1019DF0+0xCF7 loads terrain with movzx, reads the selected slot, then faults at NULL+0x20. Two physical TXT are byte-identical.",
+      "build": "HD 5.7 R10 / HotA 1.8.0",
+      "evidence": [
+        "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1AAE7-1.8.0-1.txt",
+        "modules/HD_HOTA.dll-5.7 R10.txt"
+      ],
+      "fingerprint": {
+        "call_tail": [
+          "advManager::UpdateRadar replacement",
+          "unchecked terrain-byte lookup",
+          "NULL DEF + 0x20"
+        ],
+        "field": "+0x20",
+        "frame_depth": "version-dependent",
+        "structure_role": "AdvMgr land-def pointer table selected by MapCell.terrain"
+      },
+      "incident_id": "incident-a64d3a2ed9157f3d",
+      "membership": "confirmed",
+      "relationship_ladder": {
+        "same_local_mechanism": true,
+        "same_root_cause": "unknown",
+        "same_sink": true,
+        "same_state_origin": "unknown"
+      }
+    },
+    {
+      "basis": "Exact R17 listing: sub_101A0B0+0xD27 has the same unsigned terrain lookup and NULL+0x20 sink.",
+      "build": "HD 5.7 R17 / HotA 1.8.0",
+      "evidence": [
+        "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1ADD7-1.8.0-1.txt",
+        "modules/HD_HOTA.dll-5.7 R17.txt"
+      ],
+      "fingerprint": {
+        "call_tail": [
+          "advManager::UpdateRadar replacement",
+          "unchecked terrain-byte lookup",
+          "NULL DEF + 0x20"
+        ],
+        "field": "+0x20",
+        "frame_depth": "version-dependent",
+        "structure_role": "AdvMgr land-def pointer table selected by MapCell.terrain"
+      },
+      "incident_id": "incident-90857fa1353b1994",
+      "membership": "confirmed",
+      "relationship_ladder": {
+        "same_local_mechanism": true,
+        "same_root_cause": "unknown",
+        "same_sink": true,
+        "same_state_origin": "unknown"
+      }
+    },
+    {
+      "basis": "TXT, DMP ExceptionStream and exact R8 listing converge on sub_101B140+0xD27; slot load returns NULL and next read is 0x20.",
+      "build": "HD 5.8 R8 / HotA 1.8.1",
+      "evidence": [
+        "mail-dumps/HD_HOTA.dll+0x1BE67/HD_HOTA.dll+0x1BE67-5.8-R8-181.txt",
+        "mail-dumps/HD_HOTA.dll+0x1BE67/HD_HOTA.dll+0x1BE67-5.8-R8-181.dmp",
+        "modules/HD_HOTA.dll-5.8-R8.txt"
+      ],
+      "fingerprint": {
+        "call_tail": [
+          "advManager::UpdateRadar replacement",
+          "unchecked terrain-byte lookup",
+          "NULL DEF + 0x20"
+        ],
+        "field": "+0x20",
+        "frame_depth": "version-dependent",
+        "structure_role": "AdvMgr land-def pointer table selected by MapCell.terrain"
+      },
+      "incident_id": "incident-89c63dd7b9de8ed5",
+      "membership": "confirmed",
+      "relationship_ladder": {
+        "same_local_mechanism": true,
+        "same_root_cause": "unknown",
+        "same_sink": true,
+        "same_state_origin": "unknown"
+      }
+    }
+  ],
+  "counts": {
+    "confirmed": 3
+  },
+  "errors": [],
+  "registry_valid": true,
+  "enumeration_complete": true,
+  "classification_complete": true,
+  "unknown_count": 0,
+  "blocked_by_listing_count": 0,
+  "complete": true
+}

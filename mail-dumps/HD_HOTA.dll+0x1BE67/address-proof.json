@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "kind": "address_proof",
+  "module": "HD_HOTA.dll",
+  "addresses": {
+    "runtime": 69254759,
+    "load_base": 69140480,
+    "imagebase": 16777216,
+    "size_of_image": 18849792,
+    "file_offset": 76946,
+    "rva": 114279,
+    "module_offset": 114279,
+    "ida": 16891495
+  },
+  "sources": {
+    "fault_address": "ExceptionStream EIP=0x0420BE67 and ExceptionInformation[1]=0x00000020",
+    "load_base": "DMP ModuleList: HD_HOTA.dll 0x041F0000..0x053EA000, timestamp 0x6A8F1466",
+    "imagebase": "exact IDA listing uses 0x01000000",
+    "file_offset": "dump range 0x0420BDE7..0x0420BEE7 starts at file offset 0x12C12; derived EIP file offset 0x12C92"
+  },
+  "identity": {
+    "level": "dmp-window",
+    "full_binary_match": false,
+    "window": {
+      "runtime": "0x0420BE5A",
+      "file_offset": "0x12C85",
+      "size": 16,
+      "matched": 16,
+      "bytes": "0F B6 46 04 8D 04 81 8B 4D AC 8B 04 08 8B 40 20"
+    }
+  },
+  "function": "sub_101B140",
+  "offset_in_function": "0xD27",
+  "instruction": "mov eax,[eax+20h]",
+  "listing": {
+    "path": "HD_HOTA.dll-5.8-R8.txt",
+    "size": 50707665,
+    "sha256": "88f06be651a395fdc165d78260574dd24d916913f56739d6ff0a415b45d78d25",
+    "timestamp": "0x6A8F1466",
+    "image_size": "0x011FA000"
+  },
+  "header": {
+    "path": "HD_HOTA.dll-5.8-R8.h",
+    "sha256": "d857b613db048e3a5acef9c44a6fa6da3ccb4344ee545be3baed5b71ee33ea6c"
+  },
+  "validation": {
+    "status": "passed",
+    "errors": []
+  }
+}

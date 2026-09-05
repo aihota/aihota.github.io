@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "kind": "semantic_site_fingerprint",
+  "canonical": {
+    "module": "hd_hota.dll",
+    "structure_role": "advmgr land-def pointer table entry",
+    "field_offset": "+0x20",
+    "access": "read",
+    "instruction_role": "dereference selected land def to palette",
+    "result_role": "def palette pointer",
+    "call_tail": [
+      "advmanager::updateradar replacement",
+      "select land-def by mapcell.terrain",
+      "dereference selected def+0x20"
+    ]
+  },
+  "sha256": "f43a98bec71ae4a06c3aed00eb23360f6dbc54b4309b8e2749744d1a687746f6",
+  "excluded_from_identity": [
+    "absolute_address",
+    "rva",
+    "image_base",
+    "runtime_base",
+    "version_string"
+  ]
+}

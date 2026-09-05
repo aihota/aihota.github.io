@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "kind": "related_crash_cascade",
+  "target_sha256": "f43a98bec71ae4a06c3aed00eb23360f6dbc54b4309b8e2749744d1a687746f6",
+  "denominator": {
+    "physical_records": 6,
+    "unique_incidents": 4,
+    "parsed": 4,
+    "classified": 4,
+    "duplicates": 2
+  },
+  "counts": {
+    "same_semantic_site": 3,
+    "probable_same_subsystem": 0,
+    "adjacent_unresolved": 1,
+    "unrelated": 0
+  },
+  "results": [
+    {
+      "incident_id": "incident-a64d3a2ed9157f3d",
+      "tier": "same_semantic_site",
+      "relation": {
+        "exact_site": true,
+        "same_sink": true,
+        "shared_call_tail": 3
+      },
+      "fingerprint_sha256": "f43a98bec71ae4a06c3aed00eb23360f6dbc54b4309b8e2749744d1a687746f6",
+      "evidence": [
+        "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1AAE7-1.8.0-1.txt"
+      ]
+    },
+    {
+      "incident_id": "incident-90857fa1353b1994",
+      "tier": "same_semantic_site",
+      "relation": {
+        "exact_site": true,
+        "same_sink": true,
+        "shared_call_tail": 3
+      },
+      "fingerprint_sha256": "f43a98bec71ae4a06c3aed00eb23360f6dbc54b4309b8e2749744d1a687746f6",
+      "evidence": [
+        "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1ADD7-1.8.0-1.txt"
+      ]
+    },
+    {
+      "incident_id": "incident-89c63dd7b9de8ed5",
+      "tier": "same_semantic_site",
+      "relation": {
+        "exact_site": true,
+        "same_sink": true,
+        "shared_call_tail": 3
+      },
+      "fingerprint_sha256": "f43a98bec71ae4a06c3aed00eb23360f6dbc54b4309b8e2749744d1a687746f6",
+      "evidence": [
+        "mail-dumps/HD_HOTA.dll+0x1BE67/HD_HOTA.dll+0x1BE67-5.8-R8-181.txt"
+      ]
+    },
+    {
+      "incident_id": "incident-4acf6978a249965c",
+      "tier": "adjacent_unresolved",
+      "relation": {
+        "exact_site": false,
+        "same_sink": false,
+        "shared_call_tail": 0
+      },
+      "fingerprint_sha256": "1229d387e4ae2eff4e270cd467fa07e54e7823a7a14163d91c1fb03111ce7827",
+      "evidence": [
+        "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x16920E-1.8.0-1.txt"
+      ]
+    }
+  ],
+  "cascade": [
+    "same_semantic_site",
+    "probable_same_subsystem",
+    "adjacent_unresolved",
+    "unrelated"
+  ],
+  "complete": true
+}

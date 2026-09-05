@@ -1,0 +1,673 @@
+{
+  "schema": 3,
+  "listing": "/Users/Shared/ii/modules/HD_HOTA.dll-5.8-R8.txt",
+  "module_kind": "hd_mod",
+  "version_axis": "hd",
+  "version_applicable": true,
+  "version_axis_status": {
+    "version_axis": "hd",
+    "expected_axis": "hd",
+    "version_applicable": true,
+    "status": "applicable",
+    "reason": "axis_matches_module_kind"
+  },
+  "code_identity": {
+    "status": "not_supplied"
+  },
+  "actual_caller": {
+    "address": "0x4B0BA0",
+    "function": null,
+    "resolved": false
+  },
+  "coverage": {
+    "complete_listing_scan": true,
+    "listing_lines": 925503
+  },
+  "function": {
+    "name": "sub_101B140",
+    "start": "0x101B140",
+    "end": "0x101C5AF"
+  },
+  "crash": {
+    "address": "0x101BE67",
+    "instruction": "mov     eax, [eax+20h]",
+    "exact_instruction_boundary": true
+  },
+  "categories": {
+    "callers": {
+      "found_count": 0,
+      "emitted_count": 0,
+      "truncated": false,
+      "xref": "",
+      "hits": [],
+      "details": [],
+      "hook_registrations": [
+        {
+          "replacement_push": 17006298,
+          "instruction": "push    offset sub_101B140",
+          "nearby_pushes": [
+            {
+              "address": 17006303,
+              "value": "1"
+            },
+            {
+              "address": 17006305,
+              "value": "1"
+            },
+            {
+              "address": 17006309,
+              "value": "1"
+            },
+            {
+              "address": 17006311,
+              "value": "412BA0h"
+            },
+            {
+              "address": 17006316,
+              "value": "eax"
+            }
+          ],
+          "callsite": {
+            "address": 17006317,
+            "instruction": "call    dword ptr [ecx+1Ch]"
+          },
+          "classification": "candidate_hook_registration"
+        }
+      ]
+    },
+    "allocations": {
+      "found_count": 0,
+      "unchecked_count": 0,
+      "rows": []
+    },
+    "allocation_flows": {
+      "found_count": 0,
+      "local_mechanism_confirmed_count": 0,
+      "rows": []
+    },
+    "sod_calls": {
+      "found_count": 73,
+      "interpretation": "engine_calls_found_read_original",
+      "rows": [
+        {
+          "address": "0x101B341",
+          "instruction": "mov     eax, 4BAA40h",
+          "target": "0x4BAA40",
+          "called": true
+        },
+        {
+          "address": "0x101B381",
+          "instruction": "mov     eax, 4CE670h",
+          "target": "0x4CE670",
+          "called": true
+        },
+        {
+          "address": "0x101B3B9",
+          "instruction": "mov     eax, 4CA440h",
+          "target": "0x4CA440",
+          "called": true
+        },
+        {
+          "address": "0x101B4C5",
+          "instruction": "mov     ecx, 6783C8h",
+          "target": "0x6783C8",
+          "called": false
+        },
+        {
+          "address": "0x101B4D7",
+          "instruction": "mov     eax, 699538h",
+          "target": "0x699538",
+          "called": false
+        },
+        {
+          "address": "0x101B503",
+          "instruction": "mov     eax, 6783CCh",
+          "target": "0x6783CC",
+          "called": false
+        },
+        {
+          "address": "0x101B53A",
+          "instruction": "mov     ecx, 6992B8h",
+          "target": "0x6992B8",
+          "called": false
+        },
+        {
+          "address": "0x101B544",
+          "instruction": "mov     eax, 4086D0h",
+          "target": "0x4086D0",
+          "called": true
+        },
+        {
+          "address": "0x101B550",
+          "instruction": "mov     eax, 699588h",
+          "target": "0x699588",
+          "called": false
+        },
+        {
+          "address": "0x101B562",
+          "instruction": "mov     eax, 4F8040h",
+          "target": "0x4F8040",
+          "called": true
+        },
+        {
+          "address": "0x101B5FC",
+          "instruction": "mov     edx, 699538h",
+          "target": "0x699538",
+          "called": false
+        },
+        {
+          "address": "0x101B639",
+          "instruction": "mov     eax, 4FD220h",
+          "target": "0x4FD220",
+          "called": true
+        },
+        {
+          "address": "0x101B722",
+          "instruction": "mov     eax, 4FD0F0h",
+          "target": "0x4FD0F0",
+          "called": true
+        },
+        {
+          "address": "0x101B736",
+          "instruction": "mov     eax, 4FD280h",
+          "target": "0x4FD280",
+          "called": true
+        },
+        {
+          "address": "0x101B73D",
+          "instruction": "mov     edx, 699538h",
+          "target": "0x699538",
+          "called": false
+        },
+        {
+          "address": "0x101B7A3",
+          "instruction": "mov     eax, 4FD0F0h",
+          "target": "0x4FD0F0",
+          "called": true
+        },
+        {
+          "address": "0x101B7B2",
+          "instruction": "mov     edx, 699538h",
+          "target": "0x699538",
+          "called": false
+        },
+        {
+          "address": "0x101B7B9",
+          "instruction": "mov     eax, 4FD280h",
+          "target": "0x4FD280",
+          "called": true
+        },
+        {
+          "address": "0x101B7E6",
+          "instruction": "mov     eax, 4FD0F0h",
+          "target": "0x4FD0F0",
+          "called": true
+        },
+        {
+          "address": "0x101B7F5",
+          "instruction": "mov     edx, 699538h",
+          "target": "0x699538",
+          "called": false
+        },
+        {
+          "address": "0x101B7FC",
+          "instruction": "mov     eax, 4FD280h",
+          "target": "0x4FD280",
+          "called": true
+        },
+        {
+          "address": "0x101B827",
+          "instruction": "mov     eax, 4FD0F0h",
+          "target": "0x4FD0F0",
+          "called": true
+        },
+        {
+          "address": "0x101B836",
+          "instruction": "mov     edx, 699538h",
+          "target": "0x699538",
+          "called": false
+        },
+        {
+          "address": "0x101B83D",
+          "instruction": "mov     eax, 4FD280h",
+          "target": "0x4FD280",
+          "called": true
+        },
+        {
+          "address": "0x101B867",
+          "instruction": "mov     eax, 4FD0F0h",
+          "target": "0x4FD0F0",
+          "called": true
+        },
+        {
+          "address": "0x101B874",
+          "instruction": "mov     eax, 4FD280h",
+          "target": "0x4FD280",
+          "called": true
+        },
+        {
+          "address": "0x101B8D7",
+          "instruction": "mov     ecx, 6783C8h",
+          "target": "0x6783C8",
+          "called": false
+        },
+        {
+          "address": "0x101B8F1",
+          "instruction": "mov     eax, 6783C8h",
+          "target": "0x6783C8",
+          "called": false
+        },
+        {
+          "address": "0x101B908",
+          "instruction": "mov     eax, 699538h",
+          "target": "0x699538",
+          "called": false
+        },
+        {
+          "address": "0x101B924",
+          "instruction": "mov     ecx, 6783C8h",
+          "target": "0x6783C8",
+          "called": false
+        },
+        {
+          "address": "0x101B92C",
+          "instruction": "mov     eax, 6783CCh",
+          "target": "0x6783CC",
+          "called": false
+        },
+        {
+          "address": "0x101B997",
+          "instruction": "mov     edx, 6992D0h",
+          "target": "0x6992D0",
+          "called": false
+        },
+        {
+          "address": "0x101B9B0",
+          "instruction": "mov     ecx, 6783CCh",
+          "target": "0x6783CC",
+          "called": false
+        },
+        {
+          "address": "0x101B9CF",
+          "instruction": "mov     ecx, 6783C8h",
+          "target": "0x6783C8",
+          "called": false
+        },
+        {
+          "address": "0x101B9F1",
+          "instruction": "mov     edx, 6992D0h",
+          "target": "0x6992D0",
+          "called": false
+        },
+        {
+          "address": "0x101BB77",
+          "instruction": "mov     eax, 44FA80h",
+          "target": "0x44FA80",
+          "called": false
+        },
+        {
+          "address": "0x101BBF3",
+          "instruction": "mov     eax, 4BAA40h",
+          "target": "0x4BAA40",
+          "called": true
+        },
+        {
+          "address": "0x101BC33",
+          "instruction": "mov     eax, 4CE670h",
+          "target": "0x4CE670",
+          "called": true
+        },
+        {
+          "address": "0x101BC6B",
+          "instruction": "mov     eax, 4CA440h",
+          "target": "0x4CA440",
+          "called": true
+        },
+        {
+          "address": "0x101BD7B",
+          "instruction": "mov     ecx, 6783C8h",
+          "target": "0x6783C8",
+          "called": false
+        },
+        {
+          "address": "0x101BD87",
+          "instruction": "mov     eax, 699538h",
+          "target": "0x699538",
+          "called": false
+        },
+        {
+          "address": "0x101BDB3",
+          "instruction": "mov     eax, 6783CCh",
+          "target": "0x6783CC",
+          "called": false
+        },
+        {
+          "address": "0x101BDEA",
+          "instruction": "mov     ecx, 6992B8h",
+          "target": "0x6992B8",
+          "called": false
+        },
+        {
+          "address": "0x101BDF4",
+          "instruction": "mov     eax, 4086D0h",
+          "target": "0x4086D0",
+          "called": true
+        },
+        {
+          "address": "0x101BE00",
+          "instruction": "mov     eax, 699588h",
+          "target": "0x699588",
+          "called": false
+        },
+        {
+          "address": "0x101BE12",
+          "instruction": "mov     eax, 4F8040h",
+          "target": "0x4F8040",
+          "called": true
+        },
+        {
+          "address": "0x101BEE5",
+          "instruction": "mov     edx, 699538h",
+          "target": "0x699538",
+          "called": false
+        },
+        {
+          "address": "0x101BF22",
+          "instruction": "mov     eax, 4FD220h",
+          "target": "0x4FD220",
+          "called": true
+        },
+        {
+          "address": "0x101C0B8",
+          "instruction": "mov     eax, 4FD0F0h",
+          "target": "0x4FD0F0",
+          "called": true
+        },
+        {
+          "address": "0x101C0CC",
+          "instruction": "mov     eax, 4FD280h",
+          "target": "0x4FD280",
+          "called": true
+        },
+        {
+          "address": "0x101C0D3",
+          "instruction": "mov     edx, 699538h",
+          "target": "0x699538",
+          "called": false
+        },
+        {
+          "address": "0x101C133",
+          "instruction": "mov     eax, 4FD0F0h",
+          "target": "0x4FD0F0",
+          "called": true
+        },
+        {
+          "address": "0x101C142",
+          "instruction": "mov     edx, 699538h",
+          "target": "0x699538",
+          "called": false
+        },
+        {
+          "address": "0x101C149",
+          "instruction": "mov     eax, 4FD280h",
+          "target": "0x4FD280",
+          "called": true
+        },
+        {
+          "address": "0x101C176",
+          "instruction": "mov     eax, 4FD0F0h",
+          "target": "0x4FD0F0",
+          "called": true
+        },
+        {
+          "address": "0x101C185",
+          "instruction": "mov     edx, 699538h",
+          "target": "0x699538",
+          "called": false
+        },
+        {
+          "address": "0x101C18C",
+          "instruction": "mov     eax, 4FD280h",
+          "target": "0x4FD280",
+          "called": true
+        },
+        {
+          "address": "0x101C1B7",
+          "instruction": "mov     eax, 4FD0F0h",
+          "target": "0x4FD0F0",
+          "called": true
+        },
+        {
+          "address": "0x101C1C6",
+          "instruction": "mov     edx, 699538h",
+          "target": "0x699538",
+          "called": false
+        },
+        {
+          "address": "0x101C1CD",
+          "instruction": "mov     eax, 4FD280h",
+          "target": "0x4FD280",
+          "called": true
+        },
+        {
+          "address": "0x101C1F7",
+          "instruction": "mov     eax, 4FD0F0h",
+          "target": "0x4FD0F0",
+          "called": true
+        },
+        {
+          "address": "0x101C204",
+          "instruction": "mov     eax, 4FD280h",
+          "target": "0x4FD280",
+          "called": true
+        },
+        {
+          "address": "0x101C267",
+          "instruction": "mov     ecx, 6783C8h",
+          "target": "0x6783C8",
+          "called": false
+        },
+        {
+          "address": "0x101C2A1",
+          "instruction": "mov     eax, 6783C8h",
+          "target": "0x6783C8",
+          "called": false
+        },
+        {
+          "address": "0x101C2B3",
+          "instruction": "mov     eax, 699538h",
+          "target": "0x699538",
+          "called": false
+        },
+        {
+          "address": "0x101C2D8",
+          "instruction": "mov     ecx, 6783C8h",
+          "target": "0x6783C8",
+          "called": false
+        },
+        {
+          "address": "0x101C2E0",
+          "instruction": "mov     eax, 6783CCh",
+          "target": "0x6783CC",
+          "called": false
+        },
+        {
+          "address": "0x101C335",
+          "instruction": "mov     ebx, 6992D0h",
+          "target": "0x6992D0",
+          "called": false
+        },
+        {
+          "address": "0x101C374",
+          "instruction": "mov     ecx, 6783CCh",
+          "target": "0x6783CC",
+          "called": false
+        },
+        {
+          "address": "0x101C390",
+          "instruction": "mov     ecx, 6783C8h",
+          "target": "0x6783C8",
+          "called": false
+        },
+        {
+          "address": "0x101C3B5",
+          "instruction": "mov     ebx, 6992D0h",
+          "target": "0x6992D0",
+          "called": false
+        },
+        {
+          "address": "0x101C546",
+          "instruction": "mov     eax, 44FA80h",
+          "target": "0x44FA80",
+          "called": false
+        },
+        {
+          "address": "0x101C570",
+          "instruction": "mov     eax, 603190h",
+          "target": "0x603190",
+          "called": false
+        }
+      ]
+    },
+    "field_accesses": {
+      "[esi+4]": {
+        "writers_count": 0,
+        "readers_count": 0,
+        "writers": [],
+        "readers": [],
+        "direct_writers_only": true,
+        "broad_offset": false,
+        "proves_specific_writer": false,
+        "structural_census_required": false,
+        "structural_tool": "address-mapping/field_writer_census.py"
+      },
+      "[ebp+var_54]": {
+        "writers_count": 0,
+        "readers_count": 0,
+        "writers": [],
+        "readers": [],
+        "direct_writers_only": true,
+        "broad_offset": false,
+        "proves_specific_writer": false,
+        "structural_census_required": false,
+        "structural_tool": "address-mapping/field_writer_census.py"
+      },
+      "[ebp+var_58]": {
+        "writers_count": 0,
+        "readers_count": 0,
+        "writers": [],
+        "readers": [],
+        "direct_writers_only": true,
+        "broad_offset": false,
+        "proves_specific_writer": false,
+        "structural_census_required": false,
+        "structural_tool": "address-mapping/field_writer_census.py"
+      }
+    },
+    "vtables": {
+      "found_count": 0,
+      "rows": []
+    },
+    "cross_version": {
+      "module": "HD_HOTA.dll",
+      "requested_versions": [
+        "modules/HD_HOTA.dll-5.7 R10.txt",
+        "modules/HD_HOTA.dll-5.7 R17.txt",
+        "modules/HD_HOTA.dll-5.8-R8.txt"
+      ],
+      "version_axis": "hd",
+      "version_applicable": true,
+      "status": "applicable",
+      "reason": "axis_matches_module_kind",
+      "available": [
+        "HD_HOTA.dll-5.7 R1.txt",
+        "HD_HOTA.dll-5.7 R10.txt",
+        "HD_HOTA.dll-5.7 R12.txt",
+        "HD_HOTA.dll-5.7 R13.txt",
+        "HD_HOTA.dll-5.7 R17.txt",
+        "HD_HOTA.dll-5.7 R18.txt",
+        "HD_HOTA.dll-5.7 R19.txt",
+        "HD_HOTA.dll-5.7 R20.txt",
+        "HD_HOTA.dll-5.7 R22.txt",
+        "HD_HOTA.dll-5.7 R23.txt",
+        "HD_HOTA.dll-5.7 R27.txt",
+        "HD_HOTA.dll-5.7 R28.txt",
+        "HD_HOTA.dll-5.7 R29.txt",
+        "HD_HOTA.dll-5.7 R3.txt",
+        "HD_HOTA.dll-5.7 R30.txt",
+        "HD_HOTA.dll-5.7 R31.txt",
+        "HD_HOTA.dll-5.7 R33.txt",
+        "HD_HOTA.dll-5.7 R34.txt",
+        "HD_HOTA.dll-5.7 R35.txt",
+        "HD_HOTA.dll-5.7 R36.txt",
+        "HD_HOTA.dll-5.7 R37.txt",
+        "HD_HOTA.dll-5.7 R38.txt",
+        "HD_HOTA.dll-5.7 R39.txt",
+        "HD_HOTA.dll-5.7 R40.txt",
+        "HD_HOTA.dll-5.7 R6.txt",
+        "HD_HOTA.dll-5.7 R7.txt",
+        "HD_HOTA.dll-5.7 R8.txt",
+        "HD_HOTA.dll-5.7 R9.txt",
+        "HD_HOTA.dll-5.7 RC11.txt",
+        "HD_HOTA.dll-5.7 RC9.txt",
+        "HD_HOTA.dll-5.8 R4.txt",
+        "HD_HOTA.dll-5.8 R7.txt",
+        "HD_HOTA.dll-5.8-R6.txt",
+        "HD_HOTA.dll-5.8-R8.txt"
+      ],
+      "matches": {
+        "modules/HD_HOTA.dll-5.7 R10.txt": [],
+        "modules/HD_HOTA.dll-5.7 R17.txt": [],
+        "modules/HD_HOTA.dll-5.8-R8.txt": []
+      },
+      "control_notes": [
+        "контрольный образец '5.7 R1' по 'HD_HOTA.dll-5.7 R1.txt' найден -> сопоставление работает, запрошенных версий действительно нет"
+      ]
+    }
+  },
+  "evidence_contracts": {
+    "capabilities": {
+      "status": "passed",
+      "identity": {
+        "status": "supplied",
+        "path": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1BE67/capabilities.json",
+        "size": 3650,
+        "sha256": "19e205da8f1e65ca884ee150eb2d199226983cfefff96322d3b0352920b0a887",
+        "listing_link": "unverified_without_exported_listing_identity"
+      },
+      "errors": []
+    },
+    "helper_census": {
+      "status": "not_provided",
+      "identity": {
+        "status": "not_supplied"
+      },
+      "errors": [
+        "helper_census_not_provided"
+      ]
+    },
+    "errors": [
+      "helper_census_not_provided"
+    ],
+    "ready": false,
+    "policy": "profile DMP before memory reads; never merge thread contexts; enumerate nullable callsites completely"
+  },
+  "runtime_capture_requirements": [
+    "allocator_request_size_and_site",
+    "virtual_address_space_map",
+    "largest_free_region",
+    "heap_metadata_and_validation",
+    "process_private_bytes",
+    "module_timestamp_and_runtime_bytes"
+  ],
+  "judgment_categories": [
+    "effective_address_and_container_bounds",
+    "state_origin_and_lifecycle",
+    "activation_trigger"
+  ],
+  "integrity": {
+    "callers_found_equals_json_rows": true,
+    "human_rows_match_emitted_count": true,
+    "dump_profile_and_helper_census_ready": false
+  }
+}

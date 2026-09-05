@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "kind": "missing_evidence_request",
+  "case": "HD_HOTA.dll+0x1BE67",
+  "status": "open",
+  "items": [
+    {
+      "id": "full-memory-dump",
+      "field": "runtime.memory",
+      "reason": "available dumps do not cover receiver/allocation state",
+      "capture": "capture a full dump before teardown on the failing path",
+      "success_evidence": [
+        "full_dump",
+        "binary_sha256",
+        "exception_tid",
+        "memory_map"
+      ],
+      "priority": "P0"
+    }
+  ],
+  "counts": {
+    "requested": 1,
+    "p0": 1,
+    "p1": 0
+  },
+  "completion_rule": "close only when every item has captured evidence or a reasoned rejection"
+}

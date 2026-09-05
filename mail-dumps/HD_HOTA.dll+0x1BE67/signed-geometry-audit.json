@@ -1,0 +1,240 @@
+{
+  "bits": 32,
+  "input_signed": 1284,
+  "operations": [
+    {
+      "op": "add",
+      "operand": 0,
+      "address": "0x0101BE61"
+    }
+  ],
+  "guards": [],
+  "first_access": {
+    "address": "0x0101BE64",
+    "operation": "mov eax,[AdvMgr+LandDefShift+4*zero_extended_land_byte]"
+  },
+  "scope": {
+    "family_id": "HD_HOTA.dll/minimap/terrain-def-table",
+    "builds": [
+      "HD 5.7 R10",
+      "HD 5.7 R17",
+      "HD 5.8 R8",
+      "HotA 1.8.1",
+      "SoD reference"
+    ],
+    "meaning": "audit of the captured positive LandDefShift and the complete signedness-site census; raw terrain byte is not captured and no state-origin claim is made"
+  },
+  "observed_geometry": {
+    "land_def_shift": 1284,
+    "raw_land_byte": "not_captured",
+    "runtime_land_def_count": "not_captured",
+    "loaded_slot_value": 0,
+    "fault_address": 32
+  },
+  "siblings": [
+    {
+      "function": "hd_hota:sub_101B140@0x0101B5AA",
+      "width_guard_before_access": false,
+      "vulnerable": true,
+      "extension": "movzx",
+      "slot_null_guard": false,
+      "basis": "complete site census from land-index-site-census.json"
+    },
+    {
+      "function": "hd_hota:sub_101B140@0x0101B671",
+      "width_guard_before_access": false,
+      "vulnerable": true,
+      "extension": "movzx",
+      "slot_null_guard": false,
+      "basis": "complete site census from land-index-site-census.json"
+    },
+    {
+      "function": "hd_hota:sub_101B140@0x0101B6BB",
+      "width_guard_before_access": false,
+      "vulnerable": true,
+      "extension": "movzx",
+      "slot_null_guard": false,
+      "basis": "complete site census from land-index-site-census.json"
+    },
+    {
+      "function": "hd_hota:sub_101B140@0x0101B6FA",
+      "width_guard_before_access": false,
+      "vulnerable": true,
+      "extension": "movzx",
+      "slot_null_guard": false,
+      "basis": "complete site census from land-index-site-census.json"
+    },
+    {
+      "function": "hd_hota:sub_101B140@0x0101BE5A",
+      "width_guard_before_access": false,
+      "vulnerable": true,
+      "extension": "movzx",
+      "slot_null_guard": false,
+      "basis": "complete site census from land-index-site-census.json"
+    },
+    {
+      "function": "hd_hota:sub_101B140@0x0101BF5A",
+      "width_guard_before_access": false,
+      "vulnerable": true,
+      "extension": "movzx",
+      "slot_null_guard": false,
+      "basis": "complete site census from land-index-site-census.json"
+    },
+    {
+      "function": "hd_hota:sub_101B140@0x0101BFD8",
+      "width_guard_before_access": false,
+      "vulnerable": true,
+      "extension": "movzx",
+      "slot_null_guard": false,
+      "basis": "complete site census from land-index-site-census.json"
+    },
+    {
+      "function": "hd_hota:sub_101B140@0x0101C04E",
+      "width_guard_before_access": false,
+      "vulnerable": true,
+      "extension": "movzx",
+      "slot_null_guard": false,
+      "basis": "complete site census from land-index-site-census.json"
+    },
+    {
+      "function": "hota:sub_10181050@0x101813F6",
+      "width_guard_before_access": false,
+      "vulnerable": true,
+      "extension": "movsx",
+      "slot_null_guard": false,
+      "basis": "complete site census from land-index-site-census.json"
+    },
+    {
+      "function": "hota:sub_10181050@0x101814E4",
+      "width_guard_before_access": false,
+      "vulnerable": true,
+      "extension": "movsx",
+      "slot_null_guard": false,
+      "basis": "complete site census from land-index-site-census.json"
+    },
+    {
+      "function": "hota:sub_10181050@0x1018154C",
+      "width_guard_before_access": false,
+      "vulnerable": true,
+      "extension": "movsx",
+      "slot_null_guard": false,
+      "basis": "complete site census from land-index-site-census.json"
+    },
+    {
+      "function": "sod:A0_AdvMgr_Draw_Minimap_sub_412BA0@0x00412EC0",
+      "width_guard_before_access": false,
+      "vulnerable": true,
+      "extension": "sign-extend-shl-sar",
+      "slot_null_guard": false,
+      "basis": "complete site census from land-index-site-census.json"
+    },
+    {
+      "function": "sod:A0_AdvMgr_Draw_Minimap_sub_412BA0@0x00412F61",
+      "width_guard_before_access": false,
+      "vulnerable": true,
+      "extension": "sign-extend-shl-sar",
+      "slot_null_guard": false,
+      "basis": "complete site census from land-index-site-census.json"
+    }
+  ],
+  "sibling_census": {
+    "total": 13,
+    "scanned": 13,
+    "skipped": 0
+  },
+  "callsites": [
+    {
+      "address": "0x0101B5AA",
+      "callee": "hd_hota: terrain DEF table lookup",
+      "caller": "sub_101B140"
+    },
+    {
+      "address": "0x0101B671",
+      "callee": "hd_hota: terrain DEF table lookup",
+      "caller": "sub_101B140"
+    },
+    {
+      "address": "0x0101B6BB",
+      "callee": "hd_hota: terrain DEF table lookup",
+      "caller": "sub_101B140"
+    },
+    {
+      "address": "0x0101B6FA",
+      "callee": "hd_hota: terrain DEF table lookup",
+      "caller": "sub_101B140"
+    },
+    {
+      "address": "0x0101BE5A",
+      "callee": "hd_hota: terrain DEF table lookup",
+      "caller": "sub_101B140"
+    },
+    {
+      "address": "0x0101BF5A",
+      "callee": "hd_hota: terrain DEF table lookup",
+      "caller": "sub_101B140"
+    },
+    {
+      "address": "0x0101BFD8",
+      "callee": "hd_hota: terrain DEF table lookup",
+      "caller": "sub_101B140"
+    },
+    {
+      "address": "0x0101C04E",
+      "callee": "hd_hota: terrain DEF table lookup",
+      "caller": "sub_101B140"
+    },
+    {
+      "address": "0x101813F6",
+      "callee": "hota: terrain DEF table lookup",
+      "caller": "sub_10181050"
+    },
+    {
+      "address": "0x101814E4",
+      "callee": "hota: terrain DEF table lookup",
+      "caller": "sub_10181050"
+    },
+    {
+      "address": "0x1018154C",
+      "callee": "hota: terrain DEF table lookup",
+      "caller": "sub_10181050"
+    },
+    {
+      "address": "0x00412EC0",
+      "callee": "sod: terrain DEF table lookup",
+      "caller": "A0_AdvMgr_Draw_Minimap_sub_412BA0"
+    },
+    {
+      "address": "0x00412F61",
+      "callee": "sod: terrain DEF table lookup",
+      "caller": "A0_AdvMgr_Draw_Minimap_sub_412BA0"
+    }
+  ],
+  "callsite_census": {
+    "total": 13,
+    "scanned": 13,
+    "skipped": 0
+  },
+  "interpretation": "The captured table shift is positive. HD_HOTA uses movzx at 8/8 sites, HotA uses movsx at 3/3 and SoD sign-extension at 2/2; because the crash-time terrain byte and runtime table count are not captured, signedness as the state origin remains not confirmed.",
+  "schema": 1,
+  "kind": "signed_geometry_audit",
+  "chain": [
+    {
+      "index": 0,
+      "op": "add",
+      "operand": 0,
+      "before_signed": 1284,
+      "mathematical_result": 1284,
+      "signed_result": 1284,
+      "unsigned_result": 1284,
+      "overflow": false,
+      "address": "0x0101BE61"
+    }
+  ],
+  "final_signed": 1284,
+  "final_unsigned": 1284,
+  "width_guard_dominates": false,
+  "unsafe_nonpositive_to_unsigned_size": false,
+  "status": "not_confirmed",
+  "errors": [],
+  "complete": true
+}

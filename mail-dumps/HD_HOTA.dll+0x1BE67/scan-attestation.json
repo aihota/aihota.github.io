@@ -1,0 +1,228 @@
+{
+  "kind": "scan_attestation",
+  "scans": [
+    {
+      "dedup": {
+        "basis": "SHA-256 over complete file bytes",
+        "duplicates": 0
+      },
+      "denominator": {
+        "scanned": 5509,
+        "skipped": 0,
+        "total": 5509
+      },
+      "id": "exact-current-rva",
+      "limits": {
+        "basis": "python os.walk completed without file/count/byte limit",
+        "truncated": false
+      },
+      "positive_control": {
+        "observed": 1,
+        "passed": true,
+        "query": "mail-dumps/HD_HOTA.dll+0x1BE67/HD_HOTA.dll+0x1BE67-5.8-R8-181.txt"
+      },
+      "query": {
+        "exact": "HD_HOTA.dll+0x1BE67",
+        "parameters": {
+          "casefold": true,
+          "mode": "physical-crash-txt"
+        }
+      },
+      "results": {
+        "match_count": 1,
+        "matches": [
+          "mail-dumps/HD_HOTA.dll+0x1BE67/HD_HOTA.dll+0x1BE67-5.8-R8-181.txt"
+        ],
+        "sha256_groups": [
+          {
+            "paths": [
+              "mail-dumps/HD_HOTA.dll+0x1BE67/HD_HOTA.dll+0x1BE67-5.8-R8-181.txt"
+            ],
+            "sha256": "c5c11747c2e188cf69a66a2d7843a2478d69b07ca537c60cda3cdfb48997ed8f"
+          }
+        ],
+        "unique_sha256_count": 1
+      },
+      "scope": {
+        "excludes": [
+          "*-анализ-*.txt"
+        ],
+        "glob": "**/*.txt",
+        "hidden_included": true,
+        "ignored_included": true,
+        "root": "mail-dumps",
+        "walk_method": "python-os.walk"
+      },
+      "tool": {
+        "name": "python-os.walk-byte-search",
+        "version": "1"
+      },
+      "result_sha256": "becb449c755cb2fbdf038609e735059ba1e5006f2d93d99c3c79290d24967d99"
+    },
+    {
+      "dedup": {
+        "basis": "SHA-256 over complete file bytes",
+        "duplicates": 2
+      },
+      "denominator": {
+        "scanned": 1688,
+        "skipped": 0,
+        "total": 1688
+      },
+      "id": "hd-hota-near-null-read-20",
+      "limits": {
+        "basis": "python os.walk completed without file/count/byte limit",
+        "truncated": false
+      },
+      "positive_control": {
+        "observed": 1,
+        "passed": true,
+        "query": "mail-dumps/HD_HOTA.dll+0x1BE67/HD_HOTA.dll+0x1BE67-5.8-R8-181.txt"
+      },
+      "query": {
+        "exact": "read of address: 0x00000020",
+        "parameters": {
+          "casefold": true,
+          "mode": "physical-crash-txt"
+        }
+      },
+      "results": {
+        "match_count": 6,
+        "matches": [
+          "mail-dumps/HD_HOTA.dll+0x1BE67/HD_HOTA.dll+0x1BE67-5.8-R8-181.txt",
+          "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1ADD7-1.8.0-1.txt",
+          "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x16920E-1.8.0-1.txt",
+          "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1AAE7-1.8.0-1-97CAD.txt",
+          "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1AAE7-1.8.0-1.txt",
+          "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x16920E-1.8.0-1-97CAD.txt"
+        ],
+        "sha256_groups": [
+          {
+            "paths": [
+              "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1AAE7-1.8.0-1-97CAD.txt",
+              "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1AAE7-1.8.0-1.txt"
+            ],
+            "sha256": "41351d586a4729b4f6c07b19e142d8b305536c51f758e9a624becf3065960205"
+          },
+          {
+            "paths": [
+              "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x16920E-1.8.0-1.txt",
+              "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x16920E-1.8.0-1-97CAD.txt"
+            ],
+            "sha256": "4acf6978a249965c79c20ac20d587864ec182e1ab56ca9d0b83965ef6fc6ca74"
+          },
+          {
+            "paths": [
+              "mail-dumps/HD_HOTA.dll+0x1BE67/HD_HOTA.dll+0x1BE67-5.8-R8-181.txt"
+            ],
+            "sha256": "c5c11747c2e188cf69a66a2d7843a2478d69b07ca537c60cda3cdfb48997ed8f"
+          },
+          {
+            "paths": [
+              "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1ADD7-1.8.0-1.txt"
+            ],
+            "sha256": "f818674bfaa89ba31b2a9ed01519acbb66e8f4f003c624216c4f768f603977b5"
+          }
+        ],
+        "unique_sha256_count": 4
+      },
+      "scope": {
+        "excludes": [
+          "*-анализ-*.txt"
+        ],
+        "glob": "**/HD_HOTA.dll*.txt",
+        "hidden_included": true,
+        "ignored_included": true,
+        "root": "mail-dumps",
+        "walk_method": "python-os.walk"
+      },
+      "tool": {
+        "name": "python-os.walk-byte-search",
+        "version": "1"
+      },
+      "result_sha256": "022ab5f4098de1f6dc0adc445620861c982e48531980d16fadb864190272749d"
+    },
+    {
+      "dedup": {
+        "basis": "SHA-256 over complete file bytes",
+        "duplicates": 1
+      },
+      "denominator": {
+        "scanned": 1688,
+        "skipped": 0,
+        "total": 1688
+      },
+      "id": "semantic-land-def-family-addresses",
+      "limits": {
+        "basis": "python os.walk completed without file/count/byte limit",
+        "truncated": false
+      },
+      "positive_control": {
+        "observed": 1,
+        "passed": true,
+        "query": "mail-dumps/HD_HOTA.dll+0x1BE67/HD_HOTA.dll+0x1BE67-5.8-R8-181.txt"
+      },
+      "query": {
+        "exact": "HD_HOTA.dll+0x1AAE7 OR +0x1ADD7 OR +0x1BE67",
+        "parameters": {
+          "casefold": true,
+          "mode": "physical-crash-txt",
+          "terms": [
+            "0x1AAE7",
+            "0x1ADD7",
+            "0x1BE67"
+          ]
+        }
+      },
+      "results": {
+        "match_count": 4,
+        "matches": [
+          "mail-dumps/HD_HOTA.dll+0x1BE67/HD_HOTA.dll+0x1BE67-5.8-R8-181.txt",
+          "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1ADD7-1.8.0-1.txt",
+          "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1AAE7-1.8.0-1-97CAD.txt",
+          "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1AAE7-1.8.0-1.txt"
+        ],
+        "sha256_groups": [
+          {
+            "paths": [
+              "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1AAE7-1.8.0-1-97CAD.txt",
+              "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1AAE7-1.8.0-1.txt"
+            ],
+            "sha256": "41351d586a4729b4f6c07b19e142d8b305536c51f758e9a624becf3065960205"
+          },
+          {
+            "paths": [
+              "mail-dumps/HD_HOTA.dll+0x1BE67/HD_HOTA.dll+0x1BE67-5.8-R8-181.txt"
+            ],
+            "sha256": "c5c11747c2e188cf69a66a2d7843a2478d69b07ca537c60cda3cdfb48997ed8f"
+          },
+          {
+            "paths": [
+              "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1ADD7-1.8.0-1.txt"
+            ],
+            "sha256": "f818674bfaa89ba31b2a9ed01519acbb66e8f4f003c624216c4f768f603977b5"
+          }
+        ],
+        "unique_sha256_count": 3
+      },
+      "scope": {
+        "excludes": [
+          "*-анализ-*.txt"
+        ],
+        "glob": "**/HD_HOTA.dll*.txt",
+        "hidden_included": true,
+        "ignored_included": true,
+        "root": "mail-dumps",
+        "walk_method": "python-os.walk"
+      },
+      "tool": {
+        "name": "python-os.walk-byte-search",
+        "version": "1"
+      },
+      "result_sha256": "467b2de539d01f7e102a864d70c237597d418cb55b2eda338ba891ef1f3b59d7"
+    }
+  ],
+  "schema": 2,
+  "errors": [],
+  "complete": true
+}

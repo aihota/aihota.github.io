@@ -1,0 +1,60 @@
+{
+  "version": 4,
+  "created": "2026-09-04",
+  "target": "mail-dumps/HD_HOTA.dll+0x1BE67",
+  "source_root": "",
+  "relation": "confirmed_same_defect",
+  "reason": "Три физических TXT образуют два исторических инцидента той же локальной ошибки: точные листинги HD 5.7 R10/R17 подтверждают тот же unsigned terrain-byte lookup, выбор нулевого terrain DEF slot и последующее чтение NULL+0x20; источник состояния и общий root cause остаются unknown.",
+  "count_in_family": true,
+  "publish_with_primary": true,
+  "family_contract": {
+    "event_role": "crash",
+    "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+    "operation": "read",
+    "mechanism_side": "source",
+    "events": 3
+  },
+  "state": "applied",
+  "items": [
+    {
+      "source": "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x1AAE7-1.8.0-1-97CAD.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1AAE7-1.8.0-1-97CAD.txt",
+      "kind": "txt",
+      "size": 8656,
+      "sha256": "41351d586a4729b4f6c07b19e142d8b305536c51f758e9a624becf3065960205",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing"
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x1AAE7-1.8.0-1.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1AAE7-1.8.0-1.txt",
+      "kind": "txt",
+      "size": 8656,
+      "sha256": "41351d586a4729b4f6c07b19e142d8b305536c51f758e9a624becf3065960205",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing"
+    },
+    {
+      "source": "mail-dumps/HD_HOTA.dll/HD_HOTA.dll+0x1ADD7-1.8.0-1.txt",
+      "destination": "mail-dumps/HD_HOTA.dll+0x1BE67/Краш-логи и дампы старых версий HD-мода/HD_HOTA.dll+0x1ADD7-1.8.0-1.txt",
+      "kind": "txt",
+      "size": 8768,
+      "sha256": "f818674bfaa89ba31b2a9ed01519acbb66e8f4f003c624216c4f768f603977b5",
+      "event_role": "crash",
+      "exception_class": "EXCEPTION_ACCESS_VIOLATION",
+      "operation": "read",
+      "mechanism_side": "source",
+      "evidence_level": "exact_listing"
+    }
+  ],
+  "mcp_relocation_seal": {
+    "schema": 1,
+    "hmac_sha256": "536ca01a7703a21c4751d3c82430b62e436b8f30af3ac812f1266e8a21aa2f25"
+  }
+}
