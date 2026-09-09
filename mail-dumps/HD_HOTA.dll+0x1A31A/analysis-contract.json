@@ -1,0 +1,195 @@
+{
+  "schema": 2,
+  "kind": "crash_analysis_contract",
+  "case": "family-HD_HOTA.dll+0x1A31A",
+  "mechanism": {
+    "kind": "container_traversal",
+    "name": "unchecked_null_Def_groups_dereference",
+    "causality_level": "L1",
+    "local_mechanism_confirmed": true,
+    "state_origin_confirmed": false
+  },
+  "thread_contexts": [
+    {
+      "source": "exception_stream",
+      "tid": 48080,
+      "incident": "5.8 R15",
+      "registers": {
+        "EIP": "0x08E1A31A",
+        "EAX": "0x00000000",
+        "ESI": "0x2A00D6A0",
+        "EDI": "0x2A00D6A4",
+        "ESP": "0x001A9CDC",
+        "EBP": "0x001A9CE8"
+      }
+    },
+    {
+      "source": "text_context",
+      "tid": 40124,
+      "incident": "5.8 R15",
+      "stack": [
+        "0x08E1A31A",
+        "0x02CE2465",
+        "0x00520276",
+        "0x08E0C2C2"
+      ]
+    }
+  ],
+  "thread_policy": {
+    "register_sets_may_be_combined": false,
+    "reason": "ExceptionStream TID 48080 differs from reporter stack TID 40124"
+  },
+  "consumer_boundary": {
+    "input_validity": "confirmed",
+    "candidate_validity": "invalid",
+    "basis": "non-null _Def_ reached the FlagPort.def branch, but [ESI+0x1C] was NULL"
+  },
+  "state_origin_candidates": [
+    {
+      "id": "race",
+      "status": "not_established",
+      "next_evidence": [
+        "same-object cross-thread writer trace",
+        "ordering around the first NULL store"
+      ]
+    },
+    {
+      "id": "use_after_free",
+      "status": "not_established",
+      "next_evidence": [
+        "allocator free stack",
+        "object generation and reuse trace"
+      ]
+    },
+    {
+      "id": "heap_overwrite",
+      "status": "not_established",
+      "next_evidence": [
+        "first out-of-owner write",
+        "full heap metadata before failure"
+      ]
+    },
+    {
+      "id": "third_party_write",
+      "status": "not_established",
+      "next_evidence": [
+        "hardware watchpoint writer EIP",
+        "writer module and stack"
+      ]
+    }
+  ],
+  "root_cause_declared": false,
+  "structure": {
+    "fields": {
+      "resource_type": 20,
+      "reference_count": 24,
+      "groups": 28
+    },
+    "invariants": [
+      "groups is non-null before the replacement chain dereferences it",
+      "the selected group pointer is readable",
+      "group and frame indexes are within the loaded DEF bounds"
+    ],
+    "sibling_coverage": {
+      "scanned": 4,
+      "total": 4,
+      "complete": true,
+      "population": "four unguarded _Def_.groups chains in sub_101A220"
+    }
+  },
+  "lifecycle": {
+    "counts": {
+      "references": 4,
+      "reads": 4,
+      "writes": 0,
+      "checks": 0,
+      "publishes": 0,
+      "clears": 0
+    },
+    "count_basis": "complete census of the four replacement chains; object writers and lifetime are not captured",
+    "enumeration_complete": false,
+    "absence_claims": []
+  },
+  "fixes": [
+    {
+      "fix_role": "containment",
+      "supported_builds": [
+        "5.8 R15"
+      ],
+      "expected_evidence": [
+        "NULL groups is rejected before the first dereference",
+        "valid FlagPort.def still receives the expected frame replacement"
+      ],
+      "differential_test": [
+        "original build faults on NULL groups",
+        "guarded build returns the original resource without the replacement",
+        "valid-resource positive control remains unchanged"
+      ]
+    },
+    {
+      "fix_role": "diagnostic",
+      "supported_builds": [
+        "5.8 R15"
+      ],
+      "expected_evidence": [
+        "full dump at the first NULL state",
+        "resource origin, sequence count and allocation result"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_role": "derived_battle_save",
+      "phase_role": "unresolved",
+      "incident": "5.8 R15"
+    }
+  ],
+  "family": {
+    "semantic_fingerprint": {
+      "structure_role": "_Def_.groups in the DEF replacement hook",
+      "field_offset": "+0x1C",
+      "access": "read",
+      "call_tail": [
+        "A0_KingdomOverviewDlg_Create_sub_51FF00",
+        "A0_DlgStaticDef_Create_sub_4EA800",
+        "sub_101A220",
+        "mov eax,[eax]"
+      ]
+    },
+    "denominator": {
+      "scanned": 1,
+      "total": 1,
+      "population": "the exact incident in the current case"
+    }
+  },
+  "call_chain": [
+    {
+      "type": "module_function",
+      "module": "h3hota HD.exe",
+      "function": "A0_KingdomOverviewDlg_Create_sub_51FF00",
+      "address": "0x0051FF00"
+    },
+    {
+      "type": "module_function",
+      "module": "h3hota HD.exe",
+      "function": "A0_DlgStaticDef_Create_sub_4EA800",
+      "address": "0x004EA800"
+    },
+    {
+      "type": "dynamic_bridge",
+      "address": "0x02CE2460"
+    },
+    {
+      "type": "module_function",
+      "module": "HD_HOTA.dll",
+      "function": "sub_101A220",
+      "address": "0x0101A220"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "errors": [],
+    "root_cause_allowed": false
+  },
+  "status": "passed"
+}

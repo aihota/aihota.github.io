@@ -1,0 +1,183 @@
+{
+  "schema": 2,
+  "generated_at": "2026-09-09T11:55:04.700624+00:00",
+  "source": "mail-dumps/HD_HOTA.dll+0x1A31A/claims.json",
+  "axes": [
+    "instruction",
+    "mechanism",
+    "state_origin",
+    "family_coverage"
+  ],
+  "levels": [
+    "confirmed",
+    "probable",
+    "unknown",
+    "not_applicable"
+  ],
+  "claims": [
+    {
+      "id": "crash-site",
+      "type": "crash_site",
+      "statement": "Точка сбоя подтверждена DMP, параметрами исключения и совпавшими байтами листинга.",
+      "evidence": [
+        "input:address-proof.json",
+        "input:pair-audit.json"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "applicable_axes": [
+        "instruction"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "local-mechanism",
+      "type": "local_mechanism",
+      "statement": "Локальный механизм подтверждён: _Def_.groups равен нулю и разыменовывается без проверки.",
+      "evidence": [
+        "input:address-proof.json",
+        "input:analysis-contract.json"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "applicable_axes": [
+        "mechanism"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "confirmed",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "state-origin",
+      "type": "state_origin",
+      "statement": "Происхождение нулевого состояния _Def_.groups не установлено.",
+      "evidence": [
+        "input:analysis-contract.json",
+        "input:capabilities.json"
+      ],
+      "confidence": "не проверено",
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "family-coverage",
+      "type": "family_coverage",
+      "statement": "Охват текущей точной семьи подтверждён.",
+      "evidence": [
+        "input:family-membership.json",
+        "input:pair-audit.json"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "applicable_axes": [
+        "family_coverage"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "reproduction",
+      "type": "reproduction",
+      "statement": "Контролируемое воспроизведение не выполнено.",
+      "evidence": [
+        "input:repro-plan.json"
+      ],
+      "confidence": "не проверено",
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "fix-guard",
+      "type": "fix",
+      "statement": "Защитная проверка должна предшествовать первому чтению _Def_.groups.",
+      "evidence": [
+        "input:analysis-contract.json",
+        "input:repro-plan.json"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "applicable_axes": [],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "dump-limitation",
+      "type": "limitation",
+      "statement": "Минимальный DMP не содержит сам объект _Def_ и полную кучу.",
+      "evidence": [
+        "input:capabilities.json"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "applicable_axes": [],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    }
+  ],
+  "matrix": {
+    "instruction": {
+      "confirmed": 1,
+      "not_applicable": 6
+    },
+    "mechanism": {
+      "not_applicable": 6,
+      "confirmed": 1
+    },
+    "state_origin": {
+      "not_applicable": 5,
+      "unknown": 2
+    },
+    "family_coverage": {
+      "not_applicable": 6,
+      "confirmed": 1
+    }
+  },
+  "diagnostic_completeness": {
+    "status": "incomplete",
+    "complete": false,
+    "causality_level": "L1",
+    "axis_summary": {
+      "instruction": "confirmed",
+      "mechanism": "confirmed",
+      "state_origin": "unknown",
+      "family_coverage": "confirmed",
+      "reproduction": "unknown"
+    },
+    "root_cause_ready": false,
+    "next_required": [
+      "capture_state_origin_and_writer",
+      "confirm_reproduction"
+    ]
+  },
+  "errors": [],
+  "ready": true
+}

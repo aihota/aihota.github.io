@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "kind": "case_manifest",
+  "case_id": "HD_HOTA.dll+0x1A31A",
+  "root": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A31A",
+  "status": "ready",
+  "errors": [],
+  "counts": {
+    "physical_txt": 1,
+    "physical_dmp": 1,
+    "unique_incidents": 1,
+    "family_events": 1,
+    "profiled_dmp": 1
+  },
+  "versions": {
+    "hota": [
+      "1.8.1"
+    ],
+    "hd": [
+      "5.8 R15"
+    ]
+  },
+  "axes": {
+    "physical_materialization": {
+      "txt": 1,
+      "dmp": 1,
+      "exact_pairs": 1
+    },
+    "incident_identity": {
+      "unique_incidents": 1,
+      "dedup_basis": "event_fingerprint"
+    },
+    "family_membership": {
+      "counts": {
+        "confirmed": 1
+      },
+      "classification_complete": true,
+      "same_sink": true,
+      "same_local_mechanism": true,
+      "same_state_origin": "unknown",
+      "same_root_cause": "unknown"
+    },
+    "state_origin_and_root_cause": {
+      "same_state_origin": "unknown",
+      "same_root_cause": "unknown",
+      "independent_from_family_membership": true
+    }
+  },
+  "report_contract": {
+    "numerator": 1,
+    "denominator": 1,
+    "census_numerator": 1,
+    "census_denominator": 1,
+    "population": "current_materialized_case",
+    "scope": "local_case",
+    "unit": "unique_incident",
+    "dedup_basis": "event_fingerprint",
+    "hota_versions": [
+      "1.8.1"
+    ],
+    "hd_versions": [
+      "5.8 R15"
+    ]
+  },
+  "archive_contract": {
+    "population": "all_materialized_primary_txt_dmp",
+    "txt_members": 1,
+    "dmp_members": 1,
+    "member_count": 2,
+    "members": [
+      {
+        "path": "HD_HOTA.dll+0x1A31A-5.8-R15-181.dmp",
+        "size": 125080,
+        "sha256": "8fe6431b5b95ae59d0c92d75a9f535030a5339ecf4023d65cd24dbab4997d547"
+      },
+      {
+        "path": "HD_HOTA.dll+0x1A31A-5.8-R15-181.txt",
+        "size": 10235,
+        "sha256": "8a217eec0e28ddad424e4499ec44bbb3a7cbd0560ba3924d03b7cb7fc2a72af2"
+      }
+    ]
+  },
+  "capabilities_contract": {
+    "dmp_count": 1,
+    "profiled_count": 1,
+    "one_row_per_dmp": true
+  },
+  "incidents": [
+    {
+      "incident_id": "incident-86fd4dbced1dffaf",
+      "event_fingerprint": "86fd4dbced1dffaf4b0de16e25362a6932dbb5f63edf5fc40ef821284338b316",
+      "versions": {
+        "hota": "1.8.1",
+        "hd": "5.8 R15"
+      },
+      "crash_site": "hd_hota.dll+0x1a31a",
+      "family_membership": "confirmed",
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "artifacts": [
+        {
+          "txt": {
+            "path": "HD_HOTA.dll+0x1A31A-5.8-R15-181.txt",
+            "size": 10235,
+            "sha256": "8a217eec0e28ddad424e4499ec44bbb3a7cbd0560ba3924d03b7cb7fc2a72af2"
+          },
+          "dmp": {
+            "path": "HD_HOTA.dll+0x1A31A-5.8-R15-181.dmp",
+            "size": 125080,
+            "sha256": "8fe6431b5b95ae59d0c92d75a9f535030a5339ecf4023d65cd24dbab4997d547"
+          },
+          "pair_quality": "exact_pair"
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "series": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A31A/series-groups.json",
+    "pair_audit": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A31A/pair-audit.json",
+    "family_membership": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A31A/family-membership.json",
+    "capabilities": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1A31A/capabilities.json"
+  },
+  "case_fingerprint": "e73db01ea5edde86743d887ebdc56d9243d71f162d7fb82e65e2653f79819748"
+}

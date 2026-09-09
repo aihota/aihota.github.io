@@ -1,0 +1,86 @@
+{
+  "schema": 4,
+  "generated_at": "2026-09-09T11:55:28.855280+00:00",
+  "family_id": "family-HD_HOTA.dll+0x1A31A",
+  "source": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1A31A/family-membership-input.json",
+  "scope_id": "series:HD_HOTA.dll+0x1A31A",
+  "scope_kind": "series",
+  "scope": {
+    "id": "series:HD_HOTA.dll+0x1A31A",
+    "kind": "series",
+    "root": "mail-dumps/HD_HOTA.dll+0x1A31A",
+    "address_range": {
+      "start_rva": "0x001A31A",
+      "end_rva": "0x001A31A",
+      "end_inclusive": true,
+      "human_label": "HD_HOTA.dll+0x1A31A",
+      "basis": "the exact crash address in the current case directory"
+    },
+    "enumeration_basis": [
+      "pair-audit.json",
+      "series-groups.json",
+      "one exact TXT/DMP pair and one normalized instruction window"
+    ],
+    "sibling_boundary": "other addresses with the same semantic defect require a separate cross-address census"
+  },
+  "candidate_census": {
+    "total": 1,
+    "classified": 1,
+    "confirmed": 1,
+    "probable": 0,
+    "context_only": 0,
+    "excluded": 0,
+    "unknown": 0,
+    "blocked": 0
+  },
+  "incident_set_fingerprint": "68d9fbc97959632135e962cc0be3ebd1eeda3f712873002b9105bf7a551777f9",
+  "human_decision": {
+    "author": "nxzkaws (review assisted by GPT-5.6 Sol)",
+    "decided_at": "2026-09-09T14:55:00+03:00",
+    "basis": "The only incident in the current series has the exact HD_HOTA.dll+0x1A31A sink, exact DMP/TXT pairing, the matching 5.8 R15 instruction window, and the same _Def_.groups NULL dereference described by the family key.",
+    "source": "pair-audit.json; address-proof.json; analysis-contract.json; HD_HOTA.dll-5.8-R15.txt; report; user publication authorization 2026-09-09",
+    "incident_set_fingerprint": "68d9fbc97959632135e962cc0be3ebd1eeda3f712873002b9105bf7a551777f9"
+  },
+  "provenance_warnings": [],
+  "memberships": [
+    {
+      "incident_id": "incident-86fd4dbced1dffaf",
+      "membership": "confirmed",
+      "build": "5.8 R15",
+      "basis": "Exact TXT/DMP pair, exact normalized sink 0x0101A31A, and matching bytes prove the current family's local _Def_.groups NULL dereference.",
+      "evidence": [
+        "pair-audit.json",
+        "address-proof.json",
+        "analysis-contract.json",
+        "../../modules/HD_HOTA.dll-5.8-R15.txt"
+      ],
+      "fingerprint": {
+        "structure_role": "_Def_.groups in the DEF replacement hook",
+        "field": "+0x1C",
+        "call_tail": [
+          "A0_KingdomOverviewDlg_Create_sub_51FF00",
+          "A0_DlgStaticDef_Create_sub_4EA800",
+          "sub_101A220",
+          "mov eax,[eax]"
+        ],
+        "frame_depth": "exception frame 0"
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    }
+  ],
+  "counts": {
+    "confirmed": 1
+  },
+  "errors": [],
+  "registry_valid": true,
+  "enumeration_complete": true,
+  "classification_complete": true,
+  "unknown_count": 0,
+  "blocked_by_listing_count": 0,
+  "complete": true
+}

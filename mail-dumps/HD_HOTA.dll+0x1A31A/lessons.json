@@ -1,0 +1,135 @@
+{
+  "schema": 2,
+  "kind": "crash_case_lessons",
+  "case": "HD_HOTA.dll+0x1A31A",
+  "closure": {
+    "publication_status": "closed",
+    "local_mechanism_status": "confirmed",
+    "state_origin_status": "unknown",
+    "reproduction_status": "blocked_by_environment"
+  },
+  "lessons": [
+    {
+      "id": "separate-thread-contexts",
+      "category": "evidence",
+      "mistake": "Регистры потока исключения и стек текстового контекста можно ошибочно объединить при разных идентификаторах потоков.",
+      "rule": "Хранить наборы по источнику и запрещать синтез между разными потоками.",
+      "enforcement": [
+        "analysis-contract.json: register_sets_may_be_combined=false",
+        "capabilities.json: CONTEXT_THREAD_MISMATCH"
+      ]
+    },
+    {
+      "id": "separate-mechanism-origin",
+      "category": "diagnosis",
+      "mistake": "Подтверждённое нулевое разыменование можно ошибочно назвать установленной первопричиной.",
+      "rule": "Разделять точку сбоя, локальный механизм, происхождение состояния и воспроизведение.",
+      "enforcement": [
+        "coverage.json: four independent confidence axes",
+        "analysis-contract.json: root_cause_declared=false"
+      ]
+    },
+    {
+      "id": "audit-all-groups-sites",
+      "category": "diagnosis",
+      "mistake": "Проверка только падающей ветви скрывала одинаковый дефект в соседних заменах кадров.",
+      "rule": "Перечислять все однотипные цепочки функции и фиксировать полный знаменатель.",
+      "enforcement": [
+        "analysis-contract.json: sibling_coverage scanned=4 total=4",
+        "report section 5 lists four sites"
+      ]
+    },
+    {
+      "id": "bind-runtime-address",
+      "category": "evidence",
+      "mistake": "Ручная адресная арифметика без привязки к точным байтам DMP могла пережить изменение входа.",
+      "rule": "Хранить schema-2 address proof с SHA-256 DMP, диапазоном MemoryList и физическими смещениями.",
+      "enforcement": [
+        "address_proof.py create/check",
+        "address-proof.json"
+      ]
+    },
+    {
+      "id": "render-incident-table",
+      "category": "tooling",
+      "mistake": "Строки сводки инцидентов могли попасть в моноширинный блок вместо HTML-таблицы.",
+      "rule": "Распознавать таблицу по границе колонок до классификации отступов как блока кода.",
+      "enforcement": [
+        "test_render.py regression for incident summary tables",
+        "post-render table/pre verification"
+      ]
+    },
+    {
+      "id": "publish-machine-contracts",
+      "category": "publication",
+      "mistake": "Читаемый отчёт без обязательных sidecar нельзя независимо перепроверить перед публикацией.",
+      "rule": "Публиковать coverage, analysis, lessons, address proof и evidence manifest вместе с отчётом.",
+      "enforcement": [
+        "case_quality_gate.py mandatory_machine_sidecars",
+        "evidence_manifest.py schema 4"
+      ]
+    }
+  ],
+  "regressions": [
+    {
+      "id": "incident-table-rendering",
+      "test": "python3 .agents/skills/address-mapping/test_render.py",
+      "implementation_status": "implemented",
+      "execution_status": "passed",
+      "closing_condition": "сводка инцидентов находится в table и отсутствует в pre"
+    },
+    {
+      "id": "report-lint",
+      "test": "python3 .agents/skills/hota-crash-triage/lint_report.py <report>",
+      "implementation_status": "implemented",
+      "execution_status": "passed",
+      "closing_condition": "FAIL=0 и BLOCKING_WARN=0"
+    },
+    {
+      "id": "controlled-def-repro",
+      "test": "matched-build valid/NULL-groups differential run",
+      "implementation_status": "planned",
+      "execution_status": "blocked_by_environment",
+      "closing_condition": "исходная сборка падает, защищённая возвращает ресурс, положительный контроль не меняется"
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "groups-null-origin",
+      "question": "Какой первый путь оставляет _Def_.groups равным нулю?",
+      "status": "open",
+      "required_evidence": [
+        "полный DMP до разыменования",
+        "стек первого NULL или записи",
+        "точный FlagPort.def или LOD",
+        "результаты выделений памяти"
+      ],
+      "capture_command": "включить Sys.FullDump=1, остановиться после A0_Load_Def_sub_55C9C0 и снять дамп с ESI, [ESI+0x14], [ESI+0x18], [ESI+0x1C]",
+      "positive_control": "та же SHA-256 сборка со штатным FlagPort.def и ненулевым groups",
+      "closing_condition": "первый источник нулевого поля связан с конкретной инструкцией, потоком и входным ресурсом",
+      "blocked_claims": [
+        "state_origin",
+        "root_cause",
+        "causal_fix"
+      ]
+    },
+    {
+      "id": "semantic-family-census",
+      "question": "Есть ли другие адреса с тем же смысловым дефектом _Def_.groups?",
+      "status": "open",
+      "required_evidence": [
+        "полный корпусный поиск по смысловому отпечатку",
+        "решение по каждому кандидату",
+        "знаменатель и положительный контроль"
+      ],
+      "capture_command": "выполнить полный корпусный поиск по цепочке [esi+0x1C] -> [eax] и классифицировать каждый кандидат",
+      "positive_control": "текущий incident-86fd4dbced1dffaf находится тем же детектором",
+      "closing_condition": "family-membership.json не содержит unknown и имеет полный знаменатель",
+      "blocked_claims": [
+        "family_coverage",
+        "cross_build_scope"
+      ]
+    }
+  ],
+  "rule": "каждый урок содержит ошибку, новое правило и машинное закрепление"
+}
