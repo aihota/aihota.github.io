@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "kind": "corpus_query_receipt",
+  "query": {
+    "mode": "crash_address",
+    "basis": "parsed_exception_address",
+    "pattern": "HD_HOTA\\.dll\\+0xAC5F",
+    "folder": "mail-dumps",
+    "file_glob": "*.txt",
+    "exclude": "*-анализ-*",
+    "dedup": true,
+    "count_mode": "occurrences"
+  },
+  "result": {
+    "complete": true,
+    "files_matched": 5515,
+    "files_attempted": 5515,
+    "files_read": 5515,
+    "files_truncated": 0,
+    "unreadable": 0,
+    "crash_logs": 5502,
+    "duplicates_skipped": 1264,
+    "non_crash_files": 13,
+    "missing_address": 0,
+    "hits": 2,
+    "files_with_hits": 2,
+    "distinct": 1,
+    "rows": [
+      {"value": "HD_HOTA.dll+0xAC5F", "count": 2, "share_pct": 100}
+    ]
+  },
+  "captured_at": "2026-09-11T14:15:00+03:00",
+  "source": "MCP corpus_query"
+}

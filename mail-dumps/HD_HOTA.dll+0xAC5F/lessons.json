@@ -1,0 +1,83 @@
+{
+  "schema": 2,
+  "kind": "crash_case_lessons",
+  "case": "HD_HOTA.dll+0xAC5F",
+  "closure": {
+    "publication_status": "closed",
+    "local_mechanism_status": "confirmed",
+    "state_origin_status": "unknown",
+    "reproduction_status": "blocked_by_environment"
+  },
+  "lessons": [
+    {
+      "id": "dont-group-by-trampoline",
+      "category": "evidence",
+      "mistake": "Разные runtime-адреса patcher_x86 ошибочно разделили два одинаковых механизма.",
+      "rule": "Группировать по функции, offset, opcode, операнду и формуле, а trampoline хранить как dynamic_bridge.",
+      "enforcement": [
+        "family-membership.json",
+        "analysis-contract.json"
+      ]
+    },
+    {
+      "id": "keep-thread-contexts-separate",
+      "category": "evidence",
+      "mistake": "Стековый слот можно ошибочно соединить с регистрами другого потока.",
+      "rule": "Не объединять ExceptionStream и text_context при разных TID.",
+      "enforcement": [
+        "analysis-contract.json: register_sets_may_be_combined=false",
+        "capabilities.json"
+      ]
+    },
+    {
+      "id": "runtime-value-vs-code-displacement",
+      "category": "diagnosis",
+      "mistake": "Статическое значение displacement 0x21620 можно ошибочно выдать за снятое runtime-значение [0x41C6B5].",
+      "rule": "Разделять статическое назначение и фактическое runtime-слагаемое, если страница не сохранена.",
+      "enforcement": [
+        "report section 5",
+        "analysis-contract.json"
+      ]
+    },
+    {
+      "id": "mechanism-is-not-origin",
+      "category": "diagnosis",
+      "mistake": "Невалидный hero_ptr можно преждевременно приписать только мусорному hero_id.",
+      "rule": "Сохранять альтернативы Player, heroes_ids и базовых слагаемых до writer-capture.",
+      "enforcement": [
+        "analysis-contract.json state_origin_candidates",
+        "coverage.json"
+      ]
+    }
+  ],
+  "regressions": [
+    {
+      "id": "report-lint",
+      "test": "lint_report.py --publish <report>",
+      "implementation_status": "implemented",
+      "execution_status": "passed",
+      "closing_condition": "FAIL=0 and BLOCKING_WARN=0"
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "bad-component-origin",
+      "question": "Какое слагаемое hero_ptr первым становится неверным?",
+      "status": "open",
+      "required_evidence": [
+        "full DMP",
+        "same-thread tuple before imul",
+        "writer EIP/TID/stack"
+      ],
+      "capture_command": "log player_id, Player, slot, hero_id, [0x41C6B5], [0x699538], hero_ptr then set watchpoint on first bad component",
+      "positive_control": "same build and network path with valid IDs",
+      "closing_condition": "first invalid transition is bound to one writer instruction and stack",
+      "blocked_claims": [
+        "state_origin",
+        "root_cause",
+        "causal_fix"
+      ]
+    }
+  ],
+  "rule": "каждый урок содержит ошибку, новое правило и машинное закрепление"
+}

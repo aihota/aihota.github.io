@@ -1,0 +1,71 @@
+{
+  "schema": 2,
+  "kind": "address-proof",
+  "module": "HD_HOTA.dll",
+  "version": "5.8 R15",
+  "addresses": {
+    "runtime": 132230239,
+    "load_base": 132186112,
+    "image_base": 16777216,
+    "size_of_image": 18849792,
+    "file_offset": 54362,
+    "file_offset_domain": "dmp",
+    "imagebase": 16777216,
+    "rva": 44127,
+    "module_offset": 44127,
+    "ida": 16821343
+  },
+  "sources": {
+    "runtime": "ExceptionStream and CONTEXT EIP in exact DMP/TXT pair",
+    "load_base": "DMP ModuleList",
+    "image_base": "exact IDA listing",
+    "file_offset": "DMP MemoryList mapping"
+  },
+  "identity": {
+    "level": "dmp-window",
+    "full_binary_match": false,
+    "window": {
+      "runtime": 132230239,
+      "size": 32,
+      "bytes": "0F B6 49 34 FF 34 88 B8 70 01 45 00 8B CE FF D0 8B 35 80 1E 02 08 68 64 A3 00 08 56 8B 06 FF 50"
+    }
+  },
+  "dmp_mapping": {
+    "path": "HD_HOTA.dll+0xAC5F-5.8-R15-181.dmp",
+    "size": 100046,
+    "sha256": "08fec5f3c322f5e1c6aa67b9303241136f82ee621c3de7a77936e05c55412b71",
+    "stream_kind": "MemoryList",
+    "range": {
+      "stream_kind": "MemoryList",
+      "range_index": 5,
+      "start_va": 132230111,
+      "size": 256,
+      "file_offset": 54234
+    },
+    "target": {
+      "va": 132230239,
+      "size": 4,
+      "delta": 128,
+      "file_offset": 54362,
+      "bytes_hex": "0F B6 49 34",
+      "bytes_sha256": "a2ecb7976b872b5bbeafdd3c51e05ebac54c83a25007291c7abcfe7e13c26dfd"
+    },
+    "window": {
+      "va": 132230239,
+      "size": 32,
+      "delta": 128,
+      "file_offset": 54362,
+      "bytes_hex": "0F B6 49 34 FF 34 88 B8 70 01 45 00 8B CE FF D0 8B 35 80 1E 02 08 68 64 A3 00 08 56 8B 06 FF 50",
+      "bytes_sha256": "290f3a6a5073a36736d1b779e96a0022a328ebb6baa902ed4dff1c8d2f4b6161"
+    }
+  },
+  "function": "sub_100AB50",
+  "offset_in_function": "0x10F",
+  "instruction": "movzx ecx,byte ptr [ecx+34h]",
+  "validation": {
+    "checked": true,
+    "status": "passed",
+    "errors": [],
+    "warnings": []
+  }
+}

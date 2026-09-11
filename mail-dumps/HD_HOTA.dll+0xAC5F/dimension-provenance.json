@@ -1,0 +1,132 @@
+{
+  "schema": 2,
+  "kind": "dimension_provenance",
+  "verdict": "blocked_identity",
+  "causal_identity_allowed": false,
+  "identity_status": "not_applicable_to_hero_record_pointer_case",
+  "nodes": {
+    "serialized_map": {
+      "width": {
+        "value": null,
+        "status": "unknown",
+        "source": null,
+        "basis": "not captured"
+      },
+      "height": {
+        "value": null,
+        "status": "unknown",
+        "source": null,
+        "basis": "not captured"
+      },
+      "levels": {
+        "value": null,
+        "status": "unknown",
+        "source": null,
+        "basis": "not captured"
+      }
+    },
+    "runtime_bounds": {
+      "width": {
+        "value": null,
+        "status": "unknown",
+        "source": null,
+        "basis": "not captured"
+      },
+      "height": {
+        "value": null,
+        "status": "unknown",
+        "source": null,
+        "basis": "not captured"
+      },
+      "levels": {
+        "value": null,
+        "status": "unknown",
+        "source": null,
+        "basis": "not captured"
+      }
+    },
+    "receiver_object": {
+      "width": {
+        "value": null,
+        "status": "unknown",
+        "source": null,
+        "basis": "not captured"
+      },
+      "height": {
+        "value": null,
+        "status": "unknown",
+        "source": null,
+        "basis": "not captured"
+      },
+      "levels": {
+        "value": null,
+        "status": "unknown",
+        "source": null,
+        "basis": "not captured"
+      }
+    },
+    "allocation": {
+      "element_count": {
+        "value": null,
+        "status": "unknown",
+        "source": null,
+        "basis": "not captured"
+      },
+      "element_size_bytes": {
+        "value": 1170,
+        "status": "derived",
+        "source": "HD_HOTA.dll sub_100AB50 listing",
+        "basis": "imul eax,0x492"
+      },
+      "byte_length": {
+        "value": null,
+        "status": "unknown",
+        "source": null,
+        "basis": "not captured"
+      }
+    },
+    "crash_access": {
+      "x": {
+        "value": null,
+        "status": "unknown",
+        "source": null,
+        "basis": "not captured"
+      },
+      "y": {
+        "value": null,
+        "status": "unknown",
+        "source": null,
+        "basis": "not captured"
+      },
+      "z": {
+        "value": null,
+        "status": "unknown",
+        "source": null,
+        "basis": "not captured"
+      },
+      "linear_index": {
+        "value": null,
+        "status": "unknown",
+        "source": null,
+        "basis": "not captured"
+      },
+      "access_width_bytes": {
+        "value": 1,
+        "status": "observed",
+        "source": "faulting instruction",
+        "basis": "movzx ecx,byte ptr [ecx+0x34]"
+      }
+    }
+  },
+  "predicates": {
+    "dimensions_agree": "unknown",
+    "crash_access_oob": "unknown",
+    "allocation_access_oob": "unknown"
+  },
+  "crash_access_oob": "unknown",
+  "sources": {
+    "map": "dimension-map-input.json",
+    "runtime": null,
+    "crash": "dimension-crash-input.json"
+  }
+}

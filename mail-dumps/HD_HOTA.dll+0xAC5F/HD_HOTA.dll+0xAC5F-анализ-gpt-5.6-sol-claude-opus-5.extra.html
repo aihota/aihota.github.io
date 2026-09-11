@@ -1,0 +1,29 @@
+<!-- Врезка визуализации: подтверждённый локальный механизм без вывода о первопричине. -->
+<section id="viz-mechanism" data-toc="Визуализация сбоя">
+  <h2><span class="htext">Визуализация сбоя</span><a class="anchor" href="#viz-mechanism">¶</a></h2>
+  <p>Сплошная цепочка показывает подтверждённое вычисление адреса. Пунктирный блок отмечает неизвестный источник первого неверного слагаемого.</p>
+  <div class="viz">
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">1</span> Получение идентификатора героя</div>
+      <div class="viz-strip">
+        <div class="viz-box dashed">?<span class="lbl">источник состояния не установлен</span></div>
+        <div class="viz-box accent">A<span class="lbl">Player::heroes_ids[slot]</span></div>
+        <div class="viz-box">hero_id<span class="lbl">проверяется только на -1</span></div>
+      </div>
+    </div>
+    <div class="viz-stage">
+      <div class="viz-stage-title"><span class="viz-stage-index">2</span> Вычисление и чтение</div>
+      <div class="viz-strip">
+        <div class="viz-box">hero_id * 0x492<span class="lbl">индекс записи героя</span></div>
+        <div class="viz-box">+ две базы<span class="lbl">hero_ptr</span></div>
+        <div class="viz-box bad">F<span class="lbl">byte [hero_ptr+0x34]</span></div>
+      </div>
+      <p class="viz-cap">В двух DMP адрес F точно равен ECX + 0x34.</p>
+    </div>
+  </div>
+  <div class="viz-legend">
+    <div class="item"><span class="viz-badge accent">A</span><span class="txt">A — значение hero_id, прочитанное из слота игрока.</span></div>
+    <div class="item"><span class="viz-badge bad">F</span><span class="txt">F — недоступный адрес поля portrait_id, на котором возникает исключение.</span></div>
+    <div class="item"><span class="viz-badge">?</span><span class="txt">Неизвестно, какой компонент формулы стал неверным первым.</span></div>
+  </div>
+</section>

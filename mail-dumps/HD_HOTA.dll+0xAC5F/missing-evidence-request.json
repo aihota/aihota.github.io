@@ -1,0 +1,310 @@
+{
+  "schema": 1,
+  "kind": "missing_evidence_request",
+  "case": "case",
+  "status": "open",
+  "items": [
+    {
+      "id": "full-memory-dump",
+      "field": "runtime.memory",
+      "reason": "available dumps do not cover receiver/allocation state",
+      "capture": "capture a full dump before teardown on the failing path",
+      "success_evidence": [
+        "full_dump",
+        "binary_sha256",
+        "exception_tid",
+        "memory_map"
+      ],
+      "priority": "P0"
+    },
+    {
+      "id": "geometry-allocation-byte_length",
+      "field": "allocation.byte_length",
+      "reason": "required geometry scalar is unknown",
+      "capture": "capture value, object identity, TID and writer/call stack on the failing run",
+      "success_evidence": [
+        "allocation.byte_length",
+        "source",
+        "tid",
+        "timestamp",
+        "object_identity"
+      ],
+      "priority": "P0"
+    },
+    {
+      "id": "geometry-allocation-element_count",
+      "field": "allocation.element_count",
+      "reason": "required geometry scalar is unknown",
+      "capture": "capture value, object identity, TID and writer/call stack on the failing run",
+      "success_evidence": [
+        "allocation.element_count",
+        "source",
+        "tid",
+        "timestamp",
+        "object_identity"
+      ],
+      "priority": "P0"
+    },
+    {
+      "id": "geometry-crash_access-linear_index",
+      "field": "crash_access.linear_index",
+      "reason": "required geometry scalar is unknown",
+      "capture": "capture value, object identity, TID and writer/call stack on the failing run",
+      "success_evidence": [
+        "crash_access.linear_index",
+        "source",
+        "tid",
+        "timestamp",
+        "object_identity"
+      ],
+      "priority": "P0"
+    },
+    {
+      "id": "geometry-crash_access-x",
+      "field": "crash_access.x",
+      "reason": "required geometry scalar is unknown",
+      "capture": "capture value, object identity, TID and writer/call stack on the failing run",
+      "success_evidence": [
+        "crash_access.x",
+        "source",
+        "tid",
+        "timestamp",
+        "object_identity"
+      ],
+      "priority": "P0"
+    },
+    {
+      "id": "geometry-crash_access-y",
+      "field": "crash_access.y",
+      "reason": "required geometry scalar is unknown",
+      "capture": "capture value, object identity, TID and writer/call stack on the failing run",
+      "success_evidence": [
+        "crash_access.y",
+        "source",
+        "tid",
+        "timestamp",
+        "object_identity"
+      ],
+      "priority": "P0"
+    },
+    {
+      "id": "geometry-crash_access-z",
+      "field": "crash_access.z",
+      "reason": "required geometry scalar is unknown",
+      "capture": "capture value, object identity, TID and writer/call stack on the failing run",
+      "success_evidence": [
+        "crash_access.z",
+        "source",
+        "tid",
+        "timestamp",
+        "object_identity"
+      ],
+      "priority": "P0"
+    },
+    {
+      "id": "geometry-receiver_object-height",
+      "field": "receiver_object.height",
+      "reason": "required geometry scalar is unknown",
+      "capture": "capture value, object identity, TID and writer/call stack on the failing run",
+      "success_evidence": [
+        "receiver_object.height",
+        "source",
+        "tid",
+        "timestamp",
+        "object_identity"
+      ],
+      "priority": "P0"
+    },
+    {
+      "id": "geometry-receiver_object-levels",
+      "field": "receiver_object.levels",
+      "reason": "required geometry scalar is unknown",
+      "capture": "capture value, object identity, TID and writer/call stack on the failing run",
+      "success_evidence": [
+        "receiver_object.levels",
+        "source",
+        "tid",
+        "timestamp",
+        "object_identity"
+      ],
+      "priority": "P0"
+    },
+    {
+      "id": "geometry-receiver_object-width",
+      "field": "receiver_object.width",
+      "reason": "required geometry scalar is unknown",
+      "capture": "capture value, object identity, TID and writer/call stack on the failing run",
+      "success_evidence": [
+        "receiver_object.width",
+        "source",
+        "tid",
+        "timestamp",
+        "object_identity"
+      ],
+      "priority": "P0"
+    },
+    {
+      "id": "geometry-runtime_bounds-height",
+      "field": "runtime_bounds.height",
+      "reason": "required geometry scalar is unknown",
+      "capture": "capture value, object identity, TID and writer/call stack on the failing run",
+      "success_evidence": [
+        "runtime_bounds.height",
+        "source",
+        "tid",
+        "timestamp",
+        "object_identity"
+      ],
+      "priority": "P0"
+    },
+    {
+      "id": "geometry-runtime_bounds-levels",
+      "field": "runtime_bounds.levels",
+      "reason": "required geometry scalar is unknown",
+      "capture": "capture value, object identity, TID and writer/call stack on the failing run",
+      "success_evidence": [
+        "runtime_bounds.levels",
+        "source",
+        "tid",
+        "timestamp",
+        "object_identity"
+      ],
+      "priority": "P0"
+    },
+    {
+      "id": "geometry-runtime_bounds-width",
+      "field": "runtime_bounds.width",
+      "reason": "required geometry scalar is unknown",
+      "capture": "capture value, object identity, TID and writer/call stack on the failing run",
+      "success_evidence": [
+        "runtime_bounds.width",
+        "source",
+        "tid",
+        "timestamp",
+        "object_identity"
+      ],
+      "priority": "P0"
+    },
+    {
+      "id": "geometry-serialized_map-height",
+      "field": "serialized_map.height",
+      "reason": "required geometry scalar is unknown",
+      "capture": "capture value, object identity, TID and writer/call stack on the failing run",
+      "success_evidence": [
+        "serialized_map.height",
+        "source",
+        "tid",
+        "timestamp",
+        "object_identity"
+      ],
+      "priority": "P0"
+    },
+    {
+      "id": "geometry-serialized_map-levels",
+      "field": "serialized_map.levels",
+      "reason": "required geometry scalar is unknown",
+      "capture": "capture value, object identity, TID and writer/call stack on the failing run",
+      "success_evidence": [
+        "serialized_map.levels",
+        "source",
+        "tid",
+        "timestamp",
+        "object_identity"
+      ],
+      "priority": "P0"
+    },
+    {
+      "id": "geometry-serialized_map-width",
+      "field": "serialized_map.width",
+      "reason": "required geometry scalar is unknown",
+      "capture": "capture value, object identity, TID and writer/call stack on the failing run",
+      "success_evidence": [
+        "serialized_map.width",
+        "source",
+        "tid",
+        "timestamp",
+        "object_identity"
+      ],
+      "priority": "P0"
+    },
+    {
+      "id": "origin-game_manager_or_base_corruption",
+      "field": "state_origin.game_manager_or_base_corruption",
+      "reason": "state origin is not established",
+      "capture": "capture the discriminating writer/lifetime event",
+      "success_evidence": [
+        "runtime [0x699538] and [0x41C6B5]",
+        "writer EIP/TID/stack"
+      ],
+      "priority": "P1"
+    },
+    {
+      "id": "origin-heap_overwrite",
+      "field": "state_origin.heap_overwrite",
+      "reason": "state origin is not established",
+      "capture": "capture the discriminating writer/lifetime event",
+      "success_evidence": [
+        "full heap metadata and first out-of-owner write"
+      ],
+      "priority": "P1"
+    },
+    {
+      "id": "origin-heroes_ids_corruption",
+      "field": "state_origin.heroes_ids_corruption",
+      "reason": "state origin is not established",
+      "capture": "capture the discriminating writer/lifetime event",
+      "success_evidence": [
+        "hero_id before imul",
+        "hardware watchpoint writer stack"
+      ],
+      "priority": "P1"
+    },
+    {
+      "id": "origin-race",
+      "field": "state_origin.race",
+      "reason": "state origin is not established",
+      "capture": "capture the discriminating writer/lifetime event",
+      "success_evidence": [
+        "same-object cross-thread writer trace"
+      ],
+      "priority": "P1"
+    },
+    {
+      "id": "origin-third_party_write",
+      "field": "state_origin.third_party_write",
+      "reason": "state origin is not established",
+      "capture": "capture the discriminating writer/lifetime event",
+      "success_evidence": [
+        "first bad write EIP, TID, module and stack"
+      ],
+      "priority": "P1"
+    },
+    {
+      "id": "origin-use_after_free",
+      "field": "state_origin.use_after_free",
+      "reason": "state origin is not established",
+      "capture": "capture the discriminating writer/lifetime event",
+      "success_evidence": [
+        "allocator free stack and object lifetime"
+      ],
+      "priority": "P1"
+    },
+    {
+      "id": "origin-wrong_player_selection",
+      "field": "state_origin.wrong_player_selection",
+      "reason": "state origin is not established",
+      "capture": "capture the discriminating writer/lifetime event",
+      "success_evidence": [
+        "player_id and A0_MeAtGameStart capture",
+        "same-thread GetMe_AsPlayer result"
+      ],
+      "priority": "P1"
+    }
+  ],
+  "counts": {
+    "requested": 23,
+    "p0": 16,
+    "p1": 7
+  },
+  "completion_rule": "close only when every item has captured evidence or a reasoned rejection"
+}

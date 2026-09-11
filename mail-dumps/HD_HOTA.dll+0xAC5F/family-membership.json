@@ -1,0 +1,97 @@
+{
+  "schema": 4,
+  "generated_at": "2026-09-11T11:22:54.225895+00:00",
+  "family_id": "family-HD_HOTA.dll-AC5F",
+  "source": "mcp/.tmp-tools/publication-stage/AC5F-analysis/case/family-membership-input.json",
+  "scope_id": "HD_HOTA.dll+0xAC5F-series",
+  "scope_kind": "series",
+  "scope": {
+    "id": "HD_HOTA.dll+0xAC5F-series",
+    "kind": "series",
+    "name": "HD_HOTA.dll+0xAC5F",
+    "local_series": true,
+    "description": "Два уникальных события текущего materialized case; внешние серии не включены",
+    "address_range": {
+      "start_rva": "0xAC5F",
+      "end_rva": "0xAC5F",
+      "end_inclusive": true,
+      "human_label": "HD_HOTA.dll+0xAC5F..0xAC5F",
+      "basis": "Точный Address в двух TXT и две независимые address-proof schema 2"
+    }
+  },
+  "candidate_census": {
+    "total": 2,
+    "classified": 2,
+    "confirmed": 2,
+    "probable": 0,
+    "context_only": 0,
+    "excluded": 0,
+    "unknown": 0,
+    "blocked": 0
+  },
+  "incident_set_fingerprint": "3fb7d0d8ae68e841822b29285c4734fdbb415466129c787e65a82b5687312fbe",
+  "human_decision": {
+    "author": "askl2334@outlook.com (analysis assisted by Notion AI)",
+    "decided_at": "2026-09-11T14:20:00+03:00",
+    "basis": "Same normalized sink, function, +0x10F position, opcode, +0x34 field, hero-pointer formula and DMP byte window in the two exact pairs; state origin remains unknown.",
+    "source": "Current request to continue the AC5F analysis from 1.webarchive; reviewed against exact DMP/TXT pairs and listings.",
+    "incident_set_fingerprint": "3fb7d0d8ae68e841822b29285c4734fdbb415466129c787e65a82b5687312fbe"
+  },
+  "provenance_warnings": [],
+  "memberships": [
+    {
+      "incident_id": "incident-e06afe08bbba16ab",
+      "membership": "confirmed",
+      "basis": "Тот же нормализованный sink, sub_100AB50+0x10F, opcode, поле +0x34, формула hero_ptr и окно байтов DMP",
+      "fingerprint": {
+        "structure_role": "player hero slot to hero record",
+        "field": "hero_ptr+0x34 portrait_id",
+        "call_tail": "hook 0x00403560 to sub_100AB50",
+        "frame_depth": "fault in sub_100AB50+0x10F"
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "evidence": [
+        "address-proof-R39.json",
+        "modules/HD_HOTA.dll-5.7 R39.txt",
+        "mcp/.tmp-tools/publication-stage/AC5F-analysis/static-exhaustion-R39.json"
+      ]
+    },
+    {
+      "incident_id": "incident-09c2d71dddf4d465",
+      "membership": "confirmed",
+      "basis": "Тот же нормализованный sink, sub_100AB50+0x10F, opcode, поле +0x34, формула hero_ptr и окно байтов DMP",
+      "fingerprint": {
+        "structure_role": "player hero slot to hero record",
+        "field": "hero_ptr+0x34 portrait_id",
+        "call_tail": "hook 0x00403560 to sub_100AB50",
+        "frame_depth": "fault in sub_100AB50+0x10F"
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      },
+      "evidence": [
+        "address-proof.json",
+        "modules/HD_HOTA.dll-5.8-R15.txt",
+        "mcp/.tmp-tools/publication-stage/AC5F-analysis/static-exhaustion-R15.json"
+      ]
+    }
+  ],
+  "counts": {
+    "confirmed": 2
+  },
+  "errors": [],
+  "registry_valid": true,
+  "enumeration_complete": true,
+  "classification_complete": true,
+  "unknown_count": 0,
+  "blocked_by_listing_count": 0,
+  "complete": true
+}

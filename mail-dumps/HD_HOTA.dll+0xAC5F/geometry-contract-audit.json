@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "kind": "geometry_contract_audit",
+  "status": "blocked",
+  "mechanism": "blocked_identity",
+  "local_mechanism_confirmed": false,
+  "root_cause_confirmed": false,
+  "predicates": {
+    "dimensions_agree": "unknown",
+    "crash_access_oob": "unknown",
+    "allocation_access_oob": "unknown"
+  },
+  "missing": [
+    "serialized_map.width",
+    "serialized_map.height",
+    "serialized_map.levels",
+    "runtime_bounds.width",
+    "runtime_bounds.height",
+    "runtime_bounds.levels",
+    "receiver_object.width",
+    "receiver_object.height",
+    "receiver_object.levels",
+    "allocation.element_count",
+    "allocation.byte_length",
+    "crash_access.x",
+    "crash_access.y",
+    "crash_access.z",
+    "crash_access.linear_index"
+  ],
+  "conflicting": [],
+  "evidence_requests": [
+    {
+      "field": "serialized_map.width",
+      "priority": "P0",
+      "evidence": "capture the value and its source at the consumer call"
+    },
+    {
+      "field": "serialized_map.height",
+      "priority": "P0",
+      "evidence": "capture the value and its source at the consumer call"
+    },
+    {
+      "field": "serialized_map.levels",
+      "priority": "P0",
+      "evidence": "capture the value and its source at the consumer call"
+    },
+    {
+      "field": "runtime_bounds.width",
+      "priority": "P0",
+      "evidence": "capture the value and its source at the consumer call"
+    },
+    {
+      "field": "runtime_bounds.height",
+      "priority": "P0",
+      "evidence": "capture the value and its source at the consumer call"
+    },
+    {
+      "field": "runtime_bounds.levels",
+      "priority": "P0",
+      "evidence": "capture the value and its source at the consumer call"
+    },
+    {
+      "field": "receiver_object.width",
+      "priority": "P0",
+      "evidence": "capture the value and its source at the consumer call"
+    },
+    {
+      "field": "receiver_object.height",
+      "priority": "P0",
+      "evidence": "capture the value and its source at the consumer call"
+    },
+    {
+      "field": "receiver_object.levels",
+      "priority": "P0",
+      "evidence": "capture the value and its source at the consumer call"
+    },
+    {
+      "field": "allocation.element_count",
+      "priority": "P0",
+      "evidence": "capture the value and its source at the consumer call"
+    },
+    {
+      "field": "allocation.byte_length",
+      "priority": "P0",
+      "evidence": "capture the value and its source at the consumer call"
+    },
+    {
+      "field": "crash_access.x",
+      "priority": "P0",
+      "evidence": "capture the value and its source at the consumer call"
+    },
+    {
+      "field": "crash_access.y",
+      "priority": "P0",
+      "evidence": "capture the value and its source at the consumer call"
+    },
+    {
+      "field": "crash_access.z",
+      "priority": "P0",
+      "evidence": "capture the value and its source at the consumer call"
+    },
+    {
+      "field": "crash_access.linear_index",
+      "priority": "P0",
+      "evidence": "capture the value and its source at the consumer call"
+    }
+  ],
+  "geometry_domains": [
+    "serialized_map",
+    "runtime_bounds",
+    "receiver_object",
+    "allocation",
+    "crash_access"
+  ],
+  "wording_rule": "map geometry never proves receiver or allocation geometry"
+}

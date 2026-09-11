@@ -1,0 +1,229 @@
+{
+  "schema": 2,
+  "kind": "crash_analysis_contract",
+  "case": "family-HD_HOTA.dll+0xAC5F",
+  "mechanism": {
+    "kind": "unchecked_out_of_range_result",
+    "name": "unchecked_hero_ptr_portrait_read",
+    "causality_level": "L1",
+    "local_mechanism_confirmed": true,
+    "state_origin_confirmed": false
+  },
+  "thread_contexts": [
+    {
+      "source": "exception_stream",
+      "tid": 16868,
+      "incident": "5.7 R39",
+      "registers": {
+        "EIP": "0x0466AC5F",
+        "ECX": "0x6DCFFD30",
+        "EDI": "0x00000004",
+        "ESP": "0x001A9D64",
+        "EBP": "0x001A9D74"
+      }
+    },
+    {
+      "source": "text_context",
+      "tid": 14328,
+      "incident": "5.7 R39",
+      "stack": [
+        "0x0466AC5F",
+        "0x02C629B4",
+        "hota.dll+0xB05B2"
+      ]
+    },
+    {
+      "source": "exception_stream",
+      "tid": 19888,
+      "incident": "5.8 R15",
+      "registers": {
+        "EIP": "0x07E1AC5F",
+        "ECX": "0x509887B0",
+        "EDI": "0x00000000",
+        "ESP": "0x00199D54",
+        "EBP": "0x00199D64"
+      }
+    },
+    {
+      "source": "text_context",
+      "tid": 22852,
+      "incident": "5.8 R15",
+      "stack": [
+        "0x07E1AC5F",
+        "0x02A830CC",
+        "hota.dll+0xBEC52"
+      ]
+    }
+  ],
+  "thread_policy": {
+    "register_sets_may_be_combined": false,
+    "reason": "ExceptionStream TID differs from reporter stack TID in both incidents"
+  },
+  "consumer_boundary": {
+    "input_validity": "unknown",
+    "candidate_validity": "invalid",
+    "basis": "computed ECX is unmapped and ECX+0x34 equals ExceptionInformation[1] in both incidents"
+  },
+  "state_origin_candidates": [
+    {
+      "id": "wrong_player_selection",
+      "status": "not_established",
+      "next_evidence": [
+        "player_id and A0_MeAtGameStart capture",
+        "same-thread GetMe_AsPlayer result"
+      ]
+    },
+    {
+      "id": "heroes_ids_corruption",
+      "status": "not_established",
+      "next_evidence": [
+        "hero_id before imul",
+        "hardware watchpoint writer stack"
+      ]
+    },
+    {
+      "id": "game_manager_or_base_corruption",
+      "status": "not_established",
+      "next_evidence": [
+        "runtime [0x699538] and [0x41C6B5]",
+        "writer EIP/TID/stack"
+      ]
+    },
+    {
+      "id": "race",
+      "status": "not_established",
+      "next_evidence": [
+        "same-object cross-thread writer trace"
+      ]
+    },
+    {
+      "id": "use_after_free",
+      "status": "not_established",
+      "next_evidence": [
+        "allocator free stack and object lifetime"
+      ]
+    },
+    {
+      "id": "heap_overwrite",
+      "status": "not_established",
+      "next_evidence": [
+        "full heap metadata and first out-of-owner write"
+      ]
+    },
+    {
+      "id": "third_party_write",
+      "status": "not_established",
+      "next_evidence": [
+        "first bad write EIP, TID, module and stack"
+      ]
+    }
+  ],
+  "root_cause_declared": false,
+  "structure": {
+    "fields": {
+      "Player.heroes_ids": 8,
+      "Hero.portrait_id": 52
+    },
+    "invariants": [
+      "hero_id is -1 or within the hero storage range",
+      "hero_ptr belongs to GameMgr hero storage before +0x34",
+      "player_id selects a valid Player"
+    ],
+    "sibling_coverage": {
+      "scanned": 3,
+      "total": 3,
+      "complete": true,
+      "population": "HD 5.7 R39 and 5.8 R15 implementations plus SoD original"
+    }
+  },
+  "lifecycle": {
+    "counts": {
+      "references": 7,
+      "reads": 5,
+      "writes": 1,
+      "checks": 2,
+      "publishes": 0,
+      "clears": 0
+    },
+    "count_basis": "bounded producer-to-sink slice in sub_100AB50; dynamic writers remain outside the static census",
+    "enumeration_complete": false,
+    "absence_claims": []
+  },
+  "fixes": [
+    {
+      "fix_role": "containment",
+      "supported_builds": [
+        "5.7 R39",
+        "5.8 R15"
+      ],
+      "expected_evidence": [
+        "invalid hero_id rejected before imul/dereference",
+        "valid network games preserve portraits"
+      ],
+      "differential_test": [
+        "out-of-range ID faults in original build",
+        "guarded build hides slot without +0x34 read",
+        "valid-ID positive control unchanged"
+      ]
+    },
+    {
+      "fix_role": "diagnostic",
+      "supported_builds": [
+        "5.7 R39",
+        "5.8 R15"
+      ],
+      "expected_evidence": [
+        "first bad tuple with writer EIP/TID/stack",
+        "full dump containing Player and GameMgr"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_role": "derived_autosave",
+      "phase_role": "unresolved",
+      "incident": "5.7 R39"
+    }
+  ],
+  "family": {
+    "semantic_fingerprint": {
+      "structure_role": "Player::heroes_ids to Hero::portrait_id",
+      "field_offset": "+0x34",
+      "access": "read",
+      "call_tail": [
+        "sub_100AB50+0x10F",
+        "movzx ecx,[ecx+34h]"
+      ]
+    },
+    "denominator": {
+      "scanned": 2,
+      "total": 2,
+      "population": "unique incidents in current AC5F case"
+    }
+  },
+  "call_chain": [
+    {
+      "type": "module_function",
+      "module": "HD_HOTA.dll",
+      "function": "sub_100AB50",
+      "address": "0x0100AB50"
+    },
+    {
+      "type": "dynamic_bridge",
+      "address": "patcher_x86 runtime trampoline"
+    },
+    {
+      "type": "module_function",
+      "module": "h3hota.exe",
+      "function": "A0_AdvMgr_UpdateHeroPort_sub_403560",
+      "address": "0x00403560",
+      "role": "replaced_original"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "errors": [],
+    "root_cause_allowed": false
+  },
+  "status": "passed"
+}

@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "claims": [
+    {
+      "id": "crash-site",
+      "type": "crash_site",
+      "statement": "Точка сбоя подтверждена для двух DMP: movzx ecx,[ecx+34h], а ECX+0x34 совпадает с адресом исключения.",
+      "evidence": [
+        "input:address-proof.json",
+        "input:address-proof-R39.json",
+        "input:pair-audit.json"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "applicable_axes": [
+        "instruction"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "local-mechanism",
+      "type": "local_mechanism",
+      "statement": "Обе сборки выполняют один механизм: unchecked hero_ptr формируется из hero_id и двух базовых слагаемых, затем читается portrait_id.",
+      "evidence": [
+        "input:analysis-contract.json",
+        "input:address-proof.json",
+        "input:address-proof-R39.json"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "applicable_axes": [
+        "mechanism"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "confirmed",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "state-origin",
+      "type": "state_origin",
+      "statement": "Испорченное входное слагаемое и первый писатель не установлены.",
+      "evidence": [
+        "input:analysis-contract.json",
+        "input:capabilities.json"
+      ],
+      "confidence": "не проверено",
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "family-coverage",
+      "type": "family_coverage",
+      "statement": "Два уникальных события текущей серии классифицированы как один локальный механизм.",
+      "evidence": [
+        "input:family-membership.json",
+        "input:pair-audit.json"
+      ],
+      "confidence": "выведено из совокупности признаков",
+      "applicable_axes": [
+        "family_coverage"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "id": "reproduction",
+      "type": "reproduction",
+      "statement": "Контролируемое воспроизведение для R39 и R15 не выполнено.",
+      "evidence": [
+        "input:repro-plan.json"
+      ],
+      "confidence": "не проверено",
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "fix-validation",
+      "type": "fix",
+      "statement": "До чтения +0x34 требуется проверка player_id, hero_id и принадлежности hero_ptr хранилищу героев.",
+      "evidence": [
+        "input:analysis-contract.json",
+        "input:repro-plan.json"
+      ],
+      "confidence": "однозначно следует из листинга",
+      "applicable_axes": [],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "id": "dump-limitation",
+      "type": "limitation",
+      "statement": "Минимальные DMP не содержат Player, GameMgr, runtime-значение 0x41C6B5 и полную кучу.",
+      "evidence": [
+        "input:capabilities.json"
+      ],
+      "confidence": "видно непосредственно в DMP",
+      "applicable_axes": [],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    }
+  ]
+}

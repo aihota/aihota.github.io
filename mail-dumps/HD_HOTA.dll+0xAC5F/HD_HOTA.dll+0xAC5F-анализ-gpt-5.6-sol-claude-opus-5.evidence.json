@@ -1,0 +1,796 @@
+{
+  "schema": 4,
+  "generated_at": "2026-09-11T12:28:32.738273+00:00",
+  "parser_revision": "GPT-5.6 Sol + Claude Opus 5; schema-4 evidence",
+  "binding": {
+    "mode": "hybrid-v1",
+    "toolchain_mode": "contract",
+    "legacy_binding": null
+  },
+  "report": {
+    "path": "HD_HOTA.dll+0xAC5F-анализ-gpt-5.6-sol-claude-opus-5.txt",
+    "size": 28936,
+    "sha256": "f31b2e073ab8d2eb5b10910ea0abd05eb9de06e17538d2d9752fa73a9b12dc2c"
+  },
+  "inputs": [
+    {
+      "path": "HD_HOTA.dll+0xAC5F-5.7-R39-180-2.txt",
+      "size": 8112,
+      "sha256": "784ad850f3d4d7fc0aecd59061533646617e9cf0fe6ebd5fddd099eb1cf6f184",
+      "role": "source"
+    },
+    {
+      "path": "HD_HOTA.dll+0xAC5F-5.7-R39-180-2.dmp",
+      "size": 100984,
+      "sha256": "43af983b0e4afbd33dd7290306ba20ef3511831cdcbd521a9ee4c30b7bbeb5ba",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_HOTA.dll+0xAC5F-5.7-R39-180-2-AUTOSAVE.GM3",
+      "size": 1015237,
+      "sha256": "59a658cbcc9d77b70ba5e5470632966c24aac44685a2538029279fbb87248a00",
+      "role": "derived"
+    },
+    {
+      "path": "HD_HOTA.dll+0xAC5F-5.8-R15-181.txt",
+      "size": 9365,
+      "sha256": "f0bb8b77d7b4e7ab01b211d98e21ba75a70a08ef75648520a777f292d2362e17",
+      "role": "source"
+    },
+    {
+      "path": "HD_HOTA.dll+0xAC5F-5.8-R15-181.dmp",
+      "size": 100046,
+      "sha256": "08fec5f3c322f5e1c6aa67b9303241136f82ee621c3de7a77936e05c55412b71",
+      "role": "runtime"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.7 R39.txt",
+      "size": 50679267,
+      "sha256": "e84030e1493f601b69bd8ecd2e9717624f4f117f533b9986aa00d7d26d8b0929",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/HD_HOTA.dll-5.8-R15.txt",
+      "size": 50725259,
+      "sha256": "f04111b55183b213149795844a55a8febb4b5bba16d11dfc281bd78d6fc984de",
+      "role": "source"
+    },
+    {
+      "path": "../../modules/h3hota.exe.txt",
+      "size": 79196875,
+      "sha256": "a659b437fa53df6e65a763481c03538a79b0899130ea4b9dfeba1dd9b5e0ddd6",
+      "role": "source"
+    },
+    {
+      "path": "address-proof.json",
+      "size": 1987,
+      "sha256": "526ae42a8b7b3cea23de0709f6730080fefe81fd8cdc3f48dba02231e723df69",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "address-proof-R39.json",
+      "size": 1984,
+      "sha256": "a4409a61381e5602721c4d9d0bd2e61130ce804a6bb35e6fff8b9a7d7ed5ef8b",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "analysis-contract.json",
+      "size": 5586,
+      "sha256": "2f387fdeed34e9fbcd58549d0d3ec0fd55890831134768393312ee3dfc91fb38",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-membership-input.json",
+      "size": 3053,
+      "sha256": "5cb983344488ce00c428914dafdf1b8a18e552d5ddb1cb9be9604662ac68c93d",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "family-membership.json",
+      "size": 3702,
+      "sha256": "72f8356453bbb8dc7ccf5a4a0e9451a28f247aa4c1710dc8698cefeb91afe31a",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "case-manifest.json",
+      "size": 5049,
+      "sha256": "47f8a607970f58fa9a1e8dd895fb5c8d9abf6c7340c605029a3d95894eecc9dc",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "pair-audit.json",
+      "size": 4320,
+      "sha256": "037032447e8858081935d1f10bd8e0967460fa61c63aa0eac3ac65979e16f01f",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "capabilities.json",
+      "size": 8459,
+      "sha256": "704fbef2d546d0ca7959ec4547093c556babcd0a69a492471cf5a520594987b5",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "save-inventory.json",
+      "size": 1573,
+      "sha256": "efc751ee89967ee8c22e82f83ee54667e38852b68acfe25f997d30c00ba472f8",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-parse.json",
+      "size": 12391,
+      "sha256": "d6eaf9567bee817c17451c0769940b1799baf46a7d42abf722b491000c1ad6dd",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "series-groups.json",
+      "size": 16498,
+      "sha256": "de668f9b74970b3b339f4d312da420ce7fea3e3d84855b48cc40ccfa4915d5fb",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "coverage.json",
+      "size": 5719,
+      "sha256": "5659671fa76bfcea9afa33b01d738a20475a3131eb65f053bb64d44c8af57a81",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "lessons.json",
+      "size": 3423,
+      "sha256": "b3cde68f49190dca6f19da78fcdf3e8ca5bb285c1e577a86a0f04a815b222eee",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "repro-plan.json",
+      "size": 16638,
+      "sha256": "7757da93276680bfe2422b8ea8aa2b34c3cac0f94bd6a6f0d3ad5954d59ad6b9",
+      "role": "derived"
+    },
+    {
+      "path": "corpus-query.json",
+      "size": 824,
+      "sha256": "10e537de9aa9f72bc2e2a25b226cd89de5faf71d42c3c8c10263afa02168eef8",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "HD_HOTA.dll+0xAC5F-анализ-gpt-5.6-sol-claude-opus-5.model.json",
+      "size": 251,
+      "sha256": "e29544ff2327a5663a3ce6c115c728027d4a83aeeb7a55903551ab6d7c98decb",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "HD_HOTA.dll+0xAC5F-анализ-gpt-5.6-sol-claude-opus-5.extra.html",
+      "size": 2410,
+      "sha256": "08d5413a718405983dd8814e0b19810958389d257d4a98902d396ab42819318f",
+      "role": "derived"
+    },
+    {
+      "path": "static-exhaustion-R15.json",
+      "size": 441838,
+      "sha256": "a3a7b18bfea042bd8a5b6b432c9648e2d7ea72886304d98bd670f5d2cd7596eb",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "static-exhaustion-R39.json",
+      "size": 440076,
+      "sha256": "5a136d6e54694c6dfcf898f377f877b071bf213385d67dce7de52469c21c1008",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "dimension-map-input.json",
+      "size": 150,
+      "sha256": "ae94531d09d9f46b0d056aa0035c065a5de79e418251c7435eb650ce4c0156da",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "dimension-crash-input.json",
+      "size": 327,
+      "sha256": "af22592b9a6da712aa14c927877fcbefaa9a35ed4f16725e5b60d7736ee21f80",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "dimension-provenance.json",
+      "size": 3020,
+      "sha256": "2a4b392c3e53b56954336ab8223ef97f79c6f4cc0b3e4a5629e70efa52f46926",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "geometry-contract-audit.json",
+      "size": 3271,
+      "sha256": "f3ebebe917d057662c4691903bad1070e9b32809be15ef7fe86e473f1fe40b94",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "semantic-site-input.json",
+      "size": 321,
+      "sha256": "1bf193d4245e3db67d1aae494f517544553debf4f6d25a0dbb99ba453640d486",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "semantic-site-fingerprint.json",
+      "size": 625,
+      "sha256": "fe6ae4a4634b860f3174edb8ed7632c68f308bf1fed623300b1d32e89e15afbe",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "missing-evidence-request.json",
+      "size": 9411,
+      "sha256": "514056957ffab8ade6c2e1309575b72e2127285c1ffee0af180cfd0fea0e208c",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "evidence-config.json",
+      "size": 6358,
+      "sha256": "1da79bbf89ea90abf453764d955d5daff333f38647724b35637119aea036395f",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "claims.json",
+      "size": 4655,
+      "sha256": "a2eb9bf5c0df99726b14095143aaefa8cb5ae6d816cb4ef22873464ef20e5ea6",
+      "role": "derived-evidence"
+    }
+  ],
+  "tools": [
+    {
+      "path": "../../.agents/skills/address-mapping/address_proof.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "address_proof",
+        "version": "3",
+        "outputs": [
+          "address-proof.json",
+          "dump-bound mapping verdict"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [
+          "faulting_instruction",
+          "faulting_rva"
+        ],
+        "ownership": "explicit"
+      },
+      "result_fingerprint": "4637a0e9c8b41a191fd3fd3e632d18932d6f7795a74036aaea9fe5481660c514",
+      "revision": {
+        "size": 19754,
+        "sha256": "0470d394d45ccc3be499a430e6a115876ec5496adaf370d7544f022414099764",
+        "git": "2faba672c85877eaa06fc5723be24183c655a0cc"
+      }
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/analysis_contract.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "analysis_contract",
+        "version": "1",
+        "outputs": [
+          "analysis-contract.json"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [
+          "local_mechanism_status",
+          "root_cause_status",
+          "save_phase_role",
+          "thread_context_policy"
+        ],
+        "ownership": "explicit"
+      },
+      "result_fingerprint": "91901d578d20c45a573432c055aa0596e07a2e2f19740c07bd3cd672399a7159",
+      "revision": {
+        "size": 12272,
+        "sha256": "846623acb217e184e2bd51f3b8a90230d8eee134a879d0cde0c598873f9daee2",
+        "git": "72ddad529ed41c46a5d7aa0baaa9dc26bb8a7780"
+      }
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/family_membership.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "family_membership",
+        "version": "1",
+        "outputs": [
+          "family-membership.json",
+          "decision provenance"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [
+          "family_confirmed",
+          "family_total"
+        ],
+        "ownership": "explicit"
+      },
+      "result_fingerprint": "53dc54481cc7ac08ffa8d696370b5e5ead7ea93e1d4619fa8dfdbd3b4f9e8f1f",
+      "revision": {
+        "size": 15239,
+        "sha256": "d0da36111f4a2ddded9495e5d6db91af9d7f443ab98f46f2c333299b422147a6",
+        "git": "72ddad529ed41c46a5d7aa0baaa9dc26bb8a7780"
+      }
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/case_manifest.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "case_manifest",
+        "version": "2",
+        "outputs": [
+          "case-manifest.json"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [],
+        "ownership": "explicit"
+      },
+      "result_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "revision": {
+        "size": 25545,
+        "sha256": "9e7cd28beccc1a06ee239590bed13da0721b00c10c42335861e63c41f137749c",
+        "git": "7321e86074224d6aaf20bfbe8b6ccc6c7999f036"
+      }
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/coverage_contract.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "coverage_contract",
+        "version": "2",
+        "outputs": [
+          "coverage.json",
+          "typed claim validation"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [],
+        "ownership": "explicit"
+      },
+      "result_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "revision": {
+        "size": 10638,
+        "sha256": "b1983c0ffb3792cae2a1bb63bed7c305c0ee0d1bc6c3c6447bf5cd5714c36425",
+        "git": "a6a2fd7d0dafd4b2f1195cc47bca1c8e964c7a71"
+      }
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/case_lessons.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "case_lessons",
+        "version": "3",
+        "outputs": [
+          "lessons.json",
+          "multi-axis closure verdict"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [
+          "reproduction_status"
+        ],
+        "ownership": "explicit"
+      },
+      "result_fingerprint": "50d0b1096c6f0bc800adfaf7dfbf06d50124980e2ac51a89a5409b6d0f4e280c",
+      "revision": {
+        "size": 9699,
+        "sha256": "e9c42565408fda559c4a72d37ea6721ce668f290675458e6434b5d31f9dbdf52",
+        "git": "02478135cb31c632034508226b6d539dbfbf5cd9"
+      }
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/repro_plan.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "repro_plan",
+        "version": "3",
+        "outputs": [
+          "repro-plan.json",
+          "executable unresolved-evidence plan"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [],
+        "ownership": "explicit"
+      },
+      "result_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "revision": {
+        "size": 21044,
+        "sha256": "121cb694e928b6040b15fee94d2fe34826bb149239555784717555489e7eb8f7",
+        "git": "02478135cb31c632034508226b6d539dbfbf5cd9"
+      }
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/evidence_manifest.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "evidence_manifest",
+        "version": "4",
+        "outputs": [
+          "evidence manifest",
+          "evidence status",
+          "artifact_promote schema-2 handoff"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [],
+        "ownership": "explicit"
+      },
+      "result_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "revision": {
+        "size": 62578,
+        "sha256": "e927bf01a44f65620bec6c127668b6f9877d77c5aef355b533e8417fd6b0892e",
+        "git": "a6a2fd7d0dafd4b2f1195cc47bca1c8e964c7a71"
+      }
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/semantic_contract.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "semantic_contract",
+        "version": "2",
+        "outputs": [
+          "semantic consistency verdict"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [],
+        "ownership": "explicit"
+      },
+      "result_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "revision": {
+        "size": 13359,
+        "sha256": "5e7b08902f5e5d096efefc23f3c52f8b76552e7697ec5fe28300acb0c70826f7",
+        "git": "a6a2fd7d0dafd4b2f1195cc47bca1c8e964c7a71"
+      }
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/lint_report.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "lint_report",
+        "version": "4",
+        "outputs": [
+          "report lint verdict"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [],
+        "ownership": "explicit"
+      },
+      "result_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "revision": {
+        "size": 119983,
+        "sha256": "bf92e4a039e9d4f62b143d78019668adb4a7303b5e79f27b3b05a0f752e8ebb4",
+        "git": "a6a2fd7d0dafd4b2f1195cc47bca1c8e964c7a71"
+      }
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/case_quality_gate.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "case_quality_gate",
+        "version": "5",
+        "outputs": [
+          "quality-gate.json",
+          "publication verdict"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [],
+        "ownership": "explicit"
+      },
+      "result_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "revision": {
+        "size": 99909,
+        "sha256": "8c2de5cde4af85423e823f73da88ce5a4ae674110a1c201eaea338d6dc2da832",
+        "git": "a6a2fd7d0dafd4b2f1195cc47bca1c8e964c7a71"
+      }
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/static_exhaustion_check.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "static_exhaustion_check",
+        "version": "2",
+        "outputs": [
+          "static-exhaustion evidence"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [],
+        "ownership": "explicit"
+      },
+      "result_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "revision": {
+        "size": 62932,
+        "sha256": "085190ed89364a14889e8ee084510a46193431eb55e3a0d7688459b591ee6f5b",
+        "git": "7321e86074224d6aaf20bfbe8b6ccc6c7999f036"
+      }
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/pair_audit.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "pair_audit",
+        "version": "2",
+        "outputs": [
+          "pair-audit.json"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [],
+        "ownership": "explicit"
+      },
+      "result_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "revision": {
+        "size": 28543,
+        "sha256": "1325280054a977f5d9a0cafa101c744f05a7bf763e834847173a95920e8b809d",
+        "git": "2faba672c85877eaa06fc5723be24183c655a0cc"
+      }
+    },
+    {
+      "path": "../../.agents/skills/multi-dump-diff/parse_dumps.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "parse_dumps",
+        "version": "3",
+        "outputs": [
+          "series-parse.json",
+          "deduplicated incidents"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [],
+        "ownership": "explicit"
+      },
+      "result_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "revision": {
+        "size": 25937,
+        "sha256": "ea6291a54449df28dbf542862d34cd549114215aa750aa29d29a50400aec5210",
+        "git": "2faba672c85877eaa06fc5723be24183c655a0cc"
+      }
+    },
+    {
+      "path": "../../.agents/skills/html-report/render_report.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "render_report",
+        "version": "1",
+        "outputs": [
+          "HTML report",
+          "renderer validation"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [],
+        "ownership": "explicit"
+      },
+      "result_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "revision": {
+        "size": 1086,
+        "sha256": "75e811fef4abc543e74287b913aa39ac4c4a6e67c994bf686241c5859aab4914",
+        "git": "72ddad529ed41c46a5d7aa0baaa9dc26bb8a7780"
+      }
+    },
+    {
+      "path": "../../report_consistency.py",
+      "binding": "contract-result-v1",
+      "contract": {
+        "name": "report_consistency",
+        "version": "3",
+        "outputs": [
+          "report consistency verdict"
+        ]
+      },
+      "result_scope": {
+        "kind": "facts",
+        "keys": [],
+        "ownership": "explicit"
+      },
+      "result_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "revision": {
+        "size": 29850,
+        "sha256": "43bbd3060e5ead0e5fbdfb73c64b521e614b366ac6e7294514944530538acc63",
+        "git": "a6a2fd7d0dafd4b2f1195cc47bca1c8e964c7a71"
+      }
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/dimension_provenance.py",
+      "size": 11562,
+      "sha256": "24a7551f6c1e060b876aedc7c3bd2188339c2dcc687da46dc6c5be9889f54414"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/geometry_contract_audit.py",
+      "size": 5035,
+      "sha256": "2efdc85e7e2d0b7a8dee96fe97ee454321af287833a0871394ae1258cb2e8590"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/semantic_site_fingerprint.py",
+      "size": 4957,
+      "sha256": "dec858198b86e8d073a19ed274866137b5e22a8bba38ac52c5820e31f9a0688e"
+    },
+    {
+      "path": "../../.agents/skills/hota-crash-triage/missing_evidence_request.py",
+      "size": 5747,
+      "sha256": "d26ab49aa8f872400c797eef5cab7f76521b65db9e1ac15cdd90b753d84bec80"
+    }
+  ],
+  "tool_assets": [],
+  "commands": [
+    "address_proof.py check address-proof.json and address-proof-R39.json",
+    "family_membership.py create family-membership-input.json",
+    "analysis_contract.py create analysis-contract-input-v2.json",
+    "coverage_contract.py create claims.json --schema 2",
+    "case_manifest.py build case --series series-groups.json",
+    "repro_plan.py create case",
+    "lint_report.py --publish report",
+    "semantic_contract.py report",
+    "case_quality_gate.py case"
+  ],
+  "facts": {
+    "faulting_rva": "0xAC5F",
+    "faulting_instruction": "movzx ecx, byte ptr [ecx+34h]",
+    "local_mechanism_status": "confirmed",
+    "root_cause_status": "not established",
+    "family_confirmed": "2",
+    "family_total": "2",
+    "thread_context_policy": "separate",
+    "reproduction_status": "blocked_by_environment",
+    "save_phase_role": "unresolved"
+  },
+  "claims": [
+    {
+      "confidence": "видно непосредственно в DMP",
+      "marker": "<!-- claim:crash-site -->",
+      "id": "crash-site",
+      "type": "crash_site",
+      "statement": "Точка сбоя подтверждена для двух DMP: movzx ecx,[ecx+34h], а ECX+0x34 совпадает с адресом исключения.",
+      "evidence": [
+        "input:address-proof.json",
+        "input:address-proof-R39.json",
+        "input:pair-audit.json"
+      ],
+      "applicable_axes": [
+        "instruction"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "marker": "<!-- claim:local-mechanism -->",
+      "id": "local-mechanism",
+      "type": "local_mechanism",
+      "statement": "Обе сборки выполняют один механизм: unchecked hero_ptr формируется из hero_id и двух базовых слагаемых, затем читается portrait_id.",
+      "evidence": [
+        "input:analysis-contract.json",
+        "input:address-proof.json",
+        "input:address-proof-R39.json"
+      ],
+      "applicable_axes": [
+        "mechanism"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "confirmed",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "marker": "<!-- claim:state-origin -->",
+      "id": "state-origin",
+      "type": "state_origin",
+      "statement": "Испорченное входное слагаемое и первый писатель не установлены.",
+      "evidence": [
+        "input:analysis-contract.json",
+        "input:capabilities.json"
+      ],
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "marker": "<!-- claim:family-coverage -->",
+      "id": "family-coverage",
+      "type": "family_coverage",
+      "statement": "Два уникальных события текущей серии классифицированы как один локальный механизм.",
+      "evidence": [
+        "input:family-membership.json",
+        "input:pair-audit.json"
+      ],
+      "applicable_axes": [
+        "family_coverage"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "confirmed"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "marker": "<!-- claim:reproduction -->",
+      "id": "reproduction",
+      "type": "reproduction",
+      "statement": "Контролируемое воспроизведение для R39 и R15 не выполнено.",
+      "evidence": [
+        "input:repro-plan.json"
+      ],
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "marker": "<!-- claim:fix-validation -->",
+      "id": "fix-validation",
+      "type": "fix",
+      "statement": "До чтения +0x34 требуется проверка player_id, hero_id и принадлежности hero_ptr хранилищу героев.",
+      "evidence": [
+        "input:analysis-contract.json",
+        "input:repro-plan.json"
+      ],
+      "applicable_axes": [],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "видно непосредственно в DMP",
+      "marker": "<!-- claim:dump-limitation -->",
+      "id": "dump-limitation",
+      "type": "limitation",
+      "statement": "Минимальные DMP не содержат Player, GameMgr, runtime-значение 0x41C6B5 и полную кучу.",
+      "evidence": [
+        "input:capabilities.json"
+      ],
+      "applicable_axes": [],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    }
+  ],
+  "code_evidence": {
+    "level": "dmp-window",
+    "note": "локальное окно DMP совпало; полный образ и байты старого процесса этим не доказаны"
+  },
+  "machine_results": []
+}

@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "kind": "semantic_site_fingerprint",
+  "canonical": {
+    "module": "hd_hota.dll",
+    "structure_role": "player::heroes_ids to hero record",
+    "field_offset": "+0x34",
+    "access": "read",
+    "instruction_role": "read portrait_id field",
+    "result_role": "computed hero_ptr",
+    "call_tail": [
+      "a0_advmgr_updateheroport_sub_403560 replacement",
+      "sub_100ab50+0x10f"
+    ]
+  },
+  "sha256": "43e814ffd2d333cc78f0bfa82f6ae4213311c63999508dbdce343a51a88895b3",
+  "excluded_from_identity": [
+    "absolute_address",
+    "rva",
+    "image_base",
+    "runtime_base",
+    "version_string"
+  ]
+}

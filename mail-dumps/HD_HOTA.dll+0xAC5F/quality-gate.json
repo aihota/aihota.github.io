@@ -1,0 +1,1731 @@
+{
+  "schema": 2,
+  "case": "mail-dumps/HD_HOTA.dll+0xAC5F",
+  "gate_scope": "full_quality_gate",
+  "static_only": true,
+  "input_fingerprint": {
+    "schema": 1,
+    "case_files": [
+      {
+        "path": "HD_HOTA.dll+0xAC5F-5.7-R39-180-2-AUTOSAVE.GM3",
+        "size": 1015237,
+        "sha256": "59a658cbcc9d77b70ba5e5470632966c24aac44685a2538029279fbb87248a00"
+      },
+      {
+        "path": "HD_HOTA.dll+0xAC5F-5.7-R39-180-2.dmp",
+        "size": 100984,
+        "sha256": "43af983b0e4afbd33dd7290306ba20ef3511831cdcbd521a9ee4c30b7bbeb5ba"
+      },
+      {
+        "path": "HD_HOTA.dll+0xAC5F-5.7-R39-180-2.txt",
+        "size": 8112,
+        "sha256": "784ad850f3d4d7fc0aecd59061533646617e9cf0fe6ebd5fddd099eb1cf6f184"
+      },
+      {
+        "path": "HD_HOTA.dll+0xAC5F-5.8-R15-181.dmp",
+        "size": 100046,
+        "sha256": "08fec5f3c322f5e1c6aa67b9303241136f82ee621c3de7a77936e05c55412b71"
+      },
+      {
+        "path": "HD_HOTA.dll+0xAC5F-5.8-R15-181.txt",
+        "size": 9365,
+        "sha256": "f0bb8b77d7b4e7ab01b211d98e21ba75a70a08ef75648520a777f292d2362e17"
+      },
+      {
+        "path": "HD_HOTA.dll+0xAC5F-анализ-gpt-5.6-sol-claude-opus-5.evidence.json",
+        "size": 25810,
+        "sha256": "77bd739dc9816a373831b6d32492a6e9d6bc7f05269276edeaa7691cf1cd58c9"
+      },
+      {
+        "path": "HD_HOTA.dll+0xAC5F-анализ-gpt-5.6-sol-claude-opus-5.extra.html",
+        "size": 2410,
+        "sha256": "08d5413a718405983dd8814e0b19810958389d257d4a98902d396ab42819318f"
+      },
+      {
+        "path": "HD_HOTA.dll+0xAC5F-анализ-gpt-5.6-sol-claude-opus-5.html",
+        "size": 550370,
+        "sha256": "af4e1d5cb578cbca04deef83631c80ffeb0905effe2e3819db8bbd69236f7e26"
+      },
+      {
+        "path": "HD_HOTA.dll+0xAC5F-анализ-gpt-5.6-sol-claude-opus-5.model.json",
+        "size": 251,
+        "sha256": "e29544ff2327a5663a3ce6c115c728027d4a83aeeb7a55903551ab6d7c98decb"
+      },
+      {
+        "path": "HD_HOTA.dll+0xAC5F-анализ-gpt-5.6-sol-claude-opus-5.txt",
+        "size": 28936,
+        "sha256": "f31b2e073ab8d2eb5b10910ea0abd05eb9de06e17538d2d9752fa73a9b12dc2c"
+      },
+      {
+        "path": "address-proof-R39.json",
+        "size": 1984,
+        "sha256": "a4409a61381e5602721c4d9d0bd2e61130ce804a6bb35e6fff8b9a7d7ed5ef8b"
+      },
+      {
+        "path": "address-proof.json",
+        "size": 1987,
+        "sha256": "526ae42a8b7b3cea23de0709f6730080fefe81fd8cdc3f48dba02231e723df69"
+      },
+      {
+        "path": "analysis-contract.json",
+        "size": 5586,
+        "sha256": "2f387fdeed34e9fbcd58549d0d3ec0fd55890831134768393312ee3dfc91fb38"
+      },
+      {
+        "path": "capabilities.json",
+        "size": 8459,
+        "sha256": "704fbef2d546d0ca7959ec4547093c556babcd0a69a492471cf5a520594987b5"
+      },
+      {
+        "path": "case-manifest.json",
+        "size": 5049,
+        "sha256": "47f8a607970f58fa9a1e8dd895fb5c8d9abf6c7340c605029a3d95894eecc9dc"
+      },
+      {
+        "path": "claims.json",
+        "size": 4655,
+        "sha256": "a2eb9bf5c0df99726b14095143aaefa8cb5ae6d816cb4ef22873464ef20e5ea6"
+      },
+      {
+        "path": "corpus-query.json",
+        "size": 824,
+        "sha256": "10e537de9aa9f72bc2e2a25b226cd89de5faf71d42c3c8c10263afa02168eef8"
+      },
+      {
+        "path": "coverage.json",
+        "size": 5719,
+        "sha256": "5659671fa76bfcea9afa33b01d738a20475a3131eb65f053bb64d44c8af57a81"
+      },
+      {
+        "path": "dimension-crash-input.json",
+        "size": 327,
+        "sha256": "af22592b9a6da712aa14c927877fcbefaa9a35ed4f16725e5b60d7736ee21f80"
+      },
+      {
+        "path": "dimension-map-input.json",
+        "size": 150,
+        "sha256": "ae94531d09d9f46b0d056aa0035c065a5de79e418251c7435eb650ce4c0156da"
+      },
+      {
+        "path": "dimension-provenance.json",
+        "size": 3020,
+        "sha256": "2a4b392c3e53b56954336ab8223ef97f79c6f4cc0b3e4a5629e70efa52f46926"
+      },
+      {
+        "path": "evidence-config.json",
+        "size": 6358,
+        "sha256": "1da79bbf89ea90abf453764d955d5daff333f38647724b35637119aea036395f"
+      },
+      {
+        "path": "family-membership-input.json",
+        "size": 3053,
+        "sha256": "5cb983344488ce00c428914dafdf1b8a18e552d5ddb1cb9be9604662ac68c93d"
+      },
+      {
+        "path": "family-membership.json",
+        "size": 3702,
+        "sha256": "72f8356453bbb8dc7ccf5a4a0e9451a28f247aa4c1710dc8698cefeb91afe31a"
+      },
+      {
+        "path": "geometry-contract-audit.json",
+        "size": 3271,
+        "sha256": "f3ebebe917d057662c4691903bad1070e9b32809be15ef7fe86e473f1fe40b94"
+      },
+      {
+        "path": "lessons.json",
+        "size": 3423,
+        "sha256": "b3cde68f49190dca6f19da78fcdf3e8ca5bb285c1e577a86a0f04a815b222eee"
+      },
+      {
+        "path": "missing-evidence-request.json",
+        "size": 9411,
+        "sha256": "514056957ffab8ade6c2e1309575b72e2127285c1ffee0af180cfd0fea0e208c"
+      },
+      {
+        "path": "pair-audit.json",
+        "size": 4320,
+        "sha256": "037032447e8858081935d1f10bd8e0967460fa61c63aa0eac3ac65979e16f01f"
+      },
+      {
+        "path": "repro-plan.json",
+        "size": 16638,
+        "sha256": "7757da93276680bfe2422b8ea8aa2b34c3cac0f94bd6a6f0d3ad5954d59ad6b9"
+      },
+      {
+        "path": "save-inventory.json",
+        "size": 1573,
+        "sha256": "efc751ee89967ee8c22e82f83ee54667e38852b68acfe25f997d30c00ba472f8"
+      },
+      {
+        "path": "semantic-site-fingerprint.json",
+        "size": 625,
+        "sha256": "fe6ae4a4634b860f3174edb8ed7632c68f308bf1fed623300b1d32e89e15afbe"
+      },
+      {
+        "path": "semantic-site-input.json",
+        "size": 321,
+        "sha256": "1bf193d4245e3db67d1aae494f517544553debf4f6d25a0dbb99ba453640d486"
+      },
+      {
+        "path": "series-groups.json",
+        "size": 16498,
+        "sha256": "de668f9b74970b3b339f4d312da420ce7fea3e3d84855b48cc40ccfa4915d5fb"
+      },
+      {
+        "path": "series-parse.json",
+        "size": 12391,
+        "sha256": "d6eaf9567bee817c17451c0769940b1799baf46a7d42abf722b491000c1ad6dd"
+      },
+      {
+        "path": "static-exhaustion-R15.json",
+        "size": 441838,
+        "sha256": "a3a7b18bfea042bd8a5b6b432c9648e2d7ea72886304d98bd670f5d2cd7596eb"
+      },
+      {
+        "path": "static-exhaustion-R39.json",
+        "size": 440076,
+        "sha256": "5a136d6e54694c6dfcf898f377f877b071bf213385d67dce7de52469c21c1008"
+      }
+    ],
+    "toolchain_files": [
+      {
+        "path": ".agents/skills/address-mapping/SKILL.md",
+        "size": 94265,
+        "sha256": "98f79a1feb6d067698e6f4fc8d3102140521e682474efaea268ba489b5f34169"
+      },
+      {
+        "path": ".agents/skills/address-mapping/_test_common.py",
+        "size": 7001,
+        "sha256": "774a0c966db38a35fe7995921ca31aa5a72cf12d89345abad91797c346219b36"
+      },
+      {
+        "path": ".agents/skills/address-mapping/address_proof.py",
+        "size": 19754,
+        "sha256": "0470d394d45ccc3be499a430e6a115876ec5496adaf370d7544f022414099764"
+      },
+      {
+        "path": ".agents/skills/address-mapping/branch_census.py",
+        "size": 5186,
+        "sha256": "95f36773091c1338fa889c1b05485b1f6e6466eef71d8f107b3e7124b672daec"
+      },
+      {
+        "path": ".agents/skills/address-mapping/branch_contract_audit.py",
+        "size": 7832,
+        "sha256": "7ef403e29d0e3020f6934f3114fb58b5f53bd7d4499b292bb8988fea59c7cbe9"
+      },
+      {
+        "path": ".agents/skills/address-mapping/build_all_indexes.py",
+        "size": 5023,
+        "sha256": "c8f5c1905e73beba3347e0ddcdb9390768d36d5f92c9a07c52d3ca24a69c5697"
+      },
+      {
+        "path": ".agents/skills/address-mapping/call_argument_audit.py",
+        "size": 21255,
+        "sha256": "02de1f548bfaad387f3f3b7a51a8b926ec63da01cb68ceb209df21d36e7acc6c"
+      },
+      {
+        "path": ".agents/skills/address-mapping/callback_abi_audit.py",
+        "size": 7092,
+        "sha256": "0463a7798e01036fde8ad65d0241924e3374a46eb55bdb0bc406ad291c8504dd"
+      },
+      {
+        "path": ".agents/skills/address-mapping/container_bounds.py",
+        "size": 6974,
+        "sha256": "09c9f240503f45d9400c383b745dcb719dc75234579ef333177e012ac4e66007"
+      },
+      {
+        "path": ".agents/skills/address-mapping/corpus_counts.json",
+        "size": 22845,
+        "sha256": "4eb1be4b03569194b0aa83ddbec36867861aede56bdaa4e21685576e3002f64f"
+      },
+      {
+        "path": ".agents/skills/address-mapping/culprit.py",
+        "size": 44410,
+        "sha256": "2a704295cd3b436702084a507e6d052c2a5c64c6f5025617817cdb63e86a066a"
+      },
+      {
+        "path": ".agents/skills/address-mapping/dump_profile.py",
+        "size": 32735,
+        "sha256": "07289a51b51cf85a92cc40c01b6eb07a4d2d0ac9461e465187e81f51d17ecb7d"
+      },
+      {
+        "path": ".agents/skills/address-mapping/dumplib.py",
+        "size": 35996,
+        "sha256": "ba0f4c5040bd77852fa04fd78db409f402a2c3fda0a732981b9f8e5e74345666"
+      },
+      {
+        "path": ".agents/skills/address-mapping/effective_address.py",
+        "size": 5578,
+        "sha256": "c393a90216ae9a8a5362165b51c311f623863ced8e8bdf551a118f79899b89dc"
+      },
+      {
+        "path": ".agents/skills/address-mapping/field_writer_census.py",
+        "size": 15982,
+        "sha256": "ec93ab457a6fd7f03a46035d9ee7949a705c56361b686761a1854b9c815b163f"
+      },
+      {
+        "path": ".agents/skills/address-mapping/index_listing.py",
+        "size": 8920,
+        "sha256": "89d2c3a4cba22c6bf4c79034bfdcfcea8c3529587a923f4c8bba57461328be61"
+      },
+      {
+        "path": ".agents/skills/address-mapping/instruction_lines.py",
+        "size": 3020,
+        "sha256": "c8848f2d4f31d02ba43d8e916fefe41e4ee569667c4ec0c9a8b562a605a429a8"
+      },
+      {
+        "path": ".agents/skills/address-mapping/map_addr.py",
+        "size": 7440,
+        "sha256": "fec6ad2289e0f682ae27d83047b3af0096b932772c9c549d429ea37cb2ba4c5d"
+      },
+      {
+        "path": ".agents/skills/address-mapping/modular_index.py",
+        "size": 5388,
+        "sha256": "6c3655ec13c04213c6d123fdddbc0e828f65d485780c358f841356fa7ba67076"
+      },
+      {
+        "path": ".agents/skills/address-mapping/nh3api_aliases.py",
+        "size": 18314,
+        "sha256": "674ce5a8ab1192ac1ea957973d8e66fa08b1a0fa3af262571bc6018b2a32b3a8"
+      },
+      {
+        "path": ".agents/skills/address-mapping/pretriage_index.py",
+        "size": 13532,
+        "sha256": "e32d41e6c5d5a1a05c03e761e886e84d4961ae513621b5104301b89179ed8184"
+      },
+      {
+        "path": ".agents/skills/address-mapping/read_dump.py",
+        "size": 22949,
+        "sha256": "9daf0505bf0bc0056f2f27c2d5ebad9f7d41ac85df843326997d7d856cafc4cf"
+      },
+      {
+        "path": ".agents/skills/address-mapping/register_string_resolver.py",
+        "size": 4915,
+        "sha256": "e38cab3240e1540ff8b49268033900115dfee900455100fbb8d37e442a06ec09"
+      },
+      {
+        "path": ".agents/skills/address-mapping/resolve_stack.py",
+        "size": 8094,
+        "sha256": "0f7459e6110eacd5be9f57ca0400386ed5b4a3ccfeae6590682957b0011b65fc"
+      },
+      {
+        "path": ".agents/skills/address-mapping/run_optional_corpus.py",
+        "size": 1608,
+        "sha256": "538fd0f2e24c15bad26260635dcdf175aecaf688190e3d48f446a13e4615010b"
+      },
+      {
+        "path": ".agents/skills/address-mapping/select_listing.py",
+        "size": 17006,
+        "sha256": "21887fa0524b0bf68de6b3ee6202c0ec44260ea1c58c0876caa5f9c8e690dbb2"
+      },
+      {
+        "path": ".agents/skills/address-mapping/semantic_artifacts.py",
+        "size": 38880,
+        "sha256": "4eb59c8d0ad148791c3cbba47aa756a790c1a188fe01cf6bc7b3eb4bd84d64aa"
+      },
+      {
+        "path": ".agents/skills/address-mapping/surface_span_check.py",
+        "size": 7656,
+        "sha256": "6d826246c427b1dae5b89a9f72e3db1a8ea76012c0b90610e48fb16f0938bf8f"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_audit_regressions.py",
+        "size": 18364,
+        "sha256": "dd63b11c2aaa76761ffd54b8b6bebce1ff93375480095800f11aeb6721aa5943"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_call_boundary_regressions.py",
+        "size": 13576,
+        "sha256": "2473cd1c71c1902f55523a4b4fdc2401c1e02bbe9c32c17119e3adc700a49e45"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_collect.py",
+        "size": 12170,
+        "sha256": "34562572e7219d37f8966c75ff36b93b3415c261b6d4ca33d122c01caccad7cc"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_consistency.py",
+        "size": 36438,
+        "sha256": "5c6887f9b46a6c731ebda9efe1823a5aec6d9c48218096ba8617f0ed8413d82c"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_corpus_counts.py",
+        "size": 12576,
+        "sha256": "a6ce09a60ae5158f3f12f67c72a117cc8d81e901e64abe5d42a22f60a913125e"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_culprit.py",
+        "size": 16748,
+        "sha256": "98efa59bdd735d3fd50b8652418ab4da3c3180439da5e8db5537b01772dae559"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_dump_profile.py",
+        "size": 19639,
+        "sha256": "5efc9c81f1d9dd0c2b1280eed07defaa180581c135e86b0a98c5452a806aad39"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_dumplib.py",
+        "size": 20312,
+        "sha256": "50f7f7225999b5e4dd0d933d6e031fd23cde158e418114e69b52cd92c4809835"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_e2e.py",
+        "size": 15365,
+        "sha256": "7e21a255f62b9984646b9f65bb1589e2c646f8d29d714e3fc800179d78e66471"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_evidence_binding.py",
+        "size": 9410,
+        "sha256": "e79af4b9c424ae0981336de5a6555a9027e1b87172b6f1bbb66d2cd01e3ae0a1"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_exhaustion.py",
+        "size": 18600,
+        "sha256": "f35dffd20f0958fd2923895a268a5e2c3aa61229df18ba2bacb7114d68a21625"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_factcard.py",
+        "size": 7004,
+        "sha256": "f566fef4a47463686efaf278bc768977064912432d6790411724204771f591eb"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_gameplay_state.py",
+        "size": 17886,
+        "sha256": "675bde5e6056c223aad6dac4bab9b08e6a1cd732967942f1ae9c888b4914f7b5"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_keycensus.py",
+        "size": 12377,
+        "sha256": "80deed4ff7a4e2e11a952c406a48ff433654261b814e6e088408660937bb431a"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_lint.py",
+        "size": 69843,
+        "sha256": "71d5eefa196acf63764893bc4dbcb8231ce83c8dd7057c38f99cd289923722a2"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_mail_funnel.py",
+        "size": 25514,
+        "sha256": "6acea157b4aa02b6a05986f7a992079c6951e16dca567f9f9ab3c5971d3c0e53"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_mapping.py",
+        "size": 26980,
+        "sha256": "73c5090cdf3404c9f224f3c0979427e52b127a5d758247d6b00cc1d470d2d8b6"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_mechanisms.py",
+        "size": 10874,
+        "sha256": "7c748f869ba7f9d5352be4c597a7fffa03a4380a8ed5470b58efc6d31d9debad"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_method_improvements.py",
+        "size": 86514,
+        "sha256": "26eadff38a190972047401435c9f5f2f7dffa13e4512959588fa416d470e8ce4"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_minidump_bounds.py",
+        "size": 8204,
+        "sha256": "367c14e45cbdf02ae893472716fefcf32d9c502c0a3f23ff3c11b65989bcbbbd"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_parse_dumps.py",
+        "size": 10868,
+        "sha256": "73e1420dda5f44246c56cccd99c270b9397d0364a2d38ffb5266736b4197e82f"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_patchlib.py",
+        "size": 12989,
+        "sha256": "8a1609fb62eae58299246a8029e50da4236a4e156d7eb5ca21405294d2852855"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_process_hardening.py",
+        "size": 24776,
+        "sha256": "0f84400b66dea455915c51fd42637a4d4ff58b7116d622bd642a16cc952f1091"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_publication_artifacts.py",
+        "size": 13497,
+        "sha256": "9802df874dbfa1ef71a1291bd88547319cd8fc008d0a7c63550d886451b76adf"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_publish_lock.py",
+        "size": 4264,
+        "sha256": "a6bfabc2db2e52fa2834cc12a76f35198ce76e8311c9baaeee9136eddd4cf0b0"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_render.py",
+        "size": 83388,
+        "sha256": "0f2a4943f8064c2eeb62e9195712c3ee0629302e7313234adf6f0fc529b96f8b"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_reports.py",
+        "size": 35149,
+        "sha256": "8954e255977f19aa586a3e112e115c597c894316fe16150ce908b0861ad7b634"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_runtime.py",
+        "size": 17812,
+        "sha256": "a0afd91d09221d0353ab1bb4340dbec01293e01ac7936df0ce32cfbe049a6936"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_savemap.py",
+        "size": 21093,
+        "sha256": "e2e164da8001bfe150baa5b1e0c6c40749d0695fdc37c82667810c5866f3bc19"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_scan_integrity.py",
+        "size": 5242,
+        "sha256": "a68922d22abd16fbbd5543c7e0b69b82c740fd8b0cc20c17c0f0f1d85b2438a3"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_series_process.py",
+        "size": 7412,
+        "sha256": "e6e0856e39813e0f06a18bdd69694036dff565850de8714d5cc979035826a5e9"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_sitecensus.py",
+        "size": 13692,
+        "sha256": "b94ab98da1adea945f79196fad02d6ed0234ef7b3a07e942cf11c4a34742b7bf"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_smoke.py",
+        "size": 7698,
+        "sha256": "6fc02295a69ff8fc3de580a150015ad30b3aa4298cd5661c138dbdea7d942c4d"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_spatial_index_process.py",
+        "size": 12292,
+        "sha256": "b5ca61670cacda76993b9c2ecdb5593bbd45dffe98bd7ccd50c776e878235a13"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_throwtype.py",
+        "size": 10774,
+        "sha256": "380d1d38f10f49ca59bd516c0ee8b7929ea7962cc4b504f39ccb76a139efb4cf"
+      },
+      {
+        "path": ".agents/skills/address-mapping/test_workflow_regressions.py",
+        "size": 9414,
+        "sha256": "3fa55510a5ae6ae0ea72a29a344c2d7d7d51eddd8a6ab245c9dc8bb7ba878989"
+      },
+      {
+        "path": ".agents/skills/address-mapping/throwtype.py",
+        "size": 18215,
+        "sha256": "a294390e577c0a14552e615f8414a0a465f2dbb96b1ecb2e33343424a453c49b"
+      },
+      {
+        "path": ".agents/skills/crash-type-playbook/SKILL.md",
+        "size": 225021,
+        "sha256": "ed49542de2534e7d95041a7203cc9c7df86f0ec3e1954761fff0c282b5f2c6e7"
+      },
+      {
+        "path": ".agents/skills/crash-type-playbook/classes.json",
+        "size": 2753,
+        "sha256": "8de344261e98b822209ecec50b0611565ebceb5a95b6a34952ff691084d1d989"
+      },
+      {
+        "path": ".agents/skills/env-parity/SKILL.md",
+        "size": 5215,
+        "sha256": "0b3b34cb905c48fbad95895eae72ec30dbd8cf1edd3fdb121f897a10a760fc71"
+      },
+      {
+        "path": ".agents/skills/gameplay-state-triage/SKILL.md",
+        "size": 9642,
+        "sha256": "6084bd0fdaaba4f77ae14cb442d212d88b526808b8062b3f890747f97c651671"
+      },
+      {
+        "path": ".agents/skills/gameplay-state-triage/active_route_audit.py",
+        "size": 8887,
+        "sha256": "3f0219eab8ac9ad62b0bb9ab4d3dfde322d71006db29a5e2f9e575b5b0ae02c7"
+      },
+      {
+        "path": ".agents/skills/gameplay-state-triage/gameplay_case_gate.py",
+        "size": 8279,
+        "sha256": "8c9094db55e62a0899d86f920981e8743eaf22e63b54bd396b1c60e4926bd75f"
+      },
+      {
+        "path": ".agents/skills/gameplay-state-triage/gameplay_state_triage.py",
+        "size": 5769,
+        "sha256": "d7bba7cf510fde69a1e996d4910de82cf83a8e2ba979180f4216b409f381fa13"
+      },
+      {
+        "path": ".agents/skills/gameplay-state-triage/schemas/environment-manifest.example.json",
+        "size": 776,
+        "sha256": "46e345887d3c6ae636361ae324a5e102615ce2acdbda8c2d23e82046bb3c744d"
+      },
+      {
+        "path": ".agents/skills/gameplay-state-triage/schemas/gameplay-case.example.json",
+        "size": 378,
+        "sha256": "868b6696ed51b4ca886f36e250c3d747fe45bca9407c25b76c9756bd8763c9c7"
+      },
+      {
+        "path": ".agents/skills/gameplay-state-triage/schemas/hook-manifest.example.json",
+        "size": 731,
+        "sha256": "daa54578d44d2bc181d7ed8162e6b9d418ad9008f89e0140af92e469c0a83780"
+      },
+      {
+        "path": ".agents/skills/gameplay-state-triage/schemas/resource-manifest.example.json",
+        "size": 632,
+        "sha256": "c1bee22a1b5a05e75e102b51ef824c3f473719d009ce49d4da7e96c1cb55492e"
+      },
+      {
+        "path": ".agents/skills/gameplay-state-triage/schemas/tower-oracle.example.json",
+        "size": 393,
+        "sha256": "2e3f22afe90f552e692c5a1dc2b21f57c5a98218db1b4e9b805d7de7e816c4cf"
+      },
+      {
+        "path": ".agents/skills/gameplay-state-triage/schemas/town-mask-plan.example.json",
+        "size": 969,
+        "sha256": "bcd5edf416c54bf9865d0488a4b89239a1047fc8a5cfc78c18d7ec255ec8ad26"
+      },
+      {
+        "path": ".agents/skills/gameplay-state-triage/schemas/town-state.example.json",
+        "size": 964,
+        "sha256": "5bf8f46cb73c847640a951780ae9c6420585295c3ad09d7ee4310003e3b689d9"
+      },
+      {
+        "path": ".agents/skills/gameplay-state-triage/tower_damage_oracle.py",
+        "size": 5833,
+        "sha256": "c08d5f88855adc014e35245ecc39e7eafd5a4a317a8442bc9ab9b10398e16d07"
+      },
+      {
+        "path": ".agents/skills/geometry-contract/SKILL.md",
+        "size": 5060,
+        "sha256": "3c23da7e17b7c2ffbd7c7b97c56d61805ea3279d26bf06ba299eecf857279618"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/SKILL.md",
+        "size": 215373,
+        "sha256": "537590b637b97c3c5d2cb99c9b808c8d2d74fca7cf881699c96d633168105a5d"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/analysis_contract.py",
+        "size": 12272,
+        "sha256": "846623acb217e184e2bd51f3b8a90230d8eee134a879d0cde0c598873f9daee2"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/artifact_io.py",
+        "size": 6846,
+        "sha256": "abb29d086a48957c69541b2aaaddb56828b11f5ad5bf7dc386ceebec5baeea50"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/case_archive_policy.py",
+        "size": 3511,
+        "sha256": "037c8934a871370feb4b5c17afe8749d9ce7f713c2a55ca994651bdec6537825"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/case_doctor.py",
+        "size": 10357,
+        "sha256": "231fd9c6005ef3f33e8dd8ec701d06e5edd3e05bd87a2be8bc59242fa794356d"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/case_lessons.py",
+        "size": 9699,
+        "sha256": "e9c42565408fda559c4a72d37ea6721ce668f290675458e6434b5d31f9dbdf52"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/case_manifest.py",
+        "size": 25545,
+        "sha256": "9e7cd28beccc1a06ee239590bed13da0721b00c10c42335861e63c41f137749c"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/case_quality_gate.py",
+        "size": 99909,
+        "sha256": "8c2de5cde4af85423e823f73da88ce5a4ae674110a1c201eaea338d6dc2da832"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/case_rebuild.py",
+        "size": 23408,
+        "sha256": "c8191eb1da0eed51f47df6565ff84fd25f4730f21d8cb6b17442f86fb178dbf0"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/contract_version_guard.py",
+        "size": 11672,
+        "sha256": "1561b7e303dac4e2adf9f764a81655dc60fa425c9c47a915c837b6ad4a49a163"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/copy_publish_rows.py",
+        "size": 6098,
+        "sha256": "76dd63604fd037a26b28f8e2853b549e6de4a8beb8609c1a96476aa51f7b1d03"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/coverage_contract.py",
+        "size": 10638,
+        "sha256": "b1983c0ffb3792cae2a1bb63bed7c305c0ee0d1bc6c3c6447bf5cd5714c36425"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/crash_audit.py",
+        "size": 46887,
+        "sha256": "23a6b5a844de2ce30d6e11d9861bff461f0a98260f82b7790c5e1b226c5f5b70"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/dimension_provenance.py",
+        "size": 11562,
+        "sha256": "24a7551f6c1e060b876aedc7c3bd2188339c2dcc687da46dc6c5be9889f54414"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/evidence_contract.py",
+        "size": 8153,
+        "sha256": "6d6f52cb98d79a93bc6af7091cac21a743f83b2cf0b0e38a63b5dc7c2bc3b1fa"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/evidence_manifest.py",
+        "size": 62578,
+        "sha256": "e927bf01a44f65620bec6c127668b6f9877d77c5aef355b533e8417fd6b0892e"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/evidence_reverify.py",
+        "size": 8823,
+        "sha256": "4574003166d61ebe8df7511150d80874be3e93cbb986911598475c0649fd3c2f"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/family_membership.py",
+        "size": 15239,
+        "sha256": "d0da36111f4a2ddded9495e5d6db91af9d7f443ab98f46f2c333299b422147a6"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/finalize_existing_publication.py",
+        "size": 8198,
+        "sha256": "2b0d5475bc9cefa030d4d0bd24614467391f90913d82eba478247d6bdfc982a0"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/fix_coverage.py",
+        "size": 11383,
+        "sha256": "a944f063a0bcdc86e2c07d18131d6ffd501dceb9c65aede55faccdd69c7fcb74"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/frame_slot_provenance.py",
+        "size": 10701,
+        "sha256": "9148a0d65fa49285da9b3285994801193d77204269a51c434ef4159e297603b3"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/geometry_contract_audit.py",
+        "size": 5035,
+        "sha256": "2efdc85e7e2d0b7a8dee96fe97ee454321af287833a0871394ae1258cb2e8590"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/legacy_reports_without_evidence.txt",
+        "size": 396,
+        "sha256": "143610701b26e1ff568776c97368e2dc3089913672dd3886b24b09a1ddccde68"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/lint_report.py",
+        "size": 119983,
+        "sha256": "bf92e4a039e9d4f62b143d78019668adb4a7303b5e79f27b3b05a0f752e8ebb4"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/missing_evidence_request.py",
+        "size": 5747,
+        "sha256": "d26ab49aa8f872400c797eef5cab7f76521b65db9e1ac15cdd90b753d84bec80"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/new_report.py",
+        "size": 29972,
+        "sha256": "f3e0a70ebb6814e9434886a4cff70e17e3b53c8e14ead82bdd8af64bb7d5c9b7"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/phase_manifest.py",
+        "size": 11827,
+        "sha256": "1bd3098f8f350797b3391e56682a8c389bd43158bb406d08ab8cf4016be6df4c"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/pipeline_timing.py",
+        "size": 11760,
+        "sha256": "1925fa5663b4e47464ff7804f1baa6a10a98d058672ba6a1b2483d6d38da8c82"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/publication_handoff.py",
+        "size": 33904,
+        "sha256": "dfdab19e5ec587269551b69babb93f3440e34ec9c1ea820671ba3454b843438b"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/publication_journal.py",
+        "size": 24451,
+        "sha256": "c29608b6d75adfc1f7d0cdbc39caf4d89cde2408f0887f9da0de4c15071d87b2"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/publication_plan.py",
+        "size": 36580,
+        "sha256": "ac4af5891088da519c2d572d8892723eb3a4d0f8360d9192f557d0d5b317c99d"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/publication_recovery.py",
+        "size": 12186,
+        "sha256": "8b5d42ee957667ead0d880a7b1ba176a73582a542de8c98844431b146f8d7e9d"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/publication_result.py",
+        "size": 17938,
+        "sha256": "27ff47bd3d8574885ab8c392f05c0ace7a0cd4ffc73686f2ed8e9e80311754e7"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/publication_snapshot.py",
+        "size": 13031,
+        "sha256": "099ed4cf34f73646417b845690aae332fbb7ad8b5ac8a2fc09b31782a72b54b2"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/publication_worktree.py",
+        "size": 8715,
+        "sha256": "6138c86617554370b1ac41b8d89c0c0774ba35ace8673814e9791034cf56e33b"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/record_traversal.py",
+        "size": 6241,
+        "sha256": "badeb5616c820c38389689fe5f12e9af4e74e0e364a3e4f1bb6fc2dfa4733367"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/reentrant_init_audit.py",
+        "size": 10351,
+        "sha256": "ec8c3c719850874708a8988f5e761eda6adea7d4ab9793beeef53fda2872ad4c"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/related_crashes.py",
+        "size": 4941,
+        "sha256": "bad8a9737d6c1ca47c90ecf122c009d4aa7ccd8622885a8ecb665709daa5541a"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/remote_attestation.py",
+        "size": 27880,
+        "sha256": "e4ca65ba83a7f2e639a19afc49c9168ab2cb15e14c1ec818229081ad38ebba07"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/remote_publication_check.py",
+        "size": 18082,
+        "sha256": "80b4eb67099f52053ea01ac770d3b13d09b68eec81a1dfff8ab6cd772f4c5800"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/render_attestation.py",
+        "size": 6468,
+        "sha256": "13c35031c9b11235563205d69e65ddcb67a3f97914788aecdeea8c5e680f6cdd"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/report_history.py",
+        "size": 5282,
+        "sha256": "304888918b7d1e0e52a170718425f01be61912a509a2342c33fd1f5a7392fb58"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/report_metadata.py",
+        "size": 5990,
+        "sha256": "3a5b27296c6740e581c1789bfa69dc0a96e9f49d0369e0f60a79f9387968b950"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/report_safe_edit.py",
+        "size": 3608,
+        "sha256": "57e381a92ff1a80499eea3b947669dbd294c538cacf7664be1a996abfabec73f"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/report_schema.py",
+        "size": 11422,
+        "sha256": "cfd1669880f0e51f0e4d6ae4e24a2f93079f5c60058ce1cd88a24a4708559101"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/repro_plan.py",
+        "size": 21044,
+        "sha256": "121cb694e928b6040b15fee94d2fe34826bb149239555784717555489e7eb8f7"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/scan_attestation.py",
+        "size": 5877,
+        "sha256": "ca137a0bd4618a7166c9906e40bcf6584a90f9d295d0038621a48daa86c83568"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/search_preflight.py",
+        "size": 5348,
+        "sha256": "c2fff1f2ffe59c922d3c0bd829d4ee015e4b484e261214dcacf5037bdaad71b1"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/semantic_contract.py",
+        "size": 13359,
+        "sha256": "5e7b08902f5e5d096efefc23f3c52f8b76552e7697ec5fe28300acb0c70826f7"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/semantic_site_fingerprint.py",
+        "size": 4957,
+        "sha256": "dec858198b86e8d073a19ed274866137b5e22a8bba38ac52c5820e31f9a0688e"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/signed_geometry_audit.py",
+        "size": 7740,
+        "sha256": "a8dfe38b5c483fdabad1e4718691851aa07a13fc0596ea050ee747e9b3ef54b9"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/static_exhaustion_check.py",
+        "size": 62932,
+        "sha256": "085190ed89364a14889e8ee084510a46193431eb55e3a0d7688459b591ee6f5b"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/summary_row.py",
+        "size": 5022,
+        "sha256": "65d3961be318d7d44cb8fa23ecb2fbe11c3529964be91ee2e545113c6b300b62"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/test_environment.py",
+        "size": 1753,
+        "sha256": "b6e22aecbfaee8bba3d12b0ed1718e1f91d2a2ab471005942991129ee505b1f8"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/test_publication_resume.py",
+        "size": 13832,
+        "sha256": "89bbe6d03878b3f5d70470ba228036139b7568204a60b7600d1e27c267cc7211"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/test_workflow.py",
+        "size": 19896,
+        "sha256": "7ca00e1d282fa8560a92c371a7a8844d8d06684fef525330a434973880423de0"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/toolchain_closure.py",
+        "size": 10465,
+        "sha256": "ba4f089eb12e8438cd0a1fd0ebdcb37e0cc846477e33ebffae53e137b59fddbf"
+      },
+      {
+        "path": ".agents/skills/hota-crash-triage/triage.py",
+        "size": 13963,
+        "sha256": "f9e72c6da023101fbcd420977285de8298835af53a273f54a9fa14c0fd06fff9"
+      },
+      {
+        "path": ".agents/skills/html-report/SKILL.md",
+        "size": 104993,
+        "sha256": "fc3470e6ebc43b4fad27d3b50e504db0e271aa30a04722e16f710c81a863fd87"
+      },
+      {
+        "path": ".agents/skills/html-report/archive_crash_artifacts.py",
+        "size": 22151,
+        "sha256": "07290c6dd127d391d3b459c65e6309586ce359527d7d7d4c0112197c01d66385"
+      },
+      {
+        "path": ".agents/skills/html-report/browser_svg_check.py",
+        "size": 10314,
+        "sha256": "88e493da051cd7cfdf57fede333b1c275482d57d4e5d14f607fb0eb30ff677c7"
+      },
+      {
+        "path": ".agents/skills/html-report/fonts/ReportMono-Bold.woff2",
+        "size": 53836,
+        "sha256": "dea64820e1ffa27ee8eeae8769b38cdf287c4d6cfaa2b96be15b0f3c6c1d337c"
+      },
+      {
+        "path": ".agents/skills/html-report/fonts/ReportMono-Regular.woff2",
+        "size": 52056,
+        "sha256": "a16f097ed8b1417c5564b1da17c9b7bb809583f4a9d74c9ba272d29e0b5e528e"
+      },
+      {
+        "path": ".agents/skills/html-report/fonts/ReportSans-Bold.woff2",
+        "size": 72892,
+        "sha256": "fc9d48df6e3ae8ed4214d1e70ab13ed4af58015263af1d5a24ed7b06b2c0378b"
+      },
+      {
+        "path": ".agents/skills/html-report/fonts/ReportSans-Regular.woff2",
+        "size": 67436,
+        "sha256": "9dbf0dab5a6eeac74494e14674b69077c55e8858295647d91d27bfc803dbdb6c"
+      },
+      {
+        "path": ".agents/skills/html-report/fonts/ReportSans-SemiBold.woff2",
+        "size": 72760,
+        "sha256": "f5fbca9627ab1338a9a39dc5d1d84d7593e59cca0b860be7145a950ed1c1b9a3"
+      },
+      {
+        "path": ".agents/skills/html-report/render_report.py",
+        "size": 1086,
+        "sha256": "75e811fef4abc543e74287b913aa39ac4c4a6e67c994bf686241c5859aab4914"
+      },
+      {
+        "path": ".agents/skills/html-report/report_parts/build.py",
+        "size": 37130,
+        "sha256": "14ea2fcf296d022d32e1783da70dff8f4c4f055a130b6175ba2066045d4a4f72"
+      },
+      {
+        "path": ".agents/skills/html-report/report_parts/core.py",
+        "size": 18311,
+        "sha256": "180375d70c54d3858175e40c678c333762db7537888934d3d98b225ac627350e"
+      },
+      {
+        "path": ".agents/skills/html-report/report_parts/fonts.py",
+        "size": 2158,
+        "sha256": "28094a0eb4c20e2bb0a571b1e513926301fa5fde265c7362b7c98102a5b70dbf"
+      },
+      {
+        "path": ".agents/skills/html-report/report_parts/meta.py",
+        "size": 11959,
+        "sha256": "7ad90bcbc8e274dd5205bbd7ee3e706ede863fea22c3c3b5e6c0f3064db73dbe"
+      },
+      {
+        "path": ".agents/skills/html-report/report_parts/parse.py",
+        "size": 2960,
+        "sha256": "3f5526ea59802c8bab454c1cc81a897f60ec50800b3024e0c2591906211c5e2d"
+      },
+      {
+        "path": ".agents/skills/html-report/report_parts/render.py",
+        "size": 67928,
+        "sha256": "8eea15049165928afd849af81a514a1dc348e3fef65266877b184a9aab97edbc"
+      },
+      {
+        "path": ".agents/skills/html-report/report_parts/terminology.py",
+        "size": 6476,
+        "sha256": "c1f7f23ab4db2cfda95175a7fa3b95d8328d31d0f76b6359590af5d5723fd2b4"
+      },
+      {
+        "path": ".agents/skills/html-report/template.html",
+        "size": 7469,
+        "sha256": "80e538676c5f222991bbe7d6906349420b6d82c2ae014c82e61086b44cb83122"
+      },
+      {
+        "path": ".agents/skills/html-report/template_parts/interactions.js",
+        "size": 4461,
+        "sha256": "d00a9ca0044e6305cd67f13f1ea26d645c1fc6433884bf0c8d7efe72de63152e"
+      },
+      {
+        "path": ".agents/skills/html-report/template_parts/sections.js",
+        "size": 497,
+        "sha256": "317b485b221f1b57a3b50c3be21ae9fc8b31c5cde446a58951e90034338a9ff6"
+      },
+      {
+        "path": ".agents/skills/html-report/template_parts/styles.css",
+        "size": 55058,
+        "sha256": "10795790ddb567537fdb6c6e53e0714be13cc2a25252619b80b05eb38bf20c25"
+      },
+      {
+        "path": ".agents/skills/html-report/template_parts/theme-init.js",
+        "size": 608,
+        "sha256": "dfd0663f32a5a77eff2d47b769028be65e80773decab8bf6e6a129844c5f703d"
+      },
+      {
+        "path": ".agents/skills/html-report/template_parts/toc.js",
+        "size": 250,
+        "sha256": "3b87a43635a86a012a301213ccc84bf2cc0ca1eff524455f2224e8cc12ecf679"
+      },
+      {
+        "path": ".agents/skills/mail-fetch/SKILL.md",
+        "size": 29734,
+        "sha256": "077431f97bab420848e2e73348dac83b48b3720f53a42a6273b003699318a60c"
+      },
+      {
+        "path": ".agents/skills/mail-fetch/count_by_subject.py",
+        "size": 12634,
+        "sha256": "07a0c74c3c79460a593757e179272f9ee58912b2798d05e494d6744aaf54a2c2"
+      },
+      {
+        "path": ".agents/skills/mail-fetch/fetch_mail.py",
+        "size": 49563,
+        "sha256": "e48de47ed243faef21067c9adddee1163837090742ad3cb273ed47716e25f381"
+      },
+      {
+        "path": ".agents/skills/mail-fetch/imap_utf7.py",
+        "size": 1251,
+        "sha256": "d08da669e2d7d8126b99c5696368707068bea792d67ad3b19d7b8c87dd7bdccc"
+      },
+      {
+        "path": ".agents/skills/mail-fetch/ingest_readiness.py",
+        "size": 8853,
+        "sha256": "da3f0e6e43dd8f574531637ed9ce500020dcd2e6baf05d73a12ec69b0574bca3"
+      },
+      {
+        "path": ".agents/skills/mail-fetch/mail_config.example.json",
+        "size": 80,
+        "sha256": "ad611343b3b4a7819e009250498a1784def312708a9c46d4bc87f9617984a1f3"
+      },
+      {
+        "path": ".agents/skills/mail-fetch/test_mail.py",
+        "size": 3892,
+        "sha256": "9f3b3bb966b390311b784b33701301b89c4ca1dead9c50a3ab407fdeff282dfd"
+      },
+      {
+        "path": ".agents/skills/mail-fetch/va_forms.py",
+        "size": 1089,
+        "sha256": "159ade88cfc033617e8250c1b537f972f716eb447d7188f88d1c6270d8faf675"
+      },
+      {
+        "path": ".agents/skills/memory-pressure/SKILL.md",
+        "size": 34762,
+        "sha256": "76a91fc909fb6cae844f381796fd774f5c17f099666ffe0e13972d0e277340a3"
+      },
+      {
+        "path": ".agents/skills/memory-pressure/memory_pressure_contract.py",
+        "size": 4629,
+        "sha256": "cd4de5683de1a0dda82a4d9d5e2d06d8a9033797f2315f11a8916098df321092"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/SKILL.md",
+        "size": 128230,
+        "sha256": "b69f6edcc27e78afd26208a49cbc3e9f4f9183bed2986e8b48dfd6c142e64270"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/artifact_context_census.py",
+        "size": 9529,
+        "sha256": "0aeed0c304953348cdef549cf59144553c8358a58a33605dd6d050051cc3b509"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/code_window_fingerprint.py",
+        "size": 7070,
+        "sha256": "76c035fb99b954b4cd4a54210928751502953af7e0f8f3377f3878985325ba0d"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/consolidation_attestation.py",
+        "size": 18951,
+        "sha256": "f07175a8b921b83eb723027cc43aa95600306e352ad3c87951802deb012accfb"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/corpus_denominator.py",
+        "size": 14622,
+        "sha256": "c2dd74d47b7c879c2feded29d670bc372e32a6252cadf20c948de244569d1875"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/cross_version_matrix.py",
+        "size": 7996,
+        "sha256": "b826d4c6a6e6a237861b94d9415be40790c3e3e769c6ebbefd83246c34ea1e25"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/factcard.py",
+        "size": 12240,
+        "sha256": "a73d7abcedcdb7b93d5000ec1e2afd341ce678c4a5cd7b440eaeb96c7b533f38"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/family_fingerprint.py",
+        "size": 10751,
+        "sha256": "fa68be0e99b1b2e24fb2b143a231a3071bd65022d7284ef7ca6a2a8d65d5307f"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/family_relation.py",
+        "size": 5807,
+        "sha256": "08039e991110ad13af21fcac96dcf6eec451610ba806775dd43f3cedcfe1fe11"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/helper_callsite_census.py",
+        "size": 18713,
+        "sha256": "1e88cadb95540820df77df3faccce0b5139faf2beb60f710d51dd079cdd3eca2"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/mechanisms.json",
+        "size": 5022,
+        "sha256": "43150daa14b1bf06a5056ba2277b4d42ed8f4fe9ebd9d070032e91686de672ce"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/mechanisms.proposed.json",
+        "size": 53650,
+        "sha256": "132831c1739557d4737fbbb64c8f5b7e852d758d0cd1d2050b7b08f584fefac0"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/mechanisms.py",
+        "size": 15047,
+        "sha256": "f83b8d5f94c14543a28ec92a14b401ae255564a9e19444874ae408607c7e70d2"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/mechanisms_from_reports.py",
+        "size": 18458,
+        "sha256": "53f8442826bdd4247c54c5b1ed8439eb235347432d91d9dc5a7f8905845188ed"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/pair_audit.py",
+        "size": 28543,
+        "sha256": "1325280054a977f5d9a0cafa101c744f05a7bf763e834847173a95920e8b809d"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/parse_dumps.py",
+        "size": 25937,
+        "sha256": "ea6291a54449df28dbf542862d34cd549114215aa750aa29d29a50400aec5210"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/relocate_crash_family.py",
+        "size": 59810,
+        "sha256": "45e25f669a7f45ac018a5ae4e40dc57cdf072d5589300d2bc6537d3e020f09fe"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/representative_dumps.py",
+        "size": 3236,
+        "sha256": "b358819b2c0f5ff43229e652b894633dc22a28b6baf391e58494752cd3eb7b46"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/series_index_audit.py",
+        "size": 8014,
+        "sha256": "a030828a2e4bf111c46e2c1285b05874289c34a535879bfaf819ba3edda7774f"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/series_registry.py",
+        "size": 33463,
+        "sha256": "0c31001dfb771015a1d4ba13758ed023e004211fc9293471924ddb1ca96c60c6"
+      },
+      {
+        "path": ".agents/skills/multi-dump-diff/stack_sequence_census.py",
+        "size": 8797,
+        "sha256": "e5fb857f4fde765d227a5e9f833e80a8c55322d1614a24e366199b3a4fdc4b23"
+      },
+      {
+        "path": ".agents/skills/obfuscated-strings/SKILL.md",
+        "size": 8957,
+        "sha256": "2f5ba34970cf495d8f9343e3b3e7964a662cf495471e7430be53b35e1479898b"
+      },
+      {
+        "path": ".agents/skills/obfuscated-strings/keycensus.py",
+        "size": 13645,
+        "sha256": "81992a3d7b44f27ec64385d90e87f149d60926e617c49deef92533124ea27319"
+      },
+      {
+        "path": ".agents/skills/reading-order/SKILL.md",
+        "size": 40041,
+        "sha256": "6e9723a4b6b4f0f9c6092af2d5bc0eadf55d1289858c6a6a605cbac1f9d17935"
+      },
+      {
+        "path": ".agents/skills/registry-container/SKILL.md",
+        "size": 23838,
+        "sha256": "adf49ec0345ac7c97bd5d2ab6e9821ade08573a93287e7251e1261438f7b8f47"
+      },
+      {
+        "path": ".agents/skills/registry-container/node_lifecycle.py",
+        "size": 22874,
+        "sha256": "7718a8f44c8ce9ce037cabeb4a67f90e52534744afd4f20078c3517e7d56c19e"
+      },
+      {
+        "path": ".agents/skills/registry-container/payload_flow_audit.py",
+        "size": 4191,
+        "sha256": "90cfc79f7b860d13bc38caffa0a97137dea16b18ffe4a5038d79279052c5f94f"
+      },
+      {
+        "path": ".agents/skills/registry-container/sitecensus.py",
+        "size": 24524,
+        "sha256": "e518e18b19c4372a4738dacc4664f2d4bf5b074babef0266aa67cd170bf32f63"
+      },
+      {
+        "path": ".agents/skills/repro-plan-builder/SKILL.md",
+        "size": 43382,
+        "sha256": "d71419f63c3f49c5fd7d506266a117a6d251a316e727293bc52775ae649ff7bb"
+      },
+      {
+        "path": ".agents/skills/repro-plan-builder/runtime_plan.py",
+        "size": 3192,
+        "sha256": "c3a41078bedbb1e4af098cdc30a12817efb394ef54446d53328deeb41ff638bf"
+      },
+      {
+        "path": ".agents/skills/root-cause-by-sibling/SKILL.md",
+        "size": 89367,
+        "sha256": "bdcac21d7ce5fcd708546ff5ef1135b8667c469803fea6377223e3a3bbd21bbc"
+      },
+      {
+        "path": ".agents/skills/root-cause-by-sibling/alloc_vs_copy.py",
+        "size": 11393,
+        "sha256": "bf6420c4310a9e0e52f146286cf146b0190e1fd6ad451b624093a0e24f9e3ad7"
+      },
+      {
+        "path": ".agents/skills/root-cause-by-sibling/class_size_table.py",
+        "size": 8163,
+        "sha256": "808c8e1dc90aae24aa392f32971db49efb5ad8aba2dc12e527e5631257a748eb"
+      },
+      {
+        "path": ".agents/skills/root-cause-by-sibling/execution_target_contract.py",
+        "size": 18249,
+        "sha256": "511d04af5fce6a6470514bbdab85185114b62fd8acfd397440ed42680c05a952"
+      },
+      {
+        "path": ".agents/skills/root-cause-by-sibling/indirect_call_contract.py",
+        "size": 5001,
+        "sha256": "1e4f1afcbc55a80bb9ae77573d7bc0889e8c7660dc5b1121359bbadc9f043a6b"
+      },
+      {
+        "path": ".agents/skills/root-cause-by-sibling/state_invariant_audit.py",
+        "size": 6535,
+        "sha256": "2b3b8f29a4e90a9bfc110823d8583c8a28fb4638923365e9df5365dcf1b5c96d"
+      },
+      {
+        "path": ".agents/skills/root-cause-by-sibling/state_tuple_audit.py",
+        "size": 3619,
+        "sha256": "7f152e5b9cd23b51698b24f1fdde78aff8702497615fedbd5cc2fbf06b854246"
+      },
+      {
+        "path": ".agents/skills/root-cause-by-sibling/table_route_census.py",
+        "size": 4047,
+        "sha256": "52d08f4a29b0a39cb0b81e9ad5ada43ac82acfef480bbaf39ca631db7a966417"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/SKILL.md",
+        "size": 249340,
+        "sha256": "00e5782ac773450a2c854e91d7605c13bd643a4aa51e3de65a34b4f5a2142b3a"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/allocation_failure_experiment.py",
+        "size": 13288,
+        "sha256": "9429f26b99868ab748db9f1a5f993308491acdf969ce248b943d39dca1f2908b"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/collectlib.py",
+        "size": 47337,
+        "sha256": "5bd5a8312259820c488f6523ab2c0a3615da61a96c405ba65617b8e96913002a"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/patch_repro.py",
+        "size": 28411,
+        "sha256": "987d0df0c2c4fdc4e46838a6ef55fc0d5e24698faff217f0b3bd7f9c9d02757e"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/patchlib.py",
+        "size": 25026,
+        "sha256": "586541ffb62d64122784742c29eae733849848338da9f5b4796c120c72f45604"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/points-run23.json",
+        "size": 8739,
+        "sha256": "b6756a376892d94b2f137dc0619b7c18e06513e5341db6f0d75ad1480341b11b"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/publication_gate.py",
+        "size": 5649,
+        "sha256": "a1f46fcbb4711cbc6f84ce9d848d651b2371559634900570fc343912a1ebbf5b"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/resolve_bt.py",
+        "size": 12527,
+        "sha256": "5d65f8773e4ec20404b38f2c26ac39528017cac1878cacec97a94a485a9bb761"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/resource_trace_import.py",
+        "size": 6625,
+        "sha256": "f334ba2a60eefd3c7539e6e10c412acea8d1b27f41b94f238e194479ba0dcc49"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/runs_index.py",
+        "size": 12326,
+        "sha256": "e26fc7f6c9e9b4de35c883aa11ac893a4cce2e8170e62fc87c637c1a0364100c"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/runtime_plan_gate.py",
+        "size": 6237,
+        "sha256": "791cbe048ad00f52df2fee1fe907d6a630c7fc794205dd8dcebbe905b21ae117"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/runtime_result.py",
+        "size": 20800,
+        "sha256": "c290845e1578ce614b704350420491c77cd096c44517677678060f2c13c3ca2d"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/town_event_log.py",
+        "size": 8338,
+        "sha256": "98b8545d37c5d61c13f1f05b2720a7444aa81f99ae09f41790ca8e046c7a3dce"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/town_mask_probe.py",
+        "size": 3601,
+        "sha256": "ea24fed7a243c160b9ac9e7079dbca15c32048cd77925d4b15b40b9544a63319"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/trace_cave.py",
+        "size": 30026,
+        "sha256": "469c035f27c795c14ef0fc5a27dab710fa521b41cb0c500d939d12ea5c9879a1"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/wdbg_spawn.py",
+        "size": 3116,
+        "sha256": "d8941e81d71b9f418df862d5c1f8c1eb86a8f5d9dcc25e286354b55bdfc7759f"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/wdbg_start.sh",
+        "size": 21787,
+        "sha256": "a0beb00a051e3aee0f47de4c5031590aadf7657bd70ff2310b1a70fbed7e09bf"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/wine_launch_probe.py",
+        "size": 3521,
+        "sha256": "6a578a962f5ebe59cd9b70e0f6c904dbffb4aa3780d4a6ca6a8564f303fadc66"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/winedbg_commands.py",
+        "size": 3025,
+        "sha256": "cfb7a6cdb2b1b02740b7b4193b185d8e5ff81ed1da22d4a7914f6b4accf5a506"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/winedbg_driver.py",
+        "size": 22605,
+        "sha256": "946ee7f7fbeeddac0f4bd79629da878580ba5cfbef19e3a53b63c21ef6bd3bc8"
+      },
+      {
+        "path": ".agents/skills/runtime-verification/winedbg_run.py",
+        "size": 13825,
+        "sha256": "c891adecbfe972d4f405ab52aa09b6abf2a5d8d4eed73ae14b985ac263d82f4e"
+      },
+      {
+        "path": ".agents/skills/save-map-analysis/SKILL.md",
+        "size": 27652,
+        "sha256": "730a0eaf8397ee68997720c0ccf0299d32f44d1205f3fde21700dd983c0f712c"
+      },
+      {
+        "path": ".agents/skills/save-map-analysis/bitmask_chain_check.py",
+        "size": 3907,
+        "sha256": "8952832794e18a120ecad54f0bed04f88f8911a8f8977474d333d3e9a5f07a74"
+      },
+      {
+        "path": ".agents/skills/save-map-analysis/h3m_town_building_audit.py",
+        "size": 9264,
+        "sha256": "4b4b3be90d81de89bcbd5a2117c57aa901d2a3abb251292bd4ad562a7910c016"
+      },
+      {
+        "path": ".agents/skills/save-map-analysis/layouts/h3m-town-layouts.json",
+        "size": 741,
+        "sha256": "dc6ed0f126088456f7d379b9a3464177fa8121862dea6695620addcaa11284a8"
+      },
+      {
+        "path": ".agents/skills/save-map-analysis/read_save_map.py",
+        "size": 34491,
+        "sha256": "daf1aa6b1a2cb1f5824eeabcc14ae5a22b23f46472833dfbeda2b7addcc73d1c"
+      },
+      {
+        "path": ".agents/skills/save-map-analysis/resource_table_audit.py",
+        "size": 4744,
+        "sha256": "8be22a8a1bc858f719d11919b7dfe8ea1f7f5f913464689a5fd904d0772032c6"
+      },
+      {
+        "path": ".agents/skills/save-map-analysis/save_inventory.py",
+        "size": 12706,
+        "sha256": "360a1ad9a98967b09e0da77cae9d7829717062540fb8caa70fa73e64bcfc9419"
+      },
+      {
+        "path": ".agents/skills/stack-walker-quirks/SKILL.md",
+        "size": 65618,
+        "sha256": "5db6109301cd86a76c3fe43fdad607966e7c651b04d6106dd55b1cd972af35ff"
+      },
+      {
+        "path": ".agents/skills/version-regression-diff/SKILL.md",
+        "size": 11290,
+        "sha256": "878b4af7f255fee84c50c9d1394207f69f2fa588e39e14b29e8e007cb711a495"
+      },
+      {
+        "path": ".agents/skills/version-regression-diff/diff_funcs.py",
+        "size": 8834,
+        "sha256": "b372816799b923290467701bd5f00b790fdce98afcd01439d65437c17ca25827"
+      },
+      {
+        "path": "clean_db_listing.py",
+        "size": 9993,
+        "sha256": "f62c15bb8f5f1c2f943a210f7d4874976cd2c4aeb9ceaea033a70b52cb65ebcd"
+      },
+      {
+        "path": "corpus_tracking.py",
+        "size": 4482,
+        "sha256": "69dcc55a970e90056e38a5131b442d8921cf7f66127dd2685d36a1bee05100e2"
+      },
+      {
+        "path": "data_layout.py",
+        "size": 16330,
+        "sha256": "cbe3a5dd5faaec898dc79493a3394ed55a949f651ba08b62db33094db3cb9b12"
+      },
+      {
+        "path": "data_migration.py",
+        "size": 5444,
+        "sha256": "a02d522fcae956e96f4d511b1abbacc2a4398326084f9a8d2f6a23b5b9b9ce3b"
+      },
+      {
+        "path": "data_paths.py",
+        "size": 4252,
+        "sha256": "e45607ee5b70b7c48469b397d60c4499be3917ae479947f277eb7dee4d1a60a8"
+      },
+      {
+        "path": "input_quality.py",
+        "size": 9555,
+        "sha256": "cfd97ae30ce999d17709ddcdd56503f57645ec3a31855e9adac9cc0c88221a13"
+      },
+      {
+        "path": "listing_coverage.py",
+        "size": 17875,
+        "sha256": "b495009afb9892c13c48c1527e9b173da79d2d1946937c9a35ace663a6b4f452"
+      },
+      {
+        "path": "process_mailbox.py",
+        "size": 38874,
+        "sha256": "b3ec8d32eb853144f057422e26dcfa4da50b32195a48ac57e1df7c5e544f0ec2"
+      },
+      {
+        "path": "release_worktree.py",
+        "size": 9235,
+        "sha256": "bf12b7164d823bfcd82254959bb89a17c7164596747e2c7200b8e9ce91b551c7"
+      },
+      {
+        "path": "report_consistency.py",
+        "size": 29850,
+        "sha256": "43bbd3060e5ead0e5fbdfb73c64b521e614b366ac6e7294514944530538acc63"
+      },
+      {
+        "path": "report_debt.py",
+        "size": 4932,
+        "sha256": "0361596a0ff48b2880a0abfeb59e354ec94488a1cebbbfe73fd508847fb1789a"
+      },
+      {
+        "path": "report_lifecycle.py",
+        "size": 32123,
+        "sha256": "64bd3339dd991c4a5e0e0be1217c8446f02af6ec0b94b7e5e6ec162f5b0ac107"
+      },
+      {
+        "path": "report_maintenance.py",
+        "size": 6218,
+        "sha256": "217d14f10228c20cc4800eba694a2f1db370ee025bf9cda4cfe58c6807bfab63"
+      },
+      {
+        "path": "set-github-secret.py",
+        "size": 3434,
+        "sha256": "cbf6d315246c3b11ec6e6ae4686b1dd21919467cf4ac90013fe11f3c4ce04833"
+      },
+      {
+        "path": "test_process_mailbox.py",
+        "size": 10392,
+        "sha256": "604ef9eb1be8c17738eadfb342954c25fa2b47c81ae0614afdcec6e0c0d3fdeb"
+      }
+    ],
+    "sha256": "672542f5ddc59a3b3d2947f764f509fbd388474c9731b29e4ad665b6d2fdcd55"
+  },
+  "audit_stages_complete": null,
+  "publication_ready": true,
+  "diagnostic_assessed": true,
+  "diagnostic_not_applicable": false,
+  "publication_blockers": [],
+  "actions_not_performed_by_gate": [
+    "Wine",
+    "game launch",
+    "git commit",
+    "git push",
+    "publication"
+  ],
+  "execution_policy": {
+    "scope": "static_validation_only",
+    "publication_after_pass": "allowed_but_not_performed"
+  },
+  "status": "passed",
+  "passed": true,
+  "artifact_quality": {
+    "status": "passed",
+    "passed": true,
+    "step_count": 25,
+    "blocked_count": 0
+  },
+  "diagnostic_completeness": {
+    "status": "incomplete",
+    "complete": false,
+    "causality_level": "L1",
+    "axis_summary": {
+      "instruction": "confirmed",
+      "mechanism": "confirmed",
+      "state_origin": "unknown",
+      "family_coverage": "confirmed",
+      "reproduction": "unknown"
+    },
+    "root_cause_ready": false,
+    "next_required": [
+      "capture_state_origin_and_writer",
+      "confirm_reproduction"
+    ],
+    "source": "mail-dumps/HD_HOTA.dll+0xAC5F/coverage.json"
+  },
+  "root_cause_ready": false,
+  "causality_level": "L1",
+  "step_count": 25,
+  "blocked_count": 0,
+  "steps": [
+    {
+      "name": "mandatory_machine_sidecars",
+      "status": "passed",
+      "errors": [],
+      "legacy_exempt": false,
+      "dmp_count": 2,
+      "evidence_count": 1
+    },
+    {
+      "name": "case_archive_policy",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\n  \"schema\": 1,\n  \"kind\": \"case_archive_policy_verdict\",\n  \"status\": \"passed\",\n  \"forbidden_archives\": [],\n  \"errors\": [],\n  \"rule\": \"the canonical ZIP is generated from archive-manifest.json in publication staging and is never copied back into mail-dumps/<case>\",\n  \"remediation\": \"verify staging/public archive, then delete the case-root derived ZIP through the MCP backup-aware delete operation\"\n}\n",
+      "stderr": "",
+      "json_result": {
+        "schema": 1,
+        "kind": "case_archive_policy_verdict",
+        "status": "passed",
+        "forbidden_archives": [],
+        "errors": [],
+        "rule": "the canonical ZIP is generated from archive-manifest.json in publication staging and is never copied back into mail-dumps/<case>",
+        "remediation": "verify staging/public archive, then delete the case-root derived ZIP through the MCP backup-aware delete operation"
+      }
+    },
+    {
+      "name": "pair_contract",
+      "status": "passed",
+      "errors": [],
+      "identity_gaps": 0,
+      "limitations": [],
+      "scope": {
+        "kind": "recursive_case",
+        "txt_count": 2,
+        "row_count": 2,
+        "outside_row_count": 0
+      }
+    },
+    {
+      "kind": "capabilities",
+      "path": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0xAC5F/capabilities.json",
+      "series": true,
+      "item_count": 2,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "kind": "case_manifest",
+      "path": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0xAC5F/case-manifest.json",
+      "status": "passed",
+      "expected": "fresh canonical case contract",
+      "actual": "ready",
+      "repair": "python3 .agents/skills/hota-crash-triage/case_rebuild.py prepare /Users/Shared/ii/mail-dumps/HD_HOTA.dll+0xAC5F",
+      "errors": []
+    },
+    {
+      "name": "address_proof:address-proof-R39.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "ADDRESS PROOF: PASSED; errors=none; warnings=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "address_proof:address-proof.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "ADDRESS PROOF: PASSED; errors=none; warnings=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "analysis_contract:analysis-contract.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "ANALYSIS CONTRACT: PASSED; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "dimension_provenance:dimension-provenance.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\"errors\": []}\n",
+      "stderr": "",
+      "json_result": {
+        "errors": []
+      }
+    },
+    {
+      "name": "geometry_contract:geometry-contract-audit.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\"errors\": []}\n",
+      "stderr": "",
+      "json_result": {
+        "errors": []
+      }
+    },
+    {
+      "name": "missing_evidence:missing-evidence-request.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\"errors\": []}\n",
+      "stderr": "",
+      "json_result": {
+        "errors": []
+      }
+    },
+    {
+      "name": "site_fingerprint:semantic-site-fingerprint.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\"errors\": []}\n",
+      "stderr": "",
+      "json_result": {
+        "errors": []
+      }
+    },
+    {
+      "name": "case_lessons:lessons.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "{\"errors\": []}\n",
+      "stderr": "",
+      "json_result": {
+        "errors": []
+      }
+    },
+    {
+      "name": "coverage:coverage.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "COVERAGE: OK; claims=7; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "family:family-membership.json",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "FAMILY: OK; incidents=2; enumeration=true; classification=true; unknown=0; listing_blockers=0; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "repro_plan",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "REPRO PLAN: OK; errors=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "relocation_family_contract",
+      "status": "passed",
+      "errors": [],
+      "limitations": [
+        "relocation_not_applicable"
+      ],
+      "manifest_count": 0,
+      "active_manifests": []
+    },
+    {
+      "name": "historical_report_contract",
+      "status": "passed",
+      "errors": [],
+      "nested_report_artifacts": [],
+      "manifest_count": 0,
+      "checks": []
+    },
+    {
+      "name": "report_consistency",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "СОГЛАСОВАННОСТЬ ОТЧЁТОВ (scope=all)\nОтчётов проверено: 1\nOK: 1 | mismatch: 0 | ambiguous: 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "lint:HD_HOTA.dll+0xAC5F-анализ-gpt-5.6-sol-claude-opus-5.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": " единственном числе\n[OK]   Все секции 1..8 присутствуют\n[OK]   Канонические секции непусты\n[OK]   Раздел 4: цепочка вызовов в формате -> шаг (отрендерится цепочкой)\n[OK]   Имена канонических секций совпадают со схемой\n[OK]   Поле раздела 1 найдено: Класс сбоя:\n[OK]   Поле раздела 1 найдено: Полезность лога для исправления:\n[OK]   Поле раздела 1 найдено: Версия HotA:\n[OK]   Поле раздела 1 найдено: Версии HD-мода:\n[OK]   Поле раздела 1 найдено: Уникальных вылетов:\n[OK]   Поле «Версия HotA:» содержит только версии\n[OK]   Поле «Версии HD-мода:» содержит только версии\n[OK]   Машинный реестр серии: физические/уникальные/группы сходятся\n[OK]   Обязательное поле найдено: Происхождение стека: расхождение: поток исключения в DMP не совпадает с потоком, чей текстовый стек приведён в TXT; контексты потоков не объединялись\n[OK]   Доказанность точки сбоя: подтверждена\n[OK]   Доказанность локального механизма: выведено из листинга\n[OK]   Происхождение повреждённого состояния: не установлено\n[OK]   Полнота семейной переписи: подтверждена для двух уникальных событий текущего дела; смысловой поиск соседних смещений не входит в знаменатель\n[OK]   Уровень связи дополнительных инцидентов: 2 — общий локальный механизм; общий источник состояния и общая первопричина не установлены\n[OK]   Заменённая HD-функция сверена с оригиналом SoD или помечена N/A\n[OK]   Статус визуализации указан: выполнена — схема показывает подтверждённую цепочку вычисления hero_ptr и отделяет её от неизвестного источника неверного слагаемого\n[OK]   'Класс сбоя' — точный русский ярлык из словаря\n[OK]   Нет markdown-заголовков '#'\n[OK]   Нет fenced-блоков ```\n[OK]   Нет markdown-таблиц с '|'\n[OK]   Декоративного Unicode нет (ASCII-эквиваленты)\n[OK]   Нет ссылок на внутренние правила/скиллы\n[OK]   Баг HD-мода: техническая рекомендация присутствует\n[OK]   Нет отдельного раздела истории исправлений\n[OK]   Нет лишних Markdown-кавычек вокруг технических выражений\n[OK]   Заголовки ролей отделены и используют каноническое тире\n[OK]   Нет методического жаргона (V1/V2)\n[OK]   Нет английских терминов в русском тексте\n[OK]   Известных грамматических регрессий нет\n[WARN] Строк длиннее 100 символов: 46\n[OK]   HTML-теги отсутствуют (чистый plain-text)\n[OK]   Diff-таблица: колонки консистентны (3)\n[OK]   Декоративные линии не превышают число секций (0/26)\n[OK]   Блоки дизассемблера с префиксом .text:\n[OK]   Отрицательные результаты зафиксированы\n[OK]   Отрицательный результат с покрытием/контролем\n[OK]   Неподтверждённых отрицательных выводов стенда нет\n[OK]   Модель совпадает со slug в имени файла\n[OK]   Модель подтверждена машинным манифестом (external_runtime)\n[OK]   Незаполненных мест заготовки не осталось\n[OK]   Абзацы в пределах 1200 символов\n[OK]   Счётные числа помечены или получены разбором формата\n[OK]   Вероятностные условия помечены или отсутствуют\n[OK]   У каждой дроби «X из Y» рядом указано основание счёта\n[OK]   Дата шапки согласована со временем правки файла\n\nИтог: FAIL=0, WARN=1, BLOCKING_WARN=0\n",
+      "stderr": ""
+    },
+    {
+      "name": "semantic:HD_HOTA.dll+0xAC5F-анализ-gpt-5.6-sol-claude-opus-5.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "SEMANTIC: PASSED; errors=none; warnings=none\n",
+      "stderr": ""
+    },
+    {
+      "name": "evidence:HD_HOTA.dll+0xAC5F-анализ-gpt-5.6-sol-claude-opus-5.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "EVIDENCE: FRESH; проверено 57\n",
+      "stderr": ""
+    },
+    {
+      "name": "schema3_contract:HD_HOTA.dll+0xAC5F-анализ-gpt-5.6-sol-claude-opus-5.evidence.json",
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "name": "render:HD_HOTA.dll+0xAC5F-анализ-gpt-5.6-sol-claude-opus-5.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "   шрифты встроены (офлайн): 5 начертаний\n   врезка визуализаций: 1 секц., 1 пункт(ов) оглавления\nOK -> /Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0xAC5F/rendered/HD_HOTA.dll+0xAC5F-анализ-gpt-5.6-sol-claude-opus-5.html\n   секций размещено: 10 / 10\n   <section> open=11 close=11\n   ✓ валидация: ключевые поля txt присутствуют в html\n",
+      "stderr": "",
+      "verified_existing_html": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0xAC5F/HD_HOTA.dll+0xAC5F-анализ-gpt-5.6-sol-claude-opus-5.html",
+      "normalized_generated_at": true,
+      "render_output": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0xAC5F/rendered/HD_HOTA.dll+0xAC5F-анализ-gpt-5.6-sol-claude-opus-5.html"
+    },
+    {
+      "name": "semantic-html:HD_HOTA.dll+0xAC5F-анализ-gpt-5.6-sol-claude-opus-5.txt",
+      "status": "passed",
+      "returncode": 0,
+      "stdout": "SEMANTIC: PASSED; errors=none; warnings=none\n",
+      "stderr": ""
+    }
+  ]
+}
