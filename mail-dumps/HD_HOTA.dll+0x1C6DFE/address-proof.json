@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "kind": "address-proof",
+  "addresses": {
+    "runtime": 145518078,
+    "load_base": 143654912,
+    "rva": 1863166,
+    "image_base": 16777216,
+    "ida": 18640382,
+    "imagebase": 16777216,
+    "module_offset": 1863166
+  },
+  "sources": {
+    "runtime": "log",
+    "load_base": "log",
+    "image_base": "listing-header"
+  },
+  "identity": {
+    "level": "log-version"
+  },
+  "validation": {
+    "checked": true,
+    "status": "passed",
+    "errors": [],
+    "warnings": []
+  }
+}

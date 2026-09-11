@@ -1,0 +1,37 @@
+<section id="viz-mechanism" data-toc="Визуализация сбоя" data-page-node-id="lgqvZ8HdhJ8M3ujRwluDc9">
+  <h2 data-page-node-id="LTnn8TOfOHQwdMMF3uavEJ"><span class="htext" data-page-node-id="dNLkbWECXZxEIwbX08pJPS">Визуализация сбоя</span>
+      <a class="anchor" href="#viz-mechanism" data-page-node-id="7uZ7aC5mGn9DVdjGCQrTlk">&#182;</a></h2>
+  <p data-page-node-id="doqKbETNPSE3GSmQLd1FKd">Слева направо: как из 16-битного поля рождается отрицательный размер
+     копирования, почему проверка свободного места его пропускает и где запись
+     выходит за конец буфера. Показан первый вылет (размер 0xFFFFFF23).</p>
+  <div class="viz" data-page-node-id="8Eaysumao1D3ULb8ZfFRb9">
+    <div class="viz-stage" data-page-node-id="2o3NFQ7yPaLJIHqpNLCcsg">
+      <div class="viz-stage-title" data-page-node-id="uuwp8qXJicrY6GmOm3BXQ5"><span class="viz-stage-index" data-page-node-id="WsCJ08ugZqUWrixrecsRkA">1</span><span data-page-node-id="Cl2T1JIc1yvrR4sUsuNdii">Размер записи</span></div>
+      <div class="viz-strip" data-page-node-id="5ycsnwzbNlptAkSs0r1PoG">
+        <div class="viz-box accent" data-page-node-id="xIwCqZFftUO5RFvLIfZFQz">16-битное поле<span class="lbl" data-page-node-id="sXjhojWjSbkCclHF3yP7f8">0xFF00 по смещению</span></div>
+        <div class="viz-box" data-page-node-id="TZJ5NkWgGiNuiFhjOGCFZX">movsx<span class="lbl" data-page-node-id="5aAtCrwUd9jPCTph6fMbPr">знаковое расширение, получается -256</span></div>
+        <div class="viz-box bad" data-page-node-id="vv0Ddr6zAeHMW8Sv3K0D0K">размер копирования<span class="lbl" data-page-node-id="fGn2RFKDRE8lD5WXjulnFl">0xFFFFFF23, около 4,29 ГБ</span></div>
+      </div>
+    </div>
+    <div class="viz-stage" data-page-node-id="dQGAxhDUbQm2P9oTqbSdVs">
+      <div class="viz-stage-title" data-page-node-id="vm6n51vOL5MVtH2GR7RPYn"><span class="viz-stage-index" data-page-node-id="sfGqx6Gj0LpBvjzKrj3w7n">2</span><span data-page-node-id="vFkDLgbcu4BJkLPRXUch5T">Проверка свободного места</span></div>
+      <div class="viz-strip" data-page-node-id="vCfA6fB26ywOoZ0Haxa6nt">
+        <div class="viz-box accent" data-page-node-id="U4PnFWjLvDVyAQDFAoDAHL">смещение + размер<span class="lbl" data-page-node-id="u3KL38dkmWhhNxeLvg2XGs">знаковая сумма</span></div>
+        <div class="viz-box" data-page-node-id="GdSUwNFDCeDhbb0OOySilV">сравнение с вместимостью<span class="lbl" data-page-node-id="LGxK76PiSjpq5v8wdcZ2Tr">сумма меньше — роста нет</span></div>
+        <div class="viz-box bad" data-page-node-id="hpJvjaFNVUqOYtmdH4Lrup">перевыделение пропущено<span class="lbl" data-page-node-id="LSqJEiYSLv9rBdAPn2f8eF">буфер не вырос</span></div>
+      </div>
+    </div>
+    <div class="viz-stage" data-page-node-id="w1N1CRWBYSeG8GU82zOvDg">
+      <div class="viz-stage-title" data-page-node-id="rVQDHKGpCuXruMufgrEALN"><span class="viz-stage-index" data-page-node-id="KNfQQJVyx2ZQqjIOP6dVgQ">3</span><span data-page-node-id="GzG176fVNNoLG80HTshI4U">Копирование</span></div>
+      <div class="viz-strip" data-page-node-id="cRWiNyCqFctOMcj7ZEUV5Z">
+        <div class="viz-box accent" data-page-node-id="uehza4RYLfahNWMtDWgZCd">назначение<span class="lbl" data-page-node-id="EQD9xvBpgJvbEFhyp10RrT">0x09D6BE32</span></div>
+        <div class="viz-box" data-page-node-id="1fGEuTeePuYHmFP5IaYSYf">скопировано<span class="lbl" data-page-node-id="obz2xyCwvMj8jB4oCeslgZ">0x751CE байт по отображённой памяти</span></div>
+        <div class="viz-box bad" data-page-node-id="WNeEBpw4K3RWZCySadU1SK">запись 0x09DE1000<span class="lbl" data-page-node-id="AikKIhQ40evBkZ3ecbCa7c">неотображённая страница — СБОЙ</span></div>
+      </div>
+    </div>
+    <div class="viz-legend" data-page-node-id="Wr5vJSkLW4QCEmeGq46f3F">
+      <div class="item" data-page-node-id="4kFwlNRBrf5Tj7O9iaEa6w"><span class="viz-key" data-page-node-id="pwM6eKLu1o4qPcECa5cNkg"></span><span class="txt" data-page-node-id="6LIsI55kGlt8wiLzJs9FN2">Подтверждённое значение из дампа или листинга.</span></div>
+      <div class="item" data-page-node-id="yqO36crgYQQKb77HwW4sPm"><span class="viz-badge bad" data-page-node-id="eKSxHBhclex2g9DV4Eg5xZ"></span><span class="txt" data-page-node-id="Dy5TqRvKdC87C4NcqWjSf4">Негодное значение и место отказа.</span></div>
+    </div>
+  </div>
+</section>

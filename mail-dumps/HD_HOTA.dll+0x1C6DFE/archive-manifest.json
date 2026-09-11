@@ -1,0 +1,46 @@
+{
+  "schema": 3,
+  "mode": "canonical",
+  "latest_hd_version": "5.8 R15",
+  "counts": {
+    "members": 4,
+    "txt": 2,
+    "dmp": 2,
+    "canonical": 4,
+    "physical_copies": 0
+  },
+  "members": [
+    {
+      "source": "HD_HOTA.dll+0x1C6DFE-5.8-R15-181-2.dmp",
+      "archive": "HD_HOTA.dll+0x1C6DFE-5.8-R15-181-2.dmp",
+      "hd_version": "5.8 R15",
+      "physical_copy": false,
+      "size": 109405,
+      "sha256": "34855d66a74b09906646ae6f07621b845ee3c0b8867ecd267d7255166252ac51"
+    },
+    {
+      "source": "HD_HOTA.dll+0x1C6DFE-5.8-R15-181-2.txt",
+      "archive": "HD_HOTA.dll+0x1C6DFE-5.8-R15-181-2.txt",
+      "hd_version": "5.8 R15",
+      "physical_copy": false,
+      "size": 10615,
+      "sha256": "0e2ce55955de3278f160771b09216bd03d7083dbf5ae827b03cf9bd7cb4e758f"
+    },
+    {
+      "source": "HD_HOTA.dll+0x1C6DFE-5.8-R15-181.dmp",
+      "archive": "HD_HOTA.dll+0x1C6DFE-5.8-R15-181.dmp",
+      "hd_version": "5.8 R15",
+      "physical_copy": false,
+      "size": 118468,
+      "sha256": "b412a9fbd0de5e03bacf13b198820b1ea0267f805e7e6940eefcb3e8a7c19fa9"
+    },
+    {
+      "source": "HD_HOTA.dll+0x1C6DFE-5.8-R15-181.txt",
+      "archive": "HD_HOTA.dll+0x1C6DFE-5.8-R15-181.txt",
+      "hd_version": "5.8 R15",
+      "physical_copy": false,
+      "size": 10478,
+      "sha256": "ebef56092bba489a93660914b8f30da03aac56803e119a689682d88bb7da84d5"
+    }
+  ]
+}

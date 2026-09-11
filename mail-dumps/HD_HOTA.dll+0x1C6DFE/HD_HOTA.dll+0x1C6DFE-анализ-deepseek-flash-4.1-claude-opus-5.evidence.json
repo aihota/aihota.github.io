@@ -1,0 +1,229 @@
+{
+  "schema": 3,
+  "generated_at": "2026-09-11T09:32:17.591592+00:00",
+  "parser_revision": "f6b0e5f49d44dab469ea8a155737d988aa5ce7a7",
+  "binding": {
+    "mode": "legacy-bytes",
+    "toolchain_mode": "contract",
+    "legacy_binding": "bytes"
+  },
+  "report": {
+    "path": "HD_HOTA.dll+0x1C6DFE-анализ-deepseek-flash-4.1-claude-opus-5.txt",
+    "size": 44954,
+    "sha256": "852f4d2b9fb98fdf8656b953079ff21fc6368986c387a731614995379a17436e"
+  },
+  "inputs": [
+    {
+      "path": "HD_HOTA.dll+0x1C6DFE-5.8-R15-181.dmp",
+      "size": 118468,
+      "sha256": "b412a9fbd0de5e03bacf13b198820b1ea0267f805e7e6940eefcb3e8a7c19fa9",
+      "role": "source"
+    },
+    {
+      "path": "HD_HOTA.dll+0x1C6DFE-5.8-R15-181-2.dmp",
+      "size": 109405,
+      "sha256": "34855d66a74b09906646ae6f07621b845ee3c0b8867ecd267d7255166252ac51",
+      "role": "source"
+    },
+    {
+      "path": "HD_HOTA.dll+0x1C6DFE-5.8-R15-181.txt",
+      "size": 10478,
+      "sha256": "ebef56092bba489a93660914b8f30da03aac56803e119a689682d88bb7da84d5",
+      "role": "runtime"
+    },
+    {
+      "path": "HD_HOTA.dll+0x1C6DFE-5.8-R15-181-2.txt",
+      "size": 10615,
+      "sha256": "0e2ce55955de3278f160771b09216bd03d7083dbf5ae827b03cf9bd7cb4e758f",
+      "role": "runtime"
+    },
+    {
+      "path": "capabilities.json",
+      "size": 8498,
+      "sha256": "39b2aa51ac04f141b3abc78e576649845b25fd6c43f7d136242e387046fcd6ae",
+      "role": "derived"
+    },
+    {
+      "path": "pair-audit.json",
+      "size": 4350,
+      "sha256": "92b17e9c05b070b633e237e7699dd46a67b76ad22c9b33b6579f5fad00176881",
+      "role": "derived"
+    },
+    {
+      "path": "series-groups.json",
+      "size": 12974,
+      "sha256": "83307a2192311da48aadb0abfb520f4b4acb286e82d3bf34f9f6f07d9d98a953",
+      "role": "derived"
+    },
+    {
+      "path": "series-parse.json",
+      "size": 15623,
+      "sha256": "aee55fd7d58611098201e1f1ef7b787079bfc4c151eb75fb9fcc8ce936460ea3",
+      "role": "derived"
+    },
+    {
+      "path": "save-inventory.json",
+      "size": 2638,
+      "sha256": "72012267b9f2e65f9c5b0c467be7f7876f3212ee6d91651381ca24b827d074c9",
+      "role": "derived"
+    },
+    {
+      "path": "family-membership.json",
+      "size": 2870,
+      "sha256": "6a954a8b271809634df2c2e9558896334f27d2562fded3996bf59ccec97319e0",
+      "role": "derived"
+    },
+    {
+      "path": "case-manifest.json",
+      "size": 5038,
+      "sha256": "ad2d94d30e0f1e138c01d3a95f766a87ec59202724dfdff776e8a0909996b402",
+      "role": "derived"
+    },
+    {
+      "path": "address-proof.json",
+      "size": 500,
+      "sha256": "abc5053484b564e0699ce32aed408cca3b4ab00300bed36796a38f5ad591f7cd",
+      "role": "derived"
+    },
+    {
+      "path": "analysis-contract.json",
+      "size": 4244,
+      "sha256": "8ccb94624c5b3f02a04fa7edf2f51955950a136500041d98d577631d44b9e5a0",
+      "role": "derived"
+    },
+    {
+      "path": "lessons.json",
+      "size": 2668,
+      "sha256": "20c51652b99e94310df2bc44956978c8c75a5c0b041276ea352684ba22da6118",
+      "role": "derived"
+    },
+    {
+      "path": "coverage.json",
+      "size": 3622,
+      "sha256": "1d4a432ef86aaa1685728bd80860713b78fec0c6d920f904c28aa7ac6e4f6ffa",
+      "role": "derived"
+    },
+    {
+      "path": "static-exhaustion.json",
+      "size": 263287,
+      "sha256": "65bf9390d8113fab2be5b017f33b8f021de92aef4cc0f8bd45b0a72371ff2f8b",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "helper-census.json",
+      "size": 2839871,
+      "sha256": "47852883195969a409d96c77b79b055a593c57a15e9f4accb8bee1d3d741692a",
+      "role": "derived-evidence"
+    },
+    {
+      "path": "evidence-config.json",
+      "size": 4092,
+      "sha256": "3c07ca0c6dab1a3ff9ad18cdf7fc2746d442961b24cdebbf55cb13810f0a579b",
+      "role": "derived-evidence"
+    }
+  ],
+  "tools": [],
+  "tool_assets": [],
+  "commands": [],
+  "facts": {
+    "crash_site": "HD_HOTA.dll+0x1C6DFE",
+    "instruction": "rep movsb inside _memmove",
+    "copy_size_event_a": "0xFFFFFF23",
+    "copy_size_event_b": "0xFFFFBE23",
+    "copied_bytes_event_a": "0x751CE",
+    "fault_address_event_a": "0x09DE1000",
+    "fault_address_event_b": "0x07BBF000",
+    "immediate_caller": "sub_1046800+0x468D5",
+    "size_source": "movsx word [esi] + 0x23 in sub_111EAF0",
+    "family_unique_incidents": "2",
+    "corpus_txt_scanned": "5606"
+  },
+  "claims": [
+    {
+      "confidence": "видно непосредственно в DMP",
+      "marker": "<!-- claim:crash-site -->",
+      "id": "crash-site",
+      "type": "crash_site",
+      "applicable_axes": [
+        "instruction"
+      ],
+      "statement": "rep movsb (запись) внутри библиотечной memmove",
+      "evidence": [
+        "fact:crash_site",
+        "fact:instruction"
+      ],
+      "confidence_vector": {
+        "instruction": "confirmed",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "однозначно следует из листинга",
+      "marker": "<!-- claim:local-mechanism -->",
+      "id": "local-mechanism",
+      "type": "local_mechanism",
+      "applicable_axes": [
+        "mechanism"
+      ],
+      "statement": "Сравнение знаковое. При отрицательном размере сумма заведомо меньше",
+      "evidence": [
+        "fact:copy_size_event_a",
+        "fact:immediate_caller",
+        "fact:size_source"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "confirmed",
+        "state_origin": "not_applicable",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "не проверено",
+      "marker": "<!-- claim:state-origin -->",
+      "id": "state-origin",
+      "type": "state_origin",
+      "applicable_axes": [
+        "state_origin"
+      ],
+      "statement": "Отрицательная длина рождается из порчи данных, прочитанных с диска",
+      "evidence": [
+        "fact:size_source",
+        "fact:copy_size_event_b"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "unknown",
+        "family_coverage": "not_applicable"
+      }
+    },
+    {
+      "confidence": "выведено из совокупности признаков",
+      "marker": "<!-- claim:family-coverage -->",
+      "id": "family-coverage",
+      "type": "family_coverage",
+      "applicable_axes": [
+        "family_coverage"
+      ],
+      "statement": "обход 5606 TXT каталога mail-dumps по строке",
+      "evidence": [
+        "fact:family_unique_incidents",
+        "fact:corpus_txt_scanned"
+      ],
+      "confidence_vector": {
+        "instruction": "not_applicable",
+        "mechanism": "not_applicable",
+        "state_origin": "not_applicable",
+        "family_coverage": "confirmed"
+      }
+    }
+  ],
+  "code_evidence": {
+    "level": "full-binary",
+    "note": "полный бинарный образ сверён по размеру, метке и SHA-256"
+  },
+  "machine_results": []
+}

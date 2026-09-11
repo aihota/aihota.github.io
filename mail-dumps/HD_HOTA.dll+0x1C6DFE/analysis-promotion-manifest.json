@@ -1,0 +1,33 @@
+{
+  "schema": 2,
+  "kind": "phase_manifest",
+  "phase": "analysis-promotion",
+  "finalized": true,
+  "artifacts": [
+    {
+      "relative_path": "archive-manifest.json",
+      "role": "promoted-artifact",
+      "size": 1378,
+      "sha256": "95f55423f0ec0e389f021d4788dd153d4d89b41aa352e063d5950cd4958ab025"
+    },
+    {
+      "relative_path": "quality-gate.json",
+      "role": "promoted-artifact",
+      "size": 66997,
+      "sha256": "8b50ddc31a8d2515525bef76688d5829a8e693e22f397d3b8643d2be31af8122"
+    }
+  ],
+  "runtime": {
+    "root": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1C6DFE",
+    "artifacts": {
+      "archive-manifest.json": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1C6DFE/archive-manifest.json",
+      "quality-gate.json": "/Users/Shared/ii/mcp/.tmp-tools/publication-stage/HD_HOTA.dll+0x1C6DFE/quality-gate.json"
+    }
+  },
+  "coverage": {
+    "total": 2,
+    "verified": 2,
+    "skipped": 0
+  },
+  "manifest_sha256": "2bde4e44e290ee592556b468f150369dff5e8b401d84e462449375d916f6c530"
+}

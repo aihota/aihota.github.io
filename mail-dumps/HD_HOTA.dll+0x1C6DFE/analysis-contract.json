@@ -1,0 +1,179 @@
+{
+  "schema": 2,
+  "kind": "crash_analysis_contract",
+  "mechanism": {
+    "kind": "container_traversal"
+  },
+  "thread_contexts": [
+    {
+      "source": "exception_stream",
+      "tid": 14108,
+      "registers": {
+        "EIP": "0x08AC6DFE",
+        "ESP": "0x001A97E4",
+        "EBP": "0x001A980C",
+        "EDI": "0x09DE1000",
+        "ESI": "0x0EAEEA3B",
+        "ECX": "0xFFF8AD55",
+        "EDX": "0xFFFFFF23",
+        "EAX": "0x0EA79790",
+        "EBX": "0xFFFFFF23"
+      }
+    },
+    {
+      "source": "text_context",
+      "tid": 5620,
+      "stack": [
+        "0x09D6BE32",
+        "0x0EA7986D",
+        "0xFFFFFF23",
+        "0x089468DA"
+      ]
+    }
+  ],
+  "thread_policy": {
+    "register_sets_may_be_combined": false
+  },
+  "consumer_boundary": {
+    "input_validity": "invalid",
+    "candidate_validity": "invalid"
+  },
+  "state_origin_candidates": [
+    {
+      "id": "race",
+      "status": "not_established",
+      "next_evidence": [
+        "writer thread and ordering of the append call"
+      ]
+    },
+    {
+      "id": "use_after_free",
+      "status": "not_established",
+      "next_evidence": [
+        "allocator free stack for the buffer pointer"
+      ]
+    },
+    {
+      "id": "heap_overwrite",
+      "status": "not_established",
+      "next_evidence": [
+        "first write outside the owner buffer bounds"
+      ]
+    },
+    {
+      "id": "third_party_write",
+      "status": "not_established",
+      "next_evidence": [
+        "writer module and watchpoint stack over the length field"
+      ]
+    }
+  ],
+  "root_cause_declared": false,
+  "structure": {
+    "fields": {
+      "offset": 264,
+      "buffer": 268,
+      "length": 272,
+      "capacity": 276
+    },
+    "invariants": [
+      "offset <= length",
+      "length <= capacity"
+    ],
+    "sibling_coverage": {
+      "scanned": 2,
+      "total": 2,
+      "complete": true
+    }
+  },
+  "lifecycle": {
+    "counts": {
+      "references": 2,
+      "reads": 2,
+      "writes": 2,
+      "checks": 1,
+      "publishes": 0,
+      "clears": 0
+    },
+    "enumeration_complete": false,
+    "absence_claims": []
+  },
+  "artifacts": [
+    {
+      "artifact_role": "derived_save",
+      "phase_role": "not_causal_for_phase"
+    },
+    {
+      "artifact_role": "derived_report",
+      "phase_role": "derived_after_failure"
+    }
+  ],
+  "family": {
+    "semantic_fingerprint": {
+      "structure_role": "append buffer of the _File_ class",
+      "field_offset": "+0x110",
+      "access": "write",
+      "call_tail": [
+        "sub_1046800",
+        "sub_111EAF0"
+      ]
+    },
+    "denominator": {
+      "scanned": 5606,
+      "total": 5606
+    }
+  },
+  "call_chain": [
+    {
+      "type": "module_function",
+      "function": "sub_1046800",
+      "address": "0x010468D5"
+    },
+    {
+      "type": "module_function",
+      "function": "sub_111EAF0",
+      "address": "0x01121F4E"
+    },
+    {
+      "type": "dynamic_bridge",
+      "address": "0x02CEB326"
+    }
+  ],
+  "fixes": [
+    {
+      "fix_role": "causal",
+      "supported_builds": [
+        "HD_HOTA.dll 5.8 R15"
+      ],
+      "expected_evidence": [
+        "размер копирования положителен и не превышает свободное место"
+      ],
+      "differential_test": "на той же точке 0x010468D5 размер остаётся положительным, состав данных не меняется"
+    },
+    {
+      "fix_role": "containment",
+      "supported_builds": [
+        "HD_HOTA.dll 5.8 R15"
+      ],
+      "expected_evidence": [
+        "отсечение неположительного размера до ветви роста"
+      ],
+      "differential_test": "с отрицательным размером копирование не выполняется, вылет не повторяется"
+    },
+    {
+      "fix_role": "adjacent_hardening",
+      "supported_builds": [
+        "HD_HOTA.dll 5.8 R15"
+      ],
+      "expected_evidence": [
+        "16-битное поле читается как беззнаковое с проверкой верхней границы"
+      ]
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "errors": [],
+    "root_cause_allowed": false
+  },
+  "status": "passed"
+}

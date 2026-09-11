@@ -1,0 +1,95 @@
+{
+  "schema": 4,
+  "generated_at": "2026-09-10T17:55:11.447042+00:00",
+  "family_id": "family-HD_HOTA.dll+0x1C6DFE",
+  "source": "mail-dumps/HD_HOTA.dll+0x1C6DFE/family-membership-input.json",
+  "scope_id": "family-HD_HOTA.dll+0x1C6DFE",
+  "scope_kind": "family",
+  "scope": {
+    "id": "family-HD_HOTA.dll+0x1C6DFE",
+    "kind": "family",
+    "source": "series-groups.json",
+    "incidents": 2,
+    "classification": "confirmed_same_defect",
+    "address_range": {
+      "start_rva": "0x1C6DFE",
+      "end_rva": "0x1C6DFE",
+      "end_inclusive": true,
+      "human_label": "HD_HOTA.dll+0x1C6DFE",
+      "basis": "точное совпадение адреса, кода исключения, операции записи и цепочки вызовов"
+    }
+  },
+  "candidate_census": {
+    "total": 2,
+    "classified": 2,
+    "confirmed": 2,
+    "probable": 0,
+    "context_only": 0,
+    "excluded": 0,
+    "unknown": 0,
+    "blocked": 0
+  },
+  "incident_set_fingerprint": "d51358d275e1b32c251562c51ecc5d5cdf95c04d4993601b4df6297732344384",
+  "human_decision": null,
+  "provenance_warnings": [
+    "human_decision_missing_legacy"
+  ],
+  "memberships": [
+    {
+      "incident_id": "incident-b2d152e3d0fc8d3c",
+      "membership": "confirmed",
+      "basis": "тот же адрес HD_HOTA.dll+0x1C6DFE, та же операция записи, тот же локальный механизм",
+      "evidence": [
+        "series_registry:incident-b2d152e3d0fc8d3c"
+      ],
+      "fingerprint": {
+        "structure_role": "append buffer of the _File_ class",
+        "field": "+0x110",
+        "call_tail": [
+          "sub_1046800",
+          "sub_111EAF0"
+        ],
+        "frame_depth": 2
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    },
+    {
+      "incident_id": "incident-f071d1522efa0a08",
+      "membership": "confirmed",
+      "basis": "тот же адрес HD_HOTA.dll+0x1C6DFE, та же операция записи, тот же локальный механизм",
+      "evidence": [
+        "series_registry:incident-f071d1522efa0a08"
+      ],
+      "fingerprint": {
+        "structure_role": "append buffer of the _File_ class",
+        "field": "+0x110",
+        "call_tail": [
+          "sub_1046800",
+          "sub_111EAF0"
+        ],
+        "frame_depth": 2
+      },
+      "relationship_ladder": {
+        "same_sink": true,
+        "same_local_mechanism": true,
+        "same_state_origin": "unknown",
+        "same_root_cause": "unknown"
+      }
+    }
+  ],
+  "counts": {
+    "confirmed": 2
+  },
+  "errors": [],
+  "registry_valid": true,
+  "enumeration_complete": true,
+  "classification_complete": true,
+  "unknown_count": 0,
+  "blocked_by_listing_count": 0,
+  "complete": true
+}

@@ -1,0 +1,73 @@
+{
+  "schema": 3,
+  "root": "/Users/Shared/ii/mail-dumps/HD_HOTA.dll+0x1C6DFE",
+  "count_contract": "physical_files = unique_sha256 + duplicate_instances",
+  "summary": {
+    "physical_files": 2,
+    "unique_sha256": 2,
+    "duplicate_instances": 0,
+    "roles": {
+      "derived": 2
+    },
+    "extensions": {
+      ".GM2": 2
+    },
+    "phase": "unknown",
+    "phase_relevance": {
+      "unresolved": 2
+    },
+    "unknown_blocks_only_its_file": 0
+  },
+  "items": [
+    {
+      "path": "HD_HOTA.dll+0x1C6DFE-5.8-R15-181-2-AUTOSAVE.GM2",
+      "size": 271459,
+      "sha256": "c2a838821a0807b0228b20d08006ed29ad7b5bae98394976ec98e32548106a39",
+      "extension": ".GM2",
+      "role": "derived",
+      "artifact_role": "derived_autosave",
+      "role_basis": "имя указывает на автоматический/боевой выход игры; роль source без отдельного доказательства запрещена",
+      "phase": "unknown",
+      "phase_relevance": "unresolved",
+      "phase_relevance_basis": "роль или временной порядок не доказаны",
+      "corresponding_logs": [
+        "HD_HOTA.dll+0x1C6DFE-5.8-R15-181-2.txt"
+      ],
+      "corresponding_dumps": [
+        "HD_HOTA.dll+0x1C6DFE-5.8-R15-181-2.dmp"
+      ],
+      "attachment_names": [],
+      "origin_inference_allowed": true,
+      "can_support_source_origin": false,
+      "duplicate_group": "save-sha-c2a838821a08",
+      "duplicate_physical_count": 1,
+      "representative": true
+    },
+    {
+      "path": "HD_HOTA.dll+0x1C6DFE-5.8-R15-181-AUTOSAVE.GM2",
+      "size": 262250,
+      "sha256": "f213bef34aa415b70c19e78b9a3d967280fdb184086d6e8cb74aa4ead2f2658a",
+      "extension": ".GM2",
+      "role": "derived",
+      "artifact_role": "derived_autosave",
+      "role_basis": "имя указывает на автоматический/боевой выход игры; роль source без отдельного доказательства запрещена",
+      "phase": "unknown",
+      "phase_relevance": "unresolved",
+      "phase_relevance_basis": "роль или временной порядок не доказаны",
+      "corresponding_logs": [
+        "HD_HOTA.dll+0x1C6DFE-5.8-R15-181.txt"
+      ],
+      "corresponding_dumps": [
+        "HD_HOTA.dll+0x1C6DFE-5.8-R15-181.dmp"
+      ],
+      "attachment_names": [],
+      "origin_inference_allowed": true,
+      "can_support_source_origin": false,
+      "duplicate_group": "save-sha-f213bef34aa4",
+      "duplicate_physical_count": 1,
+      "representative": true
+    }
+  ],
+  "validation_errors": [],
+  "valid": true
+}

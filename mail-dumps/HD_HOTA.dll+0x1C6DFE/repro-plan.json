@@ -1,0 +1,348 @@
+{
+  "schema": 3,
+  "kind": "crash_reproduction_plan",
+  "status": "ready",
+  "mechanism_kind": "container_traversal",
+  "case": "HD_HOTA.dll+0x1C6DFE",
+  "diagnostic_source": "coverage.json",
+  "causality_level": "L1",
+  "next_required": [
+    "capture_state_origin_and_writer",
+    "confirm_reproduction"
+  ],
+  "steps": [
+    {
+      "id": "discriminate-origin-race",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "race",
+      "success_evidence": [
+        "writer thread and ordering of the append call"
+      ],
+      "required_evidence": [
+        "writer thread and ordering of the append call"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-race с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "race"
+      ]
+    },
+    {
+      "id": "discriminate-origin-use_after_free",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "use_after_free",
+      "success_evidence": [
+        "allocator free stack for the buffer pointer"
+      ],
+      "required_evidence": [
+        "allocator free stack for the buffer pointer"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-use_after_free с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "use_after_free"
+      ]
+    },
+    {
+      "id": "discriminate-origin-heap_overwrite",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "heap_overwrite",
+      "success_evidence": [
+        "first write outside the owner buffer bounds"
+      ],
+      "required_evidence": [
+        "first write outside the owner buffer bounds"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-heap_overwrite с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "heap_overwrite"
+      ]
+    },
+    {
+      "id": "discriminate-origin-third_party_write",
+      "action": "capture discriminating writer/lifetime evidence",
+      "hypothesis": "third_party_write",
+      "success_evidence": [
+        "writer module and watchpoint stack over the length field"
+      ],
+      "required_evidence": [
+        "writer module and watchpoint stack over the length field"
+      ],
+      "capture_command": "выполнить шаг discriminate-origin-third_party_write с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "third_party_write"
+      ]
+    },
+    {
+      "id": "complete-structure-lifecycle",
+      "action": "complete sibling and lifecycle census",
+      "success_evidence": [
+        "all_sibling_sites",
+        "reference_denominator",
+        "publish_and_clear_roles"
+      ],
+      "required_evidence": [
+        "all_sibling_sites",
+        "reference_denominator",
+        "publish_and_clear_roles"
+      ],
+      "capture_command": "выполнить шаг complete-structure-lifecycle с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "causal_claim"
+      ]
+    },
+    {
+      "id": "capture-origin",
+      "action": "capture full dump and allocator/write telemetry before failure",
+      "success_evidence": [
+        "full_dump",
+        "writer_identity",
+        "largest_free_region",
+        "heap_health"
+      ],
+      "required_evidence": [
+        "full_dump",
+        "writer_identity",
+        "largest_free_region",
+        "heap_health"
+      ],
+      "capture_command": "выполнить шаг capture-origin с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "causal_claim"
+      ]
+    },
+    {
+      "id": "controlled-repro",
+      "action": "run original, causal fix, containment, and positive control on matched binaries",
+      "success_evidence": [
+        "binary_sha256",
+        "failing_run",
+        "positive_control",
+        "result.json"
+      ],
+      "required_evidence": [
+        "binary_sha256",
+        "failing_run",
+        "positive_control",
+        "result.json"
+      ],
+      "capture_command": "выполнить шаг controlled-repro с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "causal_claim"
+      ]
+    },
+    {
+      "id": "resolve-field-origin",
+      "action": "что породило отрицательное 16-битное поле длины — порча данных на диске или более ранний дефект пути чтения",
+      "hypothesis": "field-origin",
+      "success_evidence": [
+        "исходный вход партии (.h3m)",
+        "полный дамп при первом отказе"
+      ],
+      "capture_command": "сохранить .h3m и снять полный дамп на точке 0x010468D5",
+      "positive_control": "та же партия с корректным полем длины",
+      "closing_condition": "источник значения поля установлен до записи в буфер",
+      "blocked_claims": [
+        "state_origin",
+        "root_cause"
+      ],
+      "required_evidence": [
+        "исходный вход партии (.h3m)",
+        "полный дамп при первом отказе"
+      ]
+    },
+    {
+      "id": "capture-capability-globals-and-heap",
+      "action": "получить дамп с возможностью globals_and_heap",
+      "hypothesis": "missing_dump_capability",
+      "success_evidence": [
+        "globals_and_heap",
+        "capabilities.json"
+      ],
+      "required_evidence": [
+        "globals_and_heap",
+        "capabilities.json"
+      ],
+      "capture_command": "выполнить шаг capture-capability-globals-and-heap с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "missing_dump_capability"
+      ]
+    },
+    {
+      "id": "capture-capability-memory-permissions",
+      "action": "получить дамп с возможностью memory_permissions",
+      "hypothesis": "missing_dump_capability",
+      "success_evidence": [
+        "memory_permissions",
+        "capabilities.json"
+      ],
+      "required_evidence": [
+        "memory_permissions",
+        "capabilities.json"
+      ],
+      "capture_command": "выполнить шаг capture-capability-memory-permissions с журналированием результата",
+      "positive_control": "повторить тот же путь на той же SHA-256 сборке без диагностического воздействия",
+      "closing_condition": "все требуемые доказательства получены и машинная проверка пройдена",
+      "blocked_claims": [
+        "missing_dump_capability"
+      ]
+    }
+  ],
+  "inputs": {
+    "save_count": 2,
+    "full_dump_available": false,
+    "representatives": [
+      {
+        "incident_id": "incident-b2d152e3d0fc8d3c",
+        "txt": "HD_HOTA.dll+0x1C6DFE-5.8-R15-181-2.txt",
+        "newly_covered": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-9cfd24e90085",
+          "formula:unknown",
+          "hd:5.8 R15",
+          "hota:1.8.1",
+          "outlier:HD_HOTA.dll+0x1C6DFE-5.8-R15-181-2.txt",
+          "subsystem:unknown"
+        ],
+        "all_features": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-9cfd24e90085",
+          "formula:unknown",
+          "hd:5.8 R15",
+          "hota:1.8.1",
+          "outlier:HD_HOTA.dll+0x1C6DFE-5.8-R15-181-2.txt",
+          "subsystem:unknown"
+        ]
+      },
+      {
+        "incident_id": "incident-f071d1522efa0a08",
+        "txt": "HD_HOTA.dll+0x1C6DFE-5.8-R15-181.txt",
+        "newly_covered": [
+          "outlier:HD_HOTA.dll+0x1C6DFE-5.8-R15-181.txt"
+        ],
+        "all_features": [
+          "capability:captured_memory",
+          "capability:code_window",
+          "capability:exception_context",
+          "capability:module_identity",
+          "capability:thread_provenance",
+          "capability:thread_stacks",
+          "cause:cause-9cfd24e90085",
+          "formula:unknown",
+          "hd:5.8 R15",
+          "hota:1.8.1",
+          "outlier:HD_HOTA.dll+0x1C6DFE-5.8-R15-181.txt",
+          "subsystem:unknown"
+        ]
+      }
+    ],
+    "analysis_contract_present": true,
+    "lessons_present": true,
+    "unresolved_questions": 1,
+    "call_argument_contract_present": false,
+    "request_sizes": [],
+    "missing_evidence_items": 0,
+    "missing_capabilities": [
+      "globals_and_heap",
+      "memory_permissions"
+    ],
+    "artifact_phase_roles": [
+      "unresolved"
+    ]
+  },
+  "populations": {
+    "physical_txt": {
+      "numerator": 2,
+      "denominator": 2,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "none"
+    },
+    "unique_incidents": {
+      "numerator": 2,
+      "denominator": 2,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "normalized_time_tag_exception_context"
+    },
+    "duplicate_instances": {
+      "numerator": 0,
+      "denominator": 2,
+      "population": "crash TXT in series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "normalized_time_tag_exception_context"
+    },
+    "physical_dmp": {
+      "numerator": 2,
+      "denominator": 2,
+      "population": "paired DMP in current series",
+      "scope": "current_series",
+      "unit": "file",
+      "dedup_basis": "none"
+    },
+    "unique_dmp": {
+      "numerator": 2,
+      "denominator": 2,
+      "population": "paired DMP in current series",
+      "scope": "current_series",
+      "unit": "dump",
+      "dedup_basis": "sha256_dmp"
+    },
+    "classified_incidents": {
+      "numerator": 0,
+      "denominator": 2,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "normalized_time_tag_exception_context"
+    },
+    "unresolved_incidents": {
+      "numerator": 2,
+      "denominator": 2,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "normalized_time_tag_exception_context"
+    },
+    "root_cause_confirmed_incidents": {
+      "numerator": 0,
+      "denominator": 2,
+      "population": "unique incidents",
+      "scope": "current_series",
+      "unit": "incident",
+      "dedup_basis": "confirmed state origin and causal tuple"
+    }
+  },
+  "attestation": {
+    "status": "blocked_by_environment",
+    "reason": "plan generated; controlled runtime has not run"
+  },
+  "completion_rule": "passed requires failing run, positive control, matched SHA-256 and captured result.json"
+}
